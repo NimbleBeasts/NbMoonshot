@@ -8,6 +8,9 @@ var player_entered: bool = false
 onready var connected_door: Door = get_node_or_null(connected_door_path)
 onready var player: Player = Global.player
 
+func _init() -> void:
+	set_process(false)
+
 
 func _process(delta: float) -> void:
 	if player_entered:
@@ -21,8 +24,9 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player_area"):
 		player_entered = true
-		
+		set_process(true)
 		
 func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group("player_area"):
 		player_entered = false
+		set_process(false)
