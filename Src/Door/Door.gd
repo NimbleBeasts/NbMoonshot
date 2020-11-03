@@ -5,8 +5,9 @@ export var connected_door_path: NodePath
 
 var player_entered: bool = false
 
-onready var connected_door = get_node_or_null(connected_door_path)
+onready var connected_door: Door = get_node_or_null(connected_door_path)
 onready var player: Player = Global.player
+
 
 func _process(delta: float) -> void:
 	if player_entered:
@@ -14,7 +15,7 @@ func _process(delta: float) -> void:
 			if connected_door:
 				player.global_position = connected_door.get_node("PlayerTeleportPosition").global_position
 			else:
-				print("no connected door for " + name)
+				print("No connected door for " + name)
 
 	
 func _on_area_entered(area: Area2D) -> void:
