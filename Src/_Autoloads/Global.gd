@@ -56,6 +56,9 @@ var userConfig = {
 var rng = RandomNumberGenerator.new()
 var stateSeed = int(3458764513820540928)
 
+# Node References
+var player: Player
+
 ###############################################################################
 # Functions
 ###############################################################################
