@@ -13,6 +13,10 @@ var speed: int = normal_speed
 var acceleration: int = normal_acceleration
 
 
+func _init() -> void:
+	Global.player = self
+	
+
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("sprint"):
 		speed = sprint_speed
