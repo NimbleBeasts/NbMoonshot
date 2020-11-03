@@ -7,6 +7,8 @@
 "Player",
 ]]
 script = ExtResource( 2 )
+sprint_speed = 200
+sprint_acceleration = 1200
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
