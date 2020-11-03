@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Temp/Staircase.png" type="Texture" id=1]
+[ext_resource path="res://Src/Staircase/Staircase.gd" type="Script" id=2]
+
+[node name="Staircase" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -16 )
+texture = ExtResource( 1 )
