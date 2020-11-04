@@ -15,12 +15,18 @@ _global_script_classes=[ {
 "path": "res://Src/Door/Door.gd"
 }, {
 "base": "KinematicBody2D",
+"class": "Guard",
+"language": "GDScript",
+"path": "res://Src/Guard/Guard.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Src/Player/Player.gd"
 } ]
 _global_script_class_icons={
 "Door": "",
+"Guard": "",
 "Player": ""
 }
 

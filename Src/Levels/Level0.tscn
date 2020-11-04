@@ -21,7 +21,8 @@ centered = false
 position = Vector2( 304, 253 )
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
-position = Vector2( 376, 205 )
+position = Vector2( 343.359, 203.604 )
+starting_direction = Vector2( -1, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 position = Vector2( 408, 264 )

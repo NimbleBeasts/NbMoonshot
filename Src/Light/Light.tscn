@@ -7,25 +7,15 @@
 ]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FullLight"]
-polygon = PoolVector2Array( -1.14752, -2.26524, -14.8337, -0.377491, -24.75, 45.5, 33.25, 46.75, 12.5387, -1.7933 )
-
-[node name="Polygon2D" type="Polygon2D" parent="FullLight"]
-color = Color( 1, 1, 1, 0.423529 )
-antialiased = true
-polygon = PoolVector2Array( -1.14752, -2.26524, -14.8337, -0.377491, -24.4294, 44.6637, 31.9164, 45.0135, 12.5387, -1.7933 )
+polygon = PoolVector2Array( -12.8269, 4.62048, -24.75, 45.5, 31.7582, 46.6274, 13.8699, 5.2879 )
 
 [node name="BarelyVisible" type="Area2D" parent="." groups=[
 "BarelyVisible",
 ]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BarelyVisible"]
-polygon = PoolVector2Array( -16.0255, 0.189722, -53.1882, 43.8931, -26.1337, 45.6769, -14.9106, 1.45549 )
+polygon = PoolVector2Array( -53.4733, 45.6341, -25.1742, 44.9994, -12.8269, 4.78734 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BarelyVisible"]
 position = Vector2( 103.758, -2.62204 )
-polygon = PoolVector2Array( -90.3254, 1.4463, -71.9796, 48.3538, -33.8381, 49.3119 )
-
-[node name="Polygon2D" type="Polygon2D" parent="BarelyVisible"]
-color = Color( 1, 1, 1, 0.172549 )
-antialiased = true
-polygon = PoolVector2Array( 0.54232, -1.97703, -14.8337, -0.377491, -54.3882, 45.0135, 70.344, 46.2734, 12.5387, -1.7933 )
+polygon = PoolVector2Array( -89.8881, 7.57623, -71.8423, 49.5644, -33.8381, 49.3119 )
