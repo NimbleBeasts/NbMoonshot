@@ -2,12 +2,12 @@ extends Area2D
 
 signal minigame_created
 
-export (String, FILE) var minigame_scene_path: String
+export (Types.Minigames) var type
 
 var player_entered: bool = false
 var minigame: Node
+var minigame_scene
 
-onready var minigame_scene: PackedScene = load(minigame_scene_path)
 onready var current_scene: Node = get_tree().current_scene
 onready var tween: Tween = $MinigameTween
 
@@ -15,6 +15,10 @@ onready var tween: Tween = $MinigameTween
 func _ready() -> void:
 	connect("area_entered", self, "_on_area_entered")
 	connect("area_exited", self, "_on_area_exited")
+	# sets minigame scene checking type
+	match type:
+		Types.Minigames.Test:
+			minigame_scene = load("res://Src/TestMinigame.tscn")
 	
 
 func _process(delta: float) -> void:
@@ -30,6 +34,7 @@ func _process(delta: float) -> void:
 	if minigame:
 		if Input.is_action_just_pressed("close_minigame"):
 			close_created_minigame(minigame)
+			Events.emit_signal("minigame_exited", Types.Minigames.Test)
 
 
 func create_minigame() -> Node:
@@ -51,7 +56,8 @@ func open_created_minigame(minigame_instance: Node) -> void:
 			minigame_instance.global_position, screen_center, 0.2, Tween.TRANS_LINEAR)
 	tween.start()
 	# player cannot move now unless they close
-	Global.player.can_move = false
+	Events.emit_signal("minigame_entered", type)
+
 
 func close_created_minigame(minigame_instance: Node) -> void:
 	var screen_bottom_center := Vector2(get_viewport_rect().size.x / 2,  get_viewport_rect().size.y + 500) #adds a bit for extra measure
@@ -60,7 +66,7 @@ func close_created_minigame(minigame_instance: Node) -> void:
 			minigame_instance.global_position, screen_bottom_center, 0.2, Tween.TRANS_LINEAR)
 	tween.start()
 	# player can move now
-	Global.player.can_move = true
+	Events.emit_signal("minigame_exited", type)
 	
 	
 func _on_area_entered(area: Area2D) -> void:

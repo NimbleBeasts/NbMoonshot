@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 
-
 func _ready():
 	Events.connect("light_level_changed", self, "updateLightLevel")
 	Events.connect("audio_level_changed", self, "updateAudioLevel")

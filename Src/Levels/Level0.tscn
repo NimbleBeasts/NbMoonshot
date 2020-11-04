@@ -96,6 +96,8 @@ position = Vector2( 233.8, 206.939 )
 position = Vector2( 403.88, 133.9 )
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
+
+[node name="ThinArea" type="Area2D" parent="."]
 [connection signal="button_up" from="ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="ButtonSound" to="." method="_on_ButtonSound_button_up"]

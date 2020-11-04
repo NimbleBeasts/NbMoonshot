@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[node name="TestMinigame" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -11.7343, -1.41819 )
+scale = Vector2( 3.24468, 3.42031 )
+texture = ExtResource( 1 )

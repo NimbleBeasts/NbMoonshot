@@ -24,6 +24,11 @@ func _init() -> void:
 	Global.player = self
 
 
+func _ready() -> void:
+	Events.connect("minigame_entered", self,  "_on_minigame_entered")
+	Events.connect("minigame_exited", self, "_on_minigame_exited")			
+
+
 func _process(delta: float) -> void:
 	# changed between speeds depending on whether sprinting or not
 	if Input.is_action_pressed("sprint"):
@@ -44,17 +49,20 @@ func _process(delta: float) -> void:
 		set_state(Types.PlayerStates.Normal)
 	
 	# ducking
-	if Input.is_action_pressed("duck"):
-		set_state(Types.PlayerStates.Duck)
-	elif Input.is_action_just_released("duck"):
-		set_state(Types.PlayerStates.Normal)
-	
+	if Input.is_action_just_pressed("duck"):
+		if state != Types.PlayerStates.Duck:
+			set_state(Types.PlayerStates.Duck)
+		elif state == Types.PlayerStates.Duck:
+			set_state(Types.PlayerStates.Normal)
+		
 	
 func _physics_process(delta: float) -> void:
 	# movement code
 	if can_move:
 		direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		direction = direction.normalized()
+	else:
+		direction = Vector2(0,0)
 	
 	velocity = velocity.move_toward(direction * speed, acceleration * delta)
 	velocity = move_and_slide(velocity)
@@ -77,6 +85,14 @@ func _on_PlayerArea_area_entered(area: Area2D) -> void:
 		set_light_level(Types.LightLevels.FullLight)
 	elif area.is_in_group("BarelyVisible"):
 		set_light_level(Types.LightLevels.BarelyVisible)
+
+
+func _on_minigame_entered(type: int) -> void:
+	can_move = false
+
+
+func _on_minigame_exited(type: int) -> void:
+	can_move = true
 	
 
 # use this function to set light_level instead of directly changing it
@@ -87,9 +103,11 @@ func set_light_level(value: int) -> void:
 		# this is why a custom setter function is needed, may forgot to set visible level and
 		# will fuk everything up
 		visible_level = value
-	
+		Events.emit_signal("light_level_changed", value)
 	
 # use this function to set state
 func set_state(value: int) -> void:
 	if state != value:
 		state = value
+	
+
