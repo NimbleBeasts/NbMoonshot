@@ -99,10 +99,16 @@ position = Vector2( 403.88, 133.9 )
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
 [node name="ThinArea" parent="." instance=ExtResource( 12 )]
-position = Vector2( 291.303, 211.902 )
+position = Vector2( 212.393, 215.284 )
 
 [node name="ThinArea2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 218.523, 156.339 )
+position = Vector2( 213.364, 166.405 )
+
+[node name="ThinArea3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 394.998, 165.144 )
+
+[node name="ThinArea4" parent="." instance=ExtResource( 12 )]
+position = Vector2( 211.682, 260.165 )
 [connection signal="button_up" from="ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="ButtonSound" to="." method="_on_ButtonSound_button_up"]

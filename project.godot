@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Src/Player/Player.gd"
+}, {
+"base": "Area2D",
+"class": "ThinArea",
+"language": "GDScript",
+"path": "res://Src/ThinArea/ThinArea.gd"
 } ]
 _global_script_class_icons={
 "Door": "",
 "Guard": "",
 "Minigame": "",
-"Player": ""
+"Player": "",
+"ThinArea": ""
 }
 
 [application]

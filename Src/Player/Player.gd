@@ -6,6 +6,7 @@ export var normal_speed: int = 100
 export var normal_acceleration: int = 600
 export var sprint_speed: int = 400
 export var sprint_acceleration: int = 2500
+export var gravity: float = 200
 
 var direction: Vector2
 var velocity: Vector2
@@ -21,6 +22,9 @@ var state: int = Types.PlayerStates.Normal
 var colliding_with_travel: bool = false
 
 onready var travel_tween: Tween = $TravelTween
+onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
+onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
+
 
 func _init() -> void:
 	Global.player = self
@@ -29,7 +33,6 @@ func _init() -> void:
 func _ready() -> void:
 	Events.connect("minigame_entered", self,  "_on_minigame_entered")
 	Events.connect("minigame_exited", self, "_on_minigame_exited")		
-	Events.connect("player_travel", self, "_on_player_travel")	
 
 
 func _process(delta: float) -> void:
@@ -68,7 +71,27 @@ func _physics_process(delta: float) -> void:
 		direction = Vector2(0,0)
 	
 	velocity = velocity.move_toward(direction * speed, acceleration * delta)
+#	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity)
+	
+	# Traveling up and down
+	# Only needs to check if the respective direction key for each raycast is pressed
+	# means only need to check if up is pressed when up raycast is colliding and vice versa
+	if travel_raycast_down.is_colliding():
+		var collider: Area2D = travel_raycast_down.get_collider()
+		if collider is ThinArea:
+			if Input.is_action_just_pressed("travel_down"):
+				$TravelTween.interpolate_property(self, "global_position:y", global_position.y,
+						collider.destination_down_position.y, 0.2, Tween.TRANS_LINEAR)
+				$TravelTween.start()
+		
+	if travel_raycast_up.is_colliding():
+		var collider: Area2D = travel_raycast_up.get_collider()
+		if collider is ThinArea:
+			if Input.is_action_just_pressed("travel_up"):
+				$TravelTween.interpolate_property(self, "global_position:y", global_position.y,
+						collider.destination_up_position.y, 0.2, Tween.TRANS_LINEAR)
+				$TravelTween.start()
 
 
 func check_if_dark() -> void:
@@ -84,12 +107,6 @@ func _on_PlayerArea_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("BarelyVisible"):
 		set_light_level(Types.LightLevels.BarelyVisible)
 
-
-func _on_player_travel(target: Vector2) -> void:
-	travel_tween.interpolate_property(self, "global_position:y", global_position.y, target.y,
-			 0.1, Tween.TRANS_LINEAR)
-	travel_tween.start()
-	
 
 func _on_minigame_entered(type: int) -> void:
 	can_move = false

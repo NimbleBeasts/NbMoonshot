@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Temp/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
@@ -7,9 +7,6 @@
 extents = Vector2( 5.18156, 14.3244 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8.90675, 34.7078 )
-
-[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 5.18156, 14.3244 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -18,6 +15,7 @@ extents = Vector2( 5.18156, 14.3244 )
 script = ExtResource( 2 )
 sprint_speed = 200
 sprint_acceleration = 1200
+gravity = 700.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
@@ -33,15 +31,6 @@ collision_mask = 2
 position = Vector2( 0.0612944, -14.445 )
 shape = SubResource( 1 )
 
-[node name="PlayerTravelTrigger" type="Area2D" parent="." groups=[
-"PlayerTravelTrigger",
-]]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTravelTrigger"]
-position = Vector2( 0.0612944, -14.445 )
-shape = SubResource( 2 )
-
 [node name="TravelTween" type="Tween" parent="."]
 
 [node name="PlayerArea" type="Area2D" parent="." groups=[
@@ -52,5 +41,21 @@ shape = SubResource( 2 )
 "PlayerArea",
 ]]
 position = Vector2( 0.0612944, -14.445 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
+
+[node name="TravelRayCasts" type="Node2D" parent="."]
+
+[node name="RayCast2DUp" type="RayCast2D" parent="TravelRayCasts"]
+position = Vector2( -0.497299, -31.7464 )
+enabled = true
+cast_to = Vector2( 0, -15 )
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RayCast2DDown" type="RayCast2D" parent="TravelRayCasts"]
+position = Vector2( 0, 3.92862 )
+enabled = true
+cast_to = Vector2( 0, 15 )
+collide_with_areas = true
+collide_with_bodies = false
 [connection signal="area_entered" from="PlayerLightArea" to="." method="_on_PlayerArea_area_entered"]
