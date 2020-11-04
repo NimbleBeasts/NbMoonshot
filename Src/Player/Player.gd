@@ -81,17 +81,17 @@ func _physics_process(delta: float) -> void:
 		var collider: Area2D = travel_raycast_down.get_collider()
 		if collider is ThinArea:
 			if Input.is_action_just_pressed("travel_down"):
-				$TravelTween.interpolate_property(self, "global_position:y", global_position.y,
+				travel_tween.interpolate_property(self, "global_position:y", global_position.y,
 						collider.destination_down_position.y, 0.2, Tween.TRANS_LINEAR)
-				$TravelTween.start()
+				travel_tween.start()
 		
 	if travel_raycast_up.is_colliding():
 		var collider: Area2D = travel_raycast_up.get_collider()
 		if collider is ThinArea:
 			if Input.is_action_just_pressed("travel_up"):
-				$TravelTween.interpolate_property(self, "global_position:y", global_position.y,
+				travel_tween.interpolate_property(self, "global_position:y", global_position.y,
 						collider.destination_up_position.y, 0.2, Tween.TRANS_LINEAR)
-				$TravelTween.start()
+				travel_tween.start()
 
 
 func check_if_dark() -> void:

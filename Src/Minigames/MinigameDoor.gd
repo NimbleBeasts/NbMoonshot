@@ -1,7 +1,5 @@
 extends Area2D
 
-signal minigame_created
-
 export (Types.Minigames) var type
 
 var player_entered: bool = false
@@ -10,6 +8,7 @@ var minigame_scene
 
 onready var current_scene: Node = get_tree().current_scene
 onready var tween: Tween = $MinigameTween
+onready var game_manager := get_node("/root/GameManager")
 
 
 func _ready() -> void:
@@ -33,7 +32,7 @@ func _process(delta: float) -> void:
 func create_minigame() -> Minigame:
 	# Spawning minigame scene
 	var minigame_instance: Minigame = minigame_scene.instance()
-	current_scene.add_child(minigame_instance)
+	game_manager.levelNode.add_child(minigame_instance)
 	
 	# sets position to bottom center of the screen
 	minigame_instance.global_position = Vector2(get_viewport_rect().size.x / 2,  get_viewport_rect().size.y)
