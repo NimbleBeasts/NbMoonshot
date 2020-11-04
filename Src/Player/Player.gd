@@ -16,6 +16,8 @@ var acceleration: int = normal_acceleration
 # and visible_level is actual visibility of player to guards and camera with wall dodging and other benefits
 var light_level: int = Types.LightLevels.Dark
 var visible_level: int = light_level
+var state: int = Types.PlayerStates.Normal
+
 
 func _init() -> void:
 	Global.player = self
@@ -35,8 +37,16 @@ func _process(delta: float) -> void:
 	# wall dodging
 	if Input.is_action_pressed("wall_dodge"):
 		visible_level = light_level - 1
+		set_state(Types.PlayerStates.WallDodge)
 	elif Input.is_action_just_released("wall_dodge"):
 		visible_level = light_level
+		set_state(Types.PlayerStates.Normal)
+	
+	# ducking
+	if Input.is_action_pressed("duck"):
+		set_state(Types.PlayerStates.Duck)
+	elif Input.is_action_just_released("duck"):
+		set_state(Types.PlayerStates.Normal)
 	
 	
 func _physics_process(delta: float) -> void:
@@ -69,11 +79,15 @@ func _on_PlayerArea_area_entered(area: Area2D) -> void:
 
 # use this function to set light_level instead of directly changing it
 func set_light_level(value: int) -> void:
-	if not light_level == value:
+	if light_level != value:
 		light_level = value
 		# updates visible level when updating light_level
 		# this is why a custom setter function is needed, may forgot to set visible level and
 		# will fuk everything up
 		visible_level = value
 	
-
+	
+# use this function to set state
+func set_state(value: int) -> void:
+	if state != value:
+		state = value
