@@ -19,7 +19,9 @@ signal audio_level_changed(newLevel) #Types.AudioLevels
 
 #Enter minigame
 signal minigame_entered(minigame_type) #Types.Minigames
-signal minigame_exited(minigame_type) #Types.Minigames
+signal minigame_exited(result) #Types.Minigames
+
+signal player_travel(pos)
 
 # Sound
 signal play_sound(sound, volume, pos)

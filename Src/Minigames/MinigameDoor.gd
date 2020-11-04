@@ -5,7 +5,7 @@ signal minigame_created
 export (Types.Minigames) var type
 
 var player_entered: bool = false
-var minigame: Node
+var minigame
 var minigame_scene
 
 onready var current_scene: Node = get_tree().current_scene
@@ -28,18 +28,17 @@ func _process(delta: float) -> void:
 				# Creates a minigame and opens it 
 				minigame = create_minigame()
 				open_created_minigame(minigame)
-			else: # if already has a minigame
-				open_created_minigame(minigame)
-				
-	if minigame:
+		
+		if Input.is_action_just_pressed("open_minigame"):
+			open_created_minigame(minigame)
+		
 		if Input.is_action_just_pressed("close_minigame"):
-			close_created_minigame(minigame)
-			Events.emit_signal("minigame_exited", Types.Minigames.Test)
+			close_created_minigame(minigame)			
 
 
-func create_minigame() -> Node:
+func create_minigame():
 	# Spawning minigame scene
-	var minigame_instance: Node = minigame_scene.instance()
+	var minigame_instance = minigame_scene.instance()
 	current_scene.add_child(minigame_instance)
 	
 	# sets position to bottom center of the screen
@@ -55,7 +54,7 @@ func open_created_minigame(minigame_instance: Node) -> void:
 	tween.interpolate_property(minigame_instance, "global_position", 
 			minigame_instance.global_position, screen_center, 0.2, Tween.TRANS_LINEAR)
 	tween.start()
-	# player cannot move now unless they close
+	# Emits signal
 	Events.emit_signal("minigame_entered", type)
 
 
@@ -65,8 +64,8 @@ func close_created_minigame(minigame_instance: Node) -> void:
 	tween.interpolate_property(minigame_instance, "global_position", 
 			minigame_instance.global_position, screen_bottom_center, 0.2, Tween.TRANS_LINEAR)
 	tween.start()
-	# player can move now
-	Events.emit_signal("minigame_exited", type)
+	# Emits signal
+	Events.emit_signal("minigame_exited", Types.MinigameResults.Succeeded)
 	
 	
 func _on_area_entered(area: Area2D) -> void:

@@ -26,7 +26,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	Events.connect("minigame_entered", self,  "_on_minigame_entered")
-	Events.connect("minigame_exited", self, "_on_minigame_exited")			
+	Events.connect("minigame_exited", self, "_on_minigame_exited")		
+	Events.connect("player_travel", self, "_on_player_travel")	
 
 
 func _process(delta: float) -> void:
@@ -86,6 +87,11 @@ func _on_PlayerArea_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("BarelyVisible"):
 		set_light_level(Types.LightLevels.BarelyVisible)
 
+
+func _on_player_travel(target: Vector2) -> void:
+		$TravelTween.interpolate_property(self, "global_position:y", global_position.y, target.y, 0.1, Tween.TRANS_LINEAR)
+		$TravelTween.start()
+	
 
 func _on_minigame_entered(type: int) -> void:
 	can_move = false

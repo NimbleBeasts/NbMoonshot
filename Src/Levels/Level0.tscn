@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Src/Levels/Level0.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Temp/Room.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Minigames/MinigameDoor.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,7 +21,7 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 304, 253 )
+position = Vector2( 355.547, 149.95 )
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
 position = Vector2( 343.359, 203.604 )
@@ -97,7 +98,10 @@ position = Vector2( 403.88, 133.9 )
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
-[node name="ThinArea" type="Area2D" parent="."]
+[node name="ThinArea" parent="." instance=ExtResource( 12 )]
+
+[node name="ThinArea2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 217.26, 158.458 )
 [connection signal="button_up" from="ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="ButtonSound" to="." method="_on_ButtonSound_button_up"]
