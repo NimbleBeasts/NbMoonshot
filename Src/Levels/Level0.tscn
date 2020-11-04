@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Src/Levels/Level0.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Temp/Room.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Door/Door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Src/Minigames/MinigameDoor.tscn" type="PackedScene" id=10]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource( 1 )
@@ -89,6 +90,9 @@ connected_door_path = NodePath("../Door")
 
 [node name="Light" parent="." instance=ExtResource( 9 )]
 position = Vector2( 233.8, 206.939 )
+
+[node name="MinigameDoor" parent="." instance=ExtResource( 10 )]
+position = Vector2( 403.88, 133.9 )
 [connection signal="button_up" from="ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="ButtonSound" to="." method="_on_ButtonSound_button_up"]

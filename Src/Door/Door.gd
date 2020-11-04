@@ -13,6 +13,9 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	# connections
+	connect("area_entered", self, "_on_area_entered")
+	connect("area_exited", self, "_on_area_exited")
 	if not connected_door:
 		print("No connect door for " + name)
 
@@ -20,10 +23,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if player_entered:
 		if Input.is_action_just_pressed("interact"):
-			if connected_door:
-				player.global_position = connected_door.get_node("PlayerTeleportPosition").global_position
-			else:
-				print("Trying to teleport but no connected door for " + name)
+			interact()
+			
+
+func interact() -> void:
+	# teleports to connected door
+	if connected_door:
+		player.global_position = connected_door.get_node("PlayerTeleportPosition").global_position
+	else:
+		print("Trying to teleport but no connected door for " + name)
 	
 	
 func _on_area_entered(area: Area2D) -> void:

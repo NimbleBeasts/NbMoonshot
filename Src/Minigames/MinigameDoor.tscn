@@ -1,15 +1,17 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Src/Door/Door.gd" type="Script" id=2]
+[ext_resource path="res://Src/Minigames/MinigameDoor.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.0773, 22.4131 )
 
-[node name="Door" type="Area2D"]
+[node name="MinigameDoor" type="Area2D"]
 script = ExtResource( 2 )
+minigame_scene_path = "res://Src/Minigames/TestMinigame.tscn"
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.901961, 0.0705882, 0.0705882, 1 )
 scale = Vector2( 0.391313, 0.66054 )
 texture = ExtResource( 1 )
 
@@ -21,3 +23,5 @@ position = Vector2( -0.749161, 19.8526 )
 __meta__ = {
 "_gizmo_extents_": 25.0
 }
+
+[node name="MinigameTween" type="Tween" parent="."]

@@ -11,6 +11,7 @@ var direction: Vector2
 var velocity: Vector2
 var speed: int = normal_speed
 var acceleration: int = normal_acceleration
+var can_move: int = true
 
 #  Use Types.LightLevels enum for both of these. Light level is in which light the player is in
 # and visible_level is actual visibility of player to guards and camera with wall dodging and other benefits
@@ -51,8 +52,9 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	# movement code
-	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	direction = direction.normalized()
+	if can_move:
+		direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		direction = direction.normalized()
 	
 	velocity = velocity.move_toward(direction * speed, acceleration * delta)
 	velocity = move_and_slide(velocity)
