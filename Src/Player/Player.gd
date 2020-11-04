@@ -18,7 +18,9 @@ var can_move: int = true
 var light_level: int = Types.LightLevels.Dark
 var visible_level: int = light_level
 var state: int = Types.PlayerStates.Normal
+var colliding_with_travel: bool = false
 
+onready var travel_tween: Tween = $TravelTween
 
 func _init() -> void:
 	Global.player = self
@@ -55,7 +57,8 @@ func _process(delta: float) -> void:
 			set_state(Types.PlayerStates.Duck)
 		elif state == Types.PlayerStates.Duck:
 			set_state(Types.PlayerStates.Normal)
-		
+
+	print(visible_level)
 	
 func _physics_process(delta: float) -> void:
 	# movement code
@@ -71,15 +74,10 @@ func _physics_process(delta: float) -> void:
 
 func check_if_dark() -> void:
 	# if there are no overlapping areas, just set light_level to dark
-	if $PlayerArea.get_overlapping_areas() == []:
+	if $PlayerLightArea.get_overlapping_areas() == []:
 		set_light_level(Types.LightLevels.Dark)
 		return 
 	
-	# checks all area to see if there are no barely visible and no full light areas 
-	for area in $PlayerArea.get_overlapping_areas():
-		if (not area.is_in_group("BarelyVisible")) and (not area.is_in_group("FullLight")):
-			set_light_level(Types.LightLevels.Dark)
-
 
 func _on_PlayerArea_area_entered(area: Area2D) -> void:
 	if area.is_in_group("FullLight"):
@@ -87,10 +85,12 @@ func _on_PlayerArea_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("BarelyVisible"):
 		set_light_level(Types.LightLevels.BarelyVisible)
 
+	print(area.name)
 
 func _on_player_travel(target: Vector2) -> void:
-		$TravelTween.interpolate_property(self, "global_position:y", global_position.y, target.y, 0.1, Tween.TRANS_LINEAR)
-		$TravelTween.start()
+	travel_tween.interpolate_property(self, "global_position:y", global_position.y, target.y,
+			 0.1, Tween.TRANS_LINEAR)
+	travel_tween.start()
 	
 
 func _on_minigame_entered(type: int) -> void:
@@ -111,9 +111,9 @@ func set_light_level(value: int) -> void:
 		visible_level = value
 		Events.emit_signal("light_level_changed", value)
 	
+	
 # use this function to set state
 func set_state(value: int) -> void:
 	if state != value:
 		state = value
-	
-
+		

@@ -22,22 +22,24 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-[node name="PlayerArea" type="Area2D" parent="." groups=[
+[node name="PlayerLightArea" type="Area2D" parent="." groups=[
 "PlayerArea",
 ]]
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerLightArea"]
 position = Vector2( 0.0612944, -14.445 )
 shape = SubResource( 1 )
 
 [node name="PlayerTravelTrigger" type="Area2D" parent="." groups=[
 "PlayerTravelTrigger",
 ]]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTravelTrigger"]
 position = Vector2( 0.0612944, -14.445 )
 shape = SubResource( 2 )
 
 [node name="TravelTween" type="Tween" parent="."]
-[connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
-[connection signal="area_entered" from="PlayerTravelTrigger" to="." method="_on_PlayerArea_area_entered"]
+[connection signal="area_entered" from="PlayerLightArea" to="." method="_on_PlayerArea_area_entered"]

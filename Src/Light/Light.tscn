@@ -5,6 +5,8 @@
 [node name="FullLight" type="Area2D" parent="." groups=[
 "FullLight",
 ]]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FullLight"]
 polygon = PoolVector2Array( -12.8269, 4.62048, -24.75, 45.5, 31.7582, 46.6274, 13.8699, 5.2879 )
@@ -12,6 +14,8 @@ polygon = PoolVector2Array( -12.8269, 4.62048, -24.75, 45.5, 31.7582, 46.6274, 1
 [node name="BarelyVisible" type="Area2D" parent="." groups=[
 "BarelyVisible",
 ]]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BarelyVisible"]
 polygon = PoolVector2Array( -53.4733, 45.6341, -25.1742, 44.9994, -12.8269, 4.78734 )

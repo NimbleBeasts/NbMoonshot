@@ -21,7 +21,7 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 355.547, 149.95 )
+position = Vector2( 322.176, 248.729 )
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
 position = Vector2( 343.359, 203.604 )
@@ -87,7 +87,7 @@ position = Vector2( 360.063, 228.824 )
 connected_door_path = NodePath("../Door2")
 
 [node name="Door2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 281.671, 135.212 )
+position = Vector2( 274.329, 135.212 )
 connected_door_path = NodePath("../Door")
 
 [node name="Light" parent="." instance=ExtResource( 9 )]
@@ -99,9 +99,10 @@ position = Vector2( 403.88, 133.9 )
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
 [node name="ThinArea" parent="." instance=ExtResource( 12 )]
+position = Vector2( 291.303, 211.902 )
 
 [node name="ThinArea2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 217.26, 158.458 )
+position = Vector2( 218.523, 156.339 )
 [connection signal="button_up" from="ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="ButtonSound" to="." method="_on_ButtonSound_button_up"]

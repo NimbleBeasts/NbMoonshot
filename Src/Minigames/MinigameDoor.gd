@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 			close_created_minigame(minigame)			
 
 
-func create_minigame():
+func create_minigame() -> Node2D:
 	# Spawning minigame scene
 	var minigame_instance = minigame_scene.instance()
 	current_scene.add_child(minigame_instance)

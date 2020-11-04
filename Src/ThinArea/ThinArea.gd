@@ -1,6 +1,7 @@
 extends Area2D
 
 var player_entered: bool = false
+onready var player = Global.player
 
 
 func _ready() -> void:
@@ -14,7 +15,7 @@ func _process(delta: float) -> void:
 			Events.emit_signal("player_travel", $DestinationUp.global_position)
 		elif Input.is_action_just_pressed("travel_down"):
 			Events.emit_signal("player_travel", $DestinationDown.global_position)
-		
+
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("PlayerTravelTrigger"):

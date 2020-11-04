@@ -3,10 +3,10 @@
 [ext_resource path="res://Src/ThinArea/ThinArea.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 19.834, 7.02769 )
+extents = Vector2( 19.834, 3.12937 )
 
 [node name="ThinArea" type="Area2D"]
-position = Vector2( 214.287, 211.485 )
+collision_layer = 2147483649
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

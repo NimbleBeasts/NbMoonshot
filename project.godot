@@ -141,6 +141,11 @@ travel_down={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="General"
+2d_physics/layer_2="Lights"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
