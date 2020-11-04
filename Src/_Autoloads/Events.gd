@@ -11,6 +11,12 @@ const DEBUG_OUTPUT_ON_SIGNAL_CONNECT = false
 # Level Management
 signal new_game()
 
+
+# Light Levels
+signal light_level_changed(newLevel) #Types.LightLevels
+# Audio Levels
+signal audio_level_changed(newLevel) #Types.AudioLevels
+
 # Sound
 signal play_sound(sound, volume, pos)
 
