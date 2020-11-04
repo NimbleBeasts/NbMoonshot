@@ -57,8 +57,7 @@ func _process(delta: float) -> void:
 			set_state(Types.PlayerStates.Duck)
 		elif state == Types.PlayerStates.Duck:
 			set_state(Types.PlayerStates.Normal)
-
-	print(visible_level)
+	
 	
 func _physics_process(delta: float) -> void:
 	# movement code
@@ -85,7 +84,6 @@ func _on_PlayerArea_area_entered(area: Area2D) -> void:
 	elif area.is_in_group("BarelyVisible"):
 		set_light_level(Types.LightLevels.BarelyVisible)
 
-	print(area.name)
 
 func _on_player_travel(target: Vector2) -> void:
 	travel_tween.interpolate_property(self, "global_position:y", global_position.y, target.y,

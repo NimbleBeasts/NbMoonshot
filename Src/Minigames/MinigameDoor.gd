@@ -18,7 +18,7 @@ func _ready() -> void:
 	# sets minigame scene checking type
 	match type:
 		Types.Minigames.Test:
-			minigame_scene = load("res://Src/TestMinigame.tscn")
+			minigame_scene = load("res://Src/Minigames/TestMinigame.tscn")
 	
 
 func _process(delta: float) -> void:
