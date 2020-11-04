@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Src/ThinArea/ThinArea.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 19.834, 7.02769 )
+
+[node name="ThinArea" type="Area2D"]
+position = Vector2( 214.287, 211.485 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 20.0226, -4.00452 )
+shape = SubResource( 1 )
+
+[node name="DestinationUp" type="Position2D" parent="."]
+position = Vector2( 20.3758, -9.98241 )
+__meta__ = {
+"_gizmo_extents_": 20.0
+}
+
+[node name="DestinationDown" type="Position2D" parent="."]
+position = Vector2( 19.1317, 41.1296 )
+__meta__ = {
+"_gizmo_extents_": 20.0
+}
