@@ -4,7 +4,7 @@
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.18156, 13.2756 )
+extents = Vector2( 5.18156, 14.3244 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -20,9 +20,10 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="PlayerArea" type="Area2D" parent="." groups=[
-"player_area",
+"PlayerArea",
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
-position = Vector2( 0.561859, -13.1102 )
+position = Vector2( 0.0612944, -14.445 )
 shape = SubResource( 1 )
+[connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]

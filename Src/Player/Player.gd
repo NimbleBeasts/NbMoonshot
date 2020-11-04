@@ -12,6 +12,7 @@ var velocity: Vector2
 var speed: int = normal_speed
 var acceleration: int = normal_acceleration
 
+var visible_level: int = Types.VisibleLevels.Dark #Use Types.VisibleLevels enum for this
 
 func _init() -> void:
 	Global.player = self
@@ -24,7 +25,15 @@ func _process(delta: float) -> void:
 	else:
 		speed = normal_speed
 		acceleration = normal_acceleration
-			
+		
+	for area in $PlayerArea.get_overlapping_areas():
+		if (not area.is_in_group("BarelyVisible")) and (not area.is_in_group("FullLight")):
+			visible_level = Types.VisibleLevels.Dark
+		
+	if $PlayerArea.get_overlapping_areas() == []:
+		visible_level = Types.VisibleLevels.Dark
+		
+	print(visible_level)
 		
 func _physics_process(delta: float) -> void:
 	# movement code
@@ -34,3 +43,13 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(direction * speed, acceleration * delta)
 		
 	velocity = move_and_slide(velocity)
+
+
+func _on_PlayerArea_area_entered(area: Area2D) -> void:
+	if area.is_in_group("FullLight"):
+		visible_level = Types.VisibleLevels.FullLight
+	elif area.is_in_group("BarelyVisible"):
+		visible_level = Types.VisibleLevels.BarelyVisible
+
+
+	
