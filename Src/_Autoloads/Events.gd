@@ -22,7 +22,7 @@ signal minigame_entered(minigame_type) #Types.Minigames
 signal minigame_exited(result) #Types.Minigames
 
 # WebMonetization Pulse
-signal web_monetization_pulse()
+signal web_monetization_pulse(isPaying)
 
 # Sound
 signal play_sound(sound, volume, pos)

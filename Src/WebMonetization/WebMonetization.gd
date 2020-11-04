@@ -22,7 +22,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:
 		"active_pulse":
 			$AnimationPlayer.play("active_idle")
-			Events.emit_signal("web_monetization_pulse")
+			Events.emit_signal("web_monetization_pulse", isPaying)
 		"inactive_pulse":
 			$AnimationPlayer.play("inactive_idle")
 		_:
