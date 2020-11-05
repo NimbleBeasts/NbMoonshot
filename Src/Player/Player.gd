@@ -81,19 +81,16 @@ func _physics_process(delta: float) -> void:
 		var thin_area := travel_raycast_down.get_collider() as ThinArea
 		if thin_area:
 			if Input.is_action_just_pressed("travel_down"):
-				travel_tween.interpolate_property(self, "global_position:y", global_position.y,
-						thin_area.destination_down_position.y, 0.2, Tween.TRANS_LINEAR)
-				travel_tween.start()
-		
+				travel(thin_area.destination_down_position.y)
+				
 	if travel_raycast_up.is_colliding():
 		var thin_area := travel_raycast_up.get_collider() as ThinArea
 		if thin_area:
 			# Tweening
 			if Input.is_action_just_pressed("travel_up"):
-				travel_tween.interpolate_property(self, "global_position:y", global_position.y,
-						thin_area.destination_up_position.y, 0.2, Tween.TRANS_LINEAR)
-				travel_tween.start()
-
+				travel(thin_area.destination_up_position.y)
+				
+				
 	# stunning guards
 	if stun_raycast.is_colliding():
 		var guard := stun_raycast.get_collider() as Guard
@@ -107,7 +104,16 @@ func check_if_dark() -> void:
 	if $PlayerLightArea.get_overlapping_areas() == []:
 		set_light_level(Types.LightLevels.Dark)
 		return 
-	
+
+
+func travel(target_pos: float) -> void:
+	# just tweening position
+	travel_tween.interpolate_property(self, "global_position:y", global_position.y, 
+			target_pos, 0.2, Tween.TRANS_LINEAR)
+	travel_tween.start()
+	# emits small noise
+	Events.emit_signal("audio_notification", Types.AudioLevels.SmallNoise)
+				
 
 func _on_PlayerArea_area_entered(area: Area2D) -> void:
 	if area.is_in_group("FullLight"):

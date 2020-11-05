@@ -40,6 +40,7 @@ func stun() -> void:
 	if $StunDurationTimer.is_stopped():
 		$StunDurationTimer.start()
 
+
 func unstun() -> void:
 	direction = starting_direction
 	$Sprite.modulate = Color.white

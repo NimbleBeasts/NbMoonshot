@@ -8,4 +8,4 @@ enum PlayerStates {Normal, WallDodge, Duck}
 enum Minigames{Test}
 enum MinigameResults{Failed, Succeeded}
 enum DetectionLevels{Possible, Sure}
-enum GuardStates {Moving, Stunned}
+enum AudioNotifications {Loud, Small, Silent}

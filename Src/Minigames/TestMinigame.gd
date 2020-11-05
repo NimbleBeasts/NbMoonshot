@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("close_minigame"):
 			close()		
 	
-
+	
 # Basically open and close minigame are just tweening the minigame position 
 func open() -> void:
 	var screen_center: Vector2 = get_viewport_rect().size / 2
@@ -39,6 +39,7 @@ func close(minigame_result: int = Types.MinigameResults.Failed) -> void:
 			global_position, screen_bottom_center, 0.2, Tween.TRANS_LINEAR)
 	tween.start()
 	# Emits signal
-	Events.emit_signal("minigame_exited", result)
-
-
+	Events.emit_signal("minigame_exited", minigame_result)
+	# emit audio notification loud if fail minigame
+	if minigame_result == Types.MinigameResults.Failed:
+		Events.emit_signal("audio_notification", Types.AudioLevels.LoudNoise)

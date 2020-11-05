@@ -17,17 +17,20 @@ signal light_level_changed(newLevel) #Types.LightLevels
 # Audio Levels
 signal audio_level_changed(newLevel) #Types.AudioLevels
 
-#Enter minigame
+# Enter minigame
 signal minigame_entered(minigame_type) #Types.Minigames
 signal minigame_exited(result) #Types.Minigames
 
 # WebMonetization Pulse
 signal web_monetization_pulse(isPaying)
 
-#Detection
+# Detection
 signal player_detected(detection_type) # Types.DetectionLevels
 signal possible_detection_num_changed(value)
 signal sure_detection_num_changed(value)
+
+# Noise
+signal audio_notification(type) # Types.AudioNotifications
 
 # Sound
 signal play_sound(sound, volume, pos)
