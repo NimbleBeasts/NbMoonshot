@@ -75,9 +75,11 @@ __meta__ = {
 
 [node name="Staircase" parent="." instance=ExtResource( 6 )]
 position = Vector2( 424, 256 )
+connected_door_path = NodePath("../Staircase2")
 
 [node name="Staircase2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 256, 208 )
+connected_door_path = NodePath("../Staircase")
 
 [node name="Tresor" parent="." instance=ExtResource( 7 )]
 position = Vector2( 368, 156 )
