@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 func change_direction() -> void:
 	# flips moving_right, also flips the direction.x
 	direction.x *= -1
+	self.scale.x = direction.x * -1
 
 
 # stun function.

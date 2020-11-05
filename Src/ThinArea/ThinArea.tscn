@@ -22,6 +22,7 @@ position = Vector2( 16, -8 )
 position = Vector2( 16, 56 )
 
 [node name="Sprite" type="Sprite" parent="."]
+light_mask = 3
 position = Vector2( 0, -8 )
 texture = ExtResource( 2 )
 centered = false
