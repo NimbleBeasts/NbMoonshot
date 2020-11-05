@@ -97,6 +97,7 @@ func _physics_process(delta: float) -> void:
 		if (guard) and (Input.is_action_just_pressed("stun")) and (not guard.is_stunned):
 			guard.stun()
 	
+	print(visible_level)
 	
 func check_if_dark() -> void:
 	# if there are no overlapping areas, just set light_level to dark

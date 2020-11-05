@@ -14,6 +14,7 @@
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 
 [node name="Level0" type="Node2D"]
+position = Vector2( 0, 0.420456 )
 script = ExtResource( 1 )
 
 [node name="DummyBuilding" type="Sprite" parent="."]
@@ -24,14 +25,15 @@ centered = false
 position = Vector2( 322.176, 248.729 )
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
-position = Vector2( 343.359, 203.604 )
+position = Vector2( 344.752, 197.489 )
+direction_change_time = 3.0
 starting_direction = Vector2( -1, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 position = Vector2( 388.918, 213.489 )
 
 [node name="Camera2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 268.613, 162.388 )
+position = Vector2( 285.584, 212.593 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 

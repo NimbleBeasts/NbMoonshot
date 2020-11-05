@@ -16,12 +16,6 @@ shape = SubResource( 1 )
 
 [node name="DestinationUp" type="Position2D" parent="."]
 position = Vector2( 20.3758, -9.98241 )
-__meta__ = {
-"_gizmo_extents_": 20.0
-}
 
 [node name="DestinationDown" type="Position2D" parent="."]
 position = Vector2( 19.1317, 41.1296 )
-__meta__ = {
-"_gizmo_extents_": 20.0
-}

@@ -29,10 +29,8 @@ func _process(delta: float) -> void:
 	match state:
 		Types.GuardStates.PlayerDetected:
 			direction = Vector2(0,0)
-			if $SureDetectionTimer.is_stopped():
-				$SureDetectionTimer.start()
-
-
+			
+			
 func change_direction() -> void:
 	# flips moving_right, also flips the direction.x
 	direction.x *= -1
@@ -45,9 +43,10 @@ func stun() -> void:
 	is_stunned = true
 	if $StunDurationTimer.is_stopped():
 		$StunDurationTimer.start()
-	# stops sure detection timer on stop
+	# stops sure detection timer on stun
 	if not $SureDetectionTimer.is_stopped():
 		$SureDetectionTimer.stop()
+
 
 func unstun() -> void:
 	direction = starting_direction
@@ -87,3 +86,8 @@ func _on_StunDurationTimer_timeout() -> void:
 func set_state(new_state) -> void:
 	if state != new_state:
 		state = new_state
+		
+		match state:
+			Types.GuardStates.PlayerDetected:
+				if $SureDetectionTimer.is_stopped():
+					$SureDetectionTimer.start()

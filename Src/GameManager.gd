@@ -81,7 +81,9 @@ func _on_player_detected(detection_level: int) -> void:
 	match detection_level:
 		Types.DetectionLevels.Possible:
 			possible_detection_num += 1
+			print("possible detection")
 			Events.emit_signal("possible_detection_num_changed", possible_detection_num)
 		Types.DetectionLevels.Sure:
 			sure_detection_num += 1
+			print("sure detection")
 			Events.emit_signal("sure_detection_num_changed", sure_detection_num)
