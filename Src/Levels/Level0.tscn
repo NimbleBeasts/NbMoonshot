@@ -20,6 +20,13 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 centered = false
 
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 322.176, 248.729 )
+
+[node name="Guard" parent="." instance=ExtResource( 4 )]
+position = Vector2( 343.359, 203.604 )
+starting_direction = Vector2( -1, 0 )
+
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 position = Vector2( 408, 264 )
 
@@ -37,27 +44,30 @@ __meta__ = {
 }
 
 [node name="ButtonBack" type="Button" parent="."]
-margin_left = 192.0
-margin_right = 256.0
-margin_bottom = 20.0
+margin_left = 336.0
+margin_top = 8.0
+margin_right = 400.0
+margin_bottom = 28.0
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ButtonMusic" type="Button" parent="."]
-margin_left = 368.0
-margin_right = 464.0
-margin_bottom = 20.0
+margin_left = 512.0
+margin_top = 8.0
+margin_right = 608.0
+margin_bottom = 28.0
 text = "ToggleMusic"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ButtonSound" type="Button" parent="."]
-margin_left = 264.0
-margin_right = 360.0
-margin_bottom = 20.0
+margin_left = 408.0
+margin_top = 8.0
+margin_right = 504.0
+margin_bottom = 28.0
 text = "ToggleSound"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -86,6 +96,8 @@ position = Vector2( 233.8, 206.939 )
 [node name="MinigameDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 403.88, 133.9 )
 
+[node name="HUD" parent="." instance=ExtResource( 11 )]
+
 [node name="ThinArea" parent="." instance=ExtResource( 12 )]
 position = Vector2( 212.393, 215.284 )
 
@@ -97,15 +109,6 @@ position = Vector2( 394.998, 165.144 )
 
 [node name="ThinArea4" parent="." instance=ExtResource( 12 )]
 position = Vector2( 211.682, 260.165 )
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 322.176, 248.729 )
-
-[node name="Guard" parent="." instance=ExtResource( 4 )]
-position = Vector2( 343.359, 203.604 )
-starting_direction = Vector2( -1, 0 )
-
-[node name="HUD" parent="." instance=ExtResource( 11 )]
 [connection signal="button_up" from="ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="ButtonSound" to="." method="_on_ButtonSound_button_up"]

@@ -26,6 +26,9 @@ texture = ExtResource( 1 )
 [node name="PlayerLightArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerLightArea"]
 position = Vector2( 0.0612944, -14.445 )

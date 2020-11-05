@@ -24,6 +24,9 @@ signal minigame_exited(result) #Types.Minigames
 # WebMonetization Pulse
 signal web_monetization_pulse(isPaying)
 
+#Detection
+signal player_detected(detection_type) # Types.DetectionLevels
+
 # Sound
 signal play_sound(sound, volume, pos)
 

@@ -15,4 +15,11 @@ offset = Vector2( 0, -16 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="DirectionChangeTimer" type="Timer" parent="."]
+
+[node name="LineOfSight" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LineOfSight"]
+position = Vector2( -0.943878, -0.471939 )
+polygon = PoolVector2Array( 6.42472, -23.2078, 66.3607, -30.0509, 66.1248, 3.22072 )
 [connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_DirectionChangeTimer_timeout"]
+[connection signal="area_entered" from="LineOfSight" to="." method="_on_LineOfSight_area_entered"]
