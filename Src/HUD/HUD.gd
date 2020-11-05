@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+enum HoverType {Light, Audio, Web}
+
 
 func _ready():
 	Events.connect("light_level_changed", self, "updateLightLevel")
@@ -29,3 +31,43 @@ func updateAudioLevel(newAudioLevel):
 
 func _on_GoBackToNormal_timeout() -> void:
 	$AudioIndicator.frame = 2
+
+
+func hover(type):
+	match type:
+		HoverType.Web:
+			$Hovers/Indicator.position = Vector2(12, 0)
+			$Hovers/Label.set_text("Status: Web Monetization Plugin.")
+		HoverType.Audio:
+			$Hovers/Indicator.position = Vector2(43, 0)
+			$Hovers/Label.set_text("This is your noise indicator.")
+		_: #Light
+			$Hovers/Indicator.position = Vector2(72, 0)
+			$Hovers/Label.set_text("This is your visibilty indicator.")
+	$Hovers.show()
+
+
+
+func _on_LightHover_mouse_entered():
+	hover(HoverType.Light)
+
+
+func _on_LightHover_mouse_exited():
+	$Hovers.hide()
+
+
+func _on_AudioHover_mouse_entered():
+	hover(HoverType.Audio)
+
+
+func _on_AudioHover_mouse_exited():
+	$Hovers.hide()
+
+
+func _on_WebHover_mouse_entered():
+	hover(HoverType.Web)
+
+
+func _on_WebHover_mouse_exited():
+	$Hovers.hide()
+
