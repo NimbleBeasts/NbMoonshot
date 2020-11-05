@@ -29,8 +29,6 @@ signal player_detected(detection_type) # Types.DetectionLevels
 signal possible_detection_num_changed(value)
 signal sure_detection_num_changed(value)
 
-# Noise
-signal audio_notification(type) # Types.AudioNotifications
 
 # Sound
 signal play_sound(sound, volume, pos)

@@ -1,7 +1,7 @@
 class_name Minigame
 extends Node2D
 
-export (Types.Minigames) var minigame_type
+export (Types.Minigames) var minigame_type # this is for emitting correct type on minigame_entered signal
 
 var result: int
 var owner_door # the door that owns this minigame
@@ -42,4 +42,4 @@ func close(minigame_result: int = Types.MinigameResults.Failed) -> void:
 	Events.emit_signal("minigame_exited", minigame_result)
 	# emit audio notification loud if fail minigame
 	if minigame_result == Types.MinigameResults.Failed:
-		Events.emit_signal("audio_notification", Types.AudioLevels.LoudNoise)
+		Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise)

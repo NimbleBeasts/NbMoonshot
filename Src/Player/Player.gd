@@ -112,7 +112,7 @@ func travel(target_pos: float) -> void:
 			target_pos, 0.2, Tween.TRANS_LINEAR)
 	travel_tween.start()
 	# emits small noise
-	Events.emit_signal("audio_notification", Types.AudioLevels.SmallNoise)
+	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise)
 				
 
 func _on_PlayerArea_area_entered(area: Area2D) -> void:
