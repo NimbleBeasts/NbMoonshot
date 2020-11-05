@@ -5,20 +5,21 @@ export var speed: int = 50
 export var direction_change_time: float = 2
 export var starting_direction: Vector2
 export var time_to_sure_direction: float = 1.5
+export var stun_duration: float = 2
 
 var velocity: Vector2
 var direction: Vector2
-var moving_right: bool = true
 var player_detected: bool = false
-var stun_area_entered: bool = false
+var is_stunned: bool = false
 
 
 func _ready() -> void:
-	# sets the wait_time to the exported variabel
+	# sets the wait_time to the exported variable
 	$DirectionChangeTimer.wait_time = direction_change_time
 	$SureDetectionTimer.wait_time = time_to_sure_direction
+	$StunDurationTimer.wait_time = stun_duration
 	$DirectionChangeTimer.start()
-	direction = starting_direction 
+	direction = starting_direction
 
 
 func _process(delta: float) -> void:
@@ -28,17 +29,26 @@ func _process(delta: float) -> void:
 
 func change_direction() -> void:
 	# flips moving_right, also flips the direction.x
-	moving_right = not moving_right
 	direction.x *= -1
+
 
 # stun function.
 func stun() -> void:
 	direction = Vector2(0,0)
 	$Sprite.modulate = Color.black
+	is_stunned = true
+	if $StunDurationTimer.is_stopped():
+		$StunDurationTimer.start()
 
+func unstun() -> void:
+	direction = starting_direction
+	$Sprite.modulate = Color.white
+	is_stunned = false
+	
 
 func _on_DirectionChangeTimer_timeout():
 	change_direction()
+	
 	
 func _on_LineOfSight_area_entered(area: Area2D) -> void:
 	# detecting player
@@ -54,3 +64,5 @@ func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 
 
+func _on_StunDurationTimer_timeout() -> void:
+	unstun()

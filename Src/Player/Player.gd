@@ -97,7 +97,7 @@ func _physics_process(delta: float) -> void:
 	# stunning guards
 	if stun_raycast.is_colliding():
 		var guard := stun_raycast.get_collider() as Guard
-		if guard and Input.is_action_just_pressed("stun"):
+		if (guard) and (Input.is_action_just_pressed("stun")) and (not guard.is_stunned):
 			guard.stun()
 	
 	
