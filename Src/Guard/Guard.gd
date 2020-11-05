@@ -10,6 +10,7 @@ var velocity: Vector2
 var direction: Vector2
 var moving_right: bool = true
 var player_detected: bool = false
+var stun_area_entered: bool = false
 
 
 func _ready() -> void:
@@ -34,6 +35,11 @@ func change_direction() -> void:
 	direction.x *= -1
 
 
+func stun() -> void:
+	direction = Vector2(0,0)
+	$Sprite.modulate = Color.black
+
+
 func _on_LineOfSight_area_entered(area: Area2D) -> void:
 	if area.is_in_group("PlayerArea"):
 		Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
@@ -45,3 +51,8 @@ func _on_LineOfSight_area_entered(area: Area2D) -> void:
 
 func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
+
+
+func _on_GuardArea_area_entered(area: Area2D) -> void:
+	if area.is_in_group("StunArea"):
+		stun_area_entered = true

@@ -6,7 +6,6 @@ export var normal_speed: int = 100
 export var normal_acceleration: int = 600
 export var sprint_speed: int = 400
 export var sprint_acceleration: int = 2500
-export var gravity: float = 200
 
 var direction: Vector2
 var velocity: Vector2
@@ -24,6 +23,7 @@ var colliding_with_travel: bool = false
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
 onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
+onready var stun_raycast: RayCast2D = $StunRayCast
 
 
 func _init() -> void:
@@ -71,29 +71,35 @@ func _physics_process(delta: float) -> void:
 		direction = Vector2(0,0)
 	
 	velocity = velocity.move_toward(direction * speed, acceleration * delta)
-#	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity)
 	
 	# Traveling up and down
 	# Only needs to check if the respective direction key for each raycast is pressed
 	# means only need to check if up is pressed when up raycast is colliding and vice versa
+	# Can't use elif since both of these can be true at same time
 	if travel_raycast_down.is_colliding():
-		var collider: Area2D = travel_raycast_down.get_collider()
-		if collider is ThinArea:
+		var thin_area := travel_raycast_down.get_collider() as ThinArea
+		if thin_area:
 			if Input.is_action_just_pressed("travel_down"):
 				travel_tween.interpolate_property(self, "global_position:y", global_position.y,
-						collider.destination_down_position.y, 0.2, Tween.TRANS_LINEAR)
+						thin_area.destination_down_position.y, 0.2, Tween.TRANS_LINEAR)
 				travel_tween.start()
 		
 	if travel_raycast_up.is_colliding():
-		var collider: Area2D = travel_raycast_up.get_collider()
-		if collider is ThinArea:
+		var thin_area := travel_raycast_up.get_collider() as ThinArea
+		if thin_area:
+			# Tweening
 			if Input.is_action_just_pressed("travel_up"):
 				travel_tween.interpolate_property(self, "global_position:y", global_position.y,
-						collider.destination_up_position.y, 0.2, Tween.TRANS_LINEAR)
+						thin_area.destination_up_position.y, 0.2, Tween.TRANS_LINEAR)
 				travel_tween.start()
 
-
+	if stun_raycast.is_colliding():
+		var guard := stun_raycast.get_collider() as Guard
+		if guard and Input.is_action_just_pressed("stun"):
+			guard.stun()
+	
+	
 func check_if_dark() -> void:
 	# if there are no overlapping areas, just set light_level to dark
 	if $PlayerLightArea.get_overlapping_areas() == []:
