@@ -50,7 +50,7 @@ shape = SubResource( 2 )
 [node name="RayCast2DUp" type="RayCast2D" parent="TravelRayCasts"]
 position = Vector2( -0.330444, -28.743 )
 enabled = true
-cast_to = Vector2( 0, -15 )
+cast_to = Vector2( 0, -30 )
 collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
@@ -67,3 +67,8 @@ collide_with_bodies = false
 position = Vector2( 5.24408, -15.5449 )
 enabled = true
 cast_to = Vector2( 20, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_smoothed = true
+smoothing_speed = 50.0
