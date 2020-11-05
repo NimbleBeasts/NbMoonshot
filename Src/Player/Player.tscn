@@ -67,4 +67,3 @@ collide_with_bodies = false
 position = Vector2( 5.24408, -15.5449 )
 enabled = true
 cast_to = Vector2( 20, 0 )
-[connection signal="area_entered" from="PlayerLightArea" to="." method="_on_PlayerArea_area_entered"]

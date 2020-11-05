@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 		speed = normal_speed
 		acceleration = normal_acceleration
 	
-	check_if_dark()
+	update_light_level()
 	
 	# wall dodging
 	if Input.is_action_pressed("wall_dodge"):
@@ -97,16 +97,23 @@ func _physics_process(delta: float) -> void:
 		if (guard) and (Input.is_action_just_pressed("stun")) and (not guard.is_stunned):
 			guard.stun()
 	
-	print(visible_level)
 	
-func check_if_dark() -> void:
+func update_light_level() -> void:
 	# if there are no overlapping areas, just set light_level to dark
 	# this works because the detecting area and the light areas are in their own collision layer
 	if $PlayerLightArea.get_overlapping_areas() == []:
 		set_light_level(Types.LightLevels.Dark)
-		return 
-
-
+		return
+	
+	# this will only run if light area is actually colliding with a light because of the return
+	# this area and the lights have their own collision layer
+	for area in $PlayerLightArea.get_overlapping_areas():
+		if area.is_in_group("FullLight"):
+			set_light_level(Types.LightLevels.FullLight)
+		elif area.is_in_group("BarelyVisible"):
+			set_light_level(Types.LightLevels.BarelyVisible)
+	
+	
 func travel(target_pos: float) -> void:
 	# just tweening position
 	travel_tween.interpolate_property(self, "global_position:y", global_position.y, 
@@ -115,13 +122,6 @@ func travel(target_pos: float) -> void:
 	# emits small noise
 	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise)
 				
-
-func _on_PlayerArea_area_entered(area: Area2D) -> void:
-	if area.is_in_group("FullLight"):
-		set_light_level(Types.LightLevels.FullLight)
-	elif area.is_in_group("BarelyVisible"):
-		set_light_level(Types.LightLevels.BarelyVisible)
-
 
 func _on_minigame_entered(type: int) -> void:
 	can_move = false
@@ -138,8 +138,8 @@ func set_light_level(value: int) -> void:
 		# updates visible level when updating light_level
 		# this is why a custom setter function is needed, may forgot to set visible level and
 		# will fuk everything up
-		visible_level = value
-		Events.emit_signal("light_level_changed", value)
+		visible_level = light_level
+		Events.emit_signal("light_level_changed", light_level)
 	
 	
 # use this function to set state

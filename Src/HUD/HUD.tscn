@@ -20,5 +20,9 @@ texture = ExtResource( 3 )
 hframes = 3
 frame = 2
 
+[node name="GoBackToNormal" type="Timer" parent="AudioIndicator"]
+wait_time = 0.4
+
 [node name="WebMonetization" parent="." instance=ExtResource( 4 )]
 position = Vector2( 544, 12 )
+[connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]
