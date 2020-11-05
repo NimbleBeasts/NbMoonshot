@@ -94,6 +94,7 @@ func _physics_process(delta: float) -> void:
 						thin_area.destination_up_position.y, 0.2, Tween.TRANS_LINEAR)
 				travel_tween.start()
 
+	# stunning guards
 	if stun_raycast.is_colliding():
 		var guard := stun_raycast.get_collider() as Guard
 		if guard and Input.is_action_just_pressed("stun"):

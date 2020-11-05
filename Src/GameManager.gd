@@ -2,6 +2,9 @@ extends Control
 
 var state = Types.GameStates.Menu
 var levelNode = null
+var possible_detection_num: int = 0
+var sure_detection_num: int = 0
+
 
 func _ready():
 	# Set Viewport Sizes to Project Settings
@@ -77,8 +80,8 @@ func _switchFullscreen(value):
 func _on_player_detected(detection_level: int) -> void:
 	match detection_level:
 		Types.DetectionLevels.Possible:
-			print("possible detection")
+			possible_detection_num += 1
+			Events.emit_signal("possible_detection_num_changed", possible_detection_num)
 		Types.DetectionLevels.Sure:
-			print("sure detection")
-	
-	
+			sure_detection_num += 1
+			Events.emit_signal("sure_detection_num_changed", sure_detection_num)

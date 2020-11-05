@@ -24,11 +24,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
-	
 
-func _on_DirectionChangeTimer_timeout():
-	change_direction()
-	
 
 func change_direction() -> void:
 	# flips moving_right, also flips the direction.x
@@ -41,6 +37,9 @@ func stun() -> void:
 	$Sprite.modulate = Color.black
 
 
+func _on_DirectionChangeTimer_timeout():
+	change_direction()
+	
 func _on_LineOfSight_area_entered(area: Area2D) -> void:
 	# detecting player
 	if area.is_in_group("PlayerArea"):
@@ -55,6 +54,3 @@ func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 
 
-func _on_GuardArea_area_entered(area: Area2D) -> void:
-	if area.is_in_group("StunArea"):
-		stun_area_entered = true

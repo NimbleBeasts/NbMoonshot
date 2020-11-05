@@ -26,6 +26,8 @@ signal web_monetization_pulse(isPaying)
 
 #Detection
 signal player_detected(detection_type) # Types.DetectionLevels
+signal possible_detection_num_changed(value)
+signal sure_detection_num_changed(value)
 
 # Sound
 signal play_sound(sound, volume, pos)
