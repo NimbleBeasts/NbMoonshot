@@ -26,6 +26,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
+	match state:
+		Types.GuardStates.PlayerDetected:
+			direction = Vector2(0,0)
+			if $SureDetectionTimer.is_stopped():
+				$SureDetectionTimer.start()
 
 
 func change_direction() -> void:
@@ -40,7 +45,9 @@ func stun() -> void:
 	is_stunned = true
 	if $StunDurationTimer.is_stopped():
 		$StunDurationTimer.start()
-
+	# stops sure detection timer on stop
+	if not $SureDetectionTimer.is_stopped():
+		$SureDetectionTimer.stop()
 
 func unstun() -> void:
 	direction = starting_direction
@@ -49,7 +56,8 @@ func unstun() -> void:
 	
 	
 func _on_DirectionChangeTimer_timeout():
-	change_direction()
+	if state == Types.GuardStates.Wander:
+		change_direction()
 	
 	
 func _on_LineOfSight_area_entered(area: Area2D) -> void:
@@ -65,12 +73,9 @@ func _on_LineOfSight_area_entered(area: Area2D) -> void:
 				set_state(Types.GuardStates.Suspect)
 			Types.LightLevels.Dark:
 				set_state(Types.GuardStates.Wander)
-				
-		direction = Vector2(0,0)
-		if $SureDetectionTimer.is_stopped():
-			$SureDetectionTimer.start()
 
-
+# this gets started when this guard's state changes to PlayerDetected
+# on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
 func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 
