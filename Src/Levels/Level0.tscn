@@ -132,7 +132,7 @@ position = Vector2( 224, 136 )
 [node name="ColorRect" type="ColorRect" parent="WorldDarkener"]
 margin_right = 640.0
 margin_bottom = 360.0
-color = Color( 0, 0, 0, 0.501961 )
+color = Color( 0, 0, 0, 0.376471 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false

@@ -24,6 +24,7 @@ onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
 onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
 onready var stun_raycast: RayCast2D = $StunRayCast
+onready var player_sprite: Sprite = $PlayerSprite
 
 
 func _init() -> void:
@@ -63,9 +64,19 @@ func _process(delta: float) -> void:
 	
 	
 func _physics_process(delta: float) -> void:
+	$Label.set_text(str(position))
 	# movement code
 	if can_move:
 		direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		
+		# Flip sprite if necessary
+		if direction.x == -1 and player_sprite.flip_h == false:
+			player_sprite.flip_h = true
+			stun_raycast.cast_to *= Vector2(-1, 1) 
+		elif direction.x == 1 and player_sprite.flip_h == true:
+			player_sprite.flip_h = false
+			stun_raycast.cast_to *= Vector2(-1, 1) 
+			
 		direction = direction.normalized()
 	else:
 		direction = Vector2(0,0)

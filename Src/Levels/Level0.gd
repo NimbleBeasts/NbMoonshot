@@ -1,6 +1,11 @@
 extends Node2D
 
 
+func _process(delta):
+	var mouse = get_global_mouse_position() 
+	$HUD/Label.set_text("Mouse Pos: " + str(mouse))
+
+
 func _on_ButtonBack_button_up():
 	Events.emit_signal("play_sound", "menu_click")
 	Events.emit_signal("menu_back")
