@@ -8,3 +8,14 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="FOV" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FOV"]
+polygon = PoolVector2Array( 3.24472, -1.01829, 3.24472, -1.01829, 55.8728, 13.2156, 42.5753, 30.0716 )
+
+[node name="SureDetectionTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="area_entered" from="FOV" to="." method="_on_FOV_area_entered"]
+[connection signal="area_exited" from="FOV" to="." method="_on_FOV_area_exited"]
+[connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]

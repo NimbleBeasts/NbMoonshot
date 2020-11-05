@@ -17,7 +17,6 @@ func _ready():
 	Events.connect_signal("new_game", self, "_newGame")
 	Events.connect_signal("menu_back", self, "_backToMenu")
 	
-	
 	switchTo(Types.GameStates.Menu)
 
 # State Transition Function
@@ -72,4 +71,5 @@ func _switchMusic(value):
 # Event Hook: Switch to fullscreen mode and update user config
 func _switchFullscreen(value):
 	Global.setFullscreen(value)
+
 

@@ -1,16 +1,21 @@
 extends Node2D
 
+var player_detected: bool = false
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_FOV_area_entered(area: Area2D) -> void:
+	if area.is_in_group("PlayerArea"):
+		Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
+		player_detected = true
+		if $SureDetectionTimer.is_stopped():
+			$SureDetectionTimer.start()
+		
+		
+func _on_FOV_area_exited(area: Area2D) -> void:
+	if area.is_in_group("PlayerArea"):
+		player_detected = false
+		if not $SureDetectionTimer.is_stopped():
+			$SureDetectionTimer.stop()
+	
+	
+func _on_SureDetectionTimer_timeout() -> void:
+	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)

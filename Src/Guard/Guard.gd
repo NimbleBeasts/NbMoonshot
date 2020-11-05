@@ -18,17 +18,11 @@ func _ready() -> void:
 	direction = starting_direction 
 	$SureDetectionTimer.wait_time = time_to_sure_direction
 
+
 func _process(delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
 	
-	#Player detection
-	if player_detected:
-		direction = Vector2(0,0)
-		# Starts a timer to emit sure detection
-		if $SureDetectionTimer.is_stopped():
-			$SureDetectionTimer.start()
-			
 
 func _on_DirectionChangeTimer_timeout():
 	change_direction()
@@ -44,7 +38,10 @@ func _on_LineOfSight_area_entered(area: Area2D) -> void:
 	if area.is_in_group("PlayerArea"):
 		Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
 		player_detected = true
+		direction = Vector2(0,0)
+		if $SureDetectionTimer.is_stopped():
+			$SureDetectionTimer.start()
 
 
-func _on_SureDetectionTimer_timeout():
+func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)

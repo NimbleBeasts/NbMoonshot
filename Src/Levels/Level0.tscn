@@ -28,10 +28,10 @@ position = Vector2( 343.359, 203.604 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
-position = Vector2( 408, 264 )
+position = Vector2( 388.918, 213.489 )
 
 [node name="Camera2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 208, 168 )
+position = Vector2( 268.613, 162.388 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
