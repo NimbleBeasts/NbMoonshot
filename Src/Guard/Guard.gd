@@ -11,6 +11,7 @@ var velocity: Vector2
 var direction: Vector2
 var player_detected: bool = false
 var is_stunned: bool = false
+var state: int = Types.GuardStates.Wander # Types.GuardStates
 
 
 func _ready() -> void:
@@ -46,16 +47,25 @@ func unstun() -> void:
 	$Sprite.modulate = Color.white
 	is_stunned = false
 	
-
+	
 func _on_DirectionChangeTimer_timeout():
 	change_direction()
 	
 	
 func _on_LineOfSight_area_entered(area: Area2D) -> void:
 	# detecting player
-	if area.is_in_group("PlayerArea"):
-		Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
-		player_detected = true
+	if area.is_in_group("PlayerArea") and not is_stunned:
+		
+		# checks player visible level and sets state according to that
+		match Global.player.visible_level:
+			Types.LightLevels.FullLight:
+				set_state(Types.GuardStates.PlayerDetected)
+				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
+			Types.LightLevels.BarelyVisible:
+				set_state(Types.GuardStates.Suspect)
+			Types.LightLevels.Dark:
+				set_state(Types.GuardStates.Wander)
+				
 		direction = Vector2(0,0)
 		if $SureDetectionTimer.is_stopped():
 			$SureDetectionTimer.start()
@@ -67,3 +77,8 @@ func _on_SureDetectionTimer_timeout() -> void:
 
 func _on_StunDurationTimer_timeout() -> void:
 	unstun()
+
+
+func set_state(new_state) -> void:
+	if state != new_state:
+		state = new_state
