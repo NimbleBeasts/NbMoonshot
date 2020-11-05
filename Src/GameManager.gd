@@ -16,6 +16,7 @@ func _ready():
 	Events.connect_signal("switch_fullscreen", self, "_switchFullscreen")
 	Events.connect_signal("new_game", self, "_newGame")
 	Events.connect_signal("menu_back", self, "_backToMenu")
+	Events.connect("player_detected", self, "_on_player_detected")
 	
 	switchTo(Types.GameStates.Menu)
 
@@ -72,4 +73,12 @@ func _switchMusic(value):
 func _switchFullscreen(value):
 	Global.setFullscreen(value)
 
-
+# Event Hook: Player detection
+func _on_player_detected(detection_level: int) -> void:
+	match detection_level:
+		Types.DetectionLevels.Possible:
+			print("possible detection")
+		Types.DetectionLevels.Sure:
+			print("sure detection")
+	
+	

@@ -14,10 +14,11 @@ var stun_area_entered: bool = false
 
 
 func _ready() -> void:
+	# sets the wait_time to the exported variabel
 	$DirectionChangeTimer.wait_time = direction_change_time
+	$SureDetectionTimer.wait_time = time_to_sure_direction
 	$DirectionChangeTimer.start()
 	direction = starting_direction 
-	$SureDetectionTimer.wait_time = time_to_sure_direction
 
 
 func _process(delta: float) -> void:
@@ -34,13 +35,14 @@ func change_direction() -> void:
 	moving_right = not moving_right
 	direction.x *= -1
 
-
+# stun function.
 func stun() -> void:
 	direction = Vector2(0,0)
 	$Sprite.modulate = Color.black
 
 
 func _on_LineOfSight_area_entered(area: Area2D) -> void:
+	# detecting player
 	if area.is_in_group("PlayerArea"):
 		Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
 		player_detected = true

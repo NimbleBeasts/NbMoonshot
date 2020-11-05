@@ -1,7 +1,7 @@
 class_name Minigame
 extends Node2D
 
-export (Types.Minigames) var type
+export (Types.Minigames) var minigame_type
 
 var result: int
 var owner_door # the door that owns this minigame
@@ -29,7 +29,7 @@ func open() -> void:
 			global_position, screen_center, 0.2, Tween.TRANS_LINEAR)
 	tween.start()
 	# Emits signal
-	Events.emit_signal("minigame_entered", type)
+	Events.emit_signal("minigame_entered", minigame_type)
 
 
 func close(minigame_result: int = Types.MinigameResults.Failed) -> void:
@@ -40,3 +40,5 @@ func close(minigame_result: int = Types.MinigameResults.Failed) -> void:
 	tween.start()
 	# Emits signal
 	Events.emit_signal("minigame_exited", result)
+
+

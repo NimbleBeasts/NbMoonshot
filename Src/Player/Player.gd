@@ -102,6 +102,7 @@ func _physics_process(delta: float) -> void:
 	
 func check_if_dark() -> void:
 	# if there are no overlapping areas, just set light_level to dark
+	# this works because the detecting area and the light areas are in their own collision layer
 	if $PlayerLightArea.get_overlapping_areas() == []:
 		set_light_level(Types.LightLevels.Dark)
 		return 
