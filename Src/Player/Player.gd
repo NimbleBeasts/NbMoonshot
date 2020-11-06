@@ -101,6 +101,7 @@ func _physics_process(delta: float) -> void:
 		if thin_area:
 			if Input.is_action_just_pressed("travel_down"):
 				travel(thin_area.destination_down_position.y)
+				$AnimationPlayer.play("jump_down")
 				
 	if travel_raycast_up.is_colliding():
 		var thin_area := travel_raycast_up.get_collider() as ThinArea
@@ -108,6 +109,7 @@ func _physics_process(delta: float) -> void:
 			# Tweening
 			if Input.is_action_just_pressed("travel_up"):
 				travel(thin_area.destination_up_position.y)
+				$AnimationPlayer.play("jump_up")
 				
 				
 	# stunning guards
@@ -171,6 +173,13 @@ func set_state(value: int) -> void:
 # Change animation
 func animation_change(to: String) -> void:
 	if $AnimationPlayer.current_animation != to:
-		print("change to:" + to)
-		$AnimationPlayer.play(to)
+		# TODO: this is ugly - rework me
+		if $AnimationPlayer.current_animation != "jump_up" and $AnimationPlayer.current_animation != "jump_down" :
+			print("change to:" + to)
+			$AnimationPlayer.play(to)
 		
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "jump_up" or anim_name == "jump_down":
+		$AnimationPlayer.play("idle")
