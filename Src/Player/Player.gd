@@ -2,9 +2,9 @@ class_name Player
 extends KinematicBody2D
 
 # movement variables
-export var normal_speed: int = 100
+export var normal_speed: int = 80
 export var normal_acceleration: int = 600
-export var sprint_speed: int = 400
+export var sprint_speed: int = 160
 export var sprint_acceleration: int = 2500
 
 var direction: Vector2
@@ -67,7 +67,6 @@ func _process(delta: float) -> void:
 	
 	
 func _physics_process(delta: float) -> void:
-	$Label.set_text(str(position))
 	# movement code
 	if can_move:
 		direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -75,10 +74,10 @@ func _physics_process(delta: float) -> void:
 		# Flip sprite if necessary
 		if direction.x == -1 and player_sprite.flip_h == false:
 			player_sprite.flip_h = true
-			stun_raycast.cast_to *= Vector2(-1, 1) 
+			stun_raycast.cast_to *= Vector2(-1, 1)
 		elif direction.x == 1 and player_sprite.flip_h == true:
 			player_sprite.flip_h = false
-			stun_raycast.cast_to *= Vector2(-1, 1) 
+			stun_raycast.cast_to *= Vector2(-1, 1)
 			
 		direction = direction.normalized()
 	else:
@@ -87,6 +86,12 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(direction * speed, acceleration * delta)
 	velocity = move_and_slide(velocity)
 	
+	$Label.set_text(str(abs(velocity.x)))
+	if abs(velocity.x) == 0:
+		animation_change("idle")
+	else:
+		animation_change("walk")
+		
 	# Traveling up and down
 	# Only needs to check if the respective direction key for each raycast is pressed
 	# means only need to check if up is pressed when up raycast is colliding and vice versa
@@ -162,5 +167,10 @@ func set_light_level(value: int) -> void:
 func set_state(value: int) -> void:
 	if state != value:
 		state = value
-	
+
+# Change animation
+func animation_change(to: String) -> void:
+	if $AnimationPlayer.current_animation != to:
+		print("change to:" + to)
+		$AnimationPlayer.play(to)
 		

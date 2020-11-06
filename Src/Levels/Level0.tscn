@@ -98,7 +98,7 @@ tile_data = PoolIntArray( 1048600, 0, 0, 1048601, 0, 1, 1048602, 0, 1, 1048603, 
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 0
-color = Color( 0.698039, 0.698039, 0.698039, 1 )
+color = Color( 0.788235, 0.788235, 0.788235, 1 )
 
 [node name="LevelObjects" type="Node2D" parent="."]
 
