@@ -36,7 +36,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	Events.connect("minigame_entered", self,  "_on_minigame_entered")
-	Events.connect("minigame_exited", self, "_on_minigame_exited")		
+	Events.connect("minigame_exited", self, "_on_minigame_exited")
+	$AnimationPlayer.play("idle")
 
 
 func _process(delta: float) -> void:
@@ -114,11 +115,15 @@ func _physics_process(delta: float) -> void:
 				
 	# stunning guards
 	if stun_battery_level > 0:
-		if stun_raycast.is_colliding():
-			var guard := stun_raycast.get_collider() as Guard
-			if (guard) and (Input.is_action_just_pressed("stun")) and (not guard.is_stunned):
-				guard.stun(stun_duration)
-				stun_battery_level -= 1
+		if Input.is_action_just_pressed("stun"):
+			$AnimationPlayer.play("taser")
+			if stun_raycast.is_colliding():
+				var guard := stun_raycast.get_collider() as Guard
+				if (guard) and (not guard.is_stunned):
+					guard.stun(stun_duration)
+					stun_battery_level -= 1
+
+
 	
 	
 func update_light_level() -> void:
@@ -147,6 +152,7 @@ func travel(target_pos: float) -> void:
 				
 
 func _on_minigame_entered(type: int) -> void:
+	$AnimationPlayer.play("action")
 	can_move = false
 
 
@@ -173,13 +179,13 @@ func set_state(value: int) -> void:
 # Change animation
 func animation_change(to: String) -> void:
 	if $AnimationPlayer.current_animation != to:
-		# TODO: this is ugly - rework me
-		if $AnimationPlayer.current_animation != "jump_up" and $AnimationPlayer.current_animation != "jump_down" :
+		
+		if $AnimationPlayer.current_animation == "idle" and to == "walk" or \
+			$AnimationPlayer.current_animation == "walk" and to == "idle":
 			print("change to:" + to)
 			$AnimationPlayer.play(to)
 		
 
-
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "jump_up" or anim_name == "jump_down":
-		$AnimationPlayer.play("idle")
+	# Only non-looped animation will reach this point
+	$AnimationPlayer.play("idle")
