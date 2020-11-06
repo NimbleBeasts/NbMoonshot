@@ -21,6 +21,7 @@ func _ready():
 	Events.connect_signal("menu_back", self, "_backToMenu")
 	Events.connect("player_detected", self, "_on_player_detected")
 	Events.connect("possible_detection_num_changed", self, "_on_possible_detection_num_changed")
+	
 	switchTo(Types.GameStates.Menu)
 
 # State Transition Function
@@ -51,7 +52,9 @@ func unloadLevel():
 func reloadLevel():
 	unloadLevel()
 	loadLevel(current_level)
-
+	possible_detection_num = 0
+	sure_detection_num = 0
+	print("reloaded level")
 
 func getCurrentLevel():
 	return levelNode
@@ -103,5 +106,4 @@ func _on_player_detected(detection_level: int) -> void:
 func _on_possible_detection_num_changed(num: int) -> void:
 	if num >= getCurrentLevel().allowed_detections:
 		reloadLevel()
-	else:
-		getCurrentLevel().allowed_detections += 1
+			
