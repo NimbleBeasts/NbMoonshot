@@ -133,7 +133,5 @@ func set_state(new_state) -> void:
 func update_flip() -> void:
 	if direction.x != 0:
 		$Flippable.scale.x = direction.x
-		return
-	$Flippable.scale.x = 1
 
 	
