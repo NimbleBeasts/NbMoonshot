@@ -35,7 +35,8 @@ func create_minigame() -> Minigame:
 	game_manager.levelNode.add_child(minigame_instance)
 	
 	# sets position to bottom center of the screen
-	minigame_instance.global_position = Vector2(get_viewport_rect().size.x / 2,  get_viewport_rect().size.y)
+	var screen_bottom_center := Vector2(Global.player.camera.get_camera_screen_center().x, Global.player.camera.get_camera_screen_center().y + 900)
+	minigame_instance.global_position = screen_bottom_center
 	minigame_instance.owner_obj = self # sets owner obj to self so it has a reference to this node
 	
 	return minigame_instance

@@ -25,7 +25,7 @@ onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
 onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
 onready var stun_raycast: RayCast2D = $StunRayCast
 onready var player_sprite: Sprite = $PlayerSprite
-
+onready var camera: Camera2D = $Camera2D
 
 func _init() -> void:
 	Global.player = self

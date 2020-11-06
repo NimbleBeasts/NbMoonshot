@@ -23,7 +23,8 @@ func _process(delta: float) -> void:
 	
 # Basically open and close minigame are just tweening the minigame position 
 func open() -> void:
-	var screen_center: Vector2 = get_viewport_rect().size / 2
+#	var screen_center: Vector2 = get_viewport_rect().size / 2
+	var screen_center: Vector2 = Global.player.camera.get_camera_screen_center()
 	# tweening position 
 	tween.interpolate_property(self, "global_position", 
 			global_position, screen_center, 0.2, Tween.TRANS_LINEAR)
@@ -33,7 +34,7 @@ func open() -> void:
 
 
 func close(minigame_result: int = Types.MinigameResults.Failed) -> void:
-	var screen_bottom_center := Vector2(get_viewport_rect().size.x / 2,  get_viewport_rect().size.y + 500) #adds a bit for extra measure
+	var screen_bottom_center := Vector2(Global.player.camera.get_camera_screen_center().x, Global.player.camera.get_camera_screen_center().y + 900)
 	# tweening position 
 	tween.interpolate_property(self, "global_position", 
 			global_position, screen_bottom_center, 0.2, Tween.TRANS_LINEAR)
