@@ -9,10 +9,9 @@ export var stun_duration: float = 2
 
 var velocity: Vector2
 var direction: Vector2
-var player_detected: bool = false
 var is_stunned: bool = false
 var state: int = Types.GuardStates.Wander # Types.GuardStates
-
+var player_in_los: bool = false
 
 func _ready() -> void:
 	# sets the wait_time to the exported variable
@@ -30,8 +29,21 @@ func _process(delta: float) -> void:
 		Types.GuardStates.PlayerDetected:
 			direction = Vector2(0,0)
 			$DirectionChangeTimer.stop()
-			
-			
+	
+	# the player could be in dark visible level when the overlap happens and it would check according to that
+	# then the player could move to full light and it wouldn't get called unless it's a new overlap
+	# so we have to do set a bool on area entered and check in _process
+	if player_in_los:
+		match Global.player.visible_level:
+			Types.LightLevels.FullLight:
+				set_state(Types.GuardStates.PlayerDetected)
+				player_in_los = false
+			Types.LightLevels.BarelyVisible:
+				set_state(Types.GuardStates.Suspect)
+			Types.LightLevels.Dark:
+				set_state(Types.GuardStates.Wander)
+		
+		
 func change_direction() -> void:
 	# flips the direction.x
 	direction.x *= -1
@@ -64,16 +76,8 @@ func _on_DirectionChangeTimer_timeout():
 func _on_LineOfSight_area_entered(area: Area2D) -> void:
 	# detecting player
 	if area.is_in_group("PlayerArea") and not is_stunned:
-		
-		# checks player visible level and sets state according to that
-		match Global.player.visible_level:
-			Types.LightLevels.FullLight:
-				set_state(Types.GuardStates.PlayerDetected)
-				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
-			Types.LightLevels.BarelyVisible:
-				set_state(Types.GuardStates.Suspect)
-			Types.LightLevels.Dark:
-				set_state(Types.GuardStates.Wander)
+		player_in_los = true
+
 
 # this gets started when this guard's state changes to PlayerDetected
 # on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
@@ -93,3 +97,10 @@ func set_state(new_state) -> void:
 			Types.GuardStates.PlayerDetected:
 				if $SureDetectionTimer.is_stopped():
 					$SureDetectionTimer.start()
+				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
+
+
+func _on_LineOfSight_area_exited(area: Area2D) -> void:
+	if area.is_in_group("PlayerArea"):
+		player_in_los = false
+

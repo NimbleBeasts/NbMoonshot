@@ -26,7 +26,7 @@ shape = SubResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LineOfSight"]
 position = Vector2( -0.943878, -0.471939 )
-polygon = PoolVector2Array( 6.42472, -23.2078, 61.8793, -28.1934, 61.0847, -10.9771 )
+polygon = PoolVector2Array( 6.30218, -21.1539, 62.676, -31.0801, 62.3014, 1.13346 )
 
 [node name="SureDetectionTimer" type="Timer" parent="."]
 one_shot = true
@@ -41,5 +41,6 @@ energy = 0.8
 range_item_cull_mask = 2
 [connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_DirectionChangeTimer_timeout"]
 [connection signal="area_entered" from="LineOfSight" to="." method="_on_LineOfSight_area_entered"]
+[connection signal="area_exited" from="LineOfSight" to="." method="_on_LineOfSight_area_exited"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]

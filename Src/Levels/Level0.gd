@@ -1,5 +1,6 @@
 extends Node2D
 
+var allowed_detections: int = 3
 
 func _process(delta):
 	var mouse = get_global_mouse_position() 
