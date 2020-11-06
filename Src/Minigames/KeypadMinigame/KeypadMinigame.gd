@@ -1,35 +1,50 @@
 extends Minigame
 
-var clicked_array := []
 #var goal_array := generate_randint_array(5)
-export (Array, int) var goal_array: Array
+export (int) var goal: int
 
+var input = ""
 
 func _ready() -> void:
-	for button in $Control/GridContainer.get_children():
+	for button in $Input.get_children():
 		button.connect("button_clicked", self, "_on_button_clicked")
 	
 
-	$GoalLabel.text = convert_array_to_string(goal_array)
-	$ClickedLabel.text = convert_array_to_string(clicked_array)
+	$GoalLabel.text = str(goal)
 	
+	# Clear display
+	clearDisplay()
 
-func _on_button_clicked(num: int) -> void:
-	clicked_array.append(num)
-	
-	$ClickedLabel.text = convert_array_to_string(clicked_array)
-	
-	# if got correct goal
-	if clicked_array == goal_array:
-		set_result(Types.MinigameResults.Succeeded)
-		close()
-	elif clicked_array.size() >= goal_array.size():
-		set_result(Types.MinigameResults.Failed)
-		close()
-		
 
-func convert_array_to_string(array: Array) -> String:
-	var result = str(array)
-	result.erase(result.length() - 1, 1)
-	result.erase(0, 1)
-	return result
+# Clear the display
+func clearDisplay():
+	$Display/Digit0.frame = 10
+	$Display/Digit1.frame = 10
+	$Display/Digit2.frame = 10
+	$Display/Digit3.frame = 10
+
+func updateDisplay():
+	var offset = input.length() - 1
+	for i in range(offset + 1):
+		get_node("Display/Digit" + str(i)).frame = int(input[offset - i])
+
+func _on_button_clicked(num: String) -> void:
+	if num == "§":  # Enter sign
+		if goal == int(input):
+			set_result(Types.MinigameResults.Succeeded)
+		else:
+			set_result(Types.MinigameResults.Failed)
+		close()
+
+	elif num == "*":
+		input = ""
+		$AnimationPlayer.play("clear")
+	else:
+		# Is a number
+		if input.length() < 4:
+			input += str(num)
+			updateDisplay()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	clearDisplay()

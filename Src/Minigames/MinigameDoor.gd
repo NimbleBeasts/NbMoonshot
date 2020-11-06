@@ -2,7 +2,7 @@ class_name MinigameDoor
 extends Area2D
 
 export (Types.Minigames) var type
-export (Array, int) var lock_code: Array
+export (int) var lock_code: int
 
 var player_entered: bool = false
 var minigame: Minigame
@@ -48,7 +48,7 @@ func get_minigame_instance_by_type() -> Minigame:
 			result = load("res://Src/Minigames/TestMinigame.tscn").instance()
 		Types.Minigames.Keypad:
 			result = load("res://Src/Minigames/KeypadMinigame/KeypadMinigame.tscn").instance()
-			result.goal_array = lock_code
+			result.goal = lock_code
 	
 	return result
 	

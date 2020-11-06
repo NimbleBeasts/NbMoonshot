@@ -1,10 +1,18 @@
-extends Button
+extends Sprite
 
 signal button_clicked(num)
 
-func _ready() -> void:
-	connect("button_up", self, "_on_button_up")
+export(String) var label = "9"
+
+func _ready():
+	$Label.set_text(label)
+
+func _on_TextureButton_button_down():
+	self.frame = 1
+	$Label.rect_position.y = 2
+	emit_signal("button_clicked", $Label.text)
 
 
-func _on_button_up() -> void:
-	emit_signal("button_clicked", int(text))
+func _on_TextureButton_button_up():
+	self.frame = 0
+	$Label.rect_position.y = 0

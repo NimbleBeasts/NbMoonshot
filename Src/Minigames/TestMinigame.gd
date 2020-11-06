@@ -56,6 +56,7 @@ func close() -> void:
 
 
 func set_result(value: int):
+	print("result: " + str(value))
 	if result != value:
 		result = value
 
