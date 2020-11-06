@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Src/Levels/Level0.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Assets/Skyboxes/CityBlueish_L3.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Skyboxes/CityBlueish_BG.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Skyboxes/Ground.png" type="Texture" id=17]
+[ext_resource path="res://Src/Laser/Laser.tscn" type="PackedScene" id=18]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
@@ -151,10 +152,6 @@ position = Vector2( 296, 192 )
 position = Vector2( 327.409, 190.523 )
 starting_direction = Vector2( -1, 0 )
 
-[node name="Guard2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 297.679, 190.523 )
-starting_direction = Vector2( -1, 0 )
-
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
 [node name="Label" type="Label" parent="HUD"]
@@ -194,6 +191,9 @@ text = "ToggleSound"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Laser" parent="." instance=ExtResource( 18 )]
+position = Vector2( 407.662, 172.03 )
 [connection signal="button_up" from="HUD/ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="HUD/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="HUD/ButtonSound" to="." method="_on_ButtonSound_button_up"]

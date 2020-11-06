@@ -81,6 +81,7 @@ func unstun() -> void:
 	# can check for stunned bodies again
 	get_tree().set_group("Guard", "check_for_stunned", true)
 	
+	
 func _on_DirectionChangeTimer_timeout():
 	if state == Types.GuardStates.Wander:
 		change_direction()
