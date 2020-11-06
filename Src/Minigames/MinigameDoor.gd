@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 func create_minigame() -> Minigame:
 	# Spawning minigame scene
 	var minigame_instance: Minigame = minigame_scene.instance()
-	get_tree().current_scene.add_child(minigame_instance)
+	game_manager.levelNode.get_node("HUD").add_child(minigame_instance)
 	
 	# sets position to bottom center of the screen
 	var screen_bottom_center := Vector2(Global.player.camera.get_camera_screen_center().x, Global.player.camera.get_camera_screen_center().y + 900)

@@ -10,8 +10,9 @@ var is_open: bool = false
 onready var tween: Tween = $Tween
 
 func _ready() -> void:
-	set_result(Types.MinigameResults.Failed)
-
+	set_result(Types.MinigameResults.Doing)
+	tween.connect("tween_all_completed", self, "_on_tween_all_completed")
+	
 
 func _process(delta: float) -> void:
 	if owner_obj:
@@ -25,7 +26,6 @@ func _process(delta: float) -> void:
 	
 # Basically open and close minigame are just tweening the minigame position 
 func open() -> void:
-#	var screen_center: Vector2 = get_viewport_rect().size / 2
 	var screen_center: Vector2 = Global.player.camera.get_camera_screen_center()
 	# tweening position 
 	tween.interpolate_property(self, "global_position", 
@@ -53,3 +53,9 @@ func close() -> void:
 func set_result(value: int):
 	if result != value:
 		result = value
+
+
+func _on_tween_all_completed() -> void:
+	match result:
+		Types.MinigameResults.Succeeded, Types.MinigameResults.Failed:
+			queue_free()
