@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
 [ext_resource path="res://Assets/HUD/AudioIndicator.png" type="Texture" id=3]
 [ext_resource path="res://Src/WebMonetization/WebMonetization.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/HUD/HoverIndicator.png" type="Texture" id=6]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -14,6 +16,15 @@ texture = ExtResource( 2 )
 hframes = 3
 frame = 2
 
+[node name="LightHover" type="Control" parent="LightIndicator"]
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 12.0
+margin_bottom = 12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AudioIndicator" type="Sprite" parent="."]
 position = Vector2( 584, 24 )
 texture = ExtResource( 3 )
@@ -23,6 +34,58 @@ frame = 2
 [node name="GoBackToNormal" type="Timer" parent="AudioIndicator"]
 wait_time = 0.4
 
+[node name="AudioHover" type="Control" parent="AudioIndicator"]
+margin_left = -8.0
+margin_top = -12.0
+margin_right = 16.0
+margin_bottom = 12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="WebMonetization" parent="." instance=ExtResource( 4 )]
 position = Vector2( 544, 12 )
+
+[node name="WebHover" type="Control" parent="WebMonetization"]
+margin_right = 24.0
+margin_bottom = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hovers" type="Node2D" parent="."]
+visible = false
+position = Vector2( 544, 40 )
+
+[node name="Background" type="ColorRect" parent="Hovers"]
+margin_left = -112.0
+margin_top = 8.0
+margin_right = 88.0
+margin_bottom = 32.0
+color = Color( 0.227451, 0.266667, 0.4, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Hovers"]
+margin_left = -108.0
+margin_top = 13.0
+margin_right = 85.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 5 )
+text = "This is your visibilty indicator."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Indicator" type="Sprite" parent="Hovers"]
+position = Vector2( 43, 0 )
+texture = ExtResource( 6 )
+[connection signal="mouse_entered" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_entered"]
+[connection signal="mouse_exited" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_exited"]
 [connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]
+[connection signal="mouse_entered" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_entered"]
+[connection signal="mouse_exited" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_exited"]
+[connection signal="mouse_entered" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_entered"]
+[connection signal="mouse_exited" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_exited"]

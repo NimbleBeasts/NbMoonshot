@@ -22,6 +22,9 @@
 script = ExtResource( 1 )
 
 [node name="Skybox" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="FixedBackground" type="CanvasLayer" parent="Skybox"]
 layer = -101
@@ -67,6 +70,17 @@ position = Vector2( 0, 256 )
 texture = ExtResource( 17 )
 centered = false
 
+[node name="BackgroundDarken" type="CanvasLayer" parent="Skybox"]
+
+[node name="ColorRect" type="ColorRect" parent="Skybox/BackgroundDarken"]
+margin_right = 640.0
+margin_bottom = 360.0
+color = Color( 0, 0, 0, 0.376471 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
 [node name="DummyBuilding" type="Sprite" parent="."]
 light_mask = 3
 position = Vector2( 192, 128 )
@@ -81,50 +95,54 @@ occluder_light_mask = 3
 format = 1
 tile_data = PoolIntArray( 1048600, 0, 0, 1048601, 0, 1, 1048602, 0, 1, 1048603, 0, 0, 1048608, 0, 0, 1048609, 0, 1, 1048610, 0, 1, 1048611, 0, 1, 1048612, 0, 1, 1048613, 0, 1, 1048614, 0, 1, 1048615, 0, 1, 1048616, 0, 1, 1048617, 0, 1, 1048618, 0, 1, 1048619, 0, 1, 1048620, 0, 2, 1048621, 0, 1, 1048622, 0, 1, 1048623, 0, 1, 1048624, 0, 1, 1048625, 0, 1, 1048626, 0, 1, 1048627, 0, 1, 1048628, 0, 1, 1048629, 0, 1, 1048630, 0, 1, 1048631, 0, 1, 1048632, 0, 3, 1114136, 0, 65536, 1114148, 0, 65536, 1114156, 0, 65536, 1114168, 0, 65536, 1179672, 0, 65536, 1179684, 0, 65536, 1179692, 0, 65536, 1179704, 0, 65536, 1245208, 0, 65536, 1245220, 0, 65538, 1245228, 0, 65538, 1245240, 0, 65536, 1310744, 0, 65536, 1310776, 0, 65536, 1376280, 0, 65536, 1376312, 0, 65536, 1441816, 0, 65536, 1441848, 0, 65536, 1507352, 0, 65536, 1507384, 0, 65536, 1572888, 0, 65536, 1572889, 0, 1, 1572890, 0, 1, 1572891, 0, 0, 1572896, 0, 0, 1572897, 0, 1, 1572898, 0, 1, 1572899, 0, 1, 1572900, 0, 1, 1572901, 0, 1, 1572902, 0, 1, 1572903, 0, 1, 1572904, 0, 1, 1572905, 0, 1, 1572906, 0, 1, 1572907, 0, 1, 1572908, 0, 1, 1572909, 0, 1, 1572910, 0, 1, 1572911, 0, 1, 1572912, 0, 1, 1572913, 0, 1, 1572914, 0, 1, 1572915, 0, 1, 1572916, 0, 1, 1572917, 0, 1, 1572918, 0, 1, 1572919, 0, 1, 1572920, 0, 0, 1638424, 0, 65536, 1638436, 0, 65536, 1638444, 0, 65536, 1638456, 0, 65536, 1703960, 0, 65536, 1703972, 0, 65536, 1703980, 0, 65536, 1703992, 0, 65536, 1769496, 0, 65536, 1769508, 0, 65538, 1769516, 0, 65538, 1769528, 0, 65536, 1835032, 0, 65536, 1835064, 0, 65536, 1900568, 0, 65536, 1900600, 0, 65536, 1966104, 0, 65536, 1966136, 0, 65536, 2031640, 0, 65536, 2031672, 0, 65536, 2097176, 0, 65536, 2097177, 0, 1, 2097178, 0, 1, 2097179, 0, 0, 2097184, 0, 0, 2097185, 0, 1, 2097186, 0, 1, 2097187, 0, 1, 2097188, 0, 1, 2097189, 0, 1, 2097190, 0, 1, 2097191, 0, 1, 2097192, 0, 1, 2097193, 0, 1, 2097194, 0, 1, 2097195, 0, 1, 2097196, 0, 2, 2097197, 0, 1, 2097198, 0, 1, 2097199, 0, 1, 2097200, 0, 1, 2097201, 0, 1, 2097202, 0, 1, 2097203, 0, 1, 2097204, 0, 1, 2097205, 0, 1, 2097206, 0, 1, 2097207, 0, 1, 2097208, 0, 0, 2162712, 0, 65536, 2162724, 0, 65536, 2162732, 0, 65536, 2162744, 0, 65536, 2228248, 0, 65536, 2228260, 0, 65536, 2228268, 0, 65536, 2228280, 0, 65536, 2293784, 0, 65536, 2293796, 0, 65538, 2293804, 0, 65538, 2293816, 0, 65536, 2359320, 0, 65536, 2359352, 0, 65536, 2424856, 0, 65536, 2424888, 0, 65536, 2490392, 0, 65536, 2490424, 0, 65536, 2555928, 0, 65536, 2555960, 0, 65536, 2621464, 0, 131072, 2621465, 0, 1, 2621466, 0, 1, 2621467, 0, 1, 2621468, 0, 1, 2621469, 0, 1, 2621470, 0, 1, 2621471, 0, 1, 2621472, 0, 1, 2621473, 0, 1, 2621474, 0, 1, 2621475, 0, 1, 2621476, 0, 1, 2621477, 0, 1, 2621478, 0, 1, 2621479, 0, 1, 2621480, 0, 1, 2621481, 0, 1, 2621482, 0, 1, 2621483, 0, 1, 2621484, 0, 1, 2621485, 0, 1, 2621486, 0, 1, 2621487, 0, 1, 2621488, 0, 1, 2621489, 0, 1, 2621490, 0, 1, 2621491, 0, 1, 2621492, 0, 1, 2621493, 0, 1, 2621494, 0, 1, 2621495, 0, 1, 2621496, 0, 131075 )
 
-[node name="ThinArea" parent="." instance=ExtResource( 12 )]
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+light_mask = 0
+color = Color( 0.698039, 0.698039, 0.698039, 1 )
+
+[node name="LevelObjects" type="Node2D" parent="."]
+
+[node name="ThinArea" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 224, 200 )
 
-[node name="ThinArea2" parent="." instance=ExtResource( 12 )]
+[node name="ThinArea2" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 224, 136 )
 
-[node name="ThinArea3" parent="." instance=ExtResource( 12 )]
+[node name="ThinArea3" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 224, 264 )
 
-[node name="Camera" parent="." instance=ExtResource( 5 )]
+[node name="Camera" parent="LevelObjects" instance=ExtResource( 5 )]
 position = Vector2( 360, 200 )
 
-[node name="Camera2" parent="." instance=ExtResource( 5 )]
+[node name="Camera2" parent="LevelObjects" instance=ExtResource( 5 )]
 position = Vector2( 352, 136 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="Staircase" parent="." instance=ExtResource( 6 )]
+[node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 400, 256 )
-connected_door_path = NodePath("../Staircase2")
+connected_door_path = NodePath("../LevelObjects/Staircase2")
 
-[node name="Staircase2" parent="." instance=ExtResource( 6 )]
+[node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 376, 192 )
-connected_door_path = NodePath("../Staircase")
+connected_door_path = NodePath("../LevelObjects/Staircase")
 
-[node name="Tresor" parent="." instance=ExtResource( 7 )]
+[node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 208, 192 )
 
-[node name="MinigameDoor" parent="." instance=ExtResource( 10 )]
+[node name="MinigameDoor" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 432, 168 )
 
-[node name="WorldDarkener" type="CanvasLayer" parent="."]
+[node name="Light" parent="LevelObjects" instance=ExtResource( 9 )]
+light_mask = 3
+position = Vector2( 312, 200 )
 
-[node name="ColorRect" type="ColorRect" parent="WorldDarkener"]
-margin_right = 640.0
-margin_bottom = 360.0
-color = Color( 0, 0, 0, 0.501961 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+[node name="Light3" parent="LevelObjects" instance=ExtResource( 9 )]
+light_mask = 3
+position = Vector2( 368, 264 )
 
-[node name="Light" parent="." instance=ExtResource( 9 )]
-position = Vector2( 280.8, 193.939 )
+[node name="Light2" parent="LevelObjects" instance=ExtResource( 9 )]
+light_mask = 3
+position = Vector2( 224, 136 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 296, 192 )

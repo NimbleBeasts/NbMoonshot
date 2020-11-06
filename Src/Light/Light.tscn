@@ -1,6 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Temp/LightTest2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Temp/Lamp.png" type="Texture" id=2]
+[ext_resource path="res://Src/Light/Light.gd" type="Script" id=3]
 
 [node name="Light" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="FullLight" type="Area2D" parent="." groups=[
 "FullLight",
@@ -9,7 +14,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FullLight"]
-polygon = PoolVector2Array( -12.8269, 4.62048, -24.75, 45.5, 31.7582, 46.6274, 13.8699, 5.2879 )
+polygon = PoolVector2Array( -6, 0, -23, 55, 23, 55, 6, 0 )
 
 [node name="BarelyVisible" type="Area2D" parent="." groups=[
 "BarelyVisible",
@@ -18,8 +23,23 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BarelyVisible"]
-polygon = PoolVector2Array( -53.4733, 45.6341, -25.1742, 44.9994, -12.8269, 4.78734 )
+polygon = PoolVector2Array( -48, 55, -23, 55, -6, 0 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BarelyVisible"]
 position = Vector2( 103.758, -2.62204 )
-polygon = PoolVector2Array( -89.8881, 7.57623, -71.8423, 49.5644, -33.8381, 49.3119 )
+polygon = PoolVector2Array( -97.758, 2.62204, -80.758, 57.622, -56.758, 57.622 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, 2 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 46 )
+color = Color( 1, 0.992157, 0.862745, 1 )
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = -2147483646
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 4 )
+texture = ExtResource( 2 )
+[connection signal="body_entered" from="FullLight" to="." method="_on_FullLight_body_entered"]
+[connection signal="body_entered" from="BarelyVisible" to="." method="_on_BarelyVisible_body_entered"]
