@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Temp/Guard.png" type="Texture" id=1]
 [ext_resource path="res://Src/Guard/Guard.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Temp/Lighttest.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.5942, 14.9364 )
@@ -37,13 +36,6 @@ position = Vector2( 7, 0.5 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
 position = Vector2( -0.943878, -0.471939 )
 polygon = PoolVector2Array( 6.30218, -21.1539, 43.7075, -28.0296, 41.5838, -7.02836 )
-
-[node name="Light2D" type="Light2D" parent="Flippable"]
-position = Vector2( 16, -14 )
-texture = ExtResource( 3 )
-texture_scale = 2.0
-energy = 0.8
-range_item_cull_mask = 2
 [connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_DirectionChangeTimer_timeout"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]
