@@ -11,7 +11,7 @@ var direction: Vector2
 var velocity: Vector2
 var speed: int = normal_speed
 var acceleration: int = normal_acceleration
-var can_move: int = true
+var is_in_minigame: int = false
 
 #  Use Types.LightLevels enum for both of these. Light level is in which light the player is in
 # and visible_level is actual visibility of player to guards and camera with wall dodging and other benefits
@@ -68,7 +68,7 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	# movement code
-	if can_move:
+	if (not is_in_minigame) and (not state == Types.PlayerStates.WallDodge):
 		direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		
 		# Flip sprite if necessary
@@ -147,11 +147,11 @@ func travel(target_pos: float) -> void:
 				
 
 func _on_minigame_entered(type: int) -> void:
-	can_move = false
+	is_in_minigame = true
 
 
 func _on_minigame_exited(type: int) -> void:
-	can_move = true
+	is_in_minigame = false
 	
 
 # use this function to set light_level instead of directly changing it
