@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	velocity = move_and_slide(velocity)
 	update_flip()
 	match state:
-		Types.GuardStates.PlayerDetected:
+		Types.GuardStates.PlayerDetected, Types.GuardStates.Suspect:
 			direction = Vector2(0,0)
 			$DirectionChangeTimer.stop()
 	
