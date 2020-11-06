@@ -193,7 +193,7 @@ __meta__ = {
 }
 
 [node name="Laser" parent="." instance=ExtResource( 18 )]
-position = Vector2( 240.078, 295.067 )
+position = Vector2( 407.662, 172.03 )
 [connection signal="button_up" from="HUD/ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="HUD/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="HUD/ButtonSound" to="." method="_on_ButtonSound_button_up"]

@@ -12,7 +12,6 @@ extents = Vector2( 7.5942, 14.9364 )
 script = ExtResource( 2 )
 speed = 25
 direction_change_time = 1.0
-audio_suspect_distance = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.883888, -13.7886 )
