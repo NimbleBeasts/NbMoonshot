@@ -18,16 +18,15 @@ func _ready() -> void:
 	# sets the wait_time to the exported variable
 	$DirectionChangeTimer.wait_time = direction_change_time
 	$SureDetectionTimer.wait_time = time_to_sure_direction
-	$StunDurationTimer.wait_time = stun_duration
 	$DirectionChangeTimer.start()
 	direction = starting_direction
-	
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
-
+	
 
 func _process(delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
+	update_flip()
 	match state:
 		Types.GuardStates.PlayerDetected:
 			direction = Vector2(0,0)
@@ -45,29 +44,28 @@ func _process(delta: float) -> void:
 				set_state(Types.GuardStates.Suspect)
 			Types.LightLevels.Dark:
 				set_state(Types.GuardStates.Wander)
-		
+
 		
 func change_direction() -> void:
 	# flips the direction.x
 	direction.x *= -1
-	self.scale.x = direction.x * -1
-
 
 # stun function.
-func stun() -> void:
+func stun(duration: int = stun_duration) -> void:
 	direction = Vector2(0,0)
-	$Sprite.modulate = Color.black
+	$Flippable/Sprite.modulate = Color.black
 	is_stunned = true
+	$StunDurationTimer.wait_time = duration
+	# timer stuff
 	if $StunDurationTimer.is_stopped():
 		$StunDurationTimer.start()
-	# stops sure detection timer on stun
-	if not $SureDetectionTimer.is_stopped():
-		$SureDetectionTimer.stop()
+	$DirectionChangeTimer.stop()
+	$SureDetectionTimer.stop()
 
 
 func unstun() -> void:
 	direction = starting_direction
-	$Sprite.modulate = Color.white
+	$Flippable/Sprite.modulate = Color.white
 	is_stunned = false
 	
 	
@@ -116,3 +114,9 @@ func set_state(new_state) -> void:
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
 			Types.GuardStates.Suspect:
 				print(name + " has suspicion")
+
+func update_flip() -> void:
+	if direction.x != 0:
+		$Flippable.scale.x = direction.x
+		return
+	$Flippable.scale.x = 1

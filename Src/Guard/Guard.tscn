@@ -12,35 +12,37 @@ script = ExtResource( 2 )
 speed = 25
 direction_change_time = 1.0
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-offset = Vector2( 0, -16 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.883888, -13.7886 )
 shape = SubResource( 1 )
 
 [node name="DirectionChangeTimer" type="Timer" parent="."]
 
-[node name="LineOfSight" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LineOfSight"]
-position = Vector2( -0.943878, -0.471939 )
-polygon = PoolVector2Array( 6.30218, -21.1539, 62.676, -31.0801, 62.3014, 1.13346 )
-
 [node name="SureDetectionTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="StunDurationTimer" type="Timer" parent="."]
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="Flippable" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Flippable"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -16 )
+
+[node name="LineOfSight" type="Area2D" parent="Flippable"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
+position = Vector2( -0.943878, -0.471939 )
+polygon = PoolVector2Array( 6.30218, -21.1539, 43.7075, -28.0296, 41.5838, -7.02836 )
+
+[node name="Light2D" type="Light2D" parent="Flippable"]
 position = Vector2( 16, -14 )
 texture = ExtResource( 3 )
 texture_scale = 2.0
 energy = 0.8
 range_item_cull_mask = 2
 [connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_DirectionChangeTimer_timeout"]
-[connection signal="area_entered" from="LineOfSight" to="." method="_on_LineOfSight_area_entered"]
-[connection signal="area_exited" from="LineOfSight" to="." method="_on_LineOfSight_area_exited"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]
+[connection signal="area_entered" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_area_entered"]
+[connection signal="area_exited" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_area_exited"]
