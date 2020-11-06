@@ -160,6 +160,7 @@ sprint_acceleration = 1200
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 8
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -14 )
