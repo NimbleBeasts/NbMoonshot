@@ -179,7 +179,6 @@ func animation_change(to: String) -> void:
 			$AnimationPlayer.play(to)
 		
 
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "jump_up" or anim_name == "jump_down":
 		$AnimationPlayer.play("idle")
