@@ -130,6 +130,7 @@ connected_door_path = NodePath("../LevelObjects/Staircase")
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 208, 192 )
 type = 1
+lock_code = [ 1, 3, 4, 5, 6 ]
 
 [node name="MinigameDoor" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 432, 168 )
