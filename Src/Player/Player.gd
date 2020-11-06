@@ -19,6 +19,8 @@ var light_level: int = Types.LightLevels.Dark
 var visible_level: int = light_level
 var state: int = Types.PlayerStates.Normal
 var colliding_with_travel: bool = false
+var stun_battery_level: int = 4
+var stun_duration: float = 4
 
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
@@ -26,6 +28,7 @@ onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
 onready var stun_raycast: RayCast2D = $StunRayCast
 onready var player_sprite: Sprite = $PlayerSprite
 onready var camera: Camera2D = $Camera2D
+
 
 func _init() -> void:
 	Global.player = self
@@ -103,10 +106,12 @@ func _physics_process(delta: float) -> void:
 				
 				
 	# stunning guards
-	if stun_raycast.is_colliding():
-		var guard := stun_raycast.get_collider() as Guard
-		if (guard) and (Input.is_action_just_pressed("stun")) and (not guard.is_stunned):
-			guard.stun()
+	if stun_battery_level > 0:
+		if stun_raycast.is_colliding():
+			var guard := stun_raycast.get_collider() as Guard
+			if (guard) and (Input.is_action_just_pressed("stun")) and (not guard.is_stunned):
+				guard.stun(stun_duration)
+				stun_battery_level -= 1
 	
 	
 func update_light_level() -> void:
