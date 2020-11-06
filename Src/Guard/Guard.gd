@@ -6,6 +6,7 @@ export var direction_change_time: float = 2
 export var starting_direction: Vector2
 export var time_to_sure_direction: float = 1.5
 export var stun_duration: float = 2
+export var audio_suspect_distance: int = 150
 
 var velocity: Vector2
 var direction: Vector2
@@ -20,6 +21,8 @@ func _ready() -> void:
 	$StunDurationTimer.wait_time = stun_duration
 	$DirectionChangeTimer.start()
 	direction = starting_direction
+	
+	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 
 
 func _process(delta: float) -> void:
@@ -89,18 +92,27 @@ func _on_StunDurationTimer_timeout() -> void:
 	unstun()
 
 
+func _on_LineOfSight_area_exited(area: Area2D) -> void:
+	if area.is_in_group("PlayerArea"):
+		player_in_los = false
+
+# Event Hook: audio level changed. audio_pos is the position where the audio notification happened
+func _on_audio_level_changed(audio_level: int, audio_pos: Vector2) -> void:
+	match audio_level:
+		Types.AudioLevels.LoudNoise:
+			if audio_pos.distance_to(global_position) < audio_suspect_distance:
+				set_state(Types.GuardStates.Suspect)
+
+
 func set_state(new_state) -> void:
 	if state != new_state:
 		state = new_state
 		
+		# Put stuff you want to do once when state changes here
 		match state:
 			Types.GuardStates.PlayerDetected:
 				if $SureDetectionTimer.is_stopped():
 					$SureDetectionTimer.start()
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
-
-
-func _on_LineOfSight_area_exited(area: Area2D) -> void:
-	if area.is_in_group("PlayerArea"):
-		player_in_los = false
-
+			Types.GuardStates.Suspect:
+				print(name + " has suspicion")

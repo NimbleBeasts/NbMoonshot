@@ -4,21 +4,21 @@ extends Node2D
 export (Types.Minigames) var minigame_type # this is for emitting correct type on minigame_entered signal
 
 var result: int
-var owner_door # the door that owns this minigame
+var owner_obj # the door that owns this minigame
 
 onready var tween: Tween = $Tween
 
 func _ready() -> void:
-	result = Types.MinigameResults.Failed
+	set_result(Types.MinigameResults.Failed)
 
 
 func _process(delta: float) -> void:
-	if owner_door.player_entered: # only can interact if player close to owner door
+	if owner_obj.player_entered: # only can interact if player close to owner door
 		if Input.is_action_just_pressed("open_minigame"):
 			open()
 			
 		if Input.is_action_just_pressed("close_minigame"):
-			close()		
+			close(result)		
 	
 	
 # Basically open and close minigame are just tweening the minigame position 
@@ -42,4 +42,9 @@ func close(minigame_result: int = Types.MinigameResults.Failed) -> void:
 	Events.emit_signal("minigame_exited", minigame_result)
 	# emit audio notification loud if fail minigame
 	if minigame_result == Types.MinigameResults.Failed:
-		Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise)
+		Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, owner_obj.global_position)
+
+
+func set_result(value: int) -> void:
+	if result != value:
+		result = value

@@ -1,3 +1,4 @@
+class_name MinigameDoor
 extends Area2D
 
 export (Types.Minigames) var type
@@ -7,7 +8,6 @@ var minigame: Minigame
 var minigame_scene
 
 onready var current_scene: Node = get_tree().current_scene
-onready var tween: Tween = $MinigameTween
 onready var game_manager := get_node("/root/GameManager")
 
 
@@ -36,7 +36,7 @@ func create_minigame() -> Minigame:
 	
 	# sets position to bottom center of the screen
 	minigame_instance.global_position = Vector2(get_viewport_rect().size.x / 2,  get_viewport_rect().size.y)
-	minigame_instance.owner_door = self # sets owner door to self
+	minigame_instance.owner_obj = self # sets owner obj to self so it has a reference to this node
 	
 	return minigame_instance
 	

@@ -8,7 +8,6 @@ extents = Vector2( 16.0773, 22.4131 )
 
 [node name="MinigameDoor" type="Area2D"]
 script = ExtResource( 2 )
-minigame_scene_path = "res://Src/Minigames/TestMinigame.tscn"
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.901961, 0.0705882, 0.0705882, 1 )
@@ -17,11 +16,3 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-
-[node name="PlayerTeleportPosition" type="Position2D" parent="."]
-position = Vector2( -0.749161, 19.8526 )
-__meta__ = {
-"_gizmo_extents_": 25.0
-}
-
-[node name="MinigameTween" type="Tween" parent="."]

@@ -114,7 +114,7 @@ position = Vector2( 224, 264 )
 position = Vector2( 360, 200 )
 
 [node name="Camera2" parent="LevelObjects" instance=ExtResource( 5 )]
-position = Vector2( 248.422, 136.397 )
+position = Vector2( 331.25, 137.658 )
 rotation = 2.90074
 scale = Vector2( 1, -1 )
 
