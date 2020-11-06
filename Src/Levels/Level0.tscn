@@ -135,7 +135,7 @@ position = Vector2( 432, 168 )
 
 [node name="Light" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
-position = Vector2( 312, 200 )
+position = Vector2( 291.339, 204.573 )
 
 [node name="Light3" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3

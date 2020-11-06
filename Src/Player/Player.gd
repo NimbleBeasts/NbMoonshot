@@ -128,7 +128,7 @@ func update_light_level() -> void:
 			set_light_level(Types.LightLevels.FullLight)
 		elif area.is_in_group("BarelyVisible"):
 			set_light_level(Types.LightLevels.BarelyVisible)
-	
+
 	
 func travel(target_pos: float) -> void:
 	# just tweening position
