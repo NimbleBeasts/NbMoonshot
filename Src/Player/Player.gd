@@ -112,15 +112,9 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("travel_up"):
 				travel(thin_area.destination_up_position.y)
 				$AnimationPlayer.play("jump_up")
-				
-				
-	# stunning guards
-	if stun_battery_level > 0:
-		if stun_raycast.is_colliding():
-			var guard := stun_raycast.get_collider() as Guard
-			if (guard) and (Input.is_action_just_pressed("stun")) and (not guard.is_stunned):
-				guard.stun(stun_duration)
-				stun_battery_level -= 1
+	
+	# stunning
+	if stun_battery_level > 0:				
 		if Input.is_action_just_pressed("stun"):
 			$AnimationPlayer.play("taser")
 			if stun_raycast.is_colliding():
@@ -130,8 +124,6 @@ func _physics_process(delta: float) -> void:
 					stun_battery_level -= 1
 
 
-	
-	
 func update_light_level() -> void:
 	# if there are no overlapping areas, just set light_level to dark
 	# this works because the detecting area and the light areas are in their own collision layer
