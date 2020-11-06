@@ -14,12 +14,13 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if owner_obj.player_entered: # only can interact if player close to owner door
-		if Input.is_action_just_pressed("open_minigame"):
-			open()
-			
-		if Input.is_action_just_pressed("close_minigame"):
-			close()		
+	if owner_obj:
+		if owner_obj.player_entered: # only can interact if player close to owner door
+			if Input.is_action_just_pressed("open_minigame"):
+				open()
+				
+			if Input.is_action_just_pressed("close_minigame"):
+				close()		
 	
 	
 # Basically open and close minigame are just tweening the minigame position 

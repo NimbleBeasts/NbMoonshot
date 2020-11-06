@@ -15,10 +15,13 @@ func _ready() -> void:
 	connect("area_entered", self, "_on_area_entered")
 	connect("area_exited", self, "_on_area_exited")
 	# sets minigame scene checking type
+	
 	match type:
 		Types.Minigames.Test:
 			minigame_scene = load("res://Src/Minigames/TestMinigame.tscn")
-	
+		Types.Minigames.Keypad:
+			minigame_scene = load("res://Src/Minigames/KeypadMinigame/KeypadMinigame.tscn")
+
 
 func _process(delta: float) -> void:
 	if player_entered: # if player is near
@@ -32,7 +35,7 @@ func _process(delta: float) -> void:
 func create_minigame() -> Minigame:
 	# Spawning minigame scene
 	var minigame_instance: Minigame = minigame_scene.instance()
-	game_manager.levelNode.add_child(minigame_instance)
+	get_tree().current_scene.add_child(minigame_instance)
 	
 	# sets position to bottom center of the screen
 	var screen_bottom_center := Vector2(Global.player.camera.get_camera_screen_center().x, Global.player.camera.get_camera_screen_center().y + 900)
