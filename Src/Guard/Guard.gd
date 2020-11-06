@@ -29,10 +29,11 @@ func _process(delta: float) -> void:
 	match state:
 		Types.GuardStates.PlayerDetected:
 			direction = Vector2(0,0)
+			$DirectionChangeTimer.stop()
 			
 			
 func change_direction() -> void:
-	# flips moving_right, also flips the direction.x
+	# flips the direction.x
 	direction.x *= -1
 	self.scale.x = direction.x * -1
 

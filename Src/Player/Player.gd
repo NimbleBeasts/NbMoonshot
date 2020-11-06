@@ -146,4 +146,5 @@ func set_light_level(value: int) -> void:
 func set_state(value: int) -> void:
 	if state != value:
 		state = value
+	
 		
