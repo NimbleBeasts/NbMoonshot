@@ -13,6 +13,9 @@ var direction: Vector2
 var is_stunned: bool = false
 var state: int = Types.GuardStates.Wander # Types.GuardStates
 var player_in_los: bool = false
+var check_for_stunned: bool = true
+
+onready var los_area: Area2D = $Flippable/LineOfSight
 
 func _ready() -> void:
 	# sets the wait_time to the exported variable
@@ -44,7 +47,15 @@ func _process(delta: float) -> void:
 				set_state(Types.GuardStates.Suspect)
 			Types.LightLevels.Dark:
 				set_state(Types.GuardStates.Wander)
-
+	
+	# checks for stunned bodies
+	if check_for_stunned:
+		for body in los_area.get_overlapping_bodies():
+			if body.is_in_group("Guard"):
+				if body.is_stunned:
+					Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
+					check_for_stunned = false
+		
 		
 func change_direction() -> void:
 	# flips the direction.x
@@ -67,7 +78,8 @@ func unstun() -> void:
 	direction = starting_direction
 	$Flippable/Sprite.modulate = Color.white
 	is_stunned = false
-	
+	# can check for stunned bodies again
+	get_tree().set_group("Guard", "check_for_stunned", true)
 	
 func _on_DirectionChangeTimer_timeout():
 	if state == Types.GuardStates.Wander:
@@ -94,6 +106,7 @@ func _on_LineOfSight_area_exited(area: Area2D) -> void:
 	if area.is_in_group("PlayerArea"):
 		player_in_los = false
 
+
 # Event Hook: audio level changed. audio_pos is the position where the audio notification happened
 func _on_audio_level_changed(audio_level: int, audio_pos: Vector2) -> void:
 	match audio_level:
@@ -115,8 +128,11 @@ func set_state(new_state) -> void:
 			Types.GuardStates.Suspect:
 				print(name + " has suspicion")
 
+
 func update_flip() -> void:
 	if direction.x != 0:
 		$Flippable.scale.x = direction.x
 		return
 	$Flippable.scale.x = 1
+
+	

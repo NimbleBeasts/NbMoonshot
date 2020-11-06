@@ -7,7 +7,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.5942, 14.9364 )
 
-[node name="Guard" type="KinematicBody2D"]
+[node name="Guard" type="KinematicBody2D" groups=[
+"Guard",
+]]
 script = ExtResource( 2 )
 speed = 25
 direction_change_time = 1.0
@@ -30,6 +32,7 @@ texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
+position = Vector2( 7, 0.5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
 position = Vector2( -0.943878, -0.471939 )
