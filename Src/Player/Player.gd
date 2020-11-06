@@ -41,7 +41,7 @@ func _ready() -> void:
 	$AnimationPlayer.play("idle")
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# changed between speeds depending on whether sprinting or not
 	if Input.is_action_pressed("sprint"):
 		speed = sprint_speed
@@ -120,7 +120,7 @@ func _physics_process(delta: float) -> void:
 			if stun_raycast.is_colliding():
 				var guard := stun_raycast.get_collider() as Guard
 				if (guard) and (not guard.is_stunned):
-					guard.stun(stun_duration)
+					guard.stun(stun_duration) #TODO: stun_duration is float, API is int
 					stun_battery_level -= 1
 
 
@@ -142,20 +142,22 @@ func update_light_level() -> void:
 	
 func travel(target_pos: float) -> void:
 	# just tweening position
+	#warning-ignore:return_value_discarded
 	travel_tween.interpolate_property(self, "global_position:y", global_position.y, 
 			target_pos, 0.2, Tween.TRANS_LINEAR)
+	#warning-ignore:return_value_discarded
 	travel_tween.start()
 	# emits small noise
 	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, global_position)
 				
 
-func _on_minigame_entered(type: int) -> void:
+func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
 	can_move = false
 	is_in_minigame = true
 
 
-func _on_minigame_exited(type: int) -> void:
+func _on_minigame_exited(_type: int) -> void:
 	is_in_minigame = false
 	
 
@@ -185,6 +187,6 @@ func animation_change(to: String) -> void:
 			$AnimationPlayer.play(to)
 		
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	# Only non-looped animation will reach this point
 	$AnimationPlayer.play("idle")

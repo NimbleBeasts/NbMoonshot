@@ -11,10 +11,11 @@ onready var tween: Tween = $Tween
 
 func _ready() -> void:
 	set_result(Types.MinigameResults.Doing)
+	#warning-ignore:return_value_discarded
 	tween.connect("tween_all_completed", self, "_on_tween_all_completed")
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if owner_obj:
 		if owner_obj.player_entered: # only can interact if player close to owner door
 			if Input.is_action_just_pressed("open_minigame"):
@@ -28,8 +29,10 @@ func _process(delta: float) -> void:
 func open() -> void:
 	var screen_center: Vector2 = Global.player.camera.get_camera_screen_center()
 	# tweening position 
+	#warning-ignore:return_value_discarded
 	tween.interpolate_property(self, "global_position", 
 			global_position, screen_center, 0.2, Tween.TRANS_LINEAR)
+	#warning-ignore:return_value_discarded
 	tween.start()
 	# Emits signal
 	Events.emit_signal("minigame_entered", minigame_type)
@@ -39,8 +42,10 @@ func open() -> void:
 func close() -> void:
 	var screen_bottom_center := Vector2(Global.player.camera.get_camera_screen_center().x, Global.player.camera.get_camera_screen_center().y + 900)
 	# tweening position 
+	#warning-ignore:return_value_discarded
 	tween.interpolate_property(self, "global_position", 
 			global_position, screen_bottom_center, 0.2, Tween.TRANS_LINEAR)
+	#warning-ignore:return_value_discarded
 	tween.start()
 	is_open = false
 	# Emits signal

@@ -47,7 +47,7 @@ signal switch_fullscreen(value)
 func connect(tSignal: String, target: Object, method: String, binds: Array = [], flags: int = 0):
 	if Global.DEBUG and DEBUG_OUTPUT_ON_SIGNAL_CONNECT:
 		print("Signal: [" + tSignal + "] -> " + str(target.name) + str(target))
-	return .connect(tSignal, target, method)
+	return .connect(tSignal, target, method, binds, flags)
 
 # Prints the Signal Connection List
 func debugGetSignalConnectionList(tSignal: String):

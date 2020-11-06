@@ -15,13 +15,15 @@ func _init() -> void:
 
 func _ready() -> void:
 	# connections
+	#warning-ignore:return_value_discarded
 	connect("area_entered", self, "_on_area_entered")
+	#warning-ignore:return_value_discarded
 	connect("area_exited", self, "_on_area_exited")
 	if not connected_door:
 		print("No connect door for " + name)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_entered:
 		if Input.is_action_just_pressed("interact"):
 			interact()

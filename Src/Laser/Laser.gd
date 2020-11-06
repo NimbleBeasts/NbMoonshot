@@ -2,7 +2,7 @@ extends Area2D
 
 var player_entered: bool = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_entered:
 		if Global.player.state != Types.PlayerStates.WallDodge:
 			Events.emit_signal("player_detected", Types.DetectionLevels.Possible)

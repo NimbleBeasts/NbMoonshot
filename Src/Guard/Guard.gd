@@ -26,7 +26,7 @@ func _ready() -> void:
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
 	update_flip()

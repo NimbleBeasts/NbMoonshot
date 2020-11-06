@@ -4,7 +4,7 @@ var state: int = Types.CameraStates.Normal
 var player_in_fov: bool = false
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_in_fov:
 		match Global.player.visible_level:
 			Types.LightLevels.FullLight:
