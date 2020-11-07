@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Minigames/WireCutBackground.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Minigames/WireCutColorCables.png" type="Texture" id=3]
 [ext_resource path="res://Src/Minigames/WireCutMinigame/Wire.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -157,9 +158,51 @@ shape = SubResource( 14 )
 [node name="Plier" type="Area2D" parent="." groups=[
 "Plier",
 ]]
+position = Vector2( 209.777, -54.1766 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plier"]
 shape = SubResource( 15 )
+
+[node name="Labels" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Labels"]
+margin_left = -37.0
+margin_top = -119.0
+margin_right = 84.0
+margin_bottom = -90.0
+custom_fonts/font = ExtResource( 5 )
+text = "Disable: cut the 
+     and         wires"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color1" type="Label" parent="Labels"]
+margin_left = -41.159
+margin_top = -103.016
+margin_right = -21.159
+margin_bottom = -89.0157
+custom_fonts/font = ExtResource( 5 )
+text = "RED"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Color2" type="Label" parent="Labels"]
+margin_left = 16.369
+margin_top = -103.309
+margin_right = 48.369
+margin_bottom = -89.3085
+custom_fonts/font = ExtResource( 5 )
+text = "BLUE "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="wire_cut" from="Wires/RedWire" to="." method="_on_wire_cut"]
 [connection signal="wire_cut" from="Wires/BlueWire" to="." method="_on_wire_cut"]
 [connection signal="wire_cut" from="Wires/GreenWire" to="." method="_on_wire_cut"]
