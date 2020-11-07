@@ -2,7 +2,7 @@ extends Minigame
 
 onready var plier: Area2D = $Plier
 
-export (Array, Types.WireColors) var goal_cuts: Array = []
+var goal_cuts: Array = []
 
 var wire_cut_status: Dictionary
 
@@ -19,6 +19,6 @@ func _on_wire_cut(color_type: int) -> void:
 	if wire_cut_status.has(color_type):
 		wire_cut_status[color_type] = true
 		
-	if wire_cut_status[goal_cuts[0]] and wire_cut_status[goal_cuts[1]]:
+	if wire_cut_status.values()[0] and wire_cut_status.values()[1]:
 		set_result(Types.MinigameResults.Succeeded)
 		close()

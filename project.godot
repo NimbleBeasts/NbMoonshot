@@ -19,10 +19,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Guard/Guard.gd"
 }, {
-"base": "Reference",
+"base": "Node2D",
 "class": "Minigame",
 "language": "GDScript",
 "path": "res://Src/Minigames/Minigame.gd"
+}, {
+"base": "MinigameSpawner",
+"class": "MinigameDoor",
+"language": "GDScript",
+"path": "res://Src/Door/MinigameDoor.gd"
 }, {
 "base": "Area2D",
 "class": "MinigameSpawner",
@@ -48,6 +53,7 @@ _global_script_class_icons={
 "Door": "",
 "Guard": "",
 "Minigame": "",
+"MinigameDoor": "",
 "MinigameSpawner": "",
 "Player": "",
 "ThinArea": "",

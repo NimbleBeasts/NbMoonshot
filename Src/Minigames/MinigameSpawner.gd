@@ -1,14 +1,11 @@
 class_name MinigameSpawner
 extends Area2D
 
-export (Types.Minigames) var type
-export (int) var lock_code: int
-
 var player_entered: bool = false
 var minigame: Minigame
+var minigame_scene: PackedScene
 var can_make_minigame: bool = true
 
-onready var current_scene: Node = get_tree().current_scene
 onready var game_manager := get_node("/root/GameManager")
 
 
@@ -25,11 +22,12 @@ func _process(_delta: float) -> void:
 			if not minigame: # if haven't created a minigame
 				# Creates a minigame and opens it 
 				minigame = create_minigame()
+				minigame.connect("result_changed", self, "_on_minigame_result_changed")
 				minigame.open()
 	
 	
 func create_minigame() -> Minigame:
-	var minigame_instance: Minigame = get_minigame_instance_by_type()
+	var minigame_instance: Minigame = minigame_scene.instance()
 	
 	game_manager.levelNode.get_node("HUD").add_child(minigame_instance)
 	minigame_instance.owner_obj = self # sets owner obj to self so it has a reference to this node
@@ -41,20 +39,7 @@ func create_minigame() -> Minigame:
 	
 	return minigame_instance
 
-# this function checks type and returns proper instance and also sets variables to exported variables here
-func get_minigame_instance_by_type() -> Minigame:
-	var result: Minigame
-	match type:
-		Types.Minigames.Test:
-			result = load("res://Src/Minigames/TestMinigame.tscn").instance()
-		Types.Minigames.Keypad:
-			result = load("res://Src/Minigames/KeypadMinigame/KeypadMinigame.tscn").instance()
-			result.goal = lock_code
-		Types.Minigames.WireCut:
-			result = load("res://Src/Minigames/WireCutMinigame/WireCutMinigame.tscn").instance()
-	return result
-	
-	
+
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("PlayerArea"):
 		player_entered = true
@@ -66,4 +51,7 @@ func _on_area_exited(area: Area2D) -> void:
 		player_entered = false
 		set_process(false)
 
-	
+
+func _on_minigame_result_changed(result: int) -> void:
+	if result == Types.MinigameResults.Succeeded:
+		can_make_minigame = false

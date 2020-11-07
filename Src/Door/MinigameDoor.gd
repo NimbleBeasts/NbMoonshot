@@ -1,4 +1,5 @@
 extends MinigameSpawner
+class_name MinigameDoor
 
 export var connected_door_path: NodePath
 var can_teleport: bool = false

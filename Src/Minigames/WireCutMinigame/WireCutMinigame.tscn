@@ -99,7 +99,6 @@ extents = Vector2( 10.8561, 8.75131 )
 position = Vector2( -9.52441, 26.9858 )
 script = ExtResource( 1 )
 minigame_type = 2
-goal_cuts = [ 1, 0 ]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
