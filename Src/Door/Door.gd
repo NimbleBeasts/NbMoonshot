@@ -5,7 +5,7 @@ export var connected_door_path: NodePath
 
 var player_entered: bool = false
 
-onready var connected_door: Door = get_node_or_null(connected_door_path)
+onready var connected_door = get_node_or_null(connected_door_path)
 onready var player: Player = Global.player
 
 

@@ -13,7 +13,20 @@ var enum2text: Dictionary = {
 }
 var wire_cut_status: Dictionary
 
+var wire_positions: Array = [
+	Vector2(-2.4, -53.7),
+	Vector2(-1.58, -19),
+	Vector2(-2.75, 7.6),
+	Vector2(0.1, 35)
+]
+
 func _ready() -> void:
+	# gives the wires a random order
+	randomize()
+	wire_positions.shuffle()
+	for i in $Wires.get_children().size():
+		$Wires.get_child(i).position = wire_positions[i]
+		
 	# basically loops through goal cuts, makes a new dict value 
 	# if is in iteration Types.MinigameResults.WireColors, makes a new dict key of that and
 	# sets the value to false

@@ -121,7 +121,7 @@ scale = Vector2( 1, -1 )
 
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 400, 256 )
-connected_door_path = NodePath("../Staircase2")
+connected_door_path = NodePath("../../MinigameDoor")
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 404.699, 316.14 )

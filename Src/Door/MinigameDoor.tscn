@@ -16,3 +16,6 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="PlayerTeleportPosition" type="Position2D" parent="."]
+position = Vector2( 0.374573, 20.2271 )
