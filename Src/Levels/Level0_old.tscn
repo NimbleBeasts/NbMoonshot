@@ -9,9 +9,10 @@
 [ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Door/Door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Src/Minigames/MinigameDoor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Src/Door/MinigameDoor.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
+
 
 [node name="Level0" type="Node2D"]
 position = Vector2( 0, 0.420456 )

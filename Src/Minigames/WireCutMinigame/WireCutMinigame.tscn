@@ -1,0 +1,144 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutMinigame.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Minigames/WireCutBackground.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Minigames/WireCutColorCables.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 184, 24 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 184, 0, 184, 24 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "cut",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 90.3279, 10 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 736, 0, 184, 24 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 920, 0, 184, 24 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "cut",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 368, 0, 184, 24 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 552, 0, 184, 24 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "cut",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 1104, 0, 184, 24 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 3 )
+region = Rect2( 1288, 0, 184, 24 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 13 ) ],
+"loop": true,
+"name": "cut",
+"speed": 5.0
+} ]
+
+[node name="WireCutMinigame" type="Node2D"]
+position = Vector2( -9.52441, 26.9858 )
+script = ExtResource( 1 )
+minigame_type = 2
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Wires" type="Node2D" parent="."]
+
+[node name="RedWire" type="Area2D" parent="Wires"]
+position = Vector2( -2.47488, -53.7401 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Wires/RedWire"]
+frames = SubResource( 3 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wires/RedWire"]
+shape = SubResource( 14 )
+
+[node name="BlueWire" type="Area2D" parent="Wires"]
+position = Vector2( -1.58398, -18.9951 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Wires/BlueWire"]
+frames = SubResource( 5 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wires/BlueWire"]
+shape = SubResource( 14 )
+
+[node name="GreenWire" type="Area2D" parent="Wires"]
+position = Vector2( -1.08398, 13.0049 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Wires/GreenWire"]
+frames = SubResource( 8 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wires/GreenWire"]
+shape = SubResource( 14 )
+
+[node name="PurpleWire" type="Area2D" parent="Wires"]
+position = Vector2( 0.175934, 35.0535 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Wires/PurpleWire"]
+frames = SubResource( 11 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wires/PurpleWire"]
+shape = SubResource( 14 )
+
+[node name="Tween" type="Tween" parent="."]
