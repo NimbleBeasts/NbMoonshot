@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/NPCs/Boss.png" type="Texture" id=1]
+[ext_resource path="res://Src/NPCs/Boss.gd" type="Script" id=2]
+
+[node name="Boss" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -16 )
+texture = ExtResource( 1 )
