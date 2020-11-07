@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Src/WebMonetization/WebMonetization.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Assets/HUD/HoverIndicator.png" type="Texture" id=6]
+[ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
+[ext_resource path="res://Assets/HUD/Note.png" type="Texture" id=8]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -82,6 +84,75 @@ __meta__ = {
 [node name="Indicator" type="Sprite" parent="Hovers"]
 position = Vector2( 43, 0 )
 texture = ExtResource( 6 )
+
+[node name="Dialog" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -64.0
+margin_right = 160.0
+margin_bottom = -8.0
+texture = ExtResource( 7 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="Dialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+custom_fonts/normal_font = ExtResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+bbcode_enabled = true
+bbcode_text = "Text: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever."
+text = "Text: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Note" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -56.0
+margin_right = 96.0
+margin_bottom = 56.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="Note"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 12.0
+margin_right = -16.0
+margin_bottom = -12.0
+custom_fonts/normal_font = ExtResource( 5 )
+custom_colors/default_color = Color( 0.121569, 0.0941176, 0.2, 1 )
+bbcode_enabled = true
+bbcode_text = "-- Close with ESC --
+Lorem Ipsum is simply dummy text of ..."
+text = "-- Close with ESC --
+Lorem Ipsum is simply dummy text of ..."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="mouse_entered" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_entered"]
 [connection signal="mouse_exited" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_exited"]
 [connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]

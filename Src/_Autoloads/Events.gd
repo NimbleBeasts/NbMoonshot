@@ -21,6 +21,12 @@ signal audio_level_changed(newLevel, audio_pos) #Types.AudioLevels
 signal minigame_entered(minigame_type) #Types.Minigames
 signal minigame_exited(result) #Types.Minigames
 
+# HUD
+signal hud_note_show(text)
+signal hud_note_exited()
+signal hud_dialog_show(name, nameColor, text)
+signal hud_dialog_exited()
+
 # WebMonetization Pulse
 signal web_monetization_pulse(isPaying)
 
