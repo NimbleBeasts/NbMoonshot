@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Minigames/Minigame.gd"
 }, {
-"base": "MinigameSpawner",
+"base": "WireCutSpawner",
 "class": "MinigameDoor",
 "language": "GDScript",
 "path": "res://Src/Door/MinigameDoor.gd"
@@ -48,6 +48,11 @@ _global_script_classes=[ {
 "class": "Wire",
 "language": "GDScript",
 "path": "res://Src/Minigames/WireCutMinigame/Wire.gd"
+}, {
+"base": "MinigameSpawner",
+"class": "WireCutSpawner",
+"language": "GDScript",
+"path": "res://Src/Minigames/WireCutMinigame/WireCutSpawner.gd"
 } ]
 _global_script_class_icons={
 "Door": "",
@@ -57,7 +62,8 @@ _global_script_class_icons={
 "MinigameSpawner": "",
 "Player": "",
 "ThinArea": "",
-"Wire": ""
+"Wire": "",
+"WireCutSpawner": ""
 }
 
 [application]

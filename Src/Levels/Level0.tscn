@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Src/Levels/Level0.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://Assets/Skyboxes/CityBlueish_L3.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Skyboxes/CityBlueish_BG.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Skyboxes/Ground.png" type="Texture" id=17]
-[ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutSpawner.gd" type="Script" id=18]
 [ext_resource path="res://Src/Minigames/KeypadMinigame/KeypadMinigameSpawner.gd" type="Script" id=19]
 
 [node name="Level1" type="Node2D"]
@@ -122,11 +121,11 @@ scale = Vector2( 1, -1 )
 
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 400, 256 )
-connected_door_path = NodePath("../LevelObjects/Staircase2")
+connected_door_path = NodePath("../Staircase2")
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
-position = Vector2( 376, 192 )
-connected_door_path = NodePath("../LevelObjects/Staircase")
+position = Vector2( 404.699, 316.14 )
+connected_door_path = NodePath("../Staircase")
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 208, 192 )
@@ -194,8 +193,8 @@ __meta__ = {
 
 [node name="MinigameDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 419.57, 172.311 )
-script = ExtResource( 18 )
 wire_cuts = [ 1, 2 ]
+connected_door_path = NodePath("../LevelObjects/Staircase")
 [connection signal="button_up" from="HUD/ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="HUD/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="HUD/ButtonSound" to="." method="_on_ButtonSound_button_up"]

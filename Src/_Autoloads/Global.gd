@@ -60,7 +60,8 @@ var stateSeed = int(3458764513820540928)
 
 # Node References
 var player
-
+onready var screen_center := get_viewport().get_visible_rect().size / 2
+onready var screen_bottom_center = Vector2(get_viewport().get_visible_rect().size.x / 2, get_viewport().get_visible_rect().size.y + 500)
 
 ###############################################################################
 # Functions

@@ -1,5 +1,5 @@
-extends MinigameSpawner
 class_name MinigameDoor
+extends WireCutSpawner
 
 export var connected_door_path: NodePath
 var can_teleport: bool = false
@@ -40,3 +40,8 @@ func _on_area_exited(area: Area2D) -> void:
 		player_entered = false
 		set_process(false)
 
+
+func _on_minigame_result_changed(result: int) -> void:
+	if result == Types.MinigameResults.Succeeded:
+		can_teleport = true
+		can_make_minigame = false
