@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Minigames/WireCutBackground.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Minigames/WireCutColorCables.png" type="Texture" id=3]
+[ext_resource path="res://Src/Minigames/WireCutMinigame/Wire.gd" type="Script" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -91,10 +92,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 10.8561, 8.75131 )
+
 [node name="WireCutMinigame" type="Node2D"]
 position = Vector2( -9.52441, 26.9858 )
 script = ExtResource( 1 )
 minigame_type = 2
+goal_cuts = [ 1, 0 ]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -103,8 +108,9 @@ texture = ExtResource( 2 )
 
 [node name="RedWire" type="Area2D" parent="Wires"]
 position = Vector2( -2.47488, -53.7401 )
+script = ExtResource( 4 )
 
-[node name="Sprite" type="AnimatedSprite" parent="Wires/RedWire"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Wires/RedWire"]
 frames = SubResource( 3 )
 animation = "normal"
 
@@ -113,8 +119,10 @@ shape = SubResource( 14 )
 
 [node name="BlueWire" type="Area2D" parent="Wires"]
 position = Vector2( -1.58398, -18.9951 )
+script = ExtResource( 4 )
+color_type = 3
 
-[node name="Sprite" type="AnimatedSprite" parent="Wires/BlueWire"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Wires/BlueWire"]
 frames = SubResource( 5 )
 animation = "normal"
 
@@ -122,9 +130,11 @@ animation = "normal"
 shape = SubResource( 14 )
 
 [node name="GreenWire" type="Area2D" parent="Wires"]
-position = Vector2( -1.08398, 13.0049 )
+position = Vector2( -2.75253, 7.66557 )
+script = ExtResource( 4 )
+color_type = 2
 
-[node name="Sprite" type="AnimatedSprite" parent="Wires/GreenWire"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Wires/GreenWire"]
 frames = SubResource( 8 )
 animation = "normal"
 
@@ -133,8 +143,10 @@ shape = SubResource( 14 )
 
 [node name="PurpleWire" type="Area2D" parent="Wires"]
 position = Vector2( 0.175934, 35.0535 )
+script = ExtResource( 4 )
+color_type = 1
 
-[node name="Sprite" type="AnimatedSprite" parent="Wires/PurpleWire"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Wires/PurpleWire"]
 frames = SubResource( 11 )
 animation = "normal"
 
@@ -142,3 +154,14 @@ animation = "normal"
 shape = SubResource( 14 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Plier" type="Area2D" parent="." groups=[
+"Plier",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plier"]
+shape = SubResource( 15 )
+[connection signal="wire_cut" from="Wires/RedWire" to="." method="_on_wire_cut"]
+[connection signal="wire_cut" from="Wires/BlueWire" to="." method="_on_wire_cut"]
+[connection signal="wire_cut" from="Wires/GreenWire" to="." method="_on_wire_cut"]
+[connection signal="wire_cut" from="Wires/PurpleWire" to="." method="_on_wire_cut"]

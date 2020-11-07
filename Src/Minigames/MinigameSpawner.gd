@@ -50,7 +50,8 @@ func get_minigame_instance_by_type() -> Minigame:
 		Types.Minigames.Keypad:
 			result = load("res://Src/Minigames/KeypadMinigame/KeypadMinigame.tscn").instance()
 			result.goal = lock_code
-	
+		Types.Minigames.WireCut:
+			result = load("res://Src/Minigames/WireCutMinigame/WireCutMinigame.tscn").instance()
 	return result
 	
 	

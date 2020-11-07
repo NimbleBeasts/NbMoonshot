@@ -10,3 +10,4 @@ enum MinigameResults{Failed, Succeeded, Doing}
 enum DetectionLevels{Possible, Sure}
 enum GuardStates {Wander, Suspect, PlayerDetected}
 enum CameraStates {Normal, Suspect, PlayerDetected}
+enum WireColors {Red, Purple,Green, Blue}
