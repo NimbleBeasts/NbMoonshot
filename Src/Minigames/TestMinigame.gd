@@ -10,10 +10,10 @@ var is_open: bool = false
 onready var tween: Tween = $Tween
 
 func _ready() -> void:
-	set_result(Types.MinigameResults.Doing)
 	#warning-ignore:return_value_discarded
 	tween.connect("tween_all_completed", self, "_on_tween_all_completed")
-	
+	set_result(Types.MinigameResults.Doing)
+
 
 func _process(_delta: float) -> void:
 	if owner_obj:
@@ -23,6 +23,10 @@ func _process(_delta: float) -> void:
 				
 			if Input.is_action_just_pressed("close_minigame"):
 				close()		
+	
+	if Input.is_key_pressed(KEY_G):
+		set_result(Types.MinigameResults.Succeeded)
+		close()
 	
 	
 # Basically open and close minigame are just tweening the minigame position 
@@ -59,8 +63,11 @@ func set_result(value: int):
 	print("result: " + str(value))
 	if result != value:
 		result = value
-
-
+		# stop allowing owner to make minigames if succeeded
+		match result:
+			Types.MinigameResults.Succeeded:
+				owner_obj.can_make_minigame = false
+		
 func _on_tween_all_completed() -> void:
 	match result:
 		Types.MinigameResults.Succeeded, Types.MinigameResults.Failed:

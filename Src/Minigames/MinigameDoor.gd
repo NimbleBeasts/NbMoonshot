@@ -1,56 +1,31 @@
-class_name MinigameDoor
-extends Area2D
+extends MinigameSpawner
 
-export (Types.Minigames) var type
-export (int) var lock_code: int
+export var connected_door_path: NodePath
+var can_teleport: bool = false
 
-var player_entered: bool = false
-var minigame: Minigame
-var minigame_scene
-
-onready var current_scene: Node = get_tree().current_scene
-onready var game_manager := get_node("/root/GameManager")
-
+onready var connected_door: Door = get_node_or_null(connected_door_path)
+onready var player: Player = Global.player
 
 func _ready() -> void:
-	#warning-ignore:return_value_discarded
-	connect("area_entered", self, "_on_area_entered")
-	#warning-ignore:return_value_discarded
-	connect("area_exited", self, "_on_area_exited")
+	# connections
+	if not connected_door:
+		print("No connect door for " + name)
 	
 
 func _process(_delta: float) -> void:
-	if player_entered: # if player is near
-		if Input.is_action_just_pressed("open_minigame"):
-			if not minigame: # if haven't created a minigame
-				# Creates a minigame and opens it 
-				minigame = create_minigame()
-				minigame.open()
+	# teleporting
+	if can_teleport:
+		if player_entered:
+			if Input.is_action_just_pressed("interact"):
+				teleport()
 	
 	
-func create_minigame() -> Minigame:
-	var minigame_instance: Minigame = get_minigame_instance_by_type()
-
-	game_manager.levelNode.get_node("HUD").add_child(minigame_instance)
-	
-	# sets position to bottom center of the screen
-	var screen_bottom_center := Vector2(Global.player.camera.get_camera_screen_center().x, Global.player.camera.get_camera_screen_center().y + 900)
-	minigame_instance.global_position = screen_bottom_center
-	minigame_instance.owner_obj = self # sets owner obj to self so it has a reference to this node
-	
-	return minigame_instance
-
-# this function checks type and returns proper instance and also sets variables to exported variables here
-func get_minigame_instance_by_type() -> Minigame:
-	var result: Minigame
-	match type:
-		Types.Minigames.Test:
-			result = load("res://Src/Minigames/TestMinigame.tscn").instance()
-		Types.Minigames.Keypad:
-			result = load("res://Src/Minigames/KeypadMinigame/KeypadMinigame.tscn").instance()
-			result.goal = lock_code
-	
-	return result
+func teleport() -> void:
+	# teleports to connected door
+	if connected_door:
+		player.global_position = connected_door.get_node("PlayerTeleportPosition").global_position
+	else:
+		print("Trying to teleport but no connected door for " + name)
 	
 	
 func _on_area_entered(area: Area2D) -> void:
@@ -63,3 +38,4 @@ func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group("PlayerArea"):
 		player_entered = false
 		set_process(false)
+

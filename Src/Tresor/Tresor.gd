@@ -1,1 +1,1 @@
-extends MinigameDoor
+extends MinigameSpawner
