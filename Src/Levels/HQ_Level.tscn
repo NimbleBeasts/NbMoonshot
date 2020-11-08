@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Src/NPCs/Boss.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Src/NPCs/Secretary.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=23]
 
 [sub_resource type="TileSet" id=1]
 0/name = "green_base"
@@ -511,6 +512,14 @@ position = Vector2( 328, 256 )
 
 [node name="Boss" parent="LevelObjects" instance=ExtResource( 21 )]
 position = Vector2( 408, 256 )
+
+[node name="Note" parent="LevelObjects" instance=ExtResource( 23 )]
+position = Vector2( 64, 256 )
+highlight = true
+
+[node name="Note2" parent="LevelObjects" instance=ExtResource( 23 )]
+position = Vector2( 128, 256 )
+text = "This is a note text2"
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 160, 256 )
