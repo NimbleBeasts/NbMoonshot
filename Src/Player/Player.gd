@@ -11,7 +11,7 @@ var direction: Vector2
 var velocity: Vector2
 var speed: int = normal_speed
 var acceleration: int = normal_acceleration
-var is_in_minigame: int = false
+var block_input: bool = false
 var can_move = true
 
 #  Use Types.LightLevels enum for both of these. Light level is in which light the player is in
@@ -56,21 +56,27 @@ func _process(_delta: float) -> void:
 	if Input.is_action_pressed("wall_dodge"):
 		visible_level = light_level - 1
 		set_state(Types.PlayerStates.WallDodge)
+		$AnimationPlayer.play("dodge")
+		block_input = true
 	elif Input.is_action_just_released("wall_dodge"):
 		visible_level = light_level
 		set_state(Types.PlayerStates.Normal)
-	
+
+
 	# ducking
 	if Input.is_action_just_pressed("duck"):
 		if state != Types.PlayerStates.Duck:
 			set_state(Types.PlayerStates.Duck)
+			$AnimationPlayer.play("duck")
+			block_input = true
 		elif state == Types.PlayerStates.Duck:
 			set_state(Types.PlayerStates.Normal)
 	
+
 	
 func _physics_process(delta: float) -> void:
 	# movement code
-	if (not is_in_minigame) and (not state == Types.PlayerStates.WallDodge):
+	if not block_input:
 		direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		
 		# Flip sprite if necessary
@@ -155,11 +161,11 @@ func travel(target_pos: float) -> void:
 
 func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
-	is_in_minigame = true
+	block_input = true
 
 
 func _on_minigame_exited(_type: int) -> void:
-	is_in_minigame = false
+	block_input = false
 	
 
 # use this function to set light_level instead of directly changing it
@@ -177,6 +183,10 @@ func set_light_level(value: int) -> void:
 func set_state(value: int) -> void:
 	if state != value:
 		state = value
+		match state:
+			Types.PlayerStates.Normal:
+				$AnimationPlayer.play("idle")
+				block_input = false
 
 # Change animation
 func animation_change(to: String) -> void:

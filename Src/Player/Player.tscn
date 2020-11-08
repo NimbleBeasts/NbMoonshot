@@ -46,7 +46,7 @@ tracks/0/keys = {
 "values": [ 7, 0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=6]
 resource_name = "dodge"
 length = 0.1
 loop = true
@@ -63,7 +63,7 @@ tracks/0/keys = {
 "values": [ 8 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=7]
 resource_name = "dodge_walk"
 length = 0.45
 loop = true
@@ -81,7 +81,7 @@ tracks/0/keys = {
 "values": [ 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=8]
 resource_name = "duck"
 length = 0.1
 loop = true
@@ -98,7 +98,7 @@ tracks/0/keys = {
 "values": [ 12 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=9]
 resource_name = "duck_walk"
 length = 0.45
 loop = true
@@ -116,7 +116,7 @@ tracks/0/keys = {
 "values": [ 13, 12, 14 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=10]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -144,7 +144,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -16 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=11]
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
@@ -172,7 +172,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -16 ), Vector2( 0, -18 ), Vector2( 0, -16 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=12]
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
@@ -200,7 +200,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -16 ), Vector2( 0, -20 ), Vector2( 0, -16 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=13]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSprite:frame")
@@ -215,7 +215,7 @@ tracks/0/keys = {
 "values": [ 6, 0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=14]
 loop = true
 step = 0.2
 tracks/0/type = "value"
@@ -293,7 +293,7 @@ cast_to = Vector2( 20, 0 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 15
-frame = 13
+frame = 7
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -1, 0 )
@@ -314,19 +314,18 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/action = SubResource( 5 )
-anims/dodge = SubResource( 11 )
-anims/dodge_walk = SubResource( 12 )
-anims/duck = SubResource( 13 )
-anims/duck_walk = SubResource( 14 )
-anims/idle = SubResource( 6 )
-anims/jump_down = SubResource( 7 )
-anims/jump_up = SubResource( 8 )
-anims/taser = SubResource( 9 )
-anims/walk = SubResource( 10 )
+anims/dodge = SubResource( 6 )
+anims/dodge_walk = SubResource( 7 )
+anims/duck = SubResource( 8 )
+anims/duck_walk = SubResource( 9 )
+anims/idle = SubResource( 10 )
+anims/jump_down = SubResource( 11 )
+anims/jump_up = SubResource( 12 )
+anims/taser = SubResource( 13 )
+anims/walk = SubResource( 14 )
 
 [node name="NPCRayCast" type="RayCast2D" parent="."]
 position = Vector2( 0.689484, -15.129 )
-enabled = true
 cast_to = Vector2( 25, 0 )
 collision_mask = 8
 script = ExtResource( 4 )
