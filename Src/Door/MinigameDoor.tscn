@@ -8,6 +8,9 @@ extents = Vector2( 16.0773, 22.4131 )
 
 [node name="MinigameDoor" type="Area2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.901961, 0.0705882, 0.0705882, 1 )

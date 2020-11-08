@@ -21,7 +21,7 @@ func showDialog(pname: String, nameColor: String, text: String):
 
 func _physics_process(delta):
 	# Hide Note
-	if Input.is_action_just_pressed("close_minigame"):#TODO: rename and remap key to ESC
+	if Input.is_action_just_pressed("ui_cancel"):
 		if $Note.visible:
 			$Note.hide()
 			Events.emit_signal("hud_note_exited")

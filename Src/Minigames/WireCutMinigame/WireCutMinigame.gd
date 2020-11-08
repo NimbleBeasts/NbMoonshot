@@ -22,6 +22,7 @@ var wire_positions: Array = [
 
 func _ready() -> void:
 	# gives the wires a random order
+	# basically just shuffles the array and gives the children a position from it
 	randomize()
 	wire_positions.shuffle()
 	for i in $Wires.get_children().size():

@@ -557,9 +557,9 @@ __meta__ = {
 }
 
 [node name="MinigameDoor" parent="." instance=ExtResource( 10 )]
-position = Vector2( 504, 208 )
+position = Vector2( 501.172, 237.698 )
 wire_cuts = [ 1, 2 ]
-connected_door_path = NodePath("../../Headquarter/LevelObjects/Staircase")
+connected_door_path = NodePath("../LevelObjects/StaircaseL2_2")
 [connection signal="button_up" from="HUD/ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="HUD/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="HUD/ButtonSound" to="." method="_on_ButtonSound_button_up"]
