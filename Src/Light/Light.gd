@@ -23,7 +23,6 @@ func raycastToPlayer(targetPos):
 	print(debugPoints)
 	update()
 
-
 func _on_FullLight_body_entered(body):
 	if body.is_in_group("Player"):
 		raycastToPlayer(body.position - global_position)
