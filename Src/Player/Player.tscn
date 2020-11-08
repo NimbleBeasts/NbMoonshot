@@ -241,7 +241,6 @@ sprint_acceleration = 1200
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -14 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="PlayerLightArea" type="Area2D" parent="."]
 collision_layer = 2
