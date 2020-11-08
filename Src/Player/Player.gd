@@ -21,7 +21,7 @@ var visible_level: int = light_level
 var state: int = Types.PlayerStates.Normal
 var colliding_with_travel: bool = false
 var stun_battery_level: int = 4
-var stun_duration: float = 4
+var stun_duration: float = 4.0
 
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
@@ -120,7 +120,7 @@ func _physics_process(delta: float) -> void:
 			if stun_raycast.is_colliding():
 				var guard := stun_raycast.get_collider() as Guard
 				if (guard) and (not guard.is_stunned):
-					guard.stun(stun_duration) #TODO: stun_duration is float, API is int
+					guard.stun(stun_duration) #TODO: stun_duration is float, API is int. 
 					stun_battery_level -= 1
 
 
@@ -153,7 +153,6 @@ func travel(target_pos: float) -> void:
 
 func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
-	can_move = false
 	is_in_minigame = true
 
 

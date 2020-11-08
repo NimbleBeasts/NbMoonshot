@@ -62,7 +62,7 @@ func change_direction() -> void:
 	direction.x *= -1
 
 # stun function.
-func stun(duration: int = stun_duration) -> void:
+func stun(duration: int) -> void:
 	direction = Vector2(0,0)
 	$Flippable/Sprite.modulate = Color.black
 	is_stunned = true
@@ -115,7 +115,7 @@ func _on_audio_level_changed(audio_level: int, audio_pos: Vector2) -> void:
 			if audio_pos.distance_to(global_position) < audio_suspect_distance:
 				set_state(Types.GuardStates.Suspect)
 
-
+# use this function to set state instead of doing directly
 func set_state(new_state) -> void:
 	if state != new_state:
 		state = new_state
