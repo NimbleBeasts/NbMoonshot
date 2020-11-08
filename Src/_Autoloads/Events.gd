@@ -35,6 +35,9 @@ signal player_detected(detection_type) # Types.DetectionLevels
 signal possible_detection_num_changed(value)
 signal sure_detection_num_changed(value)
 
+# NPC
+signal interacted_with_npc(npc)
+
 
 # Sound
 signal play_sound(sound, volume, pos)

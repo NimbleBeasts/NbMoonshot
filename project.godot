@@ -35,6 +35,11 @@ _global_script_classes=[ {
 "path": "res://Src/Minigames/MinigameSpawner.gd"
 }, {
 "base": "KinematicBody2D",
+"class": "NPC",
+"language": "GDScript",
+"path": "res://Src/NPCs/NPCs.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Src/Player/Player.gd"
@@ -60,6 +65,7 @@ _global_script_class_icons={
 "Minigame": "",
 "MinigameDoor": "",
 "MinigameSpawner": "",
+"NPC": "",
 "Player": "",
 "ThinArea": "",
 "Wire": "",
@@ -180,6 +186,7 @@ stun={
 2d_physics/layer_1="General"
 2d_physics/layer_2="Lights"
 2d_physics/layer_3="TravelUpDown"
+2d_physics/layer_4="NPC"
 
 [rendering]
 
