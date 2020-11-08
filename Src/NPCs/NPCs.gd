@@ -3,6 +3,7 @@ extends Area2D
 
 export (String, FILE) var dialogue_path: String
 var player_entered: bool = false
+var interacted_counter: int = 1
 
 
 func _ready() -> void:
@@ -26,8 +27,13 @@ func load_dialogue() -> Dictionary:
 	var dialogue = parse_json(file.get_as_text())
 	return dialogue
 
-func interact():
-	pass
+
+func interact() -> void:
+	var dialogue := load_dialogue()
+	if not dialogue.empty() and dialogue.has(str(interacted_counter)):
+		print(dialogue[str(interacted_counter)]["text"])
+		interacted_counter += 1
+	
 
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
