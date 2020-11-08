@@ -37,7 +37,7 @@ const NB_PLUGIN_CONFIG = {
 
 # Level Array
 const levels = [
-	"res://Src/Levels/Level0.tscn",
+	"res://Src/Levels/HQ_Level.tscn",
 ]
 
 
