@@ -1,8 +1,13 @@
 {
-    "1" : {
-        "text" : "go to moon"
+    "0" : {
+        "text" : [
+            "go to moon",
+            "come back from moon pls"
+        ]
     },
-    "2" : {
-        "text": "come back from moon pls"
+    "1" : {
+        "text" : [
+            "thnx for coming back from moon"
+        ]
     }
 }

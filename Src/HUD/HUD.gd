@@ -15,8 +15,9 @@ func showNote(text):
 	$Note.show()
 
 func showDialog(pname: String, nameColor: String, text: String):
-	$Note/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
-	$Note.show()
+	# I think you meant dialog, so I changed this from note
+	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
+	$Dialog.show()
 
 
 func _physics_process(delta):
