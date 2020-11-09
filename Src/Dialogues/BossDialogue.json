@@ -1,13 +1,7 @@
 {
-    "0" : {
-        "text" : [
-            "go to moon",
-            "come back from moon pls"
-        ]
-    },
-    "1" : {
-        "text" : [
-            "thnx for coming back from moon"
-        ]
-    }
+"00" : { "text" : "go to moon" },
+"01" : {"text" : "come back from moon please"},
+
+"10" : {"text" : "thanks for coming back from the moon"}
+
 }

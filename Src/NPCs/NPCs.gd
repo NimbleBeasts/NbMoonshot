@@ -1,7 +1,6 @@
 class_name NPC
 extends Area2D
 
-
 export (String, FILE) var dialogue_path: String
 export var npc_name: String
 export var npc_color: String
@@ -19,8 +18,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_entered:
 		Events.emit_signal("interacted_with_npc", self)
-		interact()
-	
+		say_dialogue()
+
 
 # function for loading dialogues
 func load_dialogue() -> Dictionary:
@@ -31,27 +30,20 @@ func load_dialogue() -> Dictionary:
 	var dialogue = parse_json(file.get_as_text())
 	return dialogue
 
-	
-# interacting function
-func interact() -> void:
-	var dialogue_text_array: Array = get_current_dialog_dict()["text"]
 
-	if not dialogue_text_array.size() > dialogue_index:
-		return
-		
-	var dialogue_text: String = dialogue_text_array[dialogue_index]
-	Events.emit_signal("hud_dialog_show", npc_name, npc_color, dialogue_text)
-	dialogue_index += 1
-
-
-func get_current_dialog_dict() -> Dictionary:
+func say_dialogue() -> void:
 	var dialogue := load_dialogue()
-	if not dialogue.empty() and dialogue.has(str(interacted_counter)):
-		var dialogue_dict: Dictionary = dialogue[str(interacted_counter)]
-		return dialogue_dict
-	
-	return {}
+	# interacted_counter is probably only going to increase when changed level
+	if has_dialogue(interacted_counter, dialogue_index):
+		# gets the dict and gets "text" index from it
+		var dialogue_text: String = dialogue[str(interacted_counter) + str(dialogue_index)]["text"]
+		Events.emit_signal("hud_dialog_show", npc_name, npc_color, dialogue_text)
+		dialogue_index += 1
 
+
+func has_dialogue(counter, index) -> bool:
+	return load_dialogue().has(str(counter) + str(index))
+	
 
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
