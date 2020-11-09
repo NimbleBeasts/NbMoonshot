@@ -171,10 +171,10 @@ func _on_minigame_exited(_type: int) -> void:
 
 # blocks input when interacted with npc and unblocks when stopped
 func _on_interacted_npc(npc: Node) -> void:
-	block_input = true
+	block_input = true 
 
 func _on_npc_interaction_stopped(npc: Node) -> void:
-	block_input= false
+	block_input = false
 
 
 # use this function to set light_level instead of directly changing it
