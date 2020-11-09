@@ -31,6 +31,12 @@ func _physics_process(delta):
 		elif $Dialog.visible:
 			$Dialog.hide()
 			Events.emit_signal("hud_dialog_exited")
+		elif $IngameMenu.visible:
+			$IngameMenu.hide()
+			get_tree().paused = false
+		else:
+			$IngameMenu.show()
+			get_tree().paused = true
 
 
 
@@ -97,3 +103,24 @@ func _on_WebHover_mouse_entered():
 func _on_WebHover_mouse_exited():
 	$Hovers.hide()
 
+
+func _on_ButtonQuit_button_up():
+	Events.emit_signal("play_sound", "menu_click")
+	get_tree().paused = false #Just to make sure
+	Events.emit_signal("menu_back")
+
+
+func _on_ButtonSound_button_up():
+	Events.emit_signal("play_sound", "menu_click")
+	Events.emit_signal("switch_sound", !Global.userConfig.sound)
+
+
+func _on_ButtonMusic_button_up():
+	Events.emit_signal("play_sound", "menu_click")
+	Events.emit_signal("switch_music", !Global.userConfig.music)
+
+
+func _on_ButtonReturn_button_up():
+	Events.emit_signal("play_sound", "menu_click")
+	$IngameMenu.hide()
+	get_tree().paused = false

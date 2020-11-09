@@ -13,6 +13,16 @@ func _ready():
 
 	switchTo(MenuState.Main)
 
+	#TODO: remove code
+	$Main/LevelSelect.clear()
+	var counter = 0
+	for level in Global.levels:
+		$Main/LevelSelect.add_item(level, 0)
+		counter += 1
+	
+
+
+
 # Play menu button sound
 func playClick():
 	Events.emit_signal("play_sound", "menu_click")
@@ -76,7 +86,7 @@ func _back():
 
 func _on_ButtonPlay_button_up():
 	playClick()
-	Events.emit_signal("new_game")
+	Events.emit_signal("new_game", $Main/LevelSelect.selected)
 
 
 func _on_ButtonSettings_button_up():

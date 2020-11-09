@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/HUD/Note.png" type="Texture" id=8]
 
 [node name="HUD" type="CanvasLayer"]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="LightIndicator" type="Sprite" parent="."]
@@ -86,6 +87,7 @@ position = Vector2( 43, 0 )
 texture = ExtResource( 6 )
 
 [node name="Dialog" type="NinePatchRect" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -122,6 +124,7 @@ __meta__ = {
 }
 
 [node name="Note" type="TextureRect" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -153,6 +156,68 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="IngameMenu" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DarkerBG" type="ColorRect" parent="IngameMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.623529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="NinePatchRect" parent="IngameMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -96.0
+margin_right = 64.0
+margin_bottom = 96.0
+texture = ExtResource( 7 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="ButtonQuit" type="Button" parent="IngameMenu/Menu"]
+margin_left = 8.0
+margin_top = 20.0
+margin_right = 120.0
+margin_bottom = 44.0
+text = "Quit"
+
+[node name="ButtonSound" type="Button" parent="IngameMenu/Menu"]
+margin_left = 8.0
+margin_top = 60.0
+margin_right = 120.0
+margin_bottom = 84.0
+text = "Toggle Sound"
+
+[node name="ButtonMusic" type="Button" parent="IngameMenu/Menu"]
+margin_left = 8.0
+margin_top = 100.0
+margin_right = 120.0
+margin_bottom = 124.0
+text = "Toggle Music"
+
+[node name="ButtonReturn" type="Button" parent="IngameMenu/Menu"]
+margin_left = 8.0
+margin_top = 152.0
+margin_right = 120.0
+margin_bottom = 176.0
+text = "Back To Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="mouse_entered" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_entered"]
 [connection signal="mouse_exited" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_exited"]
 [connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]
@@ -160,3 +225,7 @@ __meta__ = {
 [connection signal="mouse_exited" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_exited"]
 [connection signal="mouse_entered" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_entered"]
 [connection signal="mouse_exited" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_exited"]
+[connection signal="button_up" from="IngameMenu/Menu/ButtonQuit" to="." method="_on_ButtonQuit_button_up"]
+[connection signal="button_up" from="IngameMenu/Menu/ButtonSound" to="." method="_on_ButtonSound_button_up"]
+[connection signal="button_up" from="IngameMenu/Menu/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
+[connection signal="button_up" from="IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]

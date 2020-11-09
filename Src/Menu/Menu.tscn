@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=7]
 
 [node name="Menu" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -23,7 +24,6 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="Main" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -117,7 +117,23 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="LevelSelect" type="OptionButton" parent="Main"]
+margin_left = 192.0
+margin_top = 104.0
+margin_right = 448.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Main/LevelSelect"]
+margin_left = -104.0
+margin_right = -8.0
+margin_bottom = 24.0
+text = "Load Level:"
+
 [node name="Settings" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {

@@ -1,2 +1,3 @@
-extends "res://Src/Levels/Level0.gd"
+extends "res://Src/Levels/BaseLevel.gd"
+
 

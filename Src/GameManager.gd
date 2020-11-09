@@ -79,10 +79,13 @@ func _backToMenu():
 	switchTo(Types.GameStates.Menu)
 
 # Event Hook: New Game
-func _newGame():
+func _newGame(startLevel = 0):
 	if levelNode:
 		unloadLevel()
-	loadLevel(0)
+
+	if startLevel == -1:
+		startLevel = 0
+	loadLevel(startLevel)
 	switchTo(Types.GameStates.Game)
 
 

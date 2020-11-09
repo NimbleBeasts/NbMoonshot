@@ -161,40 +161,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonBack" type="Button" parent="HUD"]
-margin_left = 184.0
-margin_top = 344.0
-margin_right = 248.0
-margin_bottom = 364.0
-text = "Back"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonMusic" type="Button" parent="HUD"]
-margin_left = 360.0
-margin_top = 344.0
-margin_right = 456.0
-margin_bottom = 364.0
-text = "ToggleMusic"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonSound" type="Button" parent="HUD"]
-margin_left = 256.0
-margin_top = 344.0
-margin_right = 352.0
-margin_bottom = 364.0
-text = "ToggleSound"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="MinigameDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 419.57, 172.311 )
 wire_cuts = [ 1, 2 ]
 connected_door_path = NodePath("../LevelObjects/Staircase")
-[connection signal="button_up" from="HUD/ButtonBack" to="." method="_on_ButtonBack_button_up"]
-[connection signal="button_up" from="HUD/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
-[connection signal="button_up" from="HUD/ButtonSound" to="." method="_on_ButtonSound_button_up"]
