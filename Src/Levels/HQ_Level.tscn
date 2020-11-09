@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Src/NPCs/Boss.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Src/NPCs/Secretary.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=24]
 
 [sub_resource type="TileSet" id=1]
 0/name = "green_base"
@@ -569,6 +570,9 @@ __meta__ = {
 position = Vector2( 501.172, 237.698 )
 wire_cuts = [ 1, 2 ]
 connected_door_path = NodePath("../LevelObjects/StaircaseL2_2")
+
+[node name="ExtractionZone" parent="." instance=ExtResource( 24 )]
+position = Vector2( 292.886, 362.154 )
 [connection signal="button_up" from="HUD/ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="HUD/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="HUD/ButtonSound" to="." method="_on_ButtonSound_button_up"]

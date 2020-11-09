@@ -37,13 +37,13 @@ func _process(_delta: float) -> void:
 func _on_FOV_area_entered(area: Area2D) -> void:
 	if area.is_in_group("PlayerArea"):
 		player_in_fov = true
-
 	
+
 func _on_FOV_area_exited(area: Area2D) -> void:
 	if area.is_in_group("PlayerArea"):
 		player_in_fov = false
 	
-	
+
 func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 

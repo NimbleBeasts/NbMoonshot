@@ -137,6 +137,7 @@ func set_state(new_state) -> void:
 				print(name + " has suspicion")
 				$AnimationPlayer.play("suspicious")
 
+				
 func update_flip() -> void:
 	if direction.x != 0:
 		$Flippable.scale.x = direction.x
