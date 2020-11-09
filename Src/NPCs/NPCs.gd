@@ -17,9 +17,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_entered:
-		if has_dialogue(interacted_counter, dialogue_index): # if dialogue exists
-			Events.emit_signal("interacted_with_npc", self)
-			say_dialogue()
+		Events.emit_signal("interacted_with_npc", self)
+		interact()
 	elif Input.is_action_just_pressed("ui_cancel") and player_entered:
 		Events.emit_signal("npc_interaction_stopped", self)
 
@@ -34,20 +33,35 @@ func load_dialogue() -> Dictionary:
 	return dialogue
 
 
-func say_dialogue() -> void:
-	var dialogue := load_dialogue()
-	print(name + " is saying dialogue")
+func interact() -> void:
 	# interacted_counter is probably only going to increase when changed level
 	if has_dialogue(interacted_counter, dialogue_index):
 		# gets the dict and gets "text" index from it
-		var dialogue_text: String = dialogue[str(interacted_counter) + str(dialogue_index)]["text"]
-		Events.emit_signal("hud_dialog_show", npc_name, npc_color, dialogue_text)
+		say_dialogue_text(interacted_counter, dialogue_index)
 		dialogue_index += 1
+		return
+		
+	# resets dialogue index if you don't have the dialog and says it 
+	dialogue_index = 0
+	say_dialogue_text(interacted_counter, dialogue_index)
+	dialogue_index += 1 # have to add dialogue_index unless you want npc to say same dialogue over and over again
 
 
+# this function checks if dialogue exists from a passed interacted counter(first digit) and index(second digit)
 func has_dialogue(counter, index) -> bool:
 	return load_dialogue().has(str(counter) + str(index))
+
 	
+# this will get dialogue, make sure to check if has_dialogue first 
+func get_dialogue(counter, index) -> Dictionary:
+	return load_dialogue()[str(counter) + str(index)]
+
+
+# this will take a counter and index and actually display it on screen
+func say_dialogue_text(counter, index) -> void:
+	var dialogue_text: String = get_dialogue(interacted_counter, dialogue_index)["text"]
+	Events.emit_signal("hud_dialog_show", npc_name, npc_color, dialogue_text)
+
 
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
