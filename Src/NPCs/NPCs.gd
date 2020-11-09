@@ -17,8 +17,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_entered:
-		Events.emit_signal("interacted_with_npc", self)
-		say_dialogue()
+		if has_dialogue(interacted_counter, dialogue_index): # if dialogue exists
+			Events.emit_signal("interacted_with_npc", self)
+			say_dialogue()
 	elif Input.is_action_just_pressed("ui_cancel") and player_entered:
 		Events.emit_signal("npc_interaction_stopped", self)
 
@@ -35,6 +36,7 @@ func load_dialogue() -> Dictionary:
 
 func say_dialogue() -> void:
 	var dialogue := load_dialogue()
+	print(name + " is saying dialogue")
 	# interacted_counter is probably only going to increase when changed level
 	if has_dialogue(interacted_counter, dialogue_index):
 		# gets the dict and gets "text" index from it
