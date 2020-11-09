@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Src/Objects/Flag.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/Rooms.png" type="Texture" id=18]
@@ -476,6 +477,9 @@ position = Vector2( 192, 320 )
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 320 )
+
+[node name="Flag" parent="LevelObjects" instance=ExtResource( 10 )]
+position = Vector2( 168, 256 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 160, 256 )
