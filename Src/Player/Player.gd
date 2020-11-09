@@ -129,7 +129,7 @@ func _physics_process(delta: float) -> void:
 			$AnimationPlayer.play("taser")
 			if stun_raycast.is_colliding():
 				var guard := stun_raycast.get_collider() as Guard
-				if (guard) and (not guard.is_stunned):
+				if (guard) and (not guard.state == Types.GuardStates.Stunned):
 					guard.stun(stun_duration) #TODO: stun_duration is float, API is int. 
 					stun_battery_level -= 1
 
@@ -159,7 +159,8 @@ func travel(target_pos: float) -> void:
 	travel_tween.start()
 	# emits small noise
 	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, global_position)
-				
+	set_state(Types.PlayerStates.Normal)
+	
 
 func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")

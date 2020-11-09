@@ -8,7 +8,7 @@ enum PlayerStates {Normal, WallDodge, Duck}
 enum Minigames{Test, Keypad, WireCut}
 enum MinigameResults{Failed, Succeeded, Doing}
 enum DetectionLevels{Possible, Sure}
-enum GuardStates {Wander, Suspect, PlayerDetected}
+enum GuardStates {Wander, Suspect, PlayerDetected, Stunned}
 enum CameraStates {Normal, Suspect, PlayerDetected}
 enum WireColors {Red, Purple,Green, Blue}
 enum NotifierTypes{Exclamation, Question}

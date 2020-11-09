@@ -10,7 +10,6 @@ export var audio_suspect_distance: int = 150
 
 var velocity: Vector2
 var direction: Vector2
-var is_stunned: bool = false
 var state: int = Types.GuardStates.Wander # Types.GuardStates
 var player_in_los: bool = false
 var check_for_stunned: bool = true
@@ -53,11 +52,21 @@ func _process(_delta: float) -> void:
 	if check_for_stunned:
 		for body in los_area.get_overlapping_bodies():
 			if body.is_in_group("Guard"):
-				if body.is_stunned:
+				if body.state == Types.GuardStates.Stunned:
 					Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 					check_for_stunned = false
-		
-		
+
+	
+	match state:
+		Types.GuardStates.Wander:
+			if not velocity.is_equal_approx(Vector2.ZERO):
+				$AnimationPlayer.play("walk")
+			else:
+				$AnimationPlayer.play("idle")
+		Types.GuardStates.Stunned:
+			pass
+
+
 func change_direction() -> void:
 	# flips the direction.x
 	direction.x *= -1
@@ -65,20 +74,16 @@ func change_direction() -> void:
 # stun function.
 func stun(duration: int) -> void:
 	direction = Vector2(0,0)
-	$Flippable/Sprite.modulate = Color.black
-	is_stunned = true
-	$StunDurationTimer.wait_time = duration
+	set_state(Types.GuardStates.Stunned)
+	$AnimationPlayer.play("tasered")
 	# timer stuff
-	if $StunDurationTimer.is_stopped():
-		$StunDurationTimer.start()
+	$StunDurationTimer.start(duration)
 	$DirectionChangeTimer.stop()
 	$SureDetectionTimer.stop()
 
 
 func unstun() -> void:
-	direction = starting_direction
-	$Flippable/Sprite.modulate = Color.white
-	is_stunned = false
+	$AnimationPlayer.play("stand_up")
 	# can check for stunned bodies again
 	get_tree().set_group("Guard", "check_for_stunned", true)
 	
@@ -90,7 +95,7 @@ func _on_DirectionChangeTimer_timeout():
 	
 func _on_LineOfSight_area_entered(area: Area2D) -> void:
 	# detecting player
-	if area.is_in_group("PlayerArea") and not is_stunned:
+	if area.is_in_group("PlayerArea") and not state == Types.GuardStates.Stunned:
 		player_in_los = true
 
 
@@ -127,16 +132,15 @@ func set_state(new_state) -> void:
 				if $SureDetectionTimer.is_stopped():
 					$SureDetectionTimer.start()
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
+				$AnimationPlayer.play("alarm")
 			Types.GuardStates.Suspect:
 				print(name + " has suspicion")
-
+				$AnimationPlayer.play("suspicious")
 
 func update_flip() -> void:
 	if direction.x != 0:
 		$Flippable.scale.x = direction.x
-
 	
-
 
 func _on_AnimationPlayer_animation_started(anim_name):
 	if anim_name == "suspicious":
@@ -149,4 +153,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			$Notifier.remove()
 		"alarm":
 			pass
-
+		"stand_up":
+			set_state(Types.GuardStates.Wander)
+			direction = starting_direction

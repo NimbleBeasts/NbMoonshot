@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.5942, 14.9364 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "alarm"
 length = 0.6
 tracks/0/type = "value"
@@ -23,8 +23,7 @@ tracks/0/keys = {
 "values": [ 6, 7, 8, 9 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
+[sub_resource type="Animation" id=3]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -40,7 +39,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "stand_up"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -55,8 +54,7 @@ tracks/0/keys = {
 "values": [ 15, 14, 13, 16, 0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "suspicious"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
 tracks/0/interp = 1
@@ -70,8 +68,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "tasered"
+[sub_resource type="Animation" id=6]
 length = 1.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -86,8 +83,7 @@ tracks/0/keys = {
 "values": [ 10, 11, 12, 10, 11, 12, 10, 11, 12, 0, 13, 14, 15 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "walk"
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -126,6 +122,7 @@ one_shot = true
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 hframes = 17
+frame = 6
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
 position = Vector2( 7, 0.5 )
@@ -136,12 +133,12 @@ polygon = PoolVector2Array( 6.30218, -21.1539, 43.7075, -28.0296, 41.5838, -7.02
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/alarm = SubResource( 7 )
-anims/idle = SubResource( 2 )
-anims/stand_up = SubResource( 6 )
-anims/suspicious = SubResource( 4 )
-anims/tasered = SubResource( 5 )
-anims/walk = SubResource( 3 )
+anims/alarm = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/stand_up = SubResource( 4 )
+anims/suspicious = SubResource( 5 )
+anims/tasered = SubResource( 6 )
+anims/walk = SubResource( 7 )
 
 [node name="Notifier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )

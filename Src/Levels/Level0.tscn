@@ -148,7 +148,7 @@ position = Vector2( 224, 136 )
 position = Vector2( 224, 192 )
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
-position = Vector2( 327.409, 190.523 )
+position = Vector2( 289.605, 186.658 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
