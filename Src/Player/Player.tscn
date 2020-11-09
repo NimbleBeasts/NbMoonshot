@@ -290,6 +290,7 @@ cast_to = Vector2( 20, 0 )
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
+z_index = 50
 texture = ExtResource( 1 )
 hframes = 15
 frame = 7
