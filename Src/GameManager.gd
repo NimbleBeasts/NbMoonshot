@@ -7,7 +7,7 @@ var sure_detection_num: int = 0
 var current_level: int
 var boss_interaction_counter: int = 0
 var secretary_interaction_counter: int = 0
-
+var quest_index: int = 0 
 
 func _ready():
 	# Set Viewport Sizes to Project Settings
@@ -59,8 +59,15 @@ func reloadLevel():
 	sure_detection_num = 0
 	print("reloaded level")
 
+
 func getCurrentLevel():
 	return levelNode
+
+
+func loadNextQuest() -> void:
+	unloadLevel()
+	loadLevel(quest_index)
+
 
 ###############################################################################
 # Callbacks

@@ -1,6 +1,8 @@
 class_name NPC
 extends Area2D
 
+signal read_all_dialog
+
 export (String, FILE) var dialogue_path: String
 export var npc_name: String
 export var npc_color: String
@@ -41,7 +43,8 @@ func interact() -> void:
 		dialogue_index += 1
 		return
 		
-	# resets dialogue index if you don't have the dialog and says it 
+	# if the dialogue index is not there, then that means the player has read through all the dialogs
+	emit_signal("read_all_dialog")
 	dialogue_index = 0
 	say_dialogue_text(interacted_counter, dialogue_index)
 	dialogue_index += 1 # have to add dialogue_index unless you want npc to say same dialogue over and over again

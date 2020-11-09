@@ -3,7 +3,6 @@ extends Area2D
 # All this script does is if player is close enough to be in area, and player clicks interact in input map
 # changes level to exported variable
 
-export var next_level_index: int = 0
 var player_entered: bool = false
 
 
@@ -15,8 +14,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
-		Global.game_manager.unloadLevel()
-		Global.game_manager.loadLevel(next_level_index)
+		Global.game_manager.loadNextQuest()
 
 
 func _on_body_entered(body: Node) -> void:
