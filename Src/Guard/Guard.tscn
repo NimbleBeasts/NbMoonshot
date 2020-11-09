@@ -1,10 +1,106 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Assets/Temp/Guard.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Guards/Guard.png" type="Texture" id=1]
 [ext_resource path="res://Src/Guard/Guard.gd" type="Script" id=2]
+[ext_resource path="res://Src/Notifier/Notifier.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.5942, 14.9364 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "alarm"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8, 9 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "stand_up"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 14, 13, 16, 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "suspicious"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "tasered"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.1, 1.3, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 10, 11, 12, 10, 11, 12, 0, 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walk"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5 ]
+}
 
 [node name="Guard" type="KinematicBody2D" groups=[
 "Guard",
@@ -29,6 +125,7 @@ one_shot = true
 [node name="Sprite" type="Sprite" parent="Flippable"]
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
+hframes = 17
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
 position = Vector2( 7, 0.5 )
@@ -36,8 +133,22 @@ position = Vector2( 7, 0.5 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
 position = Vector2( -0.943878, -0.471939 )
 polygon = PoolVector2Array( 6.30218, -21.1539, 43.7075, -28.0296, 41.5838, -7.02836 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/alarm = SubResource( 7 )
+anims/idle = SubResource( 2 )
+anims/stand_up = SubResource( 6 )
+anims/suspicious = SubResource( 4 )
+anims/tasered = SubResource( 5 )
+anims/walk = SubResource( 3 )
+
+[node name="Notifier" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -32 )
 [connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_DirectionChangeTimer_timeout"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]
 [connection signal="area_entered" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_area_entered"]
 [connection signal="area_exited" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_area_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

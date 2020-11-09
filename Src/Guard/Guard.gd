@@ -25,6 +25,7 @@ func _ready() -> void:
 	direction = starting_direction
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	
+	#TODO: level setting if blue (western) or green guards (eastern) -> change sprite accordingly
 
 func _process(_delta: float) -> void:
 	velocity = direction * speed
@@ -135,3 +136,17 @@ func update_flip() -> void:
 		$Flippable.scale.x = direction.x
 
 	
+
+
+func _on_AnimationPlayer_animation_started(anim_name):
+	if anim_name == "suspicious":
+		$Notifier.popup(Types.NotifierTypes.Exclamation)
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	match anim_name:
+		"suspicious":
+			$Notifier.remove()
+		"alarm":
+			pass
+
