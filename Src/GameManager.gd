@@ -5,6 +5,9 @@ var levelNode = null
 var possible_detection_num: int = 0
 var sure_detection_num: int = 0
 var current_level: int
+var boss_interaction_counter: int = 0
+var secretary_interaction_counter: int = 0
+
 
 func _ready():
 	# Set Viewport Sizes to Project Settings

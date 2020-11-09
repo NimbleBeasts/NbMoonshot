@@ -10,9 +10,11 @@ func _ready():
 	Events.connect("hud_note_show", self, "showNote")
 	Events.connect("hud_dialog_show", self, "showDialog")
 
+
 func showNote(text):
 	$Note/Text.bbcode_text = str(text)
 	$Note.show()
+
 
 func showDialog(pname: String, nameColor: String, text: String):
 	# I think you meant dialog, so I changed this from note

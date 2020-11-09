@@ -27,6 +27,7 @@ signal hud_note_exited()
 signal hud_dialog_show(name, nameColor, text)
 signal hud_dialog_exited()
 
+
 # WebMonetization Pulse
 signal web_monetization_pulse(isPaying)
 
@@ -37,7 +38,7 @@ signal sure_detection_num_changed(value)
 
 # NPC
 signal interacted_with_npc(npc)
-
+signal npc_interaction_stopped(npc)
 
 # Sound
 signal play_sound(sound, volume, pos)

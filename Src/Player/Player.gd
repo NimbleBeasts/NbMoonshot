@@ -38,6 +38,8 @@ func _init() -> void:
 func _ready() -> void:
 	Events.connect("minigame_entered", self,  "_on_minigame_entered")
 	Events.connect("minigame_exited", self, "_on_minigame_exited")
+	Events.connect("interacted_with_npc", self, "_on_interacted_npc")
+	Events.connect("npc_interaction_stopped", self, "_on_npc_interaction_stopped")
 	$AnimationPlayer.play("idle")
 
 
@@ -166,7 +168,14 @@ func _on_minigame_entered(_type: int) -> void:
 
 func _on_minigame_exited(_type: int) -> void:
 	block_input = false
-	
+
+# blocks input when interacted with npc and unblocks when stopped
+func _on_interacted_npc(npc: Node) -> void:
+	block_input = true
+
+func _on_npc_interaction_stopped(npc: Node) -> void:
+	block_input= false
+
 
 # use this function to set light_level instead of directly changing it
 func set_light_level(value: int) -> void:

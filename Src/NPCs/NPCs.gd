@@ -19,6 +19,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_entered:
 		Events.emit_signal("interacted_with_npc", self)
 		say_dialogue()
+	elif Input.is_action_just_pressed("ui_cancel") and player_entered:
+		Events.emit_signal("npc_interaction_stopped", self)
 
 
 # function for loading dialogues
@@ -55,3 +57,5 @@ func _on_body_exited(body: Node) -> void:
 	if body is Player:
 		player_entered = false
 		set_process(false)
+
+
