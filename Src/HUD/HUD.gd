@@ -2,6 +2,7 @@ extends CanvasLayer
 
 enum HoverType {Light, Audio, Web}
 
+var count = 0
 
 func _ready():
 	Events.connect("light_level_changed", self, "updateLightLevel")
@@ -106,7 +107,6 @@ func _on_WebHover_mouse_exited():
 
 func _on_ButtonQuit_button_up():
 	Events.emit_signal("play_sound", "menu_click")
-	get_tree().paused = false #Just to make sure
 	Events.emit_signal("menu_back")
 
 

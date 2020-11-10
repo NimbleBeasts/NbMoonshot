@@ -122,7 +122,6 @@ one_shot = true
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 hframes = 17
-frame = 6
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
 position = Vector2( 7, 0.5 )
