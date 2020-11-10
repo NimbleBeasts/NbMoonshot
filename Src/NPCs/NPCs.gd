@@ -1,7 +1,9 @@
+
 class_name NPC
 extends Area2D
 
 signal read_all_dialog
+
 
 export (String, FILE) var dialogue_path: String
 export var npc_name: String
@@ -18,13 +20,12 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and player_entered:
+	if Input.is_action_just_pressed("interact") and player_entered and Global.player.direction == Vector2(0,0):
 		Events.emit_signal("interacted_with_npc", self)
 		interact()
 	elif Input.is_action_just_pressed("ui_cancel") and player_entered:
 		Events.emit_signal("npc_interaction_stopped", self)
 
-	
 
 # function for loading dialogues
 func load_dialogue() -> Dictionary:

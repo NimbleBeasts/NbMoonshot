@@ -23,7 +23,7 @@ func _ready() -> void:
 	$DirectionChangeTimer.start()
 	direction = starting_direction
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
-	
+	$Flippable/LineOfSight.connect("body_entered", self, "_on_LineOfSight_body_entered")
 	#TODO: level setting if blue (western) or green guards (eastern) -> change sprite accordingly
 
 func _process(_delta: float) -> void:
@@ -68,7 +68,7 @@ func _process(_delta: float) -> void:
 		Types.GuardStates.Suspect:
 			pass
 
-
+			
 func change_direction() -> void:
 	# flips the direction.x
 	direction.x *= -1
@@ -86,7 +86,6 @@ func stun(duration: int) -> void:
 
 
 func unstun() -> void:
-	$AnimationPlayer.play("stand_up")
 	$CollisionShape2D.set_deferred("disabled", false)
 	# can check for stunned bodies again
 	get_tree().set_group("Guard", "check_for_stunned", true)
@@ -103,6 +102,11 @@ func _on_LineOfSight_area_entered(area: Area2D) -> void:
 		player_in_los = true
 
 
+func _on_LineOfSight_body_entered(body: Node) -> void:
+	if body is TileMap:
+		change_direction()
+
+		
 # this gets started when this guard's state changes to PlayerDetected
 # on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
 func _on_SureDetectionTimer_timeout() -> void:
@@ -112,6 +116,7 @@ func _on_SureDetectionTimer_timeout() -> void:
 
 func _on_StunDurationTimer_timeout() -> void:
 	unstun()
+	$AnimationPlayer.play("stand_up")
 
 
 func _on_LineOfSight_area_exited(area: Area2D) -> void:

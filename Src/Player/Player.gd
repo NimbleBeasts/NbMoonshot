@@ -29,7 +29,6 @@ onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
 onready var stun_raycast: RayCast2D = $StunRayCast
 onready var player_sprite: Sprite = $PlayerSprite
 onready var camera: Camera2D = $Camera2D
-onready var npc_raycast: RayCast2D = $NPCRayCast
 
 func _init() -> void:
 	Global.player = self
@@ -40,6 +39,7 @@ func _ready() -> void:
 	Events.connect("minigame_exited", self, "_on_minigame_exited")
 	Events.connect("interacted_with_npc", self, "_on_interacted_npc")
 	Events.connect("npc_interaction_stopped", self, "_on_npc_interaction_stopped")
+	
 	$AnimationPlayer.play("idle")
 
 
@@ -83,11 +83,9 @@ func _physics_process(delta: float) -> void:
 		if direction.x == -1 and player_sprite.flip_h == false:
 			player_sprite.flip_h = true
 			stun_raycast.cast_to *= Vector2(-1, 1)
-			npc_raycast.cast_to *= Vector2(-1,1)
 		elif direction.x == 1 and player_sprite.flip_h == true:
 			player_sprite.flip_h = false
 			stun_raycast.cast_to *= Vector2(-1, 1)
-			npc_raycast.cast_to *= Vector2(-1, 1)
 
 		direction = direction.normalized()
 	else:

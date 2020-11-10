@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Src/Levels/Level0.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Assets/Skyboxes/CityBlueish_L3.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Skyboxes/CityBlueish_BG.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Skyboxes/Ground.png" type="Texture" id=17]
+[ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Src/Minigames/KeypadMinigame/KeypadMinigameSpawner.gd" type="Script" id=19]
 
 [node name="Level1" type="Node2D"]
@@ -165,3 +166,8 @@ __meta__ = {
 position = Vector2( 419.57, 172.311 )
 wire_cuts = [ 1, 2 ]
 connected_door_path = NodePath("../LevelObjects/Staircase")
+
+[node name="ExtractionZone" parent="." instance=ExtResource( 18 )]
+position = Vector2( 243.299, 319.075 )
+has_level_index = true
+next_boss_interacted_counter = 1

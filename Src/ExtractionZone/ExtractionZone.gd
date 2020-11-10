@@ -4,6 +4,9 @@ extends Area2D
 # changes level to exported variable
 
 var player_entered: bool = false
+export var has_level_index: bool = false
+export var level_index: int = 0
+export var next_boss_interacted_counter: int = 0
 
 
 func _ready() -> void:
@@ -13,8 +16,12 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and not has_level_index:
 		Global.game_manager.loadNextQuest()
+	elif Input.is_action_just_pressed("interact") and has_level_index:
+		Global.game_manager.boss_interaction_counter = next_boss_interacted_counter
+		Global.game_manager.unloadLevel()
+		Global.game_manager.loadLevel(level_index)
 
 
 func _on_body_entered(body: Node) -> void:

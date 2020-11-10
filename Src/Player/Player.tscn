@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Src/Player/PlayerCamera.gd" type="Script" id=3]
-[ext_resource path="res://Src/Player/PlayerNPCRay.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -325,10 +324,4 @@ anims/jump_down = SubResource( 11 )
 anims/jump_up = SubResource( 12 )
 anims/taser = SubResource( 13 )
 anims/walk = SubResource( 14 )
-
-[node name="NPCRayCast" type="RayCast2D" parent="."]
-position = Vector2( 0.689484, -15.129 )
-cast_to = Vector2( 25, 0 )
-collision_mask = 8
-script = ExtResource( 4 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

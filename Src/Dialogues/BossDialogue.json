@@ -3,9 +3,9 @@
 "//quest note" : "for quests do 'quest' + 'dialog_group' for the quest. eg: quest2 is a quest that is associated with the first digit dialog2",
 
 "00" : { "text" : "press E once more" },
+"quest0" : {"level_index" : "1"},
 
 "01" : {"text" : "yay, you have a quest now. exit out of this dialogue (esc), go to extraction point, press E and you will go to level0"},
-"quest0" : {"level_index" : "1"},
 "10" : {"text" : "thanks for coming back from the moon"}
 
 }

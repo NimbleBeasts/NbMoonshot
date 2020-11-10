@@ -47,7 +47,7 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	plier.global_position = get_global_mouse_position() / 1.68
+	plier.global_position = get_global_mouse_position() / 1.7
 	
 
 func _on_wire_cut(color_type: int) -> void:
