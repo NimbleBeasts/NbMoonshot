@@ -85,6 +85,7 @@ func _back():
 
 
 func _on_ButtonPlay_button_up():
+	get_tree().paused = false
 	playClick()
 	Events.emit_signal("new_game", $Main/LevelSelect.selected)
 
