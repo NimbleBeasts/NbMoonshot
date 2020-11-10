@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Guards/Guard.png" type="Texture" id=1]
 [ext_resource path="res://Src/Guard/Guard.gd" type="Script" id=2]
@@ -98,9 +98,6 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 14.0279, 16.9035 )
-
 [node name="Guard" type="KinematicBody2D" groups=[
 "Guard",
 ]]
@@ -145,12 +142,6 @@ anims/walk = SubResource( 7 )
 
 [node name="Notifier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
-
-[node name="GuardArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardArea"]
-position = Vector2( -0.210228, -13.6646 )
-shape = SubResource( 8 )
 [connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_DirectionChangeTimer_timeout"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]

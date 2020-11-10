@@ -13,7 +13,6 @@
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 
-
 [node name="Level0" type="Node2D"]
 position = Vector2( 0, 0.420456 )
 script = ExtResource( 1 )
