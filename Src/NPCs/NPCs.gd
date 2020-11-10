@@ -2,7 +2,6 @@ class_name NPC
 extends Area2D
 
 signal read_all_dialog
-signal player_interacted
 
 export (String, FILE) var dialogue_path: String
 export var npc_name: String
@@ -15,14 +14,13 @@ var dialogue_index: int =  0
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
 	connect("body_exited", self, "_on_body_exited")
-	connect("player_interacted", self, "_on_player_interacted")
 	set_process(false)
 
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_entered:
 		Events.emit_signal("interacted_with_npc", self)
-		emit_signal("player_interacted")
+		interact()
 	elif Input.is_action_just_pressed("ui_cancel") and player_entered:
 		Events.emit_signal("npc_interaction_stopped", self)
 
@@ -53,7 +51,8 @@ func interact() -> void:
 		return
 	
 	dialogue_index = 0
-	emit_signal("player_interacted")
+	say_dialogue_text(interacted_counter, dialogue_index)
+	dialogue_index += 1
 
 
 # this function checks if dialogue exists from a passed interacted counter(first digit) and index(second digit) in the json file
@@ -81,6 +80,3 @@ func _on_body_exited(body: Node) -> void:
 		player_entered = false
 		set_process(false)
 
-
-func _on_player_interacted() -> void:
-	interact()

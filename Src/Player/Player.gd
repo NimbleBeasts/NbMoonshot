@@ -65,15 +65,13 @@ func _process(_delta: float) -> void:
 		set_state(Types.PlayerStates.Normal)
 
 
-	# ducking
-	if Input.is_action_just_pressed("duck"):
-		if state != Types.PlayerStates.Duck:
-			set_state(Types.PlayerStates.Duck)
-			$AnimationPlayer.play("duck")
-			block_input = true
-		elif state == Types.PlayerStates.Duck:
-			set_state(Types.PlayerStates.Normal)
-	
+	# ducking 
+	if Input.is_action_pressed("duck"):
+		set_state(Types.PlayerStates.Duck)
+		$AnimationPlayer.play("duck")
+		block_input = true
+	elif Input.is_action_just_released("duck"):
+		set_state(Types.PlayerStates.Normal)
 
 	
 func _physics_process(delta: float) -> void:

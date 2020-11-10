@@ -4,7 +4,7 @@ extends KinematicBody2D
 export var speed: int = 50
 export var direction_change_time: float = 2
 export var starting_direction: Vector2
-export var time_to_sure_direction: float = 1.5
+export var time_to_sure_detection: float = 1.5
 export var stun_duration: float = 2
 export var audio_suspect_distance: int = 150
 
@@ -19,7 +19,7 @@ onready var los_area: Area2D = $Flippable/LineOfSight
 func _ready() -> void:
 	# sets the wait_time to the exported variable
 	$DirectionChangeTimer.wait_time = direction_change_time
-	$SureDetectionTimer.wait_time = time_to_sure_direction
+	$SureDetectionTimer.wait_time = time_to_sure_detection
 	$DirectionChangeTimer.start()
 	direction = starting_direction
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
@@ -56,7 +56,7 @@ func _process(_delta: float) -> void:
 					Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 					check_for_stunned = false
 
-	
+
 	match state:
 		Types.GuardStates.Wander:
 			if not velocity.is_equal_approx(Vector2.ZERO):
@@ -64,6 +64,8 @@ func _process(_delta: float) -> void:
 			else:
 				$AnimationPlayer.play("idle")
 		Types.GuardStates.Stunned:
+			pass
+		Types.GuardStates.Suspect:
 			pass
 
 
@@ -75,6 +77,7 @@ func change_direction() -> void:
 func stun(duration: int) -> void:
 	direction = Vector2(0,0)
 	set_state(Types.GuardStates.Stunned)
+	$CollisionShape2D.set_deferred("disabled", true)
 	$AnimationPlayer.play("tasered")
 	# timer stuff
 	$StunDurationTimer.start(duration)
@@ -84,6 +87,7 @@ func stun(duration: int) -> void:
 
 func unstun() -> void:
 	$AnimationPlayer.play("stand_up")
+	$CollisionShape2D.set_deferred("disabled", false)
 	# can check for stunned bodies again
 	get_tree().set_group("Guard", "check_for_stunned", true)
 	
@@ -103,6 +107,7 @@ func _on_LineOfSight_area_entered(area: Area2D) -> void:
 # on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
 func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
+	$AnimationPlayer.play("alarm")
 
 
 func _on_StunDurationTimer_timeout() -> void:
@@ -132,10 +137,9 @@ func set_state(new_state) -> void:
 				if $SureDetectionTimer.is_stopped():
 					$SureDetectionTimer.start()
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
-				$AnimationPlayer.play("alarm")
+				$AnimationPlayer.play("suspicious")
 			Types.GuardStates.Suspect:
 				print(name + " has suspicion")
-				$AnimationPlayer.play("suspicious")
 
 				
 func update_flip() -> void:
