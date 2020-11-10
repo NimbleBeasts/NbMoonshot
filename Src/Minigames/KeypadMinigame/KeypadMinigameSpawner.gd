@@ -2,6 +2,7 @@ extends MinigameSpawner
 
 export  var lock_code: int
 
+
 func create_minigame() -> Minigame:
 	var minigame_instance: Minigame = load("res://Src/Minigames/KeypadMinigame/KeypadMinigame.tscn").instance()
 	

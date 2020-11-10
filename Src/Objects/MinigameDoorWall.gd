@@ -1,7 +1,5 @@
-
 extends Node2D
 
-var minigame_finished: bool = false
 var playerInArea = false
 var doorIsOpen = false
 var playerNode = null
@@ -10,6 +8,10 @@ enum DoorType {open, lockedLevel1, lockedLevel2}
 
 export(DoorType) var lockLevel = DoorType.open
 
+
+func _ready() -> void:
+	$Area2D.connect("minigame_succeeded", self, "_on_minigame_succeeded")
+	set_process(false)
 
 func _process(delta):
 	if playerInArea:
@@ -26,6 +28,11 @@ func _process(delta):
 			else:
 				# Close Animation
 				$AnimationPlayer.play_backwards("open_door")
+
+
+
+func _on_minigame_succeeded() -> void:
+	set_process(true)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

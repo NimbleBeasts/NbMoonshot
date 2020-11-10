@@ -1,6 +1,8 @@
 class_name MinigameSpawner
 extends Area2D
 
+signal minigame_succeeded
+
 var player_entered: bool = false
 var minigame: Minigame
 var minigame_scene: PackedScene
@@ -14,8 +16,8 @@ func _ready() -> void:
 	connect("area_entered", self, "_on_area_entered")
 	#warning-ignore:return_value_discarded
 	connect("area_exited", self, "_on_area_exited")
-	
 
+	
 func _process(_delta: float) -> void:
 	if player_entered and can_make_minigame: # if player is near
 		if Input.is_action_just_pressed("open_minigame"):
@@ -55,3 +57,4 @@ func _on_area_exited(area: Area2D) -> void:
 func _on_minigame_result_changed(result: int) -> void:
 	if result == Types.MinigameResults.Succeeded:
 		can_make_minigame = false
+		emit_signal("minigame_succeeded")

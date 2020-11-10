@@ -15,3 +15,5 @@ func create_minigame() -> Minigame:
 	minigame_instance.global_position = Global.screen_bottom_center
 	
 	return minigame_instance
+
+	
