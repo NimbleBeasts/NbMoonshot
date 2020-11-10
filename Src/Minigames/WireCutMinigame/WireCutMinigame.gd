@@ -45,8 +45,9 @@ func _ready() -> void:
 	$Labels/Color1.text = enum2text[goal_cuts[0]]
 	$Labels/Color2.text = enum2text[goal_cuts[1]]
 	
+
 func _process(delta: float) -> void:
-	plier.global_position = get_global_mouse_position()
+	plier.global_position = get_global_mouse_position() / 1.68
 	
 
 func _on_wire_cut(color_type: int) -> void:

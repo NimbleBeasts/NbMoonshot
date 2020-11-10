@@ -124,15 +124,9 @@ func _physics_process(delta: float) -> void:
 				$AnimationPlayer.play("jump_up")
 	
 	# stunning
-	if stun_battery_level > 0:				
-		if Input.is_action_just_pressed("stun"):
-			$AnimationPlayer.play("taser")
-			if stun_raycast.is_colliding():
-				var guard := stun_raycast.get_collider() as Guard
-				if (guard) and (not guard.state == Types.GuardStates.Stunned):
-					guard.stun(stun_duration) #TODO: stun_duration is float, API is int. 
-					stun_battery_level -= 1
-
+	if state == Types.PlayerStates.Normal:
+		stunning(stun_duration)
+		
 
 func update_light_level() -> void:
 	# if there are no overlapping areas, just set light_level to dark
@@ -165,6 +159,17 @@ func travel(target_pos: float) -> void:
 func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
 	block_input = true
+
+
+func stunning(duration) -> void:
+	if stun_battery_level > 0:				
+		if Input.is_action_just_pressed("stun"):
+			$AnimationPlayer.play("taser")
+			if stun_raycast.is_colliding():
+				var guard := stun_raycast.get_collider() as Guard
+				if (guard) and (not guard.state == Types.GuardStates.Stunned):
+					guard.stun(duration) #TODO: stun_duration is float, API is int. 
+					stun_battery_level -= 1
 
 
 func _on_minigame_exited(_type: int) -> void:

@@ -2,6 +2,7 @@ class_name NPC
 extends Area2D
 
 signal read_all_dialog
+signal player_interacted
 
 export (String, FILE) var dialogue_path: String
 export var npc_name: String
@@ -14,16 +15,18 @@ var dialogue_index: int =  0
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
 	connect("body_exited", self, "_on_body_exited")
+	connect("player_interacted", self, "_on_player_interacted")
 	set_process(false)
 
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_entered:
 		Events.emit_signal("interacted_with_npc", self)
-		interact()
+		emit_signal("player_interacted")
 	elif Input.is_action_just_pressed("ui_cancel") and player_entered:
 		Events.emit_signal("npc_interaction_stopped", self)
 
+	
 
 # function for loading dialogues
 func load_dialogue() -> Dictionary:
@@ -40,25 +43,26 @@ func interact() -> void:
 	if has_dialogue(interacted_counter, dialogue_index):
 		# gets the dict and gets "text" index from it
 		say_dialogue_text(interacted_counter, dialogue_index)
+		
+		# if it is on last dialogue, i.e it can't find anymore dialogues after this
+		# it can emit "read_all_dialog"
+		if not has_dialogue(interacted_counter, dialogue_index + 1):
+			emit_signal("read_all_dialog")
+
 		dialogue_index += 1
 		return
-		
-	# if the dialogue index is not there, then that means the player has read through all the dialogs
-	emit_signal("read_all_dialog")
+	
 	dialogue_index = 0
-	say_dialogue_text(interacted_counter, dialogue_index)
-	dialogue_index += 1 # have to add dialogue_index unless you want npc to say same dialogue over and over again
+	emit_signal("player_interacted")
 
 
-# this function checks if dialogue exists from a passed interacted counter(first digit) and index(second digit)
+# this function checks if dialogue exists from a passed interacted counter(first digit) and index(second digit) in the json file
 func has_dialogue(counter, index) -> bool:
 	return load_dialogue().has(str(counter) + str(index))
-
 	
 # this will get dialogue, make sure to check if has_dialogue first 
 func get_dialogue(counter, index) -> Dictionary:
 	return load_dialogue()[str(counter) + str(index)]
-
 
 # this will take a counter and index and actually display it on screen
 func say_dialogue_text(counter, index) -> void:
@@ -78,3 +82,5 @@ func _on_body_exited(body: Node) -> void:
 		set_process(false)
 
 
+func _on_player_interacted() -> void:
+	interact()

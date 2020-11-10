@@ -1,9 +1,10 @@
 {
 
-"//quest note" : "for quests do 'quest' + 'level_index' for the quest. eg: quest2 is a quest that goes to index 2 in global levels array",
+"//quest note" : "for quests do 'quest' + 'dialog_group' for the quest. eg: quest2 is a quest that is associated with the first digit dialog2",
 
 "00" : { "text" : "press E once more" },
-"01" : {"text" : "yay, now you have quest. press E once more (will change this), press esc, go to extraction point, press E and you will go to level0"},
+
+"01" : {"text" : "yay, you have a quest now. exit out of this dialogue (esc), go to extraction point, press E and you will go to level0"},
 "quest0" : {"level_index" : "1"},
 "10" : {"text" : "thanks for coming back from the moon"}
 
