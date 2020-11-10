@@ -1,6 +1,10 @@
 class_name ThinArea
 extends Area2D
 
-onready var destination_up_position: Vector2 = $DestinationUp.global_position
-onready var destination_down_position: Vector2 = $DestinationDown.global_position
+export var reduced_up = 0
+export var reduced_down = 0
+
+
+onready var destination_up_position: Vector2 = $DestinationUp.global_position  - Vector2(0, reduced_up * 8)
+onready var destination_down_position: Vector2 = $DestinationDown.global_position - Vector2(0, reduced_down * 8)
 

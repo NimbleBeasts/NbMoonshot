@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Skyboxes/Ground.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Skyboxes/CityRedish_L2.png" type="Texture" id=5]
 
-[node name="UstriaSkybox" type="Node2D"]
+[node name="RedishSkybox" type="Node2D"]
 __meta__ = {
 "_edit_lock_": true
 }
