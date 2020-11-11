@@ -67,6 +67,7 @@ func getCurrentLevel():
 func loadNextQuest() -> void:
 	unloadLevel()
 	loadLevel(quest_index)
+	print(quest_index)
 
 
 ###############################################################################

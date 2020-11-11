@@ -16,7 +16,9 @@ var check_for_stunned: bool = true
 
 onready var los_area: Area2D = $Flippable/LineOfSight
 
+
 func _ready() -> void:
+	velocity.y += 200
 	# sets the wait_time to the exported variable
 	$DirectionChangeTimer.wait_time = direction_change_time
 	$SureDetectionTimer.wait_time = time_to_sure_detection
@@ -26,7 +28,8 @@ func _ready() -> void:
 	$Flippable/LineOfSight.connect("body_entered", self, "_on_LineOfSight_body_entered")
 	#TODO: level setting if blue (western) or green guards (eastern) -> change sprite accordingly
 
-func _process(_delta: float) -> void:
+
+func _process(delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
 	update_flip()
@@ -69,17 +72,16 @@ func _process(_delta: float) -> void:
 		Types.GuardStates.Suspect:
 			$AnimationPlayer.play("idle")
 
-			
 
 func change_direction() -> void:
 	# flips the direction.x
 	direction.x *= -1
 
+
 # stun function.
 func stun(duration: int) -> void:
 	direction = Vector2(0,0)
 	set_state(Types.GuardStates.Stunned)
-	$CollisionShape2D.set_deferred("disabled", true)
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", true)
 	player_in_los = false
 	$AnimationPlayer.play("tasered")
@@ -90,7 +92,6 @@ func stun(duration: int) -> void:
 
 
 func unstun() -> void:
-	$CollisionShape2D.set_deferred("disabled", false)
 	$DirectionChangeTimer.start()
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
 	# can check for stunned bodies again

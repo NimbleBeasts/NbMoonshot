@@ -101,12 +101,17 @@ tracks/0/keys = {
 [node name="Guard" type="KinematicBody2D" groups=[
 "Guard",
 ]]
+collision_layer = 16
+collision_mask = 17
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 speed = 25
 direction_change_time = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.883888, -13.7886 )
+position = Vector2( -0.883888, -15.1917 )
 shape = SubResource( 1 )
 
 [node name="DirectionChangeTimer" type="Timer" parent="."]

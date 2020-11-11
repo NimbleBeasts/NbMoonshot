@@ -118,6 +118,7 @@ position = Vector2( 32, 256 )
 position = Vector2( 16, 256 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
+has_level_index = false
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 256 )

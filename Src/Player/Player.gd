@@ -66,7 +66,7 @@ func _process(_delta: float) -> void:
 
 
 	# ducking 
-	if Input.is_action_pressed("duck"):
+	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
 		set_state(Types.PlayerStates.Duck)
 		$AnimationPlayer.play("duck")
 		block_input = true

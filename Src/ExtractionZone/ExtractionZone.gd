@@ -4,7 +4,7 @@ extends Area2D
 # changes level to exported variable
 
 var player_entered: bool = false
-export var has_level_index: bool = false
+export var has_level_index: bool = true
 export var level_index: int = 0
 export var next_boss_interacted_counter: int = 0
 
@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		Global.game_manager.boss_interaction_counter = next_boss_interacted_counter
 		Global.game_manager.unloadLevel()
 		Global.game_manager.loadLevel(level_index)
-
+		
 
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
