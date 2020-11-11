@@ -7,8 +7,10 @@ export(bool) var highlight = false
 var readable = false
 var alreadyRead = false
 
+
 func _ready():
 	updateHighlight()
+
 
 func updateHighlight():
 	if highlight:
@@ -38,6 +40,7 @@ func _on_ReadArea_body_exited(body):
 	if body.is_in_group("Player"):
 		print("read exit")
 		readable = false
+
 
 func _on_NotifierArea_body_entered(body):
 	if body.is_in_group("Player"):

@@ -39,7 +39,9 @@ func _ready() -> void:
 	Events.connect("minigame_exited", self, "_on_minigame_exited")
 	Events.connect("interacted_with_npc", self, "_on_interacted_npc")
 	Events.connect("npc_interaction_stopped", self, "_on_npc_interaction_stopped")
-	
+	Events.connect("hud_note_exited", self, "_on_hud_note_exited")
+	Events.connect("hud_note_show", self, "_on_hud_note_showed")
+
 	$AnimationPlayer.play("idle")
 
 
@@ -152,11 +154,6 @@ func travel(target_pos: float) -> void:
 	set_state(Types.PlayerStates.Normal)
 	
 
-func _on_minigame_entered(_type: int) -> void:
-	$AnimationPlayer.play("action")
-	block_input = true
-
-
 func stunning(duration) -> void:
 	if stun_battery_level > 0:				
 		if Input.is_action_just_pressed("stun"):
@@ -168,15 +165,26 @@ func stunning(duration) -> void:
 					stun_battery_level -= 1
 
 
+# Event Hooks
+func _on_minigame_entered(_type: int) -> void:
+	$AnimationPlayer.play("action")
+	block_input = true
+
+# I feel like I can connect all of these to two functions for blocking and unblocking input because they all do the same thing anyway
 func _on_minigame_exited(_type: int) -> void:
 	block_input = false
 
-# blocks input when interacted with npc and unblocks when stopped
 func _on_interacted_npc(npc: Node) -> void:
 	block_input = true 
 
 func _on_npc_interaction_stopped(npc: Node) -> void:
 	block_input = false
+
+func _on_hud_note_exited() -> void:
+	block_input = false
+
+func _on_hud_note_showed(text: String) -> void:
+	block_input = true
 
 
 # use this function to set light_level instead of directly changing it

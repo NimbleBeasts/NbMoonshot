@@ -8,6 +8,8 @@ func _ready():
 	$Sprite.hide()
 
 func popup(type):
+	show()
+	isShowing = true
 	if type == Types.NotifierTypes.Exclamation:
 		$Sprite.frame = 1
 	else:
@@ -16,7 +18,8 @@ func popup(type):
 	$Sprite.show()
 	$AnimationPlayer.play("popup")
 	isShowing = true
-	
+
+
 func remove():
 	if isShowing:
 		toBeRemoved = true
@@ -27,4 +30,3 @@ func remove():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if toBeRemoved:
 		hide()
-

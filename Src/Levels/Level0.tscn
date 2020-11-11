@@ -91,7 +91,7 @@ next_boss_interacted_counter = 1
 position = Vector2( 224, 192 )
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
-position = Vector2( 289.605, 186.658 )
+position = Vector2( 273.713, 191.426 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="MinigameDoor" parent="." instance=ExtResource( 10 )]

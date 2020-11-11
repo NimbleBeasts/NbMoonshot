@@ -104,11 +104,11 @@ position = Vector2( 328, 256 )
 position = Vector2( 392, 256 )
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 23 )]
-position = Vector2( 64, 256 )
+position = Vector2( 92.0633, 254.218 )
 highlight = true
 
 [node name="Note2" parent="LevelObjects" instance=ExtResource( 23 )]
-position = Vector2( 128, 256 )
+position = Vector2( 157.4, 255.555 )
 text = "This is a note text2"
 
 [node name="OutdoorLight" parent="LevelObjects" instance=ExtResource( 20 )]
