@@ -22,7 +22,7 @@ signal minigame_entered(minigame_type) #Types.Minigames
 signal minigame_exited(result) #Types.Minigames
 
 # HUD
-signal hud_note_show(text)
+signal hud_note_show(type, text)
 signal hud_note_exited()
 signal hud_dialog_show(name, nameColor, text)
 signal hud_dialog_exited()

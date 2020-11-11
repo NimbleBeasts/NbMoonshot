@@ -3,6 +3,7 @@ extends Node2D
 
 export(String) var text = "This is a note text"
 export(bool) var highlight = false
+export(Types.NoteType) var type = Types.NoteType.SecretService
 
 var readable = false
 var alreadyRead = false
@@ -23,7 +24,7 @@ func updateHighlight():
 func _process(delta):
 	if readable:
 		if Input.is_action_just_pressed("open_minigame"):
-			Events.emit_signal("hud_note_show", text)
+			Events.emit_signal("hud_note_show", type, text)
 			if highlight:
 				$Sprite.frame = 1
 				$Notifier.remove()

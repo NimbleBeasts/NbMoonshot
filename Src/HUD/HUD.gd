@@ -12,7 +12,12 @@ func _ready():
 	Events.connect("hud_dialog_show", self, "showDialog")
 
 
-func showNote(text):
+func showNote(type, text):
+	if type == Types.NoteType.Local:
+		$Note.texture = preload("res://Assets/HUD/NoteLocal.png")
+	else:
+		$Note.texture = preload("res://Assets/HUD/Note.png")
+
 	$Note/Text.bbcode_text = str(text)
 	$Note.show()
 
