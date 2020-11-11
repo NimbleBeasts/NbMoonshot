@@ -1,5 +1,6 @@
 extends Node2D
 
+export var allowed_detections: int = 3
 
 func _ready():
 	# Set all decoration sprites to correct light level 

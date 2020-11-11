@@ -1,6 +1,9 @@
 class_name Player
 extends KinematicBody2D
 
+#enum LightLevels {Dark = 0, BarelyVisible = 1, FullLight = 2}
+const visibilityLevelsModulations = ["#a0a0a0", "#cccccc", "#ffffff"]
+
 # movement variables
 export var normal_speed: int = 80
 export var normal_acceleration: int = 600
@@ -198,6 +201,7 @@ func set_light_level(value: int) -> void:
 		# this is why a custom setter function is needed, may forgot to set visible level and
 		# will fuk everything up
 		visible_level = light_level
+		$PlayerSprite.modulate = Color(visibilityLevelsModulations[visible_level])
 		Events.emit_signal("light_level_changed", light_level)
 	
 	
@@ -216,7 +220,7 @@ func animation_change(to: String) -> void:
 		
 		if $AnimationPlayer.current_animation == "idle" and to == "walk" or \
 			$AnimationPlayer.current_animation == "walk" and to == "idle":
-			print("change to:" + to)
+			#print("change to:" + to)
 			$AnimationPlayer.play(to)
 		
 

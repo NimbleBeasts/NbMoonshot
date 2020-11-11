@@ -2,7 +2,7 @@ extends Node
 
 enum Direction { Top, Right, Down, Left }
 enum GameStates {Menu, Game, Settings} 
-enum LightLevels {Dark, BarelyVisible, FullLight}
+enum LightLevels {Dark = 0, BarelyVisible = 1, FullLight = 2}
 enum AudioLevels {LoudNoise = 0, SmallNoise = 1, Silent = 2}
 enum PlayerStates {Normal, WallDodge, Duck}
 enum Minigames{Test, Keypad, WireCut}

@@ -97,10 +97,10 @@ reduced_down = 2
 position = Vector2( 424, 72 )
 
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
-position = Vector2( 400, 256 )
+position = Vector2( 536, 128 )
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
-position = Vector2( 480, 256 )
+position = Vector2( 264, 192 )
 connected_door_path = NodePath("../Staircase")
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
@@ -112,6 +112,12 @@ lock_code = 2134
 light_mask = 3
 position = Vector2( 376, 136 )
 flicker = true
+flickerSequence = "11101100"
+
+[node name="Light2" parent="LevelObjects" instance=ExtResource( 9 )]
+light_mask = 3
+position = Vector2( 288, 136 )
+flickerSequence = "11101100"
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 424, 320 )
@@ -162,7 +168,7 @@ margin_left = -2000.0
 margin_top = -2000.0
 margin_right = 2600.0
 margin_bottom = 2200.0
-color = Color( 0, 0, 0, 0.498039 )
+color = Color( 0, 0, 0, 0.376471 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -178,6 +184,7 @@ starting_direction = Vector2( -1, 0 )
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
 [node name="Label" type="Label" parent="HUD"]
+visible = false
 margin_right = 72.0
 margin_bottom = 14.0
 text = "Hello Level"
