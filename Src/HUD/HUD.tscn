@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -9,93 +9,29 @@
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
 [ext_resource path="res://Assets/HUD/Note.png" type="Texture" id=8]
 [ext_resource path="res://Shaders/Crt-Shader.tres" type="Material" id=9]
+[ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Assets/HUD/Alarm.png" type="Texture" id=11]
+[ext_resource path="res://Assets/HUD/Battery.png" type="Texture" id=12]
+
+[sub_resource type="Animation" id=1]
+resource_name = "downgrade"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 2, 0 ]
+}
 
 [node name="HUD" type="CanvasLayer"]
 pause_mode = 2
 layer = 128
 script = ExtResource( 1 )
-
-[node name="Shader" type="ColorRect" parent="."]
-material = ExtResource( 9 )
-margin_right = 640.0
-margin_bottom = 360.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LightIndicator" type="Sprite" parent="."]
-position = Vector2( 616, 24 )
-texture = ExtResource( 2 )
-hframes = 3
-frame = 2
-
-[node name="LightHover" type="Control" parent="LightIndicator"]
-margin_left = -12.0
-margin_top = -12.0
-margin_right = 12.0
-margin_bottom = 12.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AudioIndicator" type="Sprite" parent="."]
-position = Vector2( 584, 24 )
-texture = ExtResource( 3 )
-hframes = 3
-frame = 2
-
-[node name="GoBackToNormal" type="Timer" parent="AudioIndicator"]
-wait_time = 0.4
-
-[node name="AudioHover" type="Control" parent="AudioIndicator"]
-margin_left = -8.0
-margin_top = -12.0
-margin_right = 16.0
-margin_bottom = 12.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WebMonetization" parent="." instance=ExtResource( 4 )]
-position = Vector2( 544, 12 )
-
-[node name="WebHover" type="Control" parent="WebMonetization"]
-margin_right = 24.0
-margin_bottom = 24.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Hovers" type="Node2D" parent="."]
-visible = false
-position = Vector2( 544, 40 )
-
-[node name="Background" type="ColorRect" parent="Hovers"]
-margin_left = -112.0
-margin_top = 8.0
-margin_right = 88.0
-margin_bottom = 32.0
-color = Color( 0.227451, 0.266667, 0.4, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Hovers"]
-margin_left = -108.0
-margin_top = 13.0
-margin_right = 85.0
-margin_bottom = 27.0
-custom_fonts/font = ExtResource( 5 )
-text = "This is your visibilty indicator."
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Indicator" type="Sprite" parent="Hovers"]
-position = Vector2( 43, 0 )
-texture = ExtResource( 6 )
 
 [node name="Dialog" type="NinePatchRect" parent="."]
 visible = false
@@ -167,6 +103,123 @@ scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Shader" type="ColorRect" parent="."]
+material = ExtResource( 9 )
+margin_right = 640.0
+margin_bottom = 360.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LightIndicator" type="Sprite" parent="."]
+position = Vector2( 616, 24 )
+texture = ExtResource( 2 )
+hframes = 3
+frame = 2
+
+[node name="LightHover" type="Control" parent="LightIndicator"]
+margin_left = -12.0
+margin_top = -12.0
+margin_right = 12.0
+margin_bottom = 12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioIndicator" type="Sprite" parent="."]
+position = Vector2( 584, 24 )
+texture = ExtResource( 3 )
+hframes = 3
+frame = 2
+
+[node name="GoBackToNormal" type="Timer" parent="AudioIndicator"]
+wait_time = 0.4
+
+[node name="AudioHover" type="Control" parent="AudioIndicator"]
+margin_left = -8.0
+margin_top = -12.0
+margin_right = 16.0
+margin_bottom = 12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WebMonetization" parent="." instance=ExtResource( 4 )]
+position = Vector2( 544, 12 )
+
+[node name="WebHover" type="Control" parent="WebMonetization"]
+margin_right = 24.0
+margin_bottom = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AlarmIndicator" type="Sprite" parent="."]
+position = Vector2( 24, 24 )
+texture = ExtResource( 11 )
+hframes = 3
+
+[node name="Label" type="Label" parent="AlarmIndicator"]
+margin_left = 12.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 6.0
+custom_fonts/font = ExtResource( 10 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AlarmAnimation" type="AnimationPlayer" parent="AlarmIndicator"]
+anims/downgrade = SubResource( 1 )
+
+[node name="ChargeIndicator" type="Sprite" parent="."]
+position = Vector2( 64, 24 )
+texture = ExtResource( 12 )
+hframes = 4
+
+[node name="Label" type="Label" parent="ChargeIndicator"]
+margin_left = 12.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 6.0
+custom_fonts/font = ExtResource( 10 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hovers" type="Node2D" parent="."]
+visible = false
+position = Vector2( 544, 40 )
+
+[node name="Background" type="ColorRect" parent="Hovers"]
+margin_left = -112.0
+margin_top = 8.0
+margin_right = 88.0
+margin_bottom = 32.0
+color = Color( 0.227451, 0.266667, 0.4, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Hovers"]
+margin_left = -108.0
+margin_top = 13.0
+margin_right = 85.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 5 )
+text = "This is your visibilty indicator."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Indicator" type="Sprite" parent="Hovers"]
+position = Vector2( 43, 0 )
+texture = ExtResource( 6 )
 
 [node name="IngameMenu" type="Control" parent="."]
 pause_mode = 2

@@ -26,6 +26,21 @@ func _ready():
 	Events.connect("possible_detection_num_changed", self, "_on_possible_detection_num_changed")
 	
 	switchTo(Types.GameStates.Menu)
+	
+	debugPlayerSkills()
+	
+func debugPlayerSkills():
+	var cat = Debug.addCategory("PlayerSkills")
+	Debug.addOption(cat, "List", funcref(self, "debugListSkills"), null)
+	for skill in Global.upgrades:
+		Debug.addOption(cat, "add: " + skill.name, funcref(self, "debugAddSkill"), skill.id)
+
+func debugAddSkill(id):
+	Global.playerUpgrades.append(id)
+	
+func debugListSkills(_d):
+	print("PlayerSkills:")
+	print(str(Global.playerUpgrades))
 
 # State Transition Function
 func switchTo(to):

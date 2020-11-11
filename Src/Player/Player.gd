@@ -23,7 +23,7 @@ var light_level: int = Types.LightLevels.Dark
 var visible_level: int = light_level
 var state: int = Types.PlayerStates.Normal
 var colliding_with_travel: bool = false
-var stun_battery_level: int = 4
+var stun_battery_level: int = 3
 var stun_duration: float = 4.0
 
 onready var travel_tween: Tween = $TravelTween
@@ -46,6 +46,10 @@ func _ready() -> void:
 	Events.connect("hud_note_show", self, "_on_hud_note_showed")
 
 	$AnimationPlayer.play("idle")
+	
+	# Initial set taser level
+	Events.emit_signal("taser_fired", stun_battery_level)
+
 
 
 func _process(_delta: float) -> void:
@@ -168,6 +172,7 @@ func stunning(duration) -> void:
 				if (guard) and (not guard.state == Types.GuardStates.Stunned):
 					guard.stun(duration) #TODO: stun_duration is float, API is int. 
 					stun_battery_level -= 1
+					Events.emit_signal("taser_fired", stun_battery_level)
 
 
 # Event Hooks

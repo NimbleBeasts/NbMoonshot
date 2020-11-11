@@ -156,6 +156,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -164,7 +165,7 @@ position = Vector2( 590, 294 )
 texture = ExtResource( 22 )
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 10 )]
-position = Vector2( 208, 192 )
+position = Vector2( 176, 192 )
 text = "Secret tresor code: 1234"
 highlight = true
 type = 1

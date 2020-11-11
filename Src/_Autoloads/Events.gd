@@ -35,6 +35,9 @@ signal web_monetization_pulse(isPaying)
 signal player_detected(detection_type) # Types.DetectionLevels
 signal possible_detection_num_changed(value)
 signal sure_detection_num_changed(value)
+# Taser
+signal taser_fired(charges_remaining)
+
 
 # NPC
 signal interacted_with_npc(npc)

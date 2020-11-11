@@ -4,12 +4,25 @@ enum HoverType {Light, Audio, Web}
 
 var count = 0
 
+
 func _ready():
 	Events.connect("light_level_changed", self, "updateLightLevel")
 	Events.connect("audio_level_changed", self, "updateAudioLevel")
 	
 	Events.connect("hud_note_show", self, "showNote")
 	Events.connect("hud_dialog_show", self, "showDialog")
+	
+	Events.connect("sure_detection_num_changed", self, "alarmIndication")
+	Events.connect("taser_fired", self, "taserUpdate")
+
+func taserUpdate(value):
+	$ChargeIndicator.frame = 3 - value
+	$ChargeIndicator/Label.set_text(str(value))
+
+func alarmIndication(value):
+	$AlarmIndicator/AlarmAnimation.play("downgrade")
+	$AlarmIndicator/Label.set_text(str(value))
+	#TODO alarm should count down instead of up 
 
 
 func showNote(type, text):
