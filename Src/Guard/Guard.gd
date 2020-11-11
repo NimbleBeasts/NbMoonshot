@@ -38,8 +38,9 @@ func _process(_delta: float) -> void:
 	# the player could be in dark visible level when the overlap happens and it would check according to that
 	# then the player could move to full light and it wouldn't get called unless it's a new overlap
 	# so we have to do set a bool on area entered and check in _process
-	if player_in_los:
+	if player_in_los and state != Types.GuardStates.Stunned:
 		match Global.player.visible_level:
+
 			Types.LightLevels.FullLight:
 				set_state(Types.GuardStates.PlayerDetected)
 				player_in_los = false
@@ -66,9 +67,10 @@ func _process(_delta: float) -> void:
 		Types.GuardStates.Stunned:
 			pass
 		Types.GuardStates.Suspect:
-			pass
+			$AnimationPlayer.play("idle")
 
 			
+
 func change_direction() -> void:
 	# flips the direction.x
 	direction.x *= -1
@@ -78,6 +80,8 @@ func stun(duration: int) -> void:
 	direction = Vector2(0,0)
 	set_state(Types.GuardStates.Stunned)
 	$CollisionShape2D.set_deferred("disabled", true)
+	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", true)
+	player_in_los = false
 	$AnimationPlayer.play("tasered")
 	# timer stuff
 	$StunDurationTimer.start(duration)
@@ -87,6 +91,8 @@ func stun(duration: int) -> void:
 
 func unstun() -> void:
 	$CollisionShape2D.set_deferred("disabled", false)
+	$DirectionChangeTimer.start()
+	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
 	# can check for stunned bodies again
 	get_tree().set_group("Guard", "check_for_stunned", true)
 	
@@ -98,7 +104,7 @@ func _on_DirectionChangeTimer_timeout():
 	
 func _on_LineOfSight_area_entered(area: Area2D) -> void:
 	# detecting player
-	if area.is_in_group("PlayerArea") and not state == Types.GuardStates.Stunned:
+	if area.is_in_group("PlayerArea") and state != Types.GuardStates.Stunned:
 		player_in_los = true
 
 
@@ -144,8 +150,12 @@ func set_state(new_state) -> void:
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
 				$AnimationPlayer.play("suspicious")
 			Types.GuardStates.Suspect:
+				direction = Vector2(0,0)
 				print(name + " has suspicion")
-
+				$Notifier.popup(Types.NotifierTypes.Question)
+			Types.GuardStates.Wander:
+				$Notifier.remove()
+			
 				
 func update_flip() -> void:
 	if direction.x != 0:

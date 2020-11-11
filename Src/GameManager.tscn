@@ -22,7 +22,6 @@ tracks/0/keys = {
 }
 
 [node name="GameManager" type="Control"]
-pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -47,7 +46,6 @@ render_target_update_mode = 3
 audio_listener_enable_2d = true
 
 [node name="LevelHolder" type="Node2D" parent="gameViewport/Viewport"]
-pause_mode = 1
 
 [node name="menuViewport" type="ViewportContainer" parent="."]
 anchor_right = 1.0
