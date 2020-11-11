@@ -1,4 +1,5 @@
 
+tool
 extends Node2D
 
 var minigame_finished: bool = false
@@ -6,10 +7,17 @@ var playerInArea = false
 var doorIsOpen = false
 var playerNode = null
 
-enum DoorType {open, lockedLevel1, lockedLevel2}
+enum DoorLockType {open, lockedLevel1, lockedLevel2}
+enum DoorType {wooden, metal}
 
-export(DoorType) var lockLevel = DoorType.open
+export(DoorLockType) var lockLevel = DoorLockType.open
+export(DoorType) var doorType = DoorType.wooden
 
+func _ready():
+	if doorType == DoorType.metal:
+		$Sprite.texture = preload("res://Assets/Objects/DoorWallMetal.png")
+	else:
+		$Sprite.texture = preload("res://Assets/Objects/DoorWall.png")
 
 func _process(delta):
 	if playerInArea:

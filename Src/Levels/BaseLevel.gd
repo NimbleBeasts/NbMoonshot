@@ -1,16 +1,17 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	# Set all decoration sprites to correct light level 
+	var decoHolder = get_node("LevelObjects/Decorations")
+	if decoHolder:
+		var decorationSprites = decoHolder.get_children()
+		for node in decorationSprites:
+			node.light_mask = 3
+			
+	var wallSpriteHolder = get_node("SpriteWalls")
+	if wallSpriteHolder:
+		var wallSprites = wallSpriteHolder.get_children()
+		for node in wallSprites:
+			node.light_mask = 3
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
