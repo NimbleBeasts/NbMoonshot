@@ -6,10 +6,12 @@
 
 [node name="Light" type="Node2D"]
 script = ExtResource( 3 )
+flickerSequence = "111000"
 
 [node name="FullLight" type="Area2D" parent="." groups=[
 "FullLight",
 ]]
+monitoring = false
 collision_layer = 2
 collision_mask = 2
 
@@ -19,6 +21,7 @@ polygon = PoolVector2Array( -6, 0, -23, 55, 23, 55, 6, 0 )
 [node name="BarelyVisible" type="Area2D" parent="." groups=[
 "BarelyVisible",
 ]]
+monitoring = false
 collision_layer = 2
 collision_mask = 2
 
@@ -41,5 +44,7 @@ shadow_item_cull_mask = -2147483646
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 4 )
 texture = ExtResource( 2 )
-[connection signal="body_entered" from="FullLight" to="." method="_on_FullLight_body_entered"]
-[connection signal="body_entered" from="BarelyVisible" to="." method="_on_BarelyVisible_body_entered"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout" flags=3]

@@ -1,35 +1,36 @@
+tool
 extends Node2D
 
-var debugPoints = []
-var can_check_for_player
+export(bool) var flicker = false
+export(String) var flickerSequence = "1110"
 
-# hmmmmmm this is shit :<
+enum LightState {On = 1, Off = 0}
 
-#func _draw():
-#	for point in debugPoints:
-#		draw_circle(point, 6, Color(255,150,0))
-#
-#
-#func raycastToPlayer(targetPos):
-#	targetPos -= Vector2(0, 16)
-#	debugPoints = [Vector2(0, 0), targetPos]
-#
-#	var space_state = get_world_2d().direct_space_state
-#	var result = space_state.intersect_ray(Vector2(0, 0), targetPos)
-#
-#	if result:
-#		debugPoints.append(result.position)
-#	print(result)
-#	print(debugPoints)
-#	update()
+var state = LightState.On
+var currentIndex = 0
 
-func _on_FullLight_body_entered(body):
-	if body.is_in_group("Player"):
-		return
-		#raycastToPlayer(body.position - global_position)
+func _ready():
+	if flicker:
+		$Timer.start()
 
+func isOn():
+	if state == LightState.On:
+		return true
+	return false
 
-func _on_BarelyVisible_body_entered(body):
-	if body.is_in_group("Player"):
-		return
-		#raycastToPlayer(body.position - global_position)
+func updateLight():
+	currentIndex += 1
+	
+	if currentIndex >= flickerSequence.length():
+		currentIndex = 0
+	
+	var desiredFrameState = int(flickerSequence[currentIndex])
+	if desiredFrameState != state:
+		state = desiredFrameState
+		if state == LightState.On:
+			$Light2D.show()
+		else:
+			$Light2D.hide()
+
+func _on_Timer_timeout():
+	updateLight()

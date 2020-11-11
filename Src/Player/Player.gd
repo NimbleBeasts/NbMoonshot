@@ -129,17 +129,19 @@ func _physics_process(delta: float) -> void:
 func update_light_level() -> void:
 	# if there are no overlapping areas, just set light_level to dark
 	# this works because the detecting area and the light areas are in their own collision layer
-	if $PlayerLightArea.get_overlapping_areas() == []:
-		set_light_level(Types.LightLevels.Dark)
-		return
+	#if $PlayerLightArea.get_overlapping_areas() == []:
+	set_light_level(Types.LightLevels.Dark)
+	#	return
 	
 	# this will only run if light area is actually colliding with a light because of the return
 	# this area and the lights have their own collision layer
 	for area in $PlayerLightArea.get_overlapping_areas():
 		if area.is_in_group("FullLight"):
-			set_light_level(Types.LightLevels.FullLight)
+			if area.get_parent().isOn():
+				set_light_level(Types.LightLevels.FullLight)
 		elif area.is_in_group("BarelyVisible"):
-			set_light_level(Types.LightLevels.BarelyVisible)
+			if area.get_parent().isOn():
+				set_light_level(Types.LightLevels.BarelyVisible)
 
 	
 func travel(target_pos: float) -> void:
