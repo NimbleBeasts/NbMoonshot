@@ -61,7 +61,7 @@ func _process(_delta: float) -> void:
 	
 	# wall dodging
 	if Input.is_action_pressed("wall_dodge"):
-		visible_level = light_level - 1
+		set_light_level(max(light_level - 1, 0))
 		set_state(Types.PlayerStates.WallDodge)
 		$AnimationPlayer.play("dodge")
 		block_input = true

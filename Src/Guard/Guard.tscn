@@ -125,6 +125,7 @@ one_shot = true
 [node name="Flippable" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Flippable"]
+light_mask = 3
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 hframes = 17
