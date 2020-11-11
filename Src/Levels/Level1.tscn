@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/Objects/ContolRoom3.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Objects/WallPockocmoc.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Objects/Elevator.png" type="Texture" id=23]
+[ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=24]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -169,6 +170,13 @@ position = Vector2( 176, 192 )
 text = "Secret tresor code: 1234"
 highlight = true
 type = 1
+
+[node name="Cabinet" parent="LevelObjects" instance=ExtResource( 24 )]
+position = Vector2( 432, 192 )
+
+[node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
+position = Vector2( 504, 192 )
+hasBounty = true
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
