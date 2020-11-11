@@ -52,11 +52,11 @@ position = Vector2( 224, 264 )
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 5 )]
 position = Vector2( 360, 200 )
+camDirection = 1
 
 [node name="Camera2" parent="LevelObjects" instance=ExtResource( 5 )]
 position = Vector2( 331.25, 137.658 )
-rotation = 2.90074
-scale = Vector2( 1, -1 )
+camDirection = 1
 
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 400, 256 )

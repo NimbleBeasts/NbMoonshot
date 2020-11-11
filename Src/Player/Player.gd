@@ -170,10 +170,11 @@ func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
 	block_input = true
 
-# I feel like I can connect all of these to two functions for blocking and unblocking input because they all do the same thing anyway
+
 func _on_minigame_exited(_type: int) -> void:
 	block_input = false
 
+# I feel like I can connect all of these to two functions for blocking and unblocking input because they all do the same thing anyway
 func _on_interacted_npc(npc: Node) -> void:
 	block_input = true 
 
