@@ -326,4 +326,8 @@ anims/jump_down = SubResource( 11 )
 anims/jump_up = SubResource( 12 )
 anims/taser = SubResource( 13 )
 anims/walk = SubResource( 14 )
+
+[node name="SprintTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

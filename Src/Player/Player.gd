@@ -15,6 +15,8 @@ export var normal_stun_battery: int = 3
 export var extended_stun_battery: int = 5
 export var normal_stun_duration: float = 4.0
 export var extended_stun_duration: float = 7.0
+export var normal_sprint_duration: float = 3.0
+export var extended_sprint_duration: float = 6.0
 
 var direction: Vector2
 var velocity: Vector2
@@ -32,6 +34,8 @@ var colliding_with_travel: bool = false
 var stun_battery_level: int = 3
 var stun_duration: float = 4.0
 var has_sneak_upgrade: bool = false
+var can_sprint: bool = true
+var sprint_duration: float
 
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
@@ -49,6 +53,7 @@ func _ready() -> void:
 	do_upgrade_stuff()
 
 	# signal connections
+	$SprintTimer.connect("timeout", self, "_on_SprintTimer_timeout")
 	Events.connect("minigame_entered", self,  "_on_minigame_entered")
 	Events.connect("minigame_exited", self, "_on_minigame_exited")
 	Events.connect("interacted_with_npc", self, "_on_interacted_npc")
@@ -64,15 +69,22 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	# changed between speeds depending on whether sprinting or not
-	if Input.is_action_pressed("sprint"):
+	if Input.is_action_pressed("sprint") and can_sprint:
 		speed = sprint_speed
 		acceleration = sprint_acceleration
+		# starts sprint timer
+		if $SprintTimer.is_stopped():
+			$SprintTimer.start()
 	else:
 		speed = normal_speed
 		acceleration = normal_acceleration
-	
+		# starts sprint timer
+		if $SprintTimer.is_stopped():
+			$SprintTimer.start()
+			$SprintTimer.wait_time = 3
+			
+
 	update_light_level()
-	
 		
 	# wall dodging
 	if Input.is_action_pressed("wall_dodge"):
@@ -186,25 +198,36 @@ func stunning() -> void:
 
 				
 func do_upgrade_stuff() -> void:
+	# if/ else go brrrrrrrr
+
 	# taser battery
 	if Types.UpgradeTypes.Taser_Extended_Battery in Global.gameState.playerUpgrades:
 		print("has taser battery upgrade")
 		stun_battery_level = extended_stun_battery
 	else:
 		stun_battery_level = normal_stun_battery
-	
+
 	# stun duration
 	if Types.UpgradeTypes.Taser_Voltage in Global.gameState.playerUpgrades:
 		print("has taser voltage upgrade")
 		stun_duration = extended_stun_duration
 	else:
 		stun_duration = normal_stun_duration
-	
+
+	# sneak upgrade
 	if Types.UpgradeTypes.Sneak in Global.gameState.playerUpgrades:
 		print("has sneak upgrade")
 		has_sneak_upgrade = true
 	else:
 		has_sneak_upgrade = false
+
+	# marathon upgrade
+	if Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades:
+		print("has marathon upgrade")
+		$SprintTimer.wait_time = extended_sprint_duration
+	else:
+		$SprintTimer.wait_time = normal_sprint_duration
+
 
 # Event Hooks
 func _on_minigame_entered(_type: int) -> void:
@@ -212,20 +235,26 @@ func _on_minigame_entered(_type: int) -> void:
 	block_input = true
 
 
+# just flips the variable value
+func _on_SprintTimer_timeout() -> void:
+	can_sprint = not can_sprint
+	print("sprint timer timeout")
+	
+	
 func _on_minigame_exited(_type: int) -> void:
 	block_input = false
 
 # I feel like I can connect all of these to two functions for blocking and unblocking input because they all do the same thing anyway
-func _on_interacted_npc(npc: Node) -> void:
+func _on_interacted_npc(_npc: Node) -> void:
 	block_input = true 
 
-func _on_npc_interaction_stopped(npc: Node) -> void:
+func _on_npc_interaction_stopped(_npc: Node) -> void:
 	block_input = false
 
 func _on_hud_note_exited() -> void:
 	block_input = false
 
-func _on_hud_note_showed(type: int, text: String) -> void:
+func _on_hud_note_showed(_type: int, _text: String) -> void:
 	block_input = true
 
 
