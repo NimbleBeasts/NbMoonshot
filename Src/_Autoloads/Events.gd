@@ -38,6 +38,8 @@ signal sure_detection_num_changed(value)
 # Taser
 signal taser_fired(charges_remaining)
 
+# Allowed detections
+signal allowed_detections_updated(value)
 
 # NPC
 signal interacted_with_npc(npc)
@@ -53,6 +55,7 @@ signal menu_back()
 signal switch_sound(value)
 signal switch_music(value)
 signal switch_fullscreen(value)
+
 
 ###############################################################################
 

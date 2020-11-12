@@ -7,6 +7,9 @@ export var starting_direction: Vector2
 export var time_to_sure_detection: float = 1.5
 export var stun_duration: float = 2
 export var audio_suspect_distance: int = 150
+export var normal_time_to_alarm: float = 1.5
+export var extended_time_to_alarm: float = 3.5
+
 
 var velocity: Vector2
 var direction: Vector2
@@ -21,6 +24,9 @@ onready var los_area: Area2D = $Flippable/LineOfSight
 
 
 func _ready() -> void:
+	Global.addUpgrade(Types.UpgradeTypes.Distraction)
+	add_to_group("Upgradable")
+	do_upgrade_stuff()
 	# sets sprite texture on level type
 	match Global.game_manager.getCurrentLevel().level_type:
 		Types.LevelTypes.Western:
@@ -88,7 +94,7 @@ func change_direction() -> void:
 
 
 # stun function.
-func stun(duration: int) -> void:
+func stun(duration: float) -> void:
 	direction = Vector2(0,0)
 	set_state(Types.GuardStates.Stunned)
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", true)
@@ -171,7 +177,15 @@ func set_state(new_state) -> void:
 func update_flip() -> void:
 	if direction.x != 0:
 		$Flippable.scale.x = direction.x
-	
+
+
+func do_upgrade_stuff() -> void:
+	if Types.UpgradeTypes.Distraction in Global.gameState.playerUpgrades:
+		print("has distraction upgrade")
+		time_to_sure_detection = extended_time_to_alarm
+	else:
+		time_to_sure_detection = normal_time_to_alarm
+
 
 func _on_AnimationPlayer_animation_started(anim_name):
 	if anim_name == "suspicious":

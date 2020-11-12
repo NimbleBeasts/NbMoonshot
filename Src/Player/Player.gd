@@ -10,6 +10,12 @@ export var normal_acceleration: int = 600
 export var sprint_speed: int = 160
 export var sprint_acceleration: int = 2500
 
+# upgrade export variables
+export var normal_stun_battery: int = 3
+export var extended_stun_battery: int = 5
+export var normal_stun_duration: float = 4.0
+export var extended_stun_duration: float = 7.0
+
 var direction: Vector2
 var velocity: Vector2
 var speed: int = normal_speed
@@ -25,6 +31,7 @@ var state: int = Types.PlayerStates.Normal
 var colliding_with_travel: bool = false
 var stun_battery_level: int = 3
 var stun_duration: float = 4.0
+var has_sneak_upgrade: bool = false
 
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
@@ -38,6 +45,10 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	add_to_group("Upgradable")
+	do_upgrade_stuff()
+
+	# signal connections
 	Events.connect("minigame_entered", self,  "_on_minigame_entered")
 	Events.connect("minigame_exited", self, "_on_minigame_exited")
 	Events.connect("interacted_with_npc", self, "_on_interacted_npc")
@@ -46,10 +57,9 @@ func _ready() -> void:
 	Events.connect("hud_note_show", self, "_on_hud_note_showed")
 
 	$AnimationPlayer.play("idle")
-	
+
 	# Initial set taser level
 	Events.emit_signal("taser_fired", stun_battery_level)
-
 
 
 func _process(_delta: float) -> void:
@@ -69,7 +79,7 @@ func _process(_delta: float) -> void:
 		set_light_level(max(light_level - 1, 0))
 		set_state(Types.PlayerStates.WallDodge)
 		$AnimationPlayer.play("dodge")
-		block_input = true
+		block_input = true if (not has_sneak_upgrade) else false
 	elif Input.is_action_just_released("wall_dodge"):
 		visible_level = light_level
 		set_state(Types.PlayerStates.Normal)
@@ -79,7 +89,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
 		set_state(Types.PlayerStates.Duck)
 		$AnimationPlayer.play("duck")
-		block_input = true
+		block_input = true 
 	elif Input.is_action_just_released("duck"):
 		set_state(Types.PlayerStates.Normal)
 
@@ -130,8 +140,8 @@ func _physics_process(delta: float) -> void:
 				$AnimationPlayer.play("jump_up")
 	
 	# stunning
-	if state == Types.PlayerStates.Normal:
-		stunning(stun_duration)
+	if state == Types.PlayerStates.Normal and stun_battery_level > 0 :
+		stunning()
 		
 
 func update_light_level() -> void:
@@ -164,17 +174,37 @@ func travel(target_pos: float) -> void:
 	set_state(Types.PlayerStates.Normal)
 	
 
-func stunning(duration) -> void:
-	if stun_battery_level > 0:				
-		if Input.is_action_just_pressed("stun"):
-			$AnimationPlayer.play("taser")
-			if stun_raycast.is_colliding():
-				var guard := stun_raycast.get_collider() as Guard
-				if (guard) and (not guard.state == Types.GuardStates.Stunned):
-					guard.stun(duration) #TODO: stun_duration is float, API is int. 
-					stun_battery_level -= 1
-					Events.emit_signal("taser_fired", stun_battery_level)
+func stunning() -> void:
+	if Input.is_action_just_pressed("stun"):
+		$AnimationPlayer.play("taser")
+		if stun_raycast.is_colliding():
+			var guard := stun_raycast.get_collider() as Guard
+			if (guard) and (not guard.state == Types.GuardStates.Stunned):
+				guard.stun(stun_duration)
+				stun_battery_level -= 1
+				Events.emit_signal("taser_fired", stun_battery_level)
 
+				
+func do_upgrade_stuff() -> void:
+	# taser battery
+	if Types.UpgradeTypes.Taser_Extended_Battery in Global.gameState.playerUpgrades:
+		print("has taser battery upgrade")
+		stun_battery_level = extended_stun_battery
+	else:
+		stun_battery_level = normal_stun_battery
+	
+	# stun duration
+	if Types.UpgradeTypes.Taser_Voltage in Global.gameState.playerUpgrades:
+		print("has taser voltage upgrade")
+		stun_duration = extended_stun_duration
+	else:
+		stun_duration = normal_stun_duration
+	
+	if Types.UpgradeTypes.Sneak in Global.gameState.playerUpgrades:
+		print("has sneak upgrade")
+		has_sneak_upgrade = true
+	else:
+		has_sneak_upgrade = false
 
 # Event Hooks
 func _on_minigame_entered(_type: int) -> void:

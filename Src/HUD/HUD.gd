@@ -6,7 +6,6 @@ var count = 0
 var detected_value: int
 
 func _ready():
-	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 	$AlarmIndicator/Label.set_text(str(detected_value))
 	Events.connect("light_level_changed", self, "updateLightLevel")
 	Events.connect("audio_level_changed", self, "updateAudioLevel")
@@ -16,9 +15,11 @@ func _ready():
 	
 	Events.connect("sure_detection_num_changed", self, "alarmIndication")
 	Events.connect("taser_fired", self, "taserUpdate")
+	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
 
 	var cat = Debug.addCategory("HUD")
 	Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
+	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 
 func debugShaderToggle(_d):
 	if $Shader.visible:
@@ -31,11 +32,17 @@ func taserUpdate(value):
 	$ChargeIndicator.frame = 3 - value
 	$ChargeIndicator/Label.set_text(str(value))
 
+
 func alarmIndication(value):
 	detected_value -= 1
 	$AlarmIndicator/AlarmAnimation.play("downgrade")
 	$AlarmIndicator/Label.set_text(str(detected_value))
 
+
+func allowedDetectionsUpdate(value) -> void:
+	detected_value = value
+	$AlarmIndicator/Label.set_text(str(detected_value))
+	
 	
 func showNote(type, text):
 	if type == Types.NoteType.Local:

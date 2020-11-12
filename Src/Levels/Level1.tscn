@@ -121,6 +121,7 @@ flickerSequence = "11101100"
 [node name="Light2" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 288, 136 )
+flicker = false
 flickerSequence = "11101100"
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
@@ -167,6 +168,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -183,22 +185,36 @@ type = 1
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 432, 192 )
 type = 1
+hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 504, 192 )
+type = 0
 hasBounty = true
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 368, 192 )
 rotation = -1.5708
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
+moveDistance = 5
 moveDirection = 2
 isHorizontal = false
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 552, 136 )
+heigth = 7
+isStatic = true
+moveSpeed = 0.5
+moveDistance = 5
+isHorizontal = true
 isFlickering = true
 flickerSequence = "1110000000"
+standbyTimerAfterDetection = 3.0
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
