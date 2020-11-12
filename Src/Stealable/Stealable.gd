@@ -1,6 +1,7 @@
 class_name Stealable
 extends Node2D
 
+export var queue_free_on_succeed: bool = false
 var can_steal: bool = false
 
 func _ready() -> void:
@@ -13,10 +14,11 @@ func _ready() -> void:
 	set_process(false)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and $KeypadMinigameSpawner.minigame_succeeded:
-		queue_free()
+	if $KeypadMinigameSpawner.minigame_succeeded:
 		# you can change level now if you go to extraction zone
 		Global.game_manager.getCurrentLevel().can_change_level = true
+		if queue_free_on_succeed:
+			queue_free()
 
 
 func _on_StealArea_body_entered(body: Node) -> void:
