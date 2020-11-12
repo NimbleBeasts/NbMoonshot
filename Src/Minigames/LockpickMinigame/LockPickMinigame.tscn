@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Src/Minigames/LockpickMinigame/LockpickMinigame.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Minigames/LockpickOutline.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Minigames/LockpickBackground.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Minigames/LockpickLock.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Minigames/LockpickPin.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Minigames/Lockpick.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Minigames/LockpickInside.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Minigames/LockpickTensionWrench.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=9]
+
+[node name="LockPickMinigame" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LockpickOutline" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LockpickInside" type="Sprite" parent="."]
+position = Vector2( -90, 10.873 )
+z_index = 1
+texture = ExtResource( 7 )
+offset = Vector2( 44.0386, -1.27974 )
+
+[node name="LockpickLock" type="Sprite" parent="."]
+position = Vector2( 62.3395, -0.180954 )
+z_index = 1
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Lockpick" type="Sprite" parent="LockpickLock"]
+visible = false
+position = Vector2( 60.2346, 74.6983 )
+rotation = 3.14159
+texture = ExtResource( 6 )
+
+[node name="LockpickTensionWrench" type="Sprite" parent="LockpickLock"]
+visible = false
+position = Vector2( -18.3188, -55.2243 )
+texture = ExtResource( 8 )
+
+[node name="Pins" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LockpickPin1" type="Sprite" parent="Pins"]
+position = Vector2( -90, -42 )
+z_index = 5
+texture = ExtResource( 5 )
+
+[node name="LockpickPin2" type="Sprite" parent="Pins"]
+position = Vector2( -63, -25.691 )
+texture = ExtResource( 5 )
+
+[node name="LockpickPin3" type="Sprite" parent="Pins"]
+position = Vector2( -36, -29.015 )
+texture = ExtResource( 5 )
+
+[node name="LockpickPin4" type="Sprite" parent="Pins"]
+position = Vector2( -10, -25.418 )
+texture = ExtResource( 5 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="TryUI" type="Label" parent="."]
+margin_top = -70.0
+margin_right = 20.0
+margin_bottom = -50.0
+custom_fonts/font = ExtResource( 9 )
+text = "5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
