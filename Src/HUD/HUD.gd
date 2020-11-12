@@ -26,6 +26,7 @@ func alarmIndication(value):
 	$AlarmIndicator/AlarmAnimation.play("downgrade")
 	$AlarmIndicator/Label.set_text(str(detected_value))
 
+	
 func showNote(type, text):
 	if type == Types.NoteType.Local:
 		$Note.texture = preload("res://Assets/HUD/NoteLocal.png")

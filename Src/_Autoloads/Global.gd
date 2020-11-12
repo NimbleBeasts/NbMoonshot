@@ -62,6 +62,20 @@ func playerHasUpgrade(type):
 	return true
 
 
+# adds upgrade by upgrade name
+func addUpgrade(new_upgrade: int) -> void:
+	if not playerHasUpgrade(new_upgrade):
+		playerUpgrades.append(new_upgrade)
+
+
+func getUpgradeInfo(upgrade_type: int) -> Dictionary:
+	for upgrade in upgrades:
+		var upgrade_values: Array = upgrade.values()
+		if upgrade_values[0] == upgrade_type:
+			return upgrade
+		
+	return {}
+
 # Debug Settings
 var debugLabel = null
 

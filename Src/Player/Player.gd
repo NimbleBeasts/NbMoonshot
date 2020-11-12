@@ -63,6 +63,7 @@ func _process(_delta: float) -> void:
 	
 	update_light_level()
 	
+		
 	# wall dodging
 	if Input.is_action_pressed("wall_dodge"):
 		set_light_level(max(light_level - 1, 0))
