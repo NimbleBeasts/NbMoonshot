@@ -20,3 +20,6 @@ enum CameraStates {Normal, Suspect, PlayerDetected}
 enum WireColors {Red, Purple,Green, Blue}
 enum NotifierTypes{Exclamation, Question}
 enum NoteType {SecretService, Local}
+
+# Levels
+enum LevelTypes {Western, Eastern}

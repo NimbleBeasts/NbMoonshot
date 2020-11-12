@@ -74,14 +74,17 @@ lock_code = 2134
 [node name="Light" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 312, 200 )
+flicker = false
 
 [node name="Light3" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 368, 264 )
+flicker = false
 
 [node name="Light2" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 224, 136 )
+flicker = false
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 14 )]
 position = Vector2( 240.939, 252.952 )

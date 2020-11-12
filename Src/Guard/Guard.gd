@@ -14,11 +14,20 @@ var state: int = Types.GuardStates.Wander # Types.GuardStates
 var player_in_los: bool = false
 var check_for_stunned: bool = true
 
+var guard_normal_texture: Texture = preload("res://Assets/Guards/Guard.png")
+var guard_green_texture: Texture = preload("res://Assets/Guards/GuardGreen.png")
+
 onready var los_area: Area2D = $Flippable/LineOfSight
 
 
 func _ready() -> void:
-	velocity.y += 200
+	match Global.game_manager.getCurrentLevel().level_type:
+		Types.LevelTypes.Western:
+			$Flippable/Sprite.texture = guard_normal_texture
+		Types.LevelTypes.Eastern:
+			$Flippable/Sprite.texture = guard_green_texture 
+
+
 	# sets the wait_time to the exported variable
 	$DirectionChangeTimer.wait_time = direction_change_time
 	$SureDetectionTimer.wait_time = time_to_sure_detection

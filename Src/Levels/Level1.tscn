@@ -35,6 +35,7 @@ animations = [ {
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
+level_type = 1
 
 [node name="RedishSkybox" parent="." instance=ExtResource( 8 )]
 
@@ -119,13 +120,18 @@ flickerSequence = "11101100"
 [node name="Light2" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 288, 136 )
+flicker = false
 flickerSequence = "11101100"
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 424, 320 )
+lockLevel = 0
+doorType = 0
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 144, 256 )
+lockLevel = 0
+doorType = 0
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
@@ -133,18 +139,22 @@ scale = Vector2( -1, 1 )
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 320 )
+lockLevel = 0
 doorType = 1
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 256 )
+lockLevel = 0
 doorType = 1
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 192 )
+lockLevel = 0
 doorType = 1
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 128 )
+lockLevel = 0
 doorType = 1
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
@@ -157,7 +167,6 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -173,10 +182,15 @@ type = 1
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 432, 192 )
+type = 0
+hasBounty = false
+bounty = 20
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 504, 192 )
+type = 0
 hasBounty = true
+bounty = 20
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
