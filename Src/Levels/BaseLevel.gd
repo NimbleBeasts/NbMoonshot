@@ -11,7 +11,7 @@ func _ready():
 		for node in decorationSprites:
 			node.light_mask = 3
 			
-	var wallSpriteHolder = get_node_or_null	("SpriteWalls")
+	var wallSpriteHolder = get_node_or_null("SpriteWalls")
 	if wallSpriteHolder:
 		var wallSprites = wallSpriteHolder.get_children()
 		for node in wallSprites:

@@ -194,7 +194,7 @@ func _on_npc_interaction_stopped(npc: Node) -> void:
 func _on_hud_note_exited() -> void:
 	block_input = false
 
-func _on_hud_note_showed(text: String) -> void:
+func _on_hud_note_showed(type: int, text: String) -> void:
 	block_input = true
 
 
