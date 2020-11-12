@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Src/Levels/Level0.gd" type="Script" id=1]
+[ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=4]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Temp/NewBuilding.png" type="Texture" id=13]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Src/Stealable/Document.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Src/Minigames/KeypadMinigame/KeypadMinigameSpawner.gd" type="Script" id=19]
 
 [node name="Level1" type="Node2D"]
@@ -74,17 +75,14 @@ lock_code = 2134
 [node name="Light" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 312, 200 )
-flicker = false
 
 [node name="Light3" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 368, 264 )
-flicker = false
 
 [node name="Light2" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 224, 136 )
-flicker = false
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 14 )]
 position = Vector2( 240.939, 252.952 )
@@ -104,10 +102,5 @@ connected_door_path = NodePath("../LevelObjects/Staircase")
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
-[node name="Label" type="Label" parent="HUD"]
-margin_right = 72.0
-margin_bottom = 14.0
-text = "Hello Level"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Document" parent="." instance=ExtResource( 15 )]
+position = Vector2( 238.904, 296.05 )

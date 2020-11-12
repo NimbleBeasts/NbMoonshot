@@ -9,14 +9,17 @@ enum LightState {On = 1, Off = 0}
 var state = LightState.On
 var currentIndex = 0
 
+
 func _ready():
 	if flicker:
 		$Timer.start()
+
 
 func isOn():
 	if state == LightState.On:
 		return true
 	return false
+
 
 func updateLight():
 	currentIndex += 1
@@ -31,6 +34,7 @@ func updateLight():
 			$Light2D.show()
 		else:
 			$Light2D.hide()
+
 
 func _on_Timer_timeout():
 	updateLight()

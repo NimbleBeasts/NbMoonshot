@@ -3,6 +3,9 @@ extends Node2D
 export var allowed_detections: int = 3
 export (Types.LevelTypes) var level_type: int
 
+var can_change_level: bool = false
+
+
 func _ready():
 	# Set all decoration sprites to correct light level 
 	var decoHolder = get_node_or_null("LevelObjects/Decorations")

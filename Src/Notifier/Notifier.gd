@@ -9,7 +9,7 @@ func _ready():
 
 func popup(type):
 	show()
-	isShowing = true
+	toBeRemoved = false
 	if type == Types.NotifierTypes.Exclamation:
 		$Sprite.frame = 1
 	else:
