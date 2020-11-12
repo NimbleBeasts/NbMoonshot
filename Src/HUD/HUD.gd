@@ -17,6 +17,16 @@ func _ready():
 	Events.connect("sure_detection_num_changed", self, "alarmIndication")
 	Events.connect("taser_fired", self, "taserUpdate")
 
+	var cat = Debug.addCategory("HUD")
+	Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
+
+func debugShaderToggle(_d):
+	if $Shader.visible:
+		$Shader.hide()
+	else:
+		$Shader.show()
+
+
 func taserUpdate(value):
 	$ChargeIndicator.frame = 3 - value
 	$ChargeIndicator/Label.set_text(str(value))

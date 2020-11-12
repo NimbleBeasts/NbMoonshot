@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Assets/Objects/WallPockocmoc.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Objects/Elevator.png" type="Texture" id=23]
 [ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -120,7 +121,6 @@ flickerSequence = "11101100"
 [node name="Light2" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 288, 136 )
-flicker = false
 flickerSequence = "11101100"
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
@@ -167,6 +167,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -192,6 +193,17 @@ type = 0
 hasBounty = true
 bounty = 20
 
+[node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 25 )]
+position = Vector2( 400, 144 )
+isStatic = false
+moveDirection = 2
+isHorizontal = false
+
+[node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
+position = Vector2( 512, 136 )
+isFlickering = true
+flickerSequence = "1110000000"
+
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
 margin_top = -2000.0
@@ -205,6 +217,7 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 464, 192 )
+z_index = 50
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
 position = Vector2( 280, 192 )
