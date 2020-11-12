@@ -7,6 +7,7 @@ var player_entered: bool = false
 var minigame: Minigame
 var minigame_scene: PackedScene
 var can_make_minigame: bool = true
+var minigame_succeeded: bool = false
 
 onready var game_manager := get_node("/root/GameManager")
 
@@ -57,4 +58,5 @@ func _on_area_exited(area: Area2D) -> void:
 func _on_minigame_result_changed(result: int) -> void:
 	if result == Types.MinigameResults.Succeeded:
 		can_make_minigame = false
+		minigame_succeeded = true
 		emit_signal("minigame_succeeded")

@@ -13,7 +13,7 @@ func _ready() -> void:
 	set_process(false)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and $KeypadMinigameSpawner.minigame_succeeded:
 		queue_free()
 		# you can change level now if you go to extraction zone
 		Global.game_manager.getCurrentLevel().can_change_level = true
