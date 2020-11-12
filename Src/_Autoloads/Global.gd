@@ -54,27 +54,23 @@ const upgrades = [
 	{id = 7, name="Distraction", desc="Guards will report the alarm more delayed.", cost=200}
 ]
 
-var playerUpgrades = []
+const gameConstant = {
+	basicLoot = 20,
+	webMoneyPerTick = 5,
+	upgradeDarkNetModifier = 1.25,
+	
+}
 
-func playerHasUpgrade(type):
-	if playerUpgrades.find(type) == -1:
-		return false
-	return true
+var gameState = {
+	playerUpgrades = [],
+	money = 0,
+	level = {
+		# Game will only be saveable during missions in the HQ. So it will be easier to track:
+		hasActiveMission = false,
+		lastActiveMission = -1
+	}
+}
 
-
-# adds upgrade by upgrade name
-func addUpgrade(new_upgrade: int) -> void:
-	if not playerHasUpgrade(new_upgrade):
-		playerUpgrades.append(new_upgrade)
-
-
-func getUpgradeInfo(upgrade_type: int) -> Dictionary:
-	for upgrade in upgrades:
-		var upgrade_values: Array = upgrade.values()
-		if upgrade_values[0] == upgrade_type:
-			return upgrade
-		
-	return {}
 
 # Debug Settings
 var debugLabel = null
@@ -111,7 +107,24 @@ func _ready():
 	loadConfig()
 	videoSetup(2)
 	switchFullscreen()
+
+
+# Save Game
+func saveGame(slotId):
+	var saveFile = File.new()
+	saveFile.open("user://save_"+ str(slotId) + ".cfg", File.WRITE)
+	saveFile.store_line(to_json(gameState))
+	saveFile.close()
+
+# Load Game
+func loadSave(slotId):
+	var saveFile = File.new()
+	if not saveFile.file_exists("user://save_"+ str(slotId) + ".cfg"):
+		print("Save Game Not Found")
 	
+	saveFile.open("user://save_"+ str(slotId) + ".cfg", File.READ)
+	var data = parse_json(saveFile.get_line())
+	gameState = data.duplicate()
 
 # Config Save
 func saveConfig():
@@ -209,5 +222,31 @@ func getVersionString():
 		versionString += "-debug"
 
 	return versionString
+
+
+# Player Handling
+func addMoney(amount):
+	gameState.money += amount
+	print("PlayerMoney: " + str(gameState.money))
+
+func playerHasUpgrade(type):
+	if gameState.playerUpgrades.find(type) == -1:
+		return false
+	return true
+
+
+# adds upgrade by upgrade name
+func addUpgrade(new_upgrade: int) -> void:
+	if not playerHasUpgrade(new_upgrade):
+		gameState.playerUpgrades.append(new_upgrade)
+
+
+func getUpgradeInfo(upgrade_type: int) -> Dictionary:
+	for upgrade in upgrades:
+		var upgrade_values: Array = upgrade.values()
+		if upgrade_values[0] == upgrade_type:
+			return upgrade
+		
+	return {}
 
 

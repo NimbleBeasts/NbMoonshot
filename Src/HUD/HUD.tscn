@@ -148,6 +148,7 @@ __meta__ = {
 
 [node name="WebMonetization" parent="." instance=ExtResource( 4 )]
 position = Vector2( 544, 12 )
+pulseDelay = 5.0
 
 [node name="WebHover" type="Control" parent="WebMonetization"]
 margin_right = 24.0

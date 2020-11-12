@@ -167,7 +167,6 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -183,24 +182,21 @@ type = 1
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 432, 192 )
-type = 0
-hasBounty = false
-bounty = 20
+type = 1
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 504, 192 )
-type = 0
 hasBounty = true
-bounty = 20
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 25 )]
-position = Vector2( 400, 144 )
+position = Vector2( 368, 192 )
+rotation = -1.5708
 isStatic = false
 moveDirection = 2
 isHorizontal = false
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
-position = Vector2( 512, 136 )
+position = Vector2( 552, 136 )
 isFlickering = true
 flickerSequence = "1110000000"
 

@@ -5,26 +5,34 @@ enum CabinetType {Blue = 0, Grey = 1, Brown = 2}
 
 export(CabinetType) var type = CabinetType.Blue
 export(bool) var hasBounty = false
-export(int) var bounty = 20
 
 var isLooted = false
 var playerInRange = false
-
+var loot = 0
 
 func _ready():
 	$Sprite.frame = type
 	
 	if not hasBounty:
-		self.remove_child($Area2D)
+		print("no bounty")
+		if not Engine.editor_hint:
+			self.remove_child($Area2D)
+	else:
+		loot = Global.gameConstant.basicLoot
+		if Global.playerHasUpgrade(Types.UpgradeTypes.DarkNet):
+			loot *= Global.gameConstant.upgradeDarkNetModifier
+		$Label.set_text("$"+str(loot))
 
 func _process(delta):
 	if playerInRange:
 		if Input.is_action_just_pressed("open_minigame"):
+			print("bounty")
 			if hasBounty and not isLooted:
 				# Add money popup anim
 				# Emit Hud money update
 				isLooted = true
 				$AnimationPlayer.play("loot")
+				Global.addMoney(loot)
 				print("looted")
 				pass
 			else:

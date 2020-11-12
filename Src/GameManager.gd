@@ -25,10 +25,18 @@ func _ready():
 	Events.connect("player_detected", self, "_on_player_detected")
 	Events.connect("possible_detection_num_changed", self, "_on_possible_detection_num_changed")
 	
+	Events.connect("web_monetization_pulse", self, "webMoneyPulse")
+	
 	switchTo(Types.GameStates.Menu)
 	
 	debugPlayerSkills()
 	
+func webMoneyPulse(paying):
+	if paying:
+		Global.addMoney(Global.gameConstant.webMoneyPerTick)
+	else:
+		print("WebMonetiazionPlugin not active or not paying. Missed: $" + str(Global.gameConstant.webMoneyPerTick))
+
 func debugPlayerSkills():
 	var cat = Debug.addCategory("PlayerSkills")
 	Debug.addOption(cat, "List", funcref(self, "debugListSkills"), null)
@@ -36,11 +44,11 @@ func debugPlayerSkills():
 		Debug.addOption(cat, "add: " + skill.name, funcref(self, "debugAddSkill"), skill.id)
 
 func debugAddSkill(id):
-	Global.playerUpgrades.append(id)
+	Global.gameState.playerUpgrades.append(id)
 	
 func debugListSkills(_d):
 	print("PlayerSkills:")
-	print(str(Global.playerUpgrades))
+	print(str(Global.gameState.playerUpgrades))
 
 # State Transition Function
 func switchTo(to):
