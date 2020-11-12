@@ -3,9 +3,11 @@ extends CanvasLayer
 enum HoverType {Light, Audio, Web}
 
 var count = 0
-
+var detected_value: int
 
 func _ready():
+	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
+	$AlarmIndicator/Label.set_text(str(detected_value))
 	Events.connect("light_level_changed", self, "updateLightLevel")
 	Events.connect("audio_level_changed", self, "updateAudioLevel")
 	
@@ -20,10 +22,9 @@ func taserUpdate(value):
 	$ChargeIndicator/Label.set_text(str(value))
 
 func alarmIndication(value):
+	detected_value -= 1
 	$AlarmIndicator/AlarmAnimation.play("downgrade")
-	$AlarmIndicator/Label.set_text(str(value))
-	#TODO alarm should count down instead of up 
-
+	$AlarmIndicator/Label.set_text(str(detected_value))
 
 func showNote(type, text):
 	if type == Types.NoteType.Local:
