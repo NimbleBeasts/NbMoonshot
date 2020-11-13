@@ -1,16 +1,25 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Temp/LightTest2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Objects/Light7.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Temp/Lamp.png" type="Texture" id=2]
 [ext_resource path="res://Src/Light/Light.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Tileset/Rooms.png" type="Texture" id=4]
 
 [node name="Light" type="Node2D"]
 script = ExtResource( 3 )
 flickerSequence = "111000"
 
+[node name="TestSprite" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.815686, 0.815686, 0.815686, 1 )
+light_mask = 3
+position = Vector2( 0, 120 )
+texture = ExtResource( 4 )
+
 [node name="FullLight" type="Area2D" parent="." groups=[
 "FullLight",
 ]]
+visible = false
 monitoring = false
 collision_layer = 2
 collision_mask = 2
@@ -21,6 +30,7 @@ polygon = PoolVector2Array( -6, 0, -23, 55, 23, 55, 6, 0 )
 [node name="BarelyVisible" type="Area2D" parent="." groups=[
 "BarelyVisible",
 ]]
+visible = false
 monitoring = false
 collision_layer = 2
 collision_mask = 2
@@ -33,12 +43,10 @@ position = Vector2( 103.758, -2.62204 )
 polygon = PoolVector2Array( -97.758, 2.62204, -80.758, 57.622, -56.758, 57.622 )
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, 2 )
 texture = ExtResource( 1 )
-offset = Vector2( 0, 46 )
-energy = 0.5
+offset = Vector2( 0, 28 )
+energy = 0.8
 range_item_cull_mask = 2
-shadow_enabled = true
 shadow_color = Color( 0, 0, 0, 1 )
 shadow_item_cull_mask = -2147483646
 

@@ -120,6 +120,7 @@ func _on_DetectionDelay_timeout():
 	$MotionTween.stop_all()
 	$AnimationPlayer.play("detect")
 	detectorState = DetectorStateType.Detection
+	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 
 
 func _on_FlickerTimer_timeout():

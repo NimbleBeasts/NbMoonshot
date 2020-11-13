@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Objects/LaserDetectorNode.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
+extents = Vector2( 2, 28 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "detect"
@@ -75,7 +75,7 @@ centered = false
 hframes = 3
 
 [node name="Bottom" type="Sprite" parent="."]
-position = Vector2( 0, 24 )
+position = Vector2( 0, 56 )
 scale = Vector2( 1, -1 )
 z_index = 52
 texture = ExtResource( 2 )
@@ -87,6 +87,7 @@ hframes = 3
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 4, 28 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -94,6 +95,7 @@ anims/detect = SubResource( 2 )
 anims/idle = SubResource( 3 )
 
 [node name="OffTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [node name="DetectionDelay" type="Timer" parent="."]
