@@ -25,6 +25,8 @@ func _ready():
 		if Global.playerHasUpgrade(Types.UpgradeTypes.DarkNet):
 			loot *= Global.gameConstant.upgradeDarkNetModifier
 		$Label.set_text("$"+str(loot))
+		set_process(false)
+
 
 func _process(delta):
 	if playerInRange:
@@ -45,8 +47,10 @@ func _process(delta):
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
 		playerInRange = true
+		set_process(true)
 
 
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("Player"):
 		playerInRange = false
+		set_process(false)

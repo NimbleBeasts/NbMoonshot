@@ -21,8 +21,9 @@ func _ready():
 		$Flipable.scale.x = -1
 	
 	switchState(GuardState.Reading)
+	set_process(false)
 
-func _physics_process(delta):
+func _process(delta):
 	if guardState == GuardState.Looking:
 		if player:
 			if player.visible_level == Types.LightLevels.FullLight:
@@ -66,11 +67,13 @@ func switchFOV(on):
 func _on_FOV_body_entered(body):
 	if body.is_in_group("Player"):
 		player = body
+		set_process(true)
 
 
 func _on_FOV_body_exited(body):
 	if body.is_in_group("Player"):
 		player = null
+		set_process(false)
 
 
 func _on_LookTimer_timeout():

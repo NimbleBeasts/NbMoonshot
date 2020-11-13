@@ -18,6 +18,7 @@ func _ready():
 		$Sprite.texture = preload("res://Assets/Objects/DoorWallMetal.png")
 	else:
 		$Sprite.texture = preload("res://Assets/Objects/DoorWall.png")
+	set_process(false)
 
 func _process(delta):
 	if playerInArea:
@@ -51,10 +52,12 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
 		playerNode = body
 		playerInArea = true
+		set_process(true)
 
 
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("Player"):
 		playerNode = null
 		playerInArea = false
+		set_process(false)
 

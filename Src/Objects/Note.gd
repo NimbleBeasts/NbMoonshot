@@ -11,6 +11,7 @@ var alreadyRead = false
 
 func _ready():
 	updateHighlight()
+	set_process(false)
 
 
 func updateHighlight():
@@ -34,21 +35,21 @@ func _process(delta):
 
 func _on_ReadArea_body_entered(body):
 	if body.is_in_group("Player"):
-		print("read enter")
 		readable = true
 
 func _on_ReadArea_body_exited(body):
 	if body.is_in_group("Player"):
-		print("read exit")
 		readable = false
 
 
 func _on_NotifierArea_body_entered(body):
 	if body.is_in_group("Player"):
+		set_process(true)
 		$Notifier.popup(Types.NotifierTypes.Exclamation)
 
 
 func _on_NotifierArea_body_exited(body):
 	if body.is_in_group("Player"):
+		set_process(false)
 		$Notifier.remove()
 			
