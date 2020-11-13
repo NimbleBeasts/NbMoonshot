@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Assets/Objects/Bookshelf2.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Objects/Tree.png" type="Texture" id=28]
 [ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=30]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -128,7 +129,11 @@ flickerSequence = "11101100"
 [node name="Light2" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 288, 136 )
-flicker = false
+flickerSequence = "11101100"
+
+[node name="Light3" parent="LevelObjects" instance=ExtResource( 9 )]
+light_mask = 3
+position = Vector2( 264, 200 )
 flickerSequence = "11101100"
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
@@ -175,6 +180,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -286,41 +292,25 @@ hasBounty = true
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 416, 128 )
 type = 1
-hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 480, 320 )
-type = 0
 hasBounty = true
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 352, 208 )
 rotation = -1.5708
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
-moveDistance = 5
 moveDirection = 2
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 552, 136 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
 isFlickering = true
 flickerSequence = "1110000000"
-standbyTimerAfterDetection = 3.0
 
 [node name="OutdoorLight" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( 80, 256 )
-flicker = false
-flickerSequence = "1110"
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
@@ -333,8 +323,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DeskGuard" parent="." instance=ExtResource( 30 )]
+position = Vector2( 192, 256 )
+lookDirection = 1
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 464, 192 )
+position = Vector2( 312, 256 )
 z_index = 50
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
