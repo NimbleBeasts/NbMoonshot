@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -18,7 +18,6 @@
 [ext_resource path="res://Assets/Objects/WallGravitySec.png" type="Texture" id=16]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/Objects/ContolRoom1.png" type="Texture" id=18]
-[ext_resource path="res://Src/Minigames/KeypadMinigame/KeypadMinigameSpawner.gd" type="Script" id=19]
 [ext_resource path="res://Assets/Objects/ContolRoom2.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Objects/ContolRoom3.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Objects/WallPockocmoc.png" type="Texture" id=22]
@@ -122,8 +121,6 @@ connected_door_path = NodePath("../Staircase")
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 184, 128 )
-script = ExtResource( 19 )
-lock_code = 2134
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 424, 320 )
@@ -169,7 +166,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -266,18 +263,23 @@ centered = false
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 200 )
+flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 408, 200 )
+flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 256, 200 )
+flicker = false
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 224, 136 )
+flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 408, 136 )
+flicker = false
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 136 )
@@ -285,18 +287,24 @@ flicker = true
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 72 )
+flicker = false
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 448, 72 )
+flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 352, 72 )
+flicker = false
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 224, 72 )
+flicker = false
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 29 )]
 position = Vector2( 80, 256 )
+flicker = false
+flickerSequence = "1110"
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 176, 192 )
@@ -317,20 +325,34 @@ hasBounty = true
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 416, 128 )
 type = 1
+hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 480, 320 )
+type = 0
 hasBounty = true
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 280, 72 )
+heigth = 7
+isStatic = true
+moveSpeed = 0.5
+moveDistance = 5
+isHorizontal = true
 isFlickering = true
 flickerSequence = "1110000000"
+standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 256, 72 )
+heigth = 7
+isStatic = true
+moveSpeed = 0.5
+moveDistance = 5
+isHorizontal = true
 isFlickering = true
 flickerSequence = "0000111111"
+standbyTimerAfterDetection = 3.0
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
@@ -346,6 +368,8 @@ __meta__ = {
 [node name="DeskGuard" parent="." instance=ExtResource( 30 )]
 position = Vector2( 192, 256 )
 lookDirection = 1
+lookDuration = 2.0
+readDuration = 3.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 352, 256 )

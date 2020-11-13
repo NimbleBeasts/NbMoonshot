@@ -5,7 +5,6 @@
 [ext_resource path="res://Src/Minigames/KeypadMinigame/KeypadMinigameSpawner.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 11, 12 )
 
 [node name="Tresor" type="Node2D"]
 script = ExtResource( 2 )
@@ -19,5 +18,5 @@ hframes = 2
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KeypadMinigameSpawner"]
-position = Vector2( 0, -8 )
+position = Vector2( -0.44545, -7.79536 )
 shape = SubResource( 1 )
