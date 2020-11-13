@@ -39,12 +39,12 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 16, -16, 0, 0, 0, 0, 128, -16 )
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 32 )
 
 [node name="Level1" type="Node2D"]
@@ -169,6 +169,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -355,7 +356,7 @@ position = Vector2( 320, 192 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="Path2D" type="Path2D" parent="Guard"]
-curve = SubResource( 3 )
+curve = SubResource( 2 )
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
@@ -373,4 +374,4 @@ position = Vector2( -104, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 48, -32 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )

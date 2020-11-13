@@ -17,7 +17,6 @@
 [ext_resource path="res://Src/LevelObjective/Document.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Src/Minigames/KeypadMinigame/KeypadMinigameSpawner.gd" type="Script" id=19]
 
-
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -76,17 +75,14 @@ lock_code = 2134
 [node name="Light" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 312, 200 )
-flicker = false
 
 [node name="Light3" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 368, 264 )
-flicker = false
 
 [node name="Light2" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 224, 136 )
-flicker = false
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 14 )]
 position = Vector2( 240.939, 252.952 )
@@ -109,8 +105,5 @@ connected_door_path = NodePath("../LevelObjects/Staircase")
 [node name="Document" parent="." instance=ExtResource( 15 )]
 position = Vector2( 238.904, 296.05 )
 queue_free_on_succeed = true
-
-[node name="KeypadMinigameSpawner" parent="Document" index="3"]
-lock_code = 322
 
 [editable path="Document"]
