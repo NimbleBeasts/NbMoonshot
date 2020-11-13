@@ -60,7 +60,7 @@ func showDialog(pname: String, nameColor: String, text: String):
 	$Dialog.show()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Hide Note
 	if Input.is_action_just_pressed("ui_cancel"):
 		if $Note.visible:

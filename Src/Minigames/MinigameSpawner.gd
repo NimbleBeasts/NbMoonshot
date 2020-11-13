@@ -25,6 +25,7 @@ func _process(_delta: float) -> void:
 			if not minigame: # if haven't created a minigame
 				# Creates a minigame and opens it 
 				minigame = create_minigame()
+				#warning-ignore:return_value_discarded
 				minigame.connect("result_changed", self, "_on_minigame_result_changed")
 				minigame.open()
 	

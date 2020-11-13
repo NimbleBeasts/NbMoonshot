@@ -6,6 +6,7 @@ func getProgessState():
 	return isUsed
 
 func _ready():
+	#warning-ignore:return_value_discarded
 	$KeypadMinigameSpawner.connect("minigame_succeeded", self, "openTresor")
 	$KeypadMinigameSpawner.lock_code = 1337
 	

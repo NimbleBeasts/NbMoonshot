@@ -28,7 +28,7 @@ func _ready():
 		set_process(false)
 
 
-func _process(delta):
+func _process(_delta):
 	if playerInRange:
 		if Input.is_action_just_pressed("open_minigame"):
 			print("bounty")

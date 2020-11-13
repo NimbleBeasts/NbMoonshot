@@ -23,7 +23,7 @@ func _ready():
 	switchState(GuardState.Reading)
 	set_process(false)
 
-func _process(delta):
+func _process(_delta):
 	if guardState == GuardState.Looking:
 		if player:
 			if player.visible_level == Types.LightLevels.FullLight:

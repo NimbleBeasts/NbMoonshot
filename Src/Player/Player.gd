@@ -53,6 +53,7 @@ func _ready() -> void:
 	do_upgrade_stuff()
 
 	# signal connections
+	#warning-ignore-all:return_value_discarded
 	$SprintTimer.connect("timeout", self, "_on_SprintTimer_timeout")
 	Events.connect("minigame_entered", self,  "_on_minigame_entered")
 	Events.connect("minigame_exited", self, "_on_minigame_exited")

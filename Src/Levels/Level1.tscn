@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -46,6 +46,11 @@ animations = [ {
 [sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 16, -16, 0, 0, 0, 0, 128, -16 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 16, -16, 0, 0, 0, 0, 128, -16, 0, 0, 0, 0, 72, -32, 0, 0, 0, 0, 176, -32 )
 }
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -131,35 +136,27 @@ position = Vector2( 170, 128 )
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 424, 320 )
-lockLevel = 0
-doorType = 0
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 144, 256 )
-lockLevel = 0
-doorType = 0
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 320 )
-lockLevel = 0
 doorType = 1
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 256 )
-lockLevel = 0
 doorType = 1
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 192 )
-lockLevel = 0
 doorType = 1
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 128 )
-lockLevel = 0
 doorType = 1
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
@@ -172,7 +169,6 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -394,6 +390,13 @@ starting_direction = Vector2( -1, 0 )
 
 [node name="Path2D" type="Path2D" parent="Guard"]
 curve = SubResource( 2 )
+
+[node name="Guard2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 448, 256 )
+starting_direction = Vector2( -1, 0 )
+
+[node name="Path2D" type="Path2D" parent="Guard2"]
+curve = SubResource( 4 )
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 

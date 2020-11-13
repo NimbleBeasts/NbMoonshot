@@ -22,7 +22,7 @@ func updateHighlight():
 		$Sprite.frame = 1
 		$NotifierArea.monitoring = false
 		
-func _process(delta):
+func _process(_delta):
 	if readable:
 		if Input.is_action_just_pressed("open_minigame"):
 			Events.emit_signal("hud_note_show", type, text)

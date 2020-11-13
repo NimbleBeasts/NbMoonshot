@@ -40,10 +40,11 @@ func _ready() -> void:
 	$DirectionChangeTimer.start()
 	direction = starting_direction
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
+	#warning-ignore:return_value_discarded
 	$Flippable/LineOfSight.connect("body_entered", self, "_on_LineOfSight_body_entered")
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
 	update_flip()

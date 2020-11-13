@@ -20,7 +20,7 @@ func _ready():
 		$Sprite.texture = preload("res://Assets/Objects/DoorWall.png")
 	set_process(false)
 
-func _process(delta):
+func _process(_delta):
 	if playerInArea:
 		if Input.is_action_just_pressed("interact"):
 			if not doorIsOpen:
@@ -37,7 +37,7 @@ func _process(delta):
 				$AnimationPlayer.play_backwards("open_door")
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	if not doorIsOpen:
 		# Door is now open
 		doorIsOpen = true
