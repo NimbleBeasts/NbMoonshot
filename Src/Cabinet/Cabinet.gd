@@ -6,9 +6,12 @@ enum CabinetType {Blue = 0, Grey = 1, Brown = 2}
 export(CabinetType) var type = CabinetType.Blue
 export(bool) var hasBounty = false
 
-var isLooted = false
+var isUsed = false
 var playerInRange = false
 var loot = 0
+
+func getProgessState():
+	return isUsed
 
 func _ready():
 	$Sprite.frame = type
@@ -27,10 +30,10 @@ func _process(delta):
 	if playerInRange:
 		if Input.is_action_just_pressed("open_minigame"):
 			print("bounty")
-			if hasBounty and not isLooted:
+			if hasBounty and not isUsed:
 				# Add money popup anim
 				# Emit Hud money update
-				isLooted = true
+				isUsed = true
 				$AnimationPlayer.play("loot")
 				Global.addMoney(loot)
 				print("looted")

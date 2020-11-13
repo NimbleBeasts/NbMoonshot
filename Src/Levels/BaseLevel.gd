@@ -5,11 +5,21 @@ export var normal_allowed_detections: int = 3
 
 var allowed_detections: int
 export (Types.LevelTypes) var level_type: int
+export(NodePath) var level_objectives = null
 
-var can_change_level: bool = false
 
+func can_change_level():
+	if level_objectives.has_method("getProgessState"):
+		return level_objectives.getProgessState()
+	else:
+		print("Error: Selected node is not supported")
+	return false
 
 func _ready():
+	
+	if level_objectives:
+		level_objectives = get_node(level_objectives)
+	
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
 	# Set all decoration sprites to correct light level 
