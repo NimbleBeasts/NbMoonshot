@@ -128,6 +128,7 @@ flickerSequence = "11101100"
 [node name="Light2" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 288, 136 )
+flicker = false
 flickerSequence = "11101100"
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
@@ -285,25 +286,41 @@ hasBounty = true
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 416, 128 )
 type = 1
+hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 480, 320 )
+type = 0
 hasBounty = true
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 352, 208 )
 rotation = -1.5708
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
+moveDistance = 5
 moveDirection = 2
 isHorizontal = false
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 552, 136 )
+heigth = 7
+isStatic = true
+moveSpeed = 0.5
+moveDistance = 5
+isHorizontal = true
 isFlickering = true
 flickerSequence = "1110000000"
+standbyTimerAfterDetection = 3.0
 
 [node name="OutdoorLight" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( 80, 256 )
+flicker = false
+flickerSequence = "1110"
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0

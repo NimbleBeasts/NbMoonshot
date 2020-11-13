@@ -78,7 +78,6 @@ texture = ExtResource( 5 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
 
 [node name="TryUI" type="Label" parent="."]
 margin_top = -70.0

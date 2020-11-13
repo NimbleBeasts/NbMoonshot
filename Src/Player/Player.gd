@@ -233,7 +233,7 @@ func do_upgrade_stuff() -> void:
 func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
 	block_input = true
-
+	print("Minigame entered")
 
 # just flips the variable value
 func _on_SprintTimer_timeout() -> void:
@@ -243,6 +243,7 @@ func _on_SprintTimer_timeout() -> void:
 	
 func _on_minigame_exited(_type: int) -> void:
 	block_input = false
+	print("Minigame exited")
 
 # I feel like I can connect all of these to two functions for blocking and unblocking input because they all do the same thing anyway
 func _on_interacted_npc(_npc: Node) -> void:

@@ -14,7 +14,7 @@ func _ready() -> void:
 	set_process(false)
 
 func _process(delta: float) -> void:
-	if $KeypadMinigameSpawner.minigame_succeeded:
+	if $MinigameSpawner.minigame_succeeded:
 		# you can change level now if you go to extraction zone
 		Global.game_manager.getCurrentLevel().can_change_level = true
 		if queue_free_on_succeed:
@@ -26,6 +26,7 @@ func _on_StealArea_body_entered(body: Node) -> void:
 		can_steal = true
 		set_process(true)
 
+		
 func _on_StealArea_body_exited(body: Node) -> void:
 	if body is Player:
 		can_steal = false

@@ -25,7 +25,6 @@ func _ready() -> void:
 	update_try()
 
 
-
 	#set random order
 	var order = [0,1,2,3]
 	order.shuffle()
@@ -84,6 +83,9 @@ func tap_pin():
 		pins[atm_at].gameobj.position = Vector2( pins[atm_at].gameobj.position.x , -42 )
 		if seq == 4:
 			print("Sucess")
+			# don't forget to close it
+			set_result(Types.MinigameResults.Succeeded)
+			close()
 			controlsBlock = true
 	else:
 		shake_ping()
@@ -101,8 +103,8 @@ func shake_ping():
 		yield(get_tree().create_timer(0.05), "timeout")
 	pin_go.position = start_pos
 	
-	#reset all pins
-	yield(get_tree().create_timer(0.1), "timeout")
+	#reset all pins. 
+	yield(get_tree().create_timer(0.1), "timeout") 
 	seq = 0
 	for p in range(4):
 		pins[p].gameobj.position = pins[p].rand_pos
