@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LightOutdoor.png-072564a422284bfc11fce26d684752b1.stex"
+path="res://.import/LightOutdoor.png-736508b7180b781f697a1f2bf90bc467.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Level/LightOutdoor.png"
-dest_files=[ "res://.import/LightOutdoor.png-072564a422284bfc11fce26d684752b1.stex" ]
+source_file="res://Assets/Objects/LightOutdoor.png"
+dest_files=[ "res://.import/LightOutdoor.png-736508b7180b781f697a1f2bf90bc467.stex" ]
 
 [params]
 
