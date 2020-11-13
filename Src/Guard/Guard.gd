@@ -10,7 +10,6 @@ export var audio_suspect_distance: int = 150
 export var normal_time_to_alarm: float = 1.5
 export var extended_time_to_alarm: float = 3.5
 
-
 var velocity: Vector2
 var direction: Vector2
 var state: int = Types.GuardStates.Wander # Types.GuardStates
@@ -27,6 +26,7 @@ func _ready() -> void:
 	Global.addUpgrade(Types.UpgradeTypes.Distraction)
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
+	
 	# sets sprite texture on level type
 	match Global.game_manager.getCurrentLevel().level_type:
 		Types.LevelTypes.Western:
@@ -41,7 +41,6 @@ func _ready() -> void:
 	direction = starting_direction
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	$Flippable/LineOfSight.connect("body_entered", self, "_on_LineOfSight_body_entered")
-	#TODO: level setting if blue (western) or green guards (eastern) -> change sprite accordingly
 
 
 func _process(delta: float) -> void:
@@ -133,7 +132,6 @@ func _on_LineOfSight_body_entered(body: Node) -> void:
 # this gets started when this guard's state changes to PlayerDetected
 # on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
 func _on_SureDetectionTimer_timeout() -> void:
-	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 	$AnimationPlayer.play("alarm")
 
 
@@ -197,7 +195,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		"suspicious":
 			$Notifier.remove()
 		"alarm":
-			pass
+			Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 		"stand_up":
 			set_state(Types.GuardStates.Wander)
 			direction = starting_direction

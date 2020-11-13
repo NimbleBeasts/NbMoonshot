@@ -4,6 +4,7 @@ extends Node2D
 export var queue_free_on_succeed: bool = false
 var can_steal: bool = false
 
+
 func _ready() -> void:
 	# connects all needed signals
 	$StealArea.connect("body_entered", self, "_on_StealArea_body_entered")
@@ -12,6 +13,7 @@ func _ready() -> void:
 	$NotifierArea.connect("body_exited", self, "_on_NotifierArea_body_exited")
 
 	set_process(false)
+
 
 func _process(delta: float) -> void:
 	if $MinigameSpawner.minigame_succeeded:

@@ -96,7 +96,6 @@ func _process(_delta: float) -> void:
 		visible_level = light_level
 		set_state(Types.PlayerStates.Normal)
 
-
 	# ducking 
 	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
 		set_state(Types.PlayerStates.Duck)
