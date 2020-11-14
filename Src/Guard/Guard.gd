@@ -19,6 +19,7 @@ var direction: Vector2
 var state: int = Types.GuardStates.Wander # Types.GuardStates
 var player_in_los: bool = false
 var check_for_stunned: bool = true
+var player_detected: bool = false
 
 var guard_normal_texture: Texture = preload("res://Assets/Guards/Guard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/GuardGreen.png")
@@ -42,7 +43,7 @@ func _ready() -> void:
 	$DirectionChangeTimer.wait_time = direction_change_time
 	$SureDetectionTimer.wait_time = time_to_sure_detection
 
-	# only starts the direction timer if this doesn't have a child called Path2D
+	# only starts the direction timer if this doesn't have a child called GuardPath
 	if not get_node_or_null("GuardPath"):
 		$DirectionChangeTimer.start()
 		direction = starting_direction
@@ -74,10 +75,13 @@ func _process(_delta: float) -> void:
 			Types.LightLevels.FullLight:
 				set_state(Types.GuardStates.PlayerDetected)
 				player_in_los = false
+				player_detected = true
 			Types.LightLevels.BarelyVisible:
-				set_state(Types.GuardStates.Suspect)
+				if not player_detected: # only sets to suspect if hasn't detected player before
+					set_state(Types.GuardStates.Suspect)
 			Types.LightLevels.Dark:
-				set_state(Types.GuardStates.Wander)
+				if not player_detected: # only sets to wander if hasn't detected player before
+					set_state(Types.GuardStates.Wander)
 	
 	# checks for stunned bodies
 	if check_for_stunned:
@@ -117,7 +121,7 @@ func stun(duration: float) -> void:
 	$DirectionChangeTimer.stop()
 	$SureDetectionTimer.stop()
 	$Notifier.remove()
-
+	player_detected = false
 
 func unstun() -> void:
 	$DirectionChangeTimer.start()

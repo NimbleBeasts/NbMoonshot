@@ -69,7 +69,6 @@ func _on_loop_finished() -> void:
 
 func _on_guard_stop_movement() -> void:
 	enabled = false
-	print("STAHP")
 	guard.direction.x = 0
 
 
