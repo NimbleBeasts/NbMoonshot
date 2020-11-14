@@ -3,7 +3,6 @@ extends KinematicBody2D
 
 signal stop_movement
 signal start_movement
-signal unstunned
 
 export var speed: int = 50
 export var direction_change_time: float = 2
@@ -28,7 +27,6 @@ onready var los_area: Area2D = $Flippable/LineOfSight
 
 
 func _ready() -> void:
-	Global.addUpgrade(Types.UpgradeTypes.Distraction)
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
 	
@@ -43,10 +41,11 @@ func _ready() -> void:
 	$DirectionChangeTimer.wait_time = direction_change_time
 	$SureDetectionTimer.wait_time = time_to_sure_detection
 
-	# only starts the direction timer if this doesn't have a child called GuardPath
-	if not get_node_or_null("GuardPath"):
+	if not has_node("GuardPathLine"):
 		$DirectionChangeTimer.start()
 		direction = starting_direction
+	else:
+		direction = Vector2(0,0)
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	#warning-ignore:return_value_discarded
@@ -122,6 +121,7 @@ func stun(duration: float) -> void:
 	$SureDetectionTimer.stop()
 	$Notifier.remove()
 	player_detected = false
+
 
 func unstun() -> void:
 	$DirectionChangeTimer.start()
@@ -224,5 +224,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		"stand_up":
 			set_state(Types.GuardStates.Wander)
 			emit_signal("start_movement")
-			if not get_node_or_null("GuardPath"):
+			if not get_node_or_null("GuardPathLine"):
 				direction = starting_direction
