@@ -40,6 +40,9 @@ tracks/0/keys = {
 
 [node name="DeskGuard" type="Node2D"]
 script = ExtResource( 3 )
+lookDirection = 0
+lookDuration = 2.0
+readDuration = 3.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -32 )

@@ -129,6 +129,7 @@ light_mask = 3
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 hframes = 17
+frame = 9
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
 position = Vector2( 7, 0.5 )

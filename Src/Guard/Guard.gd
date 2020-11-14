@@ -15,6 +15,7 @@ var direction: Vector2
 var state: int = Types.GuardStates.Wander # Types.GuardStates
 var player_in_los: bool = false
 var check_for_stunned: bool = true
+var block_movement: bool = false
 
 var guard_normal_texture: Texture = preload("res://Assets/Guards/Guard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/GuardGreen.png")
@@ -37,8 +38,10 @@ func _ready() -> void:
 	# sets the wait_time to the exported variable
 	$DirectionChangeTimer.wait_time = direction_change_time
 	$SureDetectionTimer.wait_time = time_to_sure_detection
-	$DirectionChangeTimer.start()
-	direction = starting_direction
+	# $DirectionChangeTimer.start()
+	# direction = starting_direction
+
+
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	$Flippable/LineOfSight.connect("body_entered", self, "_on_LineOfSight_body_entered")
 
@@ -46,6 +49,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
+
 	update_flip()
 	match state:
 		Types.GuardStates.PlayerDetected, Types.GuardStates.Suspect:
@@ -89,7 +93,7 @@ func _process(delta: float) -> void:
 
 func change_direction() -> void:
 	# flips the direction.x
-	direction.x *= -1
+	direction.x *= -1 
 
 
 # stun function.
@@ -105,11 +109,12 @@ func stun(duration: float) -> void:
 	$SureDetectionTimer.stop()
 	$Notifier.remove()
 
+
 func unstun() -> void:
 	$DirectionChangeTimer.start()
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
 	# can check for stunned bodies again
-	get_tree().set_group("Guard", "check_for_stunned", true)
+	get_tree().set_group("Guard", "check_for_stunned", true) # i have no idea if this works now, but i think it should
 	$Notifier.remove()
 
 	
@@ -152,6 +157,7 @@ func _on_audio_level_changed(audio_level: int, audio_pos: Vector2) -> void:
 			if audio_pos.distance_to(global_position) < audio_suspect_distance:
 				set_state(Types.GuardStates.Suspect)
 
+				
 # use this function to set state instead of doing directly
 func set_state(new_state) -> void:
 	if state != new_state:

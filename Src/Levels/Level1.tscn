@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Assets/Objects/WallGravitySec.png" type="Texture" id=16]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/Objects/ContolRoom1.png" type="Texture" id=18]
+[ext_resource path="res://Src/Guard/GuardPath.gd" type="Script" id=19]
 [ext_resource path="res://Assets/Objects/ContolRoom2.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Objects/ContolRoom3.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Objects/WallPockocmoc.png" type="Texture" id=22]
@@ -39,8 +40,9 @@ animations = [ {
 } ]
 
 [sub_resource type="Curve2D" id=2]
+bake_interval = 20.0
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 16, -16, 0, 0, 0, 0, 128, -16 )
+"points": PoolVector2Array( 0, 0, 0, 0, -36.333, -15.9183, 0, 0, 0, 0, -61.5884, -16.199, 0, 0, 0, 0, -1.53665, -16.199 )
 }
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -368,19 +370,23 @@ __meta__ = {
 [node name="DeskGuard" parent="." instance=ExtResource( 30 )]
 position = Vector2( 192, 256 )
 lookDirection = 1
-lookDuration = 2.0
-readDuration = 3.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 352, 256 )
 z_index = 50
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
-position = Vector2( 320, 192 )
+position = Vector2( 340.01, 191.674 )
+rotation = -4.35859e-07
+scale = Vector2( 1, 1 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="Path2D" type="Path2D" parent="Guard"]
+position = Vector2( -20.0104, 0.325531 )
+rotation = 4.35859e-07
 curve = SubResource( 2 )
+script = ExtResource( 19 )
+stop_indexes = [ 2, 3, 5, 6 ]
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
