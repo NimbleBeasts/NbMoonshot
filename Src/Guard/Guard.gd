@@ -58,16 +58,16 @@ func _process(_delta: float) -> void:
 	velocity = direction * speed
 	if not block_movement:
 		velocity = move_and_slide(velocity)
-
+		
 	update_flip()
 	match state:
 		Types.GuardStates.PlayerDetected, Types.GuardStates.Suspect, Types.GuardStates.Stunned:
-			emit_signal("stop_movement")
 			direction = Vector2(0,0)
 			$DirectionChangeTimer.stop()
 		Types.GuardStates.Wander:
-			emit_signal("start_movement")
-	
+			pass
+
+			
 	# the player could be in dark visible level when the overlap happens and it would check according to that
 	# then the player could move to full light and it wouldn't get called unless it's a new overlap
 	# so we have to do set a bool on area entered and check in _process
@@ -178,17 +178,23 @@ func set_state(new_state) -> void:
 		# Put stuff you want to do once when state changes here
 		match state:
 			Types.GuardStates.PlayerDetected:
+				# starts sure timer
 				if $SureDetectionTimer.is_stopped():
 					$SureDetectionTimer.start()
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
+
 				$AnimationPlayer.play("suspicious")
+				emit_signal("stop_movement")
+				
 			Types.GuardStates.Suspect:
 				direction = Vector2(0,0)
-				print(name + " has suspicion")
 				$Notifier.popup(Types.NotifierTypes.Question)
+				emit_signal("stop_movement")
 			Types.GuardStates.Wander:
 				$Notifier.remove()
-			
+				emit_signal("start_movement")
+			Types.GuardStates.Stunned:
+				emit_signal("stop_movement")
 				
 func update_flip() -> void:
 	if direction.x != 0:
@@ -216,6 +222,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 		"stand_up":
 			set_state(Types.GuardStates.Wander)
-			emit_signal("unstunned")
+			emit_signal("start_movement")
 			if not block_movement:
 				direction = starting_direction

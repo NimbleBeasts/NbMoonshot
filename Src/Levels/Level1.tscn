@@ -39,13 +39,13 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=3]
 bake_interval = 20.0
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 27.649, -13.5965, 0, 0, 0, 0, 124.742, -19.4894, 0, 0, 0, 0, 163.467, -15.2802, 0, 0, 0, 0, 163.467, -15.2802, 0, 0, 0, 0, 222.597, -25.2895 )
+"points": PoolVector2Array( 0, 0, 0, 0, 11.7954, -15.7214, 0, 0, 0, 0, 12.1291, -14.0528, 0, 0, 0, 0, 12.1291, -14.0528, 0, 0, 0, 0, 72.8643, -16.3888, 0, 0, 0, 0, 72.8643, -16.3888, 0, 0, 0, 0, 119.25, -34.7428, 0, 0, 0, 0, 145.613, -16.3887 )
 }
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 32 )
 
 [node name="Level1" type="Node2D"]
@@ -380,9 +380,7 @@ rotation = -4.35859e-07
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPath" type="Path2D" parent="Guard"]
-position = Vector2( -20.0104, 0.325531 )
-rotation = 4.35859e-07
-curve = SubResource( 2 )
+curve = SubResource( 3 )
 script = ExtResource( 19 )
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
@@ -401,4 +399,4 @@ position = Vector2( -104, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 48, -32 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
