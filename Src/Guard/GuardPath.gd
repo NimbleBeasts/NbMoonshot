@@ -41,24 +41,26 @@ func _process(delta: float) -> void:
 			if not is_next_point_reached:
 				is_next_point_reached = true
 				emit_signal("next_point_reached")
-		
+
 
 # moves along a array of vector2s
 func move_along_points() -> void:
-	for i in global_points.size():
-		if enabled:
-			if not stop_indexes.has(i):
-				next_point = global_points[i]
-				print("keep going")
-				yield(self, "next_point_reached") # delays next iteration
-			else:
-				guard.direction.x = 0
-				yield(get_tree().create_timer(stop_time), "timeout") # stops for this amount of time
-				print("stopped")
-				continue
-		
-	global_points.shuffle() # reorders the points
-	emit_signal("loop_finished")
+	if enabled:
+		for i in global_points.size():
+			if i == global_points.size() - 1:
+				global_points.shuffle() # maybe we can reverse the array instead of shuffling it
+				emit_signal("loop_finished")
+			if enabled:
+				if not stop_indexes.has(i):
+					next_point = global_points[i]
+					yield(self, "next_point_reached") # delays next iteration
+				else:
+					guard.direction.x = 0
+					yield(get_tree().create_timer(stop_time), "timeout") # stops for this amount of time
+					continue
+				
+		global_points.shuffle() # reorders the points
+		emit_signal("loop_finished")
 
 
 func _on_loop_finished() -> void:
