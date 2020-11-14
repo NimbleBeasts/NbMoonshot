@@ -10,6 +10,11 @@ var secretary_interaction_counter: int = 0
 var quest_index: int = 0 
 
 func _ready():
+	# I know you guys like changing pause mode so I hardcoded it..
+	self.pause_mode = Node.PAUSE_MODE_PROCESS
+	$gameViewport/Viewport/LevelHolder.pause_mode = Node.PAUSE_MODE_STOP
+	
+	
 	# Set Viewport Sizes to Project Settings
 	$gameViewport/Viewport.size = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
 	$menuViewport/Viewport.size = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))

@@ -3,6 +3,9 @@ extends Node
 enum Direction { Top, Right, Down, Left }
 enum GameStates {Menu, Game, Settings} 
 
+# HUD
+enum HudNotificationType {BuyZone, SaveZone, OpenDoor, Interact}
+
 # Player
 enum LightLevels {Dark = 0, BarelyVisible = 1, FullLight = 2}
 enum AudioLevels {LoudNoise = 0, SmallNoise = 1, Silent = 2}

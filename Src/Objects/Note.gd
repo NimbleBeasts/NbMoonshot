@@ -11,6 +11,7 @@ var alreadyRead = false
 
 func _ready():
 	updateHighlight()
+	set_process(false)
 
 
 func updateHighlight():
@@ -21,7 +22,7 @@ func updateHighlight():
 		$Sprite.frame = 1
 		$NotifierArea.monitoring = false
 		
-func _process(delta):
+func _process(_delta):
 	if readable:
 		if Input.is_action_just_pressed("open_minigame"):
 			Events.emit_signal("hud_note_show", type, text)
@@ -34,21 +35,21 @@ func _process(delta):
 
 func _on_ReadArea_body_entered(body):
 	if body.is_in_group("Player"):
-		print("read enter")
 		readable = true
 
 func _on_ReadArea_body_exited(body):
 	if body.is_in_group("Player"):
-		print("read exit")
 		readable = false
 
 
 func _on_NotifierArea_body_entered(body):
 	if body.is_in_group("Player"):
+		set_process(true)
 		$Notifier.popup(Types.NotifierTypes.Exclamation)
 
 
 func _on_NotifierArea_body_exited(body):
 	if body.is_in_group("Player"):
+		set_process(false)
 		$Notifier.remove()
 			

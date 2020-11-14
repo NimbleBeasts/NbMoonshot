@@ -126,13 +126,9 @@ position = Vector2( 184, 128 )
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 424, 320 )
-lockLevel = 0
-doorType = 0
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 144, 256 )
-lockLevel = 0
-doorType = 0
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
@@ -140,22 +136,18 @@ scale = Vector2( -1, 1 )
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 320 )
-lockLevel = 0
 doorType = 1
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 256 )
-lockLevel = 0
 doorType = 1
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 192 )
-lockLevel = 0
 doorType = 1
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 128 )
-lockLevel = 0
 doorType = 1
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
@@ -168,7 +160,6 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -327,34 +318,20 @@ hasBounty = true
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 416, 128 )
 type = 1
-hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 480, 320 )
-type = 0
 hasBounty = true
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 280, 72 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
 isFlickering = true
 flickerSequence = "1110000000"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 256, 72 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
 isFlickering = true
 flickerSequence = "0000111111"
-standbyTimerAfterDetection = 3.0
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0

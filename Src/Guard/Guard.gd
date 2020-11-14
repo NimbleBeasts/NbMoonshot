@@ -43,10 +43,11 @@ func _ready() -> void:
 
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
+	#warning-ignore:return_value_discarded
 	$Flippable/LineOfSight.connect("body_entered", self, "_on_LineOfSight_body_entered")
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
 

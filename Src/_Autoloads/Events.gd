@@ -26,6 +26,14 @@ signal hud_note_show(type, text)
 signal hud_note_exited()
 signal hud_dialog_show(name, nameColor, text)
 signal hud_dialog_exited()
+signal hud_notification_show(type, node) #Types.HudNotificationType, self reference
+signal hud_notification_exited()
+signal hud_upgrade_window_show()
+signal hud_upgrade_window_exited()
+signal hud_level_transition(level) #Mission briefing or -1 for returning to HQ
+signal hud_level_transition_exited()
+
+signal save_game()
 
 
 # WebMonetization Pulse

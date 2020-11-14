@@ -29,7 +29,7 @@ var currentIndex = 0
 func _ready():
 	setup()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if playerInArea:
 		# Player in detection area
 		if detectorState == DetectorStateType.Running:
@@ -87,7 +87,7 @@ func runTween():
 	$MotionTween.start()
 
 
-func _on_MotionTween_tween_completed(object, key):
+func _on_MotionTween_tween_completed(_object, _key):
 	tweenEndPositions.invert()
 	runTween()
 
