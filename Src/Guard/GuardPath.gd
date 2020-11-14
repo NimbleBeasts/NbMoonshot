@@ -29,43 +29,45 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if int(next_point.x) > int(guard.global_position.x):
-		guard.direction.x = 1
-		is_next_point_reached = false
-	elif int(next_point.x) < int(guard.global_position.x):
-		guard.direction.x = -1
-		is_next_point_reached = false
-	else:
-		guard.direction.x = 0
-		if not is_next_point_reached:
-			is_next_point_reached = true
-			emit_signal("next_point_reached")
-	
+	if enabled:
+		if int(next_point.x) > int(guard.global_position.x):
+			guard.direction.x = 1
+			is_next_point_reached = false
+		elif int(next_point.x) < int(guard.global_position.x):
+			guard.direction.x = -1
+			is_next_point_reached = false
+		else:
+			guard.direction.x = 0
+			if not is_next_point_reached:
+				is_next_point_reached = true
+				emit_signal("next_point_reached")
+		
+
 # moves along a array of vector2s
 func move_along_points() -> void:
 	for i in global_points.size():
-		if not stop_indexes.has(i):
-			if enabled:
+		if enabled:
+			if not stop_indexes.has(i):
 				next_point = global_points[i]
 				print("keep going")
 				yield(self, "next_point_reached") # delays next iteration
-		else:
-			guard.direction.x = 0
-			yield(get_tree().create_timer(stop_time), "timeout") # stops for this amount of time
-			print("stopped")
-			continue
-	
+			else:
+				guard.direction.x = 0
+				yield(get_tree().create_timer(stop_time), "timeout") # stops for this amount of time
+				print("stopped")
+				continue
+		
 	global_points.shuffle() # reorders the points
 	emit_signal("loop_finished")
 
 
 func _on_loop_finished() -> void:
-	if enabled:
-		move_along_points()
+	move_along_points()
 
 
 func _on_guard_stop_movement() -> void:
 	enabled = false
+	print("STAHP")
 	guard.direction.x = 0
 
 

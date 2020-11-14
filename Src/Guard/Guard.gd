@@ -19,7 +19,6 @@ var direction: Vector2
 var state: int = Types.GuardStates.Wander # Types.GuardStates
 var player_in_los: bool = false
 var check_for_stunned: bool = true
-var block_movement: bool = false
 
 var guard_normal_texture: Texture = preload("res://Assets/Guards/Guard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/GuardGreen.png")
@@ -47,7 +46,6 @@ func _ready() -> void:
 	if not get_node_or_null("GuardPath"):
 		$DirectionChangeTimer.start()
 		direction = starting_direction
-		block_movement = true
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	#warning-ignore:return_value_discarded
@@ -56,8 +54,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	velocity = direction * speed
-	if not block_movement:
-		velocity = move_and_slide(velocity)
+	velocity = move_and_slide(velocity)
 		
 	update_flip()
 	match state:
@@ -223,5 +220,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		"stand_up":
 			set_state(Types.GuardStates.Wander)
 			emit_signal("start_movement")
-			if not block_movement:
+			if not get_node_or_null("GuardPath"):
 				direction = starting_direction
