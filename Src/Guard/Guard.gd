@@ -1,6 +1,10 @@
 class_name Guard
 extends KinematicBody2D
 
+signal stop_movement
+signal start_movement
+signal unstunned
+
 export var speed: int = 50
 export var direction_change_time: float = 2
 export var starting_direction: Vector2
@@ -38,9 +42,12 @@ func _ready() -> void:
 	# sets the wait_time to the exported variable
 	$DirectionChangeTimer.wait_time = direction_change_time
 	$SureDetectionTimer.wait_time = time_to_sure_detection
-	# $DirectionChangeTimer.start()
-	# direction = starting_direction
 
+	# only starts the direction timer if this doesn't have a child called Path2D
+	if not get_node_or_null("GuardPath"):
+		$DirectionChangeTimer.start()
+		direction = starting_direction
+		block_movement = true
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	#warning-ignore:return_value_discarded
@@ -49,13 +56,17 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	velocity = direction * speed
-	velocity = move_and_slide(velocity)
+	if not block_movement:
+		velocity = move_and_slide(velocity)
 
 	update_flip()
 	match state:
-		Types.GuardStates.PlayerDetected, Types.GuardStates.Suspect:
+		Types.GuardStates.PlayerDetected, Types.GuardStates.Suspect, Types.GuardStates.Stunned:
+			emit_signal("stop_movement")
 			direction = Vector2(0,0)
 			$DirectionChangeTimer.stop()
+		Types.GuardStates.Wander:
+			emit_signal("start_movement")
 	
 	# the player could be in dark visible level when the overlap happens and it would check according to that
 	# then the player could move to full light and it wouldn't get called unless it's a new overlap
@@ -205,4 +216,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 		"stand_up":
 			set_state(Types.GuardStates.Wander)
-			direction = starting_direction
+			emit_signal("unstunned")
+			if not block_movement:
+				direction = starting_direction

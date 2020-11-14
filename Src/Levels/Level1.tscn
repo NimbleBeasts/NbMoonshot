@@ -42,7 +42,7 @@ animations = [ {
 [sub_resource type="Curve2D" id=2]
 bake_interval = 20.0
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -36.333, -15.9183, 0, 0, 0, 0, -61.5884, -16.199, 0, 0, 0, 0, -1.53665, -16.199 )
+"points": PoolVector2Array( 0, 0, 0, 0, 27.649, -13.5965, 0, 0, 0, 0, 124.742, -19.4894, 0, 0, 0, 0, 163.467, -15.2802, 0, 0, 0, 0, 163.467, -15.2802, 0, 0, 0, 0, 222.597, -25.2895 )
 }
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -126,9 +126,13 @@ position = Vector2( 184, 128 )
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 424, 320 )
+lockLevel = 0
+doorType = 0
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 144, 256 )
+lockLevel = 0
+doorType = 0
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
@@ -136,18 +140,22 @@ scale = Vector2( -1, 1 )
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 320 )
+lockLevel = 0
 doorType = 1
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 256 )
+lockLevel = 0
 doorType = 1
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 192 )
+lockLevel = 0
 doorType = 1
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 128 )
+lockLevel = 0
 doorType = 1
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
@@ -318,20 +326,34 @@ hasBounty = true
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 416, 128 )
 type = 1
+hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 480, 320 )
+type = 0
 hasBounty = true
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 280, 72 )
+heigth = 7
+isStatic = true
+moveSpeed = 0.5
+moveDistance = 5
+isHorizontal = true
 isFlickering = true
 flickerSequence = "1110000000"
+standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 256, 72 )
+heigth = 7
+isStatic = true
+moveSpeed = 0.5
+moveDistance = 5
+isHorizontal = true
 isFlickering = true
 flickerSequence = "0000111111"
+standbyTimerAfterDetection = 3.0
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
@@ -355,15 +377,13 @@ z_index = 50
 [node name="Guard" parent="." instance=ExtResource( 4 )]
 position = Vector2( 340.01, 191.674 )
 rotation = -4.35859e-07
-scale = Vector2( 1, 1 )
 starting_direction = Vector2( -1, 0 )
 
-[node name="Path2D" type="Path2D" parent="Guard"]
+[node name="GuardPath" type="Path2D" parent="Guard"]
 position = Vector2( -20.0104, 0.325531 )
 rotation = 4.35859e-07
 curve = SubResource( 2 )
 script = ExtResource( 19 )
-stop_indexes = [ 2, 3, 5, 6 ]
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
