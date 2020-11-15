@@ -1,10 +1,12 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Minigames/WireCutBackground.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Minigames/WireCutColorCables.png" type="Texture" id=3]
 [ext_resource path="res://Src/Minigames/WireCutMinigame/Wire.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Minigames/sevenSegmentSeperator.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Minigames/sevenSegment.png" type="Texture" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -202,6 +204,47 @@ text = "BLUE "
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WireTimer" type="Node2D" parent="."]
+position = Vector2( 0, -70 )
+
+[node name="dig1" type="Sprite" parent="WireTimer"]
+position = Vector2( -24, 0 )
+texture = ExtResource( 7 )
+hframes = 12
+
+[node name="dig2" type="Sprite" parent="WireTimer"]
+position = Vector2( -16, 0 )
+texture = ExtResource( 7 )
+hframes = 12
+
+[node name="dig3" type="Sprite" parent="WireTimer"]
+position = Vector2( -4, 0 )
+texture = ExtResource( 7 )
+hframes = 12
+
+[node name="dig4" type="Sprite" parent="WireTimer"]
+position = Vector2( 4, 0 )
+texture = ExtResource( 7 )
+hframes = 12
+
+[node name="dig5" type="Sprite" parent="WireTimer"]
+position = Vector2( 16, 0 )
+texture = ExtResource( 7 )
+hframes = 12
+
+[node name="dig6" type="Sprite" parent="WireTimer"]
+position = Vector2( 24, 0 )
+texture = ExtResource( 7 )
+hframes = 12
+
+[node name="spacer" type="Sprite" parent="WireTimer"]
+position = Vector2( -10, 0 )
+texture = ExtResource( 6 )
+
+[node name="spacer2" type="Sprite" parent="WireTimer"]
+position = Vector2( 10, 0 )
+texture = ExtResource( 6 )
 [connection signal="wire_cut" from="Wires/RedWire" to="." method="_on_wire_cut"]
 [connection signal="wire_cut" from="Wires/BlueWire" to="." method="_on_wire_cut"]
 [connection signal="wire_cut" from="Wires/GreenWire" to="." method="_on_wire_cut"]

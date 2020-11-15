@@ -1,5 +1,9 @@
 extends Minigame
 
+
+var atm_cd:int = 12
+
+
 onready var plier: Area2D = $Plier
 
 var goal_cuts: Array = []
@@ -49,6 +53,8 @@ func _ready() -> void:
 	$Labels/Color1.text = enum2text[goal_cuts[0]]
 	$Labels/Color2.text = enum2text[goal_cuts[1]]
 	
+	#added timer
+	run_countdown_timer()
 
 func _process(delta: float) -> void:
 	var scale =  OS.get_window_size() / Vector2(640, 360)
@@ -66,5 +72,21 @@ func _on_wire_cut(color_type: int) -> void:
 		set_result(Types.MinigameResults.Succeeded)
 		close()
 	
-
+func run_countdown_timer():
+	while( atm_cd >= 0 ):
+		print(atm_cd)
+		if atm_cd > 9:
+			var twochar = String(atm_cd)
+			$WireTimer/dig5.frame = int(twochar[0])
+			$WireTimer/dig6.frame = int(twochar[1])
+		else:
+			$WireTimer/dig5.frame = 0
+			$WireTimer/dig6.frame = atm_cd
+		yield(get_tree().create_timer(1.0), "timeout")
+		if atm_cd == 0:
+			print("Failed")
+			set_result(Types.MinigameResults.Failed)
+			close()
+			return
+		atm_cd = atm_cd - 1
 
