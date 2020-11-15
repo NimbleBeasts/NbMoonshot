@@ -49,7 +49,6 @@ func _ready() -> void:
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	#warning-ignore:return_value_discarded
-	$Flippable/LineOfSight.connect("body_entered", self, "_on_LineOfSight_body_entered")
 
 
 func _process(_delta: float) -> void:
@@ -136,15 +135,28 @@ func _on_DirectionChangeTimer_timeout():
 		change_direction()
 	
 	
-func _on_LineOfSight_area_entered(area: Area2D) -> void:
-	# detecting player
-	if area.is_in_group("PlayerArea") and state != Types.GuardStates.Stunned:
-		player_in_los = true
+#func _on_LineOfSight_area_entered(area: Area2D) -> void:
+#	# detecting player
+#	if area.is_in_group("PlayerArea") and state != Types.GuardStates.Stunned:
+#		player_in_los = true
 
 
 func _on_LineOfSight_body_entered(body: Node) -> void:
-	if body is TileMap:
-		change_direction()
+#	if body is TileMap:
+#		change_direction()
+	if body.is_in_group("Player") and state != Types.GuardStates.Stunned:
+		player_in_los = true
+		
+
+func _on_LineOfSight_body_exited(body):
+	if body.is_in_group("Player"):
+		player_in_los = false
+
+
+#func _on_LineOfSight_area_exited(area: Area2D) -> void:
+#	if area.is_in_group("PlayerArea"):
+#		player_in_los = false
+
 
 		
 # this gets started when this guard's state changes to PlayerDetected
@@ -158,9 +170,6 @@ func _on_StunDurationTimer_timeout() -> void:
 	$AnimationPlayer.play("stand_up")
 
 
-func _on_LineOfSight_area_exited(area: Area2D) -> void:
-	if area.is_in_group("PlayerArea"):
-		player_in_los = false
 
 
 # Event Hook: audio level changed. audio_pos is the position where the audio notification happened
@@ -226,3 +235,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			emit_signal("start_movement")
 			if not get_node_or_null("GuardPathLine"):
 				direction = starting_direction
+

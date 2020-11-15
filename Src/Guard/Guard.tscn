@@ -136,7 +136,7 @@ position = Vector2( 7, 0.5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
 position = Vector2( -0.943878, -0.471939 )
-polygon = PoolVector2Array( 6.30218, -21.1539, 43.7075, -28.0296, 41.5838, -7.02836 )
+polygon = PoolVector2Array( -6.05612, -24.0281, 57.9439, -32.0281, 57.9439, -0.028061 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
@@ -149,10 +149,17 @@ anims/walk = SubResource( 7 )
 
 [node name="Notifier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_DirectionChangeTimer_timeout"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]
-[connection signal="area_entered" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_area_entered"]
-[connection signal="area_exited" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_area_exited"]
+[connection signal="body_entered" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_body_entered"]
+[connection signal="body_exited" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_body_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
