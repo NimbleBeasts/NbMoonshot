@@ -1,4 +1,5 @@
-extends Node2D
+class_name Doll
+extends KinematicBody2D
 
 
 # Declare member variables here. Examples:
@@ -11,4 +12,5 @@ func _ready():
 	pass # Replace with function body.
 
 func stun(_d):
+	print("am stunned")
 	$AnimationPlayer.play("tasered")

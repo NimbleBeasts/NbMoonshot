@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Doll",
+"language": "GDScript",
+"path": "res://Assets/Objects/Doll.gd"
+}, {
 "base": "Area2D",
 "class": "Door",
 "language": "GDScript",
@@ -75,6 +80,7 @@ _global_script_classes=[ {
 "path": "res://Src/Minigames/WireCutMinigame/WireCutSpawner.gd"
 } ]
 _global_script_class_icons={
+"Doll": "",
 "Door": "",
 "Guard": "",
 "GuardPathLine": "",

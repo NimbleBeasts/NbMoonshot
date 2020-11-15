@@ -190,9 +190,19 @@ func stunning() -> void:
 	if Input.is_action_just_pressed("stun"):
 		$AnimationPlayer.play("taser")
 		if stun_raycast.is_colliding():
-			var guard := stun_raycast.get_collider() as Guard
-			if (guard) and (not guard.state == Types.GuardStates.Stunned):
-				guard.stun(stun_duration)
+			var hit = stun_raycast.get_collider()		
+			
+			if hit.get_script() == Guard:
+				print("Tazerd guard")
+				var guard := hit as Guard
+				if (guard) and (not guard.state == Types.GuardStates.Stunned):
+					guard.stun(stun_duration)
+					stun_battery_level -= 1
+					Events.emit_signal("taser_fired", stun_battery_level)
+			if hit.get_script() == Doll:
+				print("Stunning doll")
+				var doll := hit as Doll
+				doll.stun(stun_duration)
 				stun_battery_level -= 1
 				Events.emit_signal("taser_fired", stun_battery_level)
 
