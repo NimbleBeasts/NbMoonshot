@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Src/HUD/MissionBriefing.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/MagoFont3_32.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/HUD/MissionBriefing.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=4]
+
+[node name="MissionBriefing" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BriefingLabel" type="RichTextLabel" parent="."]
+margin_left = 336.0
+margin_top = 88.0
+margin_right = 616.0
+margin_bottom = 272.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages."
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FunFactLabel" type="RichTextLabel" parent="."]
+margin_left = 21.0
+margin_top = 289.0
+margin_right = 616.0
+margin_bottom = 318.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "               The closest galaxy to us is the Andromeda Galaxy – it’s estimated at 2.5 million light-years away."
+text = "               The closest galaxy to us is the Andromeda Galaxy – it’s estimated at 2.5 million light-years away."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 616.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 2 )
+text = "Mission Briefing"
+align = 1
+valign = 1

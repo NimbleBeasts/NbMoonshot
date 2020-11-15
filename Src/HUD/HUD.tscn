@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
 [ext_resource path="res://Assets/HUD/AudioIndicator.png" type="Texture" id=3]
 [ext_resource path="res://Src/WebMonetization/WebMonetization.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Fonts/MagoFont3_32.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Assets/HUD/HoverIndicator.png" type="Texture" id=6]
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
 [ext_resource path="res://Assets/HUD/Note.png" type="Texture" id=8]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Assets/HUD/Alarm.png" type="Texture" id=11]
 [ext_resource path="res://Assets/HUD/Battery.png" type="Texture" id=12]
+[ext_resource path="res://Src/HUD/MissionBriefing.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "downgrade"
@@ -59,7 +61,7 @@ margin_left = 4.0
 margin_top = 4.0
 margin_right = -4.0
 margin_bottom = -4.0
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 14 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
 bbcode_enabled = true
@@ -222,6 +224,18 @@ __meta__ = {
 [node name="Indicator" type="Sprite" parent="Hovers"]
 position = Vector2( 43, 0 )
 texture = ExtResource( 6 )
+
+[node name="MissionBriefing" parent="." instance=ExtResource( 13 )]
+visible = false
+
+[node name="Shader" type="ColorRect" parent="MissionBriefing"]
+material = ExtResource( 9 )
+margin_right = 640.0
+margin_bottom = 360.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="IngameMenu" type="Control" parent="."]
 pause_mode = 2

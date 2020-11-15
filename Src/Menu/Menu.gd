@@ -19,7 +19,7 @@ func _ready():
 	for level in Global.levels:
 		$Main/LevelSelect.add_item(level, 0)
 		counter += 1
-	$Main/LevelSelect.select(counter - 1)
+	#$Main/LevelSelect.select(counter - 1)
 
 
 
