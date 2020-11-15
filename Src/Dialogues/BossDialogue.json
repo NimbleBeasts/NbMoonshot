@@ -1,7 +1,9 @@
 {
 
-"00" : { "text" : "Hello, loyal lackey. Go to level1" },
-"01" : {"text" : "Very nice, go to the car and you will go to a quest"},
+"00" : { "text" : "Ah, Mr Bondski, here you are at last. It is a great honor and obligation to work for Ustria's Secret Service." },
+"01" : {"text" : "Our great leader wants to Make Ustria Great Again. Therefore, the great nation of Ustria shall be the first with a moon station."},
+"02" : {"text": "Unfortunately our enemies have far better technologies than we do. That is why our agency is the main pillar of the Space Program."},
+"03" : {"text": "Before you go on your first mission: In the basement is your office and a training course, which you should complete."},
 "quest0" : {"level_index" : "1"},
 
 "10" : {"text" : "Very good job, you succeeded"},

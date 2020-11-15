@@ -3,6 +3,7 @@
 [ext_resource path="res://Assets/NPCs/ZoneTutorialBriefing.gd" type="Script" id=1]
 
 [node name="ZoneTutorialBriefing" type="Area2D"]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="DelayTimer" type="Timer" parent="."]

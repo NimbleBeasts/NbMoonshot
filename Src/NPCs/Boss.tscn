@@ -9,7 +9,7 @@ extents = Vector2( 9.41916, 13.3879 )
 [node name="Boss" type="Area2D"]
 script = ExtResource( 2 )
 dialogue_path = "res://Src/Dialogues/BossDialogue.json"
-npc_name = "Boss"
+npc_name = "General"
 npc_color = "red"
 
 [node name="Sprite" type="Sprite" parent="."]

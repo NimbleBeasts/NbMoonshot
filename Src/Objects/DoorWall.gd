@@ -7,7 +7,7 @@ var playerInArea = false
 var doorIsOpen = false
 var playerNode = null
 
-enum DoorLockType {open, lockedLevel1, lockedLevel2}
+enum DoorLockType {open, lockedLevel1, lockedLevel2, locked}
 enum DoorType {wooden, metal}
 
 export(DoorLockType) var lockLevel = DoorLockType.open

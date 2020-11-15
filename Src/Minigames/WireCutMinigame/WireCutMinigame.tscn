@@ -158,7 +158,6 @@ shape = SubResource( 4 )
 [node name="Plier" type="Area2D" parent="." groups=[
 "Plier",
 ]]
-position = Vector2( 209.777, -54.1766 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plier"]
 shape = SubResource( 14 )

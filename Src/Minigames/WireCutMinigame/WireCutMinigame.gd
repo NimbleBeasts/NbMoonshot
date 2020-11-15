@@ -28,7 +28,10 @@ func _ready() -> void:
 	wire_positions.shuffle()
 	for i in $Wires.get_children().size():
 		$Wires.get_child(i).position = wire_positions[i]
-		
+	
+	# Goal cuts must be set!!
+	assert(goal_cuts.size() == 2)
+
 	# basically loops through goal cuts, makes a new dict value 
 	# if is in iteration Types.MinigameResults.WireColors, makes a new dict key of that and
 	# sets the value to false
@@ -48,7 +51,8 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	plier.global_position = get_global_mouse_position() / 1.68
+	var scale =  OS.get_window_size() / Vector2(640, 360)
+	plier.global_position = get_global_mouse_position() / scale
 	
 
 func _on_wire_cut(color_type: int) -> void:
@@ -60,10 +64,7 @@ func _on_wire_cut(color_type: int) -> void:
 		
 	if wire_cut_status.values()[0] and wire_cut_status.values()[1]:
 		set_result(Types.MinigameResults.Succeeded)
-		deactivate_things()
 		close()
 	
 
-func deactivate_things() -> void:
-	for node in to_be_deactivated:
-		node.deactivate()
+

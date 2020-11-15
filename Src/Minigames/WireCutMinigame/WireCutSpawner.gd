@@ -2,21 +2,11 @@ extends MinigameSpawner
 class_name WireCutSpawner
 
 export (Array, Types.WireColors) var wire_cuts: Array = []
-export (Array, NodePath) var deactivate_paths: Array = []
-var deactivates: Array
-
-
-func _ready() -> void:
-	for path in deactivate_paths:
-		if path != "":
-			deactivates.append(get_node(path))
 
 
 func create_minigame() -> Minigame:
 	var minigame_instance: Minigame = load("res://Src/Minigames/WireCutMinigame/WireCutMinigame.tscn").instance()
-	
 	minigame_instance.goal_cuts = wire_cuts
-	minigame_instance.to_be_deactivated = deactivates
 	game_manager.levelNode.get_node("HUD").add_child(minigame_instance)
 	minigame_instance.owner_obj = self # sets owner obj to self so it has a reference to this node
 	
