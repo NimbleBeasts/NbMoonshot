@@ -5,6 +5,8 @@ enum HoverType {Light, Audio, Web}
 var count = 0
 var detected_value: int
 
+onready var dialog_tween: Tween = $Dialog/Tween
+
 func _ready():
 	$AlarmIndicator/Label.set_text(str(detected_value))
 	Events.connect("light_level_changed", self, "updateLightLevel")
@@ -55,10 +57,10 @@ func showNote(type, text):
 
 
 func showDialog(pname: String, nameColor: String, text: String):
-	# I think you meant dialog, so I changed this from note
 	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
 	$Dialog.show()
-
+	dialog_tween.interpolate_property($Dialog/Text, "percent_visible", 0.0, 1.0, 2, Tween.TRANS_LINEAR)
+	dialog_tween.start()
 
 func _physics_process(_delta):
 	# Hide Note
