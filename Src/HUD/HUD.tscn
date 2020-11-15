@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Assets/HUD/Alarm.png" type="Texture" id=11]
 [ext_resource path="res://Assets/HUD/Battery.png" type="Texture" id=12]
 [ext_resource path="res://Src/HUD/MissionBriefing.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "downgrade"
@@ -60,7 +61,7 @@ margin_left = 4.0
 margin_top = 4.0
 margin_right = -4.0
 margin_bottom = -4.0
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 14 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
 bbcode_enabled = true
