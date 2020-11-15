@@ -96,3 +96,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 		$FOV/CollisionPolygon2D.set_deferred("disabled", false)
 		
+
+func deactivate() -> void:
+	set_process(false)
+	$AnimationPlayer.stop()
+	$RotationTimer.stop()
+	$FOV.set_deferred("monitoring", false)

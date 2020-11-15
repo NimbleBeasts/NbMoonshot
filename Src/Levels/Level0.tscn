@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Skybox/UstriaSkybox.tscn" type="PackedScene" id=8]
@@ -14,7 +13,7 @@
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Temp/NewBuilding.png" type="Texture" id=13]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Src/LevelObjective/Document.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=15]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
@@ -50,11 +49,11 @@ position = Vector2( 224, 136 )
 [node name="ThinArea3" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 224, 264 )
 
-[node name="Camera" parent="LevelObjects" instance=ExtResource( 5 )]
+[node name="Camera" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 360, 200 )
 camDirection = 1
 
-[node name="Camera2" parent="LevelObjects" instance=ExtResource( 5 )]
+[node name="Camera2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 331.25, 137.658 )
 camDirection = 1
 
@@ -98,12 +97,7 @@ starting_direction = Vector2( -1, 0 )
 [node name="MinigameDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 419.57, 172.311 )
 wire_cuts = [ 1, 2 ]
+deactivate_paths = [ NodePath("../LevelObjects/Light"), NodePath("../LevelObjects/Light3"), NodePath("../LevelObjects/Camera") ]
 connected_door_path = NodePath("../LevelObjects/Staircase")
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
-
-[node name="Document" parent="." instance=ExtResource( 15 )]
-position = Vector2( 238.904, 296.05 )
-queue_free_on_succeed = true
-
-[editable path="Document"]

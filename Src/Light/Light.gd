@@ -38,3 +38,10 @@ func updateLight():
 
 func _on_Timer_timeout():
 	updateLight()
+
+
+func deactivate() -> void:
+	$Light2D.hide()
+	$FullLight.set_deferred("monitoring", false)
+	$BarelyVisible.set_deferred("monitoring", false)
+	$Timer.stop()

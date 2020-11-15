@@ -15,6 +15,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+minigame_type = 3
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 3 )

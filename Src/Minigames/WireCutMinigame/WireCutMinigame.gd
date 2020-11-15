@@ -12,6 +12,7 @@ var enum2text: Dictionary = {
 	
 }
 var wire_cut_status: Dictionary
+var to_be_deactivated: Array
 
 var wire_positions: Array = [
 	Vector2(-2.4, -53.7),
@@ -59,5 +60,10 @@ func _on_wire_cut(color_type: int) -> void:
 		
 	if wire_cut_status.values()[0] and wire_cut_status.values()[1]:
 		set_result(Types.MinigameResults.Succeeded)
+		deactivate_things()
 		close()
 	
+
+func deactivate_things() -> void:
+	for node in to_be_deactivated:
+		node.deactivate()

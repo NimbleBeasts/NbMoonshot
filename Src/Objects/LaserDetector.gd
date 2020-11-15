@@ -139,3 +139,13 @@ func _on_FlickerTimer_timeout():
 		$Top.frame = 2
 		$Bottom.frame = 2
 		_on_AnimationPlayer_animation_finished("detect") # Switching to off
+
+		
+func deactivate() -> void:
+	set_physics_process(false)
+	$LaserBeam.hide() # is this correct? 
+	$OffTimer.stop()
+	$DetectionDelay.stop()
+	$FlickerTimer.stop()
+	$MotionTween.stop_all()
+	$AnimationPlayer.stop()
