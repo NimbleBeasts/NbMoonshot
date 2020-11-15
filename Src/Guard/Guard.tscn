@@ -149,13 +149,6 @@ anims/walk = SubResource( 7 )
 
 [node name="Notifier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
-
-[node name="Label" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_DirectionChangeTimer_timeout"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]

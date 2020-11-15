@@ -2,7 +2,7 @@ class_name Player
 extends KinematicBody2D
 
 #enum LightLevels {Dark = 0, BarelyVisible = 1, FullLight = 2}
-const visibilityLevelsModulations = ["#a0a0a0", "#cccccc", "#ffffff"]
+const visibilityLevelsModulations = ["#707070", "#989898", "#ffffff"]
 
 # movement variables
 export var normal_speed: int = 80
@@ -27,7 +27,7 @@ var can_move = true
 
 #  Use Types.LightLevels enum for both of these. Light level is in which light the player is in
 # and visible_level is actual visibility of player to guards and camera with wall dodging and other benefits
-var light_level: int = Types.LightLevels.Dark
+var light_level: int = -1 #Types.LightLevels.FullLight
 var visible_level: int = light_level
 var state: int = Types.PlayerStates.Normal
 var colliding_with_travel: bool = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -43,11 +43,6 @@ animations = [ {
 "name": "default",
 "speed": 8.0
 } ]
-
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 16, -16, 0, 0, 0, 0, 128, -16, 0, 0, 0, 0, 72, -32, 0, 0, 0, 0, 176, -32 )
-}
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 32 )
@@ -117,7 +112,7 @@ position = Vector2( 368, 328 )
 reduced_down = 2
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 5 )]
-position = Vector2( 424, 72 )
+position = Vector2( 400, 72 )
 
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 128 )
@@ -380,7 +375,7 @@ margin_left = -2000.0
 margin_top = -2000.0
 margin_right = 2600.0
 margin_bottom = 2200.0
-color = Color( 0, 0, 0, 0.439216 )
+color = Color( 0, 0, 0, 0.501961 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -399,18 +394,23 @@ position = Vector2( 320, 192 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
-points = PoolVector2Array( 12.207, -17.1516, 71.6673, -17.4489, 125.479, -16.557 )
+points = PoolVector2Array( 0, -16, 80, -16, 176, -16 )
 script = ExtResource( 35 )
 
 [node name="Guard2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 448, 256 )
 starting_direction = Vector2( -1, 0 )
 
-[node name="Path2D" type="Path2D" parent="Guard2"]
-curve = SubResource( 2 )
-
 [node name="GuardPathLine" type="Line2D" parent="Guard2"]
-points = PoolVector2Array( 4.17609, -20.1983, 48.3232, -19.3574, 94.5724, -21.8801 )
+points = PoolVector2Array( -112, -16, 24, -16, 168, -16 )
+script = ExtResource( 35 )
+
+[node name="Guard3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 584, 128 )
+starting_direction = Vector2( -1, 0 )
+
+[node name="GuardPathLine" type="Line2D" parent="Guard3"]
+points = PoolVector2Array( 0, -16, -64, -16, 40, -24 )
 script = ExtResource( 35 )
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]

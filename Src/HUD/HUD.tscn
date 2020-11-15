@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
 [ext_resource path="res://Assets/HUD/AudioIndicator.png" type="Texture" id=3]
 [ext_resource path="res://Src/WebMonetization/WebMonetization.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/HUD/UpgradeButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/HUD/HoverIndicator.png" type="Texture" id=6]
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
 [ext_resource path="res://Assets/HUD/Note.png" type="Texture" id=8]
@@ -13,6 +14,38 @@
 [ext_resource path="res://Assets/HUD/Battery.png" type="Texture" id=12]
 [ext_resource path="res://Src/HUD/MissionBriefing.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=14]
+
+[sub_resource type="Animation" id=2]
+resource_name = "detection"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="ButtonGroup" id=3]
+
+[sub_resource type="ButtonGroup" id=4]
+
+[sub_resource type="ButtonGroup" id=5]
+
+[sub_resource type="ButtonGroup" id=6]
+
+[sub_resource type="ButtonGroup" id=7]
+
+[sub_resource type="ButtonGroup" id=8]
+
+[sub_resource type="ButtonGroup" id=9]
+
+[sub_resource type="ButtonGroup" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "downgrade"
@@ -28,11 +61,36 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 1, 2, 0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="HUD" type="CanvasLayer"]
 pause_mode = 2
 layer = 128
 script = ExtResource( 1 )
+
+[node name="DetectFlash" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.788235, 0.188235, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DetectFlash"]
+anims/detection = SubResource( 2 )
 
 [node name="Dialog" type="NinePatchRect" parent="."]
 visible = false
@@ -73,6 +131,126 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="Dialog"]
 
+[node name="Upgrades" type="NinePatchRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -92.0
+margin_right = 88.0
+margin_bottom = 92.0
+texture = ExtResource( 7 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="Upgrades"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -7.0
+margin_bottom = -92.0
+rect_min_size = Vector2( 32, 32 )
+custom_constants/vseparation = 11
+custom_constants/hseparation = 11
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeButton0" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+group = SubResource( 3 )
+
+[node name="UpgradeButton1" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+margin_left = 43.0
+margin_right = 75.0
+group = SubResource( 4 )
+skill = 1
+
+[node name="UpgradeButton2" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+margin_left = 86.0
+margin_right = 118.0
+group = SubResource( 5 )
+skill = 2
+
+[node name="UpgradeButton3" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+margin_left = 129.0
+margin_right = 161.0
+group = SubResource( 6 )
+skill = 3
+
+[node name="UpgradeButton4" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+margin_top = 43.0
+margin_bottom = 75.0
+group = SubResource( 7 )
+skill = 4
+
+[node name="UpgradeButton5" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+margin_left = 43.0
+margin_top = 43.0
+margin_right = 75.0
+margin_bottom = 75.0
+group = SubResource( 8 )
+skill = 5
+
+[node name="UpgradeButton6" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+margin_left = 86.0
+margin_top = 43.0
+margin_right = 118.0
+margin_bottom = 75.0
+group = SubResource( 9 )
+skill = 6
+
+[node name="UpgradeButton7" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+margin_left = 129.0
+margin_top = 43.0
+margin_right = 161.0
+margin_bottom = 75.0
+group = SubResource( 10 )
+skill = 7
+
+[node name="InfoBox" type="NinePatchRect" parent="Upgrades"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 88.0
+margin_right = -8.0
+margin_bottom = -8.0
+texture = ExtResource( 7 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Titel" type="Label" parent="Upgrades/InfoBox"]
+margin_left = 8.0
+margin_top = 4.0
+margin_right = 152.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 10 )
+text = "Titel"
+
+[node name="Description" type="RichTextLabel" parent="Upgrades/InfoBox"]
+margin_left = 8.0
+margin_top = 18.0
+margin_right = 152.0
+margin_bottom = 80.0
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "Increases the battery capacity to allow taser usages."
+text = "Increases the battery capacity to allow taser usages."
+
 [node name="Note" type="TextureRect" parent="."]
 visible = false
 anchor_left = 0.5
@@ -111,8 +289,10 @@ __meta__ = {
 material = ExtResource( 9 )
 margin_right = 640.0
 margin_bottom = 360.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -171,6 +351,7 @@ margin_top = -8.0
 margin_right = 32.0
 margin_bottom = 6.0
 custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "0
 "
 __meta__ = {

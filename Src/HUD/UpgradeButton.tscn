@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Src/HUD/UpgradeButton.gd" type="Script" id=1]
+[ext_resource path="res://Assets/HUD/UpgradeButtons/button_1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/HUD/UpgradeButtons/button_2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/HUD/UpgradeButtons/button_3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/HUD/UpgradeButtons/button_4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/HUD/UpgradeImages/upgrade.png" type="Texture" id=6]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[node name="UpgradeButton" type="TextureButton"]
+margin_right = 32.0
+margin_bottom = 32.0
+group = SubResource( 1 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+texture_focused = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+centered = false
+hframes = 8
+[connection signal="button_up" from="." to="." method="_on_UpgradeButton_button_up"]

@@ -50,7 +50,7 @@ const upgrades = [
 	{id = 3, name="Marathon Man", desc="Increases the sprint duration.", cost=150},
 	{id = 4, name="Sneak", desc="Enables walk while hiding in the dark.", cost=200},
 	{id = 5, name="DarkNet", desc="Increases the money for every theft by +25%.", cost=200},
-	{id = 6, name="Lockpicking for Dummies", desc="Make lockpicking easier.", cost=300},
+	{id = 6, name="Lockpicking 2.0", desc="Make lockpicking easier.", cost=300},
 	{id = 7, name="Distraction", desc="Guards will report the alarm more delayed.", cost=200}
 ]
 

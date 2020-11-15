@@ -7,8 +7,7 @@ enum CamDirectionType {Left, Right}
 
 export(CamDirectionType) var camDirection = CamDirectionType.Left
 export(bool) var isFixedCam = false
-export (float, -360, 360) var fov_right_rotation_degrees: float
-export (float, -360, 360) var fov_left_rotation_degrees: float = -299.5
+
 
 var currentDirection = camDirection
 
@@ -16,10 +15,10 @@ var currentDirection = camDirection
 func _ready():
 	if camDirection == CamDirectionType.Left:
 		animation("idle_left")
-		$FOV.rotation_degrees = fov_left_rotation_degrees
+		$FOV.scale.x = -1
 	else:
 		animation("idle_right")
-		$FOV.rotation_degrees = fov_right_rotation_degrees
+		$FOV.scale.x = 1
 
 	
 	if not isFixedCam:
@@ -88,11 +87,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		if currentDirection == CamDirectionType.Left:
 			camDirection = CamDirectionType.Right
 			$AnimationPlayer.play("idle_right")
-			$FOV.rotation_degrees = fov_right_rotation_degrees
+			$FOV.scale.x = 1
 		else:
 			camDirection = CamDirectionType.Left
 			$AnimationPlayer.play("idle_left")
-			$FOV.rotation = fov_left_rotation_degrees
+			$FOV.scale.x = -1
 
 		$FOV/CollisionPolygon2D.set_deferred("disabled", false)
 		

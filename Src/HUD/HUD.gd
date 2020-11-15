@@ -14,14 +14,24 @@ func _ready():
 	
 	Events.connect("hud_note_show", self, "showNote")
 	Events.connect("hud_dialog_show", self, "showDialog")
+	Events.connect("hud_upgrade_window_show", self, "showUpgrade")
 	
 	Events.connect("sure_detection_num_changed", self, "alarmIndication")
 	Events.connect("taser_fired", self, "taserUpdate")
 	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
 
+	for node in $Upgrades/Grid.get_children():
+		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
+
+
+	# Set focus so we can use gamepad with ui
+	$Upgrades/Grid/UpgradeButton0.grab_focus()
+	upgradeSelect(0)
+
 	var cat = Debug.addCategory("HUD")
 	Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
+
 
 func debugShaderToggle(_d):
 	if $Shader.visible:
@@ -37,6 +47,8 @@ func taserUpdate(value):
 
 func alarmIndication(value):
 	detected_value -= 1
+	print("alarm")
+	$DetectFlash/AnimationPlayer.play("detection")
 	$AlarmIndicator/AlarmAnimation.play("downgrade")
 	$AlarmIndicator/Label.set_text(str(detected_value))
 
@@ -54,6 +66,24 @@ func showNote(type, text):
 
 	$Note/Text.bbcode_text = str(text)
 	$Note.show()
+
+
+func upgradeSelect(id):
+	var upgrade = Global.upgrades[id]
+	$Upgrades/InfoBox/Titel.set_text(upgrade.name + " $" + str(upgrade.cost))
+	$Upgrades/InfoBox/Description.bbcode_text = upgrade.desc
+
+func updateUpgrades():
+	# Clear old results
+#	for node in $Upgrades/Grid.get_children():
+#		node.disabled = false
+	for upgradeId in Global.gameState.playerUpgrades:
+		get_node("Upgrades/Grid/UpgradeButton" + str(upgradeId)).disabled = true
+
+
+func showUpgrade():
+	updateUpgrades()
+	$Upgrades.show()
 
 
 func showDialog(pname: String, nameColor: String, text: String):
@@ -74,6 +104,8 @@ func _physics_process(_delta):
 		elif $IngameMenu.visible:
 			$IngameMenu.hide()
 			get_tree().paused = false
+		elif $Upgrades.visible:
+			$Upgrades.hide()
 		else:
 			$IngameMenu.show()
 			get_tree().paused = true

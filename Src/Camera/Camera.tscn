@@ -96,7 +96,7 @@ frame = 6
 [node name="FOV" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FOV"]
-polygon = PoolVector2Array( 3.24472, -1.01829, 3.24472, -1.01829, 55.8728, 13.2156, 42.5753, 30.0716 )
+polygon = PoolVector2Array( 48, 56, 0, 0, 104, 24, 104, 56 )
 
 [node name="SureDetectionTimer" type="Timer" parent="."]
 one_shot = true
