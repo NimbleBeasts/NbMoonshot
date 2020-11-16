@@ -15,7 +15,7 @@
 [ext_resource path="res://Src/HUD/MissionBriefing.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=14]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "detection"
 length = 0.2
 tracks/0/type = "value"
@@ -31,6 +31,8 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="ButtonGroup" id=2]
+
 [sub_resource type="ButtonGroup" id=3]
 
 [sub_resource type="ButtonGroup" id=4]
@@ -45,10 +47,7 @@ tracks/0/keys = {
 
 [sub_resource type="ButtonGroup" id=9]
 
-[sub_resource type="ButtonGroup" id=10]
-
-[sub_resource type="Animation" id=1]
-resource_name = "downgrade"
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -90,7 +89,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DetectFlash"]
-anims/detection = SubResource( 2 )
+anims/detection = SubResource( 1 )
 
 [node name="Dialog" type="NinePatchRect" parent="."]
 visible = false
@@ -166,30 +165,31 @@ __meta__ = {
 }
 
 [node name="UpgradeButton0" parent="Upgrades/Grid" instance=ExtResource( 5 )]
-group = SubResource( 3 )
+group = SubResource( 2 )
+skill = 0
 
 [node name="UpgradeButton1" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
 margin_right = 75.0
-group = SubResource( 4 )
+group = SubResource( 3 )
 skill = 1
 
 [node name="UpgradeButton2" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 86.0
 margin_right = 118.0
-group = SubResource( 5 )
+group = SubResource( 4 )
 skill = 2
 
 [node name="UpgradeButton3" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 129.0
 margin_right = 161.0
-group = SubResource( 6 )
+group = SubResource( 5 )
 skill = 3
 
 [node name="UpgradeButton4" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 margin_top = 43.0
 margin_bottom = 75.0
-group = SubResource( 7 )
+group = SubResource( 6 )
 skill = 4
 
 [node name="UpgradeButton5" parent="Upgrades/Grid" instance=ExtResource( 5 )]
@@ -197,7 +197,7 @@ margin_left = 43.0
 margin_top = 43.0
 margin_right = 75.0
 margin_bottom = 75.0
-group = SubResource( 8 )
+group = SubResource( 7 )
 skill = 5
 
 [node name="UpgradeButton6" parent="Upgrades/Grid" instance=ExtResource( 5 )]
@@ -205,7 +205,7 @@ margin_left = 86.0
 margin_top = 43.0
 margin_right = 118.0
 margin_bottom = 75.0
-group = SubResource( 9 )
+group = SubResource( 8 )
 skill = 6
 
 [node name="UpgradeButton7" parent="Upgrades/Grid" instance=ExtResource( 5 )]
@@ -213,7 +213,7 @@ margin_left = 129.0
 margin_top = 43.0
 margin_right = 161.0
 margin_bottom = 75.0
-group = SubResource( 10 )
+group = SubResource( 9 )
 skill = 7
 
 [node name="InfoBox" type="NinePatchRect" parent="Upgrades"]
@@ -359,7 +359,7 @@ __meta__ = {
 }
 
 [node name="AlarmAnimation" type="AnimationPlayer" parent="AlarmIndicator"]
-anims/downgrade = SubResource( 1 )
+anims/downgrade = SubResource( 10 )
 
 [node name="ChargeIndicator" type="Sprite" parent="."]
 position = Vector2( 64, 24 )

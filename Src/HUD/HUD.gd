@@ -90,8 +90,11 @@ func showUpgrade():
 func showDialog(pname: String, nameColor: String, text: String):
 	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
 	$Dialog.show()
-	dialog_tween.interpolate_property($Dialog/Text, "percent_visible", 0.0, 1.0, 1.0, Tween.TRANS_LINEAR)
-	dialog_tween.start()
+	typeDialog() # do you want this function or tween. problem with tween is that if the text is short, it will still take
+			# 1 second to finish, which is meh. this fixes that
+			
+	# dialog_tween.interpolate_property($Dialog/Text, "percent_visible", 0.0, 1.0, 1.0, Tween.TRANS_LINEAR)
+	# dialog_tween.start()
 
 
 func hideDialog() -> void:
@@ -156,6 +159,12 @@ func hover(type):
 			$Hovers/Label.set_text("This is your visibilty indicator.")
 	$Hovers.show()
 
+
+func typeDialog() -> void:
+	$Dialog/Text.visible_characters = 0
+	while $Dialog/Text.visible_characters < $Dialog/Text.text.length():
+		$Dialog/Text.visible_characters += 1
+		yield(get_tree(), "idle_frame")
 
 
 func _on_LightHover_mouse_entered():
