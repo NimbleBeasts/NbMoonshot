@@ -8,6 +8,8 @@ var detected_value: int
 var nextText: String
 var nextName: String
 var nextNameColor: String
+var currentText: String
+var hideWithE: bool = false
 
 onready var dialogTween: Tween = $Dialog/Tween
 
@@ -109,7 +111,6 @@ func showDialog(pname: String, nameColor: String, text: String):
 		nextName = ""
 		nextNameColor = ""
 
-
 	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
 	$Dialog.show()
 	typeDialog() # do you want this function or tween. problem with tween is that if the text is short, it will still take 1 second to finish, which is meh. this fixes that
@@ -120,6 +121,7 @@ func showDialog(pname: String, nameColor: String, text: String):
 func hideDialog() -> void:
 	$Dialog.hide()
 	Events.emit_signal("hud_dialog_exited")
+
 
 func _physics_process(_delta):
 	# Hide Note
@@ -139,6 +141,9 @@ func _physics_process(_delta):
 			$IngameMenu.show()
 			get_tree().paused = true
 
+	# hide when press E and don't have any more text to show
+	if Input.is_action_just_pressed("interact") and nextText == "" and $Dialog.visible:
+		hideDialog()
 
 
 func updateLightLevel(newLightLevel):

@@ -21,6 +21,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_entered and Global.player.direction == Vector2(0,0):
+		# this is kind of a weird way to do this but it works :DDDDDDDDDDDD
 		if not dialogueRead:
 			Events.emit_signal("interacted_with_npc", self)
 			interact()
