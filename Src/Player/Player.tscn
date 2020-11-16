@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
@@ -199,6 +199,9 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -16 ), Vector2( 0, -20 ), Vector2( 0, -16 ) ]
 }
 
+[sub_resource type="Animation" id=15]
+resource_name = "lose"
+
 [sub_resource type="Animation" id=13]
 length = 0.3
 tracks/0/type = "value"
@@ -324,6 +327,7 @@ anims/duck_walk = SubResource( 9 )
 anims/idle = SubResource( 10 )
 anims/jump_down = SubResource( 11 )
 anims/jump_up = SubResource( 12 )
+anims/lose = SubResource( 15 )
 anims/taser = SubResource( 13 )
 anims/walk = SubResource( 14 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -37,6 +37,7 @@ var stun_duration: float = 4.0
 var has_sneak_upgrade: bool = false
 var sprint_duration: float
 var canSprint: bool
+var lost: bool = false
 
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
@@ -64,6 +65,7 @@ func _ready() -> void:
 	Events.connect("npc_interaction_stopped", self, "_on_npc_interaction_stopped")
 	Events.connect("hud_note_exited", self, "_on_hud_note_exited")
 	Events.connect("hud_note_show", self, "_on_hud_note_showed")
+	Events.connect("sure_detection_num_changed", self, "onSureDetectionNumChanged")
 
 	$AnimationPlayer.play("idle")
 
@@ -253,6 +255,12 @@ func _on_hud_note_showed(_type: int, _text: String) -> void:
 	block_input = true
 
 
+func onSureDetectionNumChanged(num: int) -> void:
+	if num >= Global.game_manager.getCurrentLevel().allowed_detections:
+		set_process(false)
+		$AnimationPlayer.play("lose")
+
+
 # use this function to set light_level instead of directly changing it
 func set_light_level(value: int) -> void:
 	if light_level != value:
@@ -284,6 +292,8 @@ func animation_change(to: String) -> void:
 			$AnimationPlayer.play(to)
 		
 
-func _on_AnimationPlayer_animation_finished(_anim_name):
+func _on_AnimationPlayer_animation_finished(anim_name):
 	# Only non-looped animation will reach this point
 	$AnimationPlayer.play("idle")
+	if anim_name == "lose":
+		Global.game_manager.reloadLevel()

@@ -28,7 +28,6 @@ func _ready():
 	Events.connect_signal("new_game", self, "_newGame")
 	Events.connect_signal("menu_back", self, "_backToMenu")
 	Events.connect("player_detected", self, "_on_player_detected")
-	Events.connect("possible_detection_num_changed", self, "_on_possible_detection_num_changed")
 	
 	Events.connect("web_monetization_pulse", self, "webMoneyPulse")
 	
@@ -145,7 +144,3 @@ func _on_player_detected(detection_level: int) -> void:
 			Events.emit_signal("sure_detection_num_changed", sure_detection_num)
 
 
-func _on_possible_detection_num_changed(num: int) -> void:
-	if num >= getCurrentLevel().allowed_detections:
-		reloadLevel()
-			
