@@ -153,6 +153,7 @@ label = "§"
 [node name="Tween" type="Tween" parent="."]
 
 [node name="GoalLabel" type="Label" parent="."]
+visible = false
 margin_left = -46.6171
 margin_top = -68.6657
 margin_right = -6.6171

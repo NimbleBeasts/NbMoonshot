@@ -4,7 +4,7 @@
 "01" : {"text" : "Our great leader wants to Make Ustria Great Again. Therefore, the great nation of Ustria shall be the first with a moon station."},
 "02" : {"text": "Unfortunately our enemies have far better technologies than we do. That is why our agency is the main pillar of the Space Program."},
 "03" : {"text": "Before you go on your first mission: In the basement is your office and a training course, which you should complete."},
-"quest0" : {"level_index" : "1"},
+"quest0" : {"level_index" : "0"},
 
 "10" : {"text" : "Very good job, you succeeded"},
  "11" : {"text" : "Now you're next job is to go to level1. Accept?"},
