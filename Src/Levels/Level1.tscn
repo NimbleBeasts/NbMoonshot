@@ -124,6 +124,7 @@ connected_door_path = NodePath("../Staircase")
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 170, 128 )
+keyPadCode = 1234
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 424, 320 )
