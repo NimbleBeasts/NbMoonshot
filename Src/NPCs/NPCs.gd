@@ -47,7 +47,7 @@ func interact() -> void:
 		# it can emit "read_all_dialog"
 		if not has_dialogue(interacted_counter, dialogue_index + 1):
 			emit_signal("read_all_dialog")
-			dialogue_index -= 1
+			dialogue_index -= 1 # hacky way to make it say the same last dialogue each time you interact with it :DDDD
 
 		dialogue_index += 1
 		return

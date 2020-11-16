@@ -67,6 +67,7 @@ connected_door_path = NodePath("../Staircase")
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 208, 192 )
+minigameType = 3
 
 [node name="Light" parent="LevelObjects" instance=ExtResource( 9 )]
 light_mask = 3
@@ -97,7 +98,6 @@ starting_direction = Vector2( -1, 0 )
 [node name="MinigameDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 419.57, 172.311 )
 wire_cuts = [ 1, 2 ]
-deactivate_paths = [ NodePath("../LevelObjects/Light"), NodePath("../LevelObjects/Light3"), NodePath("../LevelObjects/Camera") ]
 connected_door_path = NodePath("../LevelObjects/Staircase")
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
