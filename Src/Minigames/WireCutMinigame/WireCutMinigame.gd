@@ -7,7 +7,7 @@ var atm_cd:int = 12
 onready var plier: Area2D = $Plier
 
 var goal_cuts: Array = []
-var colors: Array = [Color.red, Color.green, Color.purple, Color.cyan]
+var colors: Array = ["#c93038", "#51c43f", "#852d66", "#63c2c9"]
 var enum2text: Dictionary = {
 	Types.WireColors.Green : "GREEN",
 	Types.WireColors.Red : "RED",
@@ -46,12 +46,8 @@ func _ready() -> void:
 	randomize()
 	var rand_color1 = colors[randi() % colors.size()]
 	var rand_color2 = colors[randi() % colors.size()]
-	$Labels/Color1.set("custom_colors/font_color", rand_color1)
-	$Labels/Color2.set("custom_colors/font_color", rand_color2)
 	
-	#gives labels correct text
-	$Labels/Color1.text = enum2text[goal_cuts[0]]
-	$Labels/Color2.text = enum2text[goal_cuts[1]]
+	$Labels/Label.bbcode_text = "Disable: Cut the [color="+rand_color1+"]" + enum2text[goal_cuts[0]] + "[/color] and [color="+rand_color2+"]" +enum2text[goal_cuts[1]]+ "[/color] wires"
 	
 	#added timer
 	run_countdown_timer()

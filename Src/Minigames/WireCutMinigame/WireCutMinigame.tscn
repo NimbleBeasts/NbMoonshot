@@ -99,17 +99,18 @@ animations = [ {
 extents = Vector2( 10.8561, 8.75131 )
 
 [node name="WireCutMinigame" type="Node2D"]
-position = Vector2( -9.52441, 26.9858 )
 script = ExtResource( 1 )
 minigame_type = 2
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 44 )
 texture = ExtResource( 2 )
 
 [node name="Wires" type="Node2D" parent="."]
+position = Vector2( 2, 53 )
 
 [node name="RedWire" type="Area2D" parent="Wires"]
-position = Vector2( -2.47488, -53.7401 )
+position = Vector2( -2, -60 )
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Wires/RedWire"]
@@ -120,7 +121,7 @@ animation = "normal"
 shape = SubResource( 4 )
 
 [node name="BlueWire" type="Area2D" parent="Wires"]
-position = Vector2( -1.58398, -18.9951 )
+position = Vector2( -2, -30 )
 script = ExtResource( 4 )
 color_type = 3
 
@@ -132,7 +133,7 @@ animation = "normal"
 shape = SubResource( 4 )
 
 [node name="GreenWire" type="Area2D" parent="Wires"]
-position = Vector2( -2.75253, 7.66557 )
+position = Vector2( -2, -2 )
 script = ExtResource( 4 )
 color_type = 2
 
@@ -144,7 +145,7 @@ animation = "normal"
 shape = SubResource( 4 )
 
 [node name="PurpleWire" type="Area2D" parent="Wires"]
-position = Vector2( 0.175934, 35.0535 )
+position = Vector2( -2, 24 )
 script = ExtResource( 4 )
 color_type = 1
 
@@ -160,53 +161,35 @@ shape = SubResource( 4 )
 [node name="Plier" type="Area2D" parent="." groups=[
 "Plier",
 ]]
+position = Vector2( 0, 60 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plier"]
 shape = SubResource( 14 )
 
 [node name="Labels" type="Control" parent="."]
+margin_top = 60.0
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 100.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Labels"]
-margin_left = -37.0
-margin_top = -119.0
-margin_right = 84.0
-margin_bottom = -90.0
-custom_fonts/font = ExtResource( 5 )
-text = "Disable: cut the 
-     and         wires"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Color1" type="Label" parent="Labels"]
-margin_left = -41.159
-margin_top = -103.016
-margin_right = -21.159
-margin_bottom = -89.0157
-custom_fonts/font = ExtResource( 5 )
-text = "RED"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Color2" type="Label" parent="Labels"]
-margin_left = 16.369
-margin_top = -103.309
-margin_right = 48.369
-margin_bottom = -89.3085
-custom_fonts/font = ExtResource( 5 )
-text = "BLUE "
+[node name="Label" type="RichTextLabel" parent="Labels"]
+margin_left = -44.0
+margin_top = -138.0
+margin_right = 88.0
+margin_bottom = -92.0
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+bbcode_text = "Disable: Cut the PURPLE and BLUE wires"
+text = "Disable: Cut the PURPLE and BLUE wires"
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="WireTimer" type="Node2D" parent="."]
-position = Vector2( 0, -70 )
+position = Vector2( 0, -25 )
 
 [node name="dig1" type="Sprite" parent="WireTimer"]
 position = Vector2( -24, 0 )
