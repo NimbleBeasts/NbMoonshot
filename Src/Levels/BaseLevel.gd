@@ -9,14 +9,16 @@ export(NodePath) var level_objectives = null
 
 
 func can_change_level():
-	if level_objectives.has_method("getProgessState"):
-		return level_objectives.getProgessState()
+	if Global.game_manager.getCurrentLevel().name != "HQ_Level":
+		if level_objectives.has_method("getProgessState"):
+			return level_objectives.getProgessState()
+		else:
+			print("Error: Selected node is not supported")
 	else:
-		print("Error: Selected node is not supported")
+		return true
 	return false
 
 func _ready():
-	
 	if level_objectives:
 		level_objectives = get_node(level_objectives)
 	

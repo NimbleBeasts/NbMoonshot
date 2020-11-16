@@ -20,11 +20,13 @@ func _ready() -> void:
 	if sprite_face_direction == Types.Direction.Left:
 		$Sprite.scale.x = -1
 
+	
 
 func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("interact")):
 		if has_level_index or Global.game_manager.getCurrentLevel().can_change_level(): # this condition is true on hq_level
 			$AnimationPlayer.play("open")
+
 
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
@@ -39,9 +41,10 @@ func _on_body_exited(body: Node) -> void:
 
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	if has_level_index: # this condition is true on hq_level
+	if Global.game_manager.getCurrentLevel().name == "HQ_Level": # this condition is true on hq_level
 		Events.emit_signal("hud_level_transition", -1)
 		Global.game_manager.loadNextQuest()
+		print(Global.game_manager.quest_index)
 	else:
 		Events.emit_signal("hud_level_transition", level_index)
 		Global.game_manager.boss_interaction_counter = next_boss_interacted_counter

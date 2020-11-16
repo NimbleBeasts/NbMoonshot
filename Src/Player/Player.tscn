@@ -199,10 +199,10 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -16 ), Vector2( 0, -20 ), Vector2( 0, -16 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=13]
 resource_name = "lose"
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSprite:frame")
@@ -217,7 +217,7 @@ tracks/0/keys = {
 "values": [ 6, 0 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 loop = true
 step = 0.2
 tracks/0/type = "value"
@@ -327,7 +327,7 @@ anims/duck_walk = SubResource( 9 )
 anims/idle = SubResource( 10 )
 anims/jump_down = SubResource( 11 )
 anims/jump_up = SubResource( 12 )
-anims/lose = SubResource( 15 )
-anims/taser = SubResource( 13 )
-anims/walk = SubResource( 14 )
+anims/lose = SubResource( 13 )
+anims/taser = SubResource( 14 )
+anims/walk = SubResource( 15 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
