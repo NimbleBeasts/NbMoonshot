@@ -17,6 +17,7 @@ export var normal_stun_duration: float = 4.0
 export var extended_stun_duration: float = 7.0
 export var normal_sprint_duration: float = 3.0
 export var extended_sprint_duration: float = 6.0
+export var stamina_replenish_duration: float = 3.0
 
 var direction: Vector2
 var velocity: Vector2
@@ -79,10 +80,10 @@ func _process(_delta: float) -> void:
 	else:
 		speed = normal_speed
 		acceleration = normal_acceleration
-		# starts sprint timer
+		# stops sprint timer
 		if $SprintTimer.is_stopped():
 			$SprintTimer.start()
-			$SprintTimer.wait_time = 3
+			$SprintTimer.wait_time = stamina_replenish_duration
 			
 
 	update_light_level()
@@ -248,7 +249,6 @@ func _on_minigame_entered(_type: int) -> void:
 # just flips the variable value
 func _on_SprintTimer_timeout() -> void:
 	can_sprint = not can_sprint
-	print("sprint timer timeout")
 	
 	
 func _on_minigame_exited(_type: int) -> void:

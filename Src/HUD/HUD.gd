@@ -19,6 +19,7 @@ func _ready():
 	Events.connect("sure_detection_num_changed", self, "alarmIndication")
 	Events.connect("taser_fired", self, "taserUpdate")
 	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
+	Events.connect("hide_dialog", self, "hideDialog")
 
 	for node in $Upgrades/Grid.get_children():
 		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
@@ -91,6 +92,11 @@ func showDialog(pname: String, nameColor: String, text: String):
 	$Dialog.show()
 	dialog_tween.interpolate_property($Dialog/Text, "percent_visible", 0.0, 1.0, 2, Tween.TRANS_LINEAR)
 	dialog_tween.start()
+
+
+func hideDialog() -> void:
+	$Dialog.hide()
+	Events.emit_signal("hud_dialog_exited")
 
 func _physics_process(_delta):
 	# Hide Note
