@@ -1,32 +1,36 @@
-
 class_name NPC
 extends Area2D
 
 signal read_all_dialog
 
-
 export (String, FILE) var dialogue_path: String
 export var npc_name: String
 export var npc_color: String
 var player_entered: bool = false
-var interacted_counter: int = 0
+var interacted_counter: int = 0 setget setInteractedCounter
 var dialogue_index: int =  0
+var dialogueRead: bool = false
 
 
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
 	connect("body_exited", self, "_on_body_exited")
+	connect("read_all_dialog", self, "_onReadAllDialogue")
 	set_process(false)
 
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_entered and Global.player.direction == Vector2(0,0):
-		Events.emit_signal("interacted_with_npc", self)
-		interact()
+		if not dialogueRead:
+			Events.emit_signal("interacted_with_npc", self)
+			interact()
+		else:
+			Events.emit_signal("hide_dialog")
+			dialogueRead = false
 	elif Input.is_action_just_pressed("ui_cancel") and player_entered:
 		Events.emit_signal("npc_interaction_stopped", self)
 
-
+	
 # function for loading dialogues
 func load_dialogue() -> Dictionary:
 	if dialogue_path == "":
@@ -71,6 +75,15 @@ func say_dialogue_text(counter, index) -> void:
 	Events.emit_signal("hud_dialog_show", npc_name, npc_color, dialogue_text)
 
 
+func _onReadAllDialogue() -> void:
+	dialogueRead = true
+
+
+func setInteractedCounter(value) -> void:
+	interacted_counter = value
+	dialogueRead = false
+
+
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
 		player_entered = true
@@ -81,4 +94,3 @@ func _on_body_exited(body: Node) -> void:
 	if body is Player:
 		player_entered = false
 		set_process(false)
-
