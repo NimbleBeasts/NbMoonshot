@@ -163,6 +163,11 @@ connected_door_path = NodePath("../StaircaseL2_2")
 position = Vector2( 520, 316 )
 keyPadCode = 123
 
+[node name="Tresor2" parent="LevelObjects" instance=ExtResource( 7 )]
+position = Vector2( 136, 320 )
+keyPadCode = 123
+minigameType = 3
+
 [node name="Secretary" parent="LevelObjects" instance=ExtResource( 22 )]
 position = Vector2( 328, 256 )
 
@@ -388,6 +393,7 @@ position = Vector2( 170.324, 318.863 )
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
 [node name="Label" type="Label" parent="HUD"]
+visible = false
 margin_right = 72.0
 margin_bottom = 14.0
 text = "Hello Level"

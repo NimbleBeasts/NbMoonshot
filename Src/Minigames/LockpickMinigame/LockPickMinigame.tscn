@@ -19,29 +19,46 @@ minigame_type = 3
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
+
+[node name="LockpickInside" type="Sprite" parent="."]
+position = Vector2( -40, 24 )
+z_index = 1
+texture = ExtResource( 7 )
+offset = Vector2( 60, 0 )
+
+[node name="Pins" type="Node2D" parent="."]
+position = Vector2( -10, 11 )
+
+[node name="LockpickPin1" type="Sprite" parent="Pins"]
+position = Vector2( -90, -42 )
+z_index = 5
+texture = ExtResource( 5 )
+
+[node name="LockpickPin2" type="Sprite" parent="Pins"]
+position = Vector2( -63, -26 )
+texture = ExtResource( 5 )
+
+[node name="LockpickPin3" type="Sprite" parent="Pins"]
+position = Vector2( -36, -30 )
+texture = ExtResource( 5 )
+
+[node name="LockpickPin4" type="Sprite" parent="Pins"]
+position = Vector2( -9, -25 )
+texture = ExtResource( 5 )
 
 [node name="LockpickOutline" type="Sprite" parent="."]
+z_index = 1
+z_as_relative = false
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="LockpickInside" type="Sprite" parent="."]
-position = Vector2( -90, 10.873 )
-z_index = 1
-texture = ExtResource( 7 )
-offset = Vector2( 44.0386, -1.27974 )
-
 [node name="LockpickLock" type="Sprite" parent="."]
-position = Vector2( 62.3395, -0.180954 )
-z_index = 1
+position = Vector2( 72, 0 )
+z_index = 6
+z_as_relative = false
 texture = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Lockpick" type="Sprite" parent="LockpickLock"]
 visible = false
@@ -54,38 +71,17 @@ visible = false
 position = Vector2( -18.3188, -55.2243 )
 texture = ExtResource( 8 )
 
-[node name="Pins" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="LockpickPin1" type="Sprite" parent="Pins"]
-position = Vector2( -90, -42 )
-z_index = 5
-texture = ExtResource( 5 )
-
-[node name="LockpickPin2" type="Sprite" parent="Pins"]
-position = Vector2( -63, -25.691 )
-texture = ExtResource( 5 )
-
-[node name="LockpickPin3" type="Sprite" parent="Pins"]
-position = Vector2( -36, -29.015 )
-texture = ExtResource( 5 )
-
-[node name="LockpickPin4" type="Sprite" parent="Pins"]
-position = Vector2( -10, -25.418 )
-texture = ExtResource( 5 )
-
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="TryUI" type="Label" parent="."]
-margin_top = -70.0
-margin_right = 20.0
-margin_bottom = -50.0
+margin_left = -80.0
+margin_top = 40.0
+margin_right = -35.0
+margin_bottom = 60.0
 custom_fonts/font = ExtResource( 9 )
-text = "5"
+text = "Tries: 5"
 align = 1
 valign = 1
 __meta__ = {

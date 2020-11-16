@@ -112,7 +112,7 @@ func shake_ping():
 
 func update_try():
 	try = try - 1
-	$TryUI.text = String(try)
+	$TryUI.text = "Tries: " + String(try)
 	if try == 0:
 		print("Failed")
 		set_result(Types.MinigameResults.Failed)
