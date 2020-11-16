@@ -35,8 +35,8 @@ var colliding_with_travel: bool = false
 var stun_battery_level: int = 3
 var stun_duration: float = 4.0
 var has_sneak_upgrade: bool = false
-var can_sprint: bool = true
 var sprint_duration: float
+var canSprint: bool
 
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
@@ -45,17 +45,19 @@ onready var stun_raycast: RayCast2D = $StunRayCast
 onready var player_sprite: Sprite = $PlayerSprite
 onready var camera: Camera2D = $Camera2D
 
+
 func _init() -> void:
 	Global.player = self
 
 
 func _ready() -> void:
+	# sprint upgrade
+	canSprint = Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
 
 	# signal connections
 	#warning-ignore-all:return_value_discarded
-	$SprintTimer.connect("timeout", self, "_on_SprintTimer_timeout")
 	Events.connect("minigame_entered", self,  "_on_minigame_entered")
 	Events.connect("minigame_exited", self, "_on_minigame_exited")
 	Events.connect("interacted_with_npc", self, "_on_interacted_npc")
@@ -71,19 +73,12 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	# changed between speeds depending on whether sprinting or not
-	if Input.is_action_pressed("sprint") and can_sprint:
+	if Input.is_action_pressed("sprint") and canSprint:
 		speed = sprint_speed
 		acceleration = sprint_acceleration
-		# starts sprint timer
-		if $SprintTimer.is_stopped():
-			$SprintTimer.start()
 	else:
 		speed = normal_speed
 		acceleration = normal_acceleration
-		# stops sprint timer
-		if $SprintTimer.is_stopped():
-			$SprintTimer.start()
-			$SprintTimer.wait_time = stamina_replenish_duration
 			
 
 	update_light_level()
@@ -232,13 +227,6 @@ func do_upgrade_stuff() -> void:
 	else:
 		has_sneak_upgrade = false
 
-	# marathon upgrade
-	if Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades:
-		print("has marathon upgrade")
-		$SprintTimer.wait_time = extended_sprint_duration
-	else:
-		$SprintTimer.wait_time = normal_sprint_duration
-
 
 # Event Hooks
 func _on_minigame_entered(_type: int) -> void:
@@ -246,10 +234,6 @@ func _on_minigame_entered(_type: int) -> void:
 	block_input = true
 	print("Minigame entered")
 
-# just flips the variable value
-func _on_SprintTimer_timeout() -> void:
-	can_sprint = not can_sprint
-	
 	
 func _on_minigame_exited(_type: int) -> void:
 	block_input = false
