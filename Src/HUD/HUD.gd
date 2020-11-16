@@ -5,7 +5,11 @@ enum HoverType {Light, Audio, Web}
 var count = 0
 var detected_value: int
 
-onready var dialog_tween: Tween = $Dialog/Tween
+var nextText: String
+var nextName: String
+var nextNameColor: String
+
+onready var dialogTween: Tween = $Dialog/Tween
 
 func _ready():
 	$AlarmIndicator/Label.set_text(str(detected_value))
@@ -32,6 +36,12 @@ func _ready():
 	var cat = Debug.addCategory("HUD")
 	Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
+
+
+func _process(delta: float) -> void:
+	if nextText != "":
+		if Input.is_action_just_pressed("interact"):
+			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
 
 
 func debugShaderToggle(_d):
@@ -88,13 +98,23 @@ func showUpgrade():
 
 
 func showDialog(pname: String, nameColor: String, text: String):
+	 # for multipage dialogue, checks if new line and stores the text after the new line in nextText and other info in variables
+	if "\n" in text:
+		nextText = text.substr(text.find("\n") + 1)
+		text.erase(text.find("\n"), 300) # erases from original text so that it won't have the next page text
+		nextName = pname
+		nextNameColor = nameColor
+	else:
+		nextText = ""
+		nextName = ""
+		nextNameColor = ""
+
+
 	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
 	$Dialog.show()
-	typeDialog() # do you want this function or tween. problem with tween is that if the text is short, it will still take
-			# 1 second to finish, which is meh. this fixes that
-			
-	# dialog_tween.interpolate_property($Dialog/Text, "percent_visible", 0.0, 1.0, 1.0, Tween.TRANS_LINEAR)
-	# dialog_tween.start()
+	typeDialog() # do you want this function or tween. problem with tween is that if the text is short, it will still take 1 second to finish, which is meh. this fixes that
+	# dialogTween.interpolate_property($Dialog/Text, "percent_visible", 0.0, 1.0, 1.0, Tween.TRANS_LINEAR)
+	# dialogTween.start()
 
 
 func hideDialog() -> void:

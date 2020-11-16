@@ -178,8 +178,8 @@ func videoSetup(scale = 2):
 	var screen_size = OS.get_screen_size(OS.get_current_screen())
 	var window_size = initSize * scale
 	var centered_pos = (screen_size - window_size) / 2
-	OS.set_window_position(centered_pos)
-	OS.set_window_size(window_size) 
+	# OS.set_window_position(centered_pos)
+	# OS.set_window_size(window_size) 
 
 # Set Fullscreen Mode
 func setFullscreen(val: bool):
