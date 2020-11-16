@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -90,6 +90,33 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
+[sub_resource type="Animation" id=13]
+resource_name = "moneyDown"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [sub_resource type="Animation" id=12]
 resource_name = "moneyUp"
 tracks/0/type = "value"
@@ -103,6 +130,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.317647, 0.768627, 0.247059, 1 ), Color( 0.317647, 0.768627, 0.247059, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="HUD" type="CanvasLayer"]
@@ -412,7 +451,6 @@ __meta__ = {
 position = Vector2( 104, 23 )
 texture = ExtResource( 15 )
 hframes = 3
-frame = 1
 
 [node name="Label" type="Label" parent="MoneyIndicator"]
 margin_left = 12.0
@@ -420,6 +458,7 @@ margin_top = -7.0
 margin_right = 32.0
 margin_bottom = 8.0
 custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -427,7 +466,10 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MoneyIndicator"]
 anims/idle = SubResource( 11 )
+anims/moneyDown = SubResource( 13 )
 anims/moneyUp = SubResource( 12 )
+next/moneyDown = "idle"
+next/moneyUp = "idle"
 
 [node name="Hovers" type="Node2D" parent="."]
 visible = false
