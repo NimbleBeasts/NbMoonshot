@@ -88,11 +88,10 @@ func tap_pin():
 			close()
 			controlsBlock = true
 	else:
-		shake_ping()
-		update_try()
+		shake_pin()
 
 
-func shake_ping():
+func shake_pin():
 	controlsBlock = true
 	
 	var pin_go = pins[atm_at].gameobj
@@ -109,6 +108,8 @@ func shake_ping():
 	for p in range(4):
 		pins[p].gameobj.position = pins[p].rand_pos
 	controlsBlock = false
+	
+	update_try()
 
 func update_try():
 	try = try - 1
