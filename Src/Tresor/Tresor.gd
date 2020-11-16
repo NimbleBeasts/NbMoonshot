@@ -28,3 +28,4 @@ func _ready():
 func openTresor():
 	$Sprite.frame = 1
 	isUsed = true
+	Events.emit_signal("tutorial_finished")

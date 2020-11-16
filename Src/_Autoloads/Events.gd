@@ -65,6 +65,9 @@ signal switch_sound(value)
 signal switch_music(value)
 signal switch_fullscreen(value)
 
+# Tutorial
+signal tutorial_finished()
+
 
 ###############################################################################
 

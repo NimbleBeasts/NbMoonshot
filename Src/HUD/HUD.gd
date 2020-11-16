@@ -90,7 +90,7 @@ func showUpgrade():
 func showDialog(pname: String, nameColor: String, text: String):
 	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
 	$Dialog.show()
-	dialog_tween.interpolate_property($Dialog/Text, "percent_visible", 0.0, 1.0, 2, Tween.TRANS_LINEAR)
+	dialog_tween.interpolate_property($Dialog/Text, "percent_visible", 0.0, 1.0, 1.0, Tween.TRANS_LINEAR)
 	dialog_tween.start()
 
 
