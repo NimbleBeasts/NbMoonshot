@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/HUD/Battery.png" type="Texture" id=12]
 [ext_resource path="res://Src/HUD/MissionBriefing.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Assets/HUD/Dollar.png" type="Texture" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -71,6 +72,37 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "moneyUp"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 
 [node name="HUD" type="CanvasLayer"]
@@ -166,7 +198,6 @@ __meta__ = {
 
 [node name="UpgradeButton0" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 group = SubResource( 2 )
-skill = 0
 
 [node name="UpgradeButton1" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
@@ -367,15 +398,36 @@ texture = ExtResource( 12 )
 hframes = 4
 
 [node name="Label" type="Label" parent="ChargeIndicator"]
-margin_left = 12.0
+margin_left = 13.0
 margin_top = -8.0
-margin_right = 32.0
+margin_right = 33.0
 margin_bottom = 6.0
 custom_fonts/font = ExtResource( 10 )
 text = "3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MoneyIndicator" type="Sprite" parent="."]
+position = Vector2( 104, 23 )
+texture = ExtResource( 15 )
+hframes = 3
+frame = 1
+
+[node name="Label" type="Label" parent="MoneyIndicator"]
+margin_left = 12.0
+margin_top = -7.0
+margin_right = 32.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 10 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MoneyIndicator"]
+anims/idle = SubResource( 11 )
+anims/moneyUp = SubResource( 12 )
 
 [node name="Hovers" type="Node2D" parent="."]
 visible = false
