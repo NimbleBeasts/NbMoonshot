@@ -231,6 +231,8 @@ func getVersionString():
 func addMoney(amount):
 	gameState.money += amount
 	print("PlayerMoney: " + str(gameState.money))
+	Events.emit_signal("hud_update_money", gameState.money, amount)
+
 
 func playerHasUpgrade(type):
 	if gameState.playerUpgrades.find(type) == -1:

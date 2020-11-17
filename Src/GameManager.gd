@@ -9,6 +9,8 @@ var boss_interaction_counter: int = 0
 var secretary_interaction_counter: int = 0
 var quest_index: int = 0 
 
+var debugWebMoney = false
+
 func _ready():
 	# I know you guys like changing pause mode so I hardcoded it..
 	self.pause_mode = Node.PAUSE_MODE_PROCESS
@@ -34,12 +36,23 @@ func _ready():
 	switchTo(Types.GameStates.Menu)
 	
 	debugPlayerSkills()
+	debugMoney()
 	
 func webMoneyPulse(paying):
-	if paying:
+	if paying or debugWebMoney:
 		Global.addMoney(Global.gameConstant.webMoneyPerTick)
 	else:
-		print("WebMonetiazionPlugin not active or not paying. Missed: $" + str(Global.gameConstant.webMoneyPerTick))
+		print("WebMonetiazionPlugin not active or not paying. Use console to cheat. Missed: $" + str(Global.gameConstant.webMoneyPerTick))
+
+func debugMoney():
+	var cat = Debug.addCategory("Money")
+	Debug.addOption(cat, "Add 1000", funcref(Global, "addMoney"), 1000)
+	Debug.addOption(cat, "Remove 200", funcref(Global, "addMoney"), -200)
+	Debug.addOption(cat, "WebMoneyEmulation Toggle", funcref(self, "debugWebMoneyEmulation"), null)
+
+func debugWebMoneyEmulation(_d):
+	debugWebMoney = !debugWebMoney
+	print("DebugWebMoney:" + str(debugWebMoney))
 
 func debugPlayerSkills():
 	var cat = Debug.addCategory("PlayerSkills")

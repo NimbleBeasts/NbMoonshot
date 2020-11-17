@@ -26,6 +26,8 @@ func _ready():
 	Events.connect("taser_fired", self, "taserUpdate")
 	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
 	Events.connect("hide_dialog", self, "hideDialog")
+	
+	Events.connect("hud_update_money", self, "moneyUpdate")
 
 	for node in $Upgrades/Grid.get_children():
 		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
@@ -51,6 +53,17 @@ func debugShaderToggle(_d):
 		$Shader.hide()
 	else:
 		$Shader.show()
+
+
+func moneyUpdate(total, change):
+	$MoneyIndicator/Label.set_text(str(total))
+	
+	if change == 0:
+		pass
+	elif change < 0:
+		$MoneyIndicator/AnimationPlayer.play("moneyDown")
+	else:
+		$MoneyIndicator/AnimationPlayer.play("moneyUp")
 
 
 func taserUpdate(value):

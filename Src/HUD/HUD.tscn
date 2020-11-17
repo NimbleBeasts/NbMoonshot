@@ -90,7 +90,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 resource_name = "moneyDown"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -117,8 +117,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "moneyUp"
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -237,6 +236,7 @@ __meta__ = {
 
 [node name="UpgradeButton0" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 group = SubResource( 2 )
+skill = 0
 
 [node name="UpgradeButton1" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
@@ -466,8 +466,8 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MoneyIndicator"]
 anims/idle = SubResource( 11 )
-anims/moneyDown = SubResource( 13 )
-anims/moneyUp = SubResource( 12 )
+anims/moneyDown = SubResource( 12 )
+anims/moneyUp = SubResource( 13 )
 next/moneyDown = "idle"
 next/moneyUp = "idle"
 
