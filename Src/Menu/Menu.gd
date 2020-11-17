@@ -40,6 +40,7 @@ func switchTo(to):
 			updateSettings()
 			$Settings.show()
 		MenuState.LoadGame:
+			$LoadGame/ButtonLoad1.grab_focus()
 			updateLoadGame()
 			$LoadGame.show()
 		_:
