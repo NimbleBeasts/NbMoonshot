@@ -50,6 +50,7 @@ func hideAllMenuScenes():
 	# Add menu scenes here
 	$Main.hide()
 	$Settings.hide()
+	$LoadGame.hide()
 
 
 func loadGame(slot):
