@@ -12,6 +12,7 @@ enum DoorType {wooden, metal}
 
 export(DoorLockType) var lockLevel = DoorLockType.open
 export(DoorType) var doorType = DoorType.wooden
+export var door_id = 0
 
 func _ready():
 	if doorType == DoorType.metal:
@@ -19,23 +20,42 @@ func _ready():
 	else:
 		$Sprite.texture = preload("res://Assets/Objects/DoorWall.png")
 	set_process(false)
+	
+	if door_id != 0:
+		Events.connect("door_change_status", self, "_on_door_change_status")
+	
+	
 
 func _process(_delta):
 	if playerInArea:
 		if Input.is_action_just_pressed("interact"):
-			if not doorIsOpen:
-				# Open Animation
-				if playerNode.position.x < self.global_position.x:
-					# Left Side
-					$Sprite.scale.x = 1
-				else:
-					# Right Side
-					$Sprite.scale.x = -1
-				$AnimationPlayer.play("open_door")
+			interact()
+			
+func interact():
+	print("lock lvl is:",lockLevel)
+	
+	if lockLevel == DoorLockType.lockedLevel1:
+		$LockpickSmallMinigameSpawner.run_minigame(door_id, 1, true)
+		return
+	if lockLevel == DoorLockType.lockedLevel2:
+		$LockpickSmallMinigameSpawner.run_minigame(door_id, 2, true)
+		return
+	
+	
+	if lockLevel == DoorLockType.open:
+		if not doorIsOpen:
+			# Open Animation
+			if playerNode.position.x < self.global_position.x:
+				# Left Side
+				$Sprite.scale.x = 1
 			else:
-				# Close Animation
-				$AnimationPlayer.play_backwards("open_door")
-
+				# Right Side
+				$Sprite.scale.x = -1
+			$AnimationPlayer.play("open_door")
+		else:
+			# Close Animation
+			$AnimationPlayer.play_backwards("open_door")
+	
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	if not doorIsOpen:
@@ -61,3 +81,9 @@ func _on_Area2D_body_exited(body):
 		playerInArea = false
 		set_process(false)
 
+func _on_door_change_status(id, lock_type, play):
+	if id == door_id:
+		lockLevel = lock_type
+	if play:
+		interact()
+		

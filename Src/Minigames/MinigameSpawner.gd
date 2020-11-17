@@ -18,8 +18,7 @@ func _ready() -> void:
 	#warning-ignore:return_value_discarded
 	connect("area_exited", self, "_on_area_exited")
 
-	
-func _process(_delta: float) -> void:
+func _base_process(_delta: float) -> void:
 	if player_entered and can_make_minigame: # if player is near
 		if Input.is_action_just_pressed("open_minigame"):
 			if not minigame: # if haven't created a minigame
@@ -28,7 +27,11 @@ func _process(_delta: float) -> void:
 				#warning-ignore:return_value_discarded
 				minigame.connect("result_changed", self, "_on_minigame_result_changed")
 				minigame.open()
+				print("I am WTFfrom parent")
 	
+	
+func _process(_delta: float) -> void:
+	_base_process(_delta)
 	
 func create_minigame() -> Minigame:
 	var minigame_instance: Minigame = minigame_scene.instance()

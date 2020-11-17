@@ -1,7 +1,8 @@
 extends Minigame
 
 export var door_id:int
-export var door_lock_level:int
+export var difficulty:int
+export var play:bool
 
 export var max_x : int = 64
 export var move_up : int = 64
@@ -18,9 +19,7 @@ onready var pin_goal = $LockpickSmallPinGoal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print( "Minilockpick start")
-	#randomize start position for goal pin postion and pin itself
-	randomize_start_pos()
+	init_game()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,8 +44,10 @@ func _process(delta):
 	pin.position = Vector2( clamp(pin.position.x + hor, -max_x, max_x), pin.position.y)	
 	
 
-func randomize_start_pos():
-	randomize()
+func init_game():
+	print( "Minilockpick start")
+	controls_block = false
+	randomize() #random start postions
 	pin.position = Vector2( rand_range(-max_x,max_x), pin.position.y )
 	pin_goal.position = Vector2( rand_range(-max_x*0.5,max_x*0.5), pin_goal.position.y  )
 
@@ -71,7 +72,12 @@ func tap_pin():
 	if( abs(hr) < hit_range ):
 		print( " we got a winer ")
 		pin.position = Vector2( pin.position.x, pin.position.y - move_up)
+		yield(get_tree().create_timer(0.25), "timeout")
+		set_result(Types.MinigameResults.Succeeded)
+		Events.emit_signal("door_change_status",door_id, 0, play)
+		close()
 	else:
 		print( " miss ")
 		yield(get_tree().create_timer(0.25), "timeout")
-		controls_block = false
+		set_result(Types.MinigameResults.Failed)
+		close()

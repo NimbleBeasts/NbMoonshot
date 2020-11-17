@@ -21,6 +21,9 @@ signal audio_level_changed(newLevel, audio_pos) #Types.AudioLevels
 signal minigame_entered(minigame_type) #Types.Minigames
 signal minigame_exited(result) #Types.Minigames
 
+# Door open close
+signal door_change_status(id, lock_type, play) #play is to know if it should play anim on unlock
+
 # HUD
 signal hud_note_show(type, text)
 signal hud_note_exited()

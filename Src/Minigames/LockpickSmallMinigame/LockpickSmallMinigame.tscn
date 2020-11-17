@@ -25,4 +25,4 @@ texture = ExtResource( 4 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-current = true
+visible = false
