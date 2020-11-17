@@ -329,7 +329,7 @@ flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 27 )]
-position = Vector2( 440, 352 )
+position = Vector2( 424, 336 )
 rotation = -1.5708
 heigth = 4
 isStatic = false
@@ -365,7 +365,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 432, 320 )
+position = Vector2( 88, 256 )
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
