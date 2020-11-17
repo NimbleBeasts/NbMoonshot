@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Guard/GuardPathLine2D.gd" type="Script" id=5]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Skybox/UstriaSkybox.tscn" type="PackedScene" id=8]
@@ -85,7 +86,7 @@ position = Vector2( 224, 136 )
 flicker = false
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 14 )]
-position = Vector2( 240.939, 252.952 )
+position = Vector2( 238.104, 256.417 )
 next_boss_interacted_counter = 1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -94,6 +95,10 @@ position = Vector2( 224, 192 )
 [node name="Guard" parent="." instance=ExtResource( 4 )]
 position = Vector2( 273.713, 191.426 )
 starting_direction = Vector2( -1, 0 )
+
+[node name="GuardPathLine" type="Line2D" parent="Guard"]
+points = PoolVector2Array( -11.897, -19.4527, -39.3003, -20.0826, -68.2785, -20.3976 )
+script = ExtResource( 5 )
 
 [node name="MinigameDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 419.57, 172.311 )

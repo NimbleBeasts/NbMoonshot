@@ -142,7 +142,7 @@ func _on_DirectionChangeTimer_timeout():
 
 
 func _on_LineOfSight_body_entered(body: Node) -> void:
-#	if body is TileMap:
+#	if body is TileMap: # changes direction when collide with tilemap
 #		change_direction()
 	if body.is_in_group("Player") and state != Types.GuardStates.Stunned:
 		player_in_los = true
