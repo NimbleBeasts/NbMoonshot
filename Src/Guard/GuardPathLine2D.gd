@@ -1,6 +1,8 @@
 extends Line2D
 class_name GuardPathLine
 
+# this is kinda meh but it works :DDDDDDDDD
+
 signal loop_finished
 signal next_point_reached
 
@@ -28,6 +30,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	# something, idk
 	if enabled:
 		if int(next_point.x) > int(guard.global_position.x):
 			guard.direction.x = 1
@@ -47,11 +50,11 @@ func move_along_points() -> void:
 	if enabled:
 		for i in global_points.size():
 			if i == global_points.size() - 1:
-				global_points.invert() # maybe we can reverse the array instead of shuffling it
+				global_points.invert() 
 				emit_signal("loop_finished")
 			if enabled:
 				next_point = global_points[i]
-				yield(self, "next_point_reached") # delays next iteration
+				yield(self, "next_point_reached") # delays next iteration, i know i shouldn't use yield but fuk it, it works :DDDDDD
 				guard.direction.x = 0
 				yield(get_tree().create_timer(stop_time), "timeout") # stops for this amount of time
 				continue

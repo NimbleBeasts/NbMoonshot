@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("interact")):
-		if has_level_index or Global.game_manager.getCurrentLevel().can_change_level(): # this condition is true on hq_level
+		if (has_level_index or Global.game_manager.getCurrentLevel().name == "HQ_Level") and (Global.game_manager.quest_index != 0): # this condition is true on hq_level
 			$AnimationPlayer.play("open")
 
 
@@ -43,8 +43,7 @@ func _on_body_exited(body: Node) -> void:
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	if Global.game_manager.getCurrentLevel().name == "HQ_Level": # this condition is true on hq_level
 		Events.emit_signal("hud_level_transition", -1)
-		if Global.game_manager.quest_index != 0:
-			Global.game_manager.loadNextQuest()
+		Global.game_manager.loadNextQuest()
 	else:
 		Events.emit_signal("hud_level_transition", level_index)
 		Global.game_manager.boss_interaction_counter = next_boss_interacted_counter
