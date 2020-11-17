@@ -10,6 +10,8 @@ var nextName: String
 var nextNameColor: String
 var currentText: String
 var hideWithE: bool = false
+var currentSelectedUpgrade: int = 0
+
 
 onready var dialogTween: Tween = $Dialog/Tween
 
@@ -32,16 +34,17 @@ func _ready():
 	for node in $Upgrades/Grid.get_children():
 		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
 
-
 	var cat = Debug.addCategory("HUD")
 	Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
+
 
 
 func _process(delta: float) -> void:
 	if nextText != "":
 		if Input.is_action_just_pressed("interact"):
 			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
+
 
 
 func debugShaderToggle(_d):
@@ -61,6 +64,9 @@ func moneyUpdate(total, change):
 	else:
 		$MoneyIndicator/AnimationPlayer.play("moneyUp")
 
+	if $Upgrades.visible:
+		# Update button if money is enough
+		upgradeSelect(currentSelectedUpgrade)
 
 func taserUpdate(value):
 	$ChargeIndicator.frame = 3 - value
@@ -90,17 +96,41 @@ func showNote(type, text):
 	$Note.show()
 
 
-func upgradeSelect(id):
-	var upgrade = Global.upgrades[id]
-	$Upgrades/InfoBox/Titel.set_text(upgrade.name + " $" + str(upgrade.cost))
-	$Upgrades/InfoBox/Description.bbcode_text = upgrade.desc
+
 
 func updateUpgrades():
 	# Clear old results
 #	for node in $Upgrades/Grid.get_children():
 #		node.disabled = false
-	for upgradeId in Global.gameState.playerUpgrades:
-		get_node("Upgrades/Grid/UpgradeButton" + str(upgradeId)).disabled = true
+#	for upgradeId in Global.gameState.playerUpgrades:
+#		get_node("Upgrades/Grid/UpgradeButton" + str(upgradeId)).disabled = true
+	pass
+
+
+func _on_UpgradeButton_button_up():
+	var upgrade = Global.upgrades[currentSelectedUpgrade]
+	if Global.gameState.money >= upgrade.cost:
+		Global.addUpgrade(currentSelectedUpgrade)
+		Global.addMoney(-upgrade.cost)
+		upgradeSelect(currentSelectedUpgrade)
+	
+
+func upgradeSelect(id):
+	currentSelectedUpgrade = id
+	var upgrade = Global.upgrades[id]
+	$Upgrades/InfoBox/Titel.set_text(upgrade.name + " $" + str(upgrade.cost))
+	$Upgrades/InfoBox/Description.bbcode_text = upgrade.desc
+	
+	if -1 == Global.gameState.playerUpgrades.find(id):
+		if Global.gameState.money >= upgrade.cost:
+			$Upgrades/InfoBox/UpgradeButton.updateLabel("Buy Upgrade")
+			$Upgrades/InfoBox/UpgradeButton.disabled = false
+		else:
+			$Upgrades/InfoBox/UpgradeButton.updateLabel("Not Enough Cash")
+			$Upgrades/InfoBox/UpgradeButton.disabled = true
+	else:
+		$Upgrades/InfoBox/UpgradeButton.updateLabel("Already Owned")
+		$Upgrades/InfoBox/UpgradeButton.disabled = true
 
 
 func showUpgrade():
@@ -251,5 +281,3 @@ func _on_ButtonReturn_button_up():
 	get_tree().paused = false
 
 
-func _on_UpgradeButton_button_up():
-	pass # Replace with function body.

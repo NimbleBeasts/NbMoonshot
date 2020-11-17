@@ -91,7 +91,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=12]
 resource_name = "moneyDown"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -474,7 +474,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MoneyIndicator"]
 anims/idle = SubResource( 11 )
-anims/moneyDown = SubResource( 14 )
+anims/moneyDown = SubResource( 12 )
 anims/moneyUp = SubResource( 13 )
 next/moneyDown = "idle"
 next/moneyUp = "idle"
