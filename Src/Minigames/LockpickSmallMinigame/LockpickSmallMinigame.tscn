@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Src/Minigames/LockpickSmallMinigame/LockpickSmallMinigame.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Minigames/LockpickSmallBackground.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Minigames/LockpickSmallPinGoal.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Minigames/LockpickPin.png" type="Texture" id=4]
+
+[node name="LockpickSmallMinigame" type="Node2D"]
+script = ExtResource( 1 )
+max_x = 80
+move_up = 48
+switch_speed = 0.1
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="LockpickSmallPinGoal" type="Sprite" parent="."]
+position = Vector2( 45.6655, -29.2839 )
+texture = ExtResource( 3 )
+
+[node name="LockpickSmallPin" type="Sprite" parent="."]
+position = Vector2( -40.9515, 26.3968 )
+texture = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
