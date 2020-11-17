@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Src/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/nbSplash.png" type="Texture" id=2]
@@ -7,6 +7,12 @@
 [ext_resource path="res://Assets/Menu/pressedButton.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Menu/activeButton.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Src/Menu/DevLogViewer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Assets/Fonts/mago2.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 10 )
 
 [node name="Menu" type="Control"]
 pause_mode = 2
@@ -30,13 +36,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LogWindow" type="ColorRect" parent="Main"]
+margin_left = 176.0
+margin_top = 88.0
+margin_right = 608.0
+margin_bottom = 328.0
+color = Color( 0.341176, 0.341176, 0.341176, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DevLogViewer" parent="Main/LogWindow" instance=ExtResource( 8 )]
+custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/bold_font = ExtResource( 7 )
+custom_fonts/normal_font = ExtResource( 9 )
+bbcode_text = "Loading DevLog...
+"
+text = "Loading DevLog...
+"
+
 [node name="ButtonExit" type="TextureButton" parent="Main"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -64.0
-margin_top = 256.0
-margin_right = 64.0
-margin_bottom = 280.0
+margin_left = -304.0
+margin_top = 304.0
+margin_right = -176.0
+margin_bottom = 328.0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 4 )
@@ -64,14 +89,17 @@ __meta__ = {
 [node name="ButtonSettings" type="TextureButton" parent="Main"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -64.0
-margin_top = 224.0
-margin_right = 64.0
-margin_bottom = 248.0
+margin_left = -304.0
+margin_top = 272.0
+margin_right = -176.0
+margin_bottom = 296.0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 4 )
 texture_disabled = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Text" type="RichTextLabel" parent="Main/ButtonSettings"]
 anchor_right = 1.0
@@ -92,14 +120,17 @@ __meta__ = {
 [node name="ButtonPlay" type="TextureButton" parent="Main"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -64.0
-margin_top = 176.0
-margin_right = 64.0
-margin_bottom = 200.0
+margin_left = -304.0
+margin_top = 224.0
+margin_right = -176.0
+margin_bottom = 248.0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 4 )
 texture_disabled = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Text" type="RichTextLabel" parent="Main/ButtonPlay"]
 anchor_right = 1.0
@@ -118,18 +149,18 @@ __meta__ = {
 }
 
 [node name="LevelSelect" type="OptionButton" parent="Main"]
-margin_left = 192.0
-margin_top = 104.0
-margin_right = 448.0
-margin_bottom = 128.0
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 160.0
+margin_bottom = 48.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Main/LevelSelect"]
-margin_left = -104.0
-margin_right = -8.0
-margin_bottom = 24.0
+margin_top = -16.0
+margin_right = 96.0
+margin_bottom = 8.0
 text = "Load Level:"
 
 [node name="Settings" type="Control" parent="."]

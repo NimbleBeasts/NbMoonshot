@@ -23,7 +23,7 @@
 extends Node
 
 # Version
-const GAME_VERSION = 0.1
+const GAME_VERSION = 0.2
 const CONFIG_VERSION = 0 # Used for config migration
 # Debug Options
 const DEBUG = true
@@ -32,7 +32,8 @@ const DEBUG = true
 const NB_PLUGIN_CONFIG = {
 	"gameId": "gameId",
 	"filePassword": "password",
-	"magic": "magiccode"
+	"magic": "magiccode",
+	"devlogUrl": "https://raw.githubusercontent.com/NimbleBeasts/GameLogs/master/GameOff_"+ str(GAME_VERSION) +".txt"
 }
 
 # Level Array
@@ -107,6 +108,8 @@ func _ready():
 	loadConfig()
 	videoSetup(2)
 	switchFullscreen()
+	
+	print(NB_PLUGIN_CONFIG.devlogUrl)
 
 
 # Save Game
