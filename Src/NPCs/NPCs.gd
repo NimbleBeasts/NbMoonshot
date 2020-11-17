@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 		else:
 			Events.emit_signal("hide_dialog")
 			dialogueRead = false
+			Events.emit_signal("npc_interaction_stopped", self)
 	elif Input.is_action_just_pressed("ui_cancel") and player_entered:
 		Events.emit_signal("npc_interaction_stopped", self)
 
