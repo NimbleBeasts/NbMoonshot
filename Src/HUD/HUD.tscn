@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Src/HUD/MissionBriefing.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=14]
 [ext_resource path="res://Assets/HUD/Dollar.png" type="Texture" id=15]
+[ext_resource path="res://Src/BaseButton/BaseButton.tscn" type="PackedScene" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -90,7 +91,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 resource_name = "moneyDown"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -207,9 +208,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -88.0
-margin_top = -92.0
+margin_top = -100.0
 margin_right = 88.0
-margin_bottom = 92.0
+margin_bottom = 100.0
 texture = ExtResource( 7 )
 patch_margin_left = 6
 patch_margin_top = 6
@@ -320,6 +321,13 @@ custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "Increases the battery capacity to allow taser usages."
 text = "Increases the battery capacity to allow taser usages."
+
+[node name="UpgradeButton" parent="Upgrades/InfoBox" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 72.0
+margin_right = 144.0
+margin_bottom = 96.0
+label = "Buy Upgrade"
 
 [node name="Note" type="TextureRect" parent="."]
 visible = false
@@ -466,7 +474,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MoneyIndicator"]
 anims/idle = SubResource( 11 )
-anims/moneyDown = SubResource( 12 )
+anims/moneyDown = SubResource( 14 )
 anims/moneyUp = SubResource( 13 )
 next/moneyDown = "idle"
 next/moneyUp = "idle"
@@ -537,50 +545,47 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -64.0
+margin_left = -80.0
 margin_top = -96.0
-margin_right = 64.0
-margin_bottom = 96.0
+margin_right = 80.0
+margin_bottom = 56.0
 texture = ExtResource( 7 )
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
-
-[node name="ButtonQuit" type="Button" parent="IngameMenu/Menu"]
-pause_mode = 2
-margin_left = 8.0
-margin_top = 20.0
-margin_right = 120.0
-margin_bottom = 44.0
-text = "Quit"
-
-[node name="ButtonSound" type="Button" parent="IngameMenu/Menu"]
-pause_mode = 2
-margin_left = 8.0
-margin_top = 60.0
-margin_right = 120.0
-margin_bottom = 84.0
-text = "Toggle Sound"
-
-[node name="ButtonMusic" type="Button" parent="IngameMenu/Menu"]
-pause_mode = 2
-margin_left = 8.0
-margin_top = 100.0
-margin_right = 120.0
-margin_bottom = 124.0
-text = "Toggle Music"
-
-[node name="ButtonReturn" type="Button" parent="IngameMenu/Menu"]
-pause_mode = 2
-margin_left = 8.0
-margin_top = 152.0
-margin_right = 120.0
-margin_bottom = 176.0
-text = "Back To Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ButtonReturn" parent="IngameMenu/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 12.0
+margin_right = 144.0
+margin_bottom = 36.0
+label = "Continue"
+
+[node name="ButtonSound" parent="IngameMenu/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 44.0
+margin_right = 144.0
+margin_bottom = 68.0
+label = "Toggle Sound"
+
+[node name="ButtonMusic" parent="IngameMenu/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 76.0
+margin_right = 144.0
+margin_bottom = 100.0
+label = "Toggle Music"
+
+[node name="ButtonQuit" parent="IngameMenu/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 116.0
+margin_right = 144.0
+margin_bottom = 140.0
+label = "Quit"
+[connection signal="button_up" from="Upgrades/InfoBox/UpgradeButton" to="." method="_on_UpgradeButton_button_up"]
 [connection signal="mouse_entered" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_entered"]
 [connection signal="mouse_exited" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_exited"]
 [connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]
@@ -588,7 +593,7 @@ __meta__ = {
 [connection signal="mouse_exited" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_exited"]
 [connection signal="mouse_entered" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_entered"]
 [connection signal="mouse_exited" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_exited"]
-[connection signal="button_up" from="IngameMenu/Menu/ButtonQuit" to="." method="_on_ButtonQuit_button_up"]
+[connection signal="button_up" from="IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
 [connection signal="button_up" from="IngameMenu/Menu/ButtonSound" to="." method="_on_ButtonSound_button_up"]
 [connection signal="button_up" from="IngameMenu/Menu/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
-[connection signal="button_up" from="IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
+[connection signal="button_up" from="IngameMenu/Menu/ButtonQuit" to="." method="_on_ButtonQuit_button_up"]

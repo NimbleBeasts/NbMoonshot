@@ -33,10 +33,6 @@ func _ready():
 		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
 
 
-	# Set focus so we can use gamepad with ui
-	$Upgrades/Grid/UpgradeButton0.grab_focus()
-	upgradeSelect(0)
-
 	var cat = Debug.addCategory("HUD")
 	Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
@@ -108,6 +104,10 @@ func updateUpgrades():
 
 
 func showUpgrade():
+	# Set focus so we can use gamepad with ui
+	$Upgrades/Grid/UpgradeButton0.grab_focus()
+	upgradeSelect(0)
+	
 	updateUpgrades()
 	$Upgrades.show()
 
@@ -152,6 +152,7 @@ func _physics_process(_delta):
 			$Upgrades.hide()
 		else:
 			$IngameMenu.show()
+			$IngameMenu/Menu/ButtonReturn.grab_focus()
 			get_tree().paused = true
 
 	# hide when press E and don't have any more text to show
@@ -248,3 +249,7 @@ func _on_ButtonReturn_button_up():
 	Events.emit_signal("play_sound", "menu_click")
 	$IngameMenu.hide()
 	get_tree().paused = false
+
+
+func _on_UpgradeButton_button_up():
+	pass # Replace with function body.
