@@ -24,6 +24,6 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 5 )
-text = "Text"
+text = "Button"
 align = 1
 valign = 1

@@ -33,8 +33,10 @@ func switchTo(to):
 
 	match to:
 		MenuState.Main:
+			$Main/ButtonPlay.grab_focus()
 			$Main.show()
 		MenuState.Settings:
+			$Settings/ButtonSound.grab_focus()
 			updateSettings()
 			$Settings.show()
 		_:
@@ -49,19 +51,19 @@ func hideAllMenuScenes():
 # Helper function to update the config labels
 func updateSettings():
 	if Global.userConfig.sound:
-		$Settings/ButtonSound/Text.bbcode_text = "[center]Sound: On[/center]"
+		$Settings/ButtonSound.updateLabel("Sound: On")
 	else:
-		$Settings/ButtonSound/Text.bbcode_text = "[center]Sound: Off[/center]"
+		$Settings/ButtonSound.updateLabel("Sound: Off")
 	
 	if Global.userConfig.music:
-		$Settings/ButtonMusic/Text.bbcode_text = "[center]Music: On[/center]"
+		$Settings/ButtonMusic.updateLabel("Music: On")
 	else:
-		$Settings/ButtonMusic/Text.bbcode_text = "[center]Music: Off[/center]"
+		$Settings/ButtonMusic.updateLabel("Music: Off")
 
 	if Global.userConfig.fullscreen:
-		$Settings/ButtonFullscreen/Text.bbcode_text = "[center]Fullscreen: On[/center]"
+		$Settings/ButtonFullscreen.updateLabel("Fullscreen: On")
 	else:
-		$Settings/ButtonFullscreen/Text.bbcode_text = "[center]Fullscreen: Off[/center]"
+		$Settings/ButtonFullscreen.updateLabel("Fullscreen: Off")
 
 ###############################################################################
 # Callbacks
@@ -122,4 +124,9 @@ func _on_ButtonFullscreen_button_up():
 
 
 
+func _on_ButtonLoad_button_up():
+	pass # Replace with function body.
 
+
+func _on_ButtonCredits_button_up():
+	pass # Replace with function body.
