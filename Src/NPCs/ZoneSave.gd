@@ -9,7 +9,7 @@ func _ready():
 func _process(delta):
 	if player:
 		if Input.is_action_just_pressed("interact"):
-			Events.emit_signal("save_game")
+			Events.emit_signal("hud_save_window_show")
 
 func _on_ZoneSave_body_entered(body):
 	if body.is_in_group("Player"):

@@ -36,6 +36,9 @@ func _ready():
 		var wallSprites = wallSpriteHolder.get_children()
 		for node in wallSprites:
 			node.light_mask = 3
+	
+	# Update Player Money
+	Events.emit_signal("hud_update_money", Global.gameState.money, 0)
 
 # upgrade function
 func do_upgrade_stuff() -> void:

@@ -1,6 +1,6 @@
 extends Control
 
-enum MenuState {Main, Settings}
+enum MenuState {Main, Settings, LoadGame}
 
 func _ready():
 	# Event Hooks
@@ -39,6 +39,9 @@ func switchTo(to):
 			$Settings/ButtonSound.grab_focus()
 			updateSettings()
 			$Settings.show()
+		MenuState.LoadGame:
+			updateLoadGame()
+			$LoadGame.show()
 		_:
 			print("Invalid menu state")
 
@@ -47,6 +50,28 @@ func hideAllMenuScenes():
 	# Add menu scenes here
 	$Main.hide()
 	$Settings.hide()
+
+
+func loadGame(slot):
+	Global.loadSave(slot)
+	get_tree().paused = false
+	playClick()
+	Events.emit_signal("new_game", 0)
+
+func updateLoadGame():
+	var saves = Global.getSaveGameState()
+	
+	var i = 1
+	for element in saves:
+		var button = get_node("LoadGame/ButtonLoad" + str(i))
+		if element == true: # File Exists
+			button.updateLabel("Slot " + str(i))
+			button.disabled = false
+		else:
+			button.updateLabel("Slot " + str(i))
+			button.disabled = true
+		i += 1
+
 
 # Helper function to update the config labels
 func updateSettings():
@@ -125,8 +150,21 @@ func _on_ButtonFullscreen_button_up():
 
 
 func _on_ButtonLoad_button_up():
-	pass # Replace with function body.
+	playClick()
+	switchTo(MenuState.LoadGame)
 
 
 func _on_ButtonCredits_button_up():
 	pass # Replace with function body.
+
+
+func _on_ButtonLoad1_button_up():
+	loadGame(0)
+
+
+func _on_ButtonLoad2_button_up():
+	loadGame(1)
+
+
+func _on_ButtonLoad3_button_up():
+	loadGame(2)

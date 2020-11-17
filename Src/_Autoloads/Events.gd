@@ -33,6 +33,8 @@ signal hud_notification_show(type, node) #Types.HudNotificationType, self refere
 signal hud_notification_exited()
 signal hud_upgrade_window_show()
 signal hud_upgrade_window_exited()
+signal hud_save_window_show()
+signal hud_save_window_exited()
 signal hud_level_transition(level) #Mission briefing or -1 for returning to HQ
 signal hud_level_transition_exited()
 signal hud_update_money(total, amount)

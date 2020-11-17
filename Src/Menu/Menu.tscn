@@ -135,6 +135,42 @@ margin_right = 384.0
 margin_bottom = 256.0
 label = "Back"
 
+[node name="LoadGame" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ButtonLoad1" parent="LoadGame" instance=ExtResource( 11 )]
+margin_left = 256.0
+margin_top = 128.0
+margin_right = 384.0
+margin_bottom = 152.0
+label = "Slot 1"
+
+[node name="ButtonLoad2" parent="LoadGame" instance=ExtResource( 11 )]
+margin_left = 256.0
+margin_top = 160.0
+margin_right = 384.0
+margin_bottom = 184.0
+label = "Slot 2"
+
+[node name="ButtonLoad3" parent="LoadGame" instance=ExtResource( 11 )]
+margin_left = 256.0
+margin_top = 192.0
+margin_right = 384.0
+margin_bottom = 216.0
+label = "Slot 3"
+
+[node name="ButtonBack" parent="LoadGame" instance=ExtResource( 11 )]
+margin_left = 256.0
+margin_top = 232.0
+margin_right = 384.0
+margin_bottom = 256.0
+label = "Back"
+
 [node name="Copyright" type="RichTextLabel" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
@@ -167,3 +203,7 @@ text = "Version"
 [connection signal="button_up" from="Settings/ButtonFullscreen" to="." method="_on_ButtonFullscreen_button_up"]
 [connection signal="button_up" from="Settings/ButtonCredits" to="." method="_on_ButtonCredits_button_up"]
 [connection signal="button_up" from="Settings/ButtonBack" to="." method="_on_ButtonBack_button_up"]
+[connection signal="button_up" from="LoadGame/ButtonLoad1" to="." method="_on_ButtonLoad1_button_up"]
+[connection signal="button_up" from="LoadGame/ButtonLoad2" to="." method="_on_ButtonLoad2_button_up"]
+[connection signal="button_up" from="LoadGame/ButtonLoad3" to="." method="_on_ButtonLoad3_button_up"]
+[connection signal="button_up" from="LoadGame/ButtonBack" to="." method="_on_ButtonBack_button_up"]

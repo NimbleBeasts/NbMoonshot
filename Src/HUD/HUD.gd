@@ -23,6 +23,7 @@ func _ready():
 	Events.connect("hud_note_show", self, "showNote")
 	Events.connect("hud_dialog_show", self, "showDialog")
 	Events.connect("hud_upgrade_window_show", self, "showUpgrade")
+	Events.connect("hud_save_window_show", self, "showSave")
 	
 	Events.connect("sure_detection_num_changed", self, "alarmIndication")
 	Events.connect("taser_fired", self, "taserUpdate")
@@ -39,7 +40,6 @@ func _ready():
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 
 
-
 func _process(delta: float) -> void:
 	if nextText != "":
 		if Input.is_action_just_pressed("interact"):
@@ -52,6 +52,25 @@ func debugShaderToggle(_d):
 		$Shader.hide()
 	else:
 		$Shader.show()
+
+
+func showSave():
+	var saves = Global.getSaveGameState()
+	
+	var i = 1
+	for element in saves:
+		var button = get_node("SaveGame/Menu/ButtonSave" + str(i))
+		if element == true: # File Exists
+			button.updateLabel("Slot " + str(i) + " (Overwrite)")
+		else:
+			button.updateLabel("Slot " + str(i) + " (New)")
+		i += 1
+	$SaveGame.show()
+	$SaveGame/Menu/ButtonReturn.grab_focus()
+
+
+func save(slot):
+	Global.saveGame(slot)
 
 
 func moneyUpdate(total, change):
@@ -180,6 +199,8 @@ func _physics_process(_delta):
 			get_tree().paused = false
 		elif $Upgrades.visible:
 			$Upgrades.hide()
+		elif $SaveGame.visible:
+			$SaveGame.hide()
 		else:
 			$IngameMenu.show()
 			$IngameMenu/Menu/ButtonReturn.grab_focus()
@@ -278,6 +299,22 @@ func _on_ButtonMusic_button_up():
 func _on_ButtonReturn_button_up():
 	Events.emit_signal("play_sound", "menu_click")
 	$IngameMenu.hide()
+	$SaveGame.hide()
 	get_tree().paused = false
 
 
+
+
+func _on_ButtonSave1_button_up():
+	Events.emit_signal("play_sound", "menu_click")
+	save(0)
+
+
+func _on_ButtonSave2_button_up():
+	Events.emit_signal("play_sound", "menu_click")
+	save(1)
+
+
+func _on_ButtonSave3_button_up():
+	Events.emit_signal("play_sound", "menu_click")
+	save(2)

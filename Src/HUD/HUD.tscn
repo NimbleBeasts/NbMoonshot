@@ -329,6 +329,61 @@ margin_right = 144.0
 margin_bottom = 96.0
 label = "Buy Upgrade"
 
+[node name="SaveGame" type="Control" parent="."]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="NinePatchRect" parent="SaveGame"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -96.0
+margin_right = 80.0
+margin_bottom = 56.0
+texture = ExtResource( 7 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonReturn" parent="SaveGame/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 12.0
+margin_right = 144.0
+margin_bottom = 36.0
+label = "Continue"
+
+[node name="ButtonSave1" parent="SaveGame/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 52.0
+margin_right = 144.0
+margin_bottom = 76.0
+label = "Slot 1 (Overwrite)"
+
+[node name="ButtonSave2" parent="SaveGame/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 84.0
+margin_right = 144.0
+margin_bottom = 108.0
+label = "Slot 2"
+
+[node name="ButtonSave3" parent="SaveGame/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 116.0
+margin_right = 144.0
+margin_bottom = 140.0
+label = "Slot 3"
+
 [node name="Note" type="TextureRect" parent="."]
 visible = false
 anchor_left = 0.5
@@ -586,6 +641,10 @@ margin_right = 144.0
 margin_bottom = 140.0
 label = "Quit"
 [connection signal="button_up" from="Upgrades/InfoBox/UpgradeButton" to="." method="_on_UpgradeButton_button_up"]
+[connection signal="button_up" from="SaveGame/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
+[connection signal="button_up" from="SaveGame/Menu/ButtonSave1" to="." method="_on_ButtonSave1_button_up"]
+[connection signal="button_up" from="SaveGame/Menu/ButtonSave2" to="." method="_on_ButtonSave2_button_up"]
+[connection signal="button_up" from="SaveGame/Menu/ButtonSave3" to="." method="_on_ButtonSave3_button_up"]
 [connection signal="mouse_entered" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_entered"]
 [connection signal="mouse_exited" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_exited"]
 [connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]

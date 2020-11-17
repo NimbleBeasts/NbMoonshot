@@ -112,6 +112,16 @@ func _ready():
 	print(NB_PLUGIN_CONFIG.devlogUrl)
 
 
+func getSaveGameState():
+	var retVal = []
+	for i in range(3):
+		var saveFile = File.new()
+		if saveFile.file_exists("user://save_"+ str(i) + ".cfg"):
+			retVal.append(true)
+		else:
+			retVal.append(false)
+	return retVal
+
 # Save Game
 func saveGame(slotId):
 	var saveFile = File.new()
