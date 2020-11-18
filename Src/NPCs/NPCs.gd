@@ -15,7 +15,7 @@ var dialogueRead: bool = false
 func _ready() -> void:
 	connect("body_entered", self, "_on_body_entered")
 	connect("body_exited", self, "_on_body_exited")
-	connect("read_all_dialog", self, "_onReadAllDialogue")
+	connect("read_all_dialog", self, "onReadAllDialogue")
 	set_process(false)
 
 
@@ -77,7 +77,7 @@ func say_dialogue_text(counter, index) -> void:
 	Events.emit_signal("hud_dialog_show", npc_name, npc_color, dialogue_text)
 
 
-func _onReadAllDialogue() -> void:
+func onReadAllDialogue() -> void:
 	dialogueRead = true
 
 

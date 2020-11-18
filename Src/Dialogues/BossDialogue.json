@@ -9,5 +9,8 @@
 "10" : {"text" : "Very good job, you succeeded"},
  "11" : {"text" : "Now you're next job is to go to level1. Accept?"},
  "12" : {"text" : "OK, go now!"},
- "quest1" : {"level_index" : "2"}
+ "quest1" : {"level_index" : "2"},
+
+ "20" : {"text" : "good job, you just finished all the levels!"}
+
 }

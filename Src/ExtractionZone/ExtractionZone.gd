@@ -9,6 +9,7 @@ export var level_index: int = 0
 export var next_boss_interacted_counter: int = 0
 export(Types.Direction) var sprite_face_direction = Types.Direction.Left
 
+
 func _ready() -> void:
 	set_process(false)
 	#warning-ignore-all:return_value_discarded
@@ -44,9 +45,12 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 	if Global.game_manager.getCurrentLevel().name == "HQ_Level": # this condition is true on hq_level
 		Events.emit_signal("hud_level_transition", -1)
 		Global.game_manager.loadNextQuest()
-	else:
+	else: # this is going to hq level
 		Events.emit_signal("hud_level_transition", level_index)
 		Global.game_manager.boss_interaction_counter = next_boss_interacted_counter
 		Global.game_manager.unloadLevel()
 		Global.game_manager.loadLevel(level_index)
-		
+
+		# game state stuff for saving
+		Global.gameState["level"]["hasActiveMission"] = false
+		Global.gameState["level"]["lastActiveMission"] = -1
