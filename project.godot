@@ -104,7 +104,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Space Program Stealth"
+config/name="Moonshot: The Great Espionage"
 config/description="This is a simple kickstarter project for NimbleBeasts projects. It comes with some standard features and little helpers as well as a some stuff, no one has time for in a game jam.
 "
 run/main_scene="res://Src/GameManager.tscn"
