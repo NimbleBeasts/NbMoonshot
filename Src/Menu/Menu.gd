@@ -170,3 +170,7 @@ func _on_ButtonLoad2_button_up():
 
 func _on_ButtonLoad3_button_up():
 	loadGame(2)
+
+
+func _on_Copyright_meta_clicked(meta):
+	OS.shell_open(meta)

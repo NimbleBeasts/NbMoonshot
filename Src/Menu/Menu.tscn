@@ -69,10 +69,10 @@ text = "Loading DevLog...
 "
 
 [node name="LevelSelect" type="OptionButton" parent="Main"]
-margin_left = 16.0
-margin_top = 24.0
-margin_right = 160.0
-margin_bottom = 48.0
+margin_left = 216.0
+margin_top = 304.0
+margin_right = 360.0
+margin_bottom = 328.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -195,7 +195,8 @@ anchor_bottom = 1.0
 margin_top = -16.0
 custom_fonts/normal_font = ExtResource( 7 )
 bbcode_enabled = true
-bbcode_text = "[center]©2020 by NimbleBeasts [color=#34859d]`[/color]NimbleBeasts [color=#9d303b]¥[/color]NimbleBeasts[/center]"
+bbcode_text = "[center]©2020 by NimbleBeasts [url=https://twitter.com/nimblebeasts][color=#63c2c9]`[/color]NimbleBeasts[/url] [url=https://nimblebeastscollective.itch.io/][color=#c93038]¥[/color]NimbleBeasts[/url][/center]"
+meta_underlined = false
 text = "©2020 by NimbleBeasts `NimbleBeasts ¥NimbleBeasts"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -224,3 +225,4 @@ text = "Version"
 [connection signal="button_up" from="LoadGame/ButtonLoad2" to="." method="_on_ButtonLoad2_button_up"]
 [connection signal="button_up" from="LoadGame/ButtonLoad3" to="." method="_on_ButtonLoad3_button_up"]
 [connection signal="button_up" from="LoadGame/ButtonBack" to="." method="_on_ButtonBack_button_up"]
+[connection signal="meta_clicked" from="Copyright" to="." method="_on_Copyright_meta_clicked"]

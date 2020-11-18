@@ -24,3 +24,7 @@ func retry():
 
 func _on_RetryDelayTimer_timeout():
 	retry()
+
+
+func _on_DevLogViewer_meta_clicked(meta):
+	OS.shell_open(meta)
