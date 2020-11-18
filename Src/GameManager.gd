@@ -5,8 +5,6 @@ var levelNode = null
 var possible_detection_num: int = 0
 var sure_detection_num: int = 0
 var current_level: int
-var boss_interaction_counter: int = 0 setget setBossInteractionCounter
-var secretary_interaction_counter: int = 0 setget setSecretaryInteractionCounter
 var quest_index: int = 0 
 
 var debugWebMoney = false
@@ -108,14 +106,6 @@ func loadNextQuest() -> void:
 	unloadLevel()
 	loadLevel(quest_index)
 	print(quest_index)
-
-func setBossInteractionCounter(value: int) -> void:
-	boss_interaction_counter = value
-	Global.gameState["interactionCounters"]["boss"] = value
-
-func setSecretaryInteractionCounter(value: int) -> void:
-	secretary_interaction_counter = value
-	Global.gameState["interactionCounters"]["secretary"] = value
 
 ###############################################################################
 # Callbacks

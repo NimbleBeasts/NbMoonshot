@@ -2,7 +2,7 @@ extends NPC
 
 
 func _ready() -> void:
-	interacted_counter = Global.game_manager.boss_interaction_counter
+	interacted_counter = Global.gameState["interactionCounters"]["boss"]
 	Events.connect("tutorial_finished", self, "_on_tutorial_finished")
 
 # gets called when player goes through one iteration of the dialog

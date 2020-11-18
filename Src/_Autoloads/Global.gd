@@ -114,6 +114,11 @@ func _ready():
 	switchFullscreen()
 	
 	print(NB_PLUGIN_CONFIG.devlogUrl)
+	loadStuffToGame()
+
+func loadStuffToGame() -> void:
+	Global.game_manager.boss_interaction_counter = gameState["interactionCounters"]["boss"]
+	Global.game_manager.secretary_interaction_counter = gameState["interactionCounters"]["secretary"]
 
 
 func getSaveGameState():
