@@ -103,9 +103,10 @@ func getCurrentLevel():
 
 
 func loadNextQuest() -> void:
-	unloadLevel()
-	loadLevel(quest_index)
-	print(quest_index)
+	if Global.gameState["level"]["hasActiveMission"] and not Global.gameState["level"]["missionIsTutorial"]:
+		unloadLevel()
+		loadLevel(Global.gameState["level"]["lastActiveMission"])
+
 
 ###############################################################################
 # Callbacks

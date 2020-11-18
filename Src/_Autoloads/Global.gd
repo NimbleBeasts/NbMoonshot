@@ -62,6 +62,7 @@ const gameConstant = {
 	
 }
 
+
 var gameState = {
 	playerUpgrades = [],
 	money = 0,
@@ -242,7 +243,6 @@ func getVersionString():
 		versionString += "-debug"
 
 	return versionString
-
 
 # Player Handling
 func addMoney(amount):

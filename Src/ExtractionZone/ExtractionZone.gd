@@ -25,7 +25,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("interact")):
-		if (has_level_index or Global.game_manager.getCurrentLevel().name == "HQ_Level") and (Global.game_manager.quest_index != 0): # this condition is true on hq_level
+		if Global.gameState["level"]["hasActiveMission"] and Global.gameState["level"]["lastActiveMission"] != 0:
 			$AnimationPlayer.play("open")
 
 
