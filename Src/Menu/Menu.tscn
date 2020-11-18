@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Src/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Menu/Title.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Src/Menu/DevLogViewer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=9]
@@ -30,6 +31,16 @@ expand = true
 [node name="Main" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="Main"]
+anchor_right = 1.0
+margin_top = -1.0
+margin_bottom = 95.0
+texture = ExtResource( 3 )
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
