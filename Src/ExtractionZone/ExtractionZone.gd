@@ -47,7 +47,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 		Global.game_manager.loadNextQuest()
 	else: # this is going to hq level
 		Events.emit_signal("hud_level_transition", level_index)
-		Global.game_manager.boss_interaction_counter = next_boss_interacted_counter
+		Global.gameState["interactionCounters"]["boss"] = next_boss_interacted_counter
 		Global.game_manager.unloadLevel()
 		Global.game_manager.loadLevel(level_index)
 

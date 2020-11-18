@@ -151,6 +151,7 @@ margin_left = 256.0
 margin_top = 128.0
 margin_right = 384.0
 margin_bottom = 152.0
+shortcut_in_tooltip = false
 label = "Slot 1"
 
 [node name="ButtonLoad2" parent="LoadGame" instance=ExtResource( 11 )]
