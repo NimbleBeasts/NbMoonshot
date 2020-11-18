@@ -46,9 +46,9 @@ __meta__ = {
 }
 
 [node name="LogWindow" type="ColorRect" parent="Main"]
-margin_left = 176.0
-margin_top = 88.0
-margin_right = 608.0
+margin_left = 160.0
+margin_top = 104.0
+margin_right = 624.0
 margin_bottom = 328.0
 color = Color( 0, 0, 0, 0.388235 )
 __meta__ = {

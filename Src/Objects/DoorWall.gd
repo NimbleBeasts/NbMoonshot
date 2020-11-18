@@ -21,6 +21,8 @@ func _ready():
 		$Sprite.texture = preload("res://Assets/Objects/DoorWall.png")
 	set_process(false)
 	
+	$Sprite.frame = 0
+	
 	if door_id != 0:
 		Events.connect("door_change_status", self, "_on_door_change_status")
 	
