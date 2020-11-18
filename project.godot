@@ -128,6 +128,8 @@ Debug="*res://Src/_Autoloads/Debug.gd"
 
 window/size/width=640
 window/size/height=360
+window/size/test_width=1280
+window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

@@ -39,7 +39,6 @@ const NB_PLUGIN_CONFIG = {
 # Level Array
 const levels = [
 	"res://Src/Levels/HQ_Level.tscn",
-	"res://Src/Levels/Level0.tscn",
 	"res://Src/Levels/Level1.tscn",
 ]
 
@@ -114,7 +113,6 @@ func _ready():
 	print("Soft-Debug: "+ str(DEBUG))
 	rng.randomize()
 	loadConfig()
-	videoSetup(2)
 	switchFullscreen()
 	
 	print(NB_PLUGIN_CONFIG.devlogUrl)
@@ -193,14 +191,6 @@ func migrateConfig(data):
 	return data
 
 
-# Window Scaler
-func videoSetup(scale = 2):
-	var initSize = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
-	var screen_size = OS.get_screen_size(OS.get_current_screen())
-	var window_size = initSize * scale
-	var centered_pos = (screen_size - window_size) / 2
-	OS.set_window_position(centered_pos)
-	OS.set_window_size(window_size) 
 
 # Set Fullscreen Mode
 func setFullscreen(val: bool):
@@ -213,9 +203,7 @@ func setFullscreen(val: bool):
 func switchFullscreen():
 	if not userConfig.fullscreen:
 		OS.window_fullscreen = false
-		videoSetup(2)
 	else:
-		videoSetup(3)
 		OS.window_fullscreen = true
 
 # PRNG

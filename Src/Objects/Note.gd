@@ -1,7 +1,7 @@
 extends Node2D
 
 
-export(String) var text = "This is a note text"
+export(String, MULTILINE) var text = "This is a note text"
 export(bool) var highlight = false
 export(Types.NoteType) var type = Types.NoteType.SecretService
 

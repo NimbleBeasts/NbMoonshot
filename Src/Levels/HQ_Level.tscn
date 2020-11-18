@@ -160,7 +160,9 @@ keyPadCode = 123
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 320, 320 )
-text = "Damn, we've lost your key. You will have to lockpick this door. \\n X0X0 -Natasja"
+text = "Damn, we've lost your key. You will have to lockpick this door.
+xoxo,
+Natasja"
 highlight = true
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 24 )]

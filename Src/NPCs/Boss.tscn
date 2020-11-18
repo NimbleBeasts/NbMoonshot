@@ -27,7 +27,7 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 dialogue_path = "res://Src/Dialogues/BossDialogue.json"
 npc_name = "General"
-npc_color = "red"
+npc_color = "#4c93ad"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.374573, -13.4848 )
