@@ -11,6 +11,7 @@ var global_points: Array = []
 var next_point: Vector2
 var enabled: bool = true
 var is_next_point_reached: bool
+var movingToCustomPoint: bool = false
 
 onready var guard: Guard = get_parent()
 
@@ -31,7 +32,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# something, idk
-	if enabled:
+	if enabled or movingToCustomPoint:
 		if int(next_point.x) > int(guard.global_position.x):
 			guard.direction.x = 1
 			is_next_point_reached = false
@@ -60,6 +61,17 @@ func move_along_points() -> void:
 				continue
 
 
+func moveToPoint(newPoint: Vector2) -> void:
+	next_point = newPoint
+	enabled = false
+	movingToCustomPoint = true
+
+
+func stopAllMovement() -> void:
+	enabled = false
+	movingToCustomPoint = false
+
+	
 func _on_loop_finished() -> void:
 	move_along_points()
 

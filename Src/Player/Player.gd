@@ -52,6 +52,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	Global.addUpgrade(Types.UpgradeTypes.Fitness_Level2)
 	# sprint upgrade
 	canSprint = Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades
 	add_to_group("Upgradable")

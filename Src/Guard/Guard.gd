@@ -12,6 +12,8 @@ export var stun_duration: float = 2
 export var audio_suspect_distance: int = 150
 export var normal_time_to_alarm: float = 1.5
 export var extended_time_to_alarm: float = 3.5
+export var playerSuspectDistance: int = 24
+export var playerDetectDistance: int = 16
 
 var velocity: Vector2
 var direction: Vector2
@@ -22,8 +24,10 @@ var player_detected: bool = false
 
 var guard_normal_texture: Texture = preload("res://Assets/Guards/Guard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/GuardGreen.png")
+var guardPathLine
 
 onready var los_area: Area2D = $Flippable/LineOfSight
+onready var player = Global.player
 
 
 func _ready() -> void:
@@ -46,6 +50,7 @@ func _ready() -> void:
 		direction = starting_direction
 	else:
 		direction = Vector2(0,0)
+		guardPathLine = get_node("GuardPathLine")
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	#warning-ignore:return_value_discarded
@@ -56,6 +61,7 @@ func _process(_delta: float) -> void:
 	velocity = move_and_slide(velocity)
 		
 	update_flip()
+	detectPlayerIfClose()
 	match state:
 		Types.GuardStates.PlayerDetected, Types.GuardStates.Suspect, Types.GuardStates.Stunned:
 			direction = Vector2(0,0)
@@ -68,19 +74,19 @@ func _process(_delta: float) -> void:
 	# then the player could move to full light and it wouldn't get called unless it's a new overlap
 	# so we have to do set a bool on area entered and check in _process
 	if player_in_los and state != Types.GuardStates.Stunned:
-		match Global.player.visible_level:
+		match player.visible_level:
 
 			Types.LightLevels.FullLight:
 				set_state(Types.GuardStates.PlayerDetected)
 				player_in_los = false
-				player_detected = true
 			Types.LightLevels.BarelyVisible:
 				if not player_detected: # only sets to suspect if hasn't detected player before
 					set_state(Types.GuardStates.Suspect)
 			Types.LightLevels.Dark:
 				if not player_detected: # only sets to wander if hasn't detected player before
 					set_state(Types.GuardStates.Wander)
-	
+
+				
 	# checks for stunned bodies
 	if check_for_stunned:
 		for body in los_area.get_overlapping_bodies():
@@ -105,6 +111,15 @@ func _process(_delta: float) -> void:
 func change_direction() -> void:
 	# flips the direction.x
 	direction.x *= -1 
+
+
+func detectPlayerIfClose() -> void:
+	if player.global_position.distance_to(global_position) < playerDetectDistance and state != Types.GuardStates.Stunned:
+		if player.state != Types.PlayerStates.WallDodge and not player_detected:
+				guardPathLine.moveToPoint(player.global_position)
+				$Notifier.popup(Types.NotifierTypes.Question)
+				if player.global_position.distance_to(global_position) < playerSuspectDistance:
+					set_state(Types.GuardStates.PlayerDetected)
 
 
 # stun function.
@@ -135,12 +150,6 @@ func _on_DirectionChangeTimer_timeout():
 		change_direction()
 	
 	
-#func _on_LineOfSight_area_entered(area: Area2D) -> void:
-#	# detecting player
-#	if area.is_in_group("PlayerArea") and state != Types.GuardStates.Stunned:
-#		player_in_los = true
-
-
 func _on_LineOfSight_body_entered(body: Node) -> void:
 #	if body is TileMap: # changes direction when collide with tilemap
 #		change_direction()
@@ -170,8 +179,6 @@ func _on_StunDurationTimer_timeout() -> void:
 	$AnimationPlayer.play("stand_up")
 
 
-
-
 # Event Hook: audio level changed. audio_pos is the position where the audio notification happened
 func _on_audio_level_changed(audio_level: int, audio_pos: Vector2) -> void:
 	match audio_level:
@@ -186,20 +193,22 @@ func set_state(new_state) -> void:
 		state = new_state
 		
 		# Put stuff you want to do once when state changes here
-		match state:
+		match new_state:
 			Types.GuardStates.PlayerDetected:
 				# starts sure timer
 				if $SureDetectionTimer.is_stopped():
 					$SureDetectionTimer.start()
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
-
+				player_detected = true
 				$AnimationPlayer.play("suspicious")
 				emit_signal("stop_movement")
+				guardPathLine.stopAllMovement()
 				
 			Types.GuardStates.Suspect:
-				direction = Vector2(0,0)
-				$Notifier.popup(Types.NotifierTypes.Question)
+				guardPathLine.stopAllMovement()
 				emit_signal("stop_movement")
+				if not $Notifier.isShowing:
+					$Notifier.popup(Types.NotifierTypes.Question)
 			Types.GuardStates.Wander:
 				$Notifier.remove()
 				emit_signal("start_movement")
