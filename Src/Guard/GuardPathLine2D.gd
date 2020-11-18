@@ -31,7 +31,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	# something, idk
+	# this probably should be refactored but i don't feel like it :D
 	if enabled or movingToCustomPoint:
 		if int(next_point.x) > int(guard.global_position.x):
 			guard.direction.x = 1
@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 			if not is_next_point_reached:
 				is_next_point_reached = true
 				emit_signal("next_point_reached")
-
+	
 
 # moves along a array of vector2s
 func move_along_points() -> void:
@@ -70,8 +70,8 @@ func moveToPoint(newPoint: Vector2) -> void:
 func stopAllMovement() -> void:
 	enabled = false
 	movingToCustomPoint = false
+	guard.direction = Vector2(0,0)
 
-	
 func _on_loop_finished() -> void:
 	move_along_points()
 

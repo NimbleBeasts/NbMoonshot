@@ -12,7 +12,7 @@ export var stun_duration: float = 2
 export var audio_suspect_distance: int = 150
 export var normal_time_to_alarm: float = 1.5
 export var extended_time_to_alarm: float = 3.5
-export var playerSuspectDistance: int = 24
+export var playerSuspectDistance: int = 30
 export var playerDetectDistance: int = 16
 
 var velocity: Vector2
@@ -59,9 +59,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
-		
 	update_flip()
 	detectPlayerIfClose()
+
 	match state:
 		Types.GuardStates.PlayerDetected, Types.GuardStates.Suspect, Types.GuardStates.Stunned:
 			direction = Vector2(0,0)
@@ -75,7 +75,6 @@ func _process(_delta: float) -> void:
 	# so we have to do set a bool on area entered and check in _process
 	if player_in_los and state != Types.GuardStates.Stunned:
 		match player.visible_level:
-
 			Types.LightLevels.FullLight:
 				set_state(Types.GuardStates.PlayerDetected)
 				player_in_los = false
@@ -114,11 +113,12 @@ func change_direction() -> void:
 
 
 func detectPlayerIfClose() -> void:
-	if player.global_position.distance_to(global_position) < playerDetectDistance and state != Types.GuardStates.Stunned:
+	if player.global_position.distance_to(global_position) < playerSuspectDistance and state != Types.GuardStates.Stunned:
 		if player.state != Types.PlayerStates.WallDodge and not player_detected:
 				guardPathLine.moveToPoint(player.global_position)
-				$Notifier.popup(Types.NotifierTypes.Question)
-				if player.global_position.distance_to(global_position) < playerSuspectDistance:
+				if not $Notifier.isShowing:
+					$Notifier.popup(Types.NotifierTypes.Question)
+				if player.global_position.distance_to(global_position) < playerDetectDistance:
 					set_state(Types.GuardStates.PlayerDetected)
 
 
@@ -203,12 +203,10 @@ func set_state(new_state) -> void:
 				$AnimationPlayer.play("suspicious")
 				emit_signal("stop_movement")
 				guardPathLine.stopAllMovement()
-				
 			Types.GuardStates.Suspect:
 				guardPathLine.stopAllMovement()
 				emit_signal("stop_movement")
-				if not $Notifier.isShowing:
-					$Notifier.popup(Types.NotifierTypes.Question)
+				$Notifier.popup(Types.NotifierTypes.Question)
 			Types.GuardStates.Wander:
 				$Notifier.remove()
 				emit_signal("start_movement")
