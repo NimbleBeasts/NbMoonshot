@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Assets/Objects/Doll.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Assets/Objects/Worldmap.png" type="Texture" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -214,6 +215,10 @@ texture = ExtResource( 15 )
 [node name="Tree" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 303, 244 )
 texture = ExtResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 400, 292 )
+texture = ExtResource( 30 )
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 376, 320 )
