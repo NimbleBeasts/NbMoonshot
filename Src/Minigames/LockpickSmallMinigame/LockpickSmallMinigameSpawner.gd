@@ -16,7 +16,7 @@ func create_minigame() -> Minigame:
 	
 
 func run_minigame(door_id, door_lock_level, play):
-	if can_make_minigame:
+	if can_make_minigame and minigame == null:
 		# Creates a minigame and opens it 
 		minigame = create_minigame()
 		minigame.door_id = door_id
