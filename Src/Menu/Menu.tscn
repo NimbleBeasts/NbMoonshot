@@ -108,18 +108,21 @@ margin_left = 256.0
 margin_top = 96.0
 margin_right = 384.0
 margin_bottom = 120.0
+label = "Button"
 
 [node name="ButtonMusic" parent="Settings" instance=ExtResource( 11 )]
 margin_left = 256.0
 margin_top = 128.0
 margin_right = 384.0
 margin_bottom = 152.0
+label = "Button"
 
 [node name="ButtonFullscreen" parent="Settings" instance=ExtResource( 11 )]
 margin_left = 256.0
 margin_top = 160.0
 margin_right = 384.0
 margin_bottom = 184.0
+label = "Button"
 
 [node name="ButtonCredits" parent="Settings" instance=ExtResource( 11 )]
 margin_left = 256.0
