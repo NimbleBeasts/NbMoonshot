@@ -24,7 +24,6 @@ func _ready():
 	if door_id != 0:
 		Events.connect("door_change_status", self, "_on_door_change_status")
 	
-	
 
 func _process(_delta):
 	if playerInArea:
@@ -55,7 +54,7 @@ func interact():
 		else:
 			# Close Animation
 			$AnimationPlayer.play_backwards("open_door")
-	
+			
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	if not doorIsOpen:

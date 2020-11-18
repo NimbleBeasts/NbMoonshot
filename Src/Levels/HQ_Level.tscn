@@ -204,13 +204,15 @@ position = Vector2( 408, 448 )
 position = Vector2( 296, 448 )
 
 [node name="DoorWall8" parent="LevelObjects" instance=ExtResource( 8 )]
-position = Vector2( 352, 384 )
+position = Vector2( 352.354, 384 )
+isPlayerOfficeDoor = true
 
 [node name="DoorWall9" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 384 )
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 168, 256 )
+flagType = 0
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
