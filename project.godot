@@ -35,6 +35,11 @@ _global_script_classes=[ {
 "path": "res://Src/Minigames/KeypadMinigame/KeypadMinigameSpawner.gd"
 }, {
 "base": "MinigameSpawner",
+"class": "LightMinigameSpawner",
+"language": "GDScript",
+"path": "res://Src/Minigames/LightMinigame/LightMinigameSpawner.gd"
+}, {
+"base": "MinigameSpawner",
 "class": "LockpickMinigameSpawner",
 "language": "GDScript",
 "path": "res://Src/Minigames/LockpickMinigame/LockpickMinigameSpawner.gd"
@@ -90,6 +95,7 @@ _global_script_class_icons={
 "Guard": "",
 "GuardPathLine": "",
 "KeypadMinigameSpawner": "",
+"LightMinigameSpawner": "",
 "LockpickMinigameSpawner": "",
 "LockpickSmallMinigameSpawner": "",
 "Minigame": "",
