@@ -26,10 +26,13 @@ func _ready():
 	
 	$Sprite.frame = 0
 	
+	
 	if door_name != "":
 		Events.connect("door_change_status", self, "_on_door_change_status")
+	
 		#load state form save if it exists
 		if Global.gameState.has(door_name):
+			print("Has door name")
 			lockLevel = Global.gameState[door_name]
 		
 	
@@ -114,7 +117,7 @@ func _on_door_change_status(_door_name, _lock_type, _run_anim):
 	if door_name == _door_name:
 		lockLevel = _lock_type
 		if save_state:
-			Global.gameState["door_name"] = _lock_type
+			Global.gameState[door_name] = _lock_type
 		if _run_anim:
 			interact(false)
 		

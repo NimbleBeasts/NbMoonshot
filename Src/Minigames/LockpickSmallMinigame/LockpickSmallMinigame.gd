@@ -33,7 +33,7 @@ func _process(delta):
 		rdir = (Global.rng.randi_range(0,2)*2 -1)
 		cd = switch_speed
 	
-	var hor = rdir
+	var hor = rdir * 0.1
 	
 	if Input.is_action_pressed("move_left"):
 		haccu = haccu - 0.1
@@ -52,7 +52,7 @@ func init_game():
 	pin_goal.position = Vector2( rand_range(-max_x*0.5,max_x*0.5), pin_goal.position.y  )
 	
 	#difficulty check
-	switch_speed = 1
+	switch_speed = 0.5
 	if difficulty == 2:
 		switch_speed = 0.15
 		print("cahnge cuz diff")

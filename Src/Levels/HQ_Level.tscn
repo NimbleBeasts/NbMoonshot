@@ -406,31 +406,18 @@ position = Vector2( 152, 320 )
 
 [node name="TestZone" type="Node2D" parent="."]
 
-[node name="DoorWall10" parent="TestZone" instance=ExtResource( 8 )]
-position = Vector2( -305.191, 254.405 )
-lockLevel = 1
-doorType = 1
-door_name = "HQ-TestMetal1"
-
-[node name="DoorWall11" parent="TestZone" instance=ExtResource( 8 )]
-position = Vector2( -344.441, 254.405 )
-lockLevel = 1
-doorType = 1
-door_name = "HQ-TestMetal2"
-save_state = true
-
 [node name="DoorWall12" parent="TestZone" instance=ExtResource( 8 )]
-position = Vector2( -238.007, 253.81 )
+position = Vector2( -272.529, 252.969 )
 lockLevel = 1
 door_name = "HQ-Wood1"
 
 [node name="DoorWall-HQ-MetalSeq2" parent="TestZone" instance=ExtResource( 8 )]
-position = Vector2( -121.523, 254.579 )
+position = Vector2( -188.57, 253.825 )
 doorType = 1
 door_name = "HQ-MetalSeq2"
 sig_to_trig = [ [ "door_change_status", "HQ-MetalSeq1", 0, true ] ]
 
 [node name="DoorWall-HQ-MetalSeq1" parent="TestZone" instance=ExtResource( 8 )]
-position = Vector2( -158.249, 254.282 )
+position = Vector2( -225.296, 253.528 )
 doorType = 1
 door_name = "HQ-MetalSeq1"
