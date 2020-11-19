@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Objects/DoorWall.png" type="Texture" id=1]
 [ext_resource path="res://Src/Objects/DoorWall.gd" type="Script" id=2]
 [ext_resource path="res://Src/Minigames/LockpickSmallMinigame/LockpickSmallMinigameSpawner.gd" type="Script" id=3]
+[ext_resource path="res://Src/Minigames/LightMinigame/LightMinigameSpawner.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "open_door"
@@ -53,6 +54,13 @@ hframes = 3
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LockpickSmallMinigameSpawner"]
+position = Vector2( 4, -16 )
+shape = SubResource( 3 )
+
+[node name="LightMinigameSpawner" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LightMinigameSpawner"]
 position = Vector2( 4, -16 )
 shape = SubResource( 3 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

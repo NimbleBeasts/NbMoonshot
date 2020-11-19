@@ -88,6 +88,7 @@ func _on_Area2D_body_exited(body):
 		set_process(false)
 
 func _on_door_change_status(id, lock_type, play):
+	print(name)
 	if id == door_id:
 		lockLevel = lock_type
 	if play:

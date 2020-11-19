@@ -3,9 +3,9 @@ extends Minigame
 export var normal_color:Color = Color.white
 export var active_color:Color = Color.red
 
-export var door_id:int
+export var door_name:String
 export var difficulty:int
-export var play:bool
+export var run_anim:bool
 
 onready var btn_parrent = $GridContainer
 
@@ -57,5 +57,6 @@ func check_win():
 	print("Win")
 	yield(get_tree().create_timer(0.25), "timeout")
 	set_result(Types.MinigameResults.Succeeded)
-	Events.emit_signal("door_change_status",door_id, 0, play)
+	Events.emit_signal("door_change_status",door_name, 0, run_anim)
+	close()
 	

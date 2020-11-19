@@ -15,13 +15,13 @@ func create_minigame() -> Minigame:
 	return minigame_instance
 	
 
-func run_minigame(door_id, door_lock_level, play):
+func run_minigame(_door_name, _lock_type, _run_anim):
 	if can_make_minigame and minigame == null:
 		# Creates a minigame and opens it 
 		minigame = create_minigame()
-		minigame.door_id = door_id
-		minigame.difficulty = door_lock_level
-		minigame.play = play
+		minigame.door_name = _door_name
+		minigame.difficulty = _lock_type #for diffulty used
+		minigame.run_anim = _run_anim
 		#warning-ignore:return_value_discarded
 		minigame.connect("result_changed", self, "_on_minigame_result_changed")
 		minigame.open()

@@ -1,13 +1,13 @@
 extends Minigame
 
-export var door_id:int
+export var door_name:String
 export var difficulty:int
-export var play:bool
+export var run_anim:bool
 
 export var max_x : int = 64
 export var move_up : int = 64
 export var hit_range : int = 6
-export var switch_speed : float = 0.15
+export var switch_speed : float = 6
 
 var controls_block = false
 var cd:float
@@ -30,7 +30,7 @@ func _process(delta):
 		
 	cd = cd - delta
 	if cd < 0:
-		rdir = rand_range(-3,3)
+		rdir = (Global.rng.randi_range(0,2)*2 -1)
 		cd = switch_speed
 	
 	var hor = rdir
@@ -50,6 +50,13 @@ func init_game():
 	randomize() #random start postions
 	pin.position = Vector2( rand_range(-max_x,max_x), pin.position.y )
 	pin_goal.position = Vector2( rand_range(-max_x*0.5,max_x*0.5), pin_goal.position.y  )
+	
+	#difficulty check
+	switch_speed = 1
+	if difficulty == 2:
+		switch_speed = 0.15
+		print("cahnge cuz diff")
+	print("switch speed is : ", switch_speed)
 
 func _input(event):
 	if controls_block:
@@ -74,7 +81,7 @@ func tap_pin():
 		pin.position = Vector2( pin.position.x, pin.position.y - move_up)
 		yield(get_tree().create_timer(0.25), "timeout")
 		set_result(Types.MinigameResults.Succeeded)
-		Events.emit_signal("door_change_status",door_id, 0, play)
+		Events.emit_signal("door_change_status",door_name, 0, run_anim)
 		close()
 	else:
 		print( " miss ")

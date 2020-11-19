@@ -22,7 +22,7 @@ signal minigame_entered(minigame_type) #Types.Minigames
 signal minigame_exited(result) #Types.Minigames
 
 # Door open close
-signal door_change_status(id, lock_type, play) #play is to know if it should play anim on unlock
+signal door_change_status(door_name, lock_type, exec_anim) #exec anim is bool for switch state anim
 
 # HUD
 signal hud_note_show(type, text)
