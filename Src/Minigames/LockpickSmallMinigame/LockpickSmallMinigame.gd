@@ -7,7 +7,8 @@ export var run_anim:bool
 export var max_x : int = 64
 export var move_up : int = 64
 export var hit_range : int = 6
-export var switch_speed : float
+export var switch_speed : float = 0.1
+var lp_upgrade : float = 1
 
 var controls_block = false
 var cd:float
@@ -20,6 +21,9 @@ onready var pin_goal = $LockpickSmallPinGoal
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	init_game()
+	if Types.UpgradeTypes.Lockpick_Level2 in Global.gameState.playerUpgrades:
+		print("running with upgraded lockpick")
+		lp_upgrade = lp_upgrade * 0.5
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +37,7 @@ func _process(delta):
 		rdir = (Global.rng.randi_range(0,2)*2 -1)
 		cd = switch_speed
 	
-	var speed = 0.5 * difficulty
+	var speed = 0.5 * difficulty * lp_upgrade
 	var hor = rdir * speed
 	
 	if Input.is_action_pressed("move_left"):
@@ -51,13 +55,6 @@ func init_game():
 	randomize() #random start postions
 	pin.position = Vector2( rand_range(-max_x,max_x), pin.position.y )
 	pin_goal.position = Vector2( rand_range(-max_x*0.5,max_x*0.5), pin_goal.position.y  )
-	
-	#difficulty check
-	#switch_speed = 0.5
-	#if difficulty == 2:
-	#	switch_speed = 0.25
-	
-	print("switch speed is : ", switch_speed)
 
 func _input(event):
 	if controls_block:
