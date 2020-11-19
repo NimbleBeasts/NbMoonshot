@@ -40,6 +40,7 @@ const NB_PLUGIN_CONFIG = {
 const levels = [
 	"res://Src/Levels/HQ_Level.tscn",
 	"res://Src/Levels/Level1.tscn",
+	"res://Src/Levels/Level2.tscn",
 ]
 
 # Upgrades
