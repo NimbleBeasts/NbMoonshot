@@ -67,6 +67,7 @@ func _ready() -> void:
 	Events.connect("hud_note_exited", self, "_on_hud_note_exited")
 	Events.connect("hud_note_show", self, "_on_hud_note_showed")
 	Events.connect("sure_detection_num_changed", self, "onSureDetectionNumChanged")
+	Events.connect("block_player_movement", self, "onBlockPlayerMovement")
 
 	$AnimationPlayer.play("idle")
 
@@ -255,6 +256,9 @@ func _on_hud_note_exited() -> void:
 func _on_hud_note_showed(_type: int, _text: String) -> void:
 	block_input = true
 
+func onBlockPlayerMovement() -> void:
+	block_input = true
+	
 
 func onSureDetectionNumChanged(num: int) -> void:
 	if num >= Global.game_manager.getCurrentLevel().allowed_detections:

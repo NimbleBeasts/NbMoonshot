@@ -199,7 +199,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="Dialog"]
+[node name="DialogueTypeTimer" type="Timer" parent="Dialog"]
+wait_time = 0.01
 
 [node name="Upgrades" type="NinePatchRect" parent="."]
 visible = false

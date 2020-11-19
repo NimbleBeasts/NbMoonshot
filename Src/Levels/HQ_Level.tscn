@@ -188,33 +188,75 @@ has_level_index = false
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 256 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 280, 256 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 256 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 320 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall-HQ-PlayerOffice" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 320 )
 lockLevel = 1
+doorType = 0
 door_name = "HQ-PlayerOfficeDoor"
 save_state = true
+sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 382.768 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 408, 448 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 296, 448 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 384 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 168, 256 )
@@ -248,9 +290,13 @@ texture = ExtResource( 32 )
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 376, 320 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 248, 320 )
+type = 0
+hasBounty = false
 
 [node name="CamTraining" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 344, 328 )
@@ -409,15 +455,23 @@ position = Vector2( 152, 320 )
 [node name="DoorWall12" parent="TestZone" instance=ExtResource( 8 )]
 position = Vector2( -272.529, 252.969 )
 lockLevel = 1
+doorType = 0
 door_name = "HQ-Wood1"
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall-HQ-MetalSeq2" parent="TestZone" instance=ExtResource( 8 )]
 position = Vector2( -188.57, 253.825 )
+lockLevel = 0
 doorType = 1
 door_name = "HQ-MetalSeq2"
+save_state = false
 sig_to_trig = [ [ "door_change_status", "HQ-MetalSeq1", 0, true ] ]
 
 [node name="DoorWall-HQ-MetalSeq1" parent="TestZone" instance=ExtResource( 8 )]
 position = Vector2( -225.296, 253.528 )
+lockLevel = 0
 doorType = 1
 door_name = "HQ-MetalSeq1"
+save_state = false
+sig_to_trig = [  ]

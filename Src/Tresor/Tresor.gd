@@ -10,6 +10,7 @@ const keypadSpawnerScript := preload("res://Src/Minigames/KeypadMinigame/KeypadM
 
 
 func getProgessState():
+	print("getProgressState called")
 	return isUsed
 	
 func _ready():

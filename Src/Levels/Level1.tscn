@@ -117,10 +117,12 @@ position = Vector2( 400, 72 )
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 128 )
 connected_door_path = NodePath("../Staircase2")
+lockLevel = 0
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 192 )
 connected_door_path = NodePath("../Staircase")
+lockLevel = 0
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 170, 128 )
@@ -128,9 +130,19 @@ keyPadCode = 1234
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 424, 320 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 144, 256 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
@@ -138,19 +150,35 @@ next_boss_interacted_counter = 2
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 320 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 256 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 192 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 128 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
@@ -162,6 +190,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
