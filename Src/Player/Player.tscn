@@ -333,7 +333,7 @@ z_index = 50
 z_as_relative = false
 texture = ExtResource( 1 )
 hframes = 23
-frame = 13
+frame = 9
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( -1, 0 )
