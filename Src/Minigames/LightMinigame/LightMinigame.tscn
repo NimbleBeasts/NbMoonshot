@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/Minigames/LightMinigame/LightMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Minigames/LightButton.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Minigames/LightBackground.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Minigames/LightBackgroundTimerBot.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Minigames/LightBackgroundTimerProgress.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Minigames/LightBackgroundTimerTop.png" type="Texture" id=6]
 
 [node name="LightMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -108,6 +111,32 @@ margin_top = 40.0
 margin_right = 56.0
 margin_bottom = 56.0
 texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = 35.0
+margin_right = 25.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerSlider" type="TextureProgress" parent="Timer"]
+margin_right = 50.0
+margin_bottom = 5.0
+max_value = 25.0
+step = 0.0
+value = 25.0
+texture_under = ExtResource( 4 )
+texture_over = ExtResource( 6 )
+texture_progress = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

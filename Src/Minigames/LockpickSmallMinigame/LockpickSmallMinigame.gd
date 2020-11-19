@@ -7,7 +7,7 @@ export var run_anim:bool
 export var max_x : int = 64
 export var move_up : int = 64
 export var hit_range : int = 6
-export var switch_speed : float = 6
+export var switch_speed : float
 
 var controls_block = false
 var cd:float
@@ -33,7 +33,8 @@ func _process(delta):
 		rdir = (Global.rng.randi_range(0,2)*2 -1)
 		cd = switch_speed
 	
-	var hor = rdir * 0.1
+	var speed = 0.5 * difficulty
+	var hor = rdir * speed
 	
 	if Input.is_action_pressed("move_left"):
 		haccu = haccu - 0.1
@@ -52,10 +53,10 @@ func init_game():
 	pin_goal.position = Vector2( rand_range(-max_x*0.5,max_x*0.5), pin_goal.position.y  )
 	
 	#difficulty check
-	switch_speed = 0.5
-	if difficulty == 2:
-		switch_speed = 0.15
-		print("cahnge cuz diff")
+	#switch_speed = 0.5
+	#if difficulty == 2:
+	#	switch_speed = 0.25
+	
 	print("switch speed is : ", switch_speed)
 
 func _input(event):
@@ -63,7 +64,7 @@ func _input(event):
 		return
 	if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right"):
 		haccu = 0
-	if event.is_action_released("ui_up"):
+	if event.is_action_pressed("ui_up"):
 		tap_pin();
 
 

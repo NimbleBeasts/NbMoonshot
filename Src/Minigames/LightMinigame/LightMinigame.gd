@@ -8,6 +8,7 @@ export var difficulty:int
 export var run_anim:bool
 
 onready var btn_parrent = $GridContainer
+onready var timer_slider = $Timer/TimerSlider
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +25,21 @@ func init_game():
 	for x in range(9):
 		var btn = btn_parrent.get_child(x)
 		btn.connect("button_up",self,"_on_button_click",[x])
+		
+	#full timer
+	timer_slider.value = timer_slider.max_value
+	set_process(true)
+	
+func _process(delta):
+	var nw = timer_slider.value - delta 
+	print(nw)
+	timer_slider.value = nw
+	
+	if( timer_slider.value < 1 ):
+		print("lost")
+		set_process(false)
+		set_result(Types.MinigameResults.Failed)
+		close()
 
 func switch_color(i):
 	var btn:TextureButton = btn_parrent.get_child(i)
