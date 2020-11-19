@@ -55,7 +55,6 @@ func _init() -> void:
 
 func _ready() -> void:
 	# sprint upgrade
-	
 	canSprint = Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
@@ -88,20 +87,22 @@ func _process(_delta: float) -> void:
 	update_light_level()
 
 	# wall dodging
-	if Input.is_action_pressed("wall_dodge"):
-		set_light_level(max(light_level - 1, 0))
-		set_state(Types.PlayerStates.WallDodge)
-		$AnimationPlayer.play("dodge")
-		block_input = true if (not has_sneak_upgrade) else false
-	elif Input.is_action_just_released("wall_dodge"):
-		visible_level = light_level
-		set_state(Types.PlayerStates.Normal)
+	if not block_input:
+		if Input.is_action_pressed("wall_dodge"):
+			set_light_level(max(light_level - 1, 0))
+			set_state(Types.PlayerStates.WallDodge)
+			$AnimationPlayer.play("dodge")
+			block_input = true if (not has_sneak_upgrade) else false
+		elif Input.is_action_just_released("wall_dodge"):
+			visible_level = light_level
+			set_state(Types.PlayerStates.Normal)
 
 	# ducking 
-	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
-		set_state(Types.PlayerStates.Duck)
-	elif Input.is_action_just_released("duck"):
-		set_state(Types.PlayerStates.Normal)
+	if not block_input:
+		if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
+			set_state(Types.PlayerStates.Duck)
+		elif Input.is_action_just_released("duck"):
+			set_state(Types.PlayerStates.Normal)
 
 	# duck walking
 	if state == Types.PlayerStates.Duck and direction != Vector2(0,0):
