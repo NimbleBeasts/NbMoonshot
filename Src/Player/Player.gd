@@ -9,6 +9,8 @@ export var normal_speed: int = 80
 export var normal_acceleration: int = 600
 export var sprint_speed: int = 160
 export var sprint_acceleration: int = 2500
+export var duckSpeed:int = 40
+export var duckAcceleration: int = 300
 
 # upgrade export variables
 export var normal_stun_battery: int = 3
@@ -52,22 +54,21 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	Global.addUpgrade(Types.UpgradeTypes.Fitness_Level2)
 	# sprint upgrade
+	
 	canSprint = Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
+	set_state(Types.PlayerStates.Normal)
 
 	# signal connections
 	#warning-ignore-all:return_value_discarded
 	Events.connect("minigame_entered", self,  "_on_minigame_entered")
-	Events.connect("minigame_exited", self, "_on_minigame_exited")
-	Events.connect("interacted_with_npc", self, "_on_interacted_npc")
-	Events.connect("npc_interaction_stopped", self, "_on_npc_interaction_stopped")
 	Events.connect("hud_note_exited", self, "_on_hud_note_exited")
 	Events.connect("hud_note_show", self, "_on_hud_note_showed")
 	Events.connect("sure_detection_num_changed", self, "onSureDetectionNumChanged")
 	Events.connect("block_player_movement", self, "onBlockPlayerMovement")
+	Events.connect("unblock_player_movement", self, "onUnblockPlayerMovement")
 
 	$AnimationPlayer.play("idle")
 
@@ -84,9 +85,8 @@ func _process(_delta: float) -> void:
 		speed = normal_speed
 		acceleration = normal_acceleration
 			
-
 	update_light_level()
-		
+
 	# wall dodging
 	if Input.is_action_pressed("wall_dodge"):
 		set_light_level(max(light_level - 1, 0))
@@ -100,11 +100,23 @@ func _process(_delta: float) -> void:
 	# ducking 
 	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
 		set_state(Types.PlayerStates.Duck)
-		$AnimationPlayer.play("duck")
-		block_input = true 
 	elif Input.is_action_just_released("duck"):
 		set_state(Types.PlayerStates.Normal)
 
+	# duck walking
+	if state == Types.PlayerStates.Duck and direction != Vector2(0,0):
+		$AnimationPlayer.play("duck_walk")
+	elif state == Types.PlayerStates.Duck and direction == Vector2(0,0):
+		$AnimationPlayer.play("duck")
+	
+	# change speed on ducking
+	if state == Types.PlayerStates.Duck:
+		speed = duckSpeed
+		acceleration = duckAcceleration
+	else:
+		speed = normal_speed
+		acceleration = normal_acceleration
+	
 	
 func _physics_process(delta: float) -> void:
 	# movement code
@@ -136,14 +148,14 @@ func _physics_process(delta: float) -> void:
 	# Only needs to check if the respective direction key for each raycast is pressed
 	# means only need to check if up is pressed when up raycast is colliding and vice versa
 	# Can't use elif since both of these can be true at same time
-	if travel_raycast_down.is_colliding():
+	if travel_raycast_down.is_colliding() and state == Types.PlayerStates.Normal:
 		var thin_area := travel_raycast_down.get_collider() as ThinArea
 		if thin_area:
 			if Input.is_action_just_pressed("travel_down"):
 				travel(thin_area.destination_down_position.y)
 				$AnimationPlayer.play("jump_down")
 				
-	if travel_raycast_up.is_colliding():
+	if travel_raycast_up.is_colliding() and state == Types.PlayerStates.Normal:
 		var thin_area := travel_raycast_up.get_collider() as ThinArea
 		if thin_area:
 			# Tweening
@@ -236,20 +248,8 @@ func do_upgrade_stuff() -> void:
 func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
 	block_input = true
-	print("Minigame entered")
 
-	
-func _on_minigame_exited(_type: int) -> void:
-	block_input = false
-	print("Minigame exited")
-
-# I feel like I can connect all of these to two functions for blocking and unblocking input because they all do the same thing anyway
-func _on_interacted_npc(_npc: Node) -> void:
-	block_input = true 
-
-func _on_npc_interaction_stopped(_npc: Node) -> void:
-	block_input = false
-
+# I will remove all these functions other than onBlockPlayerMovement and onUnblockPlayerMovement
 func _on_hud_note_exited() -> void:
 	block_input = false
 
@@ -258,7 +258,11 @@ func _on_hud_note_showed(_type: int, _text: String) -> void:
 
 func onBlockPlayerMovement() -> void:
 	block_input = true
-	
+
+func onUnblockPlayerMovement() -> void:
+	block_input = false
+	print("reached here")
+
 
 func onSureDetectionNumChanged(num: int) -> void:
 	if num >= Global.game_manager.getCurrentLevel().allowed_detections:
@@ -286,6 +290,11 @@ func set_state(value: int) -> void:
 			Types.PlayerStates.Normal:
 				$AnimationPlayer.play("idle")
 				block_input = false
+				get_tree().set_group("DuckColliders", "disabled", true)
+				get_tree().set_group("NormalColliders", "disabled", false)
+			Types.PlayerStates.Duck:
+				get_tree().set_group("DuckColliders", "disabled", false)
+				get_tree().set_group("NormalColliders", "disabled", true)
 
 # Change animation
 func animation_change(to: String) -> void:

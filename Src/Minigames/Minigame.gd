@@ -38,6 +38,7 @@ func open() -> void:
 	tween.start()
 	# Emits signal
 	Events.emit_signal("minigame_entered", minigame_type)
+	Events.emit_signal("block_player_movement")
 	is_open = true
 
 
@@ -52,6 +53,7 @@ func close() -> void:
 	is_open = false
 	# Emits signal
 	Events.emit_signal("minigame_exited", result)
+	Events.emit_signal("unblock_player_movement")
 	# emit audio notification loud if fail minigame
 	if result == Types.MinigameResults.Failed:
 		Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, owner_obj.global_position)

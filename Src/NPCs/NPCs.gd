@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 		# this is kind of a weird way to do this but it works :DDDDDDDDDDDD
 		if not dialogueRead:
 			Events.emit_signal("interacted_with_npc", self)
+			Events.emit_signal("block_player_movement")
 			interact()
 		else:
 			Events.emit_signal("hide_dialog")
@@ -31,6 +32,7 @@ func _process(delta: float) -> void:
 			Events.emit_signal("npc_interaction_stopped", self)
 	elif Input.is_action_just_pressed("ui_cancel") and player_entered:
 		Events.emit_signal("npc_interaction_stopped", self)
+		Events.emit_signal("unblock_player_movement")
 
 	
 # function for loading dialogues
