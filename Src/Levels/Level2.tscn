@@ -1,39 +1,20 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Src/Skybox/RedishSkybox.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Objects/LargeDoor.png" type="Texture" id=5]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
-[ext_resource path="res://Assets/Level/Bathroom.png" type="Texture" id=14]
-[ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Objects/WallGravitySec.png" type="Texture" id=16]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/Objects/ContolRoom1.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Objects/Sign.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Objects/ContolRoom2.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Objects/ContolRoom3.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Objects/WallPockocmoc.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Objects/Elevator.png" type="Texture" id=23]
-[ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Assets/Objects/Bookshelf.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Objects/Bookshelf2.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Objects/Tree.png" type="Texture" id=28]
-[ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Objects/WallImageEarthMoon.png" type="Texture" id=32]
-[ext_resource path="res://Assets/Objects/WallImageSatellite.png" type="Texture" id=33]
-[ext_resource path="res://Src/Objects/Flag.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Src/Guard/GuardPathLine2D.gd" type="Script" id=35]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -52,32 +33,27 @@ script = ExtResource( 1 )
 level_type = 1
 level_objectives = NodePath("../Level2/LevelObjects/Tresor")
 
-[node name="RedishSkybox" parent="." instance=ExtResource( 8 )]
-
 [node name="SpriteWalls" type="Node2D" parent="."]
 
-[node name="Bathroom" type="Sprite" parent="SpriteWalls"]
-light_mask = 3
-position = Vector2( 388, 288 )
-texture = ExtResource( 14 )
-
-[node name="Elevator" type="Sprite" parent="SpriteWalls"]
-position = Vector2( 664, 288 )
+[node name="Lift" type="Sprite" parent="SpriteWalls"]
+position = Vector2( 360, 224 )
 texture = ExtResource( 23 )
 
-[node name="Elevator2" type="Sprite" parent="SpriteWalls"]
-position = Vector2( 664, 224 )
+[node name="Lift2" type="Sprite" parent="SpriteWalls"]
+position = Vector2( 360, 160 )
 texture = ExtResource( 23 )
 
-[node name="Elevator3" type="Sprite" parent="SpriteWalls"]
-position = Vector2( 680, 160 )
+[node name="Lift3" type="Sprite" parent="SpriteWalls"]
+position = Vector2( 360, 96 )
 texture = ExtResource( 23 )
-offset = Vector2( -16, 0 )
 
-[node name="Elevator4" type="Sprite" parent="SpriteWalls"]
-position = Vector2( 680, 96 )
+[node name="Lift4" type="Sprite" parent="SpriteWalls"]
+position = Vector2( 360, 288 )
 texture = ExtResource( 23 )
-offset = Vector2( -16, 0 )
+
+[node name="Lift5" type="Sprite" parent="SpriteWalls"]
+position = Vector2( 360, 352 )
+texture = ExtResource( 23 )
 
 [node name="Rooms" type="TileMap" parent="."]
 light_mask = 3
@@ -86,7 +62,7 @@ cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 32
 occluder_light_mask = 3
 format = 1
-tile_data = PoolIntArray( 524307, 11, 0, 524309, 11, 0, 524311, 12, 0, 524312, 11, 0, 524314, 11, 0, 524316, 13, 0, 524318, 12, 0, 524319, 11, 0, 524321, 15, 0, 524322, 12, 0, 524323, 11, 0, 524326, 11, 0, 524328, 13, 0, 524330, 11, 0, 524332, 12, 0, 524333, 11, 0, 524335, 13, 0, 524337, 14, 0, 524338, 11, 0, 524340, 11, 0, 524342, 11, 0, 524344, 13, 0, 524346, 11, 0, 524348, 11, 0, 524350, 11, 0, 524353, 11, 0, 524355, 11, 0, 524357, 13, 0, 524359, 11, 0, 524361, 11, 0, 524363, 13, 0, 524365, 11, 0, 786469, 1, 0, 786496, 1, 0, 786511, 1, 0, 1048595, 32, 0, 1048597, 32, 0, 1048599, 33, 0, 1048600, 32, 0, 1048602, 32, 0, 1048604, 32, 0, 1048606, 35, 0, 1048607, 32, 0, 1048609, 36, 0, 1048610, 32, 0, 1048612, 33, 0, 1048614, 38, 0, 1048615, 37, 0, 1048616, 37, 0, 1048617, 37, 0, 1048618, 37, 0, 1048619, 37, 0, 1048620, 37, 0, 1048621, 37, 0, 1048622, 37, 0, 1048623, 40, 0, 1048626, 38, 0, 1048627, 37, 0, 1048628, 37, 0, 1048629, 37, 0, 1048630, 37, 0, 1048631, 37, 0, 1048632, 37, 0, 1048633, 37, 0, 1048634, 37, 0, 1048635, 37, 0, 1048636, 37, 0, 1048637, 37, 0, 1048638, 37, 0, 1048639, 40, 0, 1048642, 37, 0, 1048643, 39, 0, 1048644, 37, 0, 1048645, 37, 0, 1048646, 37, 0, 1048647, 37, 0, 1048648, 37, 0, 1048649, 37, 0, 1048650, 37, 0, 1048651, 37, 0, 1048652, 37, 0, 1048653, 37, 0, 1048654, 37, 0, 1310757, 1, 0, 1310799, 1, 0, 1572882, 0, 0, 1572883, 37, 0, 1572884, 37, 0, 1572885, 37, 0, 1572886, 37, 0, 1572887, 37, 0, 1572888, 37, 0, 1572889, 37, 0, 1572890, 39, 0, 1572891, 37, 0, 1572892, 37, 0, 1572893, 40, 0, 1572896, 38, 0, 1572897, 37, 0, 1572898, 37, 0, 1572899, 37, 0, 1572900, 37, 0, 1572901, 37, 0, 1572902, 37, 0, 1572903, 37, 0, 1572904, 37, 0, 1572905, 37, 0, 1572906, 37, 0, 1572907, 37, 0, 1572908, 37, 0, 1572909, 39, 0, 1572910, 37, 0, 1572911, 40, 0, 1572914, 37, 0, 1572915, 37, 0, 1572916, 37, 0, 1572917, 37, 0, 1572918, 37, 0, 1572919, 37, 0, 1572920, 37, 0, 1572921, 37, 0, 1572922, 37, 0, 1572923, 37, 0, 1572924, 37, 0, 1572925, 37, 0, 1572926, 38, 0, 1572927, 40, 0, 1572930, 37, 0, 1572931, 37, 0, 1572932, 37, 0, 1572933, 37, 0, 1572934, 37, 0, 1572935, 37, 0, 1572936, 37, 0, 1572937, 37, 0, 1572938, 37, 0, 1572939, 37, 0, 1572940, 37, 0, 1572941, 37, 0, 1572942, 38, 0, 1835087, 1, 0, 1966084, 42, 0, 1966085, 41, 0, 1966086, 41, 0, 1966087, 41, 0, 1966088, 41, 0, 1966089, 41, 0, 1966090, 41, 0, 1966091, 41, 0, 1966092, 41, 0, 1966093, 41, 0, 1966094, 41, 0, 1966095, 41, 0, 1966096, 41, 0, 1966097, 41, 0, 2097206, 16, 0, 2097207, 17, 0, 2097208, 18, 0, 2097209, 18, 0, 2097210, 18, 0, 2097211, 18, 0, 2097212, 18, 0, 2097213, 18, 0, 2097214, 18, 0, 2097215, 19, 0, 2097216, 16, 0, 2097217, 20, 0, 2097218, 20, 0, 2097219, 20, 0, 2097220, 16, 0, 2097221, 17, 0, 2097222, 18, 0, 2097223, 18, 0, 2097224, 18, 0, 2097225, 18, 0, 2097226, 18, 0, 2097227, 18, 0, 2097228, 18, 0, 2097229, 19, 0, 2097230, 16, 0, 2359349, 1, 0, 2359375, 1, 0, 2621459, 25, 0, 2621460, 26, 0, 2621461, 26, 0, 2621462, 26, 0, 2621463, 26, 0, 2621464, 26, 0, 2621465, 26, 0, 2621466, 26, 0, 2621467, 26, 0, 2621468, 26, 0, 2621469, 27, 0, 2621470, 26, 0, 2621471, 26, 0, 2621472, 28, 0, 2621473, 26, 0, 2621474, 26, 0, 2621475, 26, 0, 2621476, 26, 0, 2621477, 26, 0, 2621478, 27, 0, 2621479, 26, 0, 2621480, 26, 0, 2621481, 26, 0, 2621482, 26, 0, 2621483, 26, 0, 2621484, 27, 0, 2621485, 26, 0, 2621486, 26, 0, 2621487, 26, 0, 2621488, 26, 0, 2621489, 26, 0, 2621490, 26, 0, 2621491, 26, 0, 2621492, 28, 0, 2621493, 26, 0, 2621494, 29, 0, 2621495, 30, 0, 2621496, 30, 0, 2621497, 31, 0, 2621498, 26, 0 )
+tile_data = PoolIntArray( 1048632, 49, 0, 1048634, 49, 0, 1048636, 49, 0, 1048638, 49, 0, 1048640, 49, 0, 1048642, 49, 0, 1048644, 49, 0, 1048646, 49, 0, 1048648, 49, 0, 1048650, 49, 0, 1048652, 49, 0, 1048654, 49, 0, 1048656, 49, 0, 1048658, 49, 0, 1572882, 11, 0, 1572884, 11, 0, 1572886, 11, 0, 1572888, 11, 0, 1572890, 11, 0, 1572892, 11, 0, 1572894, 11, 0, 1572896, 11, 0, 1572898, 11, 0, 1572900, 11, 0, 1572902, 11, 0, 1572904, 11, 0, 1572912, 11, 0, 1572914, 11, 0, 1572916, 11, 0, 1572918, 11, 0, 1572920, 48, 0, 1572922, 48, 0, 1572924, 48, 0, 1572926, 48, 0, 1572928, 48, 0, 1572930, 48, 0, 1572932, 48, 0, 1572934, 48, 0, 1572936, 48, 0, 1572938, 48, 0, 1572940, 48, 0, 1572942, 48, 0, 1572944, 48, 0, 1572946, 48, 0, 1966084, 42, 0, 1966085, 41, 0, 1966086, 41, 0, 1966087, 41, 0, 1966088, 41, 0, 1966089, 41, 0, 1966090, 41, 0, 1966091, 41, 0, 1966092, 41, 0, 1966093, 41, 0, 1966094, 41, 0, 2097171, 50, 0, 2097173, 50, 0, 2097175, 50, 0, 2097177, 51, 0, 2097179, 50, 0, 2097181, 50, 0, 2097183, 51, 0, 2097185, 50, 0, 2097187, 50, 0, 2097189, 50, 0, 2097191, 50, 0, 2097201, 50, 0, 2097203, 50, 0, 2097205, 51, 0, 2097207, 50, 0, 2097209, 50, 0, 2097211, 50, 0, 2097213, 50, 0, 2097215, 50, 0, 2097217, 50, 0, 2097219, 51, 0, 2097221, 50, 0, 2097223, 50, 0, 2097225, 50, 0, 2097227, 50, 0, 2097229, 50, 0, 2097231, 50, 0, 2097233, 50, 0, 2097235, 51, 0, 2097237, 50, 0, 2097239, 51, 0, 2097241, 50, 0, 2097243, 50, 0, 2097245, 50, 0, 2097247, 50, 0, 2097249, 50, 0, 2097251, 51, 0, 2097253, 50, 0, 2097255, 50, 0, 2097257, 51, 0, 2097259, 50, 0, 2097261, 50, 0, 2359337, 1, 0, 2359344, 1, 0, 2621459, 47, 0, 2621460, 47, 0, 2621461, 47, 0, 2621462, 47, 0, 2621463, 47, 0, 2621464, 47, 0, 2621465, 47, 0, 2621466, 47, 0, 2621467, 47, 0, 2621468, 47, 0, 2621469, 47, 0, 2621470, 47, 0, 2621471, 47, 0, 2621472, 47, 0, 2621473, 47, 0, 2621474, 47, 0, 2621475, 47, 0, 2621476, 47, 0, 2621477, 47, 0, 2621478, 47, 0, 2621479, 47, 0, 2621480, 47, 0, 2621481, 47, 0, 2621488, 47, 0, 2621489, 47, 0, 2621490, 47, 0, 2621491, 47, 0, 2621492, 47, 0, 2621493, 47, 0, 2621494, 47, 0, 2621495, 47, 0, 2621496, 47, 0, 2621497, 47, 0, 2621498, 47, 0, 2621499, 47, 0, 2621500, 47, 0, 2621501, 47, 0, 2621502, 47, 0, 2621503, 47, 0, 2621504, 47, 0, 2621505, 47, 0, 2621506, 47, 0, 2621507, 47, 0, 2621508, 47, 0, 2621509, 47, 0, 2621510, 47, 0, 2621511, 47, 0, 2621512, 47, 0, 2621513, 47, 0, 2621514, 47, 0, 2621515, 47, 0, 2621516, 47, 0, 2621517, 47, 0, 2621518, 47, 0, 2621519, 47, 0, 2621520, 47, 0, 2621521, 47, 0, 2621522, 47, 0, 2621523, 47, 0, 2621524, 47, 0, 2621525, 47, 0, 2621526, 47, 0, 2621527, 47, 0, 2621528, 47, 0, 2621529, 47, 0, 2621530, 47, 0, 2621531, 47, 0, 2621532, 47, 0, 2621533, 47, 0, 2621534, 47, 0, 2621535, 47, 0, 2621536, 47, 0, 2621537, 47, 0, 2621538, 47, 0, 2621539, 47, 0, 2621540, 47, 0, 2621541, 47, 0, 2621542, 47, 0, 2621543, 47, 0, 2621544, 47, 0, 2621545, 47, 0, 2621546, 47, 0, 2621547, 47, 0, 2621548, 47, 0, 2621549, 47, 0, 2621550, 47, 0, 2621551, 47, 0 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -94,283 +70,54 @@ cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 32
 occluder_light_mask = 3
 format = 1
-tile_data = PoolIntArray( 524306, 0, 0, 524307, 0, 1, 524308, 0, 1, 524309, 0, 1, 524310, 0, 1, 524311, 0, 1, 524312, 0, 1, 524313, 0, 1, 524314, 0, 1, 524315, 0, 1, 524316, 0, 1, 524317, 0, 1, 524318, 0, 1, 524319, 0, 1, 524320, 0, 1, 524321, 0, 1, 524322, 0, 1, 524323, 0, 1, 524324, 0, 1, 524325, 0, 1, 524326, 0, 1, 524327, 0, 1, 524328, 0, 1, 524329, 0, 1, 524330, 0, 1, 524331, 0, 1, 524332, 0, 1, 524333, 0, 1, 524334, 0, 1, 524335, 0, 1, 524336, 0, 1, 524337, 0, 1, 524338, 0, 1, 524339, 0, 1, 524340, 0, 1, 524341, 0, 1, 524342, 0, 1, 524343, 0, 1, 524344, 0, 1, 524345, 0, 1, 524346, 0, 1, 524347, 0, 1, 524348, 0, 1, 524349, 0, 1, 524350, 0, 1, 524351, 0, 1, 524352, 0, 1, 524353, 0, 1, 524354, 0, 1, 524355, 0, 1, 524356, 0, 1, 524357, 0, 1, 524358, 0, 1, 524359, 0, 1, 524360, 0, 1, 524361, 0, 1, 524362, 0, 1, 524363, 0, 1, 524364, 0, 1, 524365, 0, 1, 524366, 0, 1, 524367, 0, 2, 524368, 0, 1, 524369, 0, 1, 524370, 0, 1, 524371, 0, 1, 524372, 0, 1, 524373, 0, 1, 524374, 0, 3, 589842, 0, 65536, 589861, 0, 65536, 589888, 0, 65536, 589903, 0, 65536, 589910, 0, 65536, 655378, 0, 65536, 655397, 0, 65536, 655424, 0, 65536, 655439, 0, 65536, 655446, 0, 65536, 720914, 0, 65536, 720933, 0, 65538, 720960, 0, 65538, 720975, 0, 65538, 720982, 0, 65536, 786450, 0, 65536, 786518, 0, 65536, 851986, 0, 65536, 852054, 0, 65536, 917522, 0, 65536, 917590, 0, 65536, 983058, 0, 65536, 983126, 0, 65536, 1048594, 0, 65536, 1048595, 0, 1, 1048596, 0, 1, 1048597, 0, 1, 1048598, 0, 1, 1048599, 0, 1, 1048600, 0, 1, 1048601, 0, 1, 1048602, 0, 1, 1048603, 0, 1, 1048604, 0, 1, 1048605, 0, 1, 1048606, 0, 1, 1048607, 0, 1, 1048608, 0, 1, 1048609, 0, 1, 1048610, 0, 1, 1048611, 0, 1, 1048612, 0, 1, 1048613, 0, 2, 1048614, 0, 1, 1048615, 0, 1, 1048616, 0, 1, 1048617, 0, 1, 1048618, 0, 1, 1048619, 0, 1, 1048620, 0, 1, 1048621, 0, 1, 1048622, 0, 1, 1048623, 0, 1, 1048624, 0, 1, 1048625, 0, 1, 1048626, 0, 1, 1048627, 0, 1, 1048628, 0, 1, 1048629, 0, 1, 1048630, 0, 1, 1048631, 0, 1, 1048632, 0, 1, 1048633, 0, 1, 1048634, 0, 1, 1048635, 0, 1, 1048636, 0, 1, 1048637, 0, 1, 1048638, 0, 1, 1048639, 0, 1, 1048640, 0, 1, 1048641, 0, 1, 1048642, 0, 1, 1048643, 0, 1, 1048644, 0, 1, 1048645, 0, 1, 1048646, 0, 1, 1048647, 0, 1, 1048648, 0, 1, 1048649, 0, 1, 1048650, 0, 1, 1048651, 0, 1, 1048652, 0, 1, 1048653, 0, 1, 1048654, 0, 1, 1048655, 0, 1, 1048656, 0, 0, 1048661, 0, 0, 1048662, 0, 0, 1114130, 0, 65536, 1114149, 0, 65536, 1114191, 0, 65536, 1114198, 0, 65536, 1179666, 0, 65536, 1179685, 0, 65536, 1179727, 0, 65536, 1179734, 0, 65536, 1245202, 0, 65536, 1245221, 0, 65538, 1245263, 0, 65538, 1245270, 0, 65536, 1310738, 0, 65536, 1310806, 0, 65536, 1376274, 0, 65536, 1376342, 0, 65536, 1441810, 0, 65536, 1441878, 0, 65536, 1507346, 0, 65536, 1507414, 0, 65536, 1572882, 0, 65536, 1572883, 0, 1, 1572884, 0, 1, 1572885, 0, 1, 1572886, 0, 1, 1572887, 0, 1, 1572888, 0, 1, 1572889, 0, 1, 1572890, 0, 1, 1572891, 0, 1, 1572892, 0, 1, 1572893, 0, 1, 1572894, 0, 1, 1572895, 0, 1, 1572896, 0, 1, 1572897, 0, 1, 1572898, 0, 1, 1572899, 0, 1, 1572900, 0, 1, 1572901, 0, 1, 1572902, 0, 1, 1572903, 0, 1, 1572904, 0, 1, 1572905, 0, 1, 1572906, 0, 1, 1572907, 0, 1, 1572908, 0, 1, 1572909, 0, 1, 1572910, 0, 1, 1572911, 0, 1, 1572912, 0, 1, 1572913, 0, 1, 1572914, 0, 1, 1572915, 0, 1, 1572916, 0, 1, 1572917, 0, 1, 1572918, 0, 1, 1572919, 0, 1, 1572920, 0, 1, 1572921, 0, 1, 1572922, 0, 1, 1572923, 0, 1, 1572924, 0, 1, 1572925, 0, 1, 1572926, 0, 1, 1572927, 0, 1, 1572928, 0, 1, 1572929, 0, 1, 1572930, 0, 1, 1572931, 0, 1, 1572932, 0, 1, 1572933, 0, 1, 1572934, 0, 1, 1572935, 0, 1, 1572936, 0, 1, 1572937, 0, 1, 1572938, 0, 1, 1572939, 0, 1, 1572940, 0, 1, 1572941, 0, 1, 1572942, 0, 1, 1572943, 0, 2, 1572944, 0, 0, 1572949, 0, 0, 1572950, 0, 0, 1638418, 0, 65536, 1638479, 0, 65536, 1638486, 0, 65536, 1703954, 0, 65536, 1704015, 0, 65536, 1704022, 0, 65536, 1769490, 0, 65538, 1769551, 0, 65538, 1769558, 0, 65536, 1835094, 0, 65536, 1900630, 0, 65536, 1966166, 0, 65536, 2031702, 0, 65536, 2097170, 0, 0, 2097171, 0, 1, 2097172, 0, 1, 2097173, 0, 1, 2097174, 0, 1, 2097175, 0, 1, 2097176, 0, 1, 2097177, 0, 1, 2097178, 0, 1, 2097179, 0, 1, 2097180, 0, 1, 2097181, 0, 1, 2097182, 0, 1, 2097183, 0, 1, 2097184, 0, 1, 2097185, 0, 1, 2097186, 0, 1, 2097187, 0, 1, 2097188, 0, 1, 2097189, 0, 1, 2097190, 0, 1, 2097191, 0, 1, 2097192, 0, 1, 2097193, 0, 1, 2097194, 0, 1, 2097195, 0, 1, 2097196, 0, 1, 2097197, 0, 1, 2097198, 0, 1, 2097199, 0, 1, 2097200, 0, 1, 2097201, 0, 1, 2097202, 0, 1, 2097203, 0, 1, 2097204, 0, 1, 2097205, 0, 2, 2097206, 0, 1, 2097207, 0, 1, 2097208, 0, 1, 2097209, 0, 1, 2097210, 0, 1, 2097211, 0, 1, 2097212, 0, 1, 2097213, 0, 1, 2097214, 0, 1, 2097215, 0, 1, 2097216, 0, 1, 2097217, 0, 1, 2097218, 0, 1, 2097219, 0, 1, 2097220, 0, 1, 2097221, 0, 1, 2097222, 0, 1, 2097223, 0, 1, 2097224, 0, 1, 2097225, 0, 1, 2097226, 0, 1, 2097227, 0, 1, 2097228, 0, 1, 2097229, 0, 1, 2097230, 0, 1, 2097231, 0, 1, 2097232, 0, 0, 2097237, 0, 0, 2097238, 0, 0, 2162731, 0, 65536, 2162741, 0, 65536, 2162767, 0, 65536, 2162774, 0, 65536, 2228267, 0, 65536, 2228277, 0, 65536, 2228303, 0, 65536, 2228310, 0, 65536, 2293803, 0, 65536, 2293813, 0, 65538, 2293839, 0, 65538, 2293846, 0, 65536, 2359339, 0, 65536, 2359382, 0, 65536, 2424875, 0, 65536, 2424918, 0, 65536, 2490411, 0, 65536, 2490454, 0, 65536, 2555947, 0, 65536, 2555990, 0, 65536, 2621458, 0, 0, 2621459, 0, 1, 2621460, 0, 1, 2621461, 0, 1, 2621462, 0, 1, 2621463, 0, 1, 2621464, 0, 1, 2621465, 0, 1, 2621466, 0, 1, 2621467, 0, 1, 2621468, 0, 1, 2621469, 0, 1, 2621470, 0, 1, 2621471, 0, 1, 2621472, 0, 1, 2621473, 0, 1, 2621474, 0, 1, 2621475, 0, 1, 2621476, 0, 1, 2621477, 0, 1, 2621478, 0, 1, 2621479, 0, 1, 2621480, 0, 1, 2621481, 0, 1, 2621482, 0, 1, 2621483, 0, 0, 2621484, 0, 1, 2621485, 0, 0, 2621490, 0, 0, 2621491, 0, 1, 2621492, 0, 1, 2621493, 0, 1, 2621494, 0, 1, 2621495, 0, 1, 2621496, 0, 1, 2621497, 0, 1, 2621498, 0, 1, 2621499, 0, 1, 2621500, 0, 1, 2621501, 0, 1, 2621502, 0, 1, 2621503, 0, 1, 2621504, 0, 1, 2621505, 0, 1, 2621506, 0, 1, 2621507, 0, 1, 2621508, 0, 1, 2621509, 0, 1, 2621510, 0, 1, 2621511, 0, 1, 2621512, 0, 1, 2621513, 0, 1, 2621514, 0, 1, 2621515, 0, 1, 2621516, 0, 1, 2621517, 0, 1, 2621518, 0, 1, 2621519, 0, 1, 2621520, 0, 1, 2621521, 0, 1, 2621522, 0, 1, 2621523, 0, 1, 2621524, 0, 1, 2621525, 0, 1, 2621526, 0, 131075, 2686994, 0, 65536, 2687035, 0, 65536, 2752530, 0, 65536, 2752571, 0, 65536, 2818066, 0, 65536, 2818107, 0, 65536, 2883602, 0, 65536, 2883643, 0, 65536, 2949138, 0, 65536, 2949179, 0, 65536, 3014674, 0, 131072, 3014675, 0, 1, 3014676, 0, 1, 3014677, 0, 1, 3014678, 0, 1, 3014679, 0, 1, 3014680, 0, 1, 3014681, 0, 1, 3014682, 0, 1, 3014683, 0, 1, 3014684, 0, 1, 3014685, 0, 1, 3014686, 0, 1, 3014687, 0, 1, 3014688, 0, 1, 3014689, 0, 1, 3014690, 0, 1, 3014691, 0, 1, 3014692, 0, 1, 3014693, 0, 1, 3014694, 0, 1, 3014695, 0, 1, 3014696, 0, 1, 3014697, 0, 1, 3014698, 0, 1, 3014699, 0, 1, 3014700, 0, 1, 3014701, 0, 1, 3014702, 0, 1, 3014703, 0, 1, 3014704, 0, 1, 3014705, 0, 1, 3014706, 0, 1, 3014707, 0, 1, 3014708, 0, 1, 3014709, 0, 1, 3014710, 0, 1, 3014711, 0, 1, 3014712, 0, 1, 3014713, 0, 1, 3014714, 0, 1, 3014715, 0, 131075 )
+tile_data = PoolIntArray( 524306, 0, 0, 524307, 0, 1, 524308, 0, 1, 524309, 0, 1, 524310, 0, 1, 524311, 0, 1, 524312, 0, 1, 524313, 0, 1, 524314, 0, 1, 524315, 0, 1, 524316, 0, 1, 524317, 0, 1, 524318, 0, 1, 524319, 0, 1, 524320, 0, 1, 524321, 0, 1, 524322, 0, 1, 524323, 0, 1, 524324, 0, 1, 524325, 0, 1, 524326, 0, 1, 524327, 0, 1, 524328, 0, 1, 524329, 0, 2, 524330, 0, 1, 524331, 0, 1, 524332, 0, 1, 524333, 0, 1, 524334, 0, 1, 524335, 0, 1, 524336, 0, 1, 524337, 0, 1, 524338, 0, 1, 524339, 0, 1, 524340, 0, 1, 524341, 0, 1, 524342, 0, 1, 524343, 0, 3, 524371, 0, 0, 524372, 0, 1, 524373, 0, 1, 524374, 0, 1, 524375, 0, 1, 524376, 0, 1, 524377, 0, 1, 524378, 0, 1, 524379, 0, 1, 524380, 0, 1, 524381, 0, 1, 524382, 0, 1, 524383, 0, 1, 524384, 0, 1, 524385, 0, 1, 524386, 0, 1, 524387, 0, 1, 524388, 0, 1, 524389, 0, 1, 524390, 0, 1, 524391, 0, 1, 524392, 0, 1, 524393, 0, 1, 524394, 0, 1, 524395, 0, 1, 524396, 0, 1, 524397, 0, 1, 524398, 0, 1, 524399, 0, 3, 589842, 0, 65536, 589865, 0, 65536, 589872, 0, 65536, 589879, 0, 65536, 589907, 0, 65536, 589935, 0, 65536, 655378, 0, 65536, 655401, 0, 65536, 655408, 0, 65536, 655415, 0, 65538, 655443, 0, 65536, 655471, 0, 65536, 720914, 0, 65536, 720937, 0, 65538, 720944, 0, 65538, 720979, 0, 65536, 721007, 0, 65536, 786450, 0, 65536, 786515, 0, 65536, 786543, 0, 65536, 851986, 0, 65536, 852051, 0, 65536, 852079, 0, 65536, 917522, 0, 65536, 917559, 0, 0, 917587, 0, 65536, 917615, 0, 65536, 983058, 0, 65536, 983095, 0, 65536, 983123, 0, 65536, 983151, 0, 65536, 1048594, 0, 65536, 1048595, 0, 1, 1048596, 0, 1, 1048597, 0, 1, 1048598, 0, 1, 1048599, 0, 1, 1048600, 0, 1, 1048601, 0, 1, 1048602, 0, 1, 1048603, 0, 1, 1048604, 0, 1, 1048605, 0, 1, 1048606, 0, 1, 1048607, 0, 1, 1048608, 0, 1, 1048609, 0, 1, 1048610, 0, 1, 1048611, 0, 1, 1048612, 0, 1, 1048613, 0, 1, 1048614, 0, 1, 1048615, 0, 1, 1048616, 0, 1, 1048617, 0, 2, 1048618, 0, 0, 1048623, 0, 0, 1048624, 0, 1, 1048625, 0, 1, 1048626, 0, 1, 1048627, 0, 1, 1048628, 0, 1, 1048629, 0, 1, 1048630, 0, 1, 1048631, 0, 0, 1048632, 0, 1, 1048633, 0, 1, 1048634, 0, 1, 1048635, 0, 1, 1048636, 0, 1, 1048637, 0, 1, 1048638, 0, 1, 1048639, 0, 1, 1048640, 0, 1, 1048641, 0, 1, 1048642, 0, 1, 1048643, 0, 1, 1048644, 0, 1, 1048645, 0, 1, 1048646, 0, 1, 1048647, 0, 1, 1048648, 0, 1, 1048649, 0, 1, 1048650, 0, 1, 1048651, 0, 1, 1048652, 0, 1, 1048653, 0, 1, 1048654, 0, 1, 1048655, 0, 1, 1048656, 0, 1, 1048657, 0, 1, 1048658, 0, 1, 1048659, 0, 0, 1048660, 0, 1, 1048661, 0, 1, 1048662, 0, 1, 1048663, 0, 1, 1048664, 0, 1, 1048665, 0, 1, 1048666, 0, 1, 1048667, 0, 1, 1048668, 0, 1, 1048669, 0, 1, 1048670, 0, 1, 1048671, 0, 1, 1048672, 0, 1, 1048673, 0, 1, 1048674, 0, 1, 1048675, 0, 1, 1048676, 0, 1, 1048677, 0, 1, 1048678, 0, 1, 1048679, 0, 1, 1048680, 0, 1, 1048681, 0, 1, 1048682, 0, 1, 1048683, 0, 1, 1048684, 0, 1, 1048685, 0, 1, 1048686, 0, 1, 1048687, 0, 0, 1114130, 0, 65536, 1114153, 0, 65536, 1114160, 0, 65536, 1114167, 0, 65536, 1114195, 0, 65536, 1114223, 0, 65536, 1179666, 0, 65536, 1179689, 0, 65536, 1179696, 0, 65536, 1179703, 0, 65538, 1179731, 0, 65538, 1179759, 0, 65536, 1245202, 0, 65536, 1245225, 0, 65538, 1245232, 0, 65538, 1245295, 0, 65536, 1310738, 0, 65536, 1310831, 0, 65536, 1376274, 0, 65536, 1376367, 0, 65536, 1441810, 0, 65536, 1441847, 0, 0, 1441875, 0, 0, 1441903, 0, 65536, 1507346, 0, 65536, 1507383, 0, 65536, 1507411, 0, 65536, 1507439, 0, 65536, 1572882, 0, 65536, 1572883, 0, 1, 1572884, 0, 1, 1572885, 0, 1, 1572886, 0, 1, 1572887, 0, 1, 1572888, 0, 1, 1572889, 0, 1, 1572890, 0, 1, 1572891, 0, 1, 1572892, 0, 1, 1572893, 0, 1, 1572894, 0, 1, 1572895, 0, 1, 1572896, 0, 1, 1572897, 0, 1, 1572898, 0, 1, 1572899, 0, 1, 1572900, 0, 1, 1572901, 0, 1, 1572902, 0, 1, 1572903, 0, 1, 1572904, 0, 1, 1572905, 0, 1, 1572906, 0, 0, 1572911, 0, 0, 1572912, 0, 2, 1572913, 0, 1, 1572914, 0, 1, 1572915, 0, 1, 1572916, 0, 1, 1572917, 0, 1, 1572918, 0, 1, 1572919, 0, 0, 1572947, 0, 65536, 1572948, 0, 1, 1572949, 0, 1, 1572950, 0, 1, 1572951, 0, 1, 1572952, 0, 1, 1572953, 0, 1, 1572954, 0, 1, 1572955, 0, 1, 1572956, 0, 1, 1572957, 0, 1, 1572958, 0, 1, 1572959, 0, 1, 1572960, 0, 1, 1572961, 0, 1, 1572962, 0, 1, 1572963, 0, 1, 1572964, 0, 1, 1572965, 0, 1, 1572966, 0, 1, 1572967, 0, 1, 1572968, 0, 1, 1572969, 0, 1, 1572970, 0, 1, 1572971, 0, 1, 1572972, 0, 1, 1572973, 0, 1, 1572974, 0, 1, 1572975, 0, 0, 1638418, 0, 65536, 1638441, 0, 65536, 1638448, 0, 65536, 1638455, 0, 65536, 1638483, 0, 65536, 1638511, 0, 65536, 1703954, 0, 65536, 1703977, 0, 65536, 1703984, 0, 65536, 1703991, 0, 65536, 1704019, 0, 65538, 1704047, 0, 65536, 1769490, 0, 65538, 1769513, 0, 65538, 1769520, 0, 65538, 1769527, 0, 65538, 1769583, 0, 65536, 1835119, 0, 65536, 1900655, 0, 65536, 1966163, 0, 0, 1966191, 0, 65536, 2031699, 0, 65536, 2031727, 0, 65536, 2097170, 0, 0, 2097171, 0, 1, 2097172, 0, 1, 2097173, 0, 1, 2097174, 0, 1, 2097175, 0, 1, 2097176, 0, 1, 2097177, 0, 1, 2097178, 0, 1, 2097179, 0, 1, 2097180, 0, 1, 2097181, 0, 1, 2097182, 0, 1, 2097183, 0, 1, 2097184, 0, 1, 2097185, 0, 1, 2097186, 0, 1, 2097187, 0, 1, 2097188, 0, 1, 2097189, 0, 1, 2097190, 0, 1, 2097191, 0, 1, 2097192, 0, 1, 2097193, 0, 2, 2097194, 0, 0, 2097199, 0, 0, 2097200, 0, 1, 2097201, 0, 1, 2097202, 0, 1, 2097203, 0, 1, 2097204, 0, 1, 2097205, 0, 1, 2097206, 0, 1, 2097207, 0, 1, 2097208, 0, 1, 2097209, 0, 1, 2097210, 0, 1, 2097211, 0, 1, 2097212, 0, 1, 2097213, 0, 1, 2097214, 0, 1, 2097215, 0, 1, 2097216, 0, 1, 2097217, 0, 1, 2097218, 0, 1, 2097219, 0, 1, 2097220, 0, 1, 2097221, 0, 1, 2097222, 0, 1, 2097223, 0, 1, 2097224, 0, 1, 2097225, 0, 1, 2097226, 0, 1, 2097227, 0, 1, 2097228, 0, 1, 2097229, 0, 1, 2097230, 0, 1, 2097231, 0, 1, 2097232, 0, 1, 2097233, 0, 1, 2097234, 0, 1, 2097235, 0, 0, 2097236, 0, 1, 2097237, 0, 1, 2097238, 0, 1, 2097239, 0, 1, 2097240, 0, 1, 2097241, 0, 1, 2097242, 0, 1, 2097243, 0, 1, 2097244, 0, 1, 2097245, 0, 1, 2097246, 0, 1, 2097247, 0, 1, 2097248, 0, 1, 2097249, 0, 1, 2097250, 0, 1, 2097251, 0, 1, 2097252, 0, 1, 2097253, 0, 1, 2097254, 0, 1, 2097255, 0, 1, 2097256, 0, 1, 2097257, 0, 1, 2097258, 0, 1, 2097259, 0, 1, 2097260, 0, 1, 2097261, 0, 1, 2097262, 0, 1, 2097263, 0, 0, 2162706, 0, 65536, 2162729, 0, 65536, 2162736, 0, 65536, 2162799, 0, 65536, 2228242, 0, 65536, 2228265, 0, 65536, 2228272, 0, 65536, 2228335, 0, 65536, 2293778, 0, 65536, 2293801, 0, 65538, 2293808, 0, 65538, 2293871, 0, 65536, 2359314, 0, 65536, 2359407, 0, 65536, 2424850, 0, 65536, 2424943, 0, 65536, 2490386, 0, 65536, 2490479, 0, 65536, 2555922, 0, 65536, 2556015, 0, 65536, 2621458, 0, 65536, 2621459, 0, 1, 2621460, 0, 1, 2621461, 0, 1, 2621462, 0, 1, 2621463, 0, 1, 2621464, 0, 1, 2621465, 0, 1, 2621466, 0, 1, 2621467, 0, 1, 2621468, 0, 1, 2621469, 0, 1, 2621470, 0, 1, 2621471, 0, 1, 2621472, 0, 1, 2621473, 0, 1, 2621474, 0, 1, 2621475, 0, 1, 2621476, 0, 1, 2621477, 0, 1, 2621478, 0, 1, 2621479, 0, 1, 2621480, 0, 1, 2621481, 0, 1, 2621482, 0, 1, 2621483, 0, 1, 2621484, 0, 1, 2621485, 0, 1, 2621486, 0, 1, 2621487, 0, 1, 2621488, 0, 1, 2621489, 0, 1, 2621490, 0, 1, 2621491, 0, 1, 2621492, 0, 1, 2621493, 0, 1, 2621494, 0, 1, 2621495, 0, 1, 2621496, 0, 1, 2621497, 0, 1, 2621498, 0, 1, 2621499, 0, 1, 2621500, 0, 1, 2621501, 0, 1, 2621502, 0, 1, 2621503, 0, 1, 2621504, 0, 1, 2621505, 0, 1, 2621506, 0, 1, 2621507, 0, 1, 2621508, 0, 1, 2621509, 0, 1, 2621510, 0, 1, 2621511, 0, 1, 2621512, 0, 1, 2621513, 0, 1, 2621514, 0, 1, 2621515, 0, 1, 2621516, 0, 1, 2621517, 0, 1, 2621518, 0, 1, 2621519, 0, 1, 2621520, 0, 1, 2621521, 0, 1, 2621522, 0, 1, 2621523, 0, 1, 2621524, 0, 1, 2621525, 0, 1, 2621526, 0, 1, 2621527, 0, 1, 2621528, 0, 1, 2621529, 0, 1, 2621530, 0, 1, 2621531, 0, 1, 2621532, 0, 1, 2621533, 0, 1, 2621534, 0, 1, 2621535, 0, 1, 2621536, 0, 1, 2621537, 0, 1, 2621538, 0, 1, 2621539, 0, 1, 2621540, 0, 1, 2621541, 0, 1, 2621542, 0, 1, 2621543, 0, 1, 2621544, 0, 1, 2621545, 0, 1, 2621546, 0, 1, 2621547, 0, 1, 2621548, 0, 1, 2621549, 0, 1, 2621550, 0, 1, 2621551, 0, 0, 2686994, 0, 65536, 2687087, 0, 65536, 2752530, 0, 65536, 2752623, 0, 65536, 2818066, 0, 65536, 2818159, 0, 65536, 2883602, 0, 65536, 2883695, 0, 65536, 2949138, 0, 65536, 2949231, 0, 65536, 3014674, 0, 65536, 3014767, 0, 65536, 3080210, 0, 65536, 3080303, 0, 65536, 3145746, 0, 131072, 3145747, 0, 1, 3145748, 0, 1, 3145749, 0, 1, 3145750, 0, 1, 3145751, 0, 1, 3145752, 0, 1, 3145753, 0, 1, 3145754, 0, 1, 3145755, 0, 1, 3145756, 0, 1, 3145757, 0, 1, 3145758, 0, 1, 3145759, 0, 1, 3145760, 0, 1, 3145761, 0, 1, 3145762, 0, 1, 3145763, 0, 1, 3145764, 0, 1, 3145765, 0, 1, 3145766, 0, 1, 3145767, 0, 1, 3145768, 0, 1, 3145769, 0, 1, 3145770, 0, 1, 3145771, 0, 1, 3145772, 0, 1, 3145773, 0, 1, 3145774, 0, 1, 3145775, 0, 1, 3145776, 0, 1, 3145777, 0, 1, 3145778, 0, 1, 3145779, 0, 1, 3145780, 0, 1, 3145781, 0, 1, 3145782, 0, 1, 3145783, 0, 1, 3145784, 0, 1, 3145785, 0, 1, 3145786, 0, 1, 3145787, 0, 1, 3145788, 0, 1, 3145789, 0, 1, 3145790, 0, 1, 3145791, 0, 1, 3145792, 0, 1, 3145793, 0, 1, 3145794, 0, 1, 3145795, 0, 1, 3145796, 0, 1, 3145797, 0, 1, 3145798, 0, 1, 3145799, 0, 1, 3145800, 0, 1, 3145801, 0, 1, 3145802, 0, 1, 3145803, 0, 1, 3145804, 0, 1, 3145805, 0, 1, 3145806, 0, 1, 3145807, 0, 1, 3145808, 0, 1, 3145809, 0, 1, 3145810, 0, 1, 3145811, 0, 1, 3145812, 0, 1, 3145813, 0, 1, 3145814, 0, 1, 3145815, 0, 1, 3145816, 0, 1, 3145817, 0, 1, 3145818, 0, 1, 3145819, 0, 1, 3145820, 0, 1, 3145821, 0, 1, 3145822, 0, 1, 3145823, 0, 1, 3145824, 0, 1, 3145825, 0, 1, 3145826, 0, 1, 3145827, 0, 1, 3145828, 0, 1, 3145829, 0, 1, 3145830, 0, 1, 3145831, 0, 1, 3145832, 0, 1, 3145833, 0, 1, 3145834, 0, 1, 3145835, 0, 1, 3145836, 0, 1, 3145837, 0, 1, 3145838, 0, 1, 3145839, 0, 131075 )
 
 [node name="LevelObjects" type="Node2D" parent="."]
 
 [node name="ThinArea" parent="LevelObjects" instance=ExtResource( 12 )]
-position = Vector2( 648, 264 )
+position = Vector2( 344, 136 )
 
 [node name="ThinArea2" parent="LevelObjects" instance=ExtResource( 12 )]
-position = Vector2( 648, 200 )
+position = Vector2( 344, 200 )
 
 [node name="ThinArea3" parent="LevelObjects" instance=ExtResource( 12 )]
-position = Vector2( 648, 136 )
-
-[node name="ThinArea4" parent="LevelObjects" instance=ExtResource( 12 )]
-position = Vector2( 368, 328 )
-reduced_down = 2
-
-[node name="Camera" parent="LevelObjects" instance=ExtResource( 5 )]
-position = Vector2( 400, 72 )
-
-[node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
-position = Vector2( 360, 128 )
-connected_door_path = NodePath("../../../Level2/LevelObjects/Staircase2")
-
-[node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
-position = Vector2( 360, 192 )
-connected_door_path = NodePath("../../../Level2/LevelObjects/Staircase")
-
-[node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
-position = Vector2( 170, 128 )
-keyPadCode = 1234
-
-[node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
-position = Vector2( 424, 320 )
-
-[node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 15 )]
-position = Vector2( 144, 256 )
+position = Vector2( 344, 264 )
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
 next_boss_interacted_counter = 2
 
-[node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 15 )]
-position = Vector2( 632, 320 )
-doorType = 1
-
-[node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 15 )]
-position = Vector2( 632, 256 )
-doorType = 1
-
-[node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 15 )]
-position = Vector2( 632, 192 )
-doorType = 1
-
-[node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 15 )]
-position = Vector2( 632, 128 )
-doorType = 1
-
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="SecDecal" type="Sprite" parent="LevelObjects/Decorations"]
 light_mask = 3
-position = Vector2( 460, 281 )
+position = Vector2( 532, 516 )
 texture = ExtResource( 16 )
 
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
-position = Vector2( 532, 300 )
+position = Vector2( 604, 535 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
-[node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
-light_mask = 3
-position = Vector2( 590, 294 )
-texture = ExtResource( 22 )
+[node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 488, 288 )
+texture = ExtResource( 5 )
 
-[node name="Bookshelf3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 280, 208 )
-texture = ExtResource( 26 )
-centered = false
+[node name="LargeDoor2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 1240, 296 )
+texture = ExtResource( 5 )
+offset = Vector2( -384, -7 )
 
-[node name="Bookshelf4" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 320, 208 )
-texture = ExtResource( 26 )
-centered = false
-
-[node name="Bookshelf5" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 416, 208 )
-texture = ExtResource( 26 )
-centered = false
-
-[node name="Bookshelf6" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 456, 208 )
-texture = ExtResource( 26 )
-centered = false
-
-[node name="Bookshelf7" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 544, 208 )
-texture = ExtResource( 26 )
-centered = false
-
-[node name="Bookshelf8" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 584, 208 )
-texture = ExtResource( 26 )
-centered = false
-
-[node name="Bookshelf9" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 544, 144 )
-texture = ExtResource( 26 )
-centered = false
-
-[node name="Bookshelf10" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 584, 144 )
-texture = ExtResource( 26 )
-centered = false
-
-[node name="Bookshelf11" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 416, 144 )
-texture = ExtResource( 26 )
-centered = false
-
-[node name="Bookshelf12" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 456, 144 )
-texture = ExtResource( 26 )
-centered = false
-
-[node name="Bookshelf14" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 320, 144 )
-texture = ExtResource( 26 )
-centered = false
-
-[node name="Sprite2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 312, 208 )
-texture = ExtResource( 27 )
-centered = false
-
-[node name="Sprite3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 448, 208 )
-texture = ExtResource( 27 )
-centered = false
-
-[node name="Sprite4" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 576, 208 )
-texture = ExtResource( 27 )
-centered = false
-
-[node name="Sprite5" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 576, 144 )
-texture = ExtResource( 27 )
-centered = false
-
-[node name="Sprite6" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 448, 144 )
-texture = ExtResource( 27 )
-centered = false
-
-[node name="Tree" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 168, 232 )
-texture = ExtResource( 28 )
-centered = false
-
-[node name="Sign" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 57, 228 )
-texture = ExtResource( 19 )
-
-[node name="WallPocockmoc2" type="Sprite" parent="LevelObjects/Decorations"]
-light_mask = 3
-position = Vector2( 57, 228 )
-texture = ExtResource( 22 )
-
-[node name="Desk" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 197, 112 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 31 )
-
-[node name="Desk2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 208, 176 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 31 )
-
-[node name="Painting" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 224, 160 )
-texture = ExtResource( 32 )
-
-[node name="Painting2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 584, 96 )
-texture = ExtResource( 33 )
+[node name="LargeDoor3" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 248, 296 )
+texture = ExtResource( 5 )
+offset = Vector2( 0, -7 )
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
-position = Vector2( 576, 200 )
-
-[node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
-position = Vector2( 408, 200 )
-
-[node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
-position = Vector2( 256, 200 )
-
-[node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
-position = Vector2( 224, 136 )
-
-[node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
-position = Vector2( 408, 136 )
-
-[node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
-position = Vector2( 576, 136 )
-flicker = true
-
-[node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
-position = Vector2( 576, 72 )
-
-[node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
-position = Vector2( 448, 72 )
-
-[node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
-position = Vector2( 352, 72 )
-
-[node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
-position = Vector2( 224, 72 )
-
-[node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 29 )]
-position = Vector2( 80, 256 )
-
-[node name="Note" parent="LevelObjects" instance=ExtResource( 10 )]
-position = Vector2( 176, 192 )
-text = "Secret tresor code: 1234"
-highlight = true
-type = 1
-
-[node name="Cabinet" parent="LevelObjects" instance=ExtResource( 24 )]
-position = Vector2( 234, 192 )
-type = 1
-hasBounty = true
-
-[node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 24 )]
-position = Vector2( 480, 128 )
-type = 1
-hasBounty = true
-
-[node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 24 )]
-position = Vector2( 416, 128 )
-type = 1
-hasBounty = false
-
-[node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
-position = Vector2( 480, 320 )
-type = 0
-hasBounty = true
-
-[node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
-position = Vector2( 280, 72 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
-isFlickering = true
-flickerSequence = "1110000000"
-standbyTimerAfterDetection = 3.0
-
-[node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 25 )]
-position = Vector2( 256, 72 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
-isFlickering = true
-flickerSequence = "0000111111"
-standbyTimerAfterDetection = 3.0
-
-[node name="Flag" parent="LevelObjects" instance=ExtResource( 34 )]
-position = Vector2( 104, 256 )
-flagType = 1
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
@@ -384,15 +131,15 @@ __meta__ = {
 }
 
 [node name="DeskGuard" parent="." instance=ExtResource( 30 )]
-position = Vector2( 192, 256 )
+position = Vector2( 272, 256 )
 lookDirection = 1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 168, 368 )
+position = Vector2( 48, 256 )
 z_index = 50
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
-position = Vector2( 320, 192 )
+position = Vector2( 776, 504 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
@@ -400,7 +147,7 @@ points = PoolVector2Array( 0, -16, 80, -16, 176, -16 )
 script = ExtResource( 35 )
 
 [node name="Guard2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 448, 256 )
+position = Vector2( 904, 568 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard2"]
@@ -408,7 +155,7 @@ points = PoolVector2Array( -112, -16, 24, -16, 168, -16 )
 script = ExtResource( 35 )
 
 [node name="Guard3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 584, 128 )
+position = Vector2( 1040, 440 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard3"]
