@@ -12,11 +12,11 @@ var currentText: String
 var hideWithE: bool = false
 var currentSelectedUpgrade: int = 0
 
-
-onready var dialogTween: Tween = $Dialog/Tween
+onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
 func _ready():
 	$AlarmIndicator/Label.set_text(str(detected_value))
+	dialogTypeTimer.connect("timeout", self, "onDialogTypeTimerTimeout")
 	Events.connect("light_level_changed", self, "updateLightLevel")
 	Events.connect("audio_level_changed", self, "updateAudioLevel")
 	
@@ -250,11 +250,16 @@ func hover(type):
 	$Hovers.show()
 
 
+func onDialogTypeTimerTimeout() -> void:
+	$Dialog/Text.visible_characters += 1
+
+
 func typeDialog() -> void:
 	$Dialog/Text.visible_characters = 0
-	while $Dialog/Text.visible_characters < $Dialog/Text.text.length():
-		$Dialog/Text.visible_characters += 1
-		yield(get_tree(), "idle_frame")
+	dialogTypeTimer.start()
+	# while $Dialog/Text.visible_characters < $Dialog/Text.text.length():
+	# 	$Dialog/Text.visible_characters += 1
+	# 	yield(get_tree(), "idle_frame")
 
 
 func _on_LightHover_mouse_entered():

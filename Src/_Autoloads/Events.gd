@@ -74,6 +74,9 @@ signal switch_fullscreen(value)
 # Tutorial
 signal tutorial_finished()
 
+# player
+signal block_player_movement()
+signal unblock_player_movement()
 
 ###############################################################################
 

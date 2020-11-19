@@ -24,9 +24,10 @@ func _ready() -> void:
 	
 
 func _process(_delta: float) -> void:
-	if (Input.is_action_just_pressed("interact")):
+	if Input.is_action_just_pressed("interact") and Global.game_manager.getCurrentLevel().can_change_level():
 		if Global.gameState["level"]["hasActiveMission"] and Global.gameState["level"]["lastActiveMission"] != 0:
 			$AnimationPlayer.play("open")
+			Events.emit_signal("block_player_movement")
 
 
 func _on_body_entered(body: Node) -> void:
