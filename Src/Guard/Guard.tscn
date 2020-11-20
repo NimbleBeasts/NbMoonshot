@@ -5,7 +5,7 @@
 [ext_resource path="res://Src/Notifier/Notifier.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 7.5942, 14.9364 )
+extents = Vector2( 8, 16 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "alarm"
@@ -111,7 +111,7 @@ speed = 25
 direction_change_time = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.883888, -15.1917 )
+position = Vector2( 0, -16 )
 shape = SubResource( 1 )
 
 [node name="DirectionChangeTimer" type="Timer" parent="."]
@@ -126,6 +126,7 @@ one_shot = true
 
 [node name="Sprite" type="Sprite" parent="Flippable"]
 light_mask = 3
+position = Vector2( 0, 2 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 hframes = 17
