@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 		setTimeLeftString("0" + str(int(countDownTimer.time_left)))
 		
 	if targetEnteredCamera:
-		if Input.is_action_just_pressed("stun"):
+		if Input.is_action_just_pressed("interact"):
 			set_result(Types.MinigameResults.Succeeded)
 			close()
 			
