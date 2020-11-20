@@ -4,6 +4,7 @@ var isUsed = false
 
 export(int) var keyPadCode = 0
 export(Types.Minigames) var minigameType = Types.Minigames.Keypad
+export(NodePath) var openTarget = null
 
 const lockpickSpawnerScript := preload("res://Src/Minigames/LockpickMinigame/LockpickMinigameSpawner.gd")
 const keypadSpawnerScript := preload("res://Src/Minigames/KeypadMinigame/KeypadMinigameSpawner.gd")
@@ -30,3 +31,5 @@ func openTresor():
 	$Sprite.frame = 1
 	isUsed = true
 	Events.emit_signal("tutorial_finished")
+	if openTarget:
+		get_node(openTarget).open()

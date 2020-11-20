@@ -35,7 +35,8 @@ func _ready():
 			print("Has door name")
 			lockLevel = Global.gameState[door_name]
 		
-	
+func open():
+	lockLevel = DoorLockType.open
 
 func _process(_delta):
 	if playerInArea:
