@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
 
 func showMissionBriefing(level):
-	#TODO update text
+	$MissionBriefing.setLevel(level)
 	$MissionBriefing.show()
 
 func debugShaderToggle(_d):

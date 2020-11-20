@@ -26,8 +26,16 @@ const funFacts = [
 	"The first living mammal to go into space was a dog named Laika from Russia."
 ]
 
-func _ready():
-	pass # Replace with function body.
+const text = [
+"Welcome Agent!\n\nYour first mission is to infiltrate the central archive of the Soviet Space Program and obtain plans of the Soyuz rocket. We will take some inspiration from their design and of course build a more magnificent rocket.\n\nThe plans are apparently in a safe on the 2nd floor. The code should also be hidden somewhere.",
+"Agent, your last mission was a great success. Unfortunately some details are missing in the plans. Therefore, we are now sending them directly to the research facility where a Soyuz is currently being prepared. Take a picture of the boosters with the latest Ustrian invention of the instant camera, we call it Polyroid.\nTo access the factory floor, look for an employee ID card. Perhaps one is stored in the safe of the director.",
+"Agent, this mission is a bit delicate and therefore TOP-TOP-Secret.\nI am afraid my wife is having an affair. The new Polyroid camera is very impressive. Sneak into my house tonight and provide me with evidence!",
+"Comrade, I hope they did not let English slide. For you it is still going to the USA today. We have heard that the states are planning a moon landing. We absolutely need these plans!\nIt would be an embarrassment to the great Republic of Ustria if the USA were to beat us to it.",
+"I'm pretty sure that the Americans were just fooling us and that we were only on a film set. We have another source that confirms that they are planning a moon landing and new coordinates. There the moon landing module is supposed to be built. Infiltrate the building and get us the plans."
+]
+
+func setLevel(id):
+	$BriefingLabel.bbcode_text = text[0]
 
 
 func showMissionBriefing():
