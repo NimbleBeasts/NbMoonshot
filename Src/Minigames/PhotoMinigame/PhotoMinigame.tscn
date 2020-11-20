@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Dummy.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Minigames/LightBackground.png" type="Texture" id=2]
+[ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigame.gd" type="Script" id=3]
+[ext_resource path="res://Src/Minigames/PhotoMinigame/Camera.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Minigames/sevenSegment.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 136.457, 61.7369 )
+
+[node name="PhotoMinigame" type="Node2D"]
+script = ExtResource( 3 )
+targetTexture = ExtResource( 1 )
+countDownTime = 34
+
+[node name="Camera" type="Area2D" parent="."]
+position = Vector2( 376, 84 )
+z_index = 1
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+moveSpeed = 1000.0
+
+[node name="Sprite" type="Sprite" parent="Camera"]
+scale = Vector2( 1.56983, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera"]
+position = Vector2( 36, 0 )
+shape = SubResource( 1 )
+
+[node name="Target" type="Area2D" parent="." groups=[
+"Target",
+]]
+position = Vector2( 215.447, 206.627 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Target"]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
+shape = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="CountdownTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="CountdownSprites" type="Node2D" parent="."]
+position = Vector2( 200, 108 )
+
+[node name="Time1" type="Sprite" parent="CountdownSprites"]
+position = Vector2( -4, 0 )
+texture = ExtResource( 5 )
+hframes = 12
+
+[node name="Time2" type="Sprite" parent="CountdownSprites"]
+position = Vector2( 4, 0 )
+texture = ExtResource( 5 )
+hframes = 12
