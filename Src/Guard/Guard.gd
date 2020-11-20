@@ -8,7 +8,7 @@ export var speed: int = 50
 export var direction_change_time: float = 2
 export var starting_direction: Vector2
 export var time_to_sure_detection: float = 1.5
-export var stun_duration: float = 2
+export var stun_duration: float = 10
 export var audio_suspect_distance: int = 150
 export var normal_time_to_alarm: float = 1.5
 export var extended_time_to_alarm: float = 3.5

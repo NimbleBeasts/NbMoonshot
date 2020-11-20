@@ -250,11 +250,11 @@ points = PoolVector2Array( 0, -16, 80, -16, 176, -16 )
 script = ExtResource( 35 )
 
 [node name="Guard2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 904, 568 )
+position = Vector2( 719, 320 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard2"]
-points = PoolVector2Array( -112, -16, 24, -16, 168, -16 )
+points = PoolVector2Array( -103, -16, 24, -16, 161, -16 )
 script = ExtResource( 35 )
 
 [node name="Guard3" parent="." instance=ExtResource( 4 )]
