@@ -15,15 +15,14 @@ func _ready():
 	# else:
 	# 	$Sprite.frame = 0
 	
-	if connected_door.get_node("AnimationPlayer") != null:
-		connected_door.get_node("AnimationPlayer").connect("animation_finished", self, "onConnectedDoorAnimationFinished")
-
 
 # overriden
 func interact() -> void:
 	# teleports to connected door
 	if connected_door and not animPlayer.is_playing():
 		Events.emit_signal("block_player_movement")
+		Events.emit_signal("player_enter_door")
+		print("entered door")
 		animPlayer.play("open")
 		open = true
 	else:
@@ -34,7 +33,9 @@ func onAnimationFinished(animName: String) -> void:
 	if open:
 		player.global_position = connected_door.get_node("PlayerTeleportPosition").global_position
 		connected_door.animPlayer.play_backwards("open")
+		Events.emit_signal("unblock_player_movement")
+		Events.emit_signal("player_exit_door")
+		print("exit door")
 		open = false
-	
-func onConnectedDoorAnimationFinished(animName: String) -> void:
-	Events.emit_signal("unblock_player_movement")
+		
+

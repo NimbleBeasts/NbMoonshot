@@ -77,6 +77,8 @@ signal tutorial_finished()
 # player
 signal block_player_movement()
 signal unblock_player_movement()
+signal player_enter_door()
+signal player_exit_door()
 
 ###############################################################################
 
