@@ -180,6 +180,8 @@ starting_direction = Vector2( -1, 0 )
 points = PoolVector2Array( 0, -16, -64, -16, 40, -24 )
 script = ExtResource( 35 )
 
+[node name="MinigameHolder" type="Node2D" parent="."]
+
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
 [node name="Label" type="Label" parent="HUD"]
