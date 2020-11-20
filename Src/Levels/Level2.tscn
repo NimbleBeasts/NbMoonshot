@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -33,7 +33,9 @@
 [ext_resource path="res://Assets/Objects/UssrFlagLarge.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=32]
 [ext_resource path="res://Src/Objects/Flag.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigameSpawner.gd" type="Script" id=34]
 [ext_resource path="res://Src/Guard/GuardPathLine2D.gd" type="Script" id=35]
+[ext_resource path="res://Assets/Minigames/KeyPadBackground.png" type="Texture" id=36]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -42,6 +44,9 @@ animations = [ {
 "name": "default",
 "speed": 8.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 35.4191, 43.1555 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 32 )
@@ -133,18 +138,22 @@ lockLevel = 3
 [node name="StaircaseL2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 428, 128 )
 connected_door_path = NodePath("../StaircaseL0")
+lockLevel = 0
 
 [node name="StaircaseL0" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 428, 192 )
 connected_door_path = NodePath("../StaircaseL2")
+lockLevel = 0
 
 [node name="StaircaseR1" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 704.167, 256 )
 connected_door_path = NodePath("../StaircaseR2")
+lockLevel = 0
 
 [node name="StaircaseR2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 839.92, 256 )
 connected_door_path = NodePath("../StaircaseR1")
+lockLevel = 0
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 328, 128 )
@@ -196,7 +205,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
@@ -221,6 +230,17 @@ offset = Vector2( 0, -7 )
 [node name="Soyuz" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 552, 208 )
 texture = ExtResource( 6 )
+
+[node name="PhotoMinigameSpawner" type="Area2D" parent="LevelObjects/Decorations/Soyuz"]
+script = ExtResource( 34 )
+countDownTime = 43
+targetTexture = ExtResource( 36 )
+targetColliderExtents = Vector2( 80, 30 )
+cameraMoveSpeed = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Decorations/Soyuz/PhotoMinigameSpawner"]
+position = Vector2( -0.561279, 5.05109 )
+shape = SubResource( 3 )
 
 [node name="Soyuz2" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 447, 360 )
@@ -281,27 +301,35 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 216, 200 )
+flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 288, 200 )
+flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 248, 264 )
+flicker = false
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 416, 200 )
+flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 416, 136 )
+flicker = false
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 416, 72 )
+flicker = false
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 240, 72 )
+flicker = false
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 448, 264 )
+flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 568, 264 )
@@ -310,15 +338,19 @@ flickerSequence = "1110000000"
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 688, 264 )
+flicker = false
 
 [node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 832, 264 )
+flicker = false
 
 [node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 592, 328 )
+flicker = false
 
 [node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 768, 328 )
+flicker = false
 
 [node name="Light14" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 728, 200 )
@@ -327,9 +359,11 @@ flickerSequence = "000011111110011000111000000000"
 
 [node name="Light15" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 720, 72 )
+flicker = false
 
 [node name="Light16" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 816, 72 )
+flicker = false
 
 [node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 248, 192 )
@@ -352,6 +386,9 @@ moveSpeed = 0.2
 moveDistance = 4
 moveDirection = 0
 isHorizontal = false
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 792, 192 )
@@ -359,15 +396,24 @@ rotation = -1.5708
 heigth = 5
 isStatic = false
 moveSpeed = 0.2
+moveDistance = 5
 moveDirection = 0
 isHorizontal = false
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 704, 136 )
+heigth = 7
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 19
 moveDirection = 1
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 272, 128 )
@@ -434,7 +480,7 @@ __meta__ = {
 position = Vector2( 272, 256 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 88, 256 )
+position = Vector2( 109.557, 254.992 )
 z_index = 50
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]

@@ -29,10 +29,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Guard/GuardPathLine2D.gd"
 }, {
-"base": "MinigameSpawner",
+"base": "Reference",
 "class": "KeypadMinigameSpawner",
 "language": "GDScript",
-"path": "res://Src/Minigames/KeypadMinigame/KeypadMinigameSpawner.gd"
+"path": "res://Src/Minigames/PhotoMinigame/PhotoMinigameSpawner.gd"
 }, {
 "base": "MinigameSpawner",
 "class": "LightMinigameSpawner",

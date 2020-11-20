@@ -1,4 +1,3 @@
-class_name KeypadMinigameSpawner
 extends MinigameSpawner
 
 export  var lock_code: int

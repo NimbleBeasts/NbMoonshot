@@ -263,7 +263,7 @@ func onBlockPlayerMovement() -> void:
 
 func onUnblockPlayerMovement() -> void:
 	block_input = false
-
+	print("block input false")
 
 func onSureDetectionNumChanged(num: int) -> void:
 	if num >= Global.game_manager.getCurrentLevel().allowed_detections:
