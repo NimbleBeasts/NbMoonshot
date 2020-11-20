@@ -566,6 +566,7 @@ position = Vector2( 43, 0 )
 texture = ExtResource( 6 )
 
 [node name="MissionBriefing" parent="." instance=ExtResource( 13 )]
+visible = false
 
 [node name="StartMissionButton" parent="MissionBriefing" instance=ExtResource( 16 )]
 margin_left = 256.0
