@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -24,7 +24,15 @@
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/Objects/Elevator.png" type="Texture" id=23]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=27]
+[ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Assets/Objects/WallPockocmoc.png" type="Texture" id=29]
 [ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Assets/Objects/UssrFlagLarge.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=32]
+[ext_resource path="res://Src/Objects/Flag.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Src/Guard/GuardPathLine2D.gd" type="Script" id=35]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -115,6 +123,8 @@ next_boss_interacted_counter = 2
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 328, 192 )
+lockLevel = 1
+doorType = 1
 
 [node name="DoorToTarget" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 440, 256 )
@@ -136,6 +146,46 @@ connected_door_path = NodePath("../StaircaseR2")
 position = Vector2( 839.92, 256 )
 connected_door_path = NodePath("../StaircaseR1")
 
+[node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 328, 128 )
+doorType = 1
+
+[node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 144, 256 )
+lockLevel = 2
+
+[node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 384, 128 )
+doorType = 1
+
+[node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 384, 192 )
+doorType = 1
+
+[node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 384, 256 )
+doorType = 1
+
+[node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 328, 256 )
+doorType = 1
+
+[node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 328, 320 )
+doorType = 1
+
+[node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 384, 320 )
+doorType = 1
+
+[node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 384, 384 )
+doorType = 1
+
+[node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 328, 384 )
+doorType = 1
+
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="SecDecal" type="Sprite" parent="LevelObjects/Decorations"]
@@ -146,6 +196,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
@@ -181,10 +232,104 @@ text = "Safe Pin: 4242"
 highlight = true
 type = 1
 
+[node name="Desk" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 200, 96 )
+texture = ExtResource( 27 )
+centered = false
+flip_h = true
+
+[node name="Desk2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 728, 352 )
+texture = ExtResource( 27 )
+centered = false
+flip_h = true
+
+[node name="Desk3" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 776, 352 )
+texture = ExtResource( 27 )
+centered = false
+
+[node name="Desk4" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 760, 96 )
+texture = ExtResource( 27 )
+centered = false
+
+[node name="Flag" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 720, 104 )
+texture = ExtResource( 31 )
+
+[node name="Flag2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 792, 160 )
+texture = ExtResource( 29 )
+
+[node name="Flag3" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 176, 232 )
+texture = ExtResource( 29 )
+
+[node name="Flag4" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 784, 360 )
+texture = ExtResource( 32 )
+
+[node name="Flag5" parent="LevelObjects/Decorations" instance=ExtResource( 33 )]
+position = Vector2( 40, 256 )
+flagType = 1
+
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 216, 200 )
+
+[node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 288, 200 )
+
+[node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 248, 264 )
+
+[node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 416, 200 )
+
+[node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 416, 136 )
+
+[node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 416, 72 )
+
+[node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 240, 72 )
+
+[node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 448, 264 )
+
+[node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 568, 264 )
+flicker = true
+flickerSequence = "1110000000"
+
+[node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 688, 264 )
+
+[node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 832, 264 )
+
+[node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 592, 328 )
+
+[node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 768, 328 )
+
+[node name="Light14" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 728, 200 )
+flicker = true
+flickerSequence = "000011111110011000111000000000"
+
+[node name="Light15" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 720, 72 )
+
+[node name="Light16" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 816, 72 )
 
 [node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 248, 192 )
@@ -198,16 +343,10 @@ position = Vector2( 183.577, 128 )
 keyPadCode = 4242
 openTarget = NodePath("../Doors/DoorToTarget")
 
-[node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 24 )]
-position = Vector2( 704, 136 )
-isStatic = false
-moveSpeed = 0.2
-moveDistance = 19
-moveDirection = 1
-
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 720, 172 )
 rotation = -1.5708
+heigth = 5
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 4
@@ -222,6 +361,63 @@ isStatic = false
 moveSpeed = 0.2
 moveDirection = 0
 isHorizontal = false
+
+[node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 24 )]
+position = Vector2( 704, 136 )
+isStatic = false
+moveSpeed = 0.2
+moveDistance = 19
+moveDirection = 1
+
+[node name="Cabinet" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( 272, 128 )
+type = 1
+hasBounty = false
+
+[node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( 240, 128 )
+type = 1
+hasBounty = true
+
+[node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( 400, 384 )
+type = 2
+hasBounty = false
+
+[node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( 592, 384 )
+type = 2
+hasBounty = false
+
+[node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( 696, 384 )
+type = 2
+hasBounty = false
+
+[node name="Cabinet6" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( 824, 384 )
+type = 2
+hasBounty = false
+
+[node name="Cabinet7" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( 800, 256 )
+type = 0
+hasBounty = true
+
+[node name="Cabinet8" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( 752, 256 )
+type = 0
+hasBounty = true
+
+[node name="Cabinet9" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( 872, 128 )
+type = 0
+hasBounty = true
+
+[node name="Camera" parent="LevelObjects" instance=ExtResource( 28 )]
+position = Vector2( 680, 200 )
+camDirection = 1
+isFixedCam = true
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
@@ -238,11 +434,11 @@ __meta__ = {
 position = Vector2( 272, 256 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 704, 320 )
+position = Vector2( 88, 256 )
 z_index = 50
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
-position = Vector2( 424, 320 )
+position = Vector2( 536, 384 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
@@ -250,7 +446,7 @@ points = PoolVector2Array( 0, -16, 80, -16, 176, -16 )
 script = ExtResource( 35 )
 
 [node name="Guard2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 719, 320 )
+position = Vector2( 608, 320 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard2"]
