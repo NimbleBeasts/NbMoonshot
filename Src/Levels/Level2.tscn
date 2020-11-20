@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Objects/Soyuz.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Objects/Sputnik.png" type="Texture" id=7]
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Src/Skybox/RedishSkybox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
@@ -35,6 +36,8 @@ extents = Vector2( 10, 32 )
 script = ExtResource( 1 )
 level_type = 1
 level_objectives = NodePath("../Level2/LevelObjects/Tresor")
+
+[node name="RedishSkybox" parent="." instance=ExtResource( 9 )]
 
 [node name="SpriteWalls" type="Node2D" parent="."]
 
@@ -100,7 +103,6 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
