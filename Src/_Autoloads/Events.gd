@@ -39,6 +39,9 @@ signal hud_level_transition(level) #Mission briefing or -1 for returning to HQ
 signal hud_level_transition_exited()
 signal hud_update_money(total, amount)
 signal hide_dialog()
+signal hud_mission_briefing(level)
+signal hud_mission_briefing_exited()
+
 
 signal save_game()
 

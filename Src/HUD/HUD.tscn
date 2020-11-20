@@ -566,12 +566,19 @@ position = Vector2( 43, 0 )
 texture = ExtResource( 6 )
 
 [node name="MissionBriefing" parent="." instance=ExtResource( 13 )]
-visible = false
+
+[node name="StartMissionButton" parent="MissionBriefing" instance=ExtResource( 16 )]
+margin_left = 256.0
+margin_top = 328.0
+margin_right = 384.0
+margin_bottom = 352.0
+label = "Start Mission"
 
 [node name="Shader" type="ColorRect" parent="MissionBriefing"]
 material = ExtResource( 9 )
 margin_right = 640.0
 margin_bottom = 360.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -653,6 +660,7 @@ label = "Quit"
 [connection signal="mouse_exited" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_exited"]
 [connection signal="mouse_entered" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_entered"]
 [connection signal="mouse_exited" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_exited"]
+[connection signal="button_up" from="MissionBriefing/StartMissionButton" to="." method="_on_StartMissionButton_button_up"]
 [connection signal="button_up" from="IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
 [connection signal="button_up" from="IngameMenu/Menu/ButtonSound" to="." method="_on_ButtonSound_button_up"]
 [connection signal="button_up" from="IngameMenu/Menu/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]

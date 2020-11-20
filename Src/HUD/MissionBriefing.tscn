@@ -1,19 +1,31 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Src/HUD/MissionBriefing.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/MagoFont3_32.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/HUD/MissionBriefing.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=5]
 
 [node name="MissionBriefing" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color( 0.192157, 0.192157, 0.192157, 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.807843 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 3 )

@@ -31,6 +31,7 @@ func _ready():
 	Events.connect("hide_dialog", self, "hideDialog")
 	
 	Events.connect("hud_update_money", self, "moneyUpdate")
+	Events.connect("hud_mission_briefing", self, "showMissionBriefing")
 
 	for node in $Upgrades/Grid.get_children():
 		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
@@ -45,7 +46,9 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
 
-
+func showMissionBriefing(level):
+	#TODO update text
+	$MissionBriefing.show()
 
 func debugShaderToggle(_d):
 	if $Shader.visible:
@@ -329,3 +332,8 @@ func _on_ButtonSave2_button_up():
 func _on_ButtonSave3_button_up():
 	Events.emit_signal("play_sound", "menu_click")
 	save(2)
+
+
+func _on_StartMissionButton_button_up():
+	$MissionBriefing.hide()
+	Events.emit_signal("hud_mission_briefing_exited")

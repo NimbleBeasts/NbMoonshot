@@ -32,3 +32,5 @@ func _ready():
 
 func showMissionBriefing():
 	$FunFactLabel.bbcode_text = "                " + funFacts[randi() % funFacts.size()]
+
+
