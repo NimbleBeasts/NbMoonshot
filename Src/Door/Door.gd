@@ -7,7 +7,7 @@ var player_entered: bool = false
 
 onready var connected_door = get_node_or_null(connected_door_path)
 onready var player: Player = Global.player
-
+onready var animPlayer: AnimationPlayer = get_node_or_null("AnimationPlayer")
 
 func _init() -> void:
 	set_process(false)
