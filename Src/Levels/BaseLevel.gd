@@ -25,7 +25,11 @@ func can_change_level():
 func _ready():
 	if level_objectives:
 		level_objectives = get_node(level_objectives)
-	
+
+	var minigameHolder = get_node_or_null("MinigameHolder")
+	if minigameHolder:
+		minigameHolder.scale = Vector2(0.5, 0.5)
+
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
 	# Set all decoration sprites to correct light level 

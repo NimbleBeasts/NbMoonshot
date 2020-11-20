@@ -20,7 +20,7 @@ targetTexture = ExtResource( 1 )
 countDownTime = 34
 
 [node name="Camera" type="Area2D" parent="."]
-position = Vector2( 265.413, 53.7889 )
+position = Vector2( 43.0313, 5.03141 )
 z_index = 2
 script = ExtResource( 4 )
 __meta__ = {
@@ -39,7 +39,7 @@ shape = SubResource( 1 )
 [node name="Target" type="Area2D" parent="." groups=[
 "Target",
 ]]
-position = Vector2( 146.167, 89.2939 )
+position = Vector2( -76.2147, 40.5364 )
 z_index = 1
 __meta__ = {
 "_edit_group_": true
@@ -58,7 +58,8 @@ wait_time = 5.0
 one_shot = true
 
 [node name="CountdownSprites" type="Node2D" parent="."]
-position = Vector2( 167.895, 15.9245 )
+position = Vector2( -54.4867, -32.833 )
+scale = Vector2( 2, 2 )
 z_index = 7
 
 [node name="Time1" type="Sprite" parent="CountdownSprites"]
@@ -73,6 +74,6 @@ hframes = 12
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 240.384, 68.3927 )
+position = Vector2( 16.8131, 17.2568 )
 scale = Vector2( 0.582179, 0.444074 )
 texture = ExtResource( 6 )

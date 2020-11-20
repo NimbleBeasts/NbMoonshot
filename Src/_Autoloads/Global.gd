@@ -192,7 +192,6 @@ func migrateConfig(data):
 	return data
 
 
-
 # Set Fullscreen Mode
 func setFullscreen(val: bool):
 	userConfig.fullscreen = val

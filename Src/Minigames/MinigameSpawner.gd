@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 func create_minigame() -> Minigame:
 	var minigame_instance: Minigame = minigame_scene.instance()
 	
-	game_manager.levelNode.get_node("HUD").add_child(minigame_instance)
+	game_manager.levelNode.get_node("MinigameHolder").add_child(minigame_instance)
 	minigame_instance.owner_obj = self # sets owner obj to self so it has a reference to this node
 	
 	

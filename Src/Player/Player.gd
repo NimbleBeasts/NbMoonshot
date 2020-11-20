@@ -76,6 +76,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	Global.screen_center = global_position
 	# changed between speeds depending on whether sprinting or not
 	if Input.is_action_pressed("sprint") and canSprint:
 		speed = sprint_speed

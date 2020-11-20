@@ -5,8 +5,8 @@ var direction: Vector2
 
 
 func _process(delta: float) -> void:
-	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
 	position += (direction * moveSpeed) * delta
 

@@ -6,7 +6,6 @@ export(DoorLockType) var lockLevel = DoorLockType.open
 var open: bool = false
 
 func _ready():
-	z_index = player.z_index + 15
 	animPlayer.connect("animation_finished", self, "onAnimationFinished")
 	lockLevel = DoorLockType.locked
 	$Sprite.frame = 0

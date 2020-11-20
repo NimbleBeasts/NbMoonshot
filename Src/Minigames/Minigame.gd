@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 # Basically open and close minigame are just tweening the minigame position 
 func open() -> void:
 	if not newTween.is_active():
-		var screen_center := get_viewport_rect().size / 2
+		var screen_center: Vector2 = get_viewport_rect().size / 2
 		# tweening position 
 		#warning-ignore:return_value_discarded
 		newTween.interpolate_property(self, "global_position", 
@@ -48,7 +48,8 @@ func open() -> void:
 
 func close() -> void:
 	if not newTween.is_active():
-		var screen_bottom_center := Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y + 500)
+		var screenCenter: Vector2 = get_viewport_rect().size / 2
+		var screen_bottom_center: Vector2 = Vector2(screenCenter.x, screenCenter.y + 500)
 		# tweening position 
 		#warning-ignore:return_value_discarded
 		newTween.interpolate_property(self, "global_position", 
@@ -64,6 +65,7 @@ func close() -> void:
 		if result == Types.MinigameResults.Failed:
 			Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, owner_obj.global_position)
 		print('closed minigame')
+
 
 func set_result(value: int):
 	print("result: " + str(value))
