@@ -10,10 +10,12 @@ var owner_obj # the door that owns this minigame
 var is_open: bool = false
 
 onready var tween: Tween = $Tween
+onready var newTween: Tween = Tween.new()
 
 func _ready() -> void:
+	add_child(newTween)
 	#warning-ignore:return_value_discarded
-	tween.connect("tween_all_completed", self, "_on_tween_all_completed")
+	newTween.connect("tween_all_completed", self, "_on_tween_all_completed")
 	set_result(Types.MinigameResults.Doing)
 
 
@@ -32,24 +34,25 @@ func open() -> void:
 	var screen_center := get_viewport_rect().size / 2
 	# tweening position 
 	#warning-ignore:return_value_discarded
-	tween.interpolate_property(self, "global_position", 
+	newTween.interpolate_property(self, "global_position", 
 			global_position, screen_center, 0.2, Tween.TRANS_LINEAR)
 	#warning-ignore:return_value_discarded
-	tween.start()
+	newTween.start()
 	# Emits signal
 	Events.emit_signal("minigame_entered", minigame_type)
 	Events.emit_signal("block_player_movement")
 	is_open = true
+	print("open minigame")
 
-
+	
 func close() -> void:
 	var screen_bottom_center := Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y + 500)
 	# tweening position 
 	#warning-ignore:return_value_discarded
-	tween.interpolate_property(self, "global_position", 
+	newTween.interpolate_property(self, "global_position", 
 			global_position, screen_bottom_center, 0.2, Tween.TRANS_LINEAR)
 	#warning-ignore:return_value_discarded
-	tween.start()
+	newTween.start()
 	is_open = false
 	# Emits signal
 	Events.emit_signal("minigame_exited", result)
@@ -57,7 +60,7 @@ func close() -> void:
 	# emit audio notification loud if fail minigame
 	if result == Types.MinigameResults.Failed:
 		Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, owner_obj.global_position)
-
+	print('closed minigame')
 
 func set_result(value: int):
 	print("result: " + str(value))
@@ -70,3 +73,4 @@ func _on_tween_all_completed() -> void:
 	match result:
 		Types.MinigameResults.Succeeded, Types.MinigameResults.Failed:
 			queue_free()
+			print("reached here?")

@@ -14,7 +14,7 @@ enum DetectionLevels{Possible, Sure}
 enum UpgradeTypes {Taser_Extended_Battery, Taser_Voltage, False_Alarm, Fitness_Level2, Sneak, DarkNet, Lockpick_Level2, Distraction}
 
 # Minigames
-enum Minigames{Test, Keypad, WireCut, Lockpick}
+enum Minigames{Test, Keypad, WireCut, Lockpick, Photo}
 enum MinigameResults{Failed, Succeeded, Doing}
 
 # Objects

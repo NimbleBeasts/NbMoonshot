@@ -33,6 +33,7 @@ func _base_process(_delta: float) -> void:
 func _process(_delta: float) -> void:
 	_base_process(_delta)
 	
+	
 func create_minigame() -> Minigame:
 	var minigame_instance: Minigame = minigame_scene.instance()
 	
