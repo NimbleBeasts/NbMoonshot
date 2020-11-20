@@ -136,7 +136,7 @@ position = Vector2( 7, 0.5 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
 position = Vector2( -0.943878, -0.471939 )
-polygon = PoolVector2Array( -6.05612, -24.0281, 57.9439, -32.0281, 57.9439, -0.028061 )
+polygon = PoolVector2Array( -6.05612, -24.0281, 81.9439, -32.0281, 81.9439, -0.028061 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
