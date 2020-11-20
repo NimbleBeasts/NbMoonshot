@@ -210,6 +210,12 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("interact") and nextText == "" and $Dialog.visible:
 		hideDialog()
 
+	# hide when press E in note
+	if Input.is_action_just_pressed("interact"):
+		if $Note.visible:
+			$Note.hide()
+			Events.emit_signal("hud_note_exited")
+
 
 func updateLightLevel(newLightLevel):
 	match newLightLevel:
