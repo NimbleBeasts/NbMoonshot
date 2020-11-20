@@ -51,7 +51,7 @@ func move_along_points() -> void:
 	if enabled:
 		for i in global_points.size():
 			if i == global_points.size() - 1:
-				global_points.invert() 
+				global_points.invert()
 				emit_signal("loop_finished")
 			if enabled:
 				next_point = global_points[i]

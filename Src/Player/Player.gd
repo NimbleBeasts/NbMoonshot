@@ -263,12 +263,12 @@ func onBlockPlayerMovement() -> void:
 
 func onUnblockPlayerMovement() -> void:
 	block_input = false
-	print("reached here")
 
 
 func onSureDetectionNumChanged(num: int) -> void:
 	if num >= Global.game_manager.getCurrentLevel().allowed_detections:
 		set_process(false)
+		block_input = true
 		$AnimationPlayer.play("lose")
 
 
