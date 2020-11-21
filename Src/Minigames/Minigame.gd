@@ -8,8 +8,9 @@ export (Types.Minigames) var minigame_type # this is for emitting correct type o
 var result: int
 var owner_obj # the door that owns this minigame
 var is_open: bool = false
+var canCloseMinigame: bool = true
 
-onready var tween: Tween = $Tween
+onready var tween: Tween = get_node_or_null("Tween")
 onready var newTween: Tween = Tween.new()
 
 func _ready() -> void:
@@ -25,7 +26,7 @@ func _process(_delta: float) -> void:
 			if Input.is_action_just_pressed("open_minigame"):
 				open()
 				
-			if Input.is_action_just_pressed("close_minigame"):
+			if Input.is_action_just_pressed("close_minigame") and canCloseMinigame:
 				close()		
 	
 	
