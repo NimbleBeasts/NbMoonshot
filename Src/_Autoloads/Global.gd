@@ -199,6 +199,7 @@ func setFullscreen(val: bool):
 	
 	switchFullscreen()
 
+
 # Perform Fullscreen Switch
 func switchFullscreen():
 	if not userConfig.fullscreen:

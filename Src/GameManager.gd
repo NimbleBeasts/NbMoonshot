@@ -101,6 +101,9 @@ func reloadLevel():
 func getCurrentLevel():
 	return levelNode
 
+func getCurrentLevelIndex() -> int:
+	return Global.levels.find(levelNode.filename)
+
 
 func loadNextQuest() -> void:
 	if Global.gameState["level"]["hasActiveMission"] and not Global.gameState["level"]["missionIsTutorial"]:

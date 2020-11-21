@@ -35,10 +35,12 @@ const text = [
 ]
 
 func setLevel(id):
-	$BriefingLabel.bbcode_text = text[0]
+	# subtract 1 because of hq level 
+	$BriefingLabel.bbcode_text = text[id - 1]
 
 
 func showMissionBriefing():
+	randomize()
 	$FunFactLabel.bbcode_text = "                " + funFacts[randi() % funFacts.size()]
 
 

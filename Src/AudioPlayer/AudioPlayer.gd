@@ -83,5 +83,6 @@ func _on_Music_finished():
 	pass # Replace with function body.
 
 func playRandomSound(array: Array) -> void:
+	randomize()
 	randomSound.stream = array[randi() % array.size()]
 	randomSound.play()
