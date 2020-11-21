@@ -155,22 +155,18 @@ isFixedCam = true
 position = Vector2( 232, 256 )
 z_index = 0
 connected_door_path = NodePath("../StaircaseL2_1")
-lockLevel = 0
 
 [node name="StaircaseL2_1" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 232, 320 )
 connected_door_path = NodePath("../StaircaseL1")
-lockLevel = 0
 
 [node name="StaircaseL2_2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 288, 320 )
 connected_door_path = NodePath("../StaircaseL3")
-lockLevel = 0
 
 [node name="StaircaseL3" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 136, 384 )
 connected_door_path = NodePath("../StaircaseL2_2")
-lockLevel = 0
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 520, 320 )

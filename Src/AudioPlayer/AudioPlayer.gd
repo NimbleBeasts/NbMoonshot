@@ -62,11 +62,21 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 				$MinigameSounds/Keypad/KeypadInputCorrect.play()
 			"keypad_input_wrong":
 				$MinigameSounds/Keypad/KeypadInputWrong.play()
+			"door_wooden_open":
+				$DoorSounds/WoodenOpen.play()
+			"door_wooden_close":
+				$DoorSounds/WoodenClose.play()
+			"door_metal_open":
+				$DoorSounds/MetalOpen.play()
+			"door_metal_close":
+				$DoorSounds/MetalClose.play()
+			"lockpick_hit":
+				$MinigameSounds/Lockpick/Hit.play()
+			"lockpick_miss":
+				$MinigameSounds/Lockpick/Miss.play()
 			_:
 				print("error: sound not found - name: " + str(sound))
 
-
-		
 
 # Music Loop?
 func _on_Music_finished():

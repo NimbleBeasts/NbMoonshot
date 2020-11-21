@@ -73,10 +73,19 @@ func interact(run_sub):
 					# Right Side
 					$Sprite.scale.x = -1
 			$AnimationPlayer.play("open_door")
+			# playing sound
+			if doorType == DoorType.wooden:
+				Events.emit_signal("play_sound", "door_wooden_open")
+			else:
+				Events.emit_signal("play_sound", "door_metal_open")
 		else:
 			# Close Animation
 			$AnimationPlayer.play_backwards("open_door")
-	
+			if doorType == DoorType.wooden:
+				Events.emit_signal("play_sound", "door_wooden_close")
+			else:
+				Events.emit_signal("play_sound", "door_metal_close")
+
 	#try to run sub events if needed and they exist
 	if run_sub:
 		try_sub_emit()
