@@ -75,6 +75,10 @@ position = Vector2( 144, 256 )
 lockLevel = 1
 doorType = 1
 
+[node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 14 )]
+position = Vector2( 72, 256 )
+lockLevel = 1
+
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
 margin_top = -2000.0

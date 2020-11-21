@@ -10,7 +10,6 @@ script = ExtResource( 1 )
 max_x = 80
 move_up = 48
 hit_range = 8
-switch_speed = 0.1
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 2 )

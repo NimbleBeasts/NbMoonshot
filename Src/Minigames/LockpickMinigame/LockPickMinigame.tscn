@@ -47,7 +47,7 @@ position = Vector2( -9, -25 )
 texture = ExtResource( 5 )
 
 [node name="LockpickOutline" type="Sprite" parent="."]
-z_index = 1
+z_index = 6
 z_as_relative = false
 texture = ExtResource( 2 )
 __meta__ = {
@@ -56,7 +56,7 @@ __meta__ = {
 
 [node name="LockpickLock" type="Sprite" parent="."]
 position = Vector2( 72, 0 )
-z_index = 6
+z_index = 7
 z_as_relative = false
 texture = ExtResource( 4 )
 
