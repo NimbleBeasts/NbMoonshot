@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
@@ -17,6 +17,12 @@
 [ext_resource path="res://Src/SFX/fail.wav" type="AudioStream" id=15]
 [ext_resource path="res://Src/SFX/camera_alarm.wav" type="AudioStream" id=16]
 [ext_resource path="res://Src/SFX/camera_beep.wav" type="AudioStream" id=17]
+[ext_resource path="res://Src/SFX/wirecut.wav" type="AudioStream" id=18]
+[ext_resource path="res://Src/SFX/keypad_clear.wav" type="AudioStream" id=19]
+[ext_resource path="res://Src/SFX/keypad_input.wav" type="AudioStream" id=20]
+[ext_resource path="res://Src/SFX/input_correct.wav" type="AudioStream" id=21]
+[ext_resource path="res://Src/SFX/input_wrong.wav" type="AudioStream" id=22]
+[ext_resource path="res://Src/SFX/menu_click.wav" type="AudioStream" id=23]
 
 [node name="AudioPlayer" type="Node2D"]
 script = ExtResource( 2 )
@@ -24,7 +30,7 @@ guardAlarmSounds = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtRe
 guardSuspiciousSounds = [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ) ]
 
 [node name="MenuClick" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )
+stream = ExtResource( 23 )
 volume_db = -16.0
 pitch_scale = 0.6
 bus = "Sound"
@@ -61,6 +67,23 @@ stream = ExtResource( 14 )
 
 [node name="MinigameFail" type="AudioStreamPlayer2D" parent="MinigameSounds"]
 stream = ExtResource( 15 )
+
+[node name="WireCut" type="AudioStreamPlayer2D" parent="MinigameSounds"]
+stream = ExtResource( 18 )
+
+[node name="Keypad" type="Node2D" parent="MinigameSounds"]
+
+[node name="KeypadClear" type="AudioStreamPlayer2D" parent="MinigameSounds/Keypad"]
+stream = ExtResource( 19 )
+
+[node name="KeypadInput" type="AudioStreamPlayer2D" parent="MinigameSounds/Keypad"]
+stream = ExtResource( 20 )
+
+[node name="KeypadInputCorrect" type="AudioStreamPlayer2D" parent="MinigameSounds/Keypad"]
+stream = ExtResource( 21 )
+
+[node name="KeypadInputWrong" type="AudioStreamPlayer2D" parent="MinigameSounds/Keypad"]
+stream = ExtResource( 22 )
 
 [node name="CameraSounds" type="Node2D" parent="."]
 

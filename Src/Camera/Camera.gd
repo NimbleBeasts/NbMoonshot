@@ -51,6 +51,7 @@ func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 	Events.emit_signal("play_sound", "camera_alarm")
 
+	
 func set_state(new_state) -> void:
 	if state != new_state:
 		state = new_state
@@ -66,7 +67,7 @@ func set_state(new_state) -> void:
 				Events.emit_signal("play_sound", "camera_beep")
 				$AnimationPlayer.stop()
 
-				
+
 func animation(anim):
 	if $AnimationPlayer.current_animation != anim:
 		$AnimationPlayer.play(anim)

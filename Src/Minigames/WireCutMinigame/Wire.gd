@@ -18,6 +18,7 @@ func _process(delta: float) -> void:
 		if Input.is_mouse_button_pressed(BUTTON_LEFT) and not is_cut:
 			cut()
 			emit_signal("wire_cut", color_type)
+			Events.emit_signal("play_sound", "wirecut")
 
 func cut():
 	is_cut = true

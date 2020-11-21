@@ -37,7 +37,7 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 			"jump_down":
 				$PlayerSounds/JumpDown.play()
 			"alarm":
-				playRandomSound(guardAlarmSounds)
+				playRandomSound(guardAlarmSounds)			# match conditions go brrrrrrr
 			"jump_up":
 				$PlayerSounds/JumpUp.play()
 			"suspicious":
@@ -52,6 +52,16 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 				$CameraSounds/Alarm.play()
 			"camera_beep":
 				$CameraSounds/Beep.play()
+			"wirecut":
+				$MinigameSounds/WireCut.play()
+			"keypad_clear":
+				$MinigameSounds/Keypad/KeypadClear.play()
+			"keypad_input":
+				$MinigameSounds/Keypad/KeypadInput.play()
+			"keypad_input_correct":
+				$MinigameSounds/Keypad/KeypadInputCorrect.play()
+			"keypad_input_wrong":
+				$MinigameSounds/Keypad/KeypadInputWrong.play()
 			_:
 				print("error: sound not found - name: " + str(sound))
 
