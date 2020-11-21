@@ -27,10 +27,10 @@ z_index = 32
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -16 )
-z_index = 10
+position = Vector2( -8, -32 )
 z_as_relative = false
 texture = ExtResource( 1 )
+centered = false
 hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

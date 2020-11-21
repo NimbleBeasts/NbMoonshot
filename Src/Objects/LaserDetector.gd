@@ -142,6 +142,8 @@ func _on_FlickerTimer_timeout():
 
 		
 func deactivate() -> void:
+	$Top.frame = 2
+	$Bottom.frame = 2
 	set_physics_process(false)
 	$LaserBeam.hide() # is this correct? 
 	$OffTimer.stop()
