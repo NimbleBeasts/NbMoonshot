@@ -10,6 +10,10 @@ export var run_anim:bool
 onready var btn_parrent = $GridContainer
 onready var timer_slider = $Timer/TimerSlider
 
+onready var textureNormal = preload("res://Assets/Minigames/LightButton.png")
+onready var textureActive = preload("res://Assets/Minigames/LightButtonActive.png")
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	init_game()
@@ -43,10 +47,10 @@ func _process(delta):
 
 func switch_color(i):
 	var btn:TextureButton = btn_parrent.get_child(i)
-	if btn.modulate == Color.green :
-		btn.modulate = Color.white
+	if btn.texture_normal == textureActive:
+		btn.texture_normal = textureNormal
 	else:
-		btn.modulate = Color.green
+		btn.texture_normal = textureActive
 
 func get_neigbhurs(i):
 	var ng = []
@@ -68,7 +72,7 @@ func _on_button_click(what):
 
 func check_win():
 	for b in btn_parrent.get_children():
-		if b.modulate == normal_color:
+		if b.texture_normal == textureNormal:
 			return
 	print("Win")
 	yield(get_tree().create_timer(0.25), "timeout")

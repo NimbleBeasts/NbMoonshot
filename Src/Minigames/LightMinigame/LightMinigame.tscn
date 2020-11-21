@@ -20,12 +20,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -28.0
-margin_top = -28.0
-margin_right = 28.0
-margin_bottom = 28.0
+margin_left = -31.0
+margin_top = -33.0
+margin_right = 33.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/vseparation = 2
+custom_constants/hseparation = 7
 columns = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -40,8 +42,8 @@ __meta__ = {
 }
 
 [node name="btn1" type="TextureButton" parent="GridContainer"]
-margin_left = 20.0
-margin_right = 36.0
+margin_left = 23.0
+margin_right = 39.0
 margin_bottom = 16.0
 texture_normal = ExtResource( 2 )
 __meta__ = {
@@ -49,8 +51,8 @@ __meta__ = {
 }
 
 [node name="btn2" type="TextureButton" parent="GridContainer"]
-margin_left = 40.0
-margin_right = 56.0
+margin_left = 46.0
+margin_right = 62.0
 margin_bottom = 16.0
 texture_normal = ExtResource( 2 )
 __meta__ = {
@@ -58,58 +60,58 @@ __meta__ = {
 }
 
 [node name="btn3" type="TextureButton" parent="GridContainer"]
-margin_top = 20.0
+margin_top = 18.0
 margin_right = 16.0
-margin_bottom = 36.0
+margin_bottom = 34.0
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btn4" type="TextureButton" parent="GridContainer"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 36.0
-margin_bottom = 36.0
+margin_left = 23.0
+margin_top = 18.0
+margin_right = 39.0
+margin_bottom = 34.0
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btn5" type="TextureButton" parent="GridContainer"]
-margin_left = 40.0
-margin_top = 20.0
-margin_right = 56.0
-margin_bottom = 36.0
+margin_left = 46.0
+margin_top = 18.0
+margin_right = 62.0
+margin_bottom = 34.0
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btn6" type="TextureButton" parent="GridContainer"]
-margin_top = 40.0
+margin_top = 36.0
 margin_right = 16.0
-margin_bottom = 56.0
+margin_bottom = 52.0
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btn7" type="TextureButton" parent="GridContainer"]
-margin_left = 20.0
-margin_top = 40.0
-margin_right = 36.0
-margin_bottom = 56.0
+margin_left = 23.0
+margin_top = 36.0
+margin_right = 39.0
+margin_bottom = 52.0
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="btn8" type="TextureButton" parent="GridContainer"]
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 56.0
-margin_bottom = 56.0
+margin_left = 46.0
+margin_top = 36.0
+margin_right = 62.0
+margin_bottom = 52.0
 texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -129,8 +131,10 @@ __meta__ = {
 }
 
 [node name="TimerSlider" type="TextureProgress" parent="Timer"]
-margin_right = 50.0
-margin_bottom = 5.0
+margin_left = -6.0
+margin_top = -11.0
+margin_right = 56.0
+margin_bottom = -3.0
 max_value = 25.0
 step = 0.0
 value = 25.0

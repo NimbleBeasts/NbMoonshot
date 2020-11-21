@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
+[ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/Objects/Elevator.png" type="Texture" id=23]
 [ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=30]
@@ -68,6 +69,11 @@ centered = false
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="DoorWall" parent="LevelObjects" instance=ExtResource( 14 )]
+position = Vector2( 144, 256 )
+lockLevel = 1
+doorType = 1
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
