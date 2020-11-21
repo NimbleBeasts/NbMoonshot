@@ -161,7 +161,8 @@ doorType = 1
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 144, 256 )
-lockLevel = 2
+lockLevel = 1
+door_name = "Level2-Door1"
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 384, 128 )
@@ -205,6 +206,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
