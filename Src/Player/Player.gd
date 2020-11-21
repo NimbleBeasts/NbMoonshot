@@ -161,7 +161,8 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("travel_down"):
 				travel(thin_area.destination_down_position.y)
 				$AnimationPlayer.play("jump_down")
-				
+				Events.emit_signal("play_sound", "jump_down")
+
 	if travel_raycast_up.is_colliding() and state == Types.PlayerStates.Normal:
 		var thin_area := travel_raycast_up.get_collider() as ThinArea
 		if thin_area:
@@ -169,6 +170,7 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("travel_up"):
 				travel(thin_area.destination_up_position.y)
 				$AnimationPlayer.play("jump_up")
+				Events.emit_signal("play_sound", "jump_up")
 	
 	# stunning
 	if state == Types.PlayerStates.Normal and stun_battery_level > 0 :
@@ -208,6 +210,7 @@ func travel(target_pos: float) -> void:
 func stunning() -> void:
 	if Input.is_action_just_pressed("stun"):
 		$AnimationPlayer.play("taser")
+		Events.emit_signal("play_sound", "taser_deploy")
 		if stun_raycast.is_colliding():
 			var hit = stun_raycast.get_collider()		
 			
@@ -218,12 +221,14 @@ func stunning() -> void:
 					guard.stun(stun_duration)
 					stun_battery_level -= 1
 					Events.emit_signal("taser_fired", stun_battery_level)
+					Events.emit_signal("play_sound", "taser_hit")
 			if hit.get_script() == Doll:
 				print("Stunning doll")
 				var doll := hit as Doll
 				doll.stun(stun_duration)
 				stun_battery_level -= 1
 				Events.emit_signal("taser_fired", stun_battery_level)
+				Events.emit_signal("play_sound", "taser_hit")
 
 				
 func do_upgrade_stuff() -> void:

@@ -72,7 +72,9 @@ func set_result(value: int):
 	if result != value:
 		result = value
 		emit_signal("result_changed", result) # connects to the owner_obj object
-		
+		if result == Types.MinigameResults.Failed:
+			Events.emit_signal("play_sound", "minigame_fail")
+			
 		
 func _on_tween_all_completed() -> void:
 	match result:

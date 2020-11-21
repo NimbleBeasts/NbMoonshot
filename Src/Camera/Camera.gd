@@ -49,7 +49,7 @@ func _on_FOV_area_exited(area: Area2D) -> void:
 
 func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-
+	Events.emit_signal("play_sound", "camera_alarm")
 
 func set_state(new_state) -> void:
 	if state != new_state:
@@ -63,8 +63,10 @@ func set_state(new_state) -> void:
 				if $SureDetectionTimer.is_stopped():
 					$SureDetectionTimer.start()
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
-	
+				Events.emit_signal("play_sound", "camera_beep")
+				$AnimationPlayer.stop()
 
+				
 func animation(anim):
 	if $AnimationPlayer.current_animation != anim:
 		$AnimationPlayer.play(anim)

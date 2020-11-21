@@ -92,6 +92,7 @@ func _process(_delta: float) -> void:
 			if body.is_in_group("Guard"):
 				if body.state == Types.GuardStates.Stunned:
 					Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
+					Events.emit_signal("play_sound", "alarm")
 					check_for_stunned = false
 
 
@@ -118,6 +119,8 @@ func detectPlayerIfClose() -> void:
 				guardPathLine.moveToPoint(player.global_position)
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
+					Events.emit_signal("play_sound", "suspicious")
+					guardPathLine.stopAllMovement()
 				if player.global_position.distance_to(global_position) < playerDetectDistance:
 					set_state(Types.GuardStates.PlayerDetected)
 
@@ -206,6 +209,8 @@ func set_state(new_state) -> void:
 			Types.GuardStates.Suspect:
 				guardPathLine.stopAllMovement()
 				emit_signal("stop_movement")
+				Events.emit_signal("play_sound", "suspicious")
+				print("play sus sound")
 				$Notifier.popup(Types.NotifierTypes.Question)
 			Types.GuardStates.Wander:
 				$Notifier.remove()
@@ -237,6 +242,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			$Notifier.remove()
 		"alarm":
 			Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
+			Events.emit_signal("play_sound", "alarm")
 		"stand_up":
 			set_state(Types.GuardStates.Wander)
 			emit_signal("start_movement")

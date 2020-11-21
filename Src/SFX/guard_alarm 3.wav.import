@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/guard_alarm 3.wav-ed50ce7f236c085fbef4d33b74f0c547.sample"
+
+[deps]
+
+source_file="res://Src/SFX/guard_alarm 3.wav"
+dest_files=[ "res://.import/guard_alarm 3.wav-ed50ce7f236c085fbef4d33b74f0c547.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

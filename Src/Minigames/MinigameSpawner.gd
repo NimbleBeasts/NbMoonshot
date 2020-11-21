@@ -14,8 +14,6 @@ onready var game_manager := get_node("/root/GameManager")
 
 func _ready() -> void:
 	#warning-ignore:return_value_discarded
-	Events.connect("minigame_entered", self, "onPlayerMinigameEntered")
-	Events.connect("minigame_exited", self, "onPlayerMinigameExited")
 	connect("area_entered", self, "_on_area_entered")
 	#warning-ignore:return_value_discarded
 	connect("area_exited", self, "_on_area_exited")
@@ -69,9 +67,5 @@ func _on_minigame_result_changed(result: int) -> void:
 		emit_signal("minigame_succeeded")
 
 
-func onPlayerMinigameEntered(type: int) -> void:
-	can_make_minigame = false
 
-func onPlayerMinigameExited(result: int) -> void:
-	if not minigame:
-		can_make_minigame = true
+
