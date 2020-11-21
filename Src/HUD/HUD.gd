@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
 
 func showMissionBriefing(level):
+	$MissionBriefing/StartMissionButton.grab_focus()
 	$MissionBriefing.setLevel(level)
 	$MissionBriefing.show()
 
