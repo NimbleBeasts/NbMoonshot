@@ -23,12 +23,14 @@ func can_change_level():
 	return false
 
 func _ready():
+	Events.connect("hud_mission_briefing_exited", self, "onHudMissionBriefingExited")
+	if Global.game_manager.getCurrentLevelIndex() != 0:
+		Events.emit_signal("hud_mission_briefing", Global.game_manager.getCurrentLevelIndex())
+		get_tree().paused = true
+		
+
 	if level_objectives:
 		level_objectives = get_node(level_objectives)
-
-	var minigameHolder = get_node_or_null("MinigameHolder")
-	if minigameHolder:
-		minigameHolder.scale = Vector2(0.5, 0.5)
 
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
@@ -56,3 +58,7 @@ func do_upgrade_stuff() -> void:
 		allowed_detections = normal_allowed_detections
 
 	Events.emit_signal("allowed_detections_updated", allowed_detections)
+
+func onHudMissionBriefingExited() -> void:
+	print("mission briefing exited")
+	get_tree().paused = false
