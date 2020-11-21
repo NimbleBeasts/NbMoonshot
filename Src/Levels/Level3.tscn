@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Objects/Tree2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Objects/Bush.png" type="Texture" id=8]
+[ext_resource path="res://Src/Skybox/UstriaSkybox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
@@ -22,6 +23,8 @@ extents = Vector2( 10, 32 )
 script = ExtResource( 1 )
 level_type = 1
 level_objectives = NodePath("../Level2/LevelObjects/Tresor")
+
+[node name="UstriaSkybox" parent="." instance=ExtResource( 9 )]
 
 [node name="SpriteWalls" type="Node2D" parent="."]
 
