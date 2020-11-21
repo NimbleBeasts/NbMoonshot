@@ -14,10 +14,12 @@ extents = Vector2( 13.4062, 8.40952 )
 extents = Vector2( 0, 0 )
 
 [node name="PhotoMinigame" type="Node2D"]
+position = Vector2( -1, 0 )
 z_index = 60
 script = ExtResource( 3 )
 targetTexture = ExtResource( 1 )
 countDownTime = 34
+pictureOffsetToCamera = Vector2( -40, -20 )
 
 [node name="Camera" type="Area2D" parent="."]
 position = Vector2( 43.0313, 5.03141 )
@@ -51,8 +53,6 @@ scale = Vector2( 0.25, 0.25 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Target"]
 shape = SubResource( 2 )
 
-[node name="Tween" type="Tween" parent="."]
-
 [node name="CountdownTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
@@ -76,4 +76,10 @@ hframes = 12
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 16.8131, 17.2568 )
 scale = Vector2( 0.582179, 0.444074 )
+z_index = -1
 texture = ExtResource( 6 )
+
+[node name="PictureTaken" type="Sprite" parent="."]
+position = Vector2( 3.80656, -20.5127 )
+
+[node name="PictureTakenTween" type="Tween" parent="."]
