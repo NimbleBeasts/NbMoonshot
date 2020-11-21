@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Assets/Objects/Doll.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Assets/Objects/Worldmap.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=32]
 [ext_resource path="res://Src/NPCs/Coworker.tscn" type="PackedScene" id=33]
 
@@ -79,62 +80,48 @@ position = Vector2( 408, 320 )
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 280, 328 )
-flicker = false
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 248, 392 )
-flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 360, 392 )
-flicker = false
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 456, 392 )
-flicker = false
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 400, 264 )
-flicker = false
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 400, 200 )
-flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 320, 200 )
-flicker = false
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 240, 200 )
-flicker = false
 
 [node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 160, 264 )
-flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 288, 264 )
-flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 20 )]
 position = Vector2( 130, 256 )
-flicker = false
-flickerSequence = "1110"
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 20 )]
 position = Vector2( 32, 256 )
-flicker = false
-flickerSequence = "1110"
 
 [node name="ThinArea3" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 480, 328 )
@@ -215,13 +202,17 @@ position = Vector2( 192, 384 )
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 168, 256 )
-flagType = 0
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Desk" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 431, 240 )
 texture = ExtResource( 13 )
+
+[node name="Tree2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 560, 184 )
+texture = ExtResource( 31 )
+centered = false
 
 [node name="Desk2" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 416, 304 )
@@ -326,15 +317,9 @@ shape = SubResource( 2 )
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 392, 328 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 4
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 432, 364 )
@@ -345,9 +330,6 @@ moveSpeed = 0.25
 moveDistance = 3
 moveDirection = 0
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="Note3" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 248, 448 )
