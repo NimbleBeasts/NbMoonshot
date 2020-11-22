@@ -66,6 +66,9 @@ func moveToPoint(newPoint: Vector2) -> void:
 	enabled = false
 	movingToCustomPoint = true
 
+func startNormalMovement() -> void:
+	movingToCustomPoint = false
+	enabled = true
 
 func stopAllMovement() -> void:
 	enabled = false

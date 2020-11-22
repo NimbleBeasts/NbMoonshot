@@ -122,6 +122,10 @@ one_shot = true
 [node name="StunDurationTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="GoBackToNormalTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="Flippable" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Flippable"]

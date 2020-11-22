@@ -28,9 +28,10 @@ var guardPathLine
 
 onready var los_area: Area2D = $Flippable/LineOfSight
 onready var player = Global.player
-
+onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
 
 func _ready() -> void:
+	goBackToNormalTimer.connect("timeout", self, "onGoBackToNormalTimeout")
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
 	
@@ -60,7 +61,8 @@ func _process(_delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
 	update_flip()
-	detectPlayerIfClose()
+	if state == Types.GuardStates.Wander or state == Types.GuardStates.Suspect:
+		detectPlayerIfClose()
 
 	match state:
 		Types.GuardStates.PlayerDetected, Types.GuardStates.Suspect, Types.GuardStates.Stunned:
@@ -128,6 +130,7 @@ func detectPlayerIfClose() -> void:
 # stun function.
 func stun(duration: float) -> void:
 	direction = Vector2(0,0)
+	guardPathLine.stopAllMovement()
 	set_state(Types.GuardStates.Stunned)
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", true)
 	player_in_los = false
@@ -210,14 +213,17 @@ func set_state(new_state) -> void:
 				guardPathLine.stopAllMovement()
 				emit_signal("stop_movement")
 				Events.emit_signal("play_sound", "suspicious")
-				print("play sus sound")
 				$Notifier.popup(Types.NotifierTypes.Question)
+				if goBackToNormalTimer.is_stopped():
+					goBackToNormalTimer.start()
 			Types.GuardStates.Wander:
 				$Notifier.remove()
+				guardPathLine.startNormalMovement()
 				emit_signal("start_movement")
 			Types.GuardStates.Stunned:
 				emit_signal("stop_movement")
 				
+
 func update_flip() -> void:
 	if direction.x != 0:
 		$Flippable.scale.x = direction.x
@@ -249,3 +255,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			if not get_node_or_null("GuardPathLine"):
 				direction = starting_direction
 
+
+func onGoBackToNormalTimeout() -> void:
+	set_state(Types.GuardStates.Wander)
+	$Notifier.remove()

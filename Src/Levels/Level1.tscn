@@ -117,10 +117,12 @@ position = Vector2( 400, 72 )
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 128 )
 connected_door_path = NodePath("../Staircase2")
+lockLevel = 0
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 192 )
 connected_door_path = NodePath("../Staircase")
+lockLevel = 0
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 170, 128 )
@@ -128,9 +130,19 @@ keyPadCode = 1234
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 424, 320 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 144, 256 )
+lockLevel = 0
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
@@ -138,19 +150,35 @@ next_boss_interacted_counter = 2
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 320 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 256 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 192 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 128 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
@@ -162,7 +190,6 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -289,18 +316,23 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 200 )
+flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 408, 200 )
+flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 256, 200 )
+flicker = false
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 224, 136 )
+flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 408, 136 )
+flicker = false
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 136 )
@@ -308,18 +340,24 @@ flicker = true
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 72 )
+flicker = false
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 448, 72 )
+flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 352, 72 )
+flicker = false
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 224, 72 )
+flicker = false
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 29 )]
 position = Vector2( 80, 256 )
+flicker = false
+flickerSequence = "1110"
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 176, 192 )
@@ -349,13 +387,25 @@ hasBounty = true
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 280, 72 )
+heigth = 7
+isStatic = true
+moveSpeed = 0.5
+moveDistance = 5
+isHorizontal = true
 isFlickering = true
 flickerSequence = "1110000000"
+standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 256, 72 )
+heigth = 7
+isStatic = true
+moveSpeed = 0.5
+moveDistance = 5
+isHorizontal = true
 isFlickering = true
 flickerSequence = "0000111111"
+standbyTimerAfterDetection = 3.0
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 34 )]
 position = Vector2( 104, 256 )
