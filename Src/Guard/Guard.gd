@@ -31,6 +31,7 @@ onready var player = Global.player
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
 
 func _ready() -> void:
+	global_position.y -= 4
 	goBackToNormalTimer.connect("timeout", self, "onGoBackToNormalTimeout")
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
@@ -122,7 +123,6 @@ func detectPlayerIfClose() -> void:
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
 					Events.emit_signal("play_sound", "suspicious")
-					guardPathLine.stopAllMovement()
 				if player.global_position.distance_to(global_position) < playerDetectDistance:
 					set_state(Types.GuardStates.PlayerDetected)
 
@@ -130,8 +130,8 @@ func detectPlayerIfClose() -> void:
 # stun function.
 func stun(duration: float) -> void:
 	direction = Vector2(0,0)
-	guardPathLine.stopAllMovement()
 	set_state(Types.GuardStates.Stunned)
+	set_process(false)
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", true)
 	player_in_los = false
 	$AnimationPlayer.play("tasered")
@@ -149,6 +149,7 @@ func unstun() -> void:
 	# can check for stunned bodies again
 	get_tree().set_group("Guard", "check_for_stunned", true) # i have no idea if this works now, but i think it should
 	$Notifier.remove()
+	set_process(true)
 
 	
 func _on_DirectionChangeTimer_timeout():
@@ -204,6 +205,7 @@ func set_state(new_state) -> void:
 				# starts sure timer
 				if $SureDetectionTimer.is_stopped():
 					$SureDetectionTimer.start()
+				$GoBackToNormalTimer.stop()
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
 				player_detected = true
 				$AnimationPlayer.play("suspicious")
@@ -221,8 +223,10 @@ func set_state(new_state) -> void:
 				guardPathLine.startNormalMovement()
 				emit_signal("start_movement")
 			Types.GuardStates.Stunned:
+				direction = Vector2(0,0)
 				emit_signal("stop_movement")
-				
+				guardPathLine.stopAllMovement()
+
 
 func update_flip() -> void:
 	if direction.x != 0:
