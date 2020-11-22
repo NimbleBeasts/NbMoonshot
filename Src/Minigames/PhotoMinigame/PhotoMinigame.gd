@@ -3,7 +3,7 @@ extends Minigame
 export (Texture) var targetTexture: Texture
 export var countDownTime: int
 export var pictureOffsetToCamera: Vector2
-export var pictureTravelLength: float = 50
+export var pictureTravelLength: float = 30
 export var pictureTravelDuration: float = 2.0
 
 var targetEnteredCamera: bool = false
@@ -40,12 +40,13 @@ func _process(delta: float) -> void:
 	if targetEnteredCamera:
 		if Input.is_action_just_pressed("interact"):
 			pictureTaken.texture = targetTexture
-			pictureTaken.scale = $Target/Sprite.scale
+			pictureTaken.scale = $Target/Sprite.scale / 3
 			pictureTaken.position = $Camera.position + pictureOffsetToCamera
 			pictureTakenTween.interpolate_property(pictureTaken, "position:y", pictureTaken.position.y, pictureTaken.position.y - pictureTravelLength, pictureTravelDuration, Tween.TRANS_LINEAR)
 			pictureTakenTween.start()
 			canCloseMinigame = false
 			$Camera.canMove = false
+
 
 func onCameraAreaEntered(area: Area2D) -> void:
 	if area.is_in_group("Target"):

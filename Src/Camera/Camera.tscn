@@ -91,7 +91,7 @@ script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 11
-frame = 6
+frame = 2
 
 [node name="FOV" type="Area2D" parent="."]
 
