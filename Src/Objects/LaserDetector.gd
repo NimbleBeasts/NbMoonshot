@@ -21,6 +21,7 @@ var playerInArea = null
 var detectorState = DetectorStateType.Running
 var currentIndex = 0
 
+
 # Detection progress:
 # - Pause Tween
 # - Detection Animation 
@@ -37,8 +38,10 @@ func _physics_process(_delta):
 				or (not isHorizontal):
 				# Wall dodgine prevents on horizontal scanners, but not on vertical
 				if $DetectionDelay.time_left == 0:
-					$DetectionDelay.start() #Delay detection for a bit
-
+					$DetectionDelay.start() # Delay detection for a bit
+					detectorState = DetectorStateType.Off
+					
+					
 func setup():
 	if not isStatic:
 		# Setup end positions
@@ -105,6 +108,7 @@ func _on_Area2D_body_exited(body):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "detect":
 		detectorState = DetectorStateType.Off
+		$FlickerTimer.stop() # stop flickering when off 
 		$LaserBeam.hide()
 		$OffTimer.start() # Standby Timer
 
@@ -114,7 +118,8 @@ func _on_OffTimer_timeout():
 	$LaserBeam.show()
 	$MotionTween.resume_all()
 	$AnimationPlayer.play("idle")
-	
+	$FlickerTimer.start() # start flickering again
+
 
 func _on_DetectionDelay_timeout():
 	$MotionTween.stop_all()

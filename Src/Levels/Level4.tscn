@@ -67,10 +67,12 @@ tile_data = PoolIntArray( 78, 0, 0, 79, 0, 1, 80, 0, 1, 81, 0, 1, 82, 0, 1, 83, 
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 5 )]
 position = Vector2( 664, 384 )
 connected_door_path = NodePath("../Staircase2")
+lockLevel = 0
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 5 )]
 position = Vector2( 568, 320 )
 connected_door_path = NodePath("../Staircase")
+lockLevel = 0
 
 [node name="ThinArea" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 392, 264 )
@@ -118,10 +120,17 @@ __meta__ = {
 position = Vector2( 72, 224 )
 lockLevel = 1
 doorType = 1
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 14 )]
 position = Vector2( 72, 256 )
 lockLevel = 1
+doorType = 0
+door_name = ""
+save_state = false
+sig_to_trig = [  ]
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
