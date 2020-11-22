@@ -164,6 +164,7 @@ centered = false
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 344, 96 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
@@ -278,12 +279,8 @@ rotation = -1.5708
 heigth = 16
 isStatic = false
 moveSpeed = 0.2
-moveDistance = 5
 moveDirection = 2
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 288, 208 )
@@ -291,49 +288,31 @@ rotation = -1.5708
 heigth = 15
 isStatic = false
 moveSpeed = 0.2
-moveDistance = 5
 moveDirection = 2
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector4" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 216, 172 )
 rotation = -1.5708
 heigth = 14
-isStatic = true
-moveSpeed = 0.5
 moveDistance = 4
 moveDirection = 2
 isHorizontal = false
 isFlickering = true
 flickerSequence = "1111100000000000000000"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 200 )
-heigth = 7
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 16
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector5" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 216, 136 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 14
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 664, 256 )
