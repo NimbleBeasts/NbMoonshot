@@ -66,6 +66,7 @@ func _on_minigame_result_changed(result: int) -> void:
 		minigame_succeeded = true
 		emit_signal("minigame_succeeded")
 
-
-
+		
+func getProgessState() -> bool:
+	return minigame_succeeded
 

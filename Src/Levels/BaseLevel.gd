@@ -28,7 +28,7 @@ func _ready():
 		Events.emit_signal("hud_mission_briefing", Global.game_manager.getCurrentLevelIndex())
 		get_tree().paused = true
 		
-
+	
 	if level_objectives:
 		level_objectives = get_node(level_objectives)
 
