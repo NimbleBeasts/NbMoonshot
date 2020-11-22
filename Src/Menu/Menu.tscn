@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Src/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Menu/Title.png" type="Texture" id=3]
+[ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Src/Menu/DevLogViewer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=9]
@@ -188,6 +189,71 @@ margin_right = 384.0
 margin_bottom = 256.0
 label = "Back"
 
+[node name="Credits" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BG" type="NinePatchRect" parent="Credits"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -76.0
+margin_right = 128.0
+margin_bottom = 148.0
+texture = ExtResource( 4 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 19.0
+margin_right = -8.0
+margin_bottom = -8.0
+custom_fonts/normal_font = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "The NimbleBeasts Collective is a small and open independent development studio where anyone can participate - worldwide.  Support us, become part of the collective and buy our games, because they are really good. _
+
+[color=#ffad3b]£ mago[/color] - PM & Pixels
+[color=#ffad3b]¤ knightmare[/color] - Coding
+[color=#ffad3b]¢ kodkuce[/color] - Coding
+[color=#ffad3b]~ SpaceCastle[/color] - Music & Sounds"
+text = "The NimbleBeasts Collective is a small and open independent development studio where anyone can participate - worldwide.  Support us, become part of the collective and buy our games, because they are really good. _
+
+£ mago - PM & Pixels
+¤ knightmare - Coding
+¢ kodkuce - Coding
+~ SpaceCastle - Music & Sounds"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Credits/BG"]
+margin_left = 8.0
+margin_top = 4.0
+margin_right = 96.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 7 )
+text = "Credits"
+
+[node name="ButtonBack" parent="Credits" instance=ExtResource( 11 )]
+margin_left = 256.0
+margin_top = 288.0
+margin_right = 384.0
+margin_bottom = 312.0
+label = "Back"
+
 [node name="Copyright" type="RichTextLabel" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
@@ -225,4 +291,5 @@ text = "Version"
 [connection signal="button_up" from="LoadGame/ButtonLoad2" to="." method="_on_ButtonLoad2_button_up"]
 [connection signal="button_up" from="LoadGame/ButtonLoad3" to="." method="_on_ButtonLoad3_button_up"]
 [connection signal="button_up" from="LoadGame/ButtonBack" to="." method="_on_ButtonBack_button_up"]
+[connection signal="button_up" from="Credits/ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="meta_clicked" from="Copyright" to="." method="_on_Copyright_meta_clicked"]

@@ -1,6 +1,6 @@
 extends Control
 
-enum MenuState {Main, Settings, LoadGame}
+enum MenuState {Main, Settings, LoadGame, Credits}
 
 func _ready():
 	# Event Hooks
@@ -43,6 +43,9 @@ func switchTo(to):
 			$LoadGame/ButtonLoad1.grab_focus()
 			updateLoadGame()
 			$LoadGame.show()
+		MenuState.Credits:
+			$Credits/ButtonBack.grab_focus()
+			$Credits.show()
 		_:
 			print("Invalid menu state")
 
@@ -52,6 +55,7 @@ func hideAllMenuScenes():
 	$Main.hide()
 	$Settings.hide()
 	$LoadGame.hide()
+	$Credits.hide()
 
 
 func loadGame(slot):
@@ -157,7 +161,8 @@ func _on_ButtonLoad_button_up():
 
 
 func _on_ButtonCredits_button_up():
-	pass # Replace with function body.
+	playClick()
+	switchTo(MenuState.Credits)
 
 
 func _on_ButtonLoad1_button_up():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Objects/Moonlanding.png" type="Texture" id=6]
+[ext_resource path="res://Src/Skybox/BlueishSkybox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
@@ -22,6 +23,8 @@ extents = Vector2( 10, 32 )
 [node name="Level4" type="Node2D"]
 script = ExtResource( 1 )
 level_objectives = NodePath("../Level2/LevelObjects/Tresor")
+
+[node name="BlueishSkybox" parent="." instance=ExtResource( 7 )]
 
 [node name="SpriteWalls" type="Node2D" parent="."]
 
@@ -67,12 +70,10 @@ tile_data = PoolIntArray( 78, 0, 0, 79, 0, 1, 80, 0, 1, 81, 0, 1, 82, 0, 1, 83, 
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 5 )]
 position = Vector2( 664, 384 )
 connected_door_path = NodePath("../Staircase2")
-lockLevel = 0
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 5 )]
 position = Vector2( 568, 320 )
 connected_door_path = NodePath("../Staircase")
-lockLevel = 0
 
 [node name="ThinArea" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 392, 264 )
@@ -120,17 +121,10 @@ __meta__ = {
 position = Vector2( 72, 224 )
 lockLevel = 1
 doorType = 1
-door_name = ""
-save_state = false
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 14 )]
 position = Vector2( 72, 256 )
 lockLevel = 1
-doorType = 0
-door_name = ""
-save_state = false
-sig_to_trig = [  ]
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
