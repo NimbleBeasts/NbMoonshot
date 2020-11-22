@@ -31,7 +31,7 @@ onready var player = Global.player
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
 
 func _ready() -> void:
-	global_position.y -= 4
+	global_position.y -= 2 
 	goBackToNormalTimer.connect("timeout", self, "onGoBackToNormalTimeout")
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
