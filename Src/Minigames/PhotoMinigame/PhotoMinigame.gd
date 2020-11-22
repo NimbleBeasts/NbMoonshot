@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	if targetEnteredCamera:
 		if Input.is_action_just_pressed("interact"):
 			pictureTaken.texture = targetTexture
-			pictureTaken.scale = $Target/Sprite.scale / 3
+			pictureTaken.scale = $Target/Sprite.scale
 			pictureTaken.position = $Camera.position + pictureOffsetToCamera
 			pictureTakenTween.interpolate_property(pictureTaken, "position:y", pictureTaken.position.y, pictureTaken.position.y - pictureTravelLength, pictureTravelDuration, Tween.TRANS_LINEAR)
 			pictureTakenTween.start()

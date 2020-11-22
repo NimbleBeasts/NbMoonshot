@@ -97,15 +97,16 @@ func taserUpdate(value):
 
 
 func alarmIndication(value):
-	detected_value -= 1
-	print("alarm")
-	$DetectFlash/AnimationPlayer.play("detection")
-	$AlarmIndicator/AlarmAnimation.play("downgrade")
-	$AlarmIndicator/Label.set_text(str(detected_value))
+	if detected_value >= 0:
+		detected_value -= 1
+		print("alarm")
+		$DetectFlash/AnimationPlayer.play("detection")
+		$AlarmIndicator/AlarmAnimation.play("downgrade")
+		$AlarmIndicator/Label.set_text(str(detected_value))
 
 
 func allowedDetectionsUpdate(value) -> void:
-	detected_value = value
+	detected_value = value if value >= 0 else 0
 	$AlarmIndicator/Label.set_text(str(detected_value))
 	
 	

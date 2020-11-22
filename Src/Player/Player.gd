@@ -318,4 +318,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	# Only non-looped animation will reach this point
 	$AnimationPlayer.play("idle")
 	if anim_name == "lose":
+		Events.emit_signal("forcefully_close_minigame")
 		Global.game_manager.reloadLevel()

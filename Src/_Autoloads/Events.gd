@@ -17,9 +17,10 @@ signal light_level_changed(newLevel) #Types.LightLevels
 # Audio Levels, audio_pos is the position where the audio notification was emitted for nearby guards
 signal audio_level_changed(newLevel, audio_pos) #Types.AudioLevels
 
-# Enter minigame
+# minigame
 signal minigame_entered(minigame_type) #Types.Minigames
 signal minigame_exited(result) #Types.Minigames
+signal forcefully_close_minigame()
 
 # Door open close
 signal door_change_status(door_name, lock_type, exec_anim) #exec anim is bool for switch state anim
@@ -68,6 +69,7 @@ signal play_sound(sound, volume, pos)
 
 # Menu Related
 signal menu_back()
+
 
 # Config
 signal switch_sound(value)

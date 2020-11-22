@@ -14,6 +14,7 @@ onready var tween: Tween = get_node_or_null("Tween")
 onready var newTween: Tween = Tween.new()
 
 func _ready() -> void:
+	Events.connect("forcefully_close_minigame", self, "onForcefullyCloseMinigame")
 	add_child(newTween)
 	#warning-ignore:return_value_discarded
 	newTween.connect("tween_all_completed", self, "_on_tween_all_completed")
@@ -83,3 +84,8 @@ func _on_tween_all_completed() -> void:
 			queue_free()
 			Events.emit_signal("unblock_player_movement")
 			print("queue freed minigame")
+
+			
+func onForcefullyCloseMinigame() -> void:
+	close()
+	
