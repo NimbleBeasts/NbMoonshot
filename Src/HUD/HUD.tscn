@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -70,6 +70,38 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=17]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 17 )
+
+[sub_resource type="Animation" id=16]
+resource_name = "pop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 128, 128 ), Vector2( 128, 112 ), Vector2( 128, 112 ), Vector2( 128, 96 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -169,7 +201,7 @@ tracks/1/keys = {
 
 [node name="HUD" type="CanvasLayer"]
 pause_mode = 2
-layer = 128
+layer = 127
 script = ExtResource( 1 )
 
 [node name="DetectFlash" type="ColorRect" parent="."]
@@ -466,6 +498,29 @@ __meta__ = {
 [node name="GameOverNotifcationAnimationPlayer" type="AnimationPlayer" parent="GameOverNotification"]
 anims/pop = SubResource( 15 )
 
+[node name="GameHintNotification" type="Label" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -52.0
+margin_right = 192.0
+margin_bottom = -11.9975
+rect_pivot_offset = Vector2( 120, 32 )
+custom_fonts/font = SubResource( 17 )
+text = "Example Text Goes Here"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameHintAnimationPlayer" type="AnimationPlayer" parent="GameHintNotification"]
+anims/pop = SubResource( 16 )
+
 [node name="Shader" type="ColorRect" parent="."]
 material = ExtResource( 9 )
 margin_right = 640.0
@@ -702,6 +757,7 @@ label = "Quit"
 [connection signal="button_up" from="SaveGame/Menu/ButtonSave2" to="." method="_on_ButtonSave2_button_up"]
 [connection signal="button_up" from="SaveGame/Menu/ButtonSave3" to="." method="_on_ButtonSave3_button_up"]
 [connection signal="animation_finished" from="GameOverNotification/GameOverNotifcationAnimationPlayer" to="." method="_on_GameOverNotifcationAnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="GameHintNotification/GameHintAnimationPlayer" to="." method="_on_GameHintAnimationPlayer_animation_finished"]
 [connection signal="mouse_entered" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_entered"]
 [connection signal="mouse_exited" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_exited"]
 [connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]
