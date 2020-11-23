@@ -11,6 +11,8 @@ func _ready():
 	match flagType:
 		FlagType.Russia:
 			$Sprite.texture = preload("res://Assets/Objects/FlagRussian.png")
+		FlagType.US:
+			$Sprite.texture = preload("res://Assets/Objects/FlagUsa.png")
 		_:
 			pass
 
