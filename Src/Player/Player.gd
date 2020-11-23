@@ -105,18 +105,17 @@ func _process(_delta: float) -> void:
 		set_state(Types.PlayerStates.Normal)
 
 	# duck walking animation
-	if not block_input:
-		if state == Types.PlayerStates.Duck and direction != Vector2(0,0):
-			$AnimationPlayer.play("duck_walk")
-		elif state == Types.PlayerStates.Duck and direction == Vector2(0,0):
-			$AnimationPlayer.play("duck")
-		
-		# wall dodging animation
-		if state == Types.PlayerStates.WallDodge and direction != Vector2(0,0):
-			$AnimationPlayer.play("dodge_walk")
-		elif state == Types.PlayerStates.WallDodge and direction == Vector2(0,0):
-			$AnimationPlayer.play("dodge")
+	if state == Types.PlayerStates.Duck and direction != Vector2(0,0):
+		$AnimationPlayer.play("duck_walk")
+	elif state == Types.PlayerStates.Duck and direction == Vector2(0,0):
+		$AnimationPlayer.play("duck")
 	
+	# wall dodging animation
+	if state == Types.PlayerStates.WallDodge and direction != Vector2(0,0):
+		$AnimationPlayer.play("dodge_walk")
+	elif state == Types.PlayerStates.WallDodge and direction == Vector2(0,0):
+		$AnimationPlayer.play("dodge")
+
 	# change speed
 	if state == Types.PlayerStates.Duck or state == Types.PlayerStates.WallDodge:
 		speed = duckSpeed
