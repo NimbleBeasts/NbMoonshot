@@ -66,15 +66,18 @@ func moveToPoint(newPoint: Vector2) -> void:
 	enabled = false
 	movingToCustomPoint = true
 
+
 func startNormalMovement() -> void:
 	movingToCustomPoint = false
 	enabled = true
+
 
 func stopAllMovement() -> void:
 	enabled = false
 	movingToCustomPoint = false
 	guard.direction = Vector2(0,0)
 
+	
 func _on_loop_finished() -> void:
 	move_along_points()
 

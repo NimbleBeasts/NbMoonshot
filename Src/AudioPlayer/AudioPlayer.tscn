@@ -103,6 +103,7 @@ stream = ExtResource( 29 )
 
 [node name="Alarm" type="AudioStreamPlayer2D" parent="CameraSounds"]
 stream = ExtResource( 16 )
+volume_db = -10.0
 
 [node name="Beep" type="AudioStreamPlayer2D" parent="CameraSounds"]
 stream = ExtResource( 17 )

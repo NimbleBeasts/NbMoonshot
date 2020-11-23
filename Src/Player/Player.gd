@@ -105,16 +105,17 @@ func _process(_delta: float) -> void:
 		set_state(Types.PlayerStates.Normal)
 
 	# duck walking animation
-	if state == Types.PlayerStates.Duck and direction != Vector2(0,0):
-		$AnimationPlayer.play("duck_walk")
-	elif state == Types.PlayerStates.Duck and direction == Vector2(0,0):
-		$AnimationPlayer.play("duck")
-	
-	# wall dodging animation
-	if state == Types.PlayerStates.WallDodge and direction != Vector2(0,0):
-		$AnimationPlayer.play("dodge_walk")
-	elif state == Types.PlayerStates.WallDodge and direction == Vector2(0,0):
-		$AnimationPlayer.play("dodge")
+	if not block_input:
+		if state == Types.PlayerStates.Duck and direction != Vector2(0,0):
+			$AnimationPlayer.play("duck_walk")
+		elif state == Types.PlayerStates.Duck and direction == Vector2(0,0):
+			$AnimationPlayer.play("duck")
+		
+		# wall dodging animation
+		if state == Types.PlayerStates.WallDodge and direction != Vector2(0,0):
+			$AnimationPlayer.play("dodge_walk")
+		elif state == Types.PlayerStates.WallDodge and direction == Vector2(0,0):
+			$AnimationPlayer.play("dodge")
 	
 	# change speed
 	if state == Types.PlayerStates.Duck or state == Types.PlayerStates.WallDodge:
@@ -173,7 +174,7 @@ func _physics_process(delta: float) -> void:
 				Events.emit_signal("play_sound", "jump_up")
 	
 	# stunning
-	if state == Types.PlayerStates.Normal and stun_battery_level > 0 :
+	if state == Types.PlayerStates.Normal and stun_battery_level > 0 and not block_input:
 		stunning()
 		
 
