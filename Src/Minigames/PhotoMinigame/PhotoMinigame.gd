@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	line.position += lineVelocity * delta
 
 	if lineInTarget:
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("interact"):
 			lineDirection.x = 0
 			set_result(Types.MinigameResults.Succeeded)
 			close()

@@ -33,9 +33,6 @@ func _process(_delta: float) -> void:
 			if Input.is_action_just_pressed("close_minigame") and canCloseMinigame:
 				close()
 
-			# if minigame is already open and player presses open_minigame
-			if is_open and Input.is_action_just_pressed("open_minigame") and canCloseMinigame:
-				close()
 
 	
 # Basically open and close minigame are just tweening the minigame position 
