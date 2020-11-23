@@ -143,7 +143,6 @@ centered = false
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
@@ -432,6 +431,8 @@ position = Vector2( 232, 256 )
 position = Vector2( 183.577, 128 )
 keyPadCode = 4242
 openTarget = NodePath("../Doors/DoorToTarget")
+showHintOnSucceed = true
+hint = "ID Card Found"
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 720, 172 )
