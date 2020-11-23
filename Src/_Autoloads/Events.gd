@@ -42,7 +42,8 @@ signal hud_update_money(total, amount)
 signal hide_dialog()
 signal hud_mission_briefing(level)
 signal hud_mission_briefing_exited()
-
+signal hud_game_over()
+signal hud_game_over_exited()
 
 signal save_game()
 

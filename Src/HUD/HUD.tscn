@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=14]
 [ext_resource path="res://Assets/HUD/Dollar.png" type="Texture" id=15]
 [ext_resource path="res://Src/BaseButton/BaseButton.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Fonts/mago3.3.ttf" type="DynamicFontData" id=17]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -48,6 +49,28 @@ tracks/0/keys = {
 [sub_resource type="ButtonGroup" id=8]
 
 [sub_resource type="ButtonGroup" id=9]
+
+[sub_resource type="DynamicFont" id=14]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 17 )
+
+[sub_resource type="Animation" id=15]
+resource_name = "pop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=10]
 tracks/0/type = "value"
@@ -156,6 +179,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0.788235, 0.188235, 0.219608, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -419,6 +443,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GameOverNotification" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -68.0
+margin_right = 120.0
+margin_bottom = -28.0
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 120, 32 )
+custom_fonts/font = SubResource( 14 )
+text = "GAME OVER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverNotifcationAnimationPlayer" type="AnimationPlayer" parent="GameOverNotification"]
+anims/pop = SubResource( 15 )
+
 [node name="Shader" type="ColorRect" parent="."]
 material = ExtResource( 9 )
 margin_right = 640.0
@@ -654,6 +701,7 @@ label = "Quit"
 [connection signal="button_up" from="SaveGame/Menu/ButtonSave1" to="." method="_on_ButtonSave1_button_up"]
 [connection signal="button_up" from="SaveGame/Menu/ButtonSave2" to="." method="_on_ButtonSave2_button_up"]
 [connection signal="button_up" from="SaveGame/Menu/ButtonSave3" to="." method="_on_ButtonSave3_button_up"]
+[connection signal="animation_finished" from="GameOverNotification/GameOverNotifcationAnimationPlayer" to="." method="_on_GameOverNotifcationAnimationPlayer_animation_finished"]
 [connection signal="mouse_entered" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_entered"]
 [connection signal="mouse_exited" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_exited"]
 [connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]

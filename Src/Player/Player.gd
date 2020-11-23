@@ -277,6 +277,7 @@ func onSureDetectionNumChanged(num: int) -> void:
 		set_process(false)
 		block_input = true
 		$AnimationPlayer.play("lose")
+		Events.emit_signal("hud_game_over")
 
 
 # use this function to set light_level instead of directly changing it

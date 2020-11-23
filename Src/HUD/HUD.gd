@@ -33,6 +33,9 @@ func _ready():
 	Events.connect("hud_update_money", self, "moneyUpdate")
 	Events.connect("hud_mission_briefing", self, "showMissionBriefing")
 
+	Events.connect("hud_game_over", self, "showGameOverNotification")
+
+
 	for node in $Upgrades/Grid.get_children():
 		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
 
@@ -45,6 +48,15 @@ func _process(delta: float) -> void:
 	if nextText != "":
 		if Input.is_action_just_pressed("interact"):
 			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
+
+func showGameOverNotification():
+	$GameOverNotification.show()
+	$GameOverNotification/GameOverNotifcationAnimationPlayer.play("pop")
+
+func _on_GameOverNotifcationAnimationPlayer_animation_finished(anim_name):
+	$GameOverNotification.hide()
+	Events.emit_signal("hud_game_over_exited")
+
 
 func showMissionBriefing(level):
 	$MissionBriefing/StartMissionButton.grab_focus()
@@ -338,3 +350,5 @@ func _on_StartMissionButton_button_up():
 	$MissionBriefing.hide()
 	Events.emit_signal("play_sound", "menu_click")
 	Events.emit_signal("hud_mission_briefing_exited")
+
+
