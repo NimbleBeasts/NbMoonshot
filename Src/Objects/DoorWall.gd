@@ -14,6 +14,8 @@ export(DoorLockType) var lockLevel = DoorLockType.open
 export(DoorType) var doorType = DoorType.wooden
 export var door_name = "" 
 export var save_state = false
+export var showHintIfLocked: bool = false
+export var hint: String
 
 export (Array)  var sig_to_trig
 
@@ -45,7 +47,9 @@ func _process(_delta):
 			
 func interact(run_sub):
 	print("lock lvl is:",lockLevel)
-	
+	# shows a game hint if this door is locked
+	if lockLevel == DoorLockType.locked:
+		Events.emit_signal("hud_game_hint", hint)
 	#pick difent minigames depening on type if locked
 	if doorType == DoorType.wooden:
 		if lockLevel == DoorLockType.lockedLevel1:

@@ -143,6 +143,7 @@ centered = false
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
@@ -239,6 +240,8 @@ lockLevel = 1
 doorType = 1
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorToTarget" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -247,6 +250,8 @@ lockLevel = 3
 doorType = 0
 door_name = ""
 save_state = false
+showHintIfLocked = true
+hint = "This door is locked. Find an ID Card to open it"
 sig_to_trig = [  ]
 
 [node name="StaircaseL2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
@@ -275,6 +280,8 @@ lockLevel = 0
 doorType = 1
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -283,6 +290,8 @@ lockLevel = 1
 doorType = 0
 door_name = "Level2-Door1"
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -291,6 +300,8 @@ lockLevel = 0
 doorType = 1
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -299,6 +310,8 @@ lockLevel = 0
 doorType = 1
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -307,6 +320,8 @@ lockLevel = 0
 doorType = 1
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -315,6 +330,8 @@ lockLevel = 0
 doorType = 1
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -323,6 +340,8 @@ lockLevel = 0
 doorType = 1
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -331,6 +350,8 @@ lockLevel = 0
 doorType = 1
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -339,6 +360,8 @@ lockLevel = 0
 doorType = 1
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -347,6 +370,8 @@ lockLevel = 0
 doorType = 1
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
