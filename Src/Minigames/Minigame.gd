@@ -9,6 +9,8 @@ var result: int
 var owner_obj # the door that owns this minigame
 var is_open: bool = false
 var canCloseMinigame: bool = true
+var tweenIsInUse: bool = false
+
 
 onready var tween: Tween = get_node_or_null("Tween")
 onready var newTween: Tween = Tween.new()
@@ -24,16 +26,21 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if owner_obj:
 		if owner_obj.player_entered: # only can interact if player close to owner door
-			if Input.is_action_just_pressed("open_minigame"):
+			if Input.is_action_just_pressed("open_minigame") and not is_open:
 				open()
-				
+			
+			# closes minigame if either close button is pressed OR
 			if Input.is_action_just_pressed("close_minigame") and canCloseMinigame:
-				close()		
-	
+				close()
+
+			# if minigame is already open and player presses open_minigame
+			if is_open and Input.is_action_just_pressed("open_minigame") and canCloseMinigame:
+				close()
+
 	
 # Basically open and close minigame are just tweening the minigame position 
 func open() -> void:
-	if not newTween.is_active():
+	if not tweenIsInUse:
 		var screen_center: Vector2 = get_viewport_rect().size / 2
 		# tweening position 
 		#warning-ignore:return_value_discarded
@@ -41,6 +48,7 @@ func open() -> void:
 				global_position, screen_center, 0.2, Tween.TRANS_LINEAR)
 		#warning-ignore:return_value_discarded
 		newTween.start()
+		tweenIsInUse = true
 		# Emits signal
 		Events.emit_signal("minigame_entered", minigame_type)
 		Events.emit_signal("block_player_movement")
@@ -49,7 +57,7 @@ func open() -> void:
 
 
 func close() -> void:
-	if not newTween.is_active():
+	if not tweenIsInUse:
 		var screenCenter: Vector2 = get_viewport_rect().size / 2
 		var screen_bottom_center: Vector2 = Vector2(screenCenter.x, screenCenter.y + 500)
 		# tweening position 
@@ -58,6 +66,7 @@ func close() -> void:
 				global_position, screen_bottom_center, 0.2, Tween.TRANS_LINEAR)
 		#warning-ignore:return_value_discarded
 		newTween.start()
+		tweenIsInUse = true
 		is_open = false
 		# Emits signal
 		Events.emit_signal("minigame_exited", result)
@@ -79,6 +88,7 @@ func set_result(value: int):
 			
 		
 func _on_tween_all_completed() -> void:
+	tweenIsInUse = false
 	match result:
 		Types.MinigameResults.Succeeded, Types.MinigameResults.Failed:
 			queue_free()
