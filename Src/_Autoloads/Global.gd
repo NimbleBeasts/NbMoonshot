@@ -59,7 +59,7 @@ const upgrades = [
 
 const gameConstant = {
 	basicLoot = 20,
-	webMoneyPerTick = 5,
+	webMoneyPerTick = 2,
 	upgradeDarkNetModifier = 1.25,
 	
 }
