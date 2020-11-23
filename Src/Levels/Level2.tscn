@@ -53,6 +53,7 @@ extents = Vector2( 35.4191, 43.1555 )
 extents = Vector2( 10, 32 )
 
 [node name="Level2" type="Node2D"]
+position = Vector2( 48, 0 )
 script = ExtResource( 1 )
 level_type = 1
 level_objectives = NodePath("LevelObjects/Decorations/Soyuz/PhotoMinigameSpawner")
@@ -142,6 +143,7 @@ centered = false
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
