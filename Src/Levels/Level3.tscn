@@ -228,10 +228,12 @@ sig_to_trig = [  ]
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../StaircaseE0")
+lockLevel = 0
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../StaircaseCellar")
+lockLevel = 0
 
 [node name="StaircaseE0_2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 392, 256 )
@@ -241,14 +243,17 @@ lockLevel = 1
 [node name="StaircaseE1" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 392, 192 )
 connected_door_path = NodePath("../StaircaseE0_2")
+lockLevel = 0
 
 [node name="StaircaseE1_2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 176, 192 )
 connected_door_path = NodePath("../StaircaseE2")
+lockLevel = 0
 
 [node name="StaircaseE2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 176, 128 )
 connected_door_path = NodePath("../StaircaseE1_2")
+lockLevel = 0
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {

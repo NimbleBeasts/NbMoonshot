@@ -50,6 +50,13 @@ func _ready():
 	# Update Player Money
 	Events.emit_signal("hud_update_money", Global.gameState.money, 0)
 
+
+func _process(delta: float) -> void:
+	if can_change_level() == true: # putting this in process T_T
+		Events.emit_signal("hud_game_hint", "Mission Complete - Return to HQ")
+		set_process(false)
+
+		
 # upgrade function
 func do_upgrade_stuff() -> void:
 	if Types.UpgradeTypes.False_Alarm in Global.gameState.playerUpgrades:
@@ -59,6 +66,7 @@ func do_upgrade_stuff() -> void:
 
 	Events.emit_signal("allowed_detections_updated", allowed_detections)
 
+	
 func onHudMissionBriefingExited() -> void:
 	print("mission briefing exited")
 	get_tree().paused = false
