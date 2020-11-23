@@ -36,11 +36,11 @@ func init_game():
 	
 func _process(delta):
 	var nw = timer_slider.value - delta 
-	print(nw)
+	#print(nw)
 	timer_slider.value = nw
 	
 	if( timer_slider.value < 1 ):
-		print("lost")
+		#print("lost")
 		set_process(false)
 		set_result(Types.MinigameResults.Failed)
 		close()
@@ -74,7 +74,7 @@ func check_win():
 	for b in btn_parrent.get_children():
 		if b.texture_normal == textureNormal:
 			return
-	print("Win")
+	#print("Win")
 	yield(get_tree().create_timer(0.25), "timeout")
 	set_result(Types.MinigameResults.Succeeded)
 	Events.emit_signal("door_change_status",door_name, 0, run_anim)

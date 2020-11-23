@@ -22,7 +22,7 @@ onready var pin_goal = $LockpickSmallPinGoal
 func _ready():
 	init_game()
 	if Types.UpgradeTypes.Lockpick_Level2 in Global.gameState.playerUpgrades:
-		print("running with upgraded lockpick")
+		#print("running with upgraded lockpick")
 		lp_upgrade = lp_upgrade * 0.5
 
 
@@ -50,7 +50,7 @@ func _process(delta):
 	
 
 func init_game():
-	print( "Minilockpick start")
+	#print( "Minilockpick start")
 	controls_block = false
 	randomize() #random start postions
 	pin.position = Vector2( rand_range(-max_x,max_x), pin.position.y )
@@ -61,7 +61,7 @@ func _input(event):
 		return
 	if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right"):
 		haccu = 0
-	if event.is_action_pressed("ui_up"):
+	if event.is_action_pressed("interact"):
 		tap_pin();
 
 
@@ -72,10 +72,10 @@ func tap_pin():
 		hr = pin.position.x - pin_goal.position.x 
 	else:
 		hr = pin_goal.position.x - pin.position.x  
-	print( abs(hr) )
+	#print( abs(hr) )
 	
 	if( abs(hr) < hit_range ):
-		print( " we got a winer ")
+		#print( " we got a winer ")
 		Events.emit_signal("play_sound", "lockpick_hit")
 		pin.position = Vector2( pin.position.x, pin.position.y - move_up)
 		yield(get_tree().create_timer(0.25), "timeout")
@@ -83,7 +83,7 @@ func tap_pin():
 		Events.emit_signal("door_change_status",door_name, 0, run_anim)
 		close()
 	else:
-		print( " miss ")
+		#print( " miss ")
 		Events.emit_signal("play_sound", "lockpick_miss")
 		yield(get_tree().create_timer(0.25), "timeout")
 		set_result(Types.MinigameResults.Failed)

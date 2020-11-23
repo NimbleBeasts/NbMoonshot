@@ -52,7 +52,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 # overriden function because we need custom sounds to play for this minigame only
 func set_result(value: int):
-	print("result: " + str(value))
+	#print("result: " + str(value))
 	if result != value:
 		result = value
 		emit_signal("result_changed", result) # connects to the owner_obj object

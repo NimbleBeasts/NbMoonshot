@@ -50,7 +50,7 @@ func open() -> void:
 		Events.emit_signal("minigame_entered", minigame_type)
 		Events.emit_signal("block_player_movement")
 		is_open = true
-		print("open minigame")
+		#print("open minigame")
 
 
 func close() -> void:
@@ -71,11 +71,11 @@ func close() -> void:
 		# emit audio notification loud if fail minigame
 		if result == Types.MinigameResults.Failed:
 			Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, owner_obj.global_position)
-		print('closed minigame')
+		#print('closed minigame')
 
 		
 func set_result(value: int):
-	print("result: " + str(value))
+	#print("result: " + str(value))
 	if result != value:
 		result = value
 		emit_signal("result_changed", result) # connects to the owner_obj object
@@ -89,7 +89,7 @@ func _on_tween_all_completed() -> void:
 		Types.MinigameResults.Succeeded, Types.MinigameResults.Failed:
 			queue_free()
 			Events.emit_signal("unblock_player_movement")
-			print("queue freed minigame")
+			#print("queue freed minigame")
 
 			
 func onForcefullyCloseMinigame() -> void:

@@ -17,7 +17,7 @@ class LockPin:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Lockpick started")
+	#print("Lockpick started")
 	randomize()
 	
 	try = 6
@@ -64,7 +64,7 @@ func _input(event):
 		move_lockpick(true)
 	if event.is_action_released("move_left"):
 		move_lockpick(false)
-	if event.is_action_released("ui_up"):
+	if event.is_action_released("interact"):
 		tap_pin();
 
 
@@ -82,7 +82,7 @@ func tap_pin():
 		seq = seq + 1
 		pins[atm_at].gameobj.position = Vector2( pins[atm_at].gameobj.position.x , -42 )
 		if seq == 4:
-			print("Sucess")
+			#print("Sucess")
 			# don't forget to close it
 			set_result(Types.MinigameResults.Succeeded)
 			close()
@@ -115,6 +115,6 @@ func update_try():
 	try = try - 1
 	$TryUI.text = "Tries: " + String(try)
 	if try == 0:
-		print("Failed")
+		#print("Failed")
 		set_result(Types.MinigameResults.Failed)
 		close()
