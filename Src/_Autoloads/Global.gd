@@ -43,6 +43,7 @@ const levels = [
 	"res://Src/Levels/Level2.tscn",
 	"res://Src/Levels/Level3.tscn",
 	"res://Src/Levels/Level4.tscn",
+	"res://Src/Levels/Level5.tscn",
 ]
 
 # Upgrades
