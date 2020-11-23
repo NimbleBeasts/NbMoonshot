@@ -83,3 +83,23 @@ texture = ExtResource( 6 )
 position = Vector2( 3.80656, -20.5127 )
 
 [node name="PictureTakenTween" type="Tween" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -111.0
+margin_top = -96.0
+margin_right = 113.0
+margin_bottom = -80.0
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -23.0
+margin_top = -96.0
+margin_right = 25.0
+margin_bottom = -80.0
+color = Color( 0.313726, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
