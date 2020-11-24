@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -33,6 +33,8 @@
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=32]
 [ext_resource path="res://Src/NPCs/Coworker.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Src/Guard/GuardPathLine2D.gd" type="Script" id=35]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -194,93 +196,33 @@ has_level_index = false
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 256 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 280, 256 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 256 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 320 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall-HQ-PlayerOffice" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 320 )
 lockLevel = 1
-doorType = 0
 door_name = "HQ-PlayerOfficeDoor"
 save_state = true
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 382.768 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 408, 448 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 296, 448 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 384 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 168, 256 )
@@ -475,32 +417,35 @@ position = Vector2( 152, 320 )
 [node name="DoorWall12" parent="TestZone" instance=ExtResource( 8 )]
 position = Vector2( -272.529, 252.969 )
 lockLevel = 1
-doorType = 0
 door_name = "HQ-Wood1"
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall-HQ-MetalSeq2" parent="TestZone" instance=ExtResource( 8 )]
 position = Vector2( -188.57, 253.825 )
-lockLevel = 0
 doorType = 1
 door_name = "HQ-MetalSeq2"
-save_state = false
-showHintIfLocked = false
-hint = ""
 sig_to_trig = [ [ "door_change_status", "HQ-MetalSeq1", 0, true ] ]
 
 [node name="DoorWall-HQ-MetalSeq1" parent="TestZone" instance=ExtResource( 8 )]
 position = Vector2( -225.296, 253.528 )
-lockLevel = 0
 doorType = 1
 door_name = "HQ-MetalSeq1"
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
+
+[node name="Guard" parent="TestZone" instance=ExtResource( 34 )]
+position = Vector2( -120.303, 251.612 )
+
+[node name="GuardPathLine" type="Line2D" parent="TestZone/Guard"]
+position = Vector2( 120.303, -251.612 )
+points = PoolVector2Array( -104.5, 234, -72.5, 237.5, -48, 236.5 )
+script = ExtResource( 35 )
+
+[node name="DoorWall-HQ-MetalSeq3" parent="TestZone" instance=ExtResource( 8 )]
+position = Vector2( -69.7325, 252.114 )
+doorType = 1
+door_name = "HQ-MetalSeq1"
+
+[node name="Light" parent="TestZone" instance=ExtResource( 9 )]
+position = Vector2( -107.48, 213.963 )
+flicker = false
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 

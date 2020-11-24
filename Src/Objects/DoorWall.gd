@@ -26,17 +26,20 @@ func _ready():
 		$Sprite.texture = preload("res://Assets/Objects/DoorWall.png")
 	set_process(false)
 	
+
 	$Sprite.frame = 0
+
+	if door_name == "":
+		door_name = name
 	
+	Events.connect("door_change_status", self, "_on_door_change_status")
+
+	#load state form save if it exists
+	if Global.gameState.has(door_name):
+		#print("Has door name")
+		lockLevel = Global.gameState[door_name]
 	
-	if door_name != "":
-		Events.connect("door_change_status", self, "_on_door_change_status")
-	
-		#load state form save if it exists
-		if Global.gameState.has(door_name):
-			#print("Has door name")
-			lockLevel = Global.gameState[door_name]
-		
+
 func open():
 	lockLevel = DoorLockType.open
 
