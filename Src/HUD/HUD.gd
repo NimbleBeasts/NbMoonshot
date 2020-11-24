@@ -236,8 +236,9 @@ func _physics_process(_delta):
 			$IngameMenu.show()
 			$IngameMenu/Menu/ButtonReturn.grab_focus()
 			get_tree().paused = true
-
-		
+			Events.emit_signal("forcefully_close_minigame")
+			
+			
 	# hide when press E and don't have any more text to show
 	if Input.is_action_just_pressed("interact") and nextText == "" and $Dialog.visible:
 		hideDialog()
