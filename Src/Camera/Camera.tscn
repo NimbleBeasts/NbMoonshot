@@ -32,7 +32,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=2]
 resource_name = "detection_right"
 length = 0.4
 loop = true
@@ -222,7 +222,7 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/detection_left = SubResource( 1 )
-anims/detection_right = SubResource( 8 )
+anims/detection_right = SubResource( 2 )
 anims/idle_left = SubResource( 3 )
 anims/idle_right = SubResource( 4 )
 anims/rotation = SubResource( 5 )
