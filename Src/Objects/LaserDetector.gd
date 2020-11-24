@@ -126,7 +126,8 @@ func _on_DetectionDelay_timeout():
 	$AnimationPlayer.play("detect")
 	detectorState = DetectorStateType.Detection
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-
+	Events.emit_signal("play_sound", "laser_detect")
+	
 
 func _on_FlickerTimer_timeout():
 	currentIndex += 1

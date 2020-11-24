@@ -11,11 +11,12 @@ func deactivate() -> void:
 func alarm():
 	$AnimationPlayer.play("alarm")
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-
+	Events.emit_signal("play_sound", "laser_detect")
 
 func _on_DelayTimer_timeout():
 	alarm()
 
+	
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player") and active:
 		$DelayTimer.start()

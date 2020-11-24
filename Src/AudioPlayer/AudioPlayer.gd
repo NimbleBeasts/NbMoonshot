@@ -88,6 +88,8 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 				playRandomSound($PlayerSounds/CrouchWalk, playerCrouchWalkSounds)
 			"type":
 				$Type.play()
+			"laser_detect":
+				$ObjectSounds/LaserDetect.play()
 			_:
 				print("error: sound not found - name: " + str(sound))
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
@@ -42,6 +42,7 @@
 [ext_resource path="res://Src/SFX/crouch_walk 2.wav" type="AudioStream" id=40]
 [ext_resource path="res://Src/SFX/crouch_walk 1.wav" type="AudioStream" id=41]
 [ext_resource path="res://Src/SFX/crouch_walk 3.wav" type="AudioStream" id=42]
+[ext_resource path="res://Src/SFX/laser_detect.wav" type="AudioStream" id=43]
 
 [node name="AudioPlayer" type="Node2D"]
 script = ExtResource( 2 )
@@ -155,6 +156,10 @@ stream = ExtResource( 30 )
 
 [node name="NoteOpen" type="AudioStreamPlayer2D" parent="ObjectSounds"]
 stream = ExtResource( 33 )
+
+[node name="LaserDetect" type="AudioStreamPlayer2D" parent="ObjectSounds"]
+stream = ExtResource( 43 )
+volume_db = -5.0
 
 [node name="Type" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 34 )
