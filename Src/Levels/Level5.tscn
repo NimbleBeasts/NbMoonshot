@@ -328,182 +328,61 @@ door_name = ""
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 144, 256 )
 lockLevel = 2
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 376, 256 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 200, 320 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 200, 384 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 376, 384 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 200, 192 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 200, 128 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 200, 64 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 376, 64 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 640, 64 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 696, 64 )
 lockLevel = 1
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall12" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 696, 128 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall13" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 696, 192 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall18" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 640, 256 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall14" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 696, 320 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall15" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 640, 384 )
 lockLevel = 1
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall16" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 696, 384 )
-lockLevel = 0
-doorType = 0
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="DoorWall17" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 872, 384 )
 lockLevel = 3
 doorType = 1
-door_name = ""
-save_state = false
-showHintIfLocked = false
-hint = ""
-sig_to_trig = [  ]
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {

@@ -71,24 +71,7 @@ func _process(_delta: float) -> void:
 			$DirectionChangeTimer.stop()
 		Types.GuardStates.Wander:
 			pass
-
 			
-	# the player could be in dark visible level when the overlap happens and it would check according to that
-	# then the player could move to full light and it wouldn't get called unless it's a new overlap
-	# so we have to do set a bool on area entered and check in _process
-	if player_in_los and state != Types.GuardStates.Stunned:
-		match player.visible_level:
-			Types.LightLevels.FullLight:
-				set_state(Types.GuardStates.PlayerDetected)
-				player_in_los = false
-			Types.LightLevels.BarelyVisible:
-				if not player_detected: # only sets to suspect if hasn't detected player before
-					set_state(Types.GuardStates.Suspect)
-			Types.LightLevels.Dark:
-				if not player_detected: # only sets to wander if hasn't detected player before
-					set_state(Types.GuardStates.Wander)
-
-				
 	# checks for stunned bodies
 	if check_for_stunned:
 		for body in los_area.get_overlapping_bodies():
@@ -97,7 +80,6 @@ func _process(_delta: float) -> void:
 					Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 					Events.emit_signal("play_sound", "alarm")
 					check_for_stunned = false
-
 
 	match state:
 		Types.GuardStates.Wander:
@@ -109,6 +91,10 @@ func _process(_delta: float) -> void:
 			pass
 		Types.GuardStates.Suspect:
 			$AnimationPlayer.play("idle")
+
+
+func _physics_process(delta: float) -> void:
+	playerDetectLOS()
 
 
 func change_direction() -> void:
@@ -155,14 +141,34 @@ func unstun() -> void:
 func _on_DirectionChangeTimer_timeout():
 	if state == Types.GuardStates.Wander:
 		change_direction()
-	
-	
+
+
+func playerDetectLOS() -> void:
+	if player_in_los and state != Types.GuardStates.Stunned:
+		match player.visible_level:
+			Types.LightLevels.FullLight:
+				set_state(Types.GuardStates.PlayerDetected)
+				player_in_los = false
+			Types.LightLevels.BarelyVisible:
+				if not player_detected: # only sets to suspect if hasn't detected player before
+					set_state(Types.GuardStates.Suspect)
+			Types.LightLevels.Dark:
+				if not player_detected: # only sets to wander if hasn't detected player before
+					set_state(Types.GuardStates.Wander)
+
+					
 func _on_LineOfSight_body_entered(body: Node) -> void:
 #	if body is TileMap: # changes direction when collide with tilemap
 #		change_direction()
 	if body.is_in_group("Player") and state != Types.GuardStates.Stunned:
+		# var spaceState = get_world_2d().direct_space_state
+		# var result: Dictionary = spaceState.intersect_ray(global_position, body.global_position)
+		# if result.collider != body:
+		# 	print("player is behind a wall")
+		# 	return
 		player_in_los = true
-		
+		# print("player in los")
+
 
 func _on_LineOfSight_body_exited(body):
 	if body.is_in_group("Player"):
