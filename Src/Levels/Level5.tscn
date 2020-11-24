@@ -512,90 +512,122 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 292, 8 )
+flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 292, 72 )
+flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 176, 136 )
+flicker = false
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 288, 136 )
+flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 192, 200 )
+flicker = false
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 304, 200 )
+flicker = false
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 248, 264 )
+flicker = false
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 328, 264 )
+flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 240, 328 )
+flicker = false
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 336, 328 )
+flicker = false
 
 [node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 448, 328 )
+flicker = false
 
 [node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 512, 328 )
+flicker = false
 
 [node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 584, 328 )
+flicker = false
 
 [node name="Light14" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 736, 328 )
+flicker = false
 
 [node name="Light15" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 832, 328 )
+flicker = false
 
 [node name="Light16" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 784, 264 )
+flicker = false
 
 [node name="Light17" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 824, 200 )
+flicker = false
 
 [node name="Light18" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 704, 200 )
+flicker = false
 
 [node name="Light19" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 728, 136 )
+flicker = false
 
 [node name="Light20" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 816, 136 )
+flicker = false
 
 [node name="Light21" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 784, 72 )
+flicker = false
 
 [node name="Light22" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 840, 8 )
+flicker = false
 
 [node name="Light23" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 728, 8 )
+flicker = false
 
 [node name="Light24" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 576, 8 )
+flicker = false
 
 [node name="Light25" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 504, 8 )
+flicker = false
 
 [node name="Light26" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 432, 8 )
+flicker = false
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 40, 256 )
+flicker = false
+flickerSequence = "1110"
 
 [node name="OutdoorLight2" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 448, 256 )
+flicker = false
+flickerSequence = "1110"
 
 [node name="OutdoorLight3" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 576, 256 )
+flicker = false
+flickerSequence = "1110"
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 292, 64 )
@@ -646,6 +678,7 @@ position = Vector2( 280, 328 )
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 720, 300 )
+rotation = -1.5708
 heigth = 10
 isStatic = true
 moveSpeed = 0.5
