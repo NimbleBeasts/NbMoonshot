@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Minigames/Camera.png" type="Texture" id=2]
 [ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigame.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -13,7 +14,6 @@ extents = Vector2( 2.7163, 8.04199 )
 extents = Vector2( 22.2865, 7.75948 )
 
 [node name="PhotoMinigame" type="Node2D"]
-position = Vector2( -1, 0 )
 z_index = 60
 script = ExtResource( 3 )
 
@@ -70,3 +70,6 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LineTarget"]
 position = Vector2( 2.53297, -87.814 )
 shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
