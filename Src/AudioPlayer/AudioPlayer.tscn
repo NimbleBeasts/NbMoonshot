@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
@@ -29,11 +29,26 @@
 [ext_resource path="res://Src/SFX/door_metal_close.wav" type="AudioStream" id=27]
 [ext_resource path="res://Src/SFX/lockpick_hit.wav" type="AudioStream" id=28]
 [ext_resource path="res://Src/SFX/lockpick_miss.wav" type="AudioStream" id=29]
+[ext_resource path="res://Src/SFX/car_close.wav" type="AudioStream" id=30]
+[ext_resource path="res://Src/SFX/car_open.wav" type="AudioStream" id=31]
+[ext_resource path="res://Src/SFX/minigame_victory.wav" type="AudioStream" id=32]
+[ext_resource path="res://Src/SFX/paper.wav" type="AudioStream" id=33]
+[ext_resource path="res://Src/SFX/type.wav" type="AudioStream" id=34]
+[ext_resource path="res://Src/SFX/stone1.wav" type="AudioStream" id=35]
+[ext_resource path="res://Src/SFX/stone3.wav" type="AudioStream" id=36]
+[ext_resource path="res://Src/SFX/stone4.wav" type="AudioStream" id=37]
+[ext_resource path="res://Src/SFX/stone2.wav" type="AudioStream" id=38]
+[ext_resource path="res://Src/SFX/crouch_walk 4.wav" type="AudioStream" id=39]
+[ext_resource path="res://Src/SFX/crouch_walk 2.wav" type="AudioStream" id=40]
+[ext_resource path="res://Src/SFX/crouch_walk 1.wav" type="AudioStream" id=41]
+[ext_resource path="res://Src/SFX/crouch_walk 3.wav" type="AudioStream" id=42]
 
 [node name="AudioPlayer" type="Node2D"]
 script = ExtResource( 2 )
 guardAlarmSounds = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ) ]
 guardSuspiciousSounds = [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ) ]
+playerFootstepSounds = [ ExtResource( 35 ), ExtResource( 38 ), ExtResource( 36 ), ExtResource( 37 ) ]
+playerCrouchWalkSounds = [ ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 39 ) ]
 
 [node name="MenuClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 23 )
@@ -67,9 +82,17 @@ stream = ExtResource( 13 )
 [node name="TaserHit" type="AudioStreamPlayer2D" parent="PlayerSounds"]
 stream = ExtResource( 14 )
 
+[node name="Footstep" type="AudioStreamPlayer2D" parent="PlayerSounds"]
+volume_db = -5.0
+
+[node name="CrouchWalk" type="AudioStreamPlayer2D" parent="PlayerSounds"]
+
 [node name="RandomSound" type="AudioStreamPlayer2D" parent="."]
 
 [node name="MinigameSounds" type="Node2D" parent="."]
+
+[node name="MinigameSuccess" type="AudioStreamPlayer2D" parent="MinigameSounds"]
+stream = ExtResource( 32 )
 
 [node name="MinigameFail" type="AudioStreamPlayer2D" parent="MinigameSounds"]
 stream = ExtResource( 15 )
@@ -121,4 +144,25 @@ stream = ExtResource( 26 )
 
 [node name="MetalClose" type="AudioStreamPlayer" parent="DoorSounds"]
 stream = ExtResource( 27 )
+
+[node name="ObjectSounds" type="Node2D" parent="."]
+
+[node name="CarOpen" type="AudioStreamPlayer2D" parent="ObjectSounds"]
+stream = ExtResource( 31 )
+
+[node name="CarClose" type="AudioStreamPlayer2D" parent="ObjectSounds"]
+stream = ExtResource( 30 )
+
+[node name="NoteOpen" type="AudioStreamPlayer2D" parent="ObjectSounds"]
+stream = ExtResource( 33 )
+
+[node name="Type" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 34 )
+volume_db = -10.0
+
+[node name="Guard" type="Node2D" parent="."]
+
+[node name="Alarm" type="AudioStreamPlayer2D" parent="Guard"]
+
+[node name="Suspicious" type="AudioStreamPlayer2D" parent="Guard"]
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]

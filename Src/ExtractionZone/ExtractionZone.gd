@@ -22,11 +22,11 @@ func _ready() -> void:
 		$Sprite.scale.x = -1
 
 	
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and Global.game_manager.getCurrentLevel().can_change_level():
 		if Global.gameState["level"]["hasActiveMission"] and Global.gameState["level"]["lastActiveMission"] != 0:
 			$AnimationPlayer.play("open")
+			Events.emit_signal("play_sound", "car_open")
 			Events.emit_signal("block_player_movement")
 
 

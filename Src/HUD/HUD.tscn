@@ -50,13 +50,13 @@ tracks/0/keys = {
 
 [sub_resource type="ButtonGroup" id=9]
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=10]
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 17 )
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=11]
 resource_name = "pop"
 length = 2.0
 tracks/0/type = "value"
@@ -72,11 +72,11 @@ tracks/0/keys = {
 "values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=12]
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 17 )
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=13]
 resource_name = "pop"
 length = 2.0
 tracks/0/type = "value"
@@ -104,7 +104,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=14]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -130,8 +130,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "idle"
+[sub_resource type="Animation" id=15]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -146,8 +145,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "moneyDown"
+[sub_resource type="Animation" id=16]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -173,7 +171,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=17]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -256,7 +254,7 @@ __meta__ = {
 }
 
 [node name="DialogueTypeTimer" type="Timer" parent="Dialog"]
-wait_time = 0.01
+wait_time = 0.05
 
 [node name="Upgrades" type="NinePatchRect" parent="."]
 visible = false
@@ -487,7 +485,7 @@ margin_right = 120.0
 margin_bottom = -28.0
 rect_scale = Vector2( 0.1, 0.1 )
 rect_pivot_offset = Vector2( 120, 32 )
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 10 )
 text = "GAME OVER"
 align = 1
 valign = 1
@@ -496,7 +494,7 @@ __meta__ = {
 }
 
 [node name="GameOverNotifcationAnimationPlayer" type="AnimationPlayer" parent="GameOverNotification"]
-anims/pop = SubResource( 15 )
+anims/pop = SubResource( 11 )
 
 [node name="GameHintNotification" type="Label" parent="."]
 visible = false
@@ -510,7 +508,7 @@ margin_top = -52.0
 margin_right = 192.0
 margin_bottom = -11.9975
 rect_pivot_offset = Vector2( 120, 32 )
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 12 )
 text = "Example Text Goes Here"
 align = 1
 valign = 1
@@ -519,7 +517,7 @@ __meta__ = {
 }
 
 [node name="GameHintAnimationPlayer" type="AnimationPlayer" parent="GameHintNotification"]
-anims/pop = SubResource( 16 )
+anims/pop = SubResource( 13 )
 
 [node name="Shader" type="ColorRect" parent="."]
 material = ExtResource( 9 )
@@ -595,7 +593,7 @@ __meta__ = {
 }
 
 [node name="AlarmAnimation" type="AnimationPlayer" parent="AlarmIndicator"]
-anims/downgrade = SubResource( 10 )
+anims/downgrade = SubResource( 14 )
 
 [node name="ChargeIndicator" type="Sprite" parent="."]
 position = Vector2( 64, 24 )
@@ -631,9 +629,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MoneyIndicator"]
-anims/idle = SubResource( 11 )
-anims/moneyDown = SubResource( 12 )
-anims/moneyUp = SubResource( 13 )
+anims/idle = SubResource( 15 )
+anims/moneyDown = SubResource( 16 )
+anims/moneyUp = SubResource( 17 )
 next/moneyDown = "idle"
 next/moneyUp = "idle"
 

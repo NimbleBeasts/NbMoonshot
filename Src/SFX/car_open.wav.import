@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/car_open.wav-9a8bd0908cb3d5b1229c1e29f8d5bd88.sample"
+
+[deps]
+
+source_file="res://Src/SFX/car_open.wav"
+dest_files=[ "res://.import/car_open.wav-9a8bd0908cb3d5b1229c1e29f8d5bd88.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

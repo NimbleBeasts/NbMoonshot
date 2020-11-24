@@ -239,69 +239,144 @@ position = Vector2( 328, 192 )
 lockLevel = 1
 doorType = 1
 door_name = "Level2-FirstFloorMetal1"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorToTarget" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 440, 256 )
 lockLevel = 3
+doorType = 0
+door_name = ""
+save_state = false
 showHintIfLocked = true
 hint = "This door is locked. Find an ID Card to open it"
+sig_to_trig = [  ]
 
 [node name="StaircaseL2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 428, 128 )
 connected_door_path = NodePath("../StaircaseL0")
+lockLevel = 0
+door_name = ""
 
 [node name="StaircaseL0" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 428, 192 )
 connected_door_path = NodePath("../StaircaseL2")
+lockLevel = 0
+door_name = ""
 
 [node name="StaircaseR1" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 704.167, 256 )
 connected_door_path = NodePath("../StaircaseR2")
+lockLevel = 0
+door_name = ""
 
 [node name="StaircaseR2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 839.92, 256 )
 connected_door_path = NodePath("../StaircaseR1")
+lockLevel = 0
+door_name = ""
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 328, 128 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 144, 256 )
 lockLevel = 1
+doorType = 0
 door_name = "Level2-Door1"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 384, 128 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 384, 192 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 384, 256 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 328, 256 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 328, 320 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 384, 320 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 384, 384 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 328, 384 )
+lockLevel = 0
 doorType = 1
+door_name = ""
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -429,6 +504,7 @@ standbyTimerAfterDetection = 3.0
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 272, 128 )
 type = 1
+hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 240, 128 )
@@ -438,29 +514,36 @@ hasBounty = true
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 400, 384 )
 type = 2
+hasBounty = false
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 592, 384 )
 type = 2
+hasBounty = false
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 696, 384 )
 type = 2
+hasBounty = false
 
 [node name="Cabinet6" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 824, 384 )
 type = 2
+hasBounty = false
 
 [node name="Cabinet7" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 800, 256 )
+type = 0
 hasBounty = true
 
 [node name="Cabinet8" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 752, 256 )
+type = 0
 hasBounty = true
 
 [node name="Cabinet9" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 872, 128 )
+type = 0
 hasBounty = true
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 28 )]

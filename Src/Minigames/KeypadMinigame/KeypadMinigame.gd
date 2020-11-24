@@ -50,13 +50,10 @@ func _on_button_clicked(num: String) -> void:
 func _on_AnimationPlayer_animation_finished(anim_name):
 	clearDisplay()
 
-# overriden function because we need custom sounds to play for this minigame only
-func set_result(value: int):
-	#print("result: " + str(value))
-	if result != value:
-		result = value
-		emit_signal("result_changed", result) # connects to the owner_obj object
-		if result == Types.MinigameResults.Failed:
-			Events.emit_signal("play_sound", "keypad_input_wrong")
-		elif result == Types.MinigameResults.Succeeded:
-			Events.emit_signal("play_sound", "keypad_input_correct")
+	
+func playFailSound() -> void:
+	Events.emit_signal("play_sound", "keypad_input_wrong")
+
+
+func playSuccessSound() -> void:
+	Events.emit_signal("play_sound", "keypad_input_correct")

@@ -175,6 +175,8 @@ lockLevel = 0
 doorType = 0
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -183,6 +185,8 @@ lockLevel = 1
 doorType = 0
 door_name = "Blah"
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -191,6 +195,8 @@ lockLevel = 0
 doorType = 0
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -199,6 +205,8 @@ lockLevel = 0
 doorType = 0
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -207,6 +215,8 @@ lockLevel = 0
 doorType = 0
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall12" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -215,6 +225,8 @@ lockLevel = 2
 doorType = 0
 door_name = "DoorWall12"
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="DoorWall13" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -223,37 +235,45 @@ lockLevel = 0
 doorType = 0
 door_name = ""
 save_state = false
+showHintIfLocked = false
+hint = ""
 sig_to_trig = [  ]
 
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../StaircaseE0")
 lockLevel = 0
+door_name = ""
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../StaircaseCellar")
 lockLevel = 0
+door_name = ""
 
 [node name="StaircaseE0_2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 392, 256 )
 connected_door_path = NodePath("../StaircaseE1")
 lockLevel = 1
+door_name = ""
 
 [node name="StaircaseE1" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 392, 192 )
 connected_door_path = NodePath("../StaircaseE0_2")
 lockLevel = 0
+door_name = ""
 
 [node name="StaircaseE1_2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 176, 192 )
 connected_door_path = NodePath("../StaircaseE2")
 lockLevel = 0
+door_name = ""
 
 [node name="StaircaseE2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 176, 128 )
 connected_door_path = NodePath("../StaircaseE1_2")
 lockLevel = 0
+door_name = ""
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {

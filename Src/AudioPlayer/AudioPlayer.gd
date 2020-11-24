@@ -2,8 +2,8 @@ extends Node2D
 
 export (Array, AudioStream) var guardAlarmSounds
 export (Array, AudioStream) var guardSuspiciousSounds
-
-onready var randomSound := $RandomSound
+export (Array, AudioStream) var playerFootstepSounds
+export (Array, AudioStream) var playerCrouchWalkSounds
 
 func _ready():
 	# Event Hooks
@@ -27,7 +27,7 @@ func _switchMusic(val: bool):
 # Event Hook: Play a sound
 func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0, 0)):
 	if Global.userConfig.sound:
-		match sound:
+		match sound:				# should have made these enums instead, huh
 			"menu_click":
 				$MenuClick.play()
 			"example":
@@ -37,11 +37,11 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 			"jump_down":
 				$PlayerSounds/JumpDown.play()
 			"alarm":
-				playRandomSound(guardAlarmSounds)			# match conditions go brrrrrrr
+				playRandomSound($Guard/Alarm, guardAlarmSounds)			
 			"jump_up":
 				$PlayerSounds/JumpUp.play()
 			"suspicious":
-				playRandomSound(guardSuspiciousSounds)
+				playRandomSound($Guard/Suspicious ,guardSuspiciousSounds)
 			"taser_hit":
 				$PlayerSounds/TaserHit.play()
 			"taser_deploy":
@@ -74,6 +74,20 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 				$MinigameSounds/Lockpick/Hit.play()
 			"lockpick_miss":
 				$MinigameSounds/Lockpick/Miss.play()
+			"car_open":
+				$ObjectSounds/CarOpen.play()
+			"car_close":
+				$ObjectSounds/CarClose.play()
+			"minigame_success":
+				$MinigameSounds/MinigameSuccess.play()
+			"note_open":
+				$ObjectSounds/NoteOpen.play()
+			"player_footstep":
+				playRandomSound($PlayerSounds/Footstep, playerFootstepSounds)
+			"player_crouch_footstep":
+				playRandomSound($PlayerSounds/CrouchWalk, playerCrouchWalkSounds)
+			"type":
+				$Type.play()
 			_:
 				print("error: sound not found - name: " + str(sound))
 
@@ -82,7 +96,8 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 func _on_Music_finished():
 	pass # Replace with function body.
 
-func playRandomSound(array: Array) -> void:
+
+func playRandomSound(audioPlayer,array: Array) -> void:
 	randomize()
-	randomSound.stream = array[randi() % array.size()]
-	randomSound.play()
+	audioPlayer.stream = array[randi() % array.size()]
+	audioPlayer.play()

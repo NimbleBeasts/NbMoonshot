@@ -41,6 +41,9 @@ var sprint_duration: float
 var canSprint: bool
 var lost: bool = false
 
+var playFootstepSound: bool = true
+
+
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
 onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
@@ -70,7 +73,9 @@ func _ready() -> void:
 	Events.connect("unblock_player_movement", self, "onUnblockPlayerMovement")
 
 	$AnimationPlayer.play("idle")
-
+	$FootstepTimer.connect("timeout", self, "onFootstepTimerTimeout")
+	$FootstepTimer.start()
+	
 	# Initial set taser level
 	Events.emit_signal("taser_fired", stun_battery_level)
 
@@ -150,7 +155,16 @@ func _physics_process(delta: float) -> void:
 		animation_change("idle")
 	else:
 		animation_change("walk")
-		
+	
+	# playing footstep sound
+	if velocity.x != 0 and playFootstepSound:
+		playFootstepSound = false
+		if state == Types.PlayerStates.Normal:
+			Events.emit_signal("play_sound", "player_footstep")
+		elif (state == Types.PlayerStates.Duck or state == Types.PlayerStates.WallDodge):
+			Events.emit_signal("play_sound", "player_crouch_footstep")
+
+			
 	# Traveling up and down
 	# Only needs to check if the respective direction key for each raycast is pressed
 	# means only need to check if up is pressed when up raycast is colliding and vice versa
@@ -321,3 +335,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "lose":
 		Events.emit_signal("forcefully_close_minigame")
 		Global.game_manager.reloadLevel()
+
+
+func onFootstepTimerTimeout() -> void:
+	playFootstepSound = true

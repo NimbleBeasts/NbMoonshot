@@ -141,6 +141,7 @@ func showNote(type, text):
 		$Note.texture = preload("res://Assets/HUD/Note.png")
 
 	$Note/Text.bbcode_text = str(text)
+	Events.emit_signal("play_sound", "note_open")
 	$Note.show()
 
 
@@ -204,6 +205,7 @@ func showDialog(pname: String, nameColor: String, text: String):
 
 	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
 	$Dialog.show()
+	currentText = text
 	typeDialog() # do you want this function or tween. problem with tween is that if the text is short, it will still take 1 second to finish, which is meh. this fixes that
 	# dialogTween.interpolate_property($Dialog/Text, "percent_visible", 0.0, 1.0, 1.0, Tween.TRANS_LINEAR)
 	# dialogTween.start()
@@ -235,6 +237,7 @@ func _physics_process(_delta):
 			$IngameMenu/Menu/ButtonReturn.grab_focus()
 			get_tree().paused = true
 
+		
 	# hide when press E and don't have any more text to show
 	if Input.is_action_just_pressed("interact") and nextText == "" and $Dialog.visible:
 		hideDialog()
@@ -286,7 +289,11 @@ func hover(type):
 
 
 func onDialogTypeTimerTimeout() -> void:
-	$Dialog/Text.visible_characters += 1
+	if $Dialog/Text.text.length() != $Dialog/Text.visible_characters:
+		$Dialog/Text.visible_characters += 1
+		# Events.emit_signal("play_sound", "type")
+	else:
+		dialogTypeTimer.stop()
 
 
 func typeDialog() -> void:

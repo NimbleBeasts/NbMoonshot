@@ -380,4 +380,7 @@ anims/jump_up = SubResource( 14 )
 anims/lose = SubResource( 15 )
 anims/taser = SubResource( 16 )
 anims/walk = SubResource( 17 )
+
+[node name="FootstepTimer" type="Timer" parent="."]
+wait_time = 0.25
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

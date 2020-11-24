@@ -3,9 +3,11 @@ extends Node2D
 export var extended_allowed_detections: int = 5
 export var normal_allowed_detections: int = 3
 
-var allowed_detections: int
 export (Types.LevelTypes) var level_type: int
 export(NodePath) var level_objectives = null
+export var playCarCloseSound: bool = true 
+
+var allowed_detections: int
 
 
 func can_change_level():
@@ -27,7 +29,8 @@ func _ready():
 	if Global.game_manager.getCurrentLevelIndex() != 0:
 		Events.emit_signal("hud_mission_briefing", Global.game_manager.getCurrentLevelIndex())
 		get_tree().paused = true
-		
+	else:
+		set_process(false)		
 	
 	if level_objectives:
 		level_objectives = get_node(level_objectives)
@@ -68,5 +71,6 @@ func do_upgrade_stuff() -> void:
 
 	
 func onHudMissionBriefingExited() -> void:
-	print("mission briefing exited")
 	get_tree().paused = false
+	if playCarCloseSound:
+		Events.emit_signal("play_sound", "car_close")

@@ -80,9 +80,19 @@ func set_result(value: int):
 		result = value
 		emit_signal("result_changed", result) # connects to the owner_obj object
 		if result == Types.MinigameResults.Failed:
-			Events.emit_signal("play_sound", "minigame_fail")
-			
-		
+			playFailSound()		
+		elif result == Types.MinigameResults.Succeeded:
+			playSuccessSound()			
+
+
+func playFailSound() -> void:
+	Events.emit_signal("play_sound", "minigame_fail")
+
+
+func playSuccessSound() -> void:
+	Events.emit_signal("play_sound", "minigame_success")
+
+	
 func _on_tween_all_completed() -> void:
 	tweenIsInUse = false
 	match result:
