@@ -51,6 +51,9 @@ func _on_FOV_area_exited(area: Area2D) -> void:
 		player_in_fov = false
 		if not isFixedCam and $RotationTimer.is_stopped():
 			$RotationTimer.start()
+		if state == Types.CameraStates.Suspect:
+			set_state(Types.CameraStates.Normal)
+			
 	
 
 func _on_SureDetectionTimer_timeout() -> void:
@@ -71,7 +74,8 @@ func _on_SureDetectionTimer_timeout() -> void:
 		player_in_fov = true
 		print("back in fow")
 		set_state(Types.CameraStates.Suspect)
-		$RotationTimer.start()
+		if not isFixedCam:
+			$RotationTimer.start()
 
 	
 func set_state(new_state) -> void:
