@@ -42,7 +42,7 @@ var canSprint: bool
 var lost: bool = false
 
 var playFootstepSound: bool = true
-
+var isSneaking: bool = false
 
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
@@ -57,6 +57,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	Global.addUpgrade(Types.UpgradeTypes.Sneak)
 	# sprint upgrade
 	canSprint = Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades
 	add_to_group("Upgradable")
@@ -90,8 +91,9 @@ func _process(_delta: float) -> void:
 		speed = normal_speed
 		acceleration = normal_acceleration
 		
-	if not state == Types.PlayerStates.WallDodge:
+	if state != Types.PlayerStates.WallDodge or isSneaking:
 		update_light_level()
+
 
 	# wall dodging
 	if Input.is_action_pressed("wall_dodge"):
@@ -101,7 +103,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_released("wall_dodge"):
 		setVisibleLevel(light_level)
 		set_state(Types.PlayerStates.Normal)
-
+		isSneaking = false
 
 	# ducking 
 	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
@@ -118,8 +120,10 @@ func _process(_delta: float) -> void:
 	# wall dodging animation
 	if state == Types.PlayerStates.WallDodge and direction != Vector2(0,0):
 		$AnimationPlayer.play("dodge_walk")
+		isSneaking = true
 	elif state == Types.PlayerStates.WallDodge and direction == Vector2(0,0):
 		$AnimationPlayer.play("dodge")
+		isSneaking = false
 
 	# change speed
 	if state == Types.PlayerStates.Duck or state == Types.PlayerStates.WallDodge:
