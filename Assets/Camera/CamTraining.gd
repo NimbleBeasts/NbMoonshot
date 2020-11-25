@@ -9,7 +9,7 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	if player_in_fov:
-		print( Global.player.visible_level )
+		#print( Global.player.visible_level )
 		match Global.player.visible_level:
 			Types.LightLevels.FullLight:
 				animation("detected")
