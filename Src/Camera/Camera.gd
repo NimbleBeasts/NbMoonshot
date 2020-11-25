@@ -76,6 +76,7 @@ func set_state(new_state) -> void:
 		match state:
 			Types.CameraStates.Rotating:
 				#print("went rot state")
+				pass
 			Types.CameraStates.Frozen:
 				#print("went frozen state")
 				$FrozenTimer.start()
