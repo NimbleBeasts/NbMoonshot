@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jump_down.wav-9145f342dc00419421478a3386e4e507.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/jump_down.wav"
+dest_files=[ "res://.import/jump_down.wav-9145f342dc00419421478a3386e4e507.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

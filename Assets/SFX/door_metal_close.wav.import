@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/door_metal_close.wav-2d316672f870f9e35352d64e67b26dac.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/door_metal_close.wav"
+dest_files=[ "res://.import/door_metal_close.wav-2d316672f870f9e35352d64e67b26dac.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/western_world.ogg-81346adea94114be5ef4c3d1a0359f71.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/western_world.ogg"
+dest_files=[ "res://.import/western_world.ogg-81346adea94114be5ef4c3d1a0359f71.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

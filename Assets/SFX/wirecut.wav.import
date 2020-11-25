@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wirecut.wav-1dee9404204e6385cb021df36ce78834.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/wirecut.wav"
+dest_files=[ "res://.import/wirecut.wav-1dee9404204e6385cb021df36ce78834.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/crouch_walk 4.wav-f0878d0a33cd58c8c87abe3492a49b37.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/crouch_walk 4.wav"
+dest_files=[ "res://.import/crouch_walk 4.wav-f0878d0a33cd58c8c87abe3492a49b37.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
