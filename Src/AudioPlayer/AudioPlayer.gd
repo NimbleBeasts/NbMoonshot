@@ -5,11 +5,17 @@ export (Array, AudioStream) var guardSuspiciousSounds
 export (Array, AudioStream) var playerFootstepSounds
 export (Array, AudioStream) var playerCrouchWalkSounds
 
+export (AudioStream) var westernMusic
+
+onready var musicPlayer: AudioStreamPlayer = $Music
+
+
 func _ready():
 	# Event Hooks
 	Events.connect_signal("play_sound", self, "_playSound")
 	Events.connect_signal("switch_music", self, "_switchMusic")
-	
+	Events.connect("play_music", self, "onPlayMusic")
+
 	# Init Start Music
 	_switchMusic(Global.userConfig.music) 
 
@@ -103,3 +109,13 @@ func playRandomSound(audioPlayer,array: Array) -> void:
 	randomize()
 	audioPlayer.stream = array[randi() % array.size()]
 	audioPlayer.play()
+
+	
+func onPlayMusic(level_type: int) -> void:
+	match level_type:
+		Types.LevelTypes.Western:
+			musicPlayer.stream = westernMusic
+			musicPlayer.play()
+			print("western music")
+		Types.LevelTypes.Eastern:
+			print("eastern music")

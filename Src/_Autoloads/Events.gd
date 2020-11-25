@@ -49,7 +49,6 @@ signal hud_game_hint(text)
 
 signal save_game()
 
-
 # WebMonetization Pulse
 signal web_monetization_pulse(isPaying)
 
@@ -69,6 +68,7 @@ signal npc_interaction_stopped(npc)
 
 # Sound
 signal play_sound(sound, volume, pos)
+signal play_music(level_type)
 
 # Menu Related
 signal menu_back()
