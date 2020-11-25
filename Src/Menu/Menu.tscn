@@ -70,10 +70,11 @@ text = "Loading DevLog...
 "
 
 [node name="LevelSelect" type="OptionButton" parent="Main"]
-margin_left = 216.0
-margin_top = 304.0
-margin_right = 360.0
-margin_bottom = 328.0
+visible = false
+margin_left = 8.0
+margin_top = 24.0
+margin_right = 152.0
+margin_bottom = 48.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -83,6 +84,12 @@ margin_top = -16.0
 margin_right = 96.0
 margin_bottom = 8.0
 text = "Load Level:"
+
+[node name="DebugButton" type="Button" parent="Main/LevelSelect"]
+margin_top = 32.0
+margin_right = 95.0
+margin_bottom = 52.0
+text = "Debug Game"
 
 [node name="ButtonPlay" parent="Main" instance=ExtResource( 11 )]
 margin_left = 16.0
@@ -125,18 +132,21 @@ margin_left = 256.0
 margin_top = 96.0
 margin_right = 384.0
 margin_bottom = 120.0
+label = "Button"
 
 [node name="ButtonMusic" parent="Settings" instance=ExtResource( 11 )]
 margin_left = 256.0
 margin_top = 128.0
 margin_right = 384.0
 margin_bottom = 152.0
+label = "Button"
 
 [node name="ButtonFullscreen" parent="Settings" instance=ExtResource( 11 )]
 margin_left = 256.0
 margin_top = 160.0
 margin_right = 384.0
 margin_bottom = 184.0
+label = "Button"
 
 [node name="ButtonCredits" parent="Settings" instance=ExtResource( 11 )]
 margin_left = 256.0
@@ -279,6 +289,7 @@ custom_fonts/normal_font = ExtResource( 7 )
 bbcode_enabled = true
 bbcode_text = "[right]Version[/right]"
 text = "Version"
+[connection signal="button_up" from="Main/LevelSelect/DebugButton" to="." method="_on_DebugButton_button_up"]
 [connection signal="button_up" from="Main/ButtonPlay" to="." method="_on_ButtonPlay_button_up"]
 [connection signal="button_up" from="Main/ButtonLoad" to="." method="_on_ButtonLoad_button_up"]
 [connection signal="button_up" from="Main/ButtonSettings" to="." method="_on_ButtonSettings_button_up"]

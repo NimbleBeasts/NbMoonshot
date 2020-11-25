@@ -13,13 +13,16 @@ func _ready():
 
 	switchTo(MenuState.Main)
 
-	#TODO: remove code
-	$Main/LevelSelect.clear()
-	var counter = 0
-	for level in Global.levels:
-		$Main/LevelSelect.add_item(level, 0)
-		counter += 1
-	$Main/LevelSelect.select(counter - 1)
+	if Global.DEBUG:
+		$Main/LevelSelect.show()
+		$Main/LevelSelect.clear()
+		var counter = 0
+		for level in Global.levels:
+			$Main/LevelSelect.add_item(level, 0)
+			counter += 1
+		$Main/LevelSelect.select(counter - 1)
+	else:
+		$Main/LevelSelect.hide()
 
 
 
@@ -117,10 +120,17 @@ func _back():
 	switchTo(MenuState.Main)
 
 
-func _on_ButtonPlay_button_up():
+
+func _on_DebugButton_button_up():
 	get_tree().paused = false
 	playClick()
 	Events.emit_signal("new_game", $Main/LevelSelect.selected)
+
+
+func _on_ButtonPlay_button_up():
+	get_tree().paused = false
+	playClick()
+	Events.emit_signal("new_game", 0)
 
 
 func _on_ButtonSettings_button_up():
@@ -179,3 +189,5 @@ func _on_ButtonLoad3_button_up():
 
 func _on_Copyright_meta_clicked(meta):
 	OS.shell_open(meta)
+
+
