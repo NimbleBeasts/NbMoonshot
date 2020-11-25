@@ -11,9 +11,9 @@ var is_open: bool = false
 var canCloseMinigame: bool = true
 var tweenIsInUse: bool = false
 
-
 onready var tween: Tween = get_node_or_null("Tween")
 onready var newTween: Tween = Tween.new()
+
 
 func _ready() -> void:
 	Events.connect("forcefully_close_minigame", self, "onForcefullyCloseMinigame")

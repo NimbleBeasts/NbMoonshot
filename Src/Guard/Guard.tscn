@@ -145,7 +145,7 @@ position = Vector2( 6.30397, 24.2768 )
 polygon = PoolVector2Array( -6.05612, -24.0281, 81.9439, -32.0281, 81.9439, -0.028061 )
 
 [node name="LOSRay" type="RayCast2D" parent="Flippable"]
-position = Vector2( 4.31963, -19.8274 )
+position = Vector2( 3.53218, -10.5355 )
 enabled = true
 cast_to = Vector2( 90, 0 )
 

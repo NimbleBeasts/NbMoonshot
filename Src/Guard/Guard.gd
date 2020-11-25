@@ -19,7 +19,7 @@ var velocity: Vector2
 var direction: Vector2
 var state: int = Types.GuardStates.Wander # Types.GuardStates
 var player_in_los: bool = false
-var check_for_stunned: bool = true
+var check_for_stunned: bool = false
 var player_detected: bool = false
 
 var guard_normal_texture: Texture = preload("res://Assets/Guards/Guard.png")
@@ -30,6 +30,7 @@ onready var los_area: Area2D = $Flippable/LineOfSight
 onready var player = Global.player
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
 onready var losRay: RayCast2D = $Flippable/LOSRay
+
 
 func _ready() -> void:
 	global_position.y -= 2 
@@ -72,8 +73,9 @@ func _process(_delta: float) -> void:
 			$DirectionChangeTimer.stop()
 		Types.GuardStates.Wander:
 			pass
-			
-	# checks for stunned bodies
+	
+	# checks for stunned guards, check_for_stunned is false in var declaration btw
+	# dont want to waste performance if this never actually is a situation that occurs ingame
 	if check_for_stunned:
 		for body in los_area.get_overlapping_bodies():
 			if body.is_in_group("Guard"):
@@ -96,8 +98,12 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if player_in_los:
-		if losRay.is_colliding() and losRay.get_collider().is_in_group("Player"): # ray checking
+		if losRayIsCollidingWithPlayer(): # ray checking
 			playerDetectLOS()
+
+
+func losRayIsCollidingWithPlayer() -> bool:
+	return losRay.is_colliding() and losRay.get_collider().is_in_group("Player")
 
 
 func change_direction() -> void:
@@ -107,7 +113,7 @@ func change_direction() -> void:
 
 func detectPlayerIfClose() -> void:
 	if player.global_position.distance_to(global_position) < playerSuspectDistance and state != Types.GuardStates.Stunned:
-		if player.state != Types.PlayerStates.WallDodge and not player_detected:
+		if player.state != Types.PlayerStates.WallDodge and losRayIsCollidingWithPlayer() and not player_detected:
 				guardPathLine.moveToPoint(player.global_position)
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
