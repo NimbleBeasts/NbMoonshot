@@ -37,14 +37,14 @@ func _on_FOV_area_entered(area: Area2D) -> void:
 	if state != Types.CameraStates.Rotating:
 		if area.is_in_group("PlayerArea"):
 			player_in_fov = true
-			print("Player enter")
+			#print("Player enter")
 	
 
 func _on_FOV_area_exited(area: Area2D) -> void:
 	if state != Types.CameraStates.Rotating:
 		if area.is_in_group("PlayerArea"):
 			player_in_fov = false
-			print("Player exit")
+			#print("Player exit")
 
 func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
@@ -70,14 +70,14 @@ func set_state(new_state) -> void:
 	
 	if state != new_state:
 		state = new_state
-		print("S: ", state, " NS: ", new_state)
+		#print("S: ", state, " NS: ", new_state)
 	
 		
 		match state:
 			Types.CameraStates.Rotating:
-				print("went rot state")
+				#print("went rot state")
 			Types.CameraStates.Frozen:
-				print("went frozen state")
+				#print("went frozen state")
 				$FrozenTimer.start()
 				if not isFixedCam:
 					$RotationTimer.stop()
@@ -162,7 +162,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			$FOV.scale.x = -1
 
 		$FOV/CollisionPolygon2D.set_deferred("disabled", false)
-		print("exited rot state")
+		#print("exited rot state")
 		player_in_fov = force_recheck_player()
 		figure_out_state()
 		
