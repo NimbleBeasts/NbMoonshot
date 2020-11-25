@@ -29,6 +29,7 @@ var guardPathLine
 onready var los_area: Area2D = $Flippable/LineOfSight
 onready var player = Global.player
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
+onready var losRay: RayCast2D = $Flippable/LOSRay
 
 func _ready() -> void:
 	global_position.y -= 2 
@@ -94,7 +95,9 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	playerDetectLOS()
+	if player_in_los:
+		if losRay.is_colliding() and losRay.get_collider().is_in_group("Player"): # ray checking
+			playerDetectLOS()
 
 
 func change_direction() -> void:
@@ -127,9 +130,11 @@ func stun(duration: float) -> void:
 	$SureDetectionTimer.stop()
 	$Notifier.remove()
 	player_detected = false
+	losRay.enabled = false
 
 
 func unstun() -> void:
+	losRay.enabled = true
 	$DirectionChangeTimer.start()
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
 	# can check for stunned bodies again
@@ -144,7 +149,7 @@ func _on_DirectionChangeTimer_timeout():
 
 
 func playerDetectLOS() -> void:
-	if player_in_los and state != Types.GuardStates.Stunned:
+	if state != Types.GuardStates.Stunned:
 		match player.visible_level:
 			Types.LightLevels.FullLight:
 				set_state(Types.GuardStates.PlayerDetected)
@@ -158,29 +163,15 @@ func playerDetectLOS() -> void:
 
 					
 func _on_LineOfSight_body_entered(body: Node) -> void:
-#	if body is TileMap: # changes direction when collide with tilemap
-#		change_direction()
 	if body.is_in_group("Player") and state != Types.GuardStates.Stunned:
-		# var spaceState = get_world_2d().direct_space_state
-		# var result: Dictionary = spaceState.intersect_ray(global_position, body.global_position)
-		# if result.collider != body:
-		# 	print("player is behind a wall")
-		# 	return
-		player_in_los = true
-		# print("player in los")
+		player_in_los = true		
 
-
+		
 func _on_LineOfSight_body_exited(body):
 	if body.is_in_group("Player"):
 		player_in_los = false
 
 
-#func _on_LineOfSight_area_exited(area: Area2D) -> void:
-#	if area.is_in_group("PlayerArea"):
-#		player_in_los = false
-
-
-		
 # this gets started when this guard's state changes to PlayerDetected
 # on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
 func _on_SureDetectionTimer_timeout() -> void:
