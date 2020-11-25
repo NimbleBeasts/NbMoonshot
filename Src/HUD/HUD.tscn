@@ -280,7 +280,7 @@ __meta__ = {
 }
 
 [node name="DialogueTypeTimer" type="Timer" parent="Dialog"]
-wait_time = 0.05
+wait_time = 0.03
 
 [node name="Upgrades" type="NinePatchRect" parent="."]
 visible = false

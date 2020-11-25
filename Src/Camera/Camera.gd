@@ -31,31 +31,12 @@ func _process(_delta: float) -> void:
 		pass
 	else:
 		figure_out_state()
-
-
-func _on_FOV_area_entered(area: Area2D) -> void:
-	if state != Types.CameraStates.Rotating:
-		if area.is_in_group("PlayerArea"):
-			player_in_fov = true
-			#print("Player enter")
 	
-
-func _on_FOV_area_exited(area: Area2D) -> void:
-	if state != Types.CameraStates.Rotating:
-		if area.is_in_group("PlayerArea"):
-			player_in_fov = false
-			#print("Player exit")
-
-func _on_SureDetectionTimer_timeout() -> void:
-	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-	Events.emit_signal("play_sound", "camera_alarm")
-	
-func _on_FrozenTimer_timeout():
-	figure_out_state()
-
 	
 func figure_out_state():
-	if player_in_fov:	
+	if player_in_fov:
+		#print("Player in fov")
+		#print(  Global.player.visible_level )
 		match Global.player.visible_level:
 			Types.LightLevels.FullLight:
 				set_state(Types.CameraStates.PlayerDetected)
@@ -88,6 +69,9 @@ func set_state(new_state) -> void:
 					$SureDetectionTimer.stop()
 				if not isFixedCam and $RotationTimer.is_stopped():
 					$RotationTimer.start()
+				#susp to det stop
+				if not $SuspToDetTimer.is_stopped():
+					$SuspToDetTimer.stop()
 					
 				if currentDirection == CamDirectionType.Right:
 					animation("idle_left")
@@ -99,6 +83,10 @@ func set_state(new_state) -> void:
 					$SureDetectionTimer.stop()
 				if not isFixedCam and $RotationTimer.is_stopped():
 					$RotationTimer.start()
+				
+				#susp to det start
+				if $SuspToDetTimer.is_stopped():
+					$SuspToDetTimer.start()
 					
 				if currentDirection == CamDirectionType.Right:
 					animation("susp_left")
@@ -111,6 +99,10 @@ func set_state(new_state) -> void:
 				
 				if $SureDetectionTimer.is_stopped():
 					$SureDetectionTimer.start()
+				
+				#susp to det stop
+				if not $SuspToDetTimer.is_stopped():
+					$SuspToDetTimer.stop()
 					
 				if currentDirection == CamDirectionType.Right:
 					animation("detection_left")
@@ -138,7 +130,30 @@ func animation(anim):
 		$AnimationPlayer.play(anim)
 
 
+func _on_FOV_area_entered(area: Area2D) -> void:
+	if state != Types.CameraStates.Rotating:
+		if area.is_in_group("PlayerArea"):
+			player_in_fov = true
+			#print("Player enter")
+	
 
+func _on_FOV_area_exited(area: Area2D) -> void:
+	$SuspToDetTimer.stop()
+	if state != Types.CameraStates.Rotating:
+		if area.is_in_group("PlayerArea"):
+			player_in_fov = false
+			#print("Player exit")
+
+func _on_SureDetectionTimer_timeout() -> void:
+	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
+	Events.emit_signal("play_sound", "camera_alarm")
+	
+func _on_FrozenTimer_timeout():
+	figure_out_state()
+
+func _on_SuspToDetTimer_timeout():
+	if state == Types.CameraStates.Suspect:
+		set_state(Types.CameraStates.PlayerDetected)
 
 func _on_RotationTimer_timeout():
 	set_state(Types.CameraStates.Rotating)
@@ -179,7 +194,5 @@ func deactivate() -> void:
 	
 	$AnimationPlayer.stop()
 	$RotationTimer.stop()
+	$SuspToDetTimer.stop()
 	$FOV.set_deferred("monitoring", false)
-
-
-

@@ -12,6 +12,8 @@ func _ready():
 	#lockLevel = DoorLockType.locked
 	$Sprite.frame = 0
 	
+	door_name = self.name
+	print(door_name)
 	if door_name != "":
 		Events.connect("door_change_status", self, "_on_door_change_status")
 	

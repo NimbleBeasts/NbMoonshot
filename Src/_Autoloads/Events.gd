@@ -16,6 +16,7 @@ signal new_game(startLevel)
 signal light_level_changed(newLevel) #Types.LightLevels
 # Audio Levels, audio_pos is the position where the audio notification was emitted for nearby guards
 signal audio_level_changed(newLevel, audio_pos) #Types.AudioLevels
+signal visible_level_changed(newLevel)
 
 # minigame
 signal minigame_entered(minigame_type) #Types.Minigames
