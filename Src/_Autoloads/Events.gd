@@ -88,6 +88,9 @@ signal unblock_player_movement()
 signal player_enter_door()
 signal player_exit_door()
 
+# Level
+signal game_over()
+
 ###############################################################################
 
 # Global Event Connect Function

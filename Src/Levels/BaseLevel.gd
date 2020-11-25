@@ -24,6 +24,7 @@ func can_change_level():
 	# if not hqLevel and getProgressState is false, can't change level
 	return false
 
+
 func _ready():
 	Events.emit_signal("play_music", level_type)
 	Events.connect("hud_mission_briefing_exited", self, "onHudMissionBriefingExited")
@@ -38,6 +39,7 @@ func _ready():
 
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
+	
 	# Set all decoration sprites to correct light level 
 	var decoHolder = get_node_or_null("LevelObjects/Decorations")
 	if decoHolder:

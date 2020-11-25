@@ -214,6 +214,7 @@ func showDialog(pname: String, nameColor: String, text: String):
 func hideDialog() -> void:
 	$Dialog.hide()
 	Events.emit_signal("hud_dialog_exited")
+	Global.player.set_state(Types.PlayerStates.Normal)
 
 
 func _physics_process(_delta):

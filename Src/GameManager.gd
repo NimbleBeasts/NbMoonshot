@@ -4,6 +4,7 @@ var state = Types.GameStates.Menu
 var levelNode = null
 var possible_detection_num: int = 0
 var sure_detection_num: int = 0
+var detected_value: int = 0
 var current_level: int
 var quest_index: int = 0 
 
@@ -28,6 +29,7 @@ func _ready():
 	Events.connect_signal("new_game", self, "_newGame")
 	Events.connect_signal("menu_back", self, "_backToMenu")
 	Events.connect("player_detected", self, "_on_player_detected")
+	Events.connect("allowed_detections_updated", self, "onAllowedDetectionsUpdated")
 	
 	Events.connect("web_monetization_pulse", self, "webMoneyPulse")
 	
@@ -150,11 +152,21 @@ func _on_player_detected(detection_level: int) -> void:
 	match detection_level:
 		Types.DetectionLevels.Possible:
 			possible_detection_num += 1
-			print("possible detection")
+			print("possible detection %s" % possible_detection_num)
 			Events.emit_signal("possible_detection_num_changed", possible_detection_num)
 		Types.DetectionLevels.Sure:
 			sure_detection_num += 1
-			print("sure detection")
+			print("sure detection %s" % sure_detection_num)
+			setDetectedValue(detected_value - 1)
+			print(detected_value)
 			Events.emit_signal("sure_detection_num_changed", sure_detection_num)
 
 
+func onAllowedDetectionsUpdated(value: int) -> void:
+	setDetectedValue(value)
+
+
+func setDetectedValue(value: int) -> void:
+	detected_value = value
+	if detected_value <= 0:
+		Events.emit_signal("game_over")

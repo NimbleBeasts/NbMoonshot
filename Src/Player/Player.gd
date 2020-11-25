@@ -71,6 +71,7 @@ func _ready() -> void:
 	Events.connect("sure_detection_num_changed", self, "onSureDetectionNumChanged")
 	Events.connect("block_player_movement", self, "onBlockPlayerMovement")
 	Events.connect("unblock_player_movement", self, "onUnblockPlayerMovement")
+	Events.connect("game_over", self, "onGameOver")
 
 	$AnimationPlayer.play("idle")
 	$FootstepTimer.connect("timeout", self, "onFootstepTimerTimeout")
@@ -285,14 +286,6 @@ func onUnblockPlayerMovement() -> void:
 	block_input = false
 	print("block input false")
 
-func onSureDetectionNumChanged(num: int) -> void:
-	if num >= Global.game_manager.getCurrentLevel().allowed_detections:
-		set_process(false)
-		block_input = true
-		$AnimationPlayer.play("lose")
-		Events.emit_signal("hud_game_over")
-
-
 # use this function to set light_level instead of directly changing it
 func set_light_level(value: int) -> void:
 	if light_level != value:
@@ -339,3 +332,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func onFootstepTimerTimeout() -> void:
 	playFootstepSound = true
+
+
+func onGameOver() -> void:
+	set_process(false)
+	block_input = true
+	$AnimationPlayer.play("lose")
+	Events.emit_signal("hud_game_over")
