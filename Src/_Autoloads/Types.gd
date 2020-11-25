@@ -19,7 +19,7 @@ enum MinigameResults{Failed, Succeeded, Doing}
 
 # Objects
 enum GuardStates {Wander, Suspect, PlayerDetected, Stunned}
-enum CameraStates {Normal, Suspect, PlayerDetected}
+enum CameraStates {Normal, Suspect, PlayerDetected, Rotating, Frozen}
 enum WireColors {Red, Purple,Green, Blue}
 enum NotifierTypes{Exclamation, Question}
 enum NoteType {SecretService, Local}
