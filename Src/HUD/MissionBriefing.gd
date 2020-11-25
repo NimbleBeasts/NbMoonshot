@@ -37,6 +37,14 @@ const text = [
 func setLevel(id):
 	# subtract 1 because of hq level 
 	$BriefingLabel.bbcode_text = text[id - 1]
+	
+	if id < 3:
+		$MapSprite.frame = 0
+	elif id == 3:
+		$MapSprite.frame = 2
+	else: 
+		$MapSprite.frame = 1
+	
 	showMissionBriefing()
 
 

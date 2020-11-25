@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/HUD/MissionBriefing.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/MagoFont3_32.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/HUD/MissionBriefing.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=5]
+[ext_resource path="res://Assets/HUD/MissionMaps.png" type="Texture" id=6]
 
 [node name="MissionBriefing" type="Control"]
 anchor_right = 1.0
@@ -71,3 +72,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "Mission Briefing"
 align = 1
 valign = 1
+
+[node name="MapSprite" type="Sprite" parent="."]
+position = Vector2( 32, 88 )
+texture = ExtResource( 6 )
+centered = false
+hframes = 3
