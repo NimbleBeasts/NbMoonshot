@@ -93,19 +93,18 @@ func _process(_delta: float) -> void:
 	update_light_level()
 
 	# wall dodging
-	if not block_input:
-		if Input.is_action_pressed("wall_dodge"):
-			set_light_level(max(light_level - 1, 0))
-			set_state(Types.PlayerStates.WallDodge)
-			block_input = true if (not has_sneak_upgrade) else false
+	if Input.is_action_pressed("wall_dodge"):
+		visible_level = max(light_level - 1, 0)
+		set_state(Types.PlayerStates.WallDodge)
+		block_input = true if (not has_sneak_upgrade) else false
 	if Input.is_action_just_released("wall_dodge"):
 		visible_level = light_level
 		set_state(Types.PlayerStates.Normal)
 
+
 	# ducking 
-	if not block_input:
-		if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
-			set_state(Types.PlayerStates.Duck)
+	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
+		set_state(Types.PlayerStates.Duck)
 	if Input.is_action_just_released("duck"):
 		set_state(Types.PlayerStates.Normal)
 
