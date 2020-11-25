@@ -4,6 +4,7 @@ var pins = []
 var atm_at:int = 0
 var seq:int = 0
 var controlsBlock = false
+var start_control_block = true
 
 var try:int = 6
 onready var lockpick = $LockpickInside
@@ -57,6 +58,10 @@ func _process(delta) -> void:
 
 		
 func _input(event):
+	if start_control_block and event.is_action_released("interact"):
+		start_control_block = false
+		return;
+	
 	if controlsBlock:
 		return
 	
