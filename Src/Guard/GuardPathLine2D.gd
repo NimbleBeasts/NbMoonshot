@@ -3,9 +3,6 @@ class_name GuardPathLine
 
 # reworked this to remove all yields and be less magic - knightmare
 
-signal loop_finished
-signal next_point_reached
-
 export var stop_time: float = 1.5
 var global_points: Array = []
 var next_point: Vector2

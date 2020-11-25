@@ -19,11 +19,15 @@ func _physics_process(delta: float) -> void:
 	lineVelocity = lineDirection * lineSpeed
 	line.position += lineVelocity * delta
 
-	if lineInTarget:
-		if Input.is_action_just_pressed("interact"):
-			lineDirection.x = 0
-			set_result(Types.MinigameResults.Succeeded)
-			close()
+	# succeed if clicked at correct time
+	# failed if clicked at wrong time
+	if lineInTarget and Input.is_action_just_pressed("interact"):
+		lineDirection.x = 0
+		set_result(Types.MinigameResults.Succeeded)
+		close()
+	elif not lineInTarget and Input.is_action_just_pressed("interact"):
+		set_result(Types.MinigameResults.Failed)
+		close()
 			
 
 func onLineAreaEntered(area: Area2D) -> void:

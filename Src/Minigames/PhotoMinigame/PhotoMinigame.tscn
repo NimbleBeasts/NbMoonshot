@@ -5,42 +5,42 @@
 [ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigame.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3.60118, 7.75 )
+extents = Vector2( 3.601, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2.7163, 8.04199 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 22.2865, 7.75948 )
+extents = Vector2( 23.9225, 7.86048 )
 
 [node name="PhotoMinigame" type="Node2D"]
 z_index = 60
 script = ExtResource( 3 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -111.5
-margin_top = -95.75
-margin_right = 112.5
-margin_bottom = -79.75
+margin_left = -116.52
+margin_top = -76.6258
+margin_right = 107.48
+margin_bottom = -60.6258
 color = Color( 1, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ChangeDirection" type="Area2D" parent="."]
-position = Vector2( 108.34, -87.3071 )
+position = Vector2( 103.334, -68.8758 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeDirection"]
 shape = SubResource( 1 )
 
 [node name="ChangeDirection2" type="Area2D" parent="."]
-position = Vector2( -108.757, -88.574 )
+position = Vector2( -113.373, -68.8758 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeDirection2"]
 shape = SubResource( 1 )
 
 [node name="Line" type="Area2D" parent="."]
-position = Vector2( -39.5605, -90.453 )
+position = Vector2( -45.0197, -68.8758 )
 z_index = 50
 
 [node name="Line" type="Sprite" parent="Line"]
@@ -51,11 +51,10 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Line"]
 shape = SubResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="LineTarget" type="Area2D" parent="." groups=[
 "LineTarget",
 ]]
+position = Vector2( -5.01974, 19.1242 )
 
 [node name="ColorRect2" type="ColorRect" parent="LineTarget"]
 margin_left = -23.0
@@ -68,7 +67,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LineTarget"]
-position = Vector2( 2.53297, -87.814 )
+position = Vector2( 0.765201, -87.9908 )
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
