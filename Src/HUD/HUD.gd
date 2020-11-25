@@ -36,6 +36,7 @@ func _ready():
 	Events.connect("hud_game_over", self, "showGameOverNotification")
 	Events.connect("hud_game_hint", self, "showGameHintNotification")
 
+	Events.connect("hud_photo_flash", self, "photoFlash")
 
 	for node in $Upgrades/Grid.get_children():
 		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
@@ -50,6 +51,9 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
 
+
+func photoFlash():
+	$PhotoFlash/AnimationPlayer.play("detection")
 
 func showGameHintNotification(text):
 	$GameHintNotification.set_text(text)

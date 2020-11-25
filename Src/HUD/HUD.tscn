@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -34,7 +34,20 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="ButtonGroup" id=2]
+[sub_resource type="Animation" id=2]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="ButtonGroup" id=3]
 
@@ -50,14 +63,15 @@ tracks/0/keys = {
 
 [sub_resource type="ButtonGroup" id=9]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="ButtonGroup" id=10]
+
+[sub_resource type="DynamicFont" id=11]
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 17 )
 
-[sub_resource type="Animation" id=11]
-resource_name = "pop"
+[sub_resource type="Animation" id=12]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -72,12 +86,11 @@ tracks/0/keys = {
 "values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 17 )
 
-[sub_resource type="Animation" id=13]
-resource_name = "pop"
+[sub_resource type="Animation" id=14]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -104,7 +117,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -130,7 +143,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
@@ -145,7 +158,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -171,7 +184,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -202,6 +215,19 @@ pause_mode = 2
 layer = 127
 script = ExtResource( 1 )
 
+[node name="PhotoFlash" type="ColorRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PhotoFlash"]
+anims/detection = SubResource( 1 )
+
 [node name="DetectFlash" type="ColorRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
@@ -214,7 +240,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DetectFlash"]
-anims/detection = SubResource( 1 )
+anims/detection = SubResource( 2 )
 
 [node name="Dialog" type="NinePatchRect" parent="."]
 visible = false
@@ -291,31 +317,31 @@ __meta__ = {
 }
 
 [node name="UpgradeButton0" parent="Upgrades/Grid" instance=ExtResource( 5 )]
-group = SubResource( 2 )
+group = SubResource( 3 )
 skill = 0
 
 [node name="UpgradeButton1" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
 margin_right = 75.0
-group = SubResource( 3 )
+group = SubResource( 4 )
 skill = 1
 
 [node name="UpgradeButton2" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 86.0
 margin_right = 118.0
-group = SubResource( 4 )
+group = SubResource( 5 )
 skill = 2
 
 [node name="UpgradeButton3" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 129.0
 margin_right = 161.0
-group = SubResource( 5 )
+group = SubResource( 6 )
 skill = 3
 
 [node name="UpgradeButton4" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 margin_top = 43.0
 margin_bottom = 75.0
-group = SubResource( 6 )
+group = SubResource( 7 )
 skill = 4
 
 [node name="UpgradeButton5" parent="Upgrades/Grid" instance=ExtResource( 5 )]
@@ -323,7 +349,7 @@ margin_left = 43.0
 margin_top = 43.0
 margin_right = 75.0
 margin_bottom = 75.0
-group = SubResource( 7 )
+group = SubResource( 8 )
 skill = 5
 
 [node name="UpgradeButton6" parent="Upgrades/Grid" instance=ExtResource( 5 )]
@@ -331,7 +357,7 @@ margin_left = 86.0
 margin_top = 43.0
 margin_right = 118.0
 margin_bottom = 75.0
-group = SubResource( 8 )
+group = SubResource( 9 )
 skill = 6
 
 [node name="UpgradeButton7" parent="Upgrades/Grid" instance=ExtResource( 5 )]
@@ -339,7 +365,7 @@ margin_left = 129.0
 margin_top = 43.0
 margin_right = 161.0
 margin_bottom = 75.0
-group = SubResource( 9 )
+group = SubResource( 10 )
 skill = 7
 
 [node name="InfoBox" type="NinePatchRect" parent="Upgrades"]
@@ -485,7 +511,7 @@ margin_right = 120.0
 margin_bottom = -28.0
 rect_scale = Vector2( 0.1, 0.1 )
 rect_pivot_offset = Vector2( 120, 32 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "GAME OVER"
 align = 1
 valign = 1
@@ -494,7 +520,7 @@ __meta__ = {
 }
 
 [node name="GameOverNotifcationAnimationPlayer" type="AnimationPlayer" parent="GameOverNotification"]
-anims/pop = SubResource( 11 )
+anims/pop = SubResource( 12 )
 
 [node name="GameHintNotification" type="Label" parent="."]
 visible = false
@@ -508,7 +534,7 @@ margin_top = -52.0
 margin_right = 192.0
 margin_bottom = -11.9975
 rect_pivot_offset = Vector2( 120, 32 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "Example Text Goes Here"
 align = 1
 valign = 1
@@ -517,7 +543,7 @@ __meta__ = {
 }
 
 [node name="GameHintAnimationPlayer" type="AnimationPlayer" parent="GameHintNotification"]
-anims/pop = SubResource( 13 )
+anims/pop = SubResource( 14 )
 
 [node name="Shader" type="ColorRect" parent="."]
 material = ExtResource( 9 )
@@ -593,7 +619,7 @@ __meta__ = {
 }
 
 [node name="AlarmAnimation" type="AnimationPlayer" parent="AlarmIndicator"]
-anims/downgrade = SubResource( 14 )
+anims/downgrade = SubResource( 15 )
 
 [node name="ChargeIndicator" type="Sprite" parent="."]
 position = Vector2( 64, 24 )
@@ -629,9 +655,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MoneyIndicator"]
-anims/idle = SubResource( 15 )
-anims/moneyDown = SubResource( 16 )
-anims/moneyUp = SubResource( 17 )
+anims/idle = SubResource( 16 )
+anims/moneyDown = SubResource( 17 )
+anims/moneyUp = SubResource( 18 )
 next/moneyDown = "idle"
 next/moneyUp = "idle"
 

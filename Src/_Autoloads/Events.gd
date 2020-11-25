@@ -45,7 +45,7 @@ signal hud_mission_briefing_exited()
 signal hud_game_over()
 signal hud_game_over_exited()
 signal hud_game_hint(text)
-
+signal hud_photo_flash()
 
 signal save_game()
 
