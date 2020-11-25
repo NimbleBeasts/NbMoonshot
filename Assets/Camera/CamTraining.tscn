@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Camera/Training-sheet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Camera/CamTraining.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "detected"
 length = 0.5
 loop = true
@@ -30,11 +30,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 2, 3 ]
+"values": [ 4, 5 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "idle"
+[sub_resource type="Animation" id=2]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -76,7 +75,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ 2, 3 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite2:frame")
@@ -102,13 +101,13 @@ frame = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-hframes = 11
-frame = 2
+hframes = 8
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/detected = SubResource( 2 )
-anims/idle = SubResource( 1 )
+anims/detected = SubResource( 1 )
+anims/idle = SubResource( 2 )
 anims/suspect = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
