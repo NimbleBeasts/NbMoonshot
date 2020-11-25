@@ -5,6 +5,9 @@ export (int) var goal: int
 
 var input = ""
 
+var allowedKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+
 func _ready() -> void:
 	for button in $Input.get_children():
 		button.connect("button_clicked", self, "_on_button_clicked")
@@ -22,12 +25,22 @@ func clearDisplay():
 	$Display/Digit1.frame = 10
 	$Display/Digit2.frame = 10
 	$Display/Digit3.frame = 10
-	
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.pressed:
+			var scanCodeString = OS.get_scancode_string(event.scancode)
+			if scanCodeString in allowedKeys:
+				var correctButton = get_node("Input/Button" + scanCodeString )
+				correctButton.press()
+
 
 func updateDisplay():
 	var offset = input.length() - 1
 	for i in range(offset + 1):
 		get_node("Display/Digit" + str(i)).frame = int(input[offset - i])
+
 
 func _on_button_clicked(num: String) -> void:
 	if num == "§":  # Enter sign
@@ -57,3 +70,5 @@ func playFailSound() -> void:
 
 func playSuccessSound() -> void:
 	Events.emit_signal("play_sound", "keypad_input_correct")
+
+

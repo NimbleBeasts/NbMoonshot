@@ -68,7 +68,6 @@ func _ready() -> void:
 	Events.connect("minigame_entered", self,  "_on_minigame_entered")
 	Events.connect("hud_note_exited", self, "_on_hud_note_exited")
 	Events.connect("hud_note_show", self, "_on_hud_note_showed")
-	Events.connect("sure_detection_num_changed", self, "onSureDetectionNumChanged")
 	Events.connect("block_player_movement", self, "onBlockPlayerMovement")
 	Events.connect("unblock_player_movement", self, "onUnblockPlayerMovement")
 	Events.connect("game_over", self, "onGameOver")
