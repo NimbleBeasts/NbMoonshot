@@ -89,16 +89,17 @@ func _process(_delta: float) -> void:
 	else:
 		speed = normal_speed
 		acceleration = normal_acceleration
-			
-	update_light_level()
+		
+	if not state == Types.PlayerStates.WallDodge:
+		update_light_level()
 
 	# wall dodging
 	if Input.is_action_pressed("wall_dodge"):
-		visible_level = max(light_level - 1, 0)
+		setVisibleLevel(max(light_level - 1, 0))
 		set_state(Types.PlayerStates.WallDodge)
 		block_input = true if (not has_sneak_upgrade) else false
 	if Input.is_action_just_released("wall_dodge"):
-		visible_level = light_level
+		setVisibleLevel(light_level)
 		set_state(Types.PlayerStates.Normal)
 
 
@@ -291,7 +292,7 @@ func set_light_level(value: int) -> void:
 		# updates visible level when updating light_level
 		# this is why a custom setter function is needed, may forgot to set visible level and
 		# will fuk everything up
-		visible_level = light_level
+		setVisibleLevel(light_level)
 		$PlayerSprite.modulate = Color(visibilityLevelsModulations[visible_level])
 		Events.emit_signal("light_level_changed", light_level)
 	
@@ -337,3 +338,9 @@ func onGameOver() -> void:
 	block_input = true
 	$AnimationPlayer.play("lose")
 	Events.emit_signal("hud_game_over")
+
+
+func setVisibleLevel(value: int) -> void:
+	if visible_level != value:
+		visible_level = value
+		Events.emit_signal("visible_level_changed", visible_level)

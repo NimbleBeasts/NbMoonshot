@@ -17,7 +17,7 @@ onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 func _ready():
 	$AlarmIndicator/Label.set_text(str(detected_value))
 	dialogTypeTimer.connect("timeout", self, "onDialogTypeTimerTimeout")
-	Events.connect("light_level_changed", self, "updateLightLevel")
+	Events.connect("visible_level_changed", self, "updateLightLevel")
 	Events.connect("audio_level_changed", self, "updateAudioLevel")
 	
 	Events.connect("hud_note_show", self, "showNote")
