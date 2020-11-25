@@ -12,6 +12,7 @@ func _ready():
 	timer.connect("timeout", self, "onTimerTimeout")
 	$Label.set_text(label)
 
+	
 func _on_TextureButton_button_down():
 	press()
 
@@ -29,7 +30,7 @@ func press() -> void:
 		Events.emit_signal("play_sound", "keypad_input")
 	else:
 		Events.emit_signal("play_sound", "keypad_clear")
-
+		
 
 func release() -> void:
 	self.frame = 0

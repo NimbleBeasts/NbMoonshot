@@ -32,8 +32,14 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			var scanCodeString = OS.get_scancode_string(event.scancode)
 			if scanCodeString in allowedKeys:
-				var correctButton = get_node("Input/Button" + scanCodeString )
+				var correctButton = get_node("Input/Button" + scanCodeString)
 				correctButton.press()
+			
+			# for enter and backspace
+			if event.scancode == KEY_BACKSPACE:
+				$Input/Button10.press()
+			elif event.scancode == KEY_ENTER:
+				$Input/Button11.press()
 
 
 func updateDisplay():
