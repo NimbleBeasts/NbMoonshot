@@ -235,9 +235,13 @@ wait_time = 3.0
 [node name="FrozenTimer" type="Timer" parent="."]
 wait_time = 2.5
 one_shot = true
+
+[node name="SuspToDetTimer" type="Timer" parent="."]
+one_shot = true
 [connection signal="area_entered" from="FOV" to="." method="_on_FOV_area_entered"]
 [connection signal="area_exited" from="FOV" to="." method="_on_FOV_area_exited"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="RotationTimer" to="." method="_on_RotationTimer_timeout"]
 [connection signal="timeout" from="FrozenTimer" to="." method="_on_FrozenTimer_timeout"]
+[connection signal="timeout" from="SuspToDetTimer" to="." method="_on_SuspToDetTimer_timeout"]
