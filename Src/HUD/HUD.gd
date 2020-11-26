@@ -15,6 +15,8 @@ var currentSelectedUpgrade: int = 0
 onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
 func _ready():
+	Global.gameState.playerUpgrades = []
+	Global.gameState.money = 500
 	$AlarmIndicator/Label.set_text(str(detected_value))
 	dialogTypeTimer.connect("timeout", self, "onDialogTypeTimerTimeout")
 	Events.connect("visible_level_changed", self, "updateLightLevel")
@@ -185,6 +187,7 @@ func upgradeSelect(id):
 	else:
 		$Upgrades/InfoBox/UpgradeButton.updateLabel("Already Owned")
 		$Upgrades/InfoBox/UpgradeButton.disabled = true
+		Events.emit_signal("update_upgrades")
 
 
 func showUpgrade():
@@ -219,6 +222,7 @@ func showDialog(pname: String, nameColor: String, text: String):
 func hideDialog() -> void:
 	$Dialog.hide()
 	Events.emit_signal("hud_dialog_exited")
+	dialogTypeTimer.stop()
 	Global.player.set_state(Types.PlayerStates.Normal)
 
 
@@ -236,6 +240,7 @@ func _physics_process(_delta):
 			get_tree().paused = false
 		elif $Upgrades.visible:
 			$Upgrades.hide()
+			Events.emit_signal("unblock_player_movement")
 		elif $SaveGame.visible:
 			$SaveGame.hide()
 		else:
@@ -243,7 +248,7 @@ func _physics_process(_delta):
 			$IngameMenu/Menu/ButtonReturn.grab_focus()
 			get_tree().paused = true
 			Events.emit_signal("forcefully_close_minigame")
-			
+
 			
 	# hide when press E and don't have any more text to show
 	if Input.is_action_just_pressed("interact") and nextText == "" and $Dialog.visible:
@@ -302,7 +307,7 @@ func hover(type):
 func onDialogTypeTimerTimeout() -> void:
 	if $Dialog/Text.text.length() != $Dialog/Text.visible_characters:
 		$Dialog/Text.visible_characters += 1
-		# Events.emit_signal("play_sound", "type")
+		Events.emit_signal("play_sound", "type")
 	else:
 		dialogTypeTimer.stop()
 

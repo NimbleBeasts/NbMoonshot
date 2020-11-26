@@ -57,9 +57,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	Global.addUpgrade(Types.UpgradeTypes.Sneak)
 	# sprint upgrade
-	canSprint = Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
 	set_state(Types.PlayerStates.Normal)
@@ -72,6 +70,7 @@ func _ready() -> void:
 	Events.connect("block_player_movement", self, "onBlockPlayerMovement")
 	Events.connect("unblock_player_movement", self, "onUnblockPlayerMovement")
 	Events.connect("game_over", self, "onGameOver")
+	Events.connect("update_upgrades", self, "do_upgrade_stuff")
 
 	$AnimationPlayer.play("idle")
 	$FootstepTimer.connect("timeout", self, "onFootstepTimerTimeout")
@@ -96,18 +95,20 @@ func _process(_delta: float) -> void:
 
 
 	# wall dodging
-	if Input.is_action_pressed("wall_dodge"):
-		setVisibleLevel(max(light_level - 1, 0))
-		set_state(Types.PlayerStates.WallDodge)
-		block_input = true if (not has_sneak_upgrade) else false
+	if not block_input:
+		if Input.is_action_pressed("wall_dodge"):
+			setVisibleLevel(max(light_level - 1, 0))
+			set_state(Types.PlayerStates.WallDodge)
+			block_input = true if (not has_sneak_upgrade) else false
 	if Input.is_action_just_released("wall_dodge"):
 		setVisibleLevel(light_level)
 		set_state(Types.PlayerStates.Normal)
 		isSneaking = false
 
 	# ducking 
-	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
-		set_state(Types.PlayerStates.Duck)
+	if not block_input:
+		if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
+			set_state(Types.PlayerStates.Duck)
 	if Input.is_action_just_released("duck"):
 		set_state(Types.PlayerStates.Normal)
 
@@ -268,7 +269,8 @@ func do_upgrade_stuff() -> void:
 
 	# sneak upgrade
 	has_sneak_upgrade = Types.UpgradeTypes.Sneak in Global.gameState.playerUpgrades
-
+	canSprint = Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades
+	print("upgrade updated")
 
 # Event Hooks
 func _on_minigame_entered(_type: int) -> void:

@@ -48,6 +48,7 @@ signal hud_game_over_exited()
 signal hud_game_hint(text)
 signal hud_photo_flash()
 signal hide_save()
+signal update_upgrades()
 
 signal save_game()
 
