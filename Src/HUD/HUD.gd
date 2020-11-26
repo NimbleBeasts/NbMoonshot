@@ -249,7 +249,7 @@ func _physics_process(_delta):
 	# if Input.is_action_just_pressed("interact") and nextText == "" and $Dialog.visible:
 	# 	hideDialog()
 
-	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length())
+	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length() and $Dialog.visible)
 
 	if Input.is_action_just_pressed("interact") and $Dialog.visible:
 		if dialogIsTyping:
@@ -258,7 +258,7 @@ func _physics_process(_delta):
 			hideDialog()
 			Events.emit_signal("unblock_player_movement")
 
-
+			
 	# hide when press E in note
 	if Input.is_action_just_pressed("interact"):
 		if $Note.visible:
