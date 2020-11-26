@@ -48,12 +48,6 @@ func _ready():
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 
 
-func _process(delta: float) -> void:
-	if nextText != "":
-		if Input.is_action_just_pressed("interact"):
-			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
-
-
 func photoFlash():
 	$PhotoFlash/AnimationPlayer.play("detection")
 
@@ -249,16 +243,27 @@ func _physics_process(_delta):
 	# if Input.is_action_just_pressed("interact") and nextText == "" and $Dialog.visible:
 	# 	hideDialog()
 
-	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length() and $Dialog.visible)
+	# if nextText != "":
+	# 	if Input.is_action_just_pressed("interact"):
+	# 		if dialogIsTyping:
+	# 			$Dialog/Text.visible_characters = $Dialog/Text.text.length()
+	# 			dialogIsTyping = false
+	# 		else:
+	# 			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
 
+	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length() and $Dialog.visible)
 	if Input.is_action_just_pressed("interact") and $Dialog.visible:
 		if dialogIsTyping:
 			$Dialog/Text.visible_characters = $Dialog/Text.text.length()
+			dialogIsTyping = false
 		else:
-			hideDialog()
-			Events.emit_signal("unblock_player_movement")
+			if nextText != "":
+				Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
+			else:
+				hideDialog()
+				Events.emit_signal("unblock_player_movement")
 
-			
+
 	# hide when press E in note
 	if Input.is_action_just_pressed("interact"):
 		if $Note.visible:
