@@ -1,14 +1,14 @@
 {
 
-"00" : { "text" : "Ah, Mr Bondski, here you are at last. It is a great honor and obligation to work for Ustria's Secret Service. Our great leader wants to Make Ustria Great Again. Therefore, the great nation of Ustria shall be the first on the Moon." },
-"01" : {"text" : "Unfortunately we do not even have a rocket yet. That is why they are here today. Our agency will obtain plans and secret documents to support our scientists."},
-"02" : {"text": "Before you go on your first mission: In the basement is your office where you can save, your colleague who can equip you with additional upgrades and a training parkour."},
-"03" : {"text": "Mission 0 - Complete the training parkour!"},
+"00" : { "text" : "Welcome agent, here you are at last. It is a great honor and obligation to work for Ustria's Secret Service. Our great leader wants to participate in the space race. Therefore, the great nation of Ustria shall be the first on the Moon." },
+"01" : {"text" : "Unfortunately we do not even have a rocket yet. And that is why they are here today. Our agency will obtain plans and secret documents to support our great scientists."},
+"02" : {"text": "Before you go on your first mission: In the basement is your office where you can save your progress, your colleague who can equip you with additional upgrades and a training parkour."},
+"03" : {"text": "Mission 0 - Complete the training parkour by unlocking the safe!"},
 "quest0" : {"level_index" : "0"},
 
-"10" : {"text" : "Hm, even my grandma could have done it faster. But well, you just have to take what you get."},
-"11" : {"text" : "Very well. Your first mission will take you to the Soviet Union. Their rocket technology is the best in the world. Our researchers need these plans for, um ... inspiration."},
-"12" : {"text" : "Natasja prepared a detailed mission briefing for this. Take the car in front of the building to start the mission."},
+"10" : {"text" : "Wow, that was really slow, even my grandma could have done it faster. But well, you just have to take what you get."},
+"11" : {"text" : "Okay, your first mission will take you to the Soviet Union. Their rocket technology is the best in the world. Our researchers need these plans for, umm ... inspiration."},
+"12" : {"text" : "My secretary Natasja prepared a detailed mission briefing for this. Take the car in front of the building to start the mission."},
 "quest1" : {"level_index" : "1"},
 
 "20" : {"text" : "Welcome back comrade, your last mission helped our scientists a lot. But the plans seem to be incomplete or incorrect."},
@@ -17,18 +17,18 @@
 "quest2" : {"level_index" : "2"},
 
 "30" : {"text" : "Well that photos were really impressive. It looks like they have been using a lot of duct tape on that rocket."},
-"31" : {"text" : "This time I have a very private task. Top Secret!"},
-"32" : {"text" : "I think my wife is cheating on me. Take the camera and give me some solid evidence!"},
+"31" : {"text" : "About your next mission: This time I have a very private task. Top Secret!"},
+"32" : {"text" : "I think my wife is cheating on me. Take the camera and give me some solid evidence! Well I hope she is not. "},
 "quest3" : {"level_index" : "3"},
 
-"40" : {"text" : "Our intelligence tells us that the American Lunar Landing Mission is supposedly close to a breakthrough."},
-"41" : {"text" : "We absolutely need those plans! Enter the NASA Headquarter and steal them."},
-"42" : {"text" : "Leave now."},
+"40" : {"text" : "Our intelligence tells us that the American Lunar Landing Mission is very close to a breakthrough."},
+"41" : {"text" : "We absolutely need those plans! There is not much time left. Enter the NASA Headquarter, get an overview about what is going on and get us those plans!"},
+"42" : {"text" : "Hurry up! Time is ticking."},
 "quest4" : {"level_index" : "4"},
 
 
 "50" : {"text" : "Comrade, the secret documents that you provided us with are only a movie script. Apparently the Americans want to trick us and prepare their moon landing somewhere else."},
-"51" : {"text" : "Another informant, could tell us another location. Maybe the plans can be found there."},
+"51" : {"text" : "Another informant, told us another NASA Lab location. Maybe the plans can be found there."},
 "52" : {"text" : "Infiltrate the building and get those informations."},
 "quest5" : {"level_index" : "5"},
 

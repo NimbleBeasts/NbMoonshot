@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://Assets/HUD/Dollar.png" type="Texture" id=15]
 [ext_resource path="res://Src/BaseButton/BaseButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Fonts/mago3.3.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://Assets/HUD/MenuButton/MenuButton1.png" type="Texture" id=18]
+[ext_resource path="res://Assets/HUD/MenuButton/MenuButton3.png" type="Texture" id=19]
+[ext_resource path="res://Assets/HUD/MenuButton/MenuButton2.png" type="Texture" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -601,7 +604,7 @@ __meta__ = {
 }
 
 [node name="AlarmIndicator" type="Sprite" parent="."]
-position = Vector2( 24, 24 )
+position = Vector2( 61, 24 )
 texture = ExtResource( 11 )
 hframes = 3
 
@@ -622,7 +625,7 @@ __meta__ = {
 anims/downgrade = SubResource( 15 )
 
 [node name="ChargeIndicator" type="Sprite" parent="."]
-position = Vector2( 64, 24 )
+position = Vector2( 101, 24 )
 texture = ExtResource( 12 )
 hframes = 4
 
@@ -638,7 +641,7 @@ __meta__ = {
 }
 
 [node name="MoneyIndicator" type="Sprite" parent="."]
-position = Vector2( 104, 23 )
+position = Vector2( 140, 23 )
 texture = ExtResource( 15 )
 hframes = 3
 
@@ -660,6 +663,18 @@ anims/moneyDown = SubResource( 17 )
 anims/moneyUp = SubResource( 18 )
 next/moneyDown = "idle"
 next/moneyUp = "idle"
+
+[node name="MenuButton" type="TextureButton" parent="."]
+margin_left = 17.6187
+margin_top = 12.4983
+margin_right = 41.6187
+margin_bottom = 36.4983
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Hovers" type="Node2D" parent="."]
 visible = false
@@ -789,6 +804,7 @@ label = "Quit"
 [connection signal="mouse_exited" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_exited"]
 [connection signal="mouse_entered" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_entered"]
 [connection signal="mouse_exited" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_exited"]
+[connection signal="button_up" from="MenuButton" to="." method="_on_MenuButton_button_up"]
 [connection signal="button_up" from="MissionBriefing/StartMissionButton" to="." method="_on_StartMissionButton_button_up"]
 [connection signal="button_up" from="IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
 [connection signal="button_up" from="IngameMenu/Menu/ButtonSound" to="." method="_on_ButtonSound_button_up"]

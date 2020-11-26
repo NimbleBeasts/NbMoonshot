@@ -65,7 +65,6 @@ func showGameHintNotification(text):
 func _on_GameHintAnimationPlayer_animation_finished(anim_name):
 	$GameHintNotification.hide()
 
-	
 
 func showGameOverNotification():
 	$GameOverNotification.show()
@@ -130,7 +129,6 @@ func taserUpdate(value):
 func alarmIndication(value):
 	if detected_value >= 0:
 		detected_value -= 1
-		print("alarm")
 		$DetectFlash/AnimationPlayer.play("detection")
 		$AlarmIndicator/AlarmAnimation.play("downgrade")
 		$AlarmIndicator/Label.set_text(str(detected_value))
@@ -236,18 +234,14 @@ func _physics_process(_delta):
 			$Dialog.hide()
 			Events.emit_signal("hud_dialog_exited")
 		elif $IngameMenu.visible:
-			$IngameMenu.hide()
-			get_tree().paused = false
+			hideMenu()
 		elif $Upgrades.visible:
 			$Upgrades.hide()
 			Events.emit_signal("unblock_player_movement")
 		elif $SaveGame.visible:
 			onHideSave()
 		else:
-			$IngameMenu.show()
-			$IngameMenu/Menu/ButtonReturn.grab_focus()
-			get_tree().paused = true
-			Events.emit_signal("forcefully_close_minigame")
+			showMenu()
 
 			
 	# # hide when press E and don't have any more text to show
@@ -270,6 +264,16 @@ func _physics_process(_delta):
 			$Note.hide()
 			Events.emit_signal("hud_note_exited")
 
+
+func showMenu():
+	$IngameMenu.show()
+	$IngameMenu/Menu/ButtonReturn.grab_focus()
+	get_tree().paused = true
+	Events.emit_signal("forcefully_close_minigame")
+
+func hideMenu():
+	$IngameMenu.hide()
+	get_tree().paused = false
 
 func updateLightLevel(newLightLevel):
 	match newLightLevel:
@@ -402,3 +406,10 @@ func setDialogIsTyping(value: bool) -> void:
 	if dialogIsTyping != value:
 		dialogIsTyping = value
 		Events.emit_signal("dialog_typing_changed", dialogIsTyping)
+
+
+func _on_MenuButton_button_up():
+	if $IngameMenu.visible:
+		hideMenu()
+	else:
+		showMenu()
