@@ -123,7 +123,8 @@ func moneyUpdate(total, change):
 		upgradeSelect(currentSelectedUpgrade)
 
 func taserUpdate(value):
-	$ChargeIndicator.frame = 3 - value
+	var clamped = clamp( value, 0, 3)
+	$ChargeIndicator.frame = 3 - clamped
 	$ChargeIndicator/Label.set_text(str(value))
 
 
@@ -396,6 +397,10 @@ func _on_StartMissionButton_button_up():
 	$MissionBriefing.hide()
 	Events.emit_signal("play_sound", "menu_click")
 	Events.emit_signal("hud_mission_briefing_exited")
+	
+	#hmm duno if this is right place to go but need to trigger update taser text 
+	if Types.UpgradeTypes.Taser_Extended_Battery in Global.gameState.playerUpgrades:
+		taserUpdate(5)
 
 
 func setDialogIsTyping(value: bool) -> void:
