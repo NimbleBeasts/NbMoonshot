@@ -15,8 +15,6 @@ var currentSelectedUpgrade: int = 0
 onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
 func _ready():
-	Global.gameState.playerUpgrades = []
-	Global.gameState.money = 500
 	$AlarmIndicator/Label.set_text(str(detected_value))
 	dialogTypeTimer.connect("timeout", self, "onDialogTypeTimerTimeout")
 	Events.connect("visible_level_changed", self, "updateLightLevel")

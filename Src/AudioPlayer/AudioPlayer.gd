@@ -6,6 +6,9 @@ export (Array, AudioStream) var playerFootstepSounds
 export (Array, AudioStream) var playerCrouchWalkSounds
 
 export (AudioStream) var westernMusic
+export (AudioStream) var easternMusic
+export (AudioStream) var hqMusic
+export (AudioStream) var menuMusic
 
 onready var musicPlayer: AudioStreamPlayer = $Music
 
@@ -115,11 +118,23 @@ func playRandomSound(audioPlayer,array: Array) -> void:
 	audioPlayer.play()
 
 	
-func onPlayMusic(level_type: int) -> void:
+func onPlayMusic(level_type) -> void:
 	match level_type:
 		Types.LevelTypes.Western:
 			musicPlayer.stream = westernMusic
 			musicPlayer.play()
 			print("western music")
 		Types.LevelTypes.Eastern:
+			musicPlayer.stream = easternMusic
+			musicPlayer.play()
 			print("eastern music")
+		"HQ":
+			musicPlayer.stream = hqMusic
+			musicPlayer.play()
+			print("hq music")
+		"Menu":
+			musicPlayer.stream = menuMusic
+			musicPlayer.play()
+			print("menu music")
+		_:
+			print("not found")

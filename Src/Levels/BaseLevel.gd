@@ -26,7 +26,13 @@ func can_change_level():
 
 
 func _ready():
-	Events.emit_signal("play_music", level_type)
+	var musicEmit 
+	if Global.game_manager.getCurrentLevelIndex() != 0:
+		musicEmit = level_type
+	else:
+		musicEmit = "HQ"
+	Events.emit_signal("play_music", musicEmit)
+
 	Events.connect("hud_mission_briefing_exited", self, "onHudMissionBriefingExited")
 	if Global.game_manager.getCurrentLevelIndex() != 0:
 		Events.emit_signal("hud_mission_briefing", Global.game_manager.getCurrentLevelIndex())
