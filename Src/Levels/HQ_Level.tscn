@@ -144,12 +144,12 @@ position = Vector2( 480, 328 )
 position = Vector2( 480, 392 )
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 5 )]
-position = Vector2( 200, 392 )
+position = Vector2( 208, 392 )
 camDirection = 1
 isFixedCam = true
 
 [node name="Camera2" parent="LevelObjects" instance=ExtResource( 5 )]
-position = Vector2( 280, 392 )
+position = Vector2( 288, 392 )
 isFixedCam = true
 
 [node name="StaircaseL1" parent="LevelObjects" instance=ExtResource( 6 )]
@@ -328,7 +328,7 @@ type = 0
 hasBounty = false
 
 [node name="CamTraining" parent="LevelObjects" instance=ExtResource( 25 )]
-position = Vector2( 344, 328 )
+position = Vector2( 344, 335 )
 
 [node name="ZoneTutorialBriefing" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 216, 368 )
