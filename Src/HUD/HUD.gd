@@ -12,6 +12,7 @@ var currentText: String
 var hideWithE: bool = false
 var currentSelectedUpgrade: int = 0
 var dialogIsTyping: bool = false
+var canSayNext: bool = false
 
 onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
@@ -217,6 +218,7 @@ func hideDialog() -> void:
 	Events.emit_signal("hud_dialog_exited")
 	dialogTypeTimer.stop()
 	Global.player.set_state(Types.PlayerStates.Normal)
+	Events.emit_signal("unblock_player_movement")
 
 
 func _physics_process(_delta):
@@ -226,8 +228,7 @@ func _physics_process(_delta):
 			$Note.hide()
 			Events.emit_signal("hud_note_exited")
 		elif $Dialog.visible:
-			$Dialog.hide()
-			Events.emit_signal("hud_dialog_exited")
+			hideDialog()
 		elif $IngameMenu.visible:
 			hideMenu()
 		elif $Upgrades.visible:
@@ -239,30 +240,15 @@ func _physics_process(_delta):
 			showMenu()
 
 			
-	# # hide when press E and don't have any more text to show
-	# if Input.is_action_just_pressed("interact") and nextText == "" and $Dialog.visible:
-	# 	hideDialog()
-
-	# if nextText != "":
-	# 	if Input.is_action_just_pressed("interact"):
-	# 		if dialogIsTyping:
-	# 			$Dialog/Text.visible_characters = $Dialog/Text.text.length()
-	# 			dialogIsTyping = false
-	# 		else:
-	# 			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
-
 	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length() and $Dialog.visible)
 	if Input.is_action_just_pressed("interact") and $Dialog.visible:
 		if dialogIsTyping:
 			$Dialog/Text.visible_characters = $Dialog/Text.text.length()
-			dialogIsTyping = false
 		else:
 			if nextText != "":
 				Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
 			else:
 				hideDialog()
-				Events.emit_signal("unblock_player_movement")
-
 
 	# hide when press E in note
 	if Input.is_action_just_pressed("interact"):

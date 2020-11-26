@@ -13,7 +13,6 @@ var dialogueRead: bool = false
 var dialogTyping: bool = false
 
 func _ready() -> void:
-	Events.connect("dialog_typing_changed", self, "onDialogTypingChanged")
 	connect("body_entered", self, "_on_body_entered")
 	connect("body_exited", self, "_on_body_exited")
 	connect("read_all_dialog", self, "onReadAllDialogue")
@@ -50,7 +49,7 @@ func interact() -> void:
 	if has_dialogue(interacted_counter, dialogue_index):
 		# gets the dict and gets "text" index from it
 		say_dialogue_text(interacted_counter, dialogue_index)
-		
+		print("say next dialogue")
 		# if it is on last dialogue, i.e it can't find anymore dialogues after this
 		# it can emit "read_all_dialog"
 		if not has_dialogue(interacted_counter, dialogue_index + 1):
@@ -102,3 +101,4 @@ func _on_body_exited(body: Node) -> void:
 
 func onDialogTypingChanged(value: bool) -> void:
 	dialogTyping = value
+
