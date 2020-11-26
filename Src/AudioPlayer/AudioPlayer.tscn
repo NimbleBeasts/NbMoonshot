@@ -76,7 +76,6 @@ bus = "Sound"
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -16.0
-pitch_scale = 0.6
 bus = "Music"
 
 [node name="PlayerSounds" type="Node2D" parent="."]

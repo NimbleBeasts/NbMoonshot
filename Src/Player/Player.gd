@@ -82,14 +82,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	Global.screen_center = global_position
-	# changed between speeds depending on whether sprinting or not
-	if Input.is_action_pressed("sprint") and canSprint:
-		speed = sprint_speed
-		acceleration = sprint_acceleration
-	else:
-		speed = normal_speed
-		acceleration = normal_acceleration
-		
+	
+
+
 	if state != Types.PlayerStates.WallDodge or isSneaking:
 		update_light_level()
 
@@ -126,6 +121,8 @@ func _process(_delta: float) -> void:
 		$AnimationPlayer.play("dodge")
 		isSneaking = false
 
+	
+func _physics_process(delta: float) -> void:
 	# change speed
 	if state == Types.PlayerStates.Duck or state == Types.PlayerStates.WallDodge:
 		speed = duckSpeed
@@ -133,10 +130,17 @@ func _process(_delta: float) -> void:
 	else:
 		speed = normal_speed
 		acceleration = normal_acceleration
-	
-	
-func _physics_process(delta: float) -> void:
-	# movement code
+
+		
+	# changed between speeds depending on whether sprinting or not
+	if Input.is_action_pressed("sprint") and canSprint and state == Types.PlayerStates.Normal:
+		speed = sprint_speed
+		acceleration = sprint_acceleration
+	elif not Input.is_action_just_pressed("sprint") and state == Types.PlayerStates.Normal:
+		speed = normal_speed
+		acceleration = normal_acceleration
+
+
 	if not block_input:
 		direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		

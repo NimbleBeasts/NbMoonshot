@@ -90,3 +90,4 @@ func _on_DelayTimer_timeout():
 	$ReadTimer.stop()
 	switchState(GuardState.Hidden)
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
+	Events.emit_signal("play_sound", "laser_detect")
