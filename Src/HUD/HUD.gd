@@ -254,9 +254,9 @@ func _physics_process(_delta):
 	# if Input.is_action_just_pressed("interact") and nextText == "" and $Dialog.visible:
 	# 	hideDialog()
 
-	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length() and $Dialog.visible)
+	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length())
 
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and $Dialog.visible:
 		if dialogIsTyping:
 			$Dialog/Text.visible_characters = $Dialog/Text.text.length()
 		else:
