@@ -51,7 +51,7 @@ const upgrades = [
 	{id = 0, name="Power-Bank", desc="Increases the battery capacity to allow taser usages.", cost=300},
 	{id = 1, name="High Voltage", desc="Stunned Guards will sleep longer.", cost=200},
 	{id = 2, name="False Alarm", desc="Increases the amount of possible detections.", cost=300},
-	{id = 3, name="Marathon Man", desc="Increases the sprint duration.", cost=150},
+	{id = 3, name="Marathon Man", desc="Increases the movement speed.", cost=150},
 	{id = 4, name="Sneak", desc="Enables walk while hiding in the dark.", cost=200},
 	{id = 5, name="DarkNet", desc="Increases the money for every theft by +25%.", cost=200},
 	{id = 6, name="Lockpicking 2.0", desc="Make lockpicking easier.", cost=300},
