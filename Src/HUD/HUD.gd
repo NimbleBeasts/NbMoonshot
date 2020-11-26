@@ -405,9 +405,8 @@ func setDialogIsTyping(value: bool) -> void:
 	if dialogIsTyping != value:
 		dialogIsTyping = value
 		Events.emit_signal("dialog_typing_changed", dialogIsTyping)
-		print("signal emitted")
 
-		
+
 func _on_MenuButton_button_up():
 	if $IngameMenu.visible:
 		hideMenu()

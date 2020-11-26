@@ -102,4 +102,3 @@ func _on_body_exited(body: Node) -> void:
 
 func onDialogTypingChanged(value: bool) -> void:
 	dialogTyping = value
-	print("is this even reaching here, smh")
