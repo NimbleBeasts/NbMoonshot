@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
@@ -49,6 +49,7 @@
 [ext_resource path="res://Assets/SFX/eastern_bloc.ogg" type="AudioStream" id=47]
 [ext_resource path="res://Assets/SFX/hq.ogg" type="AudioStream" id=48]
 [ext_resource path="res://Assets/SFX/title.ogg" type="AudioStream" id=49]
+[ext_resource path="res://Assets/SFX/chair_startle.wav" type="AudioStream" id=50]
 
 [node name="AudioPlayer" type="Node2D"]
 script = ExtResource( 2 )
@@ -179,6 +180,10 @@ volume_db = -10.0
 [node name="Alarm" type="AudioStreamPlayer2D" parent="Guard"]
 
 [node name="Suspicious" type="AudioStreamPlayer2D" parent="Guard"]
+
+[node name="DeskGuardDetect" type="AudioStreamPlayer2D" parent="Guard"]
+position = Vector2( 0, 1 )
+stream = ExtResource( 50 )
 
 [node name="ChestSounds" type="Node2D" parent="."]
 

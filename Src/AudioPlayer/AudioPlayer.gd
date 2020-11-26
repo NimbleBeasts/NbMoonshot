@@ -103,6 +103,8 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 				$ChestSounds/HasBounty.play()
 			"chest_locked":
 				$ChestSounds/Locked.play()
+			"deskguard_detect":
+				$Guard/DeskGuardDetect.play()
 			_:
 				print("error: sound not found - name: " + str(sound))
 

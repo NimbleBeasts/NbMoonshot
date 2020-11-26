@@ -84,17 +84,21 @@ func _process(_delta: float) -> void:
 					Events.emit_signal("play_sound", "alarm")
 					check_for_stunned = false
 
-	match state:
-		Types.GuardStates.Wander:
-			if not velocity.is_equal_approx(Vector2.ZERO):
-				$AnimationPlayer.play("walk")
-			else:
-				$AnimationPlayer.play("idle")
-		Types.GuardStates.Stunned:
-			pass
-		Types.GuardStates.Suspect:
+	# match state:
+	# 	Types.GuardStates.Wander:
+	# 		if not velocity.is_equal_approx(Vector2.ZERO):
+	# 			$AnimationPlayer.play("walk")
+	# 		else:
+	# 			$AnimationPlayer.play("idle")
+	# 	Types.GuardStates.Stunned:
+	# 		pass
+	# 	Types.GuardStates.Suspect:
+	# 		pass
+	if state != Types.GuardStates.Stunned:
+		if not velocity.is_equal_approx(Vector2.ZERO):
+			$AnimationPlayer.play("walk")
+		else:
 			$AnimationPlayer.play("idle")
-
 
 func _physics_process(delta: float) -> void:
 	if player_in_los:
@@ -220,7 +224,9 @@ func set_state(new_state) -> void:
 				guardPathLine.stopAllMovement()
 				emit_signal("stop_movement")
 				Events.emit_signal("play_sound", "suspicious")
-				$Notifier.popup(Types.NotifierTypes.Question)
+				if not $Notifier.isShowing:
+					$Notifier.popup(Types.NotifierTypes.Question)
+				guardPathLine.moveToPoint(player.global_position)
 				if goBackToNormalTimer.is_stopped():
 					goBackToNormalTimer.start()
 			Types.GuardStates.Wander:
@@ -228,6 +234,7 @@ func set_state(new_state) -> void:
 				guardPathLine.startNormalMovement()
 				emit_signal("start_movement")
 			Types.GuardStates.Stunned:
+				$Notifier.remove()
 				direction = Vector2(0,0)
 				emit_signal("stop_movement")
 				guardPathLine.stopAllMovement()

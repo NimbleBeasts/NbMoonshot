@@ -7,6 +7,7 @@
 
 [node name="Light" type="Node2D"]
 script = ExtResource( 3 )
+flicker = false
 flickerSequence = "111000"
 
 [node name="TestSprite" type="Sprite" parent="."]
