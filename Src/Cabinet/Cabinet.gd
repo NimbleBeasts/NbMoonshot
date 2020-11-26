@@ -18,8 +18,9 @@ func _ready():
 	
 	if not hasBounty:
 		print("no bounty")
-		if not Engine.editor_hint:
-			self.remove_child($Area2D)
+		# why is this code even here? if it removes the area2d, how will it play locked sound?
+		# if not Engine.editor_hint:
+		# 	self.remove_child($Area2D)
 	else:
 		loot = Global.gameConstant.basicLoot
 		if Global.playerHasUpgrade(Types.UpgradeTypes.DarkNet):
@@ -39,9 +40,11 @@ func _process(_delta):
 				$AnimationPlayer.play("loot")
 				Global.addMoney(loot)
 				print("looted")
+				Events.emit_signal("play_sound", "chest_bounty")
 				pass
 			else:
 				print("no loot")
+				Events.emit_signal("play_sound", "chest_locked")
 
 
 func _on_Area2D_body_entered(body):

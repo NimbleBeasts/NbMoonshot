@@ -24,7 +24,8 @@ func _ready():
 	Events.connect("hud_dialog_show", self, "showDialog")
 	Events.connect("hud_upgrade_window_show", self, "showUpgrade")
 	Events.connect("hud_save_window_show", self, "showSave")
-	
+	Events.connect("hide_save", self, "onHideSave")
+
 	Events.connect("sure_detection_num_changed", self, "alarmIndication")
 	Events.connect("taser_fired", self, "taserUpdate")
 	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
@@ -223,7 +224,7 @@ func hideDialog() -> void:
 
 func _physics_process(_delta):
 	# Hide Note
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("close_menu"):
 		if $Note.visible:
 			$Note.hide()
 			Events.emit_signal("hud_note_exited")
@@ -280,6 +281,10 @@ func _on_GoBackToNormal_timeout() -> void:
 	$AudioIndicator.frame = 2
 
 
+func onHideSave() -> void:
+	$SaveGame.hide()
+
+	
 func hover(type):
 	match type:
 		HoverType.Web:

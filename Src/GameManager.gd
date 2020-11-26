@@ -168,5 +168,6 @@ func onAllowedDetectionsUpdated(value: int) -> void:
 
 func setDetectedValue(value: int) -> void:
 	detected_value = value
-	if detected_value <= 0:
+	if detected_value == 0:
 		Events.emit_signal("game_over")
+		Events.emit_signal("forcefully_close_minigame")

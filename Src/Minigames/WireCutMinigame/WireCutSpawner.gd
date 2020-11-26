@@ -1,8 +1,19 @@
 extends MinigameSpawner
 class_name WireCutSpawner
 
-export (Array, Types.WireColors) var wire_cuts: Array = []
+var wire_cuts: Array = []
+var enums = [Types.WireColors.Red, Types.WireColors.Blue, Types.WireColors.Green, Types.WireColors.Purple]
 
+func _ready() -> void:
+	randomize()
+	var thing = 0
+	while thing < 2:
+		var toAppend = enums[randi() % enums.size()]
+		if not toAppend in wire_cuts:
+			wire_cuts.append(toAppend)
+		else:
+			thing -= 1
+		thing += 1
 
 func create_minigame() -> Minigame:
 	var minigame_instance: Minigame = load("res://Src/Minigames/WireCutMinigame/WireCutMinigame.tscn").instance()

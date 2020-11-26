@@ -96,6 +96,10 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 				$Type.play()
 			"laser_detect":
 				$ObjectSounds/LaserDetect.play()
+			"chest_bounty":
+				$ChestSounds/HasBounty.play()
+			"chest_locked":
+				$ChestSounds/Locked.play()
 			_:
 				print("error: sound not found - name: " + str(sound))
 

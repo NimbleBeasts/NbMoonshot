@@ -182,8 +182,10 @@ func _on_LineOfSight_body_exited(body):
 # on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
 func _on_SureDetectionTimer_timeout() -> void:
 	$AnimationPlayer.play("alarm")
+	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
+	Events.emit_signal("play_sound", "alarm")
 
-
+	
 func _on_StunDurationTimer_timeout() -> void:
 	unstun()
 	$AnimationPlayer.play("stand_up")
@@ -254,8 +256,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		"suspicious":
 			$Notifier.remove()
 		"alarm":
-			Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-			Events.emit_signal("play_sound", "alarm")
+			pass
 		"stand_up":
 			set_state(Types.GuardStates.Wander)
 			emit_signal("start_movement")

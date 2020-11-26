@@ -138,6 +138,8 @@ func saveGame(slotId):
 	saveFile.open("user://save_"+ str(slotId) + ".cfg", File.WRITE)
 	saveFile.store_line(to_json(gameState))
 	saveFile.close()
+	Events.emit_signal("hud_game_hint", "Game saved")
+	Events.emit_signal("hide_save")
 
 # Load Game
 func loadSave(slotId):

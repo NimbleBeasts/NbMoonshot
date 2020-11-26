@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
@@ -44,6 +44,8 @@
 [ext_resource path="res://Assets/SFX/crouch_walk 3.wav" type="AudioStream" id=42]
 [ext_resource path="res://Assets/SFX/laser_detect.wav" type="AudioStream" id=43]
 [ext_resource path="res://Assets/Music/western_world.ogg" type="AudioStream" id=44]
+[ext_resource path="res://Assets/SFX/chest_bounty.wav" type="AudioStream" id=45]
+[ext_resource path="res://Assets/SFX/chest_locked.wav" type="AudioStream" id=46]
 
 [node name="AudioPlayer" type="Node2D"]
 script = ExtResource( 2 )
@@ -172,4 +174,12 @@ volume_db = -10.0
 [node name="Alarm" type="AudioStreamPlayer2D" parent="Guard"]
 
 [node name="Suspicious" type="AudioStreamPlayer2D" parent="Guard"]
+
+[node name="ChestSounds" type="Node2D" parent="."]
+
+[node name="Locked" type="AudioStreamPlayer2D" parent="ChestSounds"]
+stream = ExtResource( 46 )
+
+[node name="HasBounty" type="AudioStreamPlayer2D" parent="ChestSounds"]
+stream = ExtResource( 45 )
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
