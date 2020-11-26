@@ -10,9 +10,10 @@ var player_entered: bool = false
 var interacted_counter: int = 0 setget setInteractedCounter
 var dialogue_index: int =  0
 var dialogueRead: bool = false
-
+var dialogTyping: bool = false
 
 func _ready() -> void:
+	Events.connect("dialog_typing_changed", self, "onDialogTypingChanged")
 	connect("body_entered", self, "_on_body_entered")
 	connect("body_exited", self, "_on_body_exited")
 	connect("read_all_dialog", self, "onReadAllDialogue")
@@ -20,15 +21,13 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and player_entered and Global.player.direction == Vector2(0,0):
+	if Input.is_action_just_pressed("interact") and player_entered and Global.player.direction == Vector2(0,0) and not dialogTyping:
 		# this is kind of a weird way to do this but it works :DDDDDDDDDDDD
 		if not dialogueRead:
 			Events.emit_signal("interacted_with_npc", self)
 			Events.emit_signal("block_player_movement")
 			interact()
 		else:
-			Events.emit_signal("hide_dialog")
-			Events.emit_signal("unblock_player_movement")
 			dialogueRead = false
 			Events.emit_signal("npc_interaction_stopped", self)
 	elif Input.is_action_just_pressed("ui_cancel") and player_entered:
@@ -99,3 +98,7 @@ func _on_body_exited(body: Node) -> void:
 	if body is Player:
 		player_entered = false
 		set_process(false)
+
+
+func onDialogTypingChanged(value: bool) -> void:
+	dialogTyping = value

@@ -50,6 +50,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 		Events.emit_signal("hud_level_transition", level_index)
 		Global.gameState["interactionCounters"]["boss"] = next_boss_interacted_counter
 		Global.addMoney(Global.game_manager.getCurrentLevel().gainedMoney)
+		Global.addMoney(100) # successful level change
 		Global.game_manager.unloadLevel()
 		Global.game_manager.loadLevel(level_index)
 

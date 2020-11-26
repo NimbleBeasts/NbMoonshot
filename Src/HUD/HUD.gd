@@ -11,6 +11,7 @@ var nextNameColor: String
 var currentText: String
 var hideWithE: bool = false
 var currentSelectedUpgrade: int = 0
+var dialogIsTyping: bool = false
 
 onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
@@ -248,9 +249,19 @@ func _physics_process(_delta):
 			Events.emit_signal("forcefully_close_minigame")
 
 			
-	# hide when press E and don't have any more text to show
-	if Input.is_action_just_pressed("interact") and nextText == "" and $Dialog.visible:
-		hideDialog()
+	# # hide when press E and don't have any more text to show
+	# if Input.is_action_just_pressed("interact") and nextText == "" and $Dialog.visible:
+	# 	hideDialog()
+
+	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length() and $Dialog.visible)
+
+	if Input.is_action_just_pressed("interact"):
+		if dialogIsTyping:
+			$Dialog/Text.visible_characters = $Dialog/Text.text.length()
+		else:
+			hideDialog()
+			Events.emit_signal("unblock_player_movement")
+
 
 	# hide when press E in note
 	if Input.is_action_just_pressed("interact"):
@@ -385,4 +396,7 @@ func _on_StartMissionButton_button_up():
 	Events.emit_signal("hud_mission_briefing_exited")
 
 
-
+func setDialogIsTyping(value: bool) -> void:
+	if dialogIsTyping != value:
+		dialogIsTyping = value
+		Events.emit_signal("dialog_typing_changed", dialogIsTyping)

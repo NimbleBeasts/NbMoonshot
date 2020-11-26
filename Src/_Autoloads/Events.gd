@@ -49,6 +49,7 @@ signal hud_game_hint(text)
 signal hud_photo_flash()
 signal hide_save()
 signal update_upgrades()
+signal dialog_typing_changed()
 
 signal save_game()
 
