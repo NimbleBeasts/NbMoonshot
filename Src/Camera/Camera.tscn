@@ -218,10 +218,10 @@ frame = 4
 polygon = PoolVector2Array( 48, 56, 0, 0, 104, 24, 104, 56 )
 
 [node name="RayCast2D" type="RayCast2D" parent="FOV"]
-position = Vector2( 2.3811, 2.77795 )
-rotation = -1.00356
+position = Vector2( 1, 1 )
+rotation = -1.0472
 enabled = true
-cast_to = Vector2( 0, 110 )
+cast_to = Vector2( 0, 100 )
 
 [node name="SureDetectionTimer" type="Timer" parent="."]
 one_shot = true

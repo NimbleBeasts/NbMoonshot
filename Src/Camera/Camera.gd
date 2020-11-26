@@ -11,6 +11,7 @@ export(bool) var isFixedCam = false
 
 var currentDirection = camDirection
 
+var player
 onready var fovRay: RayCast2D = $FOV/RayCast2D
 
 func _ready():
@@ -32,7 +33,12 @@ func _process(_delta: float) -> void:
 		pass
 	else:
 		figure_out_state()
-	
+		
+	#rotate ray to player
+	if player != null and player_in_fov:
+		fovRay.look_at(player.global_position)
+		fovRay.rotation_degrees = fovRay.rotation_degrees -90
+		
 	
 func figure_out_state():
 	if player_in_fov:
@@ -51,8 +57,6 @@ func set_state(new_state) -> void:
 	
 	if state != new_state:
 		state = new_state
-		#print("S: ", state, " NS: ", new_state)
-	
 		
 		match state:
 			Types.CameraStates.Rotating:
@@ -135,6 +139,8 @@ func _on_FOV_area_entered(area: Area2D) -> void:
 		if area.is_in_group("PlayerArea"):
 			player_in_fov = true
 			#print("Player enter")
+			player = area
+			fovRay.set_deferred("enabled", true)
 	
 
 func _on_FOV_area_exited(area: Area2D) -> void:
@@ -143,6 +149,8 @@ func _on_FOV_area_exited(area: Area2D) -> void:
 		if area.is_in_group("PlayerArea"):
 			player_in_fov = false
 			#print("Player exit")
+			player = null
+			fovRay.set_deferred("enabled", false)
 
 func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
@@ -174,11 +182,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		if currentDirection == CamDirectionType.Left:
 			camDirection = CamDirectionType.Right
 			$FOV.scale.x = 1
-			fovRay.scale.x = 1
+			#fovRay.scale.x = 1
 		else:
 			camDirection = CamDirectionType.Left
 			$FOV.scale.x = -1
-			fovRay.scale.x = -1
+			#fovRay.scale.x = -1
 
 		$FOV/CollisionPolygon2D.set_deferred("disabled", false)
 		#print("exited rot state")
@@ -199,6 +207,7 @@ func deactivate() -> void:
 	$RotationTimer.stop()
 	$SuspToDetTimer.stop()
 	$FOV.set_deferred("monitoring", false)
+	fovRay.set_deferred("enabled", false)
 
 
 func fovRayIsCollidingWithPlayer() -> bool:
