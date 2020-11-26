@@ -57,7 +57,6 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	
 	# sprint upgrade
 	add_to_group("Upgradable")
 	do_upgrade_stuff()

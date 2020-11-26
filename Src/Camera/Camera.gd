@@ -11,6 +11,7 @@ export(bool) var isFixedCam = false
 
 var currentDirection = camDirection
 
+onready var fovRay: RayCast2D = $FOV/RayCast2D
 
 func _ready():
 	if camDirection == CamDirectionType.Left:
@@ -35,15 +36,14 @@ func _process(_delta: float) -> void:
 	
 func figure_out_state():
 	if player_in_fov:
-		#print("Player in fov")
-		#print(  Global.player.visible_level )
-		match Global.player.visible_level:
-			Types.LightLevels.FullLight:
-				set_state(Types.CameraStates.PlayerDetected)
-			Types.LightLevels.BarelyVisible:
-				set_state(Types.CameraStates.Suspect)
-			Types.LightLevels.Dark:
-				set_state(Types.CameraStates.Normal)
+		if fovRayIsCollidingWithPlayer():
+			match Global.player.visible_level:
+				Types.LightLevels.FullLight:
+					set_state(Types.CameraStates.PlayerDetected)
+				Types.LightLevels.BarelyVisible:
+					set_state(Types.CameraStates.Suspect)
+				Types.LightLevels.Dark:
+					set_state(Types.CameraStates.Normal)
 	else:
 		set_state(Types.CameraStates.Normal)
 	
@@ -173,9 +173,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		if currentDirection == CamDirectionType.Left:
 			camDirection = CamDirectionType.Right
 			$FOV.scale.x = 1
+			fovRay.scale.x = 1
 		else:
 			camDirection = CamDirectionType.Left
 			$FOV.scale.x = -1
+			fovRay.scale.x = -1
 
 		$FOV/CollisionPolygon2D.set_deferred("disabled", false)
 		#print("exited rot state")
@@ -196,3 +198,7 @@ func deactivate() -> void:
 	$RotationTimer.stop()
 	$SuspToDetTimer.stop()
 	$FOV.set_deferred("monitoring", false)
+
+
+func fovRayIsCollidingWithPlayer() -> bool:
+	return fovRay.is_colliding() and fovRay.get_collider().is_in_group("Player")
