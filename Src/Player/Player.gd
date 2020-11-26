@@ -57,7 +57,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	Global.addUpgrade(Types.UpgradeTypes.Fitness_Level2)
+	
 	# sprint upgrade
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
