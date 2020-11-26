@@ -16,6 +16,7 @@ var canSayNext: bool = false
 
 onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
+
 func _ready():
 	$AlarmIndicator/Label.set_text(str(detected_value))
 	dialogTypeTimer.connect("timeout", self, "onDialogTypeTimerTimeout")
@@ -244,11 +245,13 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("interact") and $Dialog.visible:
 		if dialogIsTyping:
 			$Dialog/Text.visible_characters = $Dialog/Text.text.length()
+			print("skip dialog")
 		else:
 			if nextText != "":
 				Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
 			else:
 				hideDialog()
+
 
 	# hide when press E in note
 	if Input.is_action_just_pressed("interact"):
@@ -402,8 +405,9 @@ func setDialogIsTyping(value: bool) -> void:
 	if dialogIsTyping != value:
 		dialogIsTyping = value
 		Events.emit_signal("dialog_typing_changed", dialogIsTyping)
+		print("signal emitted")
 
-
+		
 func _on_MenuButton_button_up():
 	if $IngameMenu.visible:
 		hideMenu()

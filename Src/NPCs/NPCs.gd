@@ -13,6 +13,7 @@ var dialogueRead: bool = false
 var dialogTyping: bool = false
 
 func _ready() -> void:
+	Events.connect("dialog_typing_changed", self, "onDialogTypingChanged")
 	connect("body_entered", self, "_on_body_entered")
 	connect("body_exited", self, "_on_body_exited")
 	connect("read_all_dialog", self, "onReadAllDialogue")
@@ -33,7 +34,7 @@ func _process(delta: float) -> void:
 		Events.emit_signal("unblock_player_movement")
 		Events.emit_signal("npc_interaction_stopped", self)
 
-	
+
 # function for loading dialogues
 func load_dialogue() -> Dictionary:
 	if dialogue_path == "":
@@ -101,4 +102,4 @@ func _on_body_exited(body: Node) -> void:
 
 func onDialogTypingChanged(value: bool) -> void:
 	dialogTyping = value
-
+	print("is this even reaching here, smh")
