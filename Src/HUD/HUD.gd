@@ -89,6 +89,7 @@ func debugShaderToggle(_d):
 
 
 func showSave():
+	Events.emit_signal("block_player_movement")
 	var saves = Global.getSaveGameState()
 	
 	var i = 1
@@ -241,7 +242,7 @@ func _physics_process(_delta):
 			$Upgrades.hide()
 			Events.emit_signal("unblock_player_movement")
 		elif $SaveGame.visible:
-			$SaveGame.hide()
+			onHideSave()
 		else:
 			$IngameMenu.show()
 			$IngameMenu/Menu/ButtonReturn.grab_focus()
@@ -296,6 +297,7 @@ func _on_GoBackToNormal_timeout() -> void:
 
 
 func onHideSave() -> void:
+	Events.emit_signal("unblock_player_movement")
 	$SaveGame.hide()
 
 	
@@ -371,7 +373,7 @@ func _on_ButtonMusic_button_up():
 func _on_ButtonReturn_button_up():
 	Events.emit_signal("play_sound", "menu_click")
 	$IngameMenu.hide()
-	$SaveGame.hide()
+	onHideSave()
 	get_tree().paused = false
 
 
