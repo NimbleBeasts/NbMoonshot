@@ -149,7 +149,8 @@ func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("play_sound", "camera_alarm")
 	
 func _on_FrozenTimer_timeout():
-	figure_out_state()
+	deactivate()
+	#figure_out_state()
 
 func _on_SuspToDetTimer_timeout():
 	if state == Types.CameraStates.Suspect:

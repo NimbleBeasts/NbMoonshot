@@ -15,9 +15,11 @@ func _process(_delta: float) -> void:
 				animation("detected")
 			Types.LightLevels.BarelyVisible:
 				animation("suspect")
-			#Types.LightLevels.Dark:
-			#	animation("idle")
-				
+			Types.LightLevels.Dark:
+				animation("idle")
+	#else:
+	#	animation("idle")
+
 func animation(anim):
 	#print("anim: ", anim)
 	if $AnimationPlayer.current_animation != anim:
