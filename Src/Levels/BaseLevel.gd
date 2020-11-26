@@ -8,7 +8,7 @@ export(NodePath) var level_objectives = null
 export var playCarCloseSound: bool = true 
 
 var allowed_detections: int
-
+var gainedMoney: int
 
 func can_change_level():
 	if level_objectives:

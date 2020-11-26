@@ -38,7 +38,9 @@ func _process(_delta):
 				# Emit Hud money update
 				isUsed = true
 				$AnimationPlayer.play("loot")
-				Global.addMoney(loot)
+				# Global.addMoney(loot)
+				Global.game_manager.getCurrentLevel().gainedMoney += loot
+				Events.emit_signal("hud_update_money", Global.game_manager.getCurrentLevel().gainedMoney, loot)
 				print("looted")
 				Events.emit_signal("play_sound", "chest_bounty")
 				pass

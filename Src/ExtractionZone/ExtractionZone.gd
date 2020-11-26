@@ -49,6 +49,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 	else: # this is going to hq level
 		Events.emit_signal("hud_level_transition", level_index)
 		Global.gameState["interactionCounters"]["boss"] = next_boss_interacted_counter
+		Global.addMoney(Global.game_manager.getCurrentLevel().gainedMoney)
 		Global.game_manager.unloadLevel()
 		Global.game_manager.loadLevel(level_index)
 
