@@ -1,3 +1,4 @@
+
 extends CanvasLayer
 
 enum HoverType {Light, Audio, Web}
@@ -207,6 +208,7 @@ func showDialog(pname: String, nameColor: String, text: String):
 		nextNameColor = ""
 
 	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
+	$Dialog/Text.visible_characters = pname.length()
 	$Dialog.show()
 	currentText = text
 	typeDialog() # do you want this function or tween. problem with tween is that if the text is short, it will still take 1 second to finish, which is meh. this fixes that
@@ -218,6 +220,7 @@ func hideDialog() -> void:
 	$Dialog.hide()
 	Events.emit_signal("hud_dialog_exited")
 	dialogTypeTimer.stop()
+	$Dialog/Text.visible_characters = 0
 	Global.player.set_state(Types.PlayerStates.Normal)
 	Events.emit_signal("unblock_player_movement")
 
@@ -245,7 +248,6 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("interact") and $Dialog.visible:
 		if dialogIsTyping:
 			$Dialog/Text.visible_characters = $Dialog/Text.text.length()
-			print("skip dialog")
 		else:
 			if nextText != "":
 				Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
