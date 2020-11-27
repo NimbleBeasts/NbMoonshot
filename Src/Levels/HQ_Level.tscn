@@ -345,7 +345,7 @@ shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing3" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 280, 368 )
-text = "Now you are fully visible. You can lower your light level by pressing yourself against the wall. Hold X"
+text = "Now you are fully visible. You can lower your light level by pressing yourself against the wall. Hold Space"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing3"]
 shape = SubResource( 2 )
@@ -382,7 +382,7 @@ shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing8" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 464, 448 )
-text = "Sometimes it is not possible to prevent a guard from spotting you. But until the guards set off the alarm you have some time to use your taser. Press Z."
+text = "Sometimes it is not possible to prevent a guard from spotting you. But until the guards set off the alarm you have some time to use your taser. Press F."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing8"]
 position = Vector2( 0, -16 )
