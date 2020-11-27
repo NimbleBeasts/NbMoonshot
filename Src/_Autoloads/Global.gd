@@ -46,6 +46,15 @@ const levels = [
 	"res://Src/Levels/Level5.tscn",
 ]
 
+const levelTitle = [
+	"Mission 0 - Training Day",
+	"Mission 1 - Great Inspiration",
+	"Mission 2 - The Doubts",
+	"Mission 3 - In Flagrante Delicto",
+	"Mission 4 - The Moon Landing",
+	"Mission 5 - Apollo 11",
+]
+
 # Upgrades
 const upgrades = [
 	{id = 0, name="Power-Bank", desc="Increases the battery capacity to allow taser usages.", cost=300},
