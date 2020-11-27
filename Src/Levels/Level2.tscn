@@ -144,6 +144,7 @@ centered = false
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
@@ -450,7 +451,7 @@ showHintOnSucceed = true
 hint = "ID Card Found"
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 24 )]
-position = Vector2( 720, 172 )
+position = Vector2( 712, 172 )
 rotation = -1.5708
 heigth = 5
 isStatic = false
@@ -463,7 +464,7 @@ flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 24 )]
-position = Vector2( 792, 192 )
+position = Vector2( 776, 192 )
 rotation = -1.5708
 heigth = 5
 isStatic = false
@@ -550,6 +551,10 @@ __meta__ = {
 
 [node name="DeskGuard" parent="." instance=ExtResource( 30 )]
 position = Vector2( 272, 256 )
+lookDirection = 0
+lookDuration = 2.0
+readDuration = 3.0
+removeNotifierDuration = 1.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 104, 256 )
