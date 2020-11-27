@@ -14,6 +14,7 @@ var hideWithE: bool = false
 var currentSelectedUpgrade: int = 0
 var dialogIsTyping: bool = false
 var canSayNext: bool = false
+var isGameOver: bool = false
 
 onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
@@ -23,6 +24,7 @@ func _ready():
 	dialogTypeTimer.connect("timeout", self, "onDialogTypeTimerTimeout")
 	Events.connect("visible_level_changed", self, "updateLightLevel")
 	Events.connect("audio_level_changed", self, "updateAudioLevel")
+	Events.connect("game_over", self, "onGameOver")
 	
 	Events.connect("hud_note_show", self, "showNote")
 	Events.connect("hud_dialog_show", self, "showDialog")
@@ -125,7 +127,7 @@ func taserUpdate(value):
 
 
 func alarmIndication(value):
-	if detected_value >= 0:
+	if detected_value - 1 >= 0:
 		detected_value -= 1
 		$DetectFlash/AnimationPlayer.play("detection")
 		$AlarmIndicator/AlarmAnimation.play("downgrade")
@@ -133,9 +135,9 @@ func alarmIndication(value):
 
 
 func allowedDetectionsUpdate(value) -> void:
-	detected_value = value if value >= 0 else 0
+	detected_value = value 
 	$AlarmIndicator/Label.set_text(str(detected_value))
-	
+
 	
 func showNote(type, text):
 	if type == Types.NoteType.Local:
@@ -413,3 +415,4 @@ func _on_MenuButton_button_up():
 		hideMenu()
 	else:
 		showMenu()
+

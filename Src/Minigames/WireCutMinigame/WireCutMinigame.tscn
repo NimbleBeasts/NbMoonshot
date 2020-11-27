@@ -30,7 +30,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 90.3279, 10 )
+extents = Vector2( 90.3279, 5.08825 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
@@ -96,7 +96,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 10.8561, 8.75131 )
+extents = Vector2( 8.16838, 8.18362 )
 
 [node name="WireCutMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -118,6 +118,7 @@ frames = SubResource( 3 )
 animation = "normal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wires/RedWire"]
+position = Vector2( -0.44545, -0.44545 )
 shape = SubResource( 4 )
 
 [node name="BlueWire" type="Area2D" parent="Wires"]

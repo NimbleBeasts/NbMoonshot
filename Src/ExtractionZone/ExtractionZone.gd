@@ -29,8 +29,9 @@ func _process(_delta: float) -> void:
 			$AnimationPlayer.play("open")
 			Events.emit_signal("play_sound", "car_open")
 			Events.emit_signal("block_player_movement")
+			set_process(false)
 
-
+			
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
 		player_entered = true
