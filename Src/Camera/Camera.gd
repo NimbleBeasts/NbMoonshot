@@ -26,6 +26,9 @@ func _ready():
 	
 	if not isFixedCam:
 		$RotationTimer.start()
+		
+	#turn off ray on start
+	fovRay.set_deferred("enabled", false)
 
 
 func _process(_delta: float) -> void:
