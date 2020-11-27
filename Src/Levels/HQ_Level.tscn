@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=32]
 [ext_resource path="res://Src/NPCs/Coworker.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Assets/Level/ControlHint.png" type="Texture" id=34]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -436,6 +437,10 @@ __meta__ = {
 position = Vector2( 8, 0 )
 shape = SubResource( 3 )
 
+[node name="ControlHint" type="Sprite" parent="LevelObjects"]
+position = Vector2( 48, 296 )
+texture = ExtResource( 34 )
+
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
 margin_top = -2000.0
@@ -454,7 +459,7 @@ position = Vector2( 328, 256 )
 position = Vector2( 400, 256 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 88, 256 )
+position = Vector2( 81, 256 )
 
 [node name="MinigameHolder" type="Node2D" parent="."]
 
