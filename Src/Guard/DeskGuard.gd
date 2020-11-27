@@ -7,6 +7,7 @@ enum GuardState {Reading, Looking, Hidden}
 export(LookDirectionType) var lookDirection = LookDirectionType.Left
 export(float) var lookDuration = 2
 export(float) var readDuration = 3
+export var removeNotifierDuration: float = 1
 
 onready var style = get_parent().level_type #Types.LevelTypes
 
@@ -16,7 +17,9 @@ var player = null
 func _ready():
 	$LookTimer.wait_time = lookDuration
 	$ReadTimer.wait_time = readDuration
-	
+	$RemoveNotifierTimer.wait_time = removeNotifierDuration
+	$RemoveNotifierTimer.connect("timeout", self, "onRemoveNotifierTimeout")
+
 	if lookDirection == LookDirectionType.Left:
 		$Flipable.scale.x = -1
 	
@@ -91,3 +94,7 @@ func _on_DelayTimer_timeout():
 	switchState(GuardState.Hidden)
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 	Events.emit_signal("play_sound", "deskguard_detect")
+	$RemoveNotifierTimer.start()
+
+func onRemoveNotifierTimeout() -> void:
+	$Notifier.remove()

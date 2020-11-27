@@ -40,9 +40,6 @@ tracks/0/keys = {
 
 [node name="DeskGuard" type="Node2D"]
 script = ExtResource( 3 )
-lookDirection = 0
-lookDuration = 2.0
-readDuration = 3.0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -32 )
@@ -77,6 +74,8 @@ one_shot = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/hide_blue = SubResource( 1 )
 anims/hide_green = SubResource( 2 )
+
+[node name="RemoveNotifierTimer" type="Timer" parent="."]
 [connection signal="body_entered" from="Flipable/FOV" to="." method="_on_FOV_body_entered"]
 [connection signal="body_exited" from="Flipable/FOV" to="." method="_on_FOV_body_exited"]
 [connection signal="timeout" from="LookTimer" to="." method="_on_LookTimer_timeout"]

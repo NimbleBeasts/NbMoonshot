@@ -39,7 +39,6 @@ var stun_duration: float = 4.0
 var has_sneak_upgrade: bool = false
 var sprint_duration: float
 var canSprint: bool
-var lost: bool = false
 
 var playFootstepSound: bool = true
 var isSneaking: bool = false
@@ -83,7 +82,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	Global.screen_center = global_position
 	
-
 
 	if state != Types.PlayerStates.WallDodge or isSneaking:
 		update_light_level()
@@ -293,7 +291,7 @@ func onBlockPlayerMovement() -> void:
 
 func onUnblockPlayerMovement() -> void:
 	block_input = false
-	print("block input false")
+
 
 # use this function to set light_level instead of directly changing it
 func set_light_level(value: int) -> void:
@@ -333,10 +331,11 @@ func animation_change(to: String) -> void:
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	# Only non-looped animation will reach this point
-	$AnimationPlayer.play("idle")
 	if anim_name == "lose":
 		Global.game_manager.reloadLevel()
-
+		return
+	$AnimationPlayer.play("idle")
+	
 
 func onFootstepTimerTimeout() -> void:
 	playFootstepSound = true
@@ -344,6 +343,7 @@ func onFootstepTimerTimeout() -> void:
 
 func onGameOver() -> void:
 	set_process(false)
+	set_physics_process(false)
 	block_input = true
 	$AnimationPlayer.play("lose")
 	Events.emit_signal("hud_game_over")

@@ -74,15 +74,15 @@ func _process(_delta: float) -> void:
 		Types.GuardStates.Wander:
 			pass
 	
-	# checks for stunned guards, check_for_stunned is false in var declaration btw
-	# dont want to waste performance if this never actually is a situation that occurs ingame
-	if check_for_stunned:
-		for body in los_area.get_overlapping_bodies():
-			if body.is_in_group("Guard"):
-				if body.state == Types.GuardStates.Stunned:
-					Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-					Events.emit_signal("play_sound", "alarm")
-					check_for_stunned = false
+	# # checks for stunned guards, check_for_stunned is false in var declaration btw
+	# # dont want to waste performance if this never actually is a situation that occurs ingame
+	# if check_for_stunned:
+	# 	for body in los_area.get_overlapping_bodies():
+	# 		if body.is_in_group("Guard"):
+	# 			if body.state == Types.GuardStates.Stunned:
+	# 				Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
+	# 				Events.emit_signal("play_sound", "alarm")
+	# 				check_for_stunned = false
 
 	# match state:
 	# 	Types.GuardStates.Wander:
@@ -94,12 +94,14 @@ func _process(_delta: float) -> void:
 	# 		pass
 	# 	Types.GuardStates.Suspect:
 	# 		pass
-	if state != Types.GuardStates.Stunned:
+
+	if state != Types.GuardStates.Stunned and state != Types.GuardStates.PlayerDetected:
 		if not velocity.is_equal_approx(Vector2.ZERO):
 			$AnimationPlayer.play("walk")
 		else:
 			$AnimationPlayer.play("idle")
 
+			
 func _physics_process(delta: float) -> void:
 	if player_in_los:
 		if losRayIsCollidingWithPlayer(): # ray checking
@@ -131,6 +133,7 @@ func stun(duration: float) -> void:
 	direction = Vector2(0,0)
 	set_state(Types.GuardStates.Stunned)
 	set_process(false)
+	set_physics_process(false)
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", true)
 	player_in_los = false
 	$AnimationPlayer.play("tasered")
@@ -151,6 +154,7 @@ func unstun() -> void:
 	get_tree().set_group("Guard", "check_for_stunned", true) # i have no idea if this works now, but i think it should
 	$Notifier.remove()
 	set_process(true)
+	set_physics_process(true)
 
 	
 func _on_DirectionChangeTimer_timeout():
@@ -186,6 +190,8 @@ func _on_LineOfSight_body_exited(body):
 # on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
 func _on_SureDetectionTimer_timeout() -> void:
 	$AnimationPlayer.play("alarm")
+	set_process(false)
+	set_physics_process(false)
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 	Events.emit_signal("play_sound", "alarm")
 
@@ -208,7 +214,7 @@ func set_state(new_state) -> void:
 	if state != new_state:
 		state = new_state
 		
-		# Put stuff you want to do once when state changes here
+		# hmmmmm, i should add comments to this but later
 		match new_state:
 			Types.GuardStates.PlayerDetected:
 				# starts sure timer

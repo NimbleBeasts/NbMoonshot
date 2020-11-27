@@ -352,7 +352,8 @@ shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing5" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 376, 368 )
-text = "Laser detectors can be avoided by wall dodging or ducking."
+text = "Laser detectors can be avoided by wall dodging or ducking.
+Hold down to duck."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing5"]
 shape = SubResource( 2 )
@@ -374,7 +375,7 @@ shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing8" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 464, 448 )
-text = "Sometimes it is not possible to prevent a guard from spotting you. But until the guards set off the alarm you have some time to use your taser."
+text = "Sometimes it is not possible to prevent a guard from spotting you. But until the guards set off the alarm you have some time to use your taser. Press Z."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing8"]
 position = Vector2( 0, -16 )

@@ -102,9 +102,6 @@ volume_db = -5.0
 
 [node name="MinigameSounds" type="Node2D" parent="."]
 
-[node name="MinigameSuccess" type="AudioStreamPlayer2D" parent="MinigameSounds"]
-stream = ExtResource( 32 )
-
 [node name="MinigameFail" type="AudioStreamPlayer2D" parent="MinigameSounds"]
 stream = ExtResource( 15 )
 
@@ -132,6 +129,9 @@ stream = ExtResource( 28 )
 
 [node name="Miss" type="AudioStreamPlayer2D" parent="MinigameSounds/Lockpick"]
 stream = ExtResource( 29 )
+
+[node name="MinigameSuccess" type="AudioStreamPlayer2D" parent="MinigameSounds"]
+stream = ExtResource( 32 )
 
 [node name="CameraSounds" type="Node2D" parent="."]
 

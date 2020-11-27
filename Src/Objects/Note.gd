@@ -6,7 +6,6 @@ export(bool) var highlight = false
 export(Types.NoteType) var type = Types.NoteType.SecretService
 
 var readable = false
-var alreadyRead = false
 
 
 func _ready():
@@ -20,7 +19,7 @@ func updateHighlight():
 		$NotifierArea.monitoring = true
 	else:
 		$Sprite.frame = 1
-		$NotifierArea.monitoring = false
+		$NotifierArea.monitoring = false 
 		
 func _process(_delta):
 	if readable:
@@ -29,7 +28,7 @@ func _process(_delta):
 			if highlight:
 				$Sprite.frame = 1
 				$Notifier.remove()
-				highlight = false
+				highlight = false 
 				updateHighlight()
 
 
