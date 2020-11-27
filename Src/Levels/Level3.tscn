@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigameSpawner.gd" type="Script" id=30]
 [ext_resource path="res://Assets/Dummy.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Skeleton.png" type="Texture" id=32]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -163,7 +164,12 @@ centered = false
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 344, 96 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
+
+[node name="Sprite" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 568, 296 )
+texture = ExtResource( 32 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
