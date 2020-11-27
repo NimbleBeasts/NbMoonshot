@@ -116,7 +116,8 @@ position = Vector2( 640, 136 )
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
-next_boss_interacted_counter = 2
+next_boss_interacted_counter = 5
+nextSecretaryInteractionCounter = 5
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
@@ -256,7 +257,7 @@ sig_to_trig = [  ]
 position = Vector2( 432, 256 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall2"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -266,7 +267,7 @@ sig_to_trig = [  ]
 position = Vector2( 512, 192 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall3"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -276,7 +277,7 @@ sig_to_trig = [  ]
 position = Vector2( 512, 128 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall4"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -286,7 +287,7 @@ sig_to_trig = [  ]
 position = Vector2( 624, 192 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall9"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -296,7 +297,7 @@ sig_to_trig = [  ]
 position = Vector2( 624, 256 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall10"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -306,7 +307,7 @@ sig_to_trig = [  ]
 position = Vector2( 624, 320 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall11"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -316,7 +317,7 @@ sig_to_trig = [  ]
 position = Vector2( 624, 64 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall12"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -346,7 +347,7 @@ sig_to_trig = [  ]
 position = Vector2( 256, 128 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall7"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -356,7 +357,7 @@ sig_to_trig = [  ]
 position = Vector2( 256, 192 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall8"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -369,11 +370,9 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 200, 72 )
-flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 324, 72 )
-flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 448, 72 )
@@ -382,15 +381,12 @@ flickerSequence = "11100000000001111000000000000000000000"
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 576, 72 )
-flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 576, 136 )
-flicker = false
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 448, 136 )
-flicker = false
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 200, 136 )
@@ -399,43 +395,33 @@ flickerSequence = "111110011110000000"
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 200, 200 )
-flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 280, 200 )
-flicker = false
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 400, 200 )
-flicker = false
 
 [node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 488, 200 )
-flicker = false
 
 [node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 584, 200 )
-flicker = false
 
 [node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 576, 264 )
-flicker = false
 
 [node name="Light14" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 456, 264 )
-flicker = false
 
 [node name="Light15" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 416, 328 )
-flicker = false
 
 [node name="Light16" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 512, 328 )
-flicker = false
 
 [node name="Light17" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 608, 328 )
-flicker = false
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 520, 200 )

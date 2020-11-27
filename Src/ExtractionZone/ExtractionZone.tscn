@@ -25,6 +25,8 @@ tracks/0/keys = {
 
 [node name="ExtractionZone" type="Area2D"]
 script = ExtResource( 1 )
+next_boss_interacted_counter = 4
+nextSecretaryInteractionCounter = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -22 )

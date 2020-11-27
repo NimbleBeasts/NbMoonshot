@@ -87,7 +87,6 @@ position = Vector2( 432, 264 )
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -104, 256 )
-next_boss_interacted_counter = 4
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
@@ -164,7 +163,6 @@ centered = false
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 344, 96 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
@@ -173,7 +171,7 @@ playing = true
 position = Vector2( 144, 256 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall7"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -193,7 +191,7 @@ sig_to_trig = [  ]
 position = Vector2( 280, 256 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall9"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -203,7 +201,7 @@ sig_to_trig = [  ]
 position = Vector2( 280, 320 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall10"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -213,7 +211,7 @@ sig_to_trig = [  ]
 position = Vector2( 144, 320 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall11"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -233,7 +231,7 @@ sig_to_trig = [  ]
 position = Vector2( 408, 256 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall13"
 save_state = false
 showHintIfLocked = false
 hint = ""
@@ -282,7 +280,6 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 216, 200 )
-flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 208, 72 )
@@ -291,7 +288,6 @@ flickerSequence = "11100000000000000"
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 352, 200 )
-flicker = false
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 208 )

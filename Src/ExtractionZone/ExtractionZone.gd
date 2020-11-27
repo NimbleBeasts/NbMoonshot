@@ -7,6 +7,7 @@ var player_entered: bool = false
 export var has_level_index: bool = true
 export var level_index: int = 0
 export var next_boss_interacted_counter: int = 0
+export var nextSecretaryInteractionCounter: int = next_boss_interacted_counter
 export(Types.Direction) var sprite_face_direction = Types.Direction.Left
 
 
@@ -49,6 +50,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 	else: # this is going to hq level
 		Events.emit_signal("hud_level_transition", level_index)
 		Global.gameState["interactionCounters"]["boss"] = next_boss_interacted_counter
+		Global.gameState["interactionCounters"]["secretary"] = nextSecretaryInteractionCounter
 		Global.addMoney(Global.game_manager.getCurrentLevel().gainedMoney)
 		Global.addMoney(100) # successful level change
 		Global.game_manager.unloadLevel()
