@@ -6,6 +6,5 @@ func _ready() -> void:
 
 	
 func onTutorialFinished() -> void:
-	if Global.gameState.level.missionIsTutorial:
-		Global.gameState["interactionCounters"]["secretary"] += 1
-		interacted_counter += 1
+	Global.gameState["interactionCounters"]["secretary"] += 1
+	interacted_counter += 1

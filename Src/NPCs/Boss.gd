@@ -12,7 +12,9 @@ func onReadAllDialogue() -> void:
 	.onReadAllDialogue() # calls super class function
 	if has_dialogue("quest", str(interacted_counter)):
 		Global.game_manager.quest_index = int(get_dialogue("quest", str(interacted_counter))["level_index"])
-		
+		# Events.emit_signal("hud_game_hint", Global.levelTitle[Global.game_manager.quest_index])
+		Events.emit_signal("level_hint", Global.levelTitle[Global.game_manager.quest_index])
+
 		# game state stuff for saving
 		if Global.game_manager.quest_index != 0:
 			Global.gameState["level"]["hasActiveMission"] = true
@@ -21,6 +23,5 @@ func onReadAllDialogue() -> void:
 
 			
 func _on_tutorial_finished() -> void:
-	if Global.gameState.level.missionIsTutorial:
-		Global.gameState["interactionCounters"]["boss"] += 1
-		interacted_counter += 1
+	Global.gameState["interactionCounters"]["boss"] += 1
+	interacted_counter += 1
