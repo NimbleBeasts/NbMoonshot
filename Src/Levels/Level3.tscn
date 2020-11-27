@@ -164,11 +164,11 @@ centered = false
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 344, 96 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 568, 296 )
+z_index = 50
 texture = ExtResource( 32 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
