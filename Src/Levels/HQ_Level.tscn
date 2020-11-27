@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Src/NPCs/Coworker.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Assets/Level/ControlHint.png" type="Texture" id=34]
 [ext_resource path="res://Src/Levels/ControlHint.gd" type="Script" id=35]
+[ext_resource path="res://Assets/Objects/WallImageLeader.png" type="Texture" id=36]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -296,6 +297,10 @@ texture = ExtResource( 13 )
 [node name="Painting" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 216, 296 )
 texture = ExtResource( 15 )
+
+[node name="Painting2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 336, 227 )
+texture = ExtResource( 36 )
 
 [node name="Tree" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 303, 244 )
