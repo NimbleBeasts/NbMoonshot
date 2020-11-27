@@ -9,7 +9,6 @@ func _ready() -> void:
 
 # gets called when player goes through one iteration of the dialog
 func onReadAllDialogue() -> void:
-	var dialogue := load_dialogue()
 	.onReadAllDialogue() # calls super class function
 	if has_dialogue("quest", str(interacted_counter)):
 		Global.game_manager.quest_index = int(get_dialogue("quest", str(interacted_counter))["level_index"])
