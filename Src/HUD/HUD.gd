@@ -325,7 +325,6 @@ func onDialogTypeTimerTimeout() -> void:
 
 
 func typeDialog() -> void:
-	$Dialog/Text.visible_characters = 0
 	dialogTypeTimer.start()
 	# while $Dialog/Text.visible_characters < $Dialog/Text.text.length():
 	# 	$Dialog/Text.visible_characters += 1

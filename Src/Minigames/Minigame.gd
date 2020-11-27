@@ -95,11 +95,9 @@ func playSuccessSound() -> void:
 	
 func _on_tween_all_completed() -> void:
 	tweenIsInUse = false
-	match result:
-		Types.MinigameResults.Succeeded, Types.MinigameResults.Failed:
-			queue_free()
-			Events.emit_signal("unblock_player_movement")
-			#print("queue freed minigame")
+	if not is_open: # destroys minigame if tween close animation finishes
+		queue_free()
+		Events.emit_signal("unblock_player_movement")
 
 			
 func onForcefullyCloseMinigame() -> void:

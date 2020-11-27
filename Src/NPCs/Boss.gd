@@ -2,6 +2,8 @@ extends NPC
 
 
 func _ready() -> void:
+	if Global.gameState.interactionCounters.boss == 0:
+		Global.gameState.level.missionIsTutorial = true
 	interacted_counter = Global.gameState["interactionCounters"]["boss"]
 	Events.connect("tutorial_finished", self, "_on_tutorial_finished")
 
@@ -17,10 +19,9 @@ func onReadAllDialogue() -> void:
 			Global.gameState["level"]["hasActiveMission"] = true
 			Global.gameState["level"]["missionIsTutorial"] = false
 			Global.gameState["level"]["lastActiveMission"] = Global.game_manager.quest_index
-		else:
-			Global.gameState["level"]["missionIsTutorial"] = true
 
 			
 func _on_tutorial_finished() -> void:
-	Global.gameState["interactionCounters"]["boss"] += 1
-	interacted_counter += 1
+	if Global.gameState.level.missionIsTutorial:
+		Global.gameState["interactionCounters"]["boss"] += 1
+		interacted_counter += 1
