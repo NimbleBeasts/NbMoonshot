@@ -12,7 +12,10 @@ var dialogue_index: int =  0
 var dialogueRead: bool = false
 var dialogTyping: bool = false
 
+var loadedDialogue := {}
+
 func _ready() -> void:
+	load_dialogue()
 	Events.connect("dialog_typing_changed", self, "onDialogTypingChanged")
 	connect("body_entered", self, "_on_body_entered")
 	connect("body_exited", self, "_on_body_exited")
@@ -36,13 +39,13 @@ func _process(delta: float) -> void:
 
 
 # function for loading dialogues
-func load_dialogue() -> Dictionary:
+func load_dialogue() -> void:
 	if dialogue_path == "":
-		return {}
+		return 
 	var file := File.new()
 	file.open(dialogue_path, file.READ)
 	var dialogue = parse_json(file.get_as_text())
-	return dialogue
+	loadedDialogue = dialogue
 
 
 func interact() -> void:
@@ -66,11 +69,11 @@ func interact() -> void:
 
 # this function checks if dialogue exists from a passed interacted counter(first digit) and index(second digit) in the json file
 func has_dialogue(counter, index) -> bool:
-	return load_dialogue().has(str(counter) + str(index))
+	return loadedDialogue.has(str(counter) + str(index))
 	
 # this will get dialogue, make sure to check if has_dialogue first 
 func get_dialogue(counter, index) -> Dictionary:
-	return load_dialogue()[str(counter) + str(index)]
+	return loadedDialogue[str(counter) + str(index)]
 
 # this will take a counter and index and actually display it on screen
 func say_dialogue_text(counter, index) -> void:

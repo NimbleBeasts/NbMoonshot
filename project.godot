@@ -124,6 +124,10 @@ Types="*res://Src/_Autoloads/Types.gd"
 Events="*res://Src/_Autoloads/Events.gd"
 Debug="*res://Src/_Autoloads/Debug.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/width=640

@@ -37,7 +37,8 @@ func _ready() -> void:
 	goBackToNormalTimer.connect("timeout", self, "onGoBackToNormalTimeout")
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
-	
+	losRay.enabled = false
+
 	# sets sprite texture on level type
 	match Global.game_manager.getCurrentLevel().level_type:
 		Types.LevelTypes.Western:
@@ -143,11 +144,9 @@ func stun(duration: float) -> void:
 	$SureDetectionTimer.stop()
 	$Notifier.remove()
 	player_detected = false
-	losRay.enabled = false
 
 
 func unstun() -> void:
-	losRay.enabled = true
 	$DirectionChangeTimer.start()
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
 	# can check for stunned bodies again
@@ -168,6 +167,7 @@ func playerDetectLOS() -> void:
 			Types.LightLevels.FullLight:
 				set_state(Types.GuardStates.PlayerDetected)
 				player_in_los = false
+				losRay.set_deferred("enabled", false)
 			Types.LightLevels.BarelyVisible:
 				if not player_detected: # only sets to suspect if hasn't detected player before
 					set_state(Types.GuardStates.Suspect)
@@ -179,12 +179,13 @@ func playerDetectLOS() -> void:
 func _on_LineOfSight_body_entered(body: Node) -> void:
 	if body.is_in_group("Player") and state != Types.GuardStates.Stunned:
 		player_in_los = true		
+		losRay.set_deferred("enabled", true)
 
 		
 func _on_LineOfSight_body_exited(body):
 	if body.is_in_group("Player"):
 		player_in_los = false
-
+		losRay.set_deferred("enabled", false)
 
 # this gets started when this guard's state changes to PlayerDetected
 # on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
