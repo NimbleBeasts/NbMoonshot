@@ -39,6 +39,7 @@ func _ready():
 	debugMoney()
 	
 func webMoneyPulse(paying):
+	return #dont know why the perfomance is so bad
 	if paying or debugWebMoney:
 		Global.addMoney(Global.gameConstant.webMoneyPerTick)
 	else:

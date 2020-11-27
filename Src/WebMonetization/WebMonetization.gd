@@ -22,10 +22,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:
 		"active_pulse":
 			$AnimationPlayer.play("active_idle")
-			Events.emit_signal("web_monetization_pulse", true)
+			Global.addMoney(Global.gameConstant.webMoneyPerTick)
+			#Events.emit_signal("web_monetization_pulse", true)
 		"inactive_pulse":
 			$AnimationPlayer.play("inactive_idle")
-			Events.emit_signal("web_monetization_pulse", false)
+			#Events.emit_signal("web_monetization_pulse", false)
 		_:
 			pass
 
