@@ -23,10 +23,10 @@
 extends Node
 
 # Version
-const GAME_VERSION = 0.2
+const GAME_VERSION = 0.3
 const CONFIG_VERSION = 0 # Used for config migration
 # Debug Options
-const DEBUG = true
+const DEBUG = false
 
 # Nb Plugin Config
 const NB_PLUGIN_CONFIG = {
