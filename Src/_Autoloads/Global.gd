@@ -213,6 +213,25 @@ func setFullscreen(val: bool):
 	
 	switchFullscreen()
 
+	
+func newGameState() -> void:
+	Global.gameState = {
+	playerUpgrades = [],
+	money = 0,
+	playerOfficeDoorIsOpen = false,
+	level = {
+		# Game will only be saveable during missions in the HQ. So it will be easier to track:
+		hasActiveMission = false,
+		lastActiveMission = -1,
+		missionIsTutorial = false
+	},
+
+	interactionCounters = {
+		boss = 0,
+		secretary = 0
+	}
+
+}
 
 # Perform Fullscreen Switch
 func switchFullscreen():

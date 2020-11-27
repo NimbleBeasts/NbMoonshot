@@ -67,6 +67,7 @@ func loadGame(slot):
 	playClick()
 	Events.emit_signal("new_game", 0)
 
+
 func updateLoadGame():
 	var saves = Global.getSaveGameState()
 	
@@ -132,7 +133,7 @@ func _on_ButtonPlay_button_up():
 	playClick()
 	Events.emit_signal("new_game", 0)
 
-
+	
 func _on_ButtonSettings_button_up():
 	playClick()
 	switchTo(MenuState.Settings)
