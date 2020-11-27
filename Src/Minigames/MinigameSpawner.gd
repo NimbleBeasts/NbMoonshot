@@ -13,6 +13,7 @@ onready var game_manager := get_node("/root/GameManager")
 
 
 func _ready() -> void:
+	set_process(false)
 	#warning-ignore:return_value_discarded
 	connect("area_entered", self, "_on_area_entered")
 	#warning-ignore:return_value_discarded

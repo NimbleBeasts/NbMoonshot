@@ -31,7 +31,9 @@ func _ready():
 func openTresor():
 	$Sprite.frame = 1
 	isUsed = true
-	Events.emit_signal("tutorial_finished")
+	if Global.gameState.level.missionIsTutorial:
+		Events.emit_signal("tutorial_finished")
+		Events.emit_signal("hud_game_hint", "Tutorial mission finished")
 	if showHintOnSucceed:
 		Events.emit_signal("hud_game_hint", hint)
 	if openTarget:

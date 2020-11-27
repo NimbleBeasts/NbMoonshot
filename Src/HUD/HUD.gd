@@ -15,6 +15,7 @@ var currentSelectedUpgrade: int = 0
 var dialogIsTyping: bool = false
 var canSayNext: bool = false
 var isGameOver: bool = false
+var levelHint: String
 
 onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
@@ -25,6 +26,7 @@ func _ready():
 	Events.connect("visible_level_changed", self, "updateLightLevel")
 	Events.connect("audio_level_changed", self, "updateAudioLevel")
 	Events.connect("game_over", self, "onGameOver")
+	Events.connect("level_hint", self, "onLevelHint")
 	
 	Events.connect("hud_note_show", self, "showNote")
 	Events.connect("hud_dialog_show", self, "showDialog")
@@ -263,6 +265,11 @@ func _physics_process(_delta):
 			$Note.hide()
 			Events.emit_signal("hud_note_exited")
 
+	if levelHint != "":
+		if not $Dialog.visible:
+			Events.emit_signal("hud_game_hint", levelHint)
+			levelHint = ""
+
 
 func showMenu():
 	$IngameMenu.show()
@@ -416,3 +423,5 @@ func _on_MenuButton_button_up():
 	else:
 		showMenu()
 
+func onLevelHint(hint: String) -> void:
+	levelHint = hint
