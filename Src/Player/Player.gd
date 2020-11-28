@@ -70,6 +70,7 @@ func _ready() -> void:
 	Events.connect("unblock_player_movement", self, "onUnblockPlayerMovement")
 	Events.connect("game_over", self, "onGameOver")
 	Events.connect("update_upgrades", self, "do_upgrade_stuff")
+	Events.connect("set_player_state", self, "set_state")
 
 	$AnimationPlayer.play("idle")
 	$FootstepTimer.connect("timeout", self, "onFootstepTimerTimeout")

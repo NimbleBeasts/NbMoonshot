@@ -211,22 +211,21 @@ func showDialog(pname: String, nameColor: String, text: String):
 		nextName = ""
 		nextNameColor = ""
 
+		
 	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
 	$Dialog/Text.visible_characters = pname.length()
 	$Dialog.show()
 	currentText = text
-	typeDialog() # do you want this function or tween. problem with tween is that if the text is short, it will still take 1 second to finish, which is meh. this fixes that
-	# dialogTween.interpolate_property($Dialog/Text, "percent_visible", 0.0, 1.0, 1.0, Tween.TRANS_LINEAR)
-	# dialogTween.start()
+	typeDialog() 
 
-
+# call this function to hide dialogue instead of simply hiding it 
 func hideDialog() -> void:
 	$Dialog.hide()
 	Events.emit_signal("hud_dialog_exited")
 	dialogTypeTimer.stop()
 	$Dialog/Text.visible_characters = 0
-	Global.player.set_state(Types.PlayerStates.Normal)
 	Events.emit_signal("unblock_player_movement")
+	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
 
 
 func _physics_process(_delta):
