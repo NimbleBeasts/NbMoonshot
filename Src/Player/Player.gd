@@ -278,6 +278,7 @@ func do_upgrade_stuff() -> void:
 func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
 	block_input = true
+	set_state(Types.PlayerStates.Normal)
 
 # I will remove all these functions other than onBlockPlayerMovement and onUnblockPlayerMovement
 func _on_hud_note_exited() -> void:
@@ -285,9 +286,13 @@ func _on_hud_note_exited() -> void:
 
 func _on_hud_note_showed(_type: int, _text: String) -> void:
 	block_input = true
+	set_state(Types.PlayerStates.Normal)
+
 
 func onBlockPlayerMovement() -> void:
 	block_input = true
+	set_state(Types.PlayerStates.Normal)
+
 
 func onUnblockPlayerMovement() -> void:
 	block_input = false

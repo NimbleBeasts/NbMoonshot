@@ -22,7 +22,7 @@ func _ready() -> void:
 
 
 func _base_process(_delta: float) -> void:
-	if player_entered and can_make_minigame: # if player is near
+	if player_entered and can_make_minigame and Global.player.state == Types.PlayerStates.Normal: # if player is near
 		if Input.is_action_just_pressed("open_minigame"):
 			if not minigame: # if haven't created a minigame
 				# Creates a minigame and opens it 

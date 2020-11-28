@@ -132,7 +132,7 @@ func _on_ButtonPlay_button_up():
 	get_tree().paused = false
 	playClick()
 	Events.emit_signal("new_game", 0)
-
+	Global.newGameState()
 	
 func _on_ButtonSettings_button_up():
 	playClick()

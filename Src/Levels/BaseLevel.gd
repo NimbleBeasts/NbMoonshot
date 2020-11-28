@@ -60,9 +60,12 @@ func _ready():
 			node.light_mask = 3
 	
 	# Update Player Money
-	Events.emit_signal("hud_update_money", Global.gameState.money, 0)
+	if Global.game_manager.getCurrentLevelIndex() == 0:
+		Events.emit_signal("hud_update_money", Global.gameState.money, 0)
+	else:
+		Events.emit_signal("hud_update_money", 0, 0)
 
-
+		
 func _process(delta: float) -> void:
 	if can_change_level() == true: # putting this in process T_T
 		Events.emit_signal("hud_game_hint", "Mission Complete - Return to HQ")
