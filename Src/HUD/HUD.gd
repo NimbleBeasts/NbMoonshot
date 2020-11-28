@@ -156,11 +156,10 @@ func showNote(type, text):
 
 func updateUpgrades():
 	# Clear old results
-#	for node in $Upgrades/Grid.get_children():
-#		node.disabled = false
-#	for upgradeId in Global.gameState.playerUpgrades:
-#		get_node("Upgrades/Grid/UpgradeButton" + str(upgradeId)).disabled = true
-	pass
+	for node in $Upgrades/Grid.get_children():
+		node.disabled = false
+	for upgradeId in Global.gameState.playerUpgrades:
+		get_node("Upgrades/Grid/UpgradeButton" + str(upgradeId)).disabled = true
 
 
 func _on_UpgradeButton_button_up():
@@ -170,6 +169,7 @@ func _on_UpgradeButton_button_up():
 		Global.addMoney(-upgrade.cost)
 		upgradeSelect(currentSelectedUpgrade)
 		Events.emit_signal("update_upgrades")
+		updateUpgrades()
 	
 
 func upgradeSelect(id):
