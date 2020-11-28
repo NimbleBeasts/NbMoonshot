@@ -62,23 +62,26 @@ func interact() -> void:
 		dialogue_index += 1
 		return
 	
-	dialogue_index = 0
-	say_dialogue_text(interacted_counter, dialogue_index)
-	dialogue_index += 1
-
+	Events.emit_signal("unblock_player_movement")
 
 # this function checks if dialogue exists from a passed interacted counter(first digit) and index(second digit) in the json file
 func has_dialogue(counter, index) -> bool:
-	return loadedDialogue.has(str(counter) + str(index))
+	 return loadedDialogue.has(str(counter) + str(index))
+
 	
 # this will get dialogue, make sure to check if has_dialogue first 
 func get_dialogue(counter, index) -> Dictionary:
+	if not loadedDialogue.has(str(counter) + str(index)):
+		return {}
 	return loadedDialogue[str(counter) + str(index)]
 
 # this will take a counter and index and actually display it on screen
 func say_dialogue_text(counter, index) -> void:
-	var dialogue_text: String = get_dialogue(interacted_counter, dialogue_index)["text"]
-	Events.emit_signal("hud_dialog_show", npc_name, npc_color, dialogue_text)
+	print("dialogue saying")
+	var dialogueDict = get_dialogue(interacted_counter, dialogue_index)
+	if dialogueDict.has("text"):
+		var dialogue_text: String = dialogueDict["text"]
+		Events.emit_signal("hud_dialog_show", npc_name, npc_color, dialogue_text)
 
 
 func onReadAllDialogue() -> void:
