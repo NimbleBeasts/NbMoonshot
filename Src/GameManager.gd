@@ -135,7 +135,6 @@ func _newGame(startLevel = 0):
 	switchTo(Types.GameStates.Game)
 	Global.newGameState()
 
-
 # Event Hook: Update user config for sound
 func _switchSound(value):
 	Global.userConfig.sound = value

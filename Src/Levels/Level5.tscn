@@ -706,6 +706,10 @@ __meta__ = {
 
 [node name="DeskGuard" parent="." instance=ExtResource( 30 )]
 position = Vector2( 232, 256 )
+lookDirection = 0
+lookDuration = 2.0
+readDuration = 3.0
+removeNotifierDuration = 1.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 40, 256 )

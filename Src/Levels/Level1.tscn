@@ -206,7 +206,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -433,6 +433,9 @@ __meta__ = {
 [node name="DeskGuard" parent="." instance=ExtResource( 30 )]
 position = Vector2( 192, 256 )
 lookDirection = 1
+lookDuration = 2.0
+readDuration = 3.0
+removeNotifierDuration = 1.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 168, 368 )

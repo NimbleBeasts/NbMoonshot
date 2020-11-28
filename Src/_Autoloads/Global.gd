@@ -232,6 +232,7 @@ func newGameState() -> void:
 	}
 
 }
+	print("reset game state")
 
 # Perform Fullscreen Switch
 func switchFullscreen():
