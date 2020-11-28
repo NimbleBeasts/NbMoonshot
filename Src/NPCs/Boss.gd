@@ -24,5 +24,5 @@ func onReadAllDialogue() -> void:
 			
 			
 func _on_tutorial_finished() -> void:
-	Global.gameState["interactionCounters"]["boss"] += 1
-	interacted_counter += 1
+	Global.gameState["interactionCounters"]["boss"] = 1
+	interacted_counter = 1

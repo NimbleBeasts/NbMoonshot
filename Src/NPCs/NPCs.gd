@@ -61,7 +61,10 @@ func interact() -> void:
 
 		dialogue_index += 1
 		return
-	
+
+	dialogue_index = 0
+	say_dialogue_text(interacted_counter, dialogue_index)
+	dialogue_index += 1
 	Events.emit_signal("unblock_player_movement")
 
 # this function checks if dialogue exists from a passed interacted counter(first digit) and index(second digit) in the json file
