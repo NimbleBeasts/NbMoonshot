@@ -169,6 +169,7 @@ func _on_UpgradeButton_button_up():
 		Global.addUpgrade(currentSelectedUpgrade)
 		Global.addMoney(-upgrade.cost)
 		upgradeSelect(currentSelectedUpgrade)
+		Events.emit_signal("update_upgrades")
 	
 
 func upgradeSelect(id):
@@ -187,8 +188,6 @@ func upgradeSelect(id):
 	else:
 		$Upgrades/InfoBox/UpgradeButton.updateLabel("Already Owned")
 		$Upgrades/InfoBox/UpgradeButton.disabled = true
-		Events.emit_signal("update_upgrades")
-
 
 func showUpgrade():
 	# Set focus so we can use gamepad with ui
