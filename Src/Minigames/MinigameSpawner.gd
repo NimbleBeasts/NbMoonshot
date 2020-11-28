@@ -16,8 +16,10 @@ func _ready() -> void:
 	set_process(false)
 	#warning-ignore:return_value_discarded
 	connect("area_entered", self, "_on_area_entered")
+	Events.connect("game_over", self, "onGameOver")
 	#warning-ignore:return_value_discarded
 	connect("area_exited", self, "_on_area_exited")
+
 
 func _base_process(_delta: float) -> void:
 	if player_entered and can_make_minigame: # if player is near
@@ -71,3 +73,9 @@ func _on_minigame_result_changed(result: int) -> void:
 func getProgessState() -> bool:
 	return minigame_succeeded
 
+# makes it impossible for a minigame to spawn after game over
+func onGameOver() -> void:
+	can_make_minigame = false
+	if minigame:
+		minigame.canCloseMinigame = true
+		minigame.close()

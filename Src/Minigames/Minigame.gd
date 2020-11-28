@@ -9,6 +9,7 @@ var result: int
 var owner_obj # the door that owns this minigame
 var is_open: bool = false
 var canCloseMinigame: bool = true
+var canOpenMinigame: bool = true
 var tweenIsInUse: bool = false
 
 onready var tween: Tween = get_node_or_null("Tween")

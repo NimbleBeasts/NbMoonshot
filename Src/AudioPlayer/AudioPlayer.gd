@@ -18,6 +18,7 @@ func _ready():
 	Events.connect_signal("play_sound", self, "_playSound")
 	Events.connect_signal("switch_music", self, "_switchMusic")
 	Events.connect("play_music", self, "onPlayMusic")
+	Events.connect("game_over", self, "onGameOver")
 
 	# Init Start Music
 	_switchMusic(Global.userConfig.music) 
@@ -140,3 +141,7 @@ func onPlayMusic(level_type) -> void:
 			print("menu music")
 		_:
 			print("not found")
+
+
+func onGameOver() -> void:
+	$General/GameOver.play()

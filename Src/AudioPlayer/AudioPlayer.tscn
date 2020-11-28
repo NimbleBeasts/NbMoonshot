@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
@@ -50,6 +50,7 @@
 [ext_resource path="res://Assets/SFX/hq.ogg" type="AudioStream" id=48]
 [ext_resource path="res://Assets/SFX/title.ogg" type="AudioStream" id=49]
 [ext_resource path="res://Assets/SFX/chair_startle.wav" type="AudioStream" id=50]
+[ext_resource path="res://Assets/SFX/gameover.wav" type="AudioStream" id=51]
 
 [node name="AudioPlayer" type="Node2D"]
 script = ExtResource( 2 )
@@ -192,4 +193,9 @@ stream = ExtResource( 46 )
 
 [node name="HasBounty" type="AudioStreamPlayer2D" parent="ChestSounds"]
 stream = ExtResource( 45 )
+
+[node name="General" type="Node2D" parent="."]
+
+[node name="GameOver" type="AudioStreamPlayer2D" parent="General"]
+stream = ExtResource( 51 )
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
