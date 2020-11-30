@@ -11,5 +11,5 @@ dest_files=[ "res://.import/western_world.ogg-81346adea94114be5ef4c3d1a0359f71.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

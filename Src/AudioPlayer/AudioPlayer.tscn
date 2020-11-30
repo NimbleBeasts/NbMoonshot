@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
@@ -46,11 +46,13 @@
 [ext_resource path="res://Assets/Music/western_world.ogg" type="AudioStream" id=44]
 [ext_resource path="res://Assets/SFX/chest_bounty.wav" type="AudioStream" id=45]
 [ext_resource path="res://Assets/SFX/chest_locked.wav" type="AudioStream" id=46]
-[ext_resource path="res://Assets/SFX/eastern_bloc.ogg" type="AudioStream" id=47]
-[ext_resource path="res://Assets/SFX/hq.ogg" type="AudioStream" id=48]
-[ext_resource path="res://Assets/SFX/title.ogg" type="AudioStream" id=49]
+[ext_resource path="res://Assets/Music/hq_main.ogg" type="AudioStream" id=47]
+[ext_resource path="res://Assets/Music/eastern_bloc.ogg" type="AudioStream" id=48]
+[ext_resource path="res://Assets/Music/title_intro.ogg" type="AudioStream" id=49]
 [ext_resource path="res://Assets/SFX/chair_startle.wav" type="AudioStream" id=50]
 [ext_resource path="res://Assets/SFX/gameover.wav" type="AudioStream" id=51]
+[ext_resource path="res://Assets/Music/title_main.ogg" type="AudioStream" id=52]
+[ext_resource path="res://Assets/Music/hq_intro.ogg" type="AudioStream" id=53]
 
 [node name="AudioPlayer" type="Node2D"]
 script = ExtResource( 2 )
@@ -59,9 +61,11 @@ guardSuspiciousSounds = [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 )
 playerFootstepSounds = [ ExtResource( 35 ), ExtResource( 38 ), ExtResource( 36 ), ExtResource( 37 ) ]
 playerCrouchWalkSounds = [ ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 39 ) ]
 westernMusic = ExtResource( 44 )
-easternMusic = ExtResource( 47 )
-hqMusic = ExtResource( 48 )
-menuMusic = ExtResource( 49 )
+easternMusic = ExtResource( 48 )
+hqIntro = ExtResource( 53 )
+hqMusic = ExtResource( 47 )
+menuIntro = ExtResource( 49 )
+menuMusic = ExtResource( 52 )
 
 [node name="MenuClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 23 )

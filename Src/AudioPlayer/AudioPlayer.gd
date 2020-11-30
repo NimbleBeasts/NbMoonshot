@@ -7,7 +7,9 @@ export (Array, AudioStream) var playerCrouchWalkSounds
 
 export (AudioStream) var westernMusic
 export (AudioStream) var easternMusic
+export (AudioStream) var hqIntro
 export (AudioStream) var hqMusic
+export (AudioStream) var menuIntro
 export (AudioStream) var menuMusic
 
 onready var musicPlayer: AudioStreamPlayer = $Music
@@ -112,8 +114,13 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 
 # Music Loop?
 func _on_Music_finished():
-	print("music finished")
-	pass
+	print("loop end")
+	if musicPlayer.stream == hqIntro:
+		musicPlayer.stream = hqMusic
+	elif musicPlayer.stream == menuIntro:
+		musicPlayer.stream = menuMusic
+	musicPlayer.play()
+	
 
 
 func playRandomSound(audioPlayer, array: Array) -> void:
@@ -133,11 +140,11 @@ func onPlayMusic(level_type) -> void:
 			musicPlayer.play()
 			print("eastern music")
 		"HQ":
-			musicPlayer.stream = hqMusic
+			musicPlayer.stream = hqIntro
 			musicPlayer.play()
 			print("hq music")
 		"Menu":
-			musicPlayer.stream = menuMusic
+			musicPlayer.stream = menuIntro
 			musicPlayer.play()
 			print("menu music")
 		_:
