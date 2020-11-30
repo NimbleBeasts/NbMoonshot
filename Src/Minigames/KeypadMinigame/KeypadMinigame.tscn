@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://Assets/Minigames/KeyPadButton.png" type="Texture" id=1]
 [ext_resource path="res://Src/Minigames/KeypadMinigame/KeypadMinigame.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Minigames/KeyPadBackground.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Minigames/sevenSegment.png" type="Texture" id=4]
@@ -103,6 +104,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button11" parent="Input" instance=ExtResource( 5 )]
+position = Vector2( 55, 57 )
+label = "§"
+
+[node name="Button10" parent="Input" instance=ExtResource( 5 )]
+position = Vector2( 32, 57 )
+label = "*"
+
 [node name="Button0" parent="Input" instance=ExtResource( 5 )]
 position = Vector2( 9, 57 )
 label = "0"
@@ -142,14 +151,6 @@ label = "8"
 [node name="Button9" parent="Input" instance=ExtResource( 5 )]
 position = Vector2( 9, 3 )
 
-[node name="Button10" parent="Input" instance=ExtResource( 5 )]
-position = Vector2( 32, 57 )
-label = "*"
-
-[node name="Button11" parent="Input" instance=ExtResource( 5 )]
-position = Vector2( 55, 57 )
-label = "§"
-
 [node name="Tween" type="Tween" parent="."]
 
 [node name="GoalLabel" type="Label" parent="."]
@@ -166,4 +167,11 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/clear = SubResource( 1 )
+
+[node name="BtnSelector" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.282353, 1, 0.831373, 0.372549 )
+texture = ExtResource( 1 )
+offset = Vector2( 8, 8 )
+hframes = 2
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

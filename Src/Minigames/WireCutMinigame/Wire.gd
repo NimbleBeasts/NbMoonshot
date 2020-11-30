@@ -15,15 +15,17 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if plier_entered:
-		if Input.is_mouse_button_pressed(BUTTON_LEFT) and not is_cut:
+		if Input.is_mouse_button_pressed(BUTTON_LEFT) or Input.is_action_just_pressed("interact"):
 			cut()
-			emit_signal("wire_cut", color_type)
-			Events.emit_signal("play_sound", "wirecut")
+
 
 func cut():
-	is_cut = true
-	$AnimatedSprite.play("cut")
-	
+	if not is_cut:
+		is_cut = true
+		$AnimatedSprite.play("cut")
+		emit_signal("wire_cut", color_type)
+		Events.emit_signal("play_sound", "wirecut")
+
 	
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Plier"):

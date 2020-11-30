@@ -6,6 +6,12 @@ var atm_cd:int = 12
 
 onready var plier: Area2D = $Plier
 
+#hacking in scissors for non mouse players
+#onready var scissors: Sprite = $Sicssors
+var wire_index = 0
+var wires = []
+var v_scale
+
 var goal_cuts: Array = []
 var colors: Array = ["#c93038", "#51c43f", "#852d66", "#63c2c9"]
 var enum2text: Dictionary = {
@@ -13,8 +19,8 @@ var enum2text: Dictionary = {
 	Types.WireColors.Red : "RED",
 	Types.WireColors.Blue : "BLUE",
 	Types.WireColors.Purple : "PURPLE",
-	
 }
+
 var wire_cut_status: Dictionary
 var to_be_deactivated: Array
 
@@ -32,6 +38,11 @@ func _ready() -> void:
 	wire_positions.shuffle()
 	for i in $Wires.get_children().size():
 		$Wires.get_child(i).position = wire_positions[i]
+		
+	#sort his random pos for non mouse 
+	wires = $Wires.get_children()
+	wires.sort_custom(self,"sortup")
+	
 	
 	# Goal cuts must be set!!
 	assert(goal_cuts.size() == 2)
@@ -51,26 +62,58 @@ func _ready() -> void:
 	
 	#added timer
 	run_countdown_timer()
+	
+	#hideMouse(true)
+	
+
+func hideMouse(yes):
+	if yes:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _process(delta: float) -> void:
-	var scale =  OS.get_window_size() / Vector2(640, 360)
-	plier.global_position = get_global_mouse_position() / scale
+	v_scale =  OS.get_window_size() / Vector2(640, 360)
+	plier.global_position = get_global_mouse_position() / v_scale
 	
+func _input(event):
+		
+	if event.is_action_pressed("move_up"):
+		wire_index = wire_index + 1
+		wire_index = clamp(wire_index,0,3)
+		scissor_move()
+	
+	if event.is_action_pressed("move_down"):
+		wire_index = wire_index - 1
+		wire_index = clamp(wire_index,0,3)
+		scissor_move()
+		
+func scissor_move():
+	var wpos = wires[wire_index].global_position
+	get_viewport().warp_mouse(wpos * v_scale)
+
+
+func sortup(a,b):
+	if a.global_position.y > b.global_position.y:
+		return true
+	return false
 
 func _on_wire_cut(color_type: int) -> void:
 	if wire_cut_status.has(color_type):
 		wire_cut_status[color_type] = true
 	else: # if the player cuts a wire that isn't in goal cuts
 		set_result(Types.MinigameResults.Failed)
+		hideMouse(false)
 		close()
 		
 	if wire_cut_status.values()[0] and wire_cut_status.values()[1]:
 		set_result(Types.MinigameResults.Succeeded)
+		hideMouse(false)
 		close()
 	
 func run_countdown_timer():
 	while( atm_cd >= 0 ):
-		print(atm_cd)
+		#print(atm_cd)
 		if atm_cd > 9:
 			var twochar = String(atm_cd)
 			$WireTimer/dig5.frame = int(twochar[0])
@@ -85,4 +128,3 @@ func run_countdown_timer():
 			close()
 			return
 		atm_cd = atm_cd - 1
-

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Minigames/WireCutBackground.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Assets/Minigames/sevenSegmentSeperator.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Minigames/sevenSegment.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Minigames/WireCutScissors.png" type="Texture" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -166,6 +167,9 @@ position = Vector2( 0, 60 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plier"]
 shape = SubResource( 14 )
+
+[node name="Scissors" type="Sprite" parent="Plier"]
+texture = ExtResource( 8 )
 
 [node name="Labels" type="Control" parent="."]
 margin_top = 60.0

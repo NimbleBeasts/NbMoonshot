@@ -13,7 +13,42 @@ onready var timer_slider = $Timer/TimerSlider
 onready var textureNormal = preload("res://Assets/Minigames/LightButton.png")
 onready var textureActive = preload("res://Assets/Minigames/LightButtonActive.png")
 
+var btn_index = 0
+var old_index = 0
+onready var btn_selector = $BtnSelector
 
+func _input(event):
+	if event is InputEventMouse:
+		btn_selector.hide()
+	else:
+		moveByKeys(event)
+	#if event.is_action_pressed("interact"):
+		#$GridContainer.get_child(btn_index).emit_signal("button_up")
+
+func moveByKeys(event):
+	
+	if event.is_action_pressed("move_up"):#-3
+		if btn_index > 2: btn_index = btn_index - 3
+		btn_selector.show()
+		
+	if event.is_action_pressed("move_down"):#+3
+		if btn_index < 9: btn_index = btn_index + 3
+		btn_selector.show()
+		
+	if event.is_action_pressed("move_right"):#+1
+		if not btn_index in [2,5,8] : btn_index = btn_index + 1
+		btn_selector.show()
+		
+	if event.is_action_pressed("move_left"):#-1
+		if not btn_index in [0,3,6] : btn_index = btn_index - 1
+		btn_selector.show()
+	
+	btn_index = clamp( btn_index, 0, 8.1)
+	if old_index != btn_index:
+		old_index = btn_index
+		btn_selector.global_position = $GridContainer.get_child(btn_index).rect_global_position
+		$GridContainer.get_child(btn_index).grab_focus()
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	init_game()
@@ -24,6 +59,9 @@ func init_game():
 	#random tunrn one light
 	var flip_one:int = round( rand_range(0, btn_parrent.get_child_count()-0.6) )
 	switch_color(flip_one)
+	
+	#make start button on flip_one
+	btn_index = flip_one
 	
 	#connect buttons
 	for x in range(9):
@@ -65,6 +103,8 @@ func get_neigbhurs(i):
 	return ng
 	
 func _on_button_click(what):
+	
+	btn_index = what
 	switch_color(what)
 	for n in get_neigbhurs(what):
 		switch_color(n)

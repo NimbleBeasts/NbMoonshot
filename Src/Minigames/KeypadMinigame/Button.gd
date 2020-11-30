@@ -20,7 +20,6 @@ func _on_TextureButton_button_down():
 func _on_TextureButton_button_up():
 	release()
 
-
 func press() -> void:
 	timer.start(0.1)
 	self.frame = 1
