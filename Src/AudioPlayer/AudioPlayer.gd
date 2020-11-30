@@ -112,15 +112,16 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 
 # Music Loop?
 func _on_Music_finished():
-	pass # Replace with function body.
+	print("music finished")
+	pass
 
 
-func playRandomSound(audioPlayer,array: Array) -> void:
+func playRandomSound(audioPlayer, array: Array) -> void:
 	randomize()
 	audioPlayer.stream = array[randi() % array.size()]
 	audioPlayer.play()
 
-	
+
 func onPlayMusic(level_type) -> void:
 	match level_type:
 		Types.LevelTypes.Western:
@@ -145,3 +146,4 @@ func onPlayMusic(level_type) -> void:
 
 func onGameOver() -> void:
 	$General/GameOver.play()
+
