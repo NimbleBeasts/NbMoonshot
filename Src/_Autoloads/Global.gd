@@ -26,7 +26,7 @@ extends Node
 const GAME_VERSION = 0.3
 const CONFIG_VERSION = 0 # Used for config migration
 # Debug Options
-const DEBUG = false
+const DEBUG = true
 
 # Nb Plugin Config
 const NB_PLUGIN_CONFIG = {
@@ -44,6 +44,7 @@ const levels = [
 	"res://Src/Levels/Level3.tscn",
 	"res://Src/Levels/Level4.tscn",
 	"res://Src/Levels/Level5.tscn",
+	"res://Src/Levels/Level6.tscn",
 ]
 
 const levelTitle = [

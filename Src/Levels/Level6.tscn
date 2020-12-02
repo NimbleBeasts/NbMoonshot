@@ -1,0 +1,216 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=6]
+[ext_resource path="res://Src/Skybox/UstriaSkybox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
+[ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Objects/tv.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Objects/sofa.png" type="Texture" id=16]
+[ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=19]
+[ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=26]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 32 )
+
+[node name="Level6" type="Node2D"]
+script = ExtResource( 1 )
+level_type = 1
+
+[node name="UstriaSkybox" parent="." instance=ExtResource( 9 )]
+
+[node name="SpriteWalls" type="Node2D" parent="."]
+
+[node name="Garage" type="Sprite" parent="SpriteWalls"]
+position = Vector2( -64, 208 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Rooms" type="TileMap" parent="."]
+light_mask = 3
+tile_set = ExtResource( 13 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 32
+occluder_light_mask = 3
+format = 1
+tile_data = PoolIntArray( 1572883, 32, 0, 1572885, 34, 0, 1572887, 32, 0, 1572889, 34, 0, 1572891, 32, 0, 1572893, 32, 0, 1572895, 34, 0, 1572897, 32, 0, 1704014, 55, 0, 1835010, 59, 0, 1835012, 59, 0, 1835014, 59, 0, 1835016, 59, 0, 1835018, 59, 0, 1835020, 59, 0, 1835022, 59, 0, 1835024, 59, 0, 1835026, 1, 0, 1835043, 1, 0, 2097163, 54, 0, 2097166, 54, 0, 2097169, 54, 0, 2097172, 54, 0, 2097175, 54, 0, 2097178, 54, 0, 2097181, 54, 0, 2097184, 54, 0, 2293772, 55, 0, 2293774, 55, 0, 2359314, 1, 0, 2359331, 1, 0, 2490392, 57, 0 )
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 32
+occluder_light_mask = 3
+format = 1
+tile_data = PoolIntArray( 1572882, 0, 0, 1572883, 0, 1, 1572884, 0, 1, 1572885, 0, 1, 1572886, 0, 1, 1572887, 0, 1, 1572888, 0, 1, 1572889, 0, 1, 1572890, 0, 1, 1572891, 0, 1, 1572892, 0, 1, 1572893, 0, 1, 1572894, 0, 1, 1572895, 0, 1, 1572896, 0, 1, 1572897, 0, 1, 1572898, 0, 1, 1572899, 0, 3, 1638418, 0, 65536, 1638435, 0, 65536, 1703954, 0, 65536, 1703971, 0, 65536, 1769490, 0, 65538, 1769507, 0, 65538, 2097162, 0, 0, 2097163, 0, 0, 2097168, 0, 0, 2097169, 0, 1, 2097170, 0, 2, 2097171, 0, 1, 2097172, 0, 1, 2097173, 0, 1, 2097174, 0, 1, 2097175, 0, 1, 2097176, 0, 1, 2097177, 0, 1, 2097178, 0, 1, 2097179, 0, 1, 2097180, 0, 1, 2097181, 0, 1, 2097182, 0, 1, 2097183, 0, 1, 2097184, 0, 1, 2097185, 0, 1, 2097186, 0, 1, 2097187, 0, 3, 2162698, 0, 65536, 2162706, 0, 65536, 2162723, 0, 65536, 2228234, 0, 65536, 2228242, 0, 65536, 2228259, 0, 65536, 2293770, 0, 65536, 2293778, 0, 65538, 2293795, 0, 65538, 2359306, 0, 65536, 2424842, 0, 65536, 2490378, 0, 65536, 2555914, 0, 65536, 2621450, 0, 131072, 2621451, 0, 1, 2621452, 0, 1, 2621453, 0, 1, 2621454, 0, 1, 2621455, 0, 1, 2621456, 0, 1, 2621457, 0, 1, 2621458, 0, 1, 2621459, 0, 1, 2621460, 0, 1, 2621461, 0, 1, 2621462, 0, 1, 2621463, 0, 1, 2621464, 0, 1, 2621465, 0, 1, 2621466, 0, 1, 2621467, 0, 1, 2621468, 0, 1, 2621469, 0, 1, 2621470, 0, 1, 2621471, 0, 1, 2621472, 0, 1, 2621473, 0, 1, 2621474, 0, 1, 2621475, 0, 0, 2621487, 0, 0, 2621488, 0, 1, 2621489, 0, 1, 2621490, 0, 0, 2621499, 0, 0 )
+
+[node name="LevelObjects" type="Node2D" parent="."]
+
+[node name="ThinArea" parent="LevelObjects" instance=ExtResource( 12 )]
+position = Vector2( 96, 264 )
+
+[node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
+position = Vector2( -104, 256 )
+
+[node name="Decorations" type="Node2D" parent="LevelObjects"]
+
+[node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 152, 224 )
+texture = ExtResource( 15 )
+centered = false
+
+[node name="Box" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 160, 296 )
+texture = ExtResource( 19 )
+centered = false
+
+[node name="Sofa" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 184, 232 )
+texture = ExtResource( 16 )
+centered = false
+
+[node name="Plant" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 256, 224 )
+texture = ExtResource( 18 )
+centered = false
+
+[node name="Tree" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 40, 184 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Doors" type="Node2D" parent="LevelObjects"]
+
+[node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 144, 256 )
+lockLevel = 0
+doorType = 0
+door_name = "DoorWall7"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
+
+[node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 280, 256 )
+lockLevel = 0
+doorType = 0
+door_name = "DoorWall9"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
+
+[node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 280, 320 )
+lockLevel = 0
+doorType = 0
+door_name = "DoorWall10"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
+
+[node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
+position = Vector2( 144, 320 )
+lockLevel = 0
+doorType = 0
+door_name = "DoorWall11"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
+
+[node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
+position = Vector2( 240, 320 )
+connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
+lockLevel = 0
+door_name = ""
+
+[node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
+position = Vector2( 240, 256 )
+connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseCellar")
+lockLevel = 0
+door_name = ""
+
+[node name="Lights" type="Node2D" parent="LevelObjects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+position = Vector2( 216, 200 )
+
+[node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
+position = Vector2( 152, 208 )
+rotation = -1.5708
+heigth = 16
+isStatic = false
+moveSpeed = 0.2
+moveDistance = 5
+moveDirection = 2
+isHorizontal = false
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
+
+[node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
+position = Vector2( 152, 200 )
+heigth = 7
+isStatic = false
+moveSpeed = 0.2
+moveDistance = 16
+moveDirection = 1
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
+
+[node name="Note" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( 11, 256 )
+text = "Remember, turn off security system in the shed in the backyard."
+highlight = true
+
+[node name="LevelDarkener" type="ColorRect" parent="."]
+margin_left = -2000.0
+margin_top = -2000.0
+margin_right = 2600.0
+margin_bottom = 2200.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( -56, 256 )
+z_index = 50
+
+[node name="MinigameHolder" type="Node2D" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource( 11 )]
+
+[node name="Label" type="Label" parent="HUD"]
+visible = false
+margin_right = 72.0
+margin_bottom = 14.0
+text = "Hello Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -200, 256 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 48, -32 )
+shape = SubResource( 1 )
