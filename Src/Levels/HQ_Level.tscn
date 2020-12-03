@@ -487,6 +487,7 @@ __meta__ = {
 }
 
 [node name="TestZone" type="Node2D" parent="."]
+position = Vector2( 54.4472, 4.24261 )
 
 [node name="Guard" parent="TestZone" instance=ExtResource( 37 )]
 position = Vector2( -0.601166, 249.767 )

@@ -81,6 +81,10 @@ func _process(_delta: float) -> void:
 		else:
 			$AnimationPlayer.play("idle")
 
+	if guardInSight:
+		if guardInSight.state == Types.GuardStates.Stunned:
+			set_state(Types.GuardStates.PlayerDetected)
+
 			
 func _physics_process(delta: float) -> void:
 	if player_in_los:
@@ -159,7 +163,7 @@ func _on_LineOfSight_body_entered(body: Node) -> void:
 			losRay.set_deferred("enabled", true)
 	elif body.is_in_group("Guard"):
 		guardInSight = body
-
+		print(name + " found " + guardInSight.name)
 		
 func _on_LineOfSight_body_exited(body):
 	if body.is_in_group("Player"):
@@ -167,8 +171,9 @@ func _on_LineOfSight_body_exited(body):
 		losRay.set_deferred("enabled", false)
 	elif body.is_in_group("Guard") and guardInSight == body:
 		guardInSight = null
+		print(body.name + " left " + name)
 
-		
+
 # this gets started when this guard's state changes to PlayerDetected
 # on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
 func _on_SureDetectionTimer_timeout() -> void:
