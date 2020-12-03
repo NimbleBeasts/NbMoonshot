@@ -1,8 +1,6 @@
 class_name Guard
 extends KinematicBody2D
 
-signal stop_movement
-signal start_movement
 
 export var speed: int = 50
 export var direction_change_time: float = 2
@@ -19,13 +17,13 @@ var velocity: Vector2
 var direction: Vector2
 var state: int = Types.GuardStates.Wander # Types.GuardStates
 var player_in_los: bool = false
-var check_for_stunned: bool = false
 var player_detected: bool = false
 
 var guard_normal_texture: Texture = preload("res://Assets/Guards/Guard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/GuardGreen.png")
 var guardPathLine
 var playerVisibility: int 
+var guardInSight: Guard
 
 onready var los_area: Area2D = $Flippable/LineOfSight
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
@@ -76,16 +74,6 @@ func _process(_delta: float) -> void:
 		Types.GuardStates.Wander:
 			pass
 	
-	# # checks for stunned guards, check_for_stunned is false in var declaration btw
-	# # dont want to waste performance if this never actually is a situation that occurs ingame
-	# if check_for_stunned:
-	# 	for body in los_area.get_overlapping_bodies():
-	# 		if body.is_in_group("Guard"):
-	# 			if body.state == Types.GuardStates.Stunned:
-	# 				Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-	# 				Events.emit_signal("play_sound", "alarm")
-	# 				check_for_stunned = false
-
 
 	if state != Types.GuardStates.Stunned and state != Types.GuardStates.PlayerDetected:
 		if not velocity.is_equal_approx(Vector2.ZERO):
@@ -140,8 +128,6 @@ func stun(duration: float) -> void:
 func unstun() -> void:
 	$DirectionChangeTimer.start()
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
-	# can check for stunned bodies again
-	get_tree().set_group("Guard", "check_for_stunned", true) # i have no idea if this works now, but i think it should
 	$Notifier.remove()
 	set_process(true)
 	set_physics_process(true)
@@ -171,13 +157,18 @@ func _on_LineOfSight_body_entered(body: Node) -> void:
 	if body.is_in_group("Player") and state != Types.GuardStates.Stunned:
 			player_in_los = true		
 			losRay.set_deferred("enabled", true)
+	elif body.is_in_group("Guard"):
+		guardInSight = body
 
 		
 func _on_LineOfSight_body_exited(body):
 	if body.is_in_group("Player"):
 		player_in_los = false
 		losRay.set_deferred("enabled", false)
+	elif body.is_in_group("Guard") and guardInSight == body:
+		guardInSight = null
 
+		
 # this gets started when this guard's state changes to PlayerDetected
 # on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
 func _on_SureDetectionTimer_timeout() -> void:
@@ -216,11 +207,9 @@ func set_state(new_state) -> void:
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
 				player_detected = true
 				$AnimationPlayer.play("suspicious")
-				emit_signal("stop_movement")
 				guardPathLine.stopAllMovement()
 			Types.GuardStates.Suspect:
 				guardPathLine.stopAllMovement()
-				emit_signal("stop_movement")
 				Events.emit_signal("play_sound", "suspicious")
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
@@ -230,11 +219,9 @@ func set_state(new_state) -> void:
 			Types.GuardStates.Wander:
 				$Notifier.remove()
 				guardPathLine.startNormalMovement()
-				emit_signal("start_movement")
 			Types.GuardStates.Stunned:
 				$Notifier.remove()
 				direction = Vector2(0,0)
-				emit_signal("stop_movement")
 				guardPathLine.stopAllMovement()
 
 
@@ -263,7 +250,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			pass
 		"stand_up":
 			set_state(Types.GuardStates.Wander)
-			emit_signal("start_movement")
 			if not get_node_or_null("GuardPathLine"):
 				direction = starting_direction
 

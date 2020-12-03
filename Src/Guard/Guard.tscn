@@ -138,7 +138,9 @@ hframes = 17
 frame = 10
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
-position = Vector2( 4.34834, -23.0113 )
+position = Vector2( 11.0983, -22.2613 )
+collision_layer = 17
+collision_mask = 17
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
 position = Vector2( 6.30397, 24.2768 )
