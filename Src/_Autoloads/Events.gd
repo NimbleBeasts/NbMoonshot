@@ -93,6 +93,7 @@ signal unblock_player_movement()
 signal player_enter_door()
 signal player_exit_door()
 signal set_player_state(newState)
+signal player_state_changed(newState)
 
 # Level
 signal game_over()

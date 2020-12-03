@@ -12,9 +12,11 @@ export(bool) var isFixedCam = false
 var currentDirection = camDirection
 
 var player
+var playerVisibility: int
 onready var fovRay: RayCast2D = $FOV/RayCast2D
 
 func _ready():
+	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
 	if camDirection == CamDirectionType.Left:
 		$AnimationPlayer.current_animation = "idle_left"
 		$FOV.scale.x = -1
@@ -46,7 +48,7 @@ func _process(_delta: float) -> void:
 func figure_out_state():
 	if player_in_fov:
 		if fovRayIsCollidingWithPlayer():
-			match Global.player.visible_level:
+			match playerVisibility:
 				Types.LightLevels.FullLight:
 					set_state(Types.CameraStates.PlayerDetected)
 				Types.LightLevels.BarelyVisible:
@@ -210,3 +212,7 @@ func deactivate() -> void:
 
 func fovRayIsCollidingWithPlayer() -> bool:
 	return fovRay.is_colliding() and fovRay.get_collider().is_in_group("Player")
+
+
+func onVisibleLevelChanged(newLevel: int) -> void:
+	playerVisibility = newLevel

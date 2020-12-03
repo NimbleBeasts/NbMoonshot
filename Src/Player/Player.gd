@@ -311,6 +311,7 @@ func set_light_level(value: int) -> void:
 func set_state(value: int) -> void:
 	if state != value:
 		state = value
+		Events.emit_signal("player_state_changed", state)
 		match state:
 			Types.PlayerStates.Normal:
 				$AnimationPlayer.play("idle")
@@ -320,6 +321,7 @@ func set_state(value: int) -> void:
 			Types.PlayerStates.Duck:
 				get_tree().set_group("DuckColliders", "disabled", false)
 				get_tree().set_group("NormalColliders", "disabled", true)
+
 
 # Change animation
 func animation_change(to: String) -> void:

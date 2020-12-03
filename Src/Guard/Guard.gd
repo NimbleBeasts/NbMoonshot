@@ -25,12 +25,12 @@ var player_detected: bool = false
 var guard_normal_texture: Texture = preload("res://Assets/Guards/Guard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/GuardGreen.png")
 var guardPathLine
+var playerVisibility: int 
 
 onready var los_area: Area2D = $Flippable/LineOfSight
-onready var player = Global.player
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
 onready var losRay: RayCast2D = $Flippable/LOSRay
-
+onready var player = Global.player
 
 func _ready() -> void:
 	global_position.y -= 2 
@@ -58,6 +58,7 @@ func _ready() -> void:
 		guardPathLine = get_node("GuardPathLine")
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
+	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
 	#warning-ignore:return_value_discarded
 
 
@@ -85,16 +86,6 @@ func _process(_delta: float) -> void:
 	# 				Events.emit_signal("play_sound", "alarm")
 	# 				check_for_stunned = false
 
-	# match state:
-	# 	Types.GuardStates.Wander:
-	# 		if not velocity.is_equal_approx(Vector2.ZERO):
-	# 			$AnimationPlayer.play("walk")
-	# 		else:
-	# 			$AnimationPlayer.play("idle")
-	# 	Types.GuardStates.Stunned:
-	# 		pass
-	# 	Types.GuardStates.Suspect:
-	# 		pass
 
 	if state != Types.GuardStates.Stunned and state != Types.GuardStates.PlayerDetected:
 		if not velocity.is_equal_approx(Vector2.ZERO):
@@ -163,7 +154,7 @@ func _on_DirectionChangeTimer_timeout():
 
 func playerDetectLOS() -> void:
 	if state != Types.GuardStates.Stunned:
-		match player.visible_level:
+		match playerVisibility:
 			Types.LightLevels.FullLight:
 				set_state(Types.GuardStates.PlayerDetected)
 				player_in_los = false
@@ -178,8 +169,8 @@ func playerDetectLOS() -> void:
 					
 func _on_LineOfSight_body_entered(body: Node) -> void:
 	if body.is_in_group("Player") and state != Types.GuardStates.Stunned:
-		player_in_los = true		
-		losRay.set_deferred("enabled", true)
+			player_in_los = true		
+			losRay.set_deferred("enabled", true)
 
 		
 func _on_LineOfSight_body_exited(body):
@@ -280,3 +271,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func onGoBackToNormalTimeout() -> void:
 	set_state(Types.GuardStates.Wander)
 	$Notifier.remove()
+
+
+func onVisibleLevelChanged(newLevel: int) -> void:
+	playerVisibility = newLevel

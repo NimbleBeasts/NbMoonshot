@@ -8,6 +8,7 @@ var minigame: Minigame
 var minigame_scene: PackedScene
 var can_make_minigame: bool = true
 var minigame_succeeded: bool = false
+var playerState: int
 
 onready var game_manager := get_node("/root/GameManager")
 
@@ -17,12 +18,13 @@ func _ready() -> void:
 	#warning-ignore:return_value_discarded
 	connect("area_entered", self, "_on_area_entered")
 	Events.connect("game_over", self, "onGameOver")
+	Events.connect("player_state_changed", self, "onPlayerStateChanged")
 	#warning-ignore:return_value_discarded
 	connect("area_exited", self, "_on_area_exited")
 
 
 func _base_process(_delta: float) -> void:
-	if player_entered and can_make_minigame and Global.player.state == Types.PlayerStates.Normal: # if player is near
+	if player_entered and can_make_minigame and playerState == Types.PlayerStates.Normal: # if player is near
 		if Input.is_action_just_pressed("open_minigame"):
 			if not minigame: # if haven't created a minigame
 				# Creates a minigame and opens it 
@@ -79,3 +81,6 @@ func onGameOver() -> void:
 	if minigame:
 		minigame.canCloseMinigame = true
 		minigame.close()
+
+func onPlayerStateChanged(newState: int) -> void:
+	playerState = newState
