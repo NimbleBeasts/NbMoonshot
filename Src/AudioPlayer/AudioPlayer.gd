@@ -114,7 +114,6 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 
 # Music Loop?
 func _on_Music_finished():
-	print("loop end")
 	if musicPlayer.stream == hqIntro:
 		musicPlayer.stream = hqMusic
 	elif musicPlayer.stream == menuIntro:
@@ -134,21 +133,17 @@ func onPlayMusic(level_type) -> void:
 		Types.LevelTypes.Western:
 			musicPlayer.stream = westernMusic
 			musicPlayer.play()
-			print("western music")
 		Types.LevelTypes.Eastern:
 			musicPlayer.stream = easternMusic
 			musicPlayer.play()
-			print("eastern music")
 		"HQ":
 			musicPlayer.stream = hqIntro
 			musicPlayer.play()
-			print("hq music")
 		"Menu":
 			musicPlayer.stream = menuIntro
 			musicPlayer.play()
-			print("menu music")
 		_:
-			print("not found")
+			print("error - music not found")
 
 
 func onGameOver() -> void:

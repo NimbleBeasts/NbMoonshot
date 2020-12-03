@@ -366,7 +366,6 @@ func _on_ButtonQuit_button_up():
 	Events.emit_signal("play_sound", "menu_click")
 	Events.emit_signal("menu_back")
 	Global.newGameState()
-	print("player quit the game")
 
 
 func _on_ButtonSound_button_up():

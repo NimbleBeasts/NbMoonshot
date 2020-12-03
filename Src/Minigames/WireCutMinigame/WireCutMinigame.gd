@@ -113,7 +113,6 @@ func _on_wire_cut(color_type: int) -> void:
 	
 func run_countdown_timer():
 	while( atm_cd >= 0 ):
-		#print(atm_cd)
 		if atm_cd > 9:
 			var twochar = String(atm_cd)
 			$WireTimer/dig5.frame = int(twochar[0])
@@ -123,7 +122,6 @@ func run_countdown_timer():
 			$WireTimer/dig6.frame = atm_cd
 		yield(get_tree().create_timer(1.0), "timeout")
 		if atm_cd == 0:
-			print("Failed")
 			set_result(Types.MinigameResults.Failed)
 			close()
 			return

@@ -72,10 +72,8 @@ func tap_pin():
 		hr = pin.position.x - pin_goal.position.x 
 	else:
 		hr = pin_goal.position.x - pin.position.x  
-	#print( abs(hr) )
 	
 	if( abs(hr) < hit_range ):
-		#print( " we got a winer ")
 		Events.emit_signal("play_sound", "lockpick_hit")
 		pin.position = Vector2( pin.position.x, pin.position.y - move_up)
 		yield(get_tree().create_timer(0.25), "timeout")
@@ -83,7 +81,6 @@ func tap_pin():
 		Events.emit_signal("door_change_status",door_name, 0, run_anim)
 		close()
 	else:
-		#print( " miss ")
 		Events.emit_signal("play_sound", "lockpick_miss")
 		yield(get_tree().create_timer(0.25), "timeout")
 		set_result(Types.MinigameResults.Failed)

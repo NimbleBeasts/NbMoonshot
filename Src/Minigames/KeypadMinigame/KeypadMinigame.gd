@@ -48,7 +48,6 @@ func _input(event: InputEvent) -> void:
 	else:
 		moveByKeys(event)
 		if event.is_action_pressed("interact"):
-			print("Btn index is:", btn_index)
 			$Input.get_child(btn_index).get_node("TextureButton").grab_focus()
 			#$Input.get_child(btn_index).press()
 

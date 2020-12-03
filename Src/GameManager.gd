@@ -99,7 +99,6 @@ func reloadLevel():
 	loadLevel(current_level)
 	possible_detection_num = 0
 	sure_detection_num = 0
-	print("reloaded level")
 
 
 func getCurrentLevel():
@@ -154,13 +153,10 @@ func _on_player_detected(detection_level: int) -> void:
 	match detection_level:
 		Types.DetectionLevels.Possible:
 			possible_detection_num += 1
-			print("possible detection %s" % possible_detection_num)
 			Events.emit_signal("possible_detection_num_changed", possible_detection_num)
 		Types.DetectionLevels.Sure:
 			sure_detection_num += 1
-			print("sure detection %s" % sure_detection_num)
 			setDetectedValue(detected_value - 1)
-			print(detected_value)
 			Events.emit_signal("sure_detection_num_changed", sure_detection_num)
 
 

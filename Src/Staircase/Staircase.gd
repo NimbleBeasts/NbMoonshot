@@ -13,7 +13,6 @@ func _ready():
 	$Sprite.frame = 0
 	
 	door_name = self.name
-	print(door_name)
 	if door_name != "":
 		Events.connect("door_change_status", self, "_on_door_change_status")
 	
@@ -37,7 +36,6 @@ func interact() -> void:
 	if connected_door and not animPlayer.is_playing():
 		Events.emit_signal("block_player_movement")
 		Events.emit_signal("player_enter_door")
-		print("entered door")
 		animPlayer.play("open")
 		Events.emit_signal("play_sound", "door_wooden_open")
 		open = true
@@ -52,7 +50,6 @@ func onAnimationFinished(animName: String) -> void:
 		Events.emit_signal("play_sound", "door_wooden_close")
 		Events.emit_signal("unblock_player_movement")
 		Events.emit_signal("player_exit_door")
-		print("exit door")
 		open = false
 		
 func _on_door_change_status(_door_name, _lock_type, _run_anim):

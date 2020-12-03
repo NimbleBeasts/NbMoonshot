@@ -34,7 +34,6 @@ func _process(_delta):
 			interact()
 			
 func interact():
-	print("lock lvl is:",lockLevel)
 	
 	if not Global.gameState["playerOfficeDoorIsOpen"]:
 		if lockLevel == DoorLockType.lockedLevel1:
@@ -88,7 +87,6 @@ func _on_Area2D_body_exited(body):
 		set_process(false)
 
 func _on_door_change_status(id, lock_type, play):
-	print(name)
 	if id == door_id:
 		lockLevel = lock_type
 	if play:
@@ -96,5 +94,4 @@ func _on_door_change_status(id, lock_type, play):
 		
 
 func onLockpickMinigameSucceeded() -> void:
-	print("minigame success")
 	Global.gameState["playerOfficeDoorIsOpen"] = true

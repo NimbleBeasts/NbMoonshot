@@ -233,7 +233,6 @@ func newGameState() -> void:
 	}
 
 }
-	print("reset game state")
 
 # Perform Fullscreen Switch
 func switchFullscreen():
@@ -298,4 +297,3 @@ func getUpgradeInfo(upgrade_type: int) -> Dictionary:
 
 func setGameState(value: Dictionary) -> void:
 	gameState = value
-	print(gameState)

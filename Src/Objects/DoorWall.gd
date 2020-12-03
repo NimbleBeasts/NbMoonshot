@@ -36,7 +36,6 @@ func _ready():
 
 	#load state form save if it exists
 	if Global.gameState.has(door_name):
-		#print("Has door name")
 		lockLevel = Global.gameState[door_name]
 	
 
@@ -49,7 +48,6 @@ func _process(_delta):
 			interact(true)
 			
 func interact(run_sub):
-	#print("lock lvl is:",lockLevel)
 	# shows a game hint if this door is locked
 	if lockLevel == DoorLockType.locked:
 		Events.emit_signal("hud_game_hint", hint)

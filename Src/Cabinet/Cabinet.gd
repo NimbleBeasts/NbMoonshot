@@ -16,12 +16,7 @@ func getProgessState():
 func _ready():
 	$Sprite.frame = type
 	
-	if not hasBounty:
-		print("no bounty")
-		# why is this code even here? if it removes the area2d, how will it play locked sound?
-		# if not Engine.editor_hint:
-		# 	self.remove_child($Area2D)
-	else:
+	if hasBounty:
 		loot = Global.gameConstant.basicLoot
 		if Global.playerHasUpgrade(Types.UpgradeTypes.DarkNet):
 			loot *= Global.gameConstant.upgradeDarkNetModifier
@@ -32,7 +27,6 @@ func _ready():
 func _process(_delta):
 	if playerInRange:
 		if Input.is_action_just_pressed("open_minigame"):
-			print("bounty")
 			if hasBounty and not isUsed:
 				# Add money popup anim
 				# Emit Hud money update
@@ -41,11 +35,8 @@ func _process(_delta):
 				# Global.addMoney(loot)
 				Global.game_manager.getCurrentLevel().gainedMoney += loot
 				Events.emit_signal("hud_update_money", Global.game_manager.getCurrentLevel().gainedMoney, loot)
-				print("looted")
 				Events.emit_signal("play_sound", "chest_bounty")
-				pass
 			else:
-				print("no loot")
 				Events.emit_signal("play_sound", "chest_locked")
 
 

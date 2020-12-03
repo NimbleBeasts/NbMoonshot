@@ -80,7 +80,6 @@ func get_dialogue(counter, index) -> Dictionary:
 
 # this will take a counter and index and actually display it on screen
 func say_dialogue_text(counter, index) -> void:
-	print("dialogue saying")
 	var dialogueDict = get_dialogue(interacted_counter, dialogue_index)
 	if dialogueDict.has("text"):
 		var dialogue_text: String = dialogueDict["text"]

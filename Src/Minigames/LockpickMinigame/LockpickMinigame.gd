@@ -18,7 +18,6 @@ class LockPin:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#print("Lockpick started")
 	randomize()
 	
 	try = 6
@@ -82,12 +81,10 @@ func move_lockpick(dir:bool):
 	lockpick.position = Vector2( pins[atm_at].gameobj.position.x, lockpick.position.y )
 	
 func tap_pin():
-	#print("taping ",atm_at )
 	if pins[atm_at].order_pos == seq:
 		seq = seq + 1
 		pins[atm_at].gameobj.position = Vector2( pins[atm_at].gameobj.position.x , -42 )
 		if seq == 4:
-			#print("Sucess")
 			# don't forget to close it
 			set_result(Types.MinigameResults.Succeeded)
 			close()
@@ -120,6 +117,5 @@ func update_try():
 	try = try - 1
 	$TryUI.text = "Tries: " + String(try)
 	if try == 0:
-		#print("Failed")
 		set_result(Types.MinigameResults.Failed)
 		close()

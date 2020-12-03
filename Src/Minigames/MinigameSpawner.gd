@@ -30,8 +30,8 @@ func _base_process(_delta: float) -> void:
 				#warning-ignore:return_value_discarded
 				minigame.connect("result_changed", self, "_on_minigame_result_changed")
 				minigame.open()
-				print("I am WTFfrom parent")
-	
+
+				
 	
 func _process(_delta: float) -> void:
 	_base_process(_delta)

@@ -12,5 +12,4 @@ func _ready():
 	pass # Replace with function body.
 
 func stun(_d):
-	print("am stunned")
 	$AnimationPlayer.play("tasered")

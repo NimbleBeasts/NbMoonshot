@@ -254,7 +254,6 @@ func update_flip() -> void:
 
 func do_upgrade_stuff() -> void:
 	if Types.UpgradeTypes.Distraction in Global.gameState.playerUpgrades:
-		print("has distraction upgrade")
 		time_to_sure_detection = extended_time_to_alarm
 	else:
 		time_to_sure_detection = normal_time_to_alarm

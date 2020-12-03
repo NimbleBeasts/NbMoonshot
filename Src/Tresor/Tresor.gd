@@ -32,7 +32,6 @@ func openTresor():
 	$Sprite.frame = 1
 	isUsed = true
 	if Global.gameState.interactionCounters.boss == 0:
-		print("tutorial finished")
 		Events.emit_signal("tutorial_finished")
 		Events.emit_signal("hud_game_hint", "Tutorial mission finished")
 	if showHintOnSucceed:

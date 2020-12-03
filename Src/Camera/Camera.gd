@@ -63,10 +63,8 @@ func set_state(new_state) -> void:
 		
 		match state:
 			Types.CameraStates.Rotating:
-				#print("went rot state")
 				pass
 			Types.CameraStates.Frozen:
-				#print("went frozen state")
 				$FrozenTimer.start()
 				if not isFixedCam:
 					$RotationTimer.stop()
@@ -141,7 +139,6 @@ func _on_FOV_area_entered(area: Area2D) -> void:
 	if state != Types.CameraStates.Rotating:
 		if area.is_in_group("PlayerArea"):
 			player_in_fov = true
-			#print("Player enter")
 			player = area
 			fovRay.set_deferred("enabled", true)
 	
@@ -151,7 +148,6 @@ func _on_FOV_area_exited(area: Area2D) -> void:
 	if state != Types.CameraStates.Rotating:
 		if area.is_in_group("PlayerArea"):
 			player_in_fov = false
-			#print("Player exit")
 			player = null
 			fovRay.set_deferred("enabled", false)
 
@@ -192,7 +188,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			#fovRay.scale.x = -1
 
 		$FOV/CollisionPolygon2D.set_deferred("disabled", false)
-		#print("exited rot state")
 		player_in_fov = force_recheck_player()
 		figure_out_state()
 		

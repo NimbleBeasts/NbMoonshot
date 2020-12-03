@@ -237,7 +237,6 @@ func stunning() -> void:
 			var hit = stun_raycast.get_collider()		
 			
 			if hit.get_script() == Guard:
-				print("Tazerd guard")
 				var guard := hit as Guard
 				if (guard) and (not guard.state == Types.GuardStates.Stunned):
 					guard.stun(stun_duration)
@@ -245,7 +244,6 @@ func stunning() -> void:
 					Events.emit_signal("taser_fired", stun_battery_level)
 					Events.emit_signal("play_sound", "taser_hit")
 			if hit.get_script() == Doll:
-				print("Stunning doll")
 				var doll := hit as Doll
 				doll.stun(stun_duration)
 				stun_battery_level -= 1
@@ -258,14 +256,12 @@ func do_upgrade_stuff() -> void:
 
 	# taser battery
 	if Types.UpgradeTypes.Taser_Extended_Battery in Global.gameState.playerUpgrades:
-		print("has taser battery upgrade")
 		stun_battery_level = extended_stun_battery
 	else:
 		stun_battery_level = normal_stun_battery
 
 	# stun duration
 	if Types.UpgradeTypes.Taser_Voltage in Global.gameState.playerUpgrades:
-		print("has taser voltage upgrade")
 		stun_duration = extended_stun_duration
 	else:
 		stun_duration = normal_stun_duration
@@ -273,8 +269,8 @@ func do_upgrade_stuff() -> void:
 	# sneak upgrade
 	has_sneak_upgrade = Types.UpgradeTypes.Sneak in Global.gameState.playerUpgrades
 	canSprint = Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades
-	print("upgrade updated")
 
+	
 # Event Hooks
 func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
@@ -331,7 +327,6 @@ func animation_change(to: String) -> void:
 		
 		if $AnimationPlayer.current_animation == "idle" and to == "walk" or \
 			$AnimationPlayer.current_animation == "walk" and to == "idle":
-			#print("change to:" + to)
 			$AnimationPlayer.play(to)
 		
 
