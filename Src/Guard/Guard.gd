@@ -84,7 +84,8 @@ func _process(_delta: float) -> void:
 	if guardInSight:
 		if guardInSight.state == Types.GuardStates.Stunned:
 			set_state(Types.GuardStates.PlayerDetected)
-
+			print("guard found stunned body")
+			
 			
 func _physics_process(delta: float) -> void:
 	if player_in_los:
