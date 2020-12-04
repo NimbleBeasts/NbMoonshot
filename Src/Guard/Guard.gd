@@ -45,15 +45,10 @@ func _ready() -> void:
 			$Flippable/Sprite.texture = guard_green_texture 
 
 	# sets the wait_time to the exported variable
-	$DirectionChangeTimer.wait_time = direction_change_time
 	$SureDetectionTimer.wait_time = time_to_sure_detection
 
-	if not has_node("GuardPathLine"):
-		$DirectionChangeTimer.start()
-		direction = starting_direction
-	else:
-		direction = Vector2(0,0)
-		guardPathLine = get_node("GuardPathLine")
+	direction.x = 0
+	guardPathLine = get_node("GuardPathLine")
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
@@ -67,13 +62,6 @@ func _process(_delta: float) -> void:
 	if state == Types.GuardStates.Wander or state == Types.GuardStates.Suspect:
 		detectPlayerIfClose()
 
-	match state:
-		Types.GuardStates.PlayerDetected, Types.GuardStates.Suspect, Types.GuardStates.Stunned:
-			direction = Vector2(0,0)
-			$DirectionChangeTimer.stop()
-		Types.GuardStates.Wander:
-			pass
-	
 
 	if state != Types.GuardStates.Stunned and state != Types.GuardStates.PlayerDetected:
 		if not velocity.is_equal_approx(Vector2.ZERO):
@@ -94,11 +82,6 @@ func _physics_process(delta: float) -> void:
 
 func losRayIsCollidingWithPlayer() -> bool:
 	return losRay.is_colliding() and losRay.get_collider().is_in_group("Player")
-
-
-func change_direction() -> void:
-	# flips the direction.x
-	direction.x *= -1 
 
 
 func detectPlayerIfClose() -> void:
@@ -123,25 +106,18 @@ func stun(duration: float) -> void:
 	$AnimationPlayer.play("tasered")
 	# timer stuff
 	$StunDurationTimer.start(duration)
-	$DirectionChangeTimer.stop()
 	$SureDetectionTimer.stop()
 	$Notifier.remove()
 	player_detected = false
 
 
 func unstun() -> void:
-	$DirectionChangeTimer.start()
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
 	$Notifier.remove()
 	set_process(true)
 	set_physics_process(true)
-
 	
-func _on_DirectionChangeTimer_timeout():
-	if state == Types.GuardStates.Wander:
-		change_direction()
-
-
+	
 func playerDetectLOS() -> void:
 	if state != Types.GuardStates.Stunned:
 		match playerVisibility:
@@ -163,15 +139,14 @@ func _on_LineOfSight_body_entered(body: Node) -> void:
 			losRay.set_deferred("enabled", true)
 	elif body.is_in_group("Guard"):
 		guardInSight = body
-		print(name + " found " + guardInSight.name)
 		
+
 func _on_LineOfSight_body_exited(body):
 	if body.is_in_group("Player"):
 		player_in_los = false
 		losRay.set_deferred("enabled", false)
 	elif body.is_in_group("Guard") and guardInSight == body:
 		guardInSight = null
-		print(body.name + " left " + name)
 
 
 # this gets started when this guard's state changes to PlayerDetected
@@ -255,8 +230,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			pass
 		"stand_up":
 			set_state(Types.GuardStates.Wander)
-			if not get_node_or_null("GuardPathLine"):
-				direction = starting_direction
 
 
 func onGoBackToNormalTimeout() -> void:

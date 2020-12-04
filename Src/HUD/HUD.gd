@@ -25,7 +25,6 @@ func _ready():
 	dialogTypeTimer.connect("timeout", self, "onDialogTypeTimerTimeout")
 	Events.connect("visible_level_changed", self, "updateLightLevel")
 	Events.connect("audio_level_changed", self, "updateAudioLevel")
-	Events.connect("game_over", self, "onGameOver")
 	Events.connect("level_hint", self, "onLevelHint")
 	
 	Events.connect("hud_note_show", self, "showNote")

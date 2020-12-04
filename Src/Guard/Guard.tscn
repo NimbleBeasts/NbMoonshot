@@ -115,8 +115,6 @@ direction_change_time = 1.0
 position = Vector2( 0, -16 )
 shape = SubResource( 1 )
 
-[node name="DirectionChangeTimer" type="Timer" parent="."]
-
 [node name="SureDetectionTimer" type="Timer" parent="."]
 one_shot = true
 
@@ -162,7 +160,6 @@ anims/walk = SubResource( 7 )
 
 [node name="Notifier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
-[connection signal="timeout" from="DirectionChangeTimer" to="." method="_on_DirectionChangeTimer_timeout"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]
 [connection signal="body_entered" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_body_entered"]
