@@ -297,3 +297,7 @@ func getUpgradeInfo(upgrade_type: int) -> Dictionary:
 
 func setGameState(value: Dictionary) -> void:
 	gameState = value
+
+func startTimerOnce(timer: Timer) -> void:
+	if timer.is_stopped():
+		timer.start(timer.wait_time)

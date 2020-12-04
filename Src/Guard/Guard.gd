@@ -18,6 +18,7 @@ var direction: Vector2
 var state: int = Types.GuardStates.Wander # Types.GuardStates
 var player_in_los: bool = false
 var player_detected: bool = false
+var playerLastSeenPosition: Vector2
 
 var guard_normal_texture: Texture = preload("res://Assets/Guards/Guard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/GuardGreen.png")
@@ -35,7 +36,7 @@ func _ready() -> void:
 	goBackToNormalTimer.connect("timeout", self, "onGoBackToNormalTimeout")
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
-	losRay.enabled = false
+	losRay.set_deferred("enabled", false)
 
 	# sets sprite texture on level type
 	match Global.game_manager.getCurrentLevel().level_type:
@@ -112,11 +113,12 @@ func stun(duration: float) -> void:
 
 
 func unstun() -> void:
+	$AnimationPlayer.play("stand_up")
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
 	$Notifier.remove()
 	set_process(true)
 	set_physics_process(true)
-	
+
 	
 func playerDetectLOS() -> void:
 	if state != Types.GuardStates.Stunned:
@@ -134,9 +136,10 @@ func playerDetectLOS() -> void:
 
 					
 func _on_LineOfSight_body_entered(body: Node) -> void:
-	if body.is_in_group("Player") and state != Types.GuardStates.Stunned:
-			player_in_los = true		
+	if body.is_in_group("Player"):
 			losRay.set_deferred("enabled", true)
+			if state != Types.GuardStates.Stunned:
+				player_in_los = true		
 	elif body.is_in_group("Guard"):
 		guardInSight = body
 		
@@ -161,7 +164,6 @@ func _on_SureDetectionTimer_timeout() -> void:
 	
 func _on_StunDurationTimer_timeout() -> void:
 	unstun()
-	$AnimationPlayer.play("stand_up")
 
 
 # Event Hook: audio level changed. audio_pos is the position where the audio notification happened
@@ -177,29 +179,29 @@ func set_state(new_state) -> void:
 	if state != new_state:
 		state = new_state
 		
-		# hmmmmm, i should add comments to this but later
+		# hmmm, i should prob comment this
 		match new_state:
 			Types.GuardStates.PlayerDetected:
-				# starts sure timer
-				if $SureDetectionTimer.is_stopped():
-					$SureDetectionTimer.start()
+				playerLastSeenPosition = player.global_position
+				Global.startTimerOnce($SureDetectionTimer)
 				$GoBackToNormalTimer.stop()
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
 				player_detected = true
 				$AnimationPlayer.play("suspicious")
 				guardPathLine.stopAllMovement()
 			Types.GuardStates.Suspect:
+				playerLastSeenPosition = player.global_position
 				guardPathLine.stopAllMovement()
 				Events.emit_signal("play_sound", "suspicious")
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
-				guardPathLine.moveToPoint(player.global_position)
-				if goBackToNormalTimer.is_stopped():
-					goBackToNormalTimer.start()
+				guardPathLine.moveToPoint(playerLastSeenPosition)
+				Global.startTimerOnce(goBackToNormalTimer)
 			Types.GuardStates.Wander:
 				$Notifier.remove()
 				guardPathLine.startNormalMovement()
 			Types.GuardStates.Stunned:
+				playerLastSeenPosition = player.global_position
 				$Notifier.remove()
 				direction = Vector2(0,0)
 				guardPathLine.stopAllMovement()
@@ -229,7 +231,12 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		"alarm":
 			pass
 		"stand_up":
-			set_state(Types.GuardStates.Wander)
+			# TODO: Make a seperate state for this
+			guardPathLine.stopAllMovement()
+			Events.emit_signal("play_sound", "suspicious")
+			if not $Notifier.isShowing:
+				$Notifier.popup(Types.NotifierTypes.Question)
+			Global.startTimerOnce(goBackToNormalTimer)
 
 
 func onGoBackToNormalTimeout() -> void:
