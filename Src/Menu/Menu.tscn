@@ -1,17 +1,48 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Src/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Menu/Title.png" type="Texture" id=3]
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=4]
+[ext_resource path="res://Src/BaseButton/BaseButtonSmall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Menu/Slider/grabber2.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Src/Menu/DevLogViewer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=9]
 [ext_resource path="res://Assets/Fonts/mago2.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Src/BaseButton/BaseButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Menu/Slider/grabber.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Menu/Slider/slider.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Menu/Slider/grabber-item.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Menu/Slider/tick.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Menu/Slider/grabber-item-selected.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 10 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 12, 6 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 12, 6 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 12, 6 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
 
 [node name="Menu" type="Control"]
 pause_mode = 2
@@ -30,6 +61,7 @@ texture = ExtResource( 2 )
 expand = true
 
 [node name="Main" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -120,46 +152,155 @@ margin_bottom = 328.0
 label = "Exit"
 
 [node name="Settings" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ButtonSound" parent="Settings" instance=ExtResource( 11 )]
-margin_left = 256.0
-margin_top = 96.0
+[node name="Bg" type="NinePatchRect" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -76.0
+margin_right = 128.0
+margin_bottom = 148.0
+texture = ExtResource( 4 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="SoundSlider" type="HSlider" parent="Settings"]
+margin_left = 264.0
+margin_top = 112.0
 margin_right = 384.0
-margin_bottom = 120.0
-label = "Button"
+margin_bottom = 136.0
+custom_icons/tick = ExtResource( 15 )
+custom_icons/grabber_highlight = ExtResource( 16 )
+custom_icons/grabber = ExtResource( 14 )
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area_highlight = SubResource( 4 )
+custom_styles/grabber_area = SubResource( 5 )
+max_value = 10.0
+step = 1.0
+value = 5.0
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Settings/SoundSlider"]
+margin_left = -48.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 7 )
+text = "Sound"
+valign = 1
+
+[node name="Percentage" type="Label" parent="Settings/SoundSlider"]
+margin_left = 120.0
+margin_right = 160.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 7 )
+text = "100%"
+align = 2
+valign = 1
+
+[node name="MusicSlider" type="HSlider" parent="Settings"]
+margin_left = 264.0
+margin_top = 144.0
+margin_right = 384.0
+margin_bottom = 168.0
+custom_icons/tick = ExtResource( 15 )
+custom_icons/grabber_highlight = ExtResource( 16 )
+custom_icons/grabber = ExtResource( 14 )
+custom_styles/slider = SubResource( 2 )
+custom_styles/grabber_area_highlight = SubResource( 4 )
+custom_styles/grabber_area = SubResource( 5 )
+max_value = 10.0
+step = 1.0
+value = 5.0
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Settings/MusicSlider"]
+margin_left = -48.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 7 )
+text = "Music"
+valign = 1
+
+[node name="Percentage" type="Label" parent="Settings/MusicSlider"]
+margin_left = 120.0
+margin_right = 160.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 7 )
+text = "100%"
+align = 2
+valign = 1
+
+[node name="ButtonSound" parent="Settings" instance=ExtResource( 11 )]
+margin_left = 472.0
+margin_top = 108.0
+margin_right = 600.0
+margin_bottom = 132.0
+label = "Sound"
 
 [node name="ButtonMusic" parent="Settings" instance=ExtResource( 11 )]
-margin_left = 256.0
-margin_top = 128.0
-margin_right = 384.0
-margin_bottom = 152.0
-label = "Button"
+margin_left = 472.0
+margin_top = 145.0
+margin_right = 600.0
+margin_bottom = 169.0
+label = "Music"
 
-[node name="ButtonFullscreen" parent="Settings" instance=ExtResource( 11 )]
-margin_left = 256.0
-margin_top = 160.0
+[node name="ButtonShader" parent="Settings" instance=ExtResource( 5 )]
+margin_left = 320.0
+margin_top = 176.0
 margin_right = 384.0
-margin_bottom = 184.0
-label = "Button"
+margin_bottom = 200.0
+label = "On"
+
+[node name="Label2" type="Label" parent="Settings/ButtonShader"]
+margin_left = -104.0
+margin_right = -32.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 7 )
+text = "Retro Shader"
+valign = 1
+
+[node name="ButtonFullscreen" parent="Settings" instance=ExtResource( 5 )]
+margin_left = 320.0
+margin_top = 208.0
+margin_right = 384.0
+margin_bottom = 232.0
+label = "On"
+
+[node name="Label2" type="Label" parent="Settings/ButtonFullscreen"]
+margin_left = -104.0
+margin_right = -32.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 7 )
+text = "Fullscreen"
+valign = 1
 
 [node name="ButtonCredits" parent="Settings" instance=ExtResource( 11 )]
 margin_left = 256.0
-margin_top = 192.0
+margin_top = 240.0
 margin_right = 384.0
-margin_bottom = 216.0
+margin_bottom = 264.0
 label = "Credits"
 
 [node name="ButtonBack" parent="Settings" instance=ExtResource( 11 )]
 margin_left = 256.0
-margin_top = 232.0
+margin_top = 288.0
 margin_right = 384.0
-margin_bottom = 256.0
+margin_bottom = 312.0
 label = "Back"
 
 [node name="LoadGame" type="Control" parent="."]
@@ -294,8 +435,11 @@ text = "Version"
 [connection signal="button_up" from="Main/ButtonLoad" to="." method="_on_ButtonLoad_button_up"]
 [connection signal="button_up" from="Main/ButtonSettings" to="." method="_on_ButtonSettings_button_up"]
 [connection signal="button_up" from="Main/ButtonExit" to="." method="_on_ButtonExit_button_up"]
+[connection signal="value_changed" from="Settings/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
+[connection signal="value_changed" from="Settings/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="button_up" from="Settings/ButtonSound" to="." method="_on_ButtonSound_button_up"]
 [connection signal="button_up" from="Settings/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
+[connection signal="button_up" from="Settings/ButtonShader" to="." method="_on_ButtonFullscreen_button_up"]
 [connection signal="button_up" from="Settings/ButtonFullscreen" to="." method="_on_ButtonFullscreen_button_up"]
 [connection signal="button_up" from="Settings/ButtonCredits" to="." method="_on_ButtonCredits_button_up"]
 [connection signal="button_up" from="Settings/ButtonBack" to="." method="_on_ButtonBack_button_up"]

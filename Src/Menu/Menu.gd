@@ -96,9 +96,9 @@ func updateSettings():
 		$Settings/ButtonMusic.updateLabel("Music: Off")
 
 	if Global.userConfig.fullscreen:
-		$Settings/ButtonFullscreen.updateLabel("Fullscreen: On")
+		$Settings/ButtonFullscreen.updateLabel("On")
 	else:
-		$Settings/ButtonFullscreen.updateLabel("Fullscreen: Off")
+		$Settings/ButtonFullscreen.updateLabel("Off")
 
 ###############################################################################
 # Callbacks
@@ -192,3 +192,11 @@ func _on_Copyright_meta_clicked(meta):
 	OS.shell_open(meta)
 
 
+
+
+func _on_SoundSlider_value_changed(value):
+	$Settings/SoundSlider/Percentage.set_text(str(value*10) + "%")
+
+
+func _on_MusicSlider_value_changed(value):
+	$Settings/MusicSlider/Percentage.set_text(str(value*10) + "%")
