@@ -1,6 +1,7 @@
 extends NinePatchRect
 
 
+
 func _ready() -> void:
 	Events.connect("update_branch_button_state", self, "changeOptionButtonsState")
 	Events.connect("update_no_branch_button_state", self, "changeNoBranchButtonState")

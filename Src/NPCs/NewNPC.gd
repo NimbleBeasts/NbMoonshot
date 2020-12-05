@@ -1,6 +1,8 @@
 class_name NewNPC
 extends Area2D
 
+signal read_all_dialog
+
 export (String, FILE) var dialoguePath: String
 export var npcName: String
 export var npcColor: String
@@ -10,6 +12,8 @@ var option0Branch
 var option1Branch
 var currentBranch
 var player: Player
+var interactedCounter = 0
+
 
 func _ready() -> void:
 	set_process(false)
@@ -19,16 +23,19 @@ func _ready() -> void:
 	connect("body_entered", self, "onBodyEntered")
 	connect("body_exited", self, "onBodyExited")
 	loadedDialogue = loadDialogue()
-	currentBranch = loadedDialogue["00"]
+	currentBranch = loadedDialogue["%s0" % interactedCounter]
 
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player.direction.x == 0:
 		sayCurrentBranch()
+		Events.emit_signal("interacted_with_npc", self)
+		Events.emit_signal("block_player_movement")
 
 
 func onNoBranchButtonPressed() -> void:
-	if currentBranch["exitDialogue"]:
+	if currentBranch.has("exitDialogue") and currentBranch["exitDialogue"]:
+		emit_signal("read_all_dialog")
 		Events.emit_signal("hide_dialog")
 		return
 	currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
@@ -36,14 +43,16 @@ func onNoBranchButtonPressed() -> void:
 		
 
 func onOption0ButtonPressed() -> void:
-	if currentBranch["exitDialogue0"]:
+	if currentBranch.has("exitDialogue0") and ["exitDialogue0"]:
+		emit_signal("read_all_dialog")
 		Events.emit_signal("hide_dialog")
 	currentBranch = option0Branch
 	sayCurrentBranch()
 
 
 func onOption1ButtonPressed() -> void:
-	if currentBranch["exitDialogue1"]:
+	if currentBranch.has("exitDialogue1") and currentBranch["exitDialogue1"]:
+		emit_signal("read_all_dialog")
 		Events.emit_signal("hide_dialog")
 		return
 	currentBranch = option1Branch
@@ -69,6 +78,7 @@ func loadDialogue() -> Dictionary:
 
 
 func sayCurrentBranch() -> void:
+	Events.emit_signal("interacted_with_npc", self)
 	Events.emit_signal("hud_dialog_show", npcName, npcColor, currentBranch["text"])
 	
 	if currentBranch.has("branchID0"):
@@ -79,10 +89,11 @@ func sayCurrentBranch() -> void:
 			option0Branch = loadedDialogue.get(currentBranch["branchID0"])
 		if loadedDialogue.has(currentBranch["branchID1"]):
 			option1Branch = loadedDialogue.get(currentBranch["branchID1"])
-	else:
-		Events.emit_signal("update_no_branch_button_state", true)
-		Events.emit_signal("update_branch_button_state", false)
-		Events.emit_signal("update_no_branch_option", currentBranch["choice"])
+		return
+
+	Events.emit_signal("update_no_branch_button_state", true)
+	Events.emit_signal("update_branch_button_state", false)
+	Events.emit_signal("update_no_branch_option", currentBranch["choice"])
 
 
 func updateBranchButtons() -> void:
