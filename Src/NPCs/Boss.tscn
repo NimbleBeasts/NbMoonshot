@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/NPCs/Boss.png" type="Texture" id=1]
-[ext_resource path="res://Src/NPCs/Boss.gd" type="Script" id=2]
+[ext_resource path="res://Src/NPCs/NewBoss.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.41916, 13.3879 )
@@ -25,9 +25,12 @@ tracks/0/keys = {
 
 [node name="Boss" type="Area2D"]
 script = ExtResource( 2 )
-dialogue_path = "res://Src/Dialogues/BossDialogue.json"
-npc_name = "General"
-npc_color = "#4c93ad"
+__meta__ = {
+"_editor_description_": ""
+}
+dialoguePath = "res://Src/Dialogues/BossDialogue.json"
+npcName = "General"
+npcColor = "#4c93ad"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.374573, -13.4848 )

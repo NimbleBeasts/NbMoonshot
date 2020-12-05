@@ -129,4 +129,5 @@ func exitDialogue() -> void:
 
 	
 func onDialogHidden() -> void:
-	set_process(true)
+	if player:
+		set_process(true)

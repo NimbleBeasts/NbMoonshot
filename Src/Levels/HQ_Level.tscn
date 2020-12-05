@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -36,7 +36,6 @@
 [ext_resource path="res://Assets/Level/ControlHint.png" type="Texture" id=34]
 [ext_resource path="res://Src/Levels/ControlHint.gd" type="Script" id=35]
 [ext_resource path="res://Assets/Objects/WallImageLeader.png" type="Texture" id=36]
-[ext_resource path="res://Src/NPCs/NewBoss.gd" type="Script" id=39]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -465,10 +464,6 @@ position = Vector2( 328, 256 )
 
 [node name="Boss" parent="." instance=ExtResource( 21 )]
 position = Vector2( 400, 256 )
-script = ExtResource( 39 )
-dialoguePath = "res://Src/Dialogues/BossDialogue.json"
-npcName = "General"
-npcColor = "#4c93ad"
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 81, 256 )
