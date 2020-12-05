@@ -37,6 +37,7 @@ func _ready():
 	Events.connect("taser_fired", self, "taserUpdate")
 	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
 	Events.connect("hide_dialog", self, "hideDialog")
+	Events.connect("skip_dialog", self, "skipDialog")
 	
 	Events.connect("hud_update_money", self, "moneyUpdate")
 	Events.connect("hud_mission_briefing", self, "showMissionBriefing")
@@ -252,7 +253,7 @@ func _physics_process(_delta):
 	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length() and $Dialog.visible)
 	if Input.is_action_just_pressed("interact") and $Dialog.visible:
 		if dialogIsTyping:
-			$Dialog/Text.visible_characters = $Dialog/Text.text.length()
+			skipDialog()
 		else:
 			if nextText != "":
 				Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText, true)
@@ -336,9 +337,6 @@ func onDialogTypeTimerTimeout() -> void:
 
 func typeDialog() -> void:
 	dialogTypeTimer.start()
-	# while $Dialog/Text.visible_characters < $Dialog/Text.text.length():
-	# 	$Dialog/Text.visible_characters += 1
-	# 	yield(get_tree(), "idle_frame")
 
 
 func _on_LightHover_mouse_entered():
@@ -427,3 +425,7 @@ func _on_MenuButton_button_up():
 
 func onLevelHint(hint: String) -> void:
 	levelHint = hint
+
+
+func skipDialog() -> void:
+	$Dialog/Text.visible_characters = $Dialog/Text.text.length()

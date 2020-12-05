@@ -50,14 +50,14 @@ signal hud_photo_flash()
 signal hide_save()
 signal update_upgrades()
 signal dialog_typing_changed(value)
+signal skip_dialog()
 
 # dialog branching
-signal update_option_button0(text)
-signal update_option_button1(text)
-signal update_no_branch_option(text)
-signal option0_pressed()
-signal option1_pressed()
+signal update_dialog_option(type, text)
 signal no_branch_option_pressed()
+
+signal dialog_button_pressed(buttonType)
+
 signal update_branch_button_state(enabled)
 signal update_no_branch_button_state(enabled)
 

@@ -26,3 +26,6 @@ enum NoteType {SecretService, Local}
 
 # Levels
 enum LevelTypes {Western, Eastern}
+
+# Dialog
+enum DialogButtons {Option0 = 0, Option1 = 1, NoBranch = 2}
