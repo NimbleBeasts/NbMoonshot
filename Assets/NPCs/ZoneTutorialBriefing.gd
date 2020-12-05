@@ -29,5 +29,5 @@ func _on_ZoneTutorialBriefing_body_exited(body):
 
 func _on_DelayTimer_timeout():
 	isShown = true
-	Events.emit_signal("hud_dialog_show", "Tutorial", "#88ebeb", text)
+	Events.emit_signal("hud_dialog_show", "Tutorial", "#88ebeb", text, true)
 	get_tree().paused = true

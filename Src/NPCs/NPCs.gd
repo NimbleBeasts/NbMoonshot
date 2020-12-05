@@ -83,7 +83,7 @@ func say_dialogue_text(counter, index) -> void:
 	var dialogueDict = get_dialogue(interacted_counter, dialogue_index)
 	if dialogueDict.has("text"):
 		var dialogue_text: String = dialogueDict["text"]
-		Events.emit_signal("hud_dialog_show", npc_name, npc_color, dialogue_text)
+		Events.emit_signal("hud_dialog_show", npc_name, npc_color, dialogue_text, true)
 
 
 func onReadAllDialogue() -> void:

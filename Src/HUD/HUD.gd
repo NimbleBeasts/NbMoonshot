@@ -197,7 +197,7 @@ func showUpgrade():
 	$Upgrades.show()
 
 
-func showDialog(pname: String, nameColor: String, text: String):
+func showDialog(pname: String, nameColor: String, text: String, hideOptions = true):
 	 # for multipage dialogue, checks if new line and stores the text after the new line in nextText and other info in variables
 	if "\n" in text:
 		nextText = text.substr(text.find("\n") + 1)
@@ -214,7 +214,11 @@ func showDialog(pname: String, nameColor: String, text: String):
 	$Dialog/Text.visible_characters = pname.length()
 	$Dialog.show()
 	currentText = text
-	typeDialog() 
+	typeDialog()
+
+	if hideOptions:
+		$Dialog.changeNoBranchButtonState(false)
+		$Dialog.changeOptionButtonsState(false)
 
 # call this function to hide dialogue instead of simply hiding it 
 func hideDialog() -> void:
@@ -233,7 +237,7 @@ func _physics_process(_delta):
 			$Note.hide()
 			Events.emit_signal("hud_note_exited")
 		elif $Dialog.visible:
-			hideDialog()
+			Events.emit_signal("hide_dialog")
 		elif $IngameMenu.visible:
 			hideMenu()
 		elif $Upgrades.visible:
@@ -251,9 +255,9 @@ func _physics_process(_delta):
 			$Dialog/Text.visible_characters = $Dialog/Text.text.length()
 		else:
 			if nextText != "":
-				Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
+				Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText, true)
 			else:
-				hideDialog()
+				Events.emit_signal("hide_dialog")
 
 
 	# hide when press E in note
