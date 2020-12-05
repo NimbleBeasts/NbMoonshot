@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/HUD/MenuButton/MenuButton1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/HUD/MenuButton/MenuButton3.png" type="Texture" id=19]
 [ext_resource path="res://Assets/HUD/MenuButton/MenuButton2.png" type="Texture" id=20]
+[ext_resource path="res://Src/HUD/Dialog.gd" type="Script" id=21]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -260,6 +261,7 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
+script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -284,6 +286,27 @@ __meta__ = {
 
 [node name="DialogueTypeTimer" type="Timer" parent="Dialog"]
 wait_time = 0.03
+
+[node name="Option0Button" type="Button" parent="Dialog"]
+margin_left = -0.522003
+margin_top = -20.9763
+margin_right = 51.478
+margin_bottom = -0.976288
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option1Button" type="Button" parent="Dialog"]
+margin_left = 258.685
+margin_top = -17.9797
+margin_right = 308.685
+margin_bottom = 2.02032
+
+[node name="NoBranchButton" type="Button" parent="Dialog"]
+margin_left = 127.487
+margin_top = -22.699
+margin_right = 177.487
+margin_bottom = -2.69904
 
 [node name="Upgrades" type="NinePatchRect" parent="."]
 visible = false
