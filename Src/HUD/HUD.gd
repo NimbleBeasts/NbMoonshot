@@ -10,13 +10,13 @@ var nextText: String
 var nextName: String
 var nextNameColor: String
 var currentText: String
-var currentName: String
 var hideWithE: bool = false
 var currentSelectedUpgrade: int = 0
 var dialogIsTyping: bool = false
 var canSayNext: bool = false
 var isGameOver: bool = false
 var levelHint: String
+var multipage: bool
 
 onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
@@ -203,7 +203,7 @@ func showUpgrade():
 	$Upgrades.show()
 
 
-func showDialog(pname: String, nameColor: String, text: String):
+func showDialog(pname: String, nameColor: String, text: String, isMultipage: bool = false):
 	 # for multipage dialogue, checks if new line and stores the text after the new line in nextText and other info in variables
 	if "\n" in text:
 		nextText = text.substr(text.find("\n") + 1)
@@ -220,7 +220,7 @@ func showDialog(pname: String, nameColor: String, text: String):
 	$Dialog/Text.visible_characters = pname.length()
 	$Dialog.show()
 	currentText = text
-	currentName = pname
+	multipage = isMultipage
 	typeDialog()
 
 
@@ -429,6 +429,6 @@ func skipDialog() -> void:
 func onNoBranchOptionPressed() -> void:
 	if not dialogIsTyping:
 		if nextText != "":
-			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
-		elif currentName == "Tutorial":
+			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText, true)
+		elif multipage:
 			Events.emit_signal("hide_dialog")
