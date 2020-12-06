@@ -40,32 +40,22 @@ func _process(delta: float) -> void:
 
 
 func onNoBranchButtonPressed() -> void:
-	if not dialogTyping:
-		if player:
-			if currentBranch.has("exitDialogue") and currentBranch["exitDialogue"]:
-				exitDialogue()
-			else:
-				currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
-				sayCurrentBranch()
-		return
-	
-	Events.emit_signal("skip_dialog")
+	if player:
+		if currentBranch.has("exitDialogue") and currentBranch["exitDialogue"]:
+			exitDialogue()
+		else:
+			currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
+			sayCurrentBranch()
 
 
 func onDialogButtonPressed(buttonType: int) -> void:
-	if not dialogTyping:
-		if player:
-			var thing = str(buttonType)
-			var otherThing = "exitDialogue" + thing
-			if currentBranch.has(otherThing) and currentBranch[otherThing]:
-				exitDialogue()
-			else:
-				currentBranch = get("option%sBranch" % buttonType)
-				sayCurrentBranch()
-		return
-
-	Events.emit_signal("skip_dialog")
-
+	if player:
+		var otherThing = "exitDialogue" + str(buttonType)
+		if currentBranch.has(otherThing) and currentBranch[otherThing]:
+			exitDialogue()
+		else:
+			currentBranch = get("option%sBranch" % buttonType)
+			sayCurrentBranch()
 
 
 func onBodyEntered(body: Node) -> void:
@@ -89,7 +79,7 @@ func loadDialogue() -> void:
 
 func sayCurrentBranch() -> void:
 	Events.emit_signal("interacted_with_npc", self)
-	Events.emit_signal("hud_dialog_show", npcName, npcColor, currentBranch["text"], false)
+	Events.emit_signal("hud_dialog_show", npcName, npcColor, currentBranch["text"])
 	
 	if currentBranch.has("branchID0"):
 		Events.emit_signal("update_no_branch_button_state", false)

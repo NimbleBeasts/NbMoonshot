@@ -1,5 +1,6 @@
 extends NinePatchRect
 
+var dialogTyping: bool = false
 
 
 func _ready() -> void:
@@ -9,24 +10,33 @@ func _ready() -> void:
 	$Option0Button.connect("button_up", self, "onOption0ButtonUp")
 	$Option1Button.connect("button_up", self, "onOption1ButtonUp")
 	$NoBranchButton.connect("button_up", self, "onNoBranchButtonPressed")
+	Events.connect("dialog_typing_changed", self, "onDialogTypingChanged")
 	changeNoBranchButtonState(false)
 	changeOptionButtonsState(false)
 
 
 func onUpdateDialogOption(buttonType: int, newText: String) -> void:
-	get_node(Types.DialogButtons.keys()[buttonType] + "Button").text = newText
+	get_node(Types.DialogButtons.keys()[buttonType] + "Button").updateLabel(newText)
 	
 
 func onOption0ButtonUp() -> void:
-	Events.emit_signal("dialog_button_pressed", Types.DialogButtons.Option0)
-
+	if not dialogTyping:
+		Events.emit_signal("dialog_button_pressed", Types.DialogButtons.Option0)
+		return
+	Events.emit_signal("skip_dialog")
 
 func onOption1ButtonUp() -> void:
-	Events.emit_signal("dialog_button_pressed", Types.DialogButtons.Option1)
+	if not dialogTyping:
+		Events.emit_signal("dialog_button_pressed", Types.DialogButtons.Option1)
+		return
+	Events.emit_signal("skip_dialog")
 
 
 func onNoBranchButtonPressed() -> void:
-	Events.emit_signal("no_branch_option_pressed")
+	if not dialogTyping:
+		Events.emit_signal("no_branch_option_pressed")
+		return
+	Events.emit_signal("skip_dialog")
 
 
 func onNoDialogBranch() -> void:
@@ -46,3 +56,5 @@ func changeNoBranchButtonState(enabled: bool) -> void:
 	$NoBranchButton.disabled = not enabled
 
 	
+func onDialogTypingChanged(value: bool) -> void:
+	dialogTyping = value

@@ -10,6 +10,7 @@ var nextText: String
 var nextName: String
 var nextNameColor: String
 var currentText: String
+var currentName: String
 var hideWithE: bool = false
 var currentSelectedUpgrade: int = 0
 var dialogIsTyping: bool = false
@@ -46,6 +47,7 @@ func _ready():
 	Events.connect("hud_game_hint", self, "showGameHintNotification")
 
 	Events.connect("hud_photo_flash", self, "photoFlash")
+	Events.connect("no_branch_option_pressed", self, "onNoBranchOptionPressed")
 
 	for node in $Upgrades/Grid.get_children():
 		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
@@ -152,8 +154,6 @@ func showNote(type, text):
 	$Note.show()
 
 
-
-
 func updateUpgrades():
 	# Clear old results
 	for node in $Upgrades/Grid.get_children():
@@ -189,6 +189,7 @@ func upgradeSelect(id):
 		$Upgrades/InfoBox/UpgradeButton.updateLabel("Already Owned")
 		$Upgrades/InfoBox/UpgradeButton.disabled = true
 
+
 func showUpgrade():
 	# Set focus so we can use gamepad with ui
 	$Upgrades/Grid/UpgradeButton0.grab_focus()
@@ -198,7 +199,7 @@ func showUpgrade():
 	$Upgrades.show()
 
 
-func showDialog(pname: String, nameColor: String, text: String, hideOptions = true):
+func showDialog(pname: String, nameColor: String, text: String):
 	 # for multipage dialogue, checks if new line and stores the text after the new line in nextText and other info in variables
 	if "\n" in text:
 		nextText = text.substr(text.find("\n") + 1)
@@ -215,11 +216,9 @@ func showDialog(pname: String, nameColor: String, text: String, hideOptions = tr
 	$Dialog/Text.visible_characters = pname.length()
 	$Dialog.show()
 	currentText = text
+	currentName = pname
 	typeDialog()
 
-	if hideOptions:
-		$Dialog.changeNoBranchButtonState(false)
-		$Dialog.changeOptionButtonsState(false)
 
 # call this function to hide dialogue instead of simply hiding it 
 func hideDialog() -> void:
@@ -251,15 +250,6 @@ func _physics_process(_delta):
 
 			
 	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length() and $Dialog.visible)
-	if Input.is_action_just_pressed("interact") and $Dialog.visible:
-		if dialogIsTyping:
-			skipDialog()
-		else:
-			if nextText != "":
-				Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText, true)
-			else:
-				Events.emit_signal("hide_dialog")
-
 
 	# hide when press E in note
 	if Input.is_action_just_pressed("interact"):
@@ -423,9 +413,18 @@ func _on_MenuButton_button_up():
 	else:
 		showMenu()
 
+
 func onLevelHint(hint: String) -> void:
 	levelHint = hint
 
 
 func skipDialog() -> void:
 	$Dialog/Text.visible_characters = $Dialog/Text.text.length()
+
+
+func onNoBranchOptionPressed() -> void:
+	if not dialogIsTyping:
+		if nextText != "":
+			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText)
+		elif currentName == "Tutorial":
+			Events.emit_signal("hide_dialog")
