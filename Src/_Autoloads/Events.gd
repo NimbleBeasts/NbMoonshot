@@ -90,9 +90,10 @@ signal menu_back()
 
 
 # Config
-signal switch_sound(value)
-signal switch_music(value)
+signal sound_set_volume(new)
+signal music_set_volume(new)
 signal switch_fullscreen(value)
+signal switch_shader(value)
 
 # Tutorial
 signal tutorial_finished()

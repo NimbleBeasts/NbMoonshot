@@ -28,7 +28,7 @@ margin_right = 2.0
 margin_top = 2.0
 margin_bottom = 2.0
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 12, 6 )
 margin_left = 2.0
@@ -36,7 +36,7 @@ margin_right = 2.0
 margin_top = 2.0
 margin_bottom = 2.0
 
-[sub_resource type="StyleBoxTexture" id=5]
+[sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 12, 6 )
 margin_left = 2.0
@@ -182,10 +182,9 @@ custom_icons/tick = ExtResource( 15 )
 custom_icons/grabber_highlight = ExtResource( 16 )
 custom_icons/grabber = ExtResource( 14 )
 custom_styles/slider = SubResource( 2 )
-custom_styles/grabber_area_highlight = SubResource( 4 )
-custom_styles/grabber_area = SubResource( 5 )
+custom_styles/grabber_area_highlight = SubResource( 3 )
+custom_styles/grabber_area = SubResource( 4 )
 max_value = 10.0
-step = 1.0
 value = 5.0
 tick_count = 10
 ticks_on_borders = true
@@ -218,10 +217,9 @@ custom_icons/tick = ExtResource( 15 )
 custom_icons/grabber_highlight = ExtResource( 16 )
 custom_icons/grabber = ExtResource( 14 )
 custom_styles/slider = SubResource( 2 )
-custom_styles/grabber_area_highlight = SubResource( 4 )
-custom_styles/grabber_area = SubResource( 5 )
+custom_styles/grabber_area_highlight = SubResource( 3 )
+custom_styles/grabber_area = SubResource( 4 )
 max_value = 10.0
-step = 1.0
 value = 5.0
 tick_count = 10
 ticks_on_borders = true
@@ -244,20 +242,6 @@ custom_fonts/font = ExtResource( 7 )
 text = "100%"
 align = 2
 valign = 1
-
-[node name="ButtonSound" parent="Settings" instance=ExtResource( 11 )]
-margin_left = 472.0
-margin_top = 108.0
-margin_right = 600.0
-margin_bottom = 132.0
-label = "Sound"
-
-[node name="ButtonMusic" parent="Settings" instance=ExtResource( 11 )]
-margin_left = 472.0
-margin_top = 145.0
-margin_right = 600.0
-margin_bottom = 169.0
-label = "Music"
 
 [node name="ButtonShader" parent="Settings" instance=ExtResource( 5 )]
 margin_left = 320.0
@@ -437,9 +421,7 @@ text = "Version"
 [connection signal="button_up" from="Main/ButtonExit" to="." method="_on_ButtonExit_button_up"]
 [connection signal="value_changed" from="Settings/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
 [connection signal="value_changed" from="Settings/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
-[connection signal="button_up" from="Settings/ButtonSound" to="." method="_on_ButtonSound_button_up"]
-[connection signal="button_up" from="Settings/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
-[connection signal="button_up" from="Settings/ButtonShader" to="." method="_on_ButtonFullscreen_button_up"]
+[connection signal="button_up" from="Settings/ButtonShader" to="." method="_on_ButtonShader_button_up"]
 [connection signal="button_up" from="Settings/ButtonFullscreen" to="." method="_on_ButtonFullscreen_button_up"]
 [connection signal="button_up" from="Settings/ButtonCredits" to="." method="_on_ButtonCredits_button_up"]
 [connection signal="button_up" from="Settings/ButtonBack" to="." method="_on_ButtonBack_button_up"]

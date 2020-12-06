@@ -13,32 +13,42 @@ export (AudioStream) var menuIntro
 export (AudioStream) var menuMusic
 
 onready var musicPlayer: AudioStreamPlayer = $Music
-
+onready var music_bus = AudioServer.get_bus_index("Music")
+onready var sounds_bus = AudioServer.get_bus_index("Sound")
 
 func _ready():
+	# Initial Set Volumes
+	setMusicVolume(Global.userConfig.musicVolume)
+	setSoundVolume(Global.userConfig.soundVolume)
+	
 	# Event Hooks
 	Events.connect_signal("play_sound", self, "_playSound")
-	Events.connect_signal("switch_music", self, "_switchMusic")
 	Events.connect("play_music", self, "onPlayMusic")
 	Events.connect("game_over", self, "onGameOver")
+	
+	Events.connect("music_set_volume", self, "setMusicVolume")
+	Events.connect("sound_set_volume", self, "setSoundVolume")
 
-	# Init Start Music
-	_switchMusic(Global.userConfig.music) 
+
 
 ###############################################################################
 # Callbacks
 ###############################################################################
 
-# Event Hook: Play or stop music
-func _switchMusic(val: bool):
-	if val:
-		$Music.play()
-	else:
+func setMusicVolume(value):
+	if value == 0:
 		$Music.stop()
+	else:
+		$Music.play()
+	AudioServer.set_bus_volume_db(music_bus, linear2db(float(value)/10))
+
+func setSoundVolume(value):
+	AudioServer.set_bus_volume_db(sounds_bus, linear2db(float(value)/10))
+	
 
 # Event Hook: Play a sound
 func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0, 0)):
-	if Global.userConfig.sound:
+	if Global.userConfig.soundVolume > 0:
 		match sound:				# should have made these enums instead, huh
 			"menu_click":
 				$MenuClick.play()

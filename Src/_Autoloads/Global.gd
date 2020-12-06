@@ -24,7 +24,7 @@ extends Node
 
 # Version
 const GAME_VERSION = 0.3
-const CONFIG_VERSION = 0 # Used for config migration
+const CONFIG_VERSION = 1 # Used for config migration
 # Debug Options
 const DEBUG = true
 
@@ -102,8 +102,9 @@ var debugLabel = null
 var userConfig = {
 	"configVersion": CONFIG_VERSION,
 	"highscore": 0,
-	"sound": true,
-	"music": true,
+	"soundVolume": 8,
+	"musicVolume": 8,
+	"shader": true,
 	"fullscreen": false
 }
 
@@ -177,33 +178,39 @@ func loadConfig():
 	
 	cfgFile.open("user://config.cfg", File.READ)
 	var data = parse_json(cfgFile.get_line())
+	cfgFile.close()
 	
 	# Check if the user has an old config, so update it
 	if data.configVersion < CONFIG_VERSION:
-		data = migrateConfig(data)
+		userConfig = migrateConfig(data)
 		saveConfig()
-	
+
 	# Copy over userConfig
 	userConfig.highscore = data.highscore
 	userConfig.fullscreen = data.fullscreen
-	userConfig.sound = data.sound
-	userConfig.music = data.music
+	userConfig.musicVolume = data.musicVolume
+	userConfig.soundVolume = data.soundVolume
+	userConfig.shader = data.shader
 	# When stuck here, the config attributes have been changed.
 	# Delete the Config.cfg to solve this issue.
 	# Project->Open Project Data Folder-> Config.cfg
 	#
+	# Do NOT optimize it:
 	# Sure this can be just copied, but you may miss if some settings are not
 	# saved correctly. Also for updates please consider the migration mechanism.
 
 # Config Migration
 func migrateConfig(data):
-#	for i in range(data.configVersion, CONFIG_VERSION):
-#		match data.configVersion:
-#			0:
-#				update config here
-#				data.configVersion = 1
-#			_:
-#				print("error: migration variant not found")
+	for i in range(data.configVersion, CONFIG_VERSION):
+		match str(data.configVersion):
+			"0":
+				#update config here
+				data.soundVolume = 8
+				data.musicVolume = 8
+				data.shader = true
+				data.configVersion = 1
+			_:
+				print("error: migration variant ("+ str(data.configVersion)+ ") not found")
 	return data
 
 

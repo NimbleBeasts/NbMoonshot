@@ -5,8 +5,6 @@ enum MenuState {Main, Settings, LoadGame, Credits}
 func _ready():
 	# Event Hooks
 	Events.connect_signal("menu_back", self, "_back")
-	Events.connect_signal("switch_sound", self, "_switchSound")
-	Events.connect_signal("switch_music", self, "_switchMusic")
 	Events.connect_signal("switch_fullscreen", self, "_switchFullscreen")
 
 	$Version.bbcode_text = "[right]"+ Global.getVersionString() + "[/right]"
@@ -39,7 +37,7 @@ func switchTo(to):
 			$Main/ButtonPlay.grab_focus()
 			$Main.show()
 		MenuState.Settings:
-			$Settings/ButtonSound.grab_focus()
+			$Settings/SoundSlider.grab_focus()
 			updateSettings()
 			$Settings.show()
 		MenuState.LoadGame:
@@ -85,15 +83,11 @@ func updateLoadGame():
 
 # Helper function to update the config labels
 func updateSettings():
-	if Global.userConfig.sound:
-		$Settings/ButtonSound.updateLabel("Sound: On")
-	else:
-		$Settings/ButtonSound.updateLabel("Sound: Off")
-	
-	if Global.userConfig.music:
-		$Settings/ButtonMusic.updateLabel("Music: On")
-	else:
-		$Settings/ButtonMusic.updateLabel("Music: Off")
+	$Settings/SoundSlider.value = Global.userConfig.soundVolume
+	$Settings/SoundSlider/Percentage.set_text(str(Global.userConfig.soundVolume*10) + "%")
+
+	$Settings/MusicSlider.value = Global.userConfig.musicVolume
+	$Settings/MusicSlider/Percentage.set_text(str(Global.userConfig.musicVolume*10) + "%")
 
 	if Global.userConfig.fullscreen:
 		$Settings/ButtonFullscreen.updateLabel("On")
@@ -104,13 +98,6 @@ func updateSettings():
 # Callbacks
 ###############################################################################
 
-# Event Hook
-func _switchSound(_val):
-	updateSettings()
-
-# Event Hook
-func _switchMusic(_val):
-	updateSettings()
 
 # Event Hook
 func _switchFullscreen(_val):
@@ -149,23 +136,6 @@ func _on_ButtonBack_button_up():
 	switchTo(MenuState.Main)
 
 
-func _on_ButtonSound_button_up():
-	playClick()
-	Events.emit_signal("switch_sound", !Global.userConfig.sound)
-
-
-func _on_ButtonMusic_button_up():
-	playClick()
-	Events.emit_signal("switch_music", !Global.userConfig.music)
-
-
-func _on_ButtonFullscreen_button_up():
-	playClick()
-	Events.emit_signal("switch_fullscreen", !Global.userConfig.fullscreen)
-	updateSettings()
-
-
-
 func _on_ButtonLoad_button_up():
 	playClick()
 	switchTo(MenuState.LoadGame)
@@ -193,10 +163,23 @@ func _on_Copyright_meta_clicked(meta):
 
 
 
-
 func _on_SoundSlider_value_changed(value):
 	$Settings/SoundSlider/Percentage.set_text(str(value*10) + "%")
+	Events.emit_signal("sound_set_volume", value)
 
 
 func _on_MusicSlider_value_changed(value):
 	$Settings/MusicSlider/Percentage.set_text(str(value*10) + "%")
+	Events.emit_signal("music_set_volume", value)
+
+
+func _on_ButtonFullscreen_button_up():
+	playClick()
+	Events.emit_signal("switch_fullscreen", !Global.userConfig.fullscreen)
+	updateSettings()
+
+
+func _on_ButtonShader_button_up():
+	playClick()
+	Events.emit_signal("switch_shader", !Global.userConfig.shader)
+	updateSettings()

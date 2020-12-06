@@ -23,8 +23,9 @@ func _ready():
 	Global.debugLabel = $Debug
 
 	# Event Hooks
-	Events.connect_signal("switch_sound", self, "_switchSound")
-	Events.connect_signal("switch_music", self, "_switchMusic")
+	Events.connect("music_set_volume", self, "setMusicVolume")
+	Events.connect("sound_set_volume", self, "setSoundVolume")
+	Events.connect("switch_shader", self, "switchShader")
 	Events.connect_signal("switch_fullscreen", self, "_switchFullscreen")
 	Events.connect_signal("new_game", self, "_newGame")
 	Events.connect_signal("menu_back", self, "_backToMenu")
@@ -133,16 +134,18 @@ func _newGame(startLevel = 0):
 	loadLevel(startLevel)
 	switchTo(Types.GameStates.Game)
 
-	
 # Event Hook: Update user config for sound
-func _switchSound(value):
-	Global.userConfig.sound = value
+func setSoundVolume(value):
+	Global.userConfig.soundVolume = value
 	Global.saveConfig()
 
 # Event Hook: Update user config for music
-func _switchMusic(value):
-	Global.userConfig.music = value
+func setMusicVolume(value):
+	Global.userConfig.musicVolume = value
 	Global.saveConfig()
+
+func switchShader(value):
+	Global.userConfig.shader = value
 
 # Event Hook: Switch to fullscreen mode and update user config
 func _switchFullscreen(value):

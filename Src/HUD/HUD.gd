@@ -56,6 +56,10 @@ func _ready():
 	Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 
+	if Global.userConfig.shader:
+		$Shader.show()
+	else:
+		$Shader.hide()
 
 func photoFlash():
 	$PhotoFlash/AnimationPlayer.play("detection")
@@ -361,12 +365,12 @@ func _on_ButtonQuit_button_up():
 
 func _on_ButtonSound_button_up():
 	Events.emit_signal("play_sound", "menu_click")
-	Events.emit_signal("switch_sound", !Global.userConfig.sound)
+
 
 
 func _on_ButtonMusic_button_up():
 	Events.emit_signal("play_sound", "menu_click")
-	Events.emit_signal("switch_music", !Global.userConfig.music)
+
 
 
 func _on_ButtonReturn_button_up():
