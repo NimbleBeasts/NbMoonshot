@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Assets/HUD/MenuButton/MenuButton3.png" type="Texture" id=19]
 [ext_resource path="res://Assets/HUD/MenuButton/MenuButton2.png" type="Texture" id=20]
 [ext_resource path="res://Src/HUD/Dialog.gd" type="Script" id=21]
+[ext_resource path="res://Src/Menu/Slider.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -790,26 +791,38 @@ margin_right = 144.0
 margin_bottom = 36.0
 label = "Continue"
 
-[node name="ButtonSound" parent="IngameMenu/Menu" instance=ExtResource( 16 )]
-margin_left = 16.0
-margin_top = 44.0
-margin_right = 144.0
-margin_bottom = 68.0
-label = "Toggle Sound"
-
-[node name="ButtonMusic" parent="IngameMenu/Menu" instance=ExtResource( 16 )]
-margin_left = 16.0
-margin_top = 76.0
-margin_right = 144.0
-margin_bottom = 100.0
-label = "Toggle Music"
-
 [node name="ButtonQuit" parent="IngameMenu/Menu" instance=ExtResource( 16 )]
 margin_left = 16.0
 margin_top = 116.0
 margin_right = 144.0
 margin_bottom = 140.0
 label = "Quit"
+
+[node name="MusicSlider" parent="IngameMenu/Menu" instance=ExtResource( 22 )]
+margin_left = 16.0
+margin_top = 85.0
+margin_right = 112.0
+margin_bottom = 109.0
+
+[node name="Label" type="Label" parent="IngameMenu/Menu/MusicSlider"]
+margin_top = -8.0
+margin_right = 40.0
+margin_bottom = 6.0
+custom_fonts/font = ExtResource( 10 )
+text = "Music"
+
+[node name="SoundSlider" parent="IngameMenu/Menu" instance=ExtResource( 22 )]
+margin_left = 16.0
+margin_top = 50.0
+margin_right = 112.0
+margin_bottom = 74.0
+
+[node name="Label" type="Label" parent="IngameMenu/Menu/SoundSlider"]
+margin_top = -8.0
+margin_right = 40.0
+margin_bottom = 6.0
+custom_fonts/font = ExtResource( 10 )
+text = "Sound"
 [connection signal="button_up" from="Upgrades/InfoBox/UpgradeButton" to="." method="_on_UpgradeButton_button_up"]
 [connection signal="button_up" from="SaveGame/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
 [connection signal="button_up" from="SaveGame/Menu/ButtonSave1" to="." method="_on_ButtonSave1_button_up"]
@@ -827,6 +840,6 @@ label = "Quit"
 [connection signal="button_up" from="MenuButton" to="." method="_on_MenuButton_button_up"]
 [connection signal="button_up" from="MissionBriefing/StartMissionButton" to="." method="_on_StartMissionButton_button_up"]
 [connection signal="button_up" from="IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
-[connection signal="button_up" from="IngameMenu/Menu/ButtonSound" to="." method="_on_ButtonSound_button_up"]
-[connection signal="button_up" from="IngameMenu/Menu/ButtonMusic" to="." method="_on_ButtonMusic_button_up"]
 [connection signal="button_up" from="IngameMenu/Menu/ButtonQuit" to="." method="_on_ButtonQuit_button_up"]
+[connection signal="value_changed" from="IngameMenu/Menu/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="IngameMenu/Menu/SoundSlider" to="." method="_on_SoundSlider_value_changed"]

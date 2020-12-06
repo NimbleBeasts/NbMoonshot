@@ -270,6 +270,15 @@ func _physics_process(_delta):
 func showMenu():
 	$IngameMenu.show()
 	$IngameMenu/Menu/ButtonReturn.grab_focus()
+	
+	var value = Global.userConfig.musicVolume
+	$IngameMenu/Menu/MusicSlider/Percentage.set_text(str(value*10)+"%")
+	$IngameMenu/Menu/MusicSlider.value = value
+
+	value = Global.userConfig.soundVolume
+	$IngameMenu/Menu/SoundSlider/Percentage.set_text(str(value*10)+"%")
+	$IngameMenu/Menu/SoundSlider.value = value
+	
 	get_tree().paused = true
 	Events.emit_signal("forcefully_close_minigame")
 
@@ -432,3 +441,13 @@ func onNoBranchOptionPressed() -> void:
 			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText, true)
 		elif multipage:
 			Events.emit_signal("hide_dialog")
+
+
+func _on_MusicSlider_value_changed(value):
+	$IngameMenu/Menu/MusicSlider/Percentage.set_text(str(value*10)+"%")
+	Events.emit_signal("music_set_volume", value)
+
+
+func _on_SoundSlider_value_changed(value):
+	$IngameMenu/Menu/SoundSlider/Percentage.set_text(str(value*10)+"%")
+	Events.emit_signal("sound_set_volume", value)

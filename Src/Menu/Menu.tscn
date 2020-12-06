@@ -17,10 +17,10 @@
 [ext_resource path="res://Assets/Menu/Slider/tick.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Menu/Slider/grabber-item-selected.png" type="Texture" id=16]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 10 )
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 12, 6 )
 margin_left = 2.0
@@ -28,7 +28,7 @@ margin_right = 2.0
 margin_top = 2.0
 margin_bottom = 2.0
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 12 )
 region_rect = Rect2( 0, 0, 12, 6 )
 margin_left = 2.0
@@ -36,7 +36,7 @@ margin_right = 2.0
 margin_top = 2.0
 margin_bottom = 2.0
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 12, 6 )
 margin_left = 2.0
@@ -93,7 +93,7 @@ margin_left = 4.0
 margin_top = 4.0
 margin_right = -4.0
 margin_bottom = -4.0
-custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/mono_font = SubResource( 4 )
 custom_fonts/bold_font = ExtResource( 7 )
 custom_fonts/normal_font = ExtResource( 9 )
 bbcode_text = "Loading DevLog...
@@ -181,9 +181,9 @@ margin_bottom = 136.0
 custom_icons/tick = ExtResource( 15 )
 custom_icons/grabber_highlight = ExtResource( 16 )
 custom_icons/grabber = ExtResource( 14 )
-custom_styles/slider = SubResource( 2 )
-custom_styles/grabber_area_highlight = SubResource( 3 )
-custom_styles/grabber_area = SubResource( 4 )
+custom_styles/slider = SubResource( 1 )
+custom_styles/grabber_area_highlight = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
 max_value = 10.0
 value = 5.0
 tick_count = 10
@@ -216,9 +216,9 @@ margin_bottom = 168.0
 custom_icons/tick = ExtResource( 15 )
 custom_icons/grabber_highlight = ExtResource( 16 )
 custom_icons/grabber = ExtResource( 14 )
-custom_styles/slider = SubResource( 2 )
-custom_styles/grabber_area_highlight = SubResource( 3 )
-custom_styles/grabber_area = SubResource( 4 )
+custom_styles/slider = SubResource( 1 )
+custom_styles/grabber_area_highlight = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
 max_value = 10.0
 value = 5.0
 tick_count = 10

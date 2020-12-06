@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Menu/Slider/grabber.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Menu/Slider/slider.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Menu/Slider/grabber2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Menu/Slider/tick.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Menu/Slider/grabber-item-selected.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Menu/Slider/grabber-item.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 12, 6 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 12, 6 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 12, 6 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
+
+[node name="Slider" type="HSlider"]
+margin_right = 96.0
+margin_bottom = 24.0
+custom_icons/tick = ExtResource( 5 )
+custom_icons/grabber_highlight = ExtResource( 6 )
+custom_icons/grabber = ExtResource( 7 )
+custom_styles/slider = SubResource( 1 )
+custom_styles/grabber_area_highlight = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
+max_value = 10.0
+value = 5.0
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Percentage" type="Label" parent="."]
+margin_left = 88.0
+margin_right = 128.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 1 )
+text = "100%"
+align = 2
+valign = 1
