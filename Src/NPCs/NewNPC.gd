@@ -32,6 +32,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if not player:
+		return
 	if Input.is_action_just_pressed("interact") and player.direction.x == 0:
 		sayCurrentBranch()
 		Events.emit_signal("interacted_with_npc", self)
@@ -40,22 +42,24 @@ func _process(delta: float) -> void:
 
 
 func onNoBranchButtonPressed() -> void:
-	if player:
-		if currentBranch.has("exitDialogue") and currentBranch["exitDialogue"]:
-			exitDialogue()
-		else:
-			currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
-			sayCurrentBranch()
+	if not player:
+		return
+	if currentBranch.has("exitDialogue") and currentBranch["exitDialogue"]:
+		exitDialogue()
+		return
+	currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
+	sayCurrentBranch()
 
 
 func onDialogButtonPressed(buttonType: int) -> void:
-	if player:
-		var otherThing = "exitDialogue" + str(buttonType)
-		if currentBranch.has(otherThing) and currentBranch[otherThing]:
-			exitDialogue()
-		else:
-			currentBranch = get("option%sBranch" % buttonType)
-			sayCurrentBranch()
+	if not player:
+		return
+	var exitDialogueKey = "exitDialogue" + str(buttonType)
+	if currentBranch.has(exitDialogueKey) and currentBranch[exitDialogueKey]:
+		exitDialogue()
+		return
+	currentBranch = get("option%sBranch" % buttonType)
+	sayCurrentBranch()
 
 
 func onBodyEntered(body: Node) -> void:

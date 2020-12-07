@@ -77,6 +77,7 @@ func showGameOverNotification():
 	$GameOverNotification.show()
 	$GameOverNotification/GameOverNotifcationAnimationPlayer.play("pop")
 
+	
 func _on_GameOverNotifcationAnimationPlayer_animation_finished(anim_name):
 	$GameOverNotification.hide()
 	Events.emit_signal("hud_game_over_exited")
@@ -86,6 +87,7 @@ func showMissionBriefing(level):
 	$MissionBriefing/StartMissionButton.grab_focus()
 	$MissionBriefing.setLevel(level)
 	$MissionBriefing.show()
+
 
 func debugShaderToggle(_d):
 	if $Shader.visible:

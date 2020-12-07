@@ -1,6 +1,7 @@
 extends NinePatchRect
 
 var dialogTyping: bool = false
+var onOption0: bool = false
 
 
 func _ready() -> void:
@@ -13,6 +14,20 @@ func _ready() -> void:
 	Events.connect("dialog_typing_changed", self, "onDialogTypingChanged")
 	changeNoBranchButtonState(false)
 	changeOptionButtonsState(false)
+	set_process_input(false)
+
+
+func _input(event: InputEvent):
+	if not event is InputEventKey:
+		return
+	if not event.is_action_pressed("move_right") or event.is_action_pressed("move_left"):
+		return
+
+	onOption0 = not onOption0
+	if onOption0:
+		$Option0Button.grab_focus()
+		return
+	$Option1Button.grab_focus()
 
 
 func onUpdateDialogOption(buttonType: int, newText: String) -> void:
@@ -24,6 +39,7 @@ func onOption0ButtonUp() -> void:
 		Events.emit_signal("dialog_button_pressed", Types.DialogButtons.Option0)
 		return
 	Events.emit_signal("skip_dialog")
+
 
 func onOption1ButtonUp() -> void:
 	if not dialogTyping:
@@ -49,12 +65,20 @@ func changeOptionButtonsState(enabled: bool) -> void:
 	$Option0Button.disabled = not enabled
 	$Option1Button.visible = enabled
 	$Option1Button.disabled = not enabled
+	onOption0 = true
+	if enabled:
+		$Option0Button.grab_focus()
+		set_process_input(true)
 
 
 func changeNoBranchButtonState(enabled: bool) -> void:
 	$NoBranchButton.visible = enabled
 	$NoBranchButton.disabled = not enabled
+	if enabled:
+		$NoBranchButton.grab_focus()	
+		set_process_input(false)
 
-	
+
 func onDialogTypingChanged(value: bool) -> void:
 	dialogTyping = value
+
