@@ -140,4 +140,3 @@ func onDialogHidden() -> void:
 
 func onDialogTypingChanged(value: bool) -> void:
 	dialogTyping = value
-		

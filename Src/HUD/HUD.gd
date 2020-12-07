@@ -342,7 +342,7 @@ func onDialogTypeTimerTimeout() -> void:
 
 func typeDialog() -> void:
 	dialogTypeTimer.start()
-
+	
 
 func _on_LightHover_mouse_entered():
 	hover(HoverType.Light)

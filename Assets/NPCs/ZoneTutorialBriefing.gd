@@ -32,4 +32,5 @@ func _on_DelayTimer_timeout():
 	Events.emit_signal("hud_dialog_show", "Tutorial", "#88ebeb", text, true)
 	Events.emit_signal("update_no_branch_button_state", true)
 	Events.emit_signal("update_branch_button_state", false)
+	Events.emit_signal("update_dialog_option", Types.DialogButtons.NoBranch, "Ok")
 	get_tree().paused = true

@@ -81,4 +81,3 @@ func changeNoBranchButtonState(enabled: bool) -> void:
 
 func onDialogTypingChanged(value: bool) -> void:
 	dialogTyping = value
-
