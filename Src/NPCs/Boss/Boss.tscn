@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/NPCs/Boss.png" type="Texture" id=1]
-[ext_resource path="res://Src/NPCs/NewBoss.gd" type="Script" id=2]
+[ext_resource path="res://Src/NPCs/Boss/NewBoss.gd" type="Script" id=1]
+[ext_resource path="res://Assets/NPCs/Boss.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.41916, 13.3879 )
@@ -24,7 +24,7 @@ tracks/0/keys = {
 }
 
 [node name="Boss" type="Area2D"]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -38,7 +38,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

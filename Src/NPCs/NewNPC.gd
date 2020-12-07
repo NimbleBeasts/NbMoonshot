@@ -49,8 +49,12 @@ func onNoBranchButtonPressed() -> void:
 		if currentBranch.has("nextDialogue") and loadedDialogue.has(currentBranch["nextDialogue"]):
 			currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
 		return
-	currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
-	sayBranch(currentBranch)
+	if currentBranch.has("nextDialogue"):
+		currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
+		sayBranch(currentBranch)
+		return
+
+	exitDialogue()
 
 
 func onDialogButtonPressed(buttonType: int) -> void:

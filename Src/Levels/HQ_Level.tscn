@@ -20,8 +20,8 @@
 [ext_resource path="res://Src/NPCs/ZoneUpgrade.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Src/NPCs/ZoneSave.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Src/NPCs/Boss.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Src/NPCs/Secretary.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Src/NPCs/Boss/Boss.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Src/NPCs/Secretary/Secretary.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Assets/Camera/CamTraining.tscn" type="PackedScene" id=25]
@@ -36,6 +36,8 @@
 [ext_resource path="res://Assets/Level/ControlHint.png" type="Texture" id=34]
 [ext_resource path="res://Src/Levels/ControlHint.gd" type="Script" id=35]
 [ext_resource path="res://Assets/Objects/WallImageLeader.png" type="Texture" id=36]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )

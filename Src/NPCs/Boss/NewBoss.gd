@@ -5,7 +5,7 @@ func _ready() -> void:
 	if Global.gameState.interactionCounters.boss == 0:
 		Global.gameState.level.missionIsTutorial = true
 
-	interactedCounter = Global.gameState["interactionCounters"]["boss"]
+	setInteractedCounter(Global.gameState["interactionCounters"]["boss"])
 	Events.connect("tutorial_finished", self, "_on_tutorial_finished")
 
 # gets called when player goes through one iteration of the dialog
