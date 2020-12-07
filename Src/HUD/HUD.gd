@@ -97,6 +97,10 @@ func debugShaderToggle(_d):
 
 
 func showSave():
+	#dont open if allready opend :)
+	if $SaveGame.is_visible_in_tree():
+		return
+	
 	Events.emit_signal("block_player_movement")
 	var saves = Global.getSaveGameState()
 	
@@ -109,7 +113,7 @@ func showSave():
 			button.updateLabel("Slot " + str(i) + " (New)")
 		i += 1
 	$SaveGame.show()
-	$SaveGame/Menu/ButtonReturn.grab_focus()
+	$SaveGame/Menu.grab_focus()
 
 
 func save(slot):

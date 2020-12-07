@@ -293,21 +293,18 @@ margin_left = -39.4645
 margin_top = -21.7071
 margin_right = 88.5355
 margin_bottom = 2.29289
-label = "Button"
 
 [node name="Option1Button" parent="Dialog" instance=ExtResource( 16 )]
 margin_left = 239.709
 margin_top = -19.0919
 margin_right = 367.709
 margin_bottom = 4.90811
-label = "Button"
 
 [node name="NoBranchButton" parent="Dialog" instance=ExtResource( 16 )]
 margin_left = 100.409
 margin_top = -22.6274
 margin_right = 228.409
 margin_bottom = 1.37256
-label = "Button"
 
 [node name="Upgrades" type="NinePatchRect" parent="."]
 visible = false
@@ -345,7 +342,6 @@ __meta__ = {
 
 [node name="UpgradeButton0" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 group = SubResource( 3 )
-skill = 0
 
 [node name="UpgradeButton1" parent="Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
@@ -455,6 +451,13 @@ margin_left = -80.0
 margin_top = -96.0
 margin_right = 80.0
 margin_bottom = 56.0
+focus_neighbour_left = NodePath("ButtonReturn")
+focus_neighbour_top = NodePath("ButtonSave3")
+focus_neighbour_right = NodePath("ButtonSave3")
+focus_neighbour_bottom = NodePath("ButtonReturn")
+focus_next = NodePath("ButtonReturn")
+focus_previous = NodePath("ButtonSave3")
+focus_mode = 2
 texture = ExtResource( 7 )
 patch_margin_left = 6
 patch_margin_top = 6
