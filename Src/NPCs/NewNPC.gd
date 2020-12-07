@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 	if not player:
 		return
 	if Input.is_action_just_pressed("interact") and player.direction.x == 0:
-		sayCurrentBranch()
+		sayBranch(currentBranch)
 		Events.emit_signal("interacted_with_npc", self)
 		Events.emit_signal("block_player_movement")
 		set_process(false)
@@ -46,9 +46,11 @@ func onNoBranchButtonPressed() -> void:
 		return
 	if currentBranch.has("exitDialogue") and currentBranch["exitDialogue"]:
 		exitDialogue()
+		if currentBranch.has("nextDialogue") and loadedDialogue.has(currentBranch["nextDialogue"]):
+			currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
 		return
 	currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
-	sayCurrentBranch()
+	sayBranch(currentBranch)
 
 
 func onDialogButtonPressed(buttonType: int) -> void:
@@ -57,9 +59,11 @@ func onDialogButtonPressed(buttonType: int) -> void:
 	var exitDialogueKey = "exitDialogue" + str(buttonType)
 	if currentBranch.has(exitDialogueKey) and currentBranch[exitDialogueKey]:
 		exitDialogue()
+		if loadedDialogue.has(currentBranch["branchID%s" % buttonType]):
+			currentBranch = get("option%sBranch" % buttonType)
 		return
 	currentBranch = get("option%sBranch" % buttonType)
-	sayCurrentBranch()
+	sayBranch(currentBranch)
 
 
 func onBodyEntered(body: Node) -> void:
@@ -81,23 +85,23 @@ func loadDialogue() -> void:
 	loadedDialogue = dialogue
 
 
-func sayCurrentBranch() -> void:
+func sayBranch(branch: Dictionary) -> void:
 	Events.emit_signal("interacted_with_npc", self)
-	Events.emit_signal("hud_dialog_show", npcName, npcColor, currentBranch["text"])
+	Events.emit_signal("hud_dialog_show", npcName, npcColor, branch["text"])
 	
-	if currentBranch.has("branchID0"):
+	if branch.has("branchID0") and branch.has("branchID1"):
 		Events.emit_signal("update_no_branch_button_state", false)
 		Events.emit_signal("update_branch_button_state", true)
 		updateBranchButtons()
-		if loadedDialogue.has(currentBranch["branchID0"]):
-			option0Branch = loadedDialogue.get(currentBranch["branchID0"])
-		if loadedDialogue.has(currentBranch["branchID1"]):
-			option1Branch = loadedDialogue.get(currentBranch["branchID1"])
+		if loadedDialogue.has(branch["branchID0"]):
+			option0Branch = loadedDialogue.get(branch["branchID0"])
+		if loadedDialogue.has(branch["branchID1"]):
+			option1Branch = loadedDialogue.get(branch["branchID1"])
 		return
 
 	Events.emit_signal("update_no_branch_button_state", true)
 	Events.emit_signal("update_branch_button_state", false)
-	var choice = currentBranch["choice"] if currentBranch.has("choice") else "Ok"
+	var choice = branch["choice"] if branch.has("choice") else "Ok"
 	Events.emit_signal("update_dialog_option", Types.DialogButtons.NoBranch, choice)
 
 

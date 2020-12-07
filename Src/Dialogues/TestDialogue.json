@@ -1,7 +1,7 @@
 {
     "00": {"text": "Yo is milk good?", "branchID0": "0milkGoodReply", "branchID1": "0milkBadReply", "branchChoice0": "milk gud", "branchChoice1": "milk bad", "exitDialogue0" : false, "exitDialogue1" : false},
     "0milkGoodReply": {"text": "yes", "branchID0": "0youGoodReply", "branchID1": "34", "branchChoice0": "i agree, you good", "branchChoice1": "man i was joking lol", "exitDialogue0" : false, "exitDialogue1" : false},
-    "0milkBadReply": {"text": "you bad", "branchID0": "73", "branchID1": "0disagreeReply", "branchChoice0": "no u", "branchChoice1": "i disagree with you, whats the issue", "exitDialogue0" : true, "exitDialogue1" : false},
+    "0milkBadReply": {"text": "you bad", "branchID0": "00", "branchID1": "0disagreeReply", "branchChoice0": "no u", "branchChoice1": "i disagree with you, whats the issue", "exitDialogue0" : true, "exitDialogue1" : false},
     "0youGoodReply" : {"text": "thnx m8, you so kind", "exitDialogue": true, "choice": "ok bye"},
     "0disagreeReply": {"text": "u are such a b", "branchID0": "35236", "branchID1": "0moreOfABReply", "branchChoice0": "exit", "branchChoice1": "you are more of a b", "exitDialogue0" : true, "exitDialogue1" : false},
     "0moreOfABReply" : { "text": "shut up", "exitDialogue": true, "choice": "get the hell out of here?", "quest" : "1"}
