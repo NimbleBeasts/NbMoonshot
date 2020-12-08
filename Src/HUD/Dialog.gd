@@ -2,9 +2,12 @@ extends NinePatchRect
 
 var dialogTyping: bool = false
 var onOption0: bool = false
-
+var noBranchFocusDelayTimer: Timer = Timer.new()
 
 func _ready() -> void:
+	add_child(noBranchFocusDelayTimer)
+	noBranchFocusDelayTimer.connect("timeout", self, "onNoBranchFocusDelayTimeout")
+	noBranchFocusDelayTimer.one_shot = true
 	Events.connect("update_branch_button_state", self, "changeOptionButtonsState")
 	Events.connect("update_no_branch_button_state", self, "changeNoBranchButtonState")
 	Events.connect("update_dialog_option", self, "onUpdateDialogOption")
@@ -20,14 +23,12 @@ func _ready() -> void:
 func _input(event: InputEvent):
 	if not event is InputEventKey:
 		return
-	if not event.is_action_pressed("move_right") or event.is_action_pressed("move_left"):
-		return
-
-	onOption0 = not onOption0
-	if onOption0:
-		$Option0Button.grab_focus()
-		return
-	$Option1Button.grab_focus()
+	if event.is_action_pressed("move_right") or event.is_action_pressed("move_left"):
+		onOption0 = not onOption0
+		if onOption0:
+			$Option0Button.grab_focus()
+			return
+		$Option1Button.grab_focus()
 
 
 func onUpdateDialogOption(buttonType: int, newText: String) -> void:
@@ -54,11 +55,6 @@ func onNoBranchButtonPressed() -> void:
 		return
 	Events.emit_signal("skip_dialog")
 
-
-func onNoDialogBranch() -> void:
-	changeOptionButtonsState(false)
-	changeNoBranchButtonState(true)
-
 	
 func changeOptionButtonsState(enabled: bool) -> void:
 	$Option0Button.visible = enabled
@@ -70,14 +66,19 @@ func changeOptionButtonsState(enabled: bool) -> void:
 		$Option0Button.grab_focus()
 		set_process_input(true)
 
-
+		
 func changeNoBranchButtonState(enabled: bool) -> void:
 	$NoBranchButton.visible = enabled
 	$NoBranchButton.disabled = not enabled
 	if enabled:
-		$NoBranchButton.grab_focus()	
+		# no idea why this needs a delay and the option ones doesn't 
+		noBranchFocusDelayTimer.start(0.08)
 		set_process_input(false)
 
 
 func onDialogTypingChanged(value: bool) -> void:
 	dialogTyping = value
+
+
+func onNoBranchFocusDelayTimeout() -> void:
+	$NoBranchButton.grab_focus()
