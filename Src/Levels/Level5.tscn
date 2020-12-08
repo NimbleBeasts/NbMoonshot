@@ -718,7 +718,6 @@ z_index = 50
 [node name="Guard" parent="." instance=ExtResource( 4 )]
 position = Vector2( 232, 320 )
 starting_direction = Vector2( -1, 0 )
-audio_suspect_distance = 50
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
 points = PoolVector2Array( 8, -16, 128, -16 )

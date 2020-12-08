@@ -37,8 +37,6 @@
 [ext_resource path="res://Src/Levels/ControlHint.gd" type="Script" id=35]
 [ext_resource path="res://Assets/Objects/WallImageLeader.png" type="Texture" id=36]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
 

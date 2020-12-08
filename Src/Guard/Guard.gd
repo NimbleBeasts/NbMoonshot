@@ -142,15 +142,15 @@ func _on_LineOfSight_body_entered(body: Node) -> void:
 				player_in_los = true		
 	elif body.is_in_group("Guard"):
 		guardInSight = body
-		
+	
 
-func _on_LineOfSight_body_exited(body):
+func _on_LineOfSight_body_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		player_in_los = false
 		losRay.set_deferred("enabled", false)
 	elif body.is_in_group("Guard") and guardInSight == body:
 		guardInSight = null
-
+	
 
 # this gets started when this guard's state changes to PlayerDetected
 # on timeout, meaning if not stunned within this time, the detection level of player gets to Sure
@@ -171,7 +171,15 @@ func _on_audio_level_changed(audio_level: int, audio_pos: Vector2) -> void:
 	match audio_level:
 		Types.AudioLevels.LoudNoise:
 			if audio_pos.distance_to(global_position) < audio_suspect_distance:
-				set_state(Types.GuardStates.Suspect)
+				var yDistance = audio_pos.y - global_position.y 
+				if not yDistance > -20 and yDistance < 20:
+					return
+				if not $Notifier.isShowing:
+					$Notifier.popup(Types.NotifierTypes.Question)
+				playerLastSeenPosition = audio_pos
+				Events.emit_signal("play_sound", "suspicious")
+				guardPathLine.moveToPoint(playerLastSeenPosition)
+				Global.startTimerOnce(goBackToNormalTimer)
 
 				
 # use this function to set state instead of doing directly

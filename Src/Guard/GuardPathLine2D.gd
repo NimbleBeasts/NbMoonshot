@@ -59,14 +59,24 @@ func moveToPoint(newPoint: Vector2) -> void:
 	next_point = newPoint
 	enabled = false
 	movingToCustomPoint = true
+	timer.stop()
 
 
 func startNormalMovement() -> void:
 	movingToCustomPoint = false
 	enabled = true
+	timer.start()
 
 
 func stopAllMovement() -> void:
 	enabled = false
 	movingToCustomPoint = false
 	guard.direction = Vector2(0,0)
+	timer.stop()
+
+	
+func changeDirection() -> void:
+	enabled = true
+	movingToCustomPoint = false
+	global_points.invert()
+	timer.start()
