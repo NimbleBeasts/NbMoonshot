@@ -153,3 +153,12 @@ Roses are red blah
 
 The player sees blank input fields, and some hinted letter. Instead of the text he sees only symbols representing the word.
 A wheel with the remaing letters is used to set single letters to a space. Similiar to the android game cryptogram.
+
+
+#### kodkuce ideas :)
+- Vacum pads for climbing vertical vents and building fasade -duno if pickable of upgrade
+- Hmm something trow ( coin-Hitman, cigars-Commandos, wallet, teadybear, or something from envoriment )
+- Some levels you need to steal motor block or something big you have to carry it in hands and you cant hid with it so you have to drop it in dark and hide
+and pick it again, can help level desings
+- I think we should not go mark of njinja way where you can kill/zap evrybody i think we should make like more a agent non voilent dude and comic storyline
+- Mouse pet for distractions or duno :)
