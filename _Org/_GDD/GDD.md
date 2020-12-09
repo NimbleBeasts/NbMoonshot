@@ -2,8 +2,7 @@
 
 ## GDD Part 2
 
-This is part 2 of the GDD. Part 1 can be found here:
-https://docs.google.com/document/d/1GK_MCYg5LeKzRtj1Le4MsN3DqI-iysE_FsXKuqLffbY
+This is part 2 of the GDD.
 
 ## High Concept
 
