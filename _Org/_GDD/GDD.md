@@ -397,3 +397,7 @@ Im not sure rn if we shall integrate this. As the game ment to be played slow.
 ## Sound
 
 ## Music
+
+# Ideas Collection
+
+Post every thought you have in here
