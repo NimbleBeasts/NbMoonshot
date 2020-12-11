@@ -56,12 +56,16 @@ func _ready():
 
 	var cat = Debug.addCategory("HUD")
 	Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
+	Debug.addOption(cat, "HudToggle", funcref(self, "debugHudToggle"), null)
+	
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 
 	if Global.userConfig.shader:
 		$Shader.show()
 	else:
 		$Shader.hide()
+		
+		
 
 func photoFlash():
 	$PhotoFlash/AnimationPlayer.play("detection")
@@ -97,6 +101,23 @@ func debugShaderToggle(_d):
 	else:
 		$Shader.show()
 
+func debugHudToggle(_d):
+	if $LightIndicator.visible:
+		$LightIndicator.hide()
+		$AudioIndicator.hide()
+		$WebMonetization.hide()
+		$AlarmIndicator.hide()
+		$ChargeIndicator.hide()
+		$MoneyIndicator.hide()
+		$MenuButton.hide()
+	else:
+		$LightIndicator.show()
+		$AudioIndicator.show()
+		$WebMonetization.show()
+		$AlarmIndicator.show()
+		$ChargeIndicator.show()
+		$MoneyIndicator.show()
+		$MenuButton.show()
 
 func showSave():
 	#dont open if allready opend :)
