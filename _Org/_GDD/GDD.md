@@ -19,7 +19,7 @@ The main goal is to steal enough knowledge or sabotage other powers to the exten
 
 # Missions
 
-## Mission Progress
+## Mission Progress (WP-3)
 
 To make it less linear, we give the player the choice of selecting wether he goes on a mission for Ustria or perform a sabotage mission.
 After every successful mission the player returns to the HQ and sees instead of the mission briefing a race screen:
@@ -111,15 +111,81 @@ Resulting in an alternate ending
 
 # Mechanics
 
-## Moveable Camera
+## Moveable Camera (WP-4)
 
 Holding down a specific button + cursor keys will result in moving the camera only. So the player can peak into next room or something.
 Movement shall be limited to specific amount of pixel, camera transition should be interpolated (smooth). Releasing the button, will return
 to original camera location with a sped up transition.
 
+## Weapons
+
+### Taser Gun
+
+- Like before
+
+### Stones (WP-2)
+
+- Infinite amount
+- Distraction
+- The longer you hold the button the further the stone throw
+- Predicted flying curve
+
+### Snacks (WP-2)
+
+- Must be picked up
+- Dogs will be satisfied
+- Can also be thrown as distraction for guards
+
+## Archive
+
+We introduce a new npc where the player can replay certain missions - without money reward ofc.
+
+## Controls
+
+| Controls    | Key 1         | Key 2         | Gamepad    |
+| ----------- | ------------- | ------------- | ---------- |
+| Move        | Wasd + Cursor | Wasd + Cursor | Left Stick |
+| Interaction | E             | X             | A          |
+| Weapon      | F             | Z/Y           | B          |
+| Cancel      | Q             | V             | X          |
+| Menu        | ESC           | ESC           | Menu       |
+| Dodge       | Space         | Space         | Y          |
+| Selection   | R             | C             | RB         |
+
+### Interaction
+
+- Npc interaction
+- Dialogue typing stop (fast forward), next page
+- Menu interaction
+- Minigame interaction
+- Body pickup and laying down
+
+### Weapon
+
+- Usage of selected weapon
+
+### Cancel
+
+- Skips all dialogues
+- Exits minigame
+- Cancels stone throw
+
+### Menu
+
+- Ingame menu
+
+### Dodge
+
+- Walldodge
+
+### Selection
+
+- Switches Weapon
+- Holding down (~600ms) + cursors can move camera (weapon selection remains same)
+
 # Level Design Elements
 
-## Dog
+## Dog (WP-5)
 
 - Dog is roaming along a paths.
 - Idle State is a transition state
@@ -157,7 +223,7 @@ stateDiagram-v2
     Detection --> [*]
 ```
 
-## Guard
+## Guard (WP-6)
 
 As before with the following changes:
 
@@ -185,7 +251,7 @@ stateDiagram-v2
     Detection --> [*]
 ```
 
-## Elite Guard
+## Elite Guard (WP-7)
 
 - Cannot be tasered
 - Tasers you when in range -> Game Over
@@ -280,12 +346,33 @@ Roses are red blah
 The player sees blank input fields, and some hinted letter. Instead of the text he sees only symbols representing the word.
 A wheel with the remaing letters is used to set single letters to a space. Similiar to the android game cryptogram.
 
-#### kodkuce ideas :)
+# Steam Integration
 
-- Vacum pads for climbing vertical vents and building fasade -duno if pickable of upgrade
-- Hmm something trow ( coin-Hitman, cigars-Commandos, wallet, teadybear, or something from envoriment )
-- I think we should not go mark of njinja way where you can kill/zap evrybody i think we should make like more a agent non voilent dude and comic storyline
-- Mouse pet for distractions or duno :)
+We will use Gramps GodotSteam Integration. It's easy to use and maintained.
+
+## Achievements
+
+Achievements are pretty easy to implement.
+
+It should be done by emit a signal:
+
+`Events.emit_signal("steam_achievement_unlock", Types.SteamAchievements.TestId)`
+
+The GameManager shall handle this signal. AFAIK: The function requires to check if the player already has this achievement or not. So there is maybe a list to be downloaded at start.
+
+TODO: come up with new achievement ideas (~20)
+
+| Name             | Desc                  |
+| ---------------- | --------------------- |
+| TutorialComplete | Complete the tutorial |
+
+## Stats
+
+We should utilize some stats like how many tries did the player needed and the time he spend in the level.
+
+## Leaderboard
+
+Im not sure rn if we shall integrate this. As the game ment to be played slow.
 
 # Required Art
 
@@ -298,3 +385,15 @@ A wheel with the remaing letters is used to set single letters to a space. Simil
 | UdSSRWin   | Maybe a soyuz rocket flying to the moon                              |
 | UstriaWin  | Some flappy variant of the US moon landing with duct tape and stuff  |
 | LoveWin    | Some Caribean beach where a couple (silhouette) walks in the sundown |
+
+## Pixel Art
+
+| Name       | Desc                          |
+| ---------- | ----------------------------- |
+| Player     | Body carry, object carry anim |
+| ArchiveNPC |                               |
+| Dog        |                               |
+
+## Sound
+
+## Music
