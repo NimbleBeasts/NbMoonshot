@@ -278,10 +278,10 @@ func _on_minigame_entered(_type: int) -> void:
 	set_state(Types.PlayerStates.Normal)
 
 # I will remove all these functions other than onBlockPlayerMovement and onUnblockPlayerMovement
-func _on_hud_note_exited() -> void:
+func _on_hud_note_exited(_d) -> void:
 	block_input = false
 
-func _on_hud_note_showed(_type: int, _text: String) -> void:
+func _on_hud_note_showed(_d, _type: int, _text: String) -> void:
 	block_input = true
 	set_state(Types.PlayerStates.Normal)
 

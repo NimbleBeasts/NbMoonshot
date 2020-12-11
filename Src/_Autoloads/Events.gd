@@ -27,8 +27,8 @@ signal forcefully_close_minigame()
 signal door_change_status(door_name, lock_type, exec_anim) #exec anim is bool for switch state anim
 
 # HUD
-signal hud_note_show(type, text)
-signal hud_note_exited()
+signal hud_note_show(node, type, text)
+signal hud_note_exited(node)
 signal hud_dialog_show(name, nameColor, text, isMultipage)
 signal hud_dialog_exited()
 signal hud_notification_show(type, node) #Types.HudNotificationType, self reference

@@ -20,6 +20,7 @@ var multipage: bool
 
 onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
+var emittingNode = null
 
 func _ready():
 	$AlarmIndicator/Label.set_text(str(detected_value))
@@ -154,12 +155,13 @@ func allowedDetectionsUpdate(value) -> void:
 	$AlarmIndicator/Label.set_text(str(detected_value))
 
 	
-func showNote(type, text):
+func showNote(node, type, text):
 	if type == Types.NoteType.Local:
 		$Note.texture = preload("res://Assets/HUD/NoteLocal.png")
 	else:
 		$Note.texture = preload("res://Assets/HUD/Note.png")
 
+	emittingNode = node
 	$Note/Text.bbcode_text = str(text)
 	Events.emit_signal("play_sound", "note_open")
 	$Note.show()
@@ -246,7 +248,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("close_menu"):
 		if $Note.visible:
 			$Note.hide()
-			Events.emit_signal("hud_note_exited")
+			Events.emit_signal("hud_note_exited", emittingNode)
 		elif $Dialog.visible:
 			Events.emit_signal("hide_dialog")
 		elif $IngameMenu.visible:
@@ -266,7 +268,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("interact"):
 		if $Note.visible:
 			$Note.hide()
-			Events.emit_signal("hud_note_exited")
+			Events.emit_signal("hud_note_exited", emittingNode)
 
 	if levelHint != "":
 		if not $Dialog.visible:
