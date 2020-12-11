@@ -50,4 +50,11 @@ Requires: WP-1
 
 - Implement Elite Guard as described
 
+## WP-8 Multi Language Support
+
+- Add Multi Language Support
+- Add mechanism for Notes
+- Add mechanism for dialogues
+- Add mechanism for safe code. The code shall be random 2 digit wise like 4242 or 6565 generated on level ready. The code must be assigned on safe as well as on the note
+
 # Closed
