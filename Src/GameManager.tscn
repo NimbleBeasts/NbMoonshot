@@ -34,6 +34,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -50,11 +51,10 @@ audio_listener_enable_2d = true
 pause_mode = 1
 
 [node name="menuViewport" type="ViewportContainer" parent="."]
-anchor_left = 0.00787449
-anchor_top = 0.00349986
-anchor_right = 1.00787
-anchor_bottom = 1.0035
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
