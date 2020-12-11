@@ -5,6 +5,7 @@ export(Array, NodePath) var deactivateAble = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#warning-ignore:return_value_discarded
 	$WireCutSpawner.connect("minigame_succeeded", self, "wireCutSuccess")
 
 

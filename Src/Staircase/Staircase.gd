@@ -8,6 +8,7 @@ var open: bool = false
 export var door_name : String = ""
 
 func _ready():
+	#warning-ignore:return_value_discarded
 	animPlayer.connect("animation_finished", self, "onAnimationFinished")
 	#lockLevel = DoorLockType.locked
 	$Sprite.frame = 0
@@ -43,7 +44,7 @@ func interact() -> void:
 		print("Trying to teleport but no connected door for " + name)
 		
 
-func onAnimationFinished(animName: String) -> void:
+func onAnimationFinished(_animName: String) -> void:
 	if open:
 		player.global_position = connected_door.get_node("PlayerTeleportPosition").global_position
 		connected_door.animPlayer.play_backwards("open")

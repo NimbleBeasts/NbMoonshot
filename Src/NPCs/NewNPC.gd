@@ -1,7 +1,7 @@
 class_name NewNPC
 extends Area2D
 
-signal read_all_dialog
+signal read_all_dialog #TODO: necessary?
 
 export (String, FILE) var dialoguePath: String
 export var npcName: String
@@ -23,7 +23,9 @@ func _ready() -> void:
 	Events.connect("dialog_button_pressed", self, "onDialogButtonPressed")
 
 	Events.connect("hide_dialog", self, "onDialogHidden")
+	#warning-ignore:return_value_discarded
 	connect("body_entered", self, "onBodyEntered")
+	#warning-ignore:return_value_discarded
 	connect("body_exited", self, "onBodyExited")
 	loadDialogue()
 	currentBranch = loadedDialogue["%s0" % interactedCounter]

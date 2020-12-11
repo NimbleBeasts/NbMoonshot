@@ -4,10 +4,11 @@ var retryCounter = 3
 
 func _ready():
 	if Global.NB_PLUGIN_CONFIG.devlogUrl.length() > 0:
+		#warning-ignore:return_value_discarded
 		$HTTPRequest.connect("request_completed", self, "requestLogComplete")
 		$HTTPRequest.request(Global.NB_PLUGIN_CONFIG.devlogUrl)
 
-func requestLogComplete(result, response_code, headers, body):
+func requestLogComplete(_result, response_code, _headers, body):
 	if response_code == 200:
 		self.bbcode_text = body.get_string_from_utf8()
 	else:
@@ -27,4 +28,5 @@ func _on_RetryDelayTimer_timeout():
 
 
 func _on_DevLogViewer_meta_clicked(meta):
+	#warning-ignore:return_value_discarded
 	OS.shell_open(meta)

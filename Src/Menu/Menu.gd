@@ -159,6 +159,7 @@ func _on_ButtonLoad3_button_up():
 
 
 func _on_Copyright_meta_clicked(meta):
+	#warning-ignore:return_value_discarded
 	OS.shell_open(meta)
 
 

@@ -6,7 +6,7 @@ var player = null
 func _ready():
 	set_process(false)
 
-func _process(delta):
+func _process(_delta):
 	if player:
 		if Input.is_action_just_pressed("interact"):
 			Events.emit_signal("hud_upgrade_window_show")

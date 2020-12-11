@@ -23,6 +23,7 @@ onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
 func _ready():
 	$AlarmIndicator/Label.set_text(str(detected_value))
+	#warning-ignore:return_value_discarded
 	dialogTypeTimer.connect("timeout", self, "onDialogTypeTimerTimeout")
 	Events.connect("visible_level_changed", self, "updateLightLevel")
 	Events.connect("audio_level_changed", self, "updateAudioLevel")
@@ -69,7 +70,7 @@ func showGameHintNotification(text):
 	$GameHintNotification.show()
 	$GameHintNotification/GameHintAnimationPlayer.play("pop")
 
-func _on_GameHintAnimationPlayer_animation_finished(anim_name):
+func _on_GameHintAnimationPlayer_animation_finished(_anim_name):
 	$GameHintNotification.hide()
 
 
@@ -78,7 +79,7 @@ func showGameOverNotification():
 	$GameOverNotification/GameOverNotifcationAnimationPlayer.play("pop")
 
 	
-func _on_GameOverNotifcationAnimationPlayer_animation_finished(anim_name):
+func _on_GameOverNotifcationAnimationPlayer_animation_finished(_anim_name):
 	$GameOverNotification.hide()
 	Events.emit_signal("hud_game_over_exited")
 
@@ -140,7 +141,7 @@ func taserUpdate(value):
 	$ChargeIndicator/Label.set_text(str(value))
 
 
-func alarmIndication(value):
+func alarmIndication(_value): #TODO: providing a value is superfluous 
 	if detected_value - 1 >= 0:
 		detected_value -= 1
 		$DetectFlash/AnimationPlayer.play("detection")
@@ -304,7 +305,7 @@ func updateLightLevel(newLightLevel):
 			print("HUD: Illegal light level provided")
 	
 
-func updateAudioLevel(newAudioLevel, audio_pos): #TODO: audio_pos needed?
+func updateAudioLevel(newAudioLevel, _audio_pos): #TODO: audio_pos needed?
 	if newAudioLevel >= 0 and newAudioLevel < Types.AudioLevels.size():
 		$AudioIndicator.frame = newAudioLevel
 	else:

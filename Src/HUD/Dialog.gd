@@ -6,13 +6,17 @@ var noBranchFocusDelayTimer: Timer = Timer.new()
 
 func _ready() -> void:
 	add_child(noBranchFocusDelayTimer)
+	#warning-ignore:return_value_discarded
 	noBranchFocusDelayTimer.connect("timeout", self, "onNoBranchFocusDelayTimeout")
 	noBranchFocusDelayTimer.one_shot = true
 	Events.connect("update_branch_button_state", self, "changeOptionButtonsState")
 	Events.connect("update_no_branch_button_state", self, "changeNoBranchButtonState")
 	Events.connect("update_dialog_option", self, "onUpdateDialogOption")
+	#warning-ignore:return_value_discarded
 	$Option0Button.connect("button_up", self, "onOption0ButtonUp")
+	#warning-ignore:return_value_discarded
 	$Option1Button.connect("button_up", self, "onOption1ButtonUp")
+	#warning-ignore:return_value_discarded
 	$NoBranchButton.connect("button_up", self, "onNoBranchButtonPressed")
 	Events.connect("dialog_typing_changed", self, "onDialogTypingChanged")
 	changeNoBranchButtonState(false)

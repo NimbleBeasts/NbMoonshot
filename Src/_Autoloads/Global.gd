@@ -201,7 +201,7 @@ func loadConfig():
 
 # Config Migration
 func migrateConfig(data):
-	for i in range(data.configVersion, CONFIG_VERSION):
+	for _i in range(data.configVersion, CONFIG_VERSION):
 		match str(data.configVersion):
 			"0":
 				#update config here

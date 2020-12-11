@@ -33,6 +33,7 @@ onready var player = Global.player
 
 func _ready() -> void:
 	global_position.y -= 2 
+	#warning-ignore:return_value_discarded
 	goBackToNormalTimer.connect("timeout", self, "onGoBackToNormalTimeout")
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
@@ -75,7 +76,7 @@ func _process(_delta: float) -> void:
 			set_state(Types.GuardStates.PlayerDetected)
 			
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if player_in_los:
 		if losRayIsCollidingWithPlayer(): # ray checking
 			playerDetectLOS()

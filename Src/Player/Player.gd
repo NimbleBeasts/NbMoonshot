@@ -91,7 +91,7 @@ func _process(_delta: float) -> void:
 	# wall dodging
 	if not block_input:
 		if Input.is_action_pressed("wall_dodge"):
-			setVisibleLevel(max(light_level - 1, 0))
+			setVisibleLevel(int(max(light_level - 1, 0)))
 			set_state(Types.PlayerStates.WallDodge)
 			block_input = true if (not has_sneak_upgrade) else false
 	if Input.is_action_just_released("wall_dodge"):

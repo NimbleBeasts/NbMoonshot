@@ -66,7 +66,7 @@ func _ready():
 		Events.emit_signal("hud_update_money", 0, 0)
 
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if can_change_level() == true: # putting this in process T_T
 		Events.emit_signal("hud_game_hint", "Mission Complete - Return to HQ")
 		set_process(false)

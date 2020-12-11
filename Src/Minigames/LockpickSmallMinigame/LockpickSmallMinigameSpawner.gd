@@ -27,5 +27,5 @@ func run_minigame(_door_name, _lock_level, _run_anim):
 		minigame.open()
 
 #off porccess pass cuz we will call this from door itself
-func _base_process(delta):
+func _base_process(_delta):
 	pass

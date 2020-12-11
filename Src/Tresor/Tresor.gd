@@ -16,15 +16,15 @@ func getProgessState():
 	return isUsed
 	
 func _ready():
-	#warning-ignore:return_value_discarded
-	
 	match minigameType:
 		Types.Minigames.Keypad:
 			$MinigameSpawner.set_script(keypadSpawnerScript)
+			#warning-ignore:return_value_discarded
 			$MinigameSpawner.connect("minigame_succeeded", self, "openTresor")
 			$MinigameSpawner.lock_code = keyPadCode
 		Types.Minigames.Lockpick:
 			$MinigameSpawner.set_script(lockpickSpawnerScript)
+			#warning-ignore:return_value_discarded
 			$MinigameSpawner.connect("minigame_succeeded", self, "openTresor")
 
 
