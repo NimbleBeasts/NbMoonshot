@@ -5,6 +5,7 @@ export var leftOffset: Vector2
 var guard: Guard
 onready var player: Player = get_parent()
 
+
 func _ready() -> void:
 	set_process(false)
 	connect("body_entered", self, "onBodyEntered")
