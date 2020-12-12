@@ -25,11 +25,14 @@ var guard_green_texture: Texture = preload("res://Assets/Guards/GuardGreen.png")
 var guardPathLine
 var playerVisibility: int 
 var guardInSight: Guard
+var isSleeping: bool
 
 onready var los_area: Area2D = $Flippable/LineOfSight
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
 onready var losRay: RayCast2D = $Flippable/LOSRay
 onready var player = Global.player
+onready var animPlayer: AnimationPlayer = $AnimationPlayer
+
 
 func _ready() -> void:
 	global_position.y -= 2 
@@ -107,7 +110,7 @@ func stun(duration: float) -> void:
 	player_in_los = false
 	$AnimationPlayer.play("tasered")
 	# timer stuff
-	$StunDurationTimer.start(duration)
+	# $StunDurationTimer.start(duration)
 	$SureDetectionTimer.stop()
 	$Notifier.remove()
 	player_detected = false
@@ -119,6 +122,7 @@ func unstun() -> void:
 	$Notifier.remove()
 	set_process(true)
 	set_physics_process(true)
+	isSleeping = false
 
 	
 func playerDetectLOS() -> void:
@@ -246,6 +250,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			if not $Notifier.isShowing:
 				$Notifier.popup(Types.NotifierTypes.Question)
 			Global.startTimerOnce(goBackToNormalTimer)
+		"tasered":
+			isSleeping = true
 
 
 func onGoBackToNormalTimeout() -> void:

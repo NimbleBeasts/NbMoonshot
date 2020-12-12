@@ -133,7 +133,7 @@ position = Vector2( 0, 2 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 hframes = 17
-frame = 10
+frame = 15
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
 position = Vector2( 11.0983, -22.2613 )

@@ -234,17 +234,15 @@ func showUpgrade():
 
 
 func showDialog(pname: String, nameColor: String, text: String, isMultipage: bool = false):
+	nextText = ""
+	nextName = ""
+	nextNameColor = ""
 	 # for multipage dialogue, checks if new line and stores the text after the new line in nextText and other info in variables
 	if "\n" in text:
 		nextText = text.substr(text.find("\n") + 1)
 		text.erase(text.find("\n"), 300) # erases from original text so that it won't have the next page text
 		nextName = pname
 		nextNameColor = nameColor
-	else:
-		nextText = ""
-		nextName = ""
-		nextNameColor = ""
-
 		
 	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
 	$Dialog/Text.visible_characters = pname.length()

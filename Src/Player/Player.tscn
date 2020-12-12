@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Src/Player/PlayerCamera.gd" type="Script" id=3]
+[ext_resource path="res://Src/Player/GuardPickUp.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -260,6 +261,9 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5 ]
 }
 
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 17.6035, 14.6427 )
+
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
@@ -383,4 +387,12 @@ anims/walk = SubResource( 17 )
 
 [node name="FootstepTimer" type="Timer" parent="."]
 wait_time = 0.25
+
+[node name="GuardPickup" type="Area2D" parent="."]
+collision_mask = 32
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardPickup"]
+position = Vector2( 1.05208, -13.9461 )
+shape = SubResource( 18 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
