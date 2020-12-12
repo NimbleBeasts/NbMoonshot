@@ -270,17 +270,20 @@ func _physics_process(_delta):
 			Events.emit_signal("hud_note_exited", emittingNode)
 		elif $Dialog.visible:
 			Events.emit_signal("hide_dialog")
-		elif $IngameMenu.visible:
-			hideMenu()
 		elif $Upgrades.visible:
 			$Upgrades.hide()
 			Events.emit_signal("unblock_player_movement")
 		elif $SaveGame.visible:
 			onHideSave()
+
+			
+	if Input.is_action_just_pressed("menu"):
+		if $IngameMenu.visible:
+			hideMenu()
 		else:
 			showMenu()
 
-			
+		
 	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length() and $Dialog.visible)
 
 	# hide when press E in note

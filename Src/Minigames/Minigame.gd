@@ -27,11 +27,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if owner_obj:
 		if owner_obj.player_entered: # only can interact if player close to owner door
-			if Input.is_action_just_pressed("open_minigame") and not is_open:
+			if Input.is_action_just_pressed("interact") and not is_open:
 				open()
 			
 			# closes minigame if either close button is pressed OR
-			if Input.is_action_just_pressed("close_minigame") and canCloseMinigame:
+			if Input.is_action_just_pressed("cancel") and canCloseMinigame:
 				close()
 
 

@@ -14,6 +14,7 @@ var currentBranch
 var player: Player
 var interactedCounter = 0 
 var nextDialogue: String
+var sayingDialogue: bool
 
 # gonna comment this .... later 
 
@@ -39,6 +40,14 @@ func _input(event: InputEvent) -> void:
 		Events.emit_signal("interacted_with_npc", self)
 		Events.emit_signal("block_player_movement")
 		set_process_input(false)
+		sayingDialogue = true
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("cancel") and sayingDialogue:
+			if currentBranch.has("lastDialogue"):
+				currentBranch = loadedDialogue.get(currentBranch["lastDialogue"])
+				sayBranch(currentBranch)
 
 
 func onNoBranchButtonPressed() -> void:
@@ -73,12 +82,14 @@ func onDialogButtonPressed(buttonType: int) -> void:
 func onBodyEntered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		set_process_input(true)
+		set_process(true)
 		player = body
 
 
 func onBodyExited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		set_process_input(false)
+		set_process(false)
 		player = null
 
 
@@ -131,6 +142,7 @@ func setInteractedCounter(value: int) -> void:
 func exitDialogue() -> void:
 	checkForQuests()
 	Events.emit_signal("hide_dialog")
+	sayingDialogue = false
 
 	
 func onDialogHidden() -> void:

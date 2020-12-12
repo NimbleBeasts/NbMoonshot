@@ -226,7 +226,7 @@ func travel(target_pos: float) -> void:
 	
 
 func stunning() -> void:
-	if Input.is_action_just_pressed("stun"):
+	if Input.is_action_just_pressed("weapon"):
 		$AnimationPlayer.play("taser")
 		Events.emit_signal("play_sound", "taser_deploy")
 		if stun_raycast.is_colliding():
