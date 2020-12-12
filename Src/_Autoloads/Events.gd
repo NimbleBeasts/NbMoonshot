@@ -109,6 +109,12 @@ signal player_state_changed(newState)
 # Level
 signal game_over()
 
+# Holding selection button for 0.6 seconds
+signal held_selection()
+
+
+signal switched_weapon(newWeaponIndex)
+
 ###############################################################################
 
 # Global Event Connect Function
@@ -127,3 +133,4 @@ func debugGetSignalConnectionList(tSignal: String):
 func connect_signal(tSignal: String, target: Object, method: String):
 	#warning-ignore:return_value_discarded
 	connect(tSignal, target, method)
+
