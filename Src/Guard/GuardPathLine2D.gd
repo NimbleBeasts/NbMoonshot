@@ -3,6 +3,8 @@ class_name GuardPathLine
 
 # reworked this to remove all yields and be less magic - knightmare
 
+signal next_point_reached
+
 export var stop_time: float = 1.5
 var global_points: Array = []
 var next_point: Vector2
@@ -40,6 +42,7 @@ func _process(delta: float) -> void:
 			guard.direction.x = 0
 			if not is_next_point_reached:
 				is_next_point_reached = true
+				emit_signal("next_point_reached")
 				moveToNextPoint()
 
 

@@ -26,6 +26,7 @@ var guardPathLine
 var playerVisibility: int 
 var guardInSight: Guard
 var isSleeping: bool
+var isMovingToPlayer: bool
 
 onready var los_area: Area2D = $Flippable/LineOfSight
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
@@ -54,6 +55,8 @@ func _ready() -> void:
 
 	direction.x = 0
 	guardPathLine = get_node("GuardPathLine")
+	guardPathLine.connect("next_point_reached", self, "onGuardPathLinePointReached")
+
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
@@ -209,7 +212,7 @@ func set_state(new_state) -> void:
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
 				guardPathLine.moveToPoint(playerLastSeenPosition)
-				Global.startTimerOnce(goBackToNormalTimer)
+				isMovingToPlayer = true
 			Types.GuardStates.Wander:
 				$Notifier.remove()
 				guardPathLine.startNormalMovement()
@@ -261,3 +264,9 @@ func onGoBackToNormalTimeout() -> void:
 
 func onVisibleLevelChanged(newLevel: int) -> void:
 	playerVisibility = newLevel
+
+
+func onGuardPathLinePointReached() -> void:
+	if isMovingToPlayer:
+		set_state(Types.GuardStates.Wander)
+		isMovingToPlayer = false
