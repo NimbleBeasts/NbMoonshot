@@ -29,14 +29,14 @@ After every successful mission the player returns to the HQ and sees instead of 
 After each (default story) mission points will be added to the nations, e.g.:
 
 - Ustria: 10 pts
-- UdSSR: 5 pts
+- USSR: 5 pts
 - USA: 5-20 pts in nonlinear function
 
 There can be 3 outcomes in the space race:
 
 - If the player does not sabotage at all USA will win.
-- If the player only sabotages the USA, UdSSR will win.
-- Player has to meet a perfect match to let Ustria win (e.g. at least 3x USA; 2x UdSSR)
+- If the player only sabotages the USA, USSR will win.
+- Player has to meet a perfect match to let Ustria win (e.g. at least 3x USA; 2x USSR)
 
 There is an alternate secret ending when you do flirting with the secretary.
 
@@ -49,37 +49,67 @@ Total Missions: 20 linear, 10 sabotages, 1 love
 
 ### Linear Story Missions
 
-| #   | Title | Desc                          | Location |
-| --- | ----- | ----------------------------- | -------- |
-| 0   |       | HQ Trainingsmission           | Ustria   |
-| 1   |       | Rocket 1                      | UdSSR    |
-| 2   |       | Rocket 2                      | UdSSR    |
-| 3   |       | Rocket 3                      | UdSSR    |
-| 4   |       | Affaire                       | Ustria   |
-| 5   |       | Affaire 2                     | Ustria   |
-| 6   |       | Rocket 4                      | UdSSR    |
-| 7   |       | Rocket 5                      | UdSSR    |
-| 8   |       | Affaire 3                     | Ustria   |
-| 9   |       |                               | USA      |
-| 10  |       |                               | UdSSR    |
-| 11  |       |                               | USA      |
-| 12  |       |                               | USA      |
-| 13  |       |                               | USA      |
-| 14  |       |                               | USA      |
-| 15  |       |                               | UdSSR    |
-| 16  |       |                               | UdSSR    |
-| 17  |       | Apollo 1                      | USA      |
-| 18  |       | Apollo 2                      | USA      |
-| 19  |       | Apollo 3                      | USA      |
-| 20  |       | Epic Showdown, but no idea :) | Ustria   |
+Please note that the level difficulty shall rise.
+
+| #   | Title | Desc                          | Location | Add.              |
+| --- | ----- | ----------------------------- | -------- | ----------------- |
+| 0   |       | HQ Trainingsmission           | Ustria   | HQ Level from Jam |
+| 1   |       | Rocket 1                      | USSR     | L1 from Jam       |
+| 2   |       | Rocket 2                      | USSR     | to be created     |
+| 3   |       | Chimpanzee                    | USA      | to be created     |
+| 4   |       | Affaire                       | Ustria   | L3 from Jam       |
+| 5   |       | Affaire 2                     | Ustria   | to be created     |
+| 6   |       | Rocket 3                      | USSR     | L2 from Jam       |
+| 7   |       | Affaire 3                     | Ustria   | to be created     |
+| 8   |       | Rocket 4                      | USSR     | to be created     |
+| 9   |       |                               | USA      | not yet defined   |
+| 10  |       |                               | USSR     | not yet defined   |
+| 11  |       |                               | USA      | not yet defined   |
+| 12  |       |                               | USA      | not yet defined   |
+| 13  |       |                               | USA      | not yet defined   |
+| 14  |       |                               | USA      | not yet defined   |
+| 15  |       |                               | USSR     | not yet defined   |
+| 16  |       |                               | USSR     | not yet defined   |
+| 17  |       | Apollo 1                      | USA      | L4 from Jam       |
+| 18  |       | Apollo 2                      | USA      | L5 from Jam       |
+| 19  |       | Apollo 3                      | USA      | not yet defined   |
+| 20  |       | Epic Showdown, but no idea :) | Ustria   | not yet defined   |
 
 #### Substories
 
+##### Rocket 1
+
+May, 28 1961 (somedays after speech of Kennedy)
+Ustria Intel came to the conclussion, that russian space tech is the most advanced. As Yuri Gagarin was the first man in space and human in orbit fly.
+Player shall look for plans of the Vostok-K 8K72K rocket and steal it from a safe.
+
+##### Rocket 2
+
+September 1961
+After Vostok 2 mission Vostok-2 mission (Gherman Titov spend one day in space), the intel want documents about the effect of space flight on the human body and has to infiltrate a soviet military hospital and look for the documents in file cabines.
+
+##### Chimpanzee
+
+November 27, 1961
+The intel has reported that Mercury-Atlas 5 will be the first manned US mission to orbit the Earth. The goal is to infiltrate the NASA lab training site and take pictures of it. To actually get an understanding how they prepare their astronauts.
+Turns out "Enzo" is not a man but a chimpanzee.
+
 ##### Affaire
 
+1962
 Affaire: Same thing as before go after boss wife
 Affaire 2: Your boss wants you to infiltrate the affaires house, taser him and bring the body to the car.
 Affaire 3: You have to infiltrate a law firm and steal the marriage contract from the safe.
+
+##### Rocket 3
+
+Early 1962
+Ustria is about to completet the rocket but Intel told that USSR is developing a new booster for the Vostok-K rockets. The player has to steal the plans.
+
+##### Rocket 4
+
+Later 1962
+Ustria finished the rocket and is launching a first unmaned flight but the control unit does not work. So the player has to steal one from USSR as theirs is 100% compatible. Player needs to carry out a blackbox from the building.
 
 ### Sabotage Missions
 
@@ -95,7 +125,7 @@ There shall be at least 5 sabotage missions available per nation.
 | 4 | | |
 | 5 | | |
 
-**UdSSR**
+**USSR**
 | # | Title | Desc |
 | --- | ----- | ------------------- |
 | 1 | | |
@@ -382,7 +412,7 @@ Im not sure rn if we shall integrate this. As the game ment to be played slow.
 | ---------- | -------------------------------------------------------------------- |
 | RaceScreen | A screen for the screen race                                         |
 | UsaWin     | Maybe actual moon landing screen                                     |
-| UdSSRWin   | Maybe a soyuz rocket flying to the moon                              |
+| USSRWin    | Maybe a soyuz rocket flying to the moon                              |
 | UstriaWin  | Some flappy variant of the US moon landing with duct tape and stuff  |
 | LoveWin    | Some Caribean beach where a couple (silhouette) walks in the sundown |
 

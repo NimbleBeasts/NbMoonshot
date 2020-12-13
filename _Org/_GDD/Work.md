@@ -15,29 +15,6 @@ Pick your task, enter your name and move it to "In progress". In this file you f
 - Implement picking up body (no anim yet, just stick the guard to the player for now)
 - Implement laying down body
 
-# Backlog
-
-## WP-2 Stone & Meat Throw
-
-- Implement stone throw meachnism
-- Implement drawing predicted flying curve (guess line2d)
-- Hitting the floor will result in a "sound" which shall distract the guards
-- Guard distraction shall be adapted if not working correctly
-- Dogs are unaffected by stones, but react to meat
-
-Requires: WP-1, WP-5, WP-6
-
-## WP-3 Mission Progress Screen
-
-- Implement the mission progress screen as described
-- TODO: curve has to be defined
-
-## WP-4 Moveable Camera
-
-- Implement as described
-
-Requires: WP-1
-
 ## WP-5 Dog
 
 - Implement Dog as described
@@ -49,6 +26,29 @@ Requires: WP-1
 ## WP-7 Elite Guard
 
 - Implement Elite Guard as described
+
+## WP-4 Moveable Camera
+
+- Implement as described
+
+Requires: WP-1
+
+## WP-2 Stone & Meat Throw
+
+- Implement stone throw meachnism
+- Implement drawing predicted flying curve (guess line2d)
+- Hitting the floor will result in a "sound" which shall distract the guards
+- Guard distraction shall be adapted if not working correctly
+- Dogs are unaffected by stones, but react to meat
+
+Requires: WP-1, WP-5, WP-6
+
+# Backlog
+
+## WP-3 Mission Progress Screen
+
+- Implement the mission progress screen as described
+- TODO: curve has to be defined
 
 ## WP-8 Multi Language Support
 
