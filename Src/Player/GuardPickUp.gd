@@ -39,3 +39,8 @@ func onBodyExited(body: Node) -> void:
 		guard = null
 		set_process(false)
 
+
+func stopDragging() -> void:
+	if guard:
+		guard.state = Types.GuardStates.Stunned
+

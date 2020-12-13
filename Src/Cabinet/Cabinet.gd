@@ -7,7 +7,7 @@ export(CabinetType) var type = CabinetType.Blue
 export(bool) var hasBounty = false
 
 var isUsed = false
-var playerInRange = false
+var playerInRange
 var loot = 0
 
 func getProgessState():
@@ -25,7 +25,7 @@ func _ready():
 
 
 func _process(_delta):
-	if playerInRange:
+	if playerInRange and playerInRange.state != Types.PlayerStates.DraggingGuard:
 		if Input.is_action_just_pressed("open_minigame"):
 			if hasBounty and not isUsed:
 				# Add money popup anim
@@ -42,11 +42,11 @@ func _process(_delta):
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
-		playerInRange = true
+		playerInRange = body
 		set_process(true)
 
 
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("Player"):
-		playerInRange = false
+		playerInRange = null
 		set_process(false)

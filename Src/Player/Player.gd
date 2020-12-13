@@ -82,55 +82,45 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	Global.screen_center = global_position
-	
+
 
 	if state != Types.PlayerStates.WallDodge or isSneaking:
 		update_light_level()
 
 
 	# wall dodging
-	if not block_input:
-		if Input.is_action_pressed("wall_dodge"):
-			setVisibleLevel(int(max(light_level - 1, 0)))
-			set_state(Types.PlayerStates.WallDodge)
-			block_input = true if (not has_sneak_upgrade) else false
-	if Input.is_action_just_released("wall_dodge"):
+	if Input.is_action_pressed("wall_dodge") and not block_input:
+		setVisibleLevel(int(max(light_level - 1, 0)))
+		set_state(Types.PlayerStates.WallDodge)
+		block_input = true if (not has_sneak_upgrade) else false
+	if Input.is_action_just_released("wall_dodge") and state == Types.PlayerStates.WallDodge:
 		setVisibleLevel(light_level)
 		set_state(Types.PlayerStates.Normal)
 		isSneaking = false
 
 	# ducking 
-	if not block_input:
-		if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
-			set_state(Types.PlayerStates.Duck)
-	if Input.is_action_just_released("duck"):
+	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding() and not block_input:
+		set_state(Types.PlayerStates.Duck)
+	if Input.is_action_just_released("duck") and state == Types.PlayerStates.Duck:
 		set_state(Types.PlayerStates.Normal)
 
+
 	# duck walking animation
-	if state == Types.PlayerStates.Duck and direction != Vector2(0,0):
+	if state == Types.PlayerStates.Duck and abs(velocity.x) != 0:
 		$AnimationPlayer.play("duck_walk")
-	elif state == Types.PlayerStates.Duck and direction == Vector2(0,0):
+	elif state == Types.PlayerStates.Duck and abs(velocity.x) == 0:
 		$AnimationPlayer.play("duck")
 	
 	# wall dodging animation
-	if state == Types.PlayerStates.WallDodge and direction != Vector2(0,0):
+	if state == Types.PlayerStates.WallDodge and abs(velocity.x) != 0:
 		$AnimationPlayer.play("dodge_walk")
 		isSneaking = true
-	elif state == Types.PlayerStates.WallDodge and direction == Vector2(0,0):
+	elif state == Types.PlayerStates.WallDodge and abs(velocity.x) == 0:
 		$AnimationPlayer.play("dodge")
 		isSneaking = false
 
 	
 func _physics_process(delta: float) -> void:
-	# change speed
-	if state == Types.PlayerStates.Duck or state == Types.PlayerStates.WallDodge:
-		speed = duckSpeed
-		acceleration = duckAcceleration
-	else:
-		speed = normal_speed
-		acceleration = normal_acceleration
-
-		
 	# changed between speeds depending on whether sprinting or not
 	if Input.is_action_pressed("sprint") and canSprint and state == Types.PlayerStates.Normal:
 		speed = sprint_speed
@@ -310,14 +300,27 @@ func set_state(value: int) -> void:
 		Events.emit_signal("player_state_changed", state)
 		match state:
 			Types.PlayerStates.Normal:
+				$GuardPickup.stopDragging()
+				speed = normal_speed
+				acceleration = normal_acceleration
 				$AnimationPlayer.play("idle")
 				block_input = false
-				get_tree().set_group("DuckColliders", "disabled", true)
-				get_tree().set_group("NormalColliders", "disabled", false)
+				enableNormalColliders()
 			Types.PlayerStates.Duck:
-				get_tree().set_group("DuckColliders", "disabled", false)
-				get_tree().set_group("NormalColliders", "disabled", true)
-
+				$GuardPickup.stopDragging()
+				speed = duckSpeed
+				acceleration = duckAcceleration
+				enableDuckColliders()
+			Types.PlayerStates.WallDodge:
+				enableNormalColliders()
+				$GuardPickup.stopDragging()
+				speed = duckSpeed
+				acceleration = duckAcceleration
+			Types.PlayerStates.DraggingGuard:
+				enableNormalColliders()
+				speed = duckSpeed
+				acceleration = duckAcceleration
+				
 
 # Change animation
 func animation_change(to: String) -> void:
@@ -352,3 +355,13 @@ func setVisibleLevel(value: int) -> void:
 	if visible_level != value:
 		visible_level = value
 		Events.emit_signal("visible_level_changed", visible_level)
+
+
+func enableNormalColliders() -> void:
+	get_tree().set_group("DuckColliders", "disabled", true)
+	get_tree().set_group("NormalColliders", "disabled", false)
+
+
+func enableDuckColliders() -> void:
+	get_tree().set_group("DuckColliders", "disabled", false)
+	get_tree().set_group("NormalColliders", "disabled", true)

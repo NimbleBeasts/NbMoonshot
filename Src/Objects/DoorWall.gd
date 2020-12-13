@@ -69,7 +69,7 @@ func interact(run_sub):
 		if not doorIsOpen:
 			
 			#check if player close then open to oposit direction of player
-			if playerNode != null:
+			if playerNode != null and playerNode.state != Types.PlayerStates.DraggingGuard:
 				# Open Animation
 				if playerNode.position.x < self.global_position.x:
 					# Left Side
