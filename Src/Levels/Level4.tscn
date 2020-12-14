@@ -31,8 +31,9 @@
 [ext_resource path="res://Assets/Objects/WallImageEarthMoon.png" type="Texture" id=29]
 [ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Assets/Objects/Worldmap.png" type="Texture" id=31]
-[ext_resource path="res://Src/Guard/GuardPathLine2D.gd" type="Script" id=35]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=35]
 [ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=37]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )

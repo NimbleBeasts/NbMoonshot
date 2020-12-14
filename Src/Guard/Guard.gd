@@ -27,6 +27,7 @@ var playerVisibility: int
 var guardInSight: Guard
 var isSleeping: bool
 var isMovingToPlayer: bool
+var isStunned: bool
 
 onready var los_area: Area2D = $Flippable/LineOfSight
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
@@ -105,6 +106,9 @@ func detectPlayerIfClose() -> void:
 
 # stun function.
 func stun(duration: float) -> void:
+	if state == Types.GuardStates.Stunned:
+		return
+	isStunned = true
 	direction = Vector2(0,0)
 	set_state(Types.GuardStates.Stunned)
 	set_process(false)
@@ -120,6 +124,7 @@ func stun(duration: float) -> void:
 
 
 func unstun() -> void:
+	isStunned = false
 	$AnimationPlayer.play("stand_up")
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
 	$Notifier.remove()
@@ -194,7 +199,6 @@ func _on_audio_level_changed(audio_level: int, audio_pos: Vector2) -> void:
 func set_state(new_state) -> void:
 	if state != new_state:
 		state = new_state
-		
 		# hmmm, i should prob comment this
 		match new_state:
 			Types.GuardStates.PlayerDetected:

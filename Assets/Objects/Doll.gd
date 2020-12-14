@@ -1,6 +1,7 @@
 class_name Doll
 extends KinematicBody2D
 
+var isStunned: bool = false
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -13,3 +14,4 @@ func _ready():
 
 func stun(_d):
 	$AnimationPlayer.play("tasered")
+	

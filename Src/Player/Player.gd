@@ -187,7 +187,7 @@ func _physics_process(delta: float) -> void:
 	# stunning
 	if state == Types.PlayerStates.Normal and stun_battery_level > 0 and not block_input:
 		stunning()
-	
+		
 
 func update_light_level() -> void:
 	# if there are no overlapping areas, just set light_level to dark
@@ -220,22 +220,13 @@ func stunning() -> void:
 		$AnimationPlayer.play("taser")
 		Events.emit_signal("play_sound", "taser_deploy")
 		if stun_raycast.is_colliding():
-			var hit = stun_raycast.get_collider()		
-			
-			if hit.get_script() == Guard:
-				var guard := hit as Guard
-				if (guard) and (not guard.state == Types.GuardStates.Stunned):
-					guard.stun(stun_duration)
-					stun_battery_level -= 1
-					Events.emit_signal("taser_fired", stun_battery_level)
-					Events.emit_signal("play_sound", "taser_hit")
-			if hit.get_script() == Doll:
-				var doll := hit as Doll
-				doll.stun(stun_duration)
+			var hit = stun_raycast.get_collider()	
+			if hit != null and hit.has_method("stun") and not hit.isStunned:
+				hit.stun(stun_duration)
 				stun_battery_level -= 1
 				Events.emit_signal("taser_fired", stun_battery_level)
 				Events.emit_signal("play_sound", "taser_hit")
-
+			
 				
 func do_upgrade_stuff() -> void:
 	# if/ else go brrrrrrrr
