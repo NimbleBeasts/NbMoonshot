@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=6]
+[ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=8]
 [ext_resource path="res://Src/Skybox/UstriaSkybox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
@@ -214,3 +216,10 @@ position = Vector2( -200, 256 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 48, -32 )
 shape = SubResource( 1 )
+
+[node name="Dog" parent="." instance=ExtResource( 7 )]
+position = Vector2( 57.3984, 251.253 )
+
+[node name="DogPathLine" type="Line2D" parent="Dog"]
+points = PoolVector2Array( 5.92296, -10.9913, 26.1797, -11.3326, 56.452, -10.0713 )
+script = ExtResource( 8 )

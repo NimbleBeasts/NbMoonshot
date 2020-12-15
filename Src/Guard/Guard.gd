@@ -27,6 +27,7 @@ var playerVisibility: int
 var guardInSight: Guard
 var isSleeping: bool
 var isMovingToPlayer: bool
+var isStunned: bool
 
 onready var los_area: Area2D = $Flippable/LineOfSight
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
@@ -105,6 +106,9 @@ func detectPlayerIfClose() -> void:
 
 # stun function.
 func stun(duration: float) -> void:
+	if state == Types.GuardStates.Stunned:
+		return
+	isStunned = true
 	direction = Vector2(0,0)
 	set_state(Types.GuardStates.Stunned)
 	set_process(false)
@@ -120,6 +124,7 @@ func stun(duration: float) -> void:
 
 
 func unstun() -> void:
+	isStunned = false
 	$AnimationPlayer.play("stand_up")
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
 	$Notifier.remove()
@@ -139,7 +144,7 @@ func playerDetectLOS() -> void:
 				if not player_detected: # only sets to suspect if hasn't detected player before
 					set_state(Types.GuardStates.Suspect)
 			Types.LightLevels.Dark:
-				if not player_detected: # only sets to wander if hasn't detected player before
+				if not player_detected and not isMovingToPlayer: # only sets to wander if hasn't detected player before
 					set_state(Types.GuardStates.Wander)
 
 					
@@ -147,7 +152,7 @@ func _on_LineOfSight_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 			losRay.set_deferred("enabled", true)
 			if state != Types.GuardStates.Stunned:
-				player_in_los = true		
+				player_in_los = true
 	elif body.is_in_group("Guard"):
 		guardInSight = body
 	
@@ -194,7 +199,6 @@ func _on_audio_level_changed(audio_level: int, audio_pos: Vector2) -> void:
 func set_state(new_state) -> void:
 	if state != new_state:
 		state = new_state
-		
 		# hmmm, i should prob comment this
 		match new_state:
 			Types.GuardStates.PlayerDetected:
@@ -207,7 +211,6 @@ func set_state(new_state) -> void:
 				guardPathLine.stopAllMovement()
 			Types.GuardStates.Suspect:
 				playerLastSeenPosition = player.global_position
-				guardPathLine.stopAllMovement()
 				Events.emit_signal("play_sound", "suspicious")
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
@@ -268,5 +271,6 @@ func onVisibleLevelChanged(newLevel: int) -> void:
 
 func onGuardPathLinePointReached() -> void:
 	if isMovingToPlayer:
-		set_state(Types.GuardStates.Wander)
+		goBackToNormalTimer.wait_time = 1
+		Global.startTimerOnce(goBackToNormalTimer)
 		isMovingToPlayer = false

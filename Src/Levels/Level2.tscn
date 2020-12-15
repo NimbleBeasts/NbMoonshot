@@ -34,9 +34,10 @@
 [ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=32]
 [ext_resource path="res://Src/Objects/Flag.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigameSpawner.gd" type="Script" id=34]
-[ext_resource path="res://Src/Guard/GuardPathLine2D.gd" type="Script" id=35]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=35]
 [ext_resource path="res://Assets/Minigames/KeyPadBackground.png" type="Texture" id=36]
 [ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=37]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

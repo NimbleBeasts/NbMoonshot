@@ -29,3 +29,6 @@ enum LevelTypes {Western, Eastern}
 
 # Dialog
 enum DialogButtons {Option0 = 0, Option1 = 1, NoBranch = 2}
+
+# Dog
+enum DogStates {Idle, Roaming, Sleeping, Suspicious, Detection, Eating, Stunned, Angry}

@@ -34,7 +34,8 @@
 [ext_resource path="res://Assets/Objects/WallImageEarthMoon.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Objects/WallImageSatellite.png" type="Texture" id=33]
 [ext_resource path="res://Src/Objects/Flag.tscn" type="PackedScene" id=34]
-[ext_resource path="res://Src/Guard/GuardPathLine2D.gd" type="Script" id=35]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=35]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

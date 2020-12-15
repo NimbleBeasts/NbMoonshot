@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Src/Player/PlayerCamera.gd" type="Script" id=3]
 [ext_resource path="res://Src/Player/GuardPickUp.gd" type="Script" id=4]
 [ext_resource path="res://Src/Player/WeaponSwitch.gd" type="Script" id=5]
+[ext_resource path="res://Src/Player/DogFeeding.gd" type="Script" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -309,6 +310,7 @@ shape = SubResource( 4 )
 "PlayerArea",
 ]]
 visible = false
+collision_mask = 65
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea" groups=[
 "NormalColliders",
@@ -344,7 +346,7 @@ collide_with_bodies = false
 position = Vector2( 0, -16 )
 enabled = true
 cast_to = Vector2( 20, 0 )
-collision_mask = 32
+collision_mask = 16
 
 [node name="PlayerSprite" type="Sprite" parent="."]
 position = Vector2( 0, -16 )
@@ -401,4 +403,7 @@ shape = SubResource( 18 )
 
 [node name="WeaponSwitch" type="Node" parent="."]
 script = ExtResource( 5 )
+
+[node name="DogFeeding" type="Node" parent="."]
+script = ExtResource( 6 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
