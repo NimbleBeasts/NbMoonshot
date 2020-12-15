@@ -1,3 +1,4 @@
+class_name Dog
 extends KinematicBody2D
 
 export var audioSuspectDistance: int = 50
@@ -50,10 +51,6 @@ func _process(delta: float) -> void:
 	if direction.x != 0:
 		$Flippable.scale.x = direction.x
 
-	if playerEntered:
-		if Input.is_action_just_pressed("interact") and not isFed:
-			fed()
-			
 	if playerInLOS:
 		if $DetectionDelay.wait_time - $DetectionDelay.time_left > 0.3:
 			barkAfterAngry = true
@@ -134,6 +131,10 @@ func setState(newState: int) -> void:
 				print("dog stunned")
 				pathLine.stopAllMovement()
 
+				
+func feed() -> void:
+	print("doggo say: wow am fed now :DDDDDDDDDDDDD")
+
 
 func onPathLineNextPointReached() -> void:
 	if isMovingToPlayer and not playerInLOS and state != Types.DogStates.Detection:
@@ -151,4 +152,5 @@ func onRoamTimeout() -> void:
 
 func onDetectionDelayTimeout() -> void:
 	setState(Types.DogStates.Detection)
+
 

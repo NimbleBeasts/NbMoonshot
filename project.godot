@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
+"class": "Dog",
+"language": "GDScript",
+"path": "res://Src/Dog/Dog.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Doll",
 "language": "GDScript",
 "path": "res://Assets/Objects/Doll.gd"
@@ -95,6 +100,7 @@ _global_script_classes=[ {
 "path": "res://Src/Minigames/WireCutMinigame/WireCutSpawner.gd"
 } ]
 _global_script_class_icons={
+"Dog": "",
 "Doll": "",
 "Door": "",
 "Guard": "",
@@ -294,6 +300,7 @@ menu={
 2d_physics/layer_4="NPC"
 2d_physics/layer_5="Stun"
 2d_physics/layer_6="Guard"
+2d_physics/layer_7="Dog"
 
 [rendering]
 

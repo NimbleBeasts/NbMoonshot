@@ -72,6 +72,9 @@ func _ready() -> void:
 	Events.connect("update_upgrades", self, "do_upgrade_stuff")
 	Events.connect("set_player_state", self, "set_state")
 
+	$PlayerArea.connect("body_entered", $DogFeeding, "onPlayerBodyEntered")
+	$PlayerArea.connect("body_exited", $DogFeeding, "onPlayerBodyExited")
+
 	$AnimationPlayer.play("idle")
 	$FootstepTimer.connect("timeout", self, "onFootstepTimerTimeout")
 	$FootstepTimer.start()
