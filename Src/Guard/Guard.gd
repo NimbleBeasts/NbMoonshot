@@ -144,7 +144,7 @@ func playerDetectLOS() -> void:
 				if not player_detected: # only sets to suspect if hasn't detected player before
 					set_state(Types.GuardStates.Suspect)
 			Types.LightLevels.Dark:
-				if not player_detected: # only sets to wander if hasn't detected player before
+				if not player_detected and not isMovingToPlayer: # only sets to wander if hasn't detected player before
 					set_state(Types.GuardStates.Wander)
 
 					
@@ -152,7 +152,7 @@ func _on_LineOfSight_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 			losRay.set_deferred("enabled", true)
 			if state != Types.GuardStates.Stunned:
-				player_in_los = true		
+				player_in_los = true
 	elif body.is_in_group("Guard"):
 		guardInSight = body
 	
@@ -211,7 +211,6 @@ func set_state(new_state) -> void:
 				guardPathLine.stopAllMovement()
 			Types.GuardStates.Suspect:
 				playerLastSeenPosition = player.global_position
-				guardPathLine.stopAllMovement()
 				Events.emit_signal("play_sound", "suspicious")
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
@@ -272,5 +271,6 @@ func onVisibleLevelChanged(newLevel: int) -> void:
 
 func onGuardPathLinePointReached() -> void:
 	if isMovingToPlayer:
-		set_state(Types.GuardStates.Wander)
+		goBackToNormalTimer.wait_time = 1
+		Global.startTimerOnce(goBackToNormalTimer)
 		isMovingToPlayer = false

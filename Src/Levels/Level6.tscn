@@ -218,9 +218,8 @@ position = Vector2( 48, -32 )
 shape = SubResource( 1 )
 
 [node name="Dog" parent="." instance=ExtResource( 7 )]
-position = Vector2( -24.2921, 256.893 )
+position = Vector2( 57.3984, 251.253 )
 
 [node name="DogPathLine" type="Line2D" parent="Dog"]
-points = PoolVector2Array( 5.69945, -14.9386, 37.8443, -14.5417, 66.8144, -14.9386 )
+points = PoolVector2Array( 5.92296, -10.9913, 26.1797, -11.3326, 56.452, -10.0713 )
 script = ExtResource( 8 )
-stopOnReachedPoint = false
