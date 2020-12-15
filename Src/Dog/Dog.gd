@@ -94,12 +94,6 @@ func onLOSBodyExited(body: Node) -> void:
 			print("escape out of dog sight")
 
 
-func fed() -> void:
-	print("boi fed")
-	$DetectionDelay.stop()
-	isFed = true
-
-
 func setState(newState: int) -> void:
 	if state != newState:
 		state = newState
@@ -130,10 +124,17 @@ func setState(newState: int) -> void:
 			Types.DogStates.Stunned:
 				print("dog stunned")
 				pathLine.stopAllMovement()
+			Types.DogStates.Eating:
+				print("eating now :)")
 
-				
+
 func feed() -> void:
-	print("doggo say: wow am fed now :DDDDDDDDDDDDD")
+	if isFed:
+		return
+		
+	setState(Types.DogStates.Eating)
+	$DetectionDelay.stop()
+	isFed = true
 
 
 func onPathLineNextPointReached() -> void:
