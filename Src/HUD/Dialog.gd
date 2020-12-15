@@ -1,4 +1,4 @@
-extends NinePatchRect
+extends Control
 
 var dialogTyping: bool = false
 var onOption0: bool = false

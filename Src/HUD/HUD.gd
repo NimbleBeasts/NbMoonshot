@@ -247,6 +247,15 @@ func showDialog(pname: String, nameColor: String, text: String, isMultipage: boo
 	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
 	$Dialog/Text.visible_characters = pname.length()
 	$Dialog.show()
+	
+	match nameColor: #TODO replace event param with id and define colors globally
+		"#4c93ad":
+			$Dialog/Sprite.frame = 1
+		"#ce3d38":
+			$Dialog/Sprite.frame = 2
+		_:
+			$Dialog/Sprite.frame = 0
+	
 	currentText = text
 	multipage = isMultipage
 	typeDialog()

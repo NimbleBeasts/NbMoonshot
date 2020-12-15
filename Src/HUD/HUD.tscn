@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Assets/HUD/MenuButton/MenuButton2.png" type="Texture" id=20]
 [ext_resource path="res://Src/HUD/Dialog.gd" type="Script" id=21]
 [ext_resource path="res://Src/Menu/Slider.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Assets/Portraits/Portraits.png" type="Texture" id=23]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -246,68 +247,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DetectFlash"]
 anims/detection = SubResource( 2 )
-
-[node name="Dialog" type="NinePatchRect" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -160.0
-margin_top = -104.0
-margin_right = 160.0
-margin_bottom = -16.0
-texture = ExtResource( 7 )
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-script = ExtResource( 21 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Text" type="RichTextLabel" parent="Dialog"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 4.0
-margin_right = -4.0
-margin_bottom = -4.0
-custom_fonts/normal_font = ExtResource( 14 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_x = 1
-bbcode_enabled = true
-bbcode_text = "Text: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever."
-text = "Text: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever."
-scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DialogueTypeTimer" type="Timer" parent="Dialog"]
-wait_time = 0.03
-
-[node name="Option0Button" parent="Dialog" instance=ExtResource( 16 )]
-margin_left = -39.4645
-margin_top = -21.7071
-margin_right = 88.5355
-margin_bottom = 2.29289
-label = "Button"
-
-[node name="Option1Button" parent="Dialog" instance=ExtResource( 16 )]
-margin_left = 239.709
-margin_top = -19.0919
-margin_right = 367.709
-margin_bottom = 4.90811
-label = "Button"
-
-[node name="NoBranchButton" parent="Dialog" instance=ExtResource( 16 )]
-margin_left = 100.409
-margin_top = -22.6274
-margin_right = 228.409
-margin_bottom = 1.37256
-label = "Button"
 
 [node name="Upgrades" type="NinePatchRect" parent="."]
 visible = false
@@ -589,6 +528,63 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="Dialog" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -128.0
+margin_top = -296.0
+margin_right = 192.0
+margin_bottom = -208.0
+script = ExtResource( 21 )
+
+[node name="Text" type="RichTextLabel" parent="Dialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 8.0
+margin_right = -8.0
+custom_fonts/normal_font = ExtResource( 14 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+bbcode_enabled = true
+bbcode_text = "Text: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever."
+text = "Text: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueTypeTimer" type="Timer" parent="Dialog"]
+wait_time = 0.03
+
+[node name="Option0Button" parent="Dialog" instance=ExtResource( 16 )]
+margin_left = -58.0
+margin_top = 88.0
+margin_right = 70.0
+margin_bottom = 112.0
+label = "Button"
+
+[node name="Option1Button" parent="Dialog" instance=ExtResource( 16 )]
+margin_left = 223.0
+margin_top = 88.0
+margin_right = 351.0
+margin_bottom = 112.0
+label = "Button"
+
+[node name="NoBranchButton" parent="Dialog" instance=ExtResource( 16 )]
+margin_left = 83.8735
+margin_top = 88.0
+margin_right = 211.874
+margin_bottom = 112.0
+label = "Button"
+
+[node name="Sprite" type="Sprite" parent="Dialog"]
+position = Vector2( -32, 32 )
+texture = ExtResource( 23 )
+hframes = 3
 
 [node name="LightIndicator" type="Sprite" parent="."]
 position = Vector2( 616, 24 )
