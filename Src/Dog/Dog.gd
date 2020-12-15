@@ -5,9 +5,6 @@ export var audioSuspectDistance: int = 50
 export var speed: int = 25
 export var detectDistance: int = 50
 export (Types.DogStates) var startingState: int = Types.DogStates.Roaming
-export var sleepTime: float = 10
-export var roamTime: float = 10
-export var detectionDelayDuration: float = 1.6
 
 var state: int
 var direction: Vector2
@@ -22,24 +19,24 @@ var isFed: bool = false
 
 onready var pathLine: PathLine = get_node("DogPathLine")
 onready var losArea: Area2D = $Flippable/LOSArea
+onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
 	setState(startingState)
 
-	$SleepTimer.wait_time = sleepTime
 	$SleepTimer.one_shot = true
-	$RoamTimer.wait_time = roamTime
 	$RoamTimer.one_shot = true
-	$DetectionDelay.wait_time = detectionDelayDuration
 	$DetectionDelay.one_shot = true
+	$BarkTimer.one_shot = true
 
+	$BarkTimer.connect("timeout", self, "onBarkTimeout")
 	$DetectionDelay.connect("timeout", self, "onDetectionDelayTimeout")
 	$RoamTimer.connect("timeout", self, "onRoamTimeout")
 	$SleepTimer.connect("timeout", self, "onSleepTimeout")
-	pathLine.connect("next_point_reached", self, "onPathLineNextPointReached")
 	losArea.connect("body_entered", self, "onLOSBodyEntered")
 	losArea.connect("body_exited", self, "onLOSBodyExited")
+	animPlayer.connect("animation_finished", self, "onAnimationFinished")
 	$Flippable/DogArea.connect("body_entered", self, "onDogBodyEntered")
 	$Flippable/DogArea.connect("body_exited", self, "onDogBodyExited")
 	Events.connect("audio_level_changed", self, "onAudioLevelChanged")
@@ -48,13 +45,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
+
 	if direction.x != 0:
-		$Flippable.scale.x = direction.x
-
-	if playerInLOS:
-		if $DetectionDelay.wait_time - $DetectionDelay.time_left > 0.3:
-			barkAfterAngry = true
-
+		$Flippable.scale.x = direction.normalized().x
+		$AnimationPlayer.play("walk")
+	elif state == Types.DogStates.Roaming:
+		$AnimationPlayer.play("look_around")
+		
 
 func onAudioLevelChanged(newLevel, audioPosition) -> void:
 	if state == Types.DogStates.Detection:
@@ -91,22 +88,25 @@ func onLOSBodyExited(body: Node) -> void:
 		playerInLOS = false
 		if $DetectionDelay.time_left > $DetectionDelay.wait_time - 0.3:
 			$DetectionDelay.stop()
+			setState(Types.DogStates.Roaming)
 			print("escape out of dog sight")
 
-
+			
 func setState(newState: int) -> void:
 	if state != newState:
 		state = newState
 		match newState:
 			Types.DogStates.Angry:
 				pathLine.stopAllMovement()
-				print("play angry sound")
 				Global.startTimerOnce($DetectionDelay)
+				animPlayer.play("grr")
 			Types.DogStates.Sleeping:
+				animPlayer.play("laying_down")
 				Global.startTimerOnce($RoamTimer)
 				pathLine.stopAllMovement()
 				losArea.set_deferred("monitoring", false)
 			Types.DogStates.Roaming:
+				$Notifier.remove()
 				losArea.set_deferred("monitoring", true)
 				pathLine.startNormalMovement()
 				Global.startTimerOnce($SleepTimer)
@@ -116,15 +116,26 @@ func setState(newState: int) -> void:
 				isMovingToPlayer = true
 				$Notifier.popup(Types.NotifierTypes.Question)
 			Types.DogStates.Detection:
+				$SleepTimer.stop()
+				$RoamTimer.stop()
 				Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 				pathLine.stopAllMovement()
 				$Notifier.popup(Types.NotifierTypes.Exclamation)
-				losArea.set_deferred("disabled", true)
+				losArea.set_deferred("monitoring", false)
+				animPlayer.play("alarm")
+				Global.startTimerOnce($BarkTimer)
 				print("bark")
 			Types.DogStates.Stunned:
 				print("dog stunned")
 				pathLine.stopAllMovement()
 			Types.DogStates.Eating:
+				losArea.set_deferred("monitoring", false)
+				pathLine.stopAllMovement()
+				animPlayer.play("eat")
+				$DetectionDelay.stop()
+				$SleepTimer.stop()
+				$RoamTimer.stop()
+				$BarkTimer.stop()
 				print("eating now :)")
 
 
@@ -135,6 +146,11 @@ func feed() -> void:
 	setState(Types.DogStates.Eating)
 	$DetectionDelay.stop()
 	isFed = true
+
+
+func onAnimationFinished(animName: String) -> void:
+	if animName == "eat":
+		animPlayer.play("laying_down")
 
 
 func onPathLineNextPointReached() -> void:
@@ -149,9 +165,12 @@ func onSleepTimeout() -> void:
 
 func onRoamTimeout() -> void:
 	setState(Types.DogStates.Roaming)
+	animPlayer.play("get_up")
 
 
 func onDetectionDelayTimeout() -> void:
 	setState(Types.DogStates.Detection)
 
 
+func onBarkTimeout() -> void:
+	setState(Types.DogStates.Roaming)

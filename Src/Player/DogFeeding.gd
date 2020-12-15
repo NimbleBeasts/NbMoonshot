@@ -11,7 +11,7 @@ func _input(event: InputEvent) -> void:
 	if not event is InputEventKey or dog == null:
 		return
 
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("weapon"):
 		dog.feed()
 	
 

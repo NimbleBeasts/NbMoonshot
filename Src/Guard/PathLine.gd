@@ -5,6 +5,7 @@ class_name PathLine
 
 signal next_point_reached
 
+
 export var stop_time: float = 1.5
 export var stopOnReachedPoint: bool = true
 
