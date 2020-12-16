@@ -8,7 +8,7 @@ var doorIsOpen = false
 var playerNode = null
 
 enum DoorLockType {open, lockedLevel1, lockedLevel2, locked}
-enum DoorType {wooden, metal}
+enum DoorType {wooden, metal, metalSwing}
 
 export(DoorLockType) var lockLevel = DoorLockType.open
 export(DoorType) var doorType = DoorType.wooden
@@ -22,6 +22,8 @@ export (Array)  var sig_to_trig
 func _ready():
 	if doorType == DoorType.metal:
 		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal.png")
+	elif doorType == DoorType.metalSwing:
+		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal2.png")
 	else:
 		$Sprite.texture = preload("res://Assets/Doors/DoorWall.png")
 	set_process(false)
