@@ -1,11 +1,11 @@
 class_name NewNPC
 extends Area2D
 
-signal read_all_dialog #TODO: necessary?
 
 export (String, FILE) var dialoguePath: String
 export var npcName: String
 export var npcColor: String
+export (Types.Potraits) var npcPotrait: int
 
 var loadedDialogue
 var option0Branch
@@ -102,7 +102,7 @@ func loadDialogue() -> void:
 
 func sayBranch(branch: Dictionary) -> void:
 	Events.emit_signal("interacted_with_npc", self)
-	Events.emit_signal("hud_dialog_show", npcName, npcColor, branch["text"])
+	Events.emit_signal("hud_dialog_show", npcName, npcColor, branch["text"], false, npcPotrait)
 	
 	if branch.has("branchID0") and branch.has("branchID1"):
 		Events.emit_signal("update_no_branch_button_state", false)

@@ -8,3 +8,4 @@ func _ready() -> void:
 func onTutorialFinished() -> void:
 	Global.gameState["interactionCounters"]["secretary"] += 1
 	interacted_counter += 1
+	

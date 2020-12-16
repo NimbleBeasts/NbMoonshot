@@ -86,3 +86,4 @@ func onDialogTypingChanged(value: bool) -> void:
 
 func onNoBranchFocusDelayTimeout() -> void:
 	$NoBranchButton.grab_focus()
+

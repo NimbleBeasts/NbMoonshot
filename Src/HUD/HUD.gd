@@ -9,6 +9,8 @@ var detected_value: int
 var nextText: String
 var nextName: String
 var nextNameColor: String
+var nextPotrait: int
+
 var currentText: String
 var hideWithE: bool = false
 var currentSelectedUpgrade: int = 0
@@ -233,28 +235,23 @@ func showUpgrade():
 	$Upgrades.show()
 
 
-func showDialog(pname: String, nameColor: String, text: String, isMultipage: bool = false):
+func showDialog(pname: String, nameColor: String, text: String, isMultipage: bool, portrait: int) -> void:
 	nextText = ""
 	nextName = ""
 	nextNameColor = ""
+	nextPotrait = 0
 	 # for multipage dialogue, checks if new line and stores the text after the new line in nextText and other info in variables
 	if "\n" in text:
 		nextText = text.substr(text.find("\n") + 1)
 		text.erase(text.find("\n"), 300) # erases from original text so that it won't have the next page text
 		nextName = pname
 		nextNameColor = nameColor
-		
+		nextPotrait = portrait
+
 	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
 	$Dialog/Text.visible_characters = pname.length()
 	$Dialog.show()
-	
-	match nameColor: #TODO replace event param with id and define colors globally
-		"#4c93ad":
-			$Dialog/Sprite.frame = 1
-		"#ce3d38":
-			$Dialog/Sprite.frame = 2
-		_:
-			$Dialog/Sprite.frame = 0
+	$Dialog/Sprite.frame = portrait
 	
 	currentText = text
 	multipage = isMultipage
@@ -321,6 +318,7 @@ func showMenu():
 	
 	get_tree().paused = true
 	Events.emit_signal("forcefully_close_minigame")
+
 
 func hideMenu():
 	$IngameMenu.hide()
@@ -478,7 +476,7 @@ func skipDialog() -> void:
 func onNoBranchOptionPressed() -> void:
 	if not dialogIsTyping:
 		if nextText != "":
-			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText, true)
+			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText, true, nextPotrait)
 		elif multipage:
 			Events.emit_signal("hide_dialog")
 
