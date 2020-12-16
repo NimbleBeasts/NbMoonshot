@@ -1,45 +1,44 @@
 [gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
-[ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Objects/Apollo11.png" type="Texture" id=6]
+[ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Skybox/BlueishSkybox.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
-[ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Src/MetalDetector/MetalDetector.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Objects/LargeDoor.png" type="Texture" id=19]
+[ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Src/MetalDetector/MetalDetector.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=17]
+[ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=18]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=19]
 [ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Objects/WallImageEarthMoon.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Objects/WallImageMoonLanding.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Objects/UsaFlagLarge.png" type="Texture" id=24]
-[ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Assets/Objects/Sign.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Objects/WallNasa2.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Objects/Tree2.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=29]
-[ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Assets/Objects/Bush.png" type="Texture" id=31]
-[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=35]
-
+[ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Objects/UsaFlagLarge.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Objects/LargeDoor.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Objects/WallImageMoonLanding.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Objects/WallImageEarthMoon.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Objects/Tree2.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Objects/Sign.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Objects/WallNasa2.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Objects/Apollo11.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Bush.png" type="Texture" id=32]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
 
-[node name="Level5" type="Node2D"]
+[node name="Level18" type="Node2D"]
 script = ExtResource( 1 )
-level_objectives = NodePath("LevelObjects/Tresor")
+level_objectives = NodePath("../Level18/LevelObjects/Tresor")
 
 [node name="BlueishSkybox" parent="." instance=ExtResource( 7 )]
 
@@ -47,7 +46,7 @@ level_objectives = NodePath("LevelObjects/Tresor")
 
 [node name="Rooms" type="TileMap" parent="."]
 light_mask = 3
-tile_set = ExtResource( 13 )
+tile_set = ExtResource( 18 )
 cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 32
 occluder_light_mask = 3
@@ -55,7 +54,7 @@ format = 1
 tile_data = PoolIntArray( 19, 32, 0, 21, 32, 0, 23, 32, 0, 26, 61, 0, 28, 61, 0, 30, 61, 0, 32, 61, 0, 34, 61, 0, 36, 62, 0, 37, 61, 0, 39, 61, 0, 41, 61, 0, 43, 61, 0, 45, 61, 0, 48, 61, 0, 50, 61, 0, 52, 61, 0, 54, 62, 0, 55, 61, 0, 57, 61, 0, 59, 61, 0, 61, 62, 0, 62, 61, 0, 64, 61, 0, 66, 62, 0, 67, 61, 0, 69, 61, 0, 71, 61, 0, 73, 62, 0, 74, 61, 0, 76, 61, 0, 78, 61, 0, 81, 32, 0, 83, 32, 0, 85, 32, 0, 88, 61, 0, 90, 61, 0, 92, 61, 0, 94, 61, 0, 96, 61, 0, 98, 62, 0, 99, 61, 0, 101, 61, 0, 103, 61, 0, 105, 61, 0, 107, 61, 0, 196626, 58, 0, 262169, 1, 0, 262191, 1, 0, 262224, 1, 0, 262231, 1, 0, 524307, 32, 0, 524309, 32, 0, 524311, 32, 0, 524314, 61, 0, 524316, 61, 0, 524318, 61, 0, 524320, 61, 0, 524322, 61, 0, 524324, 61, 0, 524326, 61, 0, 524328, 62, 0, 524329, 32, 0, 524331, 32, 0, 524333, 32, 0, 524369, 32, 0, 524371, 32, 0, 524373, 32, 0, 524376, 61, 0, 524378, 61, 0, 524380, 61, 0, 524382, 61, 0, 524384, 61, 0, 524386, 61, 0, 524388, 61, 0, 524390, 61, 0, 524392, 62, 0, 524393, 32, 0, 524395, 32, 0, 524397, 49, 0, 524399, 49, 0, 524401, 49, 0, 524403, 49, 0, 524405, 49, 0, 524407, 49, 0, 524409, 49, 0, 524411, 49, 0, 524413, 49, 0, 524415, 49, 0, 524417, 49, 0, 524419, 49, 0, 524421, 49, 0, 524423, 49, 0, 589934, 52, 0, 589938, 52, 0, 589942, 52, 0, 589946, 52, 0, 589950, 52, 0, 589953, 52, 0, 589957, 52, 0, 720914, 58, 0, 720976, 58, 0, 786457, 1, 0, 786519, 1, 0, 1048595, 32, 0, 1048597, 32, 0, 1048599, 32, 0, 1048602, 35, 0, 1048603, 34, 0, 1048605, 33, 0, 1048606, 32, 0, 1048608, 32, 0, 1048610, 33, 0, 1048611, 34, 0, 1048613, 35, 0, 1048614, 32, 0, 1048616, 32, 0, 1048618, 32, 0, 1048620, 32, 0, 1048622, 32, 0, 1048657, 32, 0, 1048659, 32, 0, 1048661, 32, 0, 1048664, 32, 0, 1048666, 32, 0, 1048668, 34, 0, 1048670, 32, 0, 1048672, 32, 0, 1048674, 34, 0, 1048676, 32, 0, 1048678, 32, 0, 1048680, 32, 0, 1048682, 32, 0, 1048684, 32, 0, 1048686, 49, 0, 1048688, 49, 0, 1048690, 49, 0, 1048692, 49, 0, 1048694, 49, 0, 1048696, 49, 0, 1048698, 49, 0, 1048700, 49, 0, 1048702, 49, 0, 1048704, 49, 0, 1048706, 49, 0, 1048708, 49, 0, 1048710, 49, 0, 1048712, 49, 0, 1245202, 58, 0, 1245264, 58, 0, 1310745, 1, 0, 1310807, 1, 0, 1572883, 32, 0, 1572885, 32, 0, 1572887, 32, 0, 1572889, 32, 0, 1572891, 34, 0, 1572893, 32, 0, 1572895, 32, 0, 1572897, 32, 0, 1572899, 34, 0, 1572901, 32, 0, 1572903, 32, 0, 1572905, 32, 0, 1572907, 32, 0, 1572909, 32, 0, 1572945, 32, 0, 1572947, 32, 0, 1572949, 32, 0, 1572951, 33, 0, 1572952, 32, 0, 1572954, 32, 0, 1572956, 34, 0, 1572958, 32, 0, 1572960, 32, 0, 1572962, 34, 0, 1572964, 32, 0, 1572966, 32, 0, 1572968, 32, 0, 1572970, 32, 0, 1572972, 32, 0, 1572974, 49, 0, 1572976, 49, 0, 1572978, 49, 0, 1572980, 49, 0, 1572982, 49, 0, 1572984, 49, 0, 1572986, 49, 0, 1572988, 49, 0, 1572990, 49, 0, 1572992, 49, 0, 1572994, 49, 0, 1572996, 49, 0, 1572998, 49, 0, 1573000, 49, 0, 1703984, 23, 0, 1703985, 23, 0, 1703986, 23, 0, 1703987, 23, 0, 1703988, 23, 0, 1703989, 23, 0, 1703990, 23, 0, 1703991, 23, 0, 1703992, 23, 0, 1703993, 23, 0, 1703994, 23, 0, 1703995, 23, 0, 1703996, 23, 0, 1703997, 23, 0, 1703998, 23, 0, 1703999, 23, 0, 1704000, 23, 0, 1704001, 23, 0, 1704002, 23, 0, 1704003, 23, 0, 1704004, 23, 0, 1704005, 23, 0, 1704006, 23, 0, 1704007, 23, 0, 1704008, 23, 0, 1704009, 23, 0, 1704010, 23, 0, 1704011, 23, 0, 1704012, 23, 0, 1704013, 23, 0, 1704014, 23, 0, 1704015, 23, 0, 1769475, 22, 0, 1769476, 23, 0, 1769477, 23, 0, 1769478, 23, 0, 1769479, 23, 0, 1769480, 23, 0, 1769481, 23, 0, 1769482, 23, 0, 1769483, 23, 0, 1769484, 23, 0, 1769485, 23, 0, 1769486, 23, 0, 1769487, 23, 0, 1769488, 23, 0, 1769489, 23, 0, 1835026, 1, 0, 1835055, 1, 0, 1835088, 1, 0, 1966128, 41, 0, 1966129, 41, 0, 1966130, 41, 0, 1966131, 41, 0, 1966132, 41, 0, 1966133, 41, 0, 1966134, 41, 0, 1966135, 41, 0, 1966136, 41, 0, 1966137, 41, 0, 1966138, 41, 0, 1966139, 41, 0, 1966140, 41, 0, 1966141, 41, 0, 1966142, 41, 0, 1966143, 41, 0, 1966144, 41, 0, 1966145, 41, 0, 1966146, 41, 0, 1966147, 41, 0, 1966148, 41, 0, 1966149, 41, 0, 1966150, 41, 0, 1966151, 41, 0, 1966152, 41, 0, 1966153, 41, 0, 1966154, 41, 0, 1966155, 41, 0, 1966156, 41, 0, 1966157, 41, 0, 1966158, 41, 0, 1966159, 41, 0, 2097171, 32, 0, 2097173, 32, 0, 2097175, 32, 0, 2097178, 54, 0, 2097181, 54, 0, 2097184, 54, 0, 2097187, 54, 0, 2097190, 54, 0, 2097193, 54, 0, 2097196, 54, 0, 2097233, 32, 0, 2097235, 32, 0, 2097237, 32, 0, 2097240, 54, 0, 2097243, 54, 0, 2097246, 54, 0, 2097249, 54, 0, 2097252, 54, 0, 2097255, 54, 0, 2097258, 54, 0, 2097262, 48, 0, 2097264, 48, 0, 2097266, 48, 0, 2097268, 48, 0, 2097270, 48, 0, 2097272, 48, 0, 2097273, 48, 0, 2097275, 48, 0, 2097277, 48, 0, 2097279, 48, 0, 2097281, 48, 0, 2097283, 48, 0, 2097285, 48, 0, 2097287, 48, 0, 2359321, 1, 0, 2359328, 56, 0, 2359383, 1, 0, 2359398, 56, 0, 2490406, 57, 0, 2490461, 57, 0, 2621459, 32, 0, 2621461, 32, 0, 2621463, 32, 0, 2621466, 50, 0, 2621468, 51, 0, 2621470, 50, 0, 2621472, 50, 0, 2621474, 51, 0, 2621476, 51, 0, 2621478, 50, 0, 2621480, 50, 0, 2621482, 51, 0, 2621484, 50, 0, 2621486, 51, 0, 2621488, 50, 0, 2621490, 51, 0, 2621492, 50, 0, 2621494, 50, 0, 2621496, 51, 0, 2621498, 50, 0, 2621500, 51, 0, 2621502, 50, 0, 2621504, 50, 0, 2621506, 50, 0, 2621508, 50, 0, 2621510, 50, 0, 2621512, 51, 0, 2621514, 50, 0, 2621516, 50, 0, 2621518, 50, 0, 2621521, 32, 0, 2621523, 32, 0, 2621525, 32, 0, 2621528, 50, 0, 2621530, 50, 0, 2621532, 51, 0, 2621534, 50, 0, 2621536, 50, 0, 2621538, 50, 0, 2621540, 51, 0, 2621542, 50, 0, 2621544, 50, 0, 2621546, 50, 0, 2621548, 51, 0, 2621550, 50, 0, 2621552, 50, 0, 2621554, 50, 0, 2621556, 50, 0, 2621558, 50, 0, 2621560, 50, 0, 2621562, 50, 0, 2621564, 50, 0, 2621566, 50, 0, 2621568, 50, 0, 2621570, 50, 0, 2621572, 50, 0, 2621574, 50, 0, 2621576, 50, 0, 2752542, 55, 0, 2752544, 55, 0, 2752562, 55, 0, 2752564, 55, 0, 2752614, 55, 0, 2752616, 55, 0, 2883609, 1, 0, 2883631, 1, 0, 2883664, 1, 0, 2883671, 1, 0, 2883693, 1, 0 )
 
 [node name="Walls" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 17 )
 cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 32
 occluder_light_mask = 3
@@ -64,7 +63,7 @@ tile_data = PoolIntArray( 18, 0, 0, 19, 0, 1, 20, 0, 1, 21, 0, 1, 22, 0, 1, 23, 
 
 [node name="LevelObjects" type="Node2D" parent="."]
 
-[node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
+[node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( -8, 256 )
 next_boss_interacted_counter = 6
 nextSecretaryInteractionCounter = 6
@@ -73,72 +72,72 @@ nextSecretaryInteractionCounter = 6
 
 [node name="Apollo11" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 880, 72 )
-texture = ExtResource( 6 )
+texture = ExtResource( 31 )
 centered = false
 
 [node name="Door" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 328, 352 )
-texture = ExtResource( 19 )
+texture = ExtResource( 24 )
 
 [node name="Door2" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 488, 352 )
-texture = ExtResource( 19 )
+texture = ExtResource( 24 )
 
 [node name="Door3" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 776, 352 )
-texture = ExtResource( 19 )
+texture = ExtResource( 24 )
 
 [node name="Door4" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 1056, 352 )
-texture = ExtResource( 19 )
+texture = ExtResource( 24 )
 
 [node name="Deco" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 824, 229 )
-texture = ExtResource( 18 )
+texture = ExtResource( 22 )
 
 [node name="Desk" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 792, 240 )
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 
 [node name="Desk2" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 744, 240 )
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 flip_h = true
 
 [node name="Desk3" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 800, 176 )
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 
 [node name="Desk4" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 752, 176 )
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 flip_h = true
 
 [node name="Desk5" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 800, 112 )
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 
 [node name="Desk6" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 752, 112 )
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 flip_h = true
 
 [node name="Desk7" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 288, 112 )
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 
 [node name="Desk8" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 240, 112 )
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 flip_h = true
 
 [node name="Desk9" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 296, 176 )
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 
 [node name="Desk10" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 248, 176 )
-texture = ExtResource( 21 )
+texture = ExtResource( 30 )
 flip_h = true
 
 [node name="Plant" type="Sprite" parent="LevelObjects/Decorations"]
@@ -162,172 +161,172 @@ flip_h = true
 
 [node name="Picture" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 720, 224 )
-texture = ExtResource( 22 )
+texture = ExtResource( 26 )
 
 [node name="Picture2" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 768, 160 )
-texture = ExtResource( 23 )
+texture = ExtResource( 25 )
 
 [node name="Picture3" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 264, 160 )
-texture = ExtResource( 23 )
+texture = ExtResource( 25 )
 
 [node name="Flag" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 256, 224 )
-texture = ExtResource( 24 )
+texture = ExtResource( 23 )
 
 [node name="Sign" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 104, 240 )
-texture = ExtResource( 26 )
+texture = ExtResource( 28 )
 
 [node name="Sign2" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 104, 240 )
-texture = ExtResource( 27 )
+texture = ExtResource( 29 )
 
 [node name="Tree" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 472, 184 )
-texture = ExtResource( 29 )
+texture = ExtResource( 21 )
 centered = false
 
 [node name="Tree2" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 525, 208 )
-texture = ExtResource( 28 )
+texture = ExtResource( 27 )
 centered = false
 
 [node name="Tree3" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 456, 232 )
-texture = ExtResource( 31 )
+texture = ExtResource( 32 )
 centered = false
 
 [node name="Tree4" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 497, 232 )
-texture = ExtResource( 31 )
+texture = ExtResource( 32 )
 centered = false
 flip_h = true
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
-[node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 176, 256 )
-connected_door_path = NodePath("../Staircase2")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase2")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase2" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 176, 320 )
-connected_door_path = NodePath("../Staircase")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase3" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase3" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 352, 320 )
-connected_door_path = NodePath("../Staircase4")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase4")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase4" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase4" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 176, 384 )
-connected_door_path = NodePath("../Staircase3")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase3")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase5" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase5" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 352, 256 )
-connected_door_path = NodePath("../Staircase6")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase6")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase6" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase6" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 176, 192 )
-connected_door_path = NodePath("../Staircase5")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase5")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase7" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase7" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 352, 192 )
-connected_door_path = NodePath("../Staircase8")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase8")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase8" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase8" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 176, 128 )
-connected_door_path = NodePath("../Staircase7")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase7")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase9" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase9" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 352, 128 )
-connected_door_path = NodePath("../Staircase10")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase10")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase10" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase10" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 176, 64 )
-connected_door_path = NodePath("../Staircase9")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase9")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase11" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase11" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 384 )
-connected_door_path = NodePath("../Staircase12")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase12")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase12" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase12" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 320 )
-connected_door_path = NodePath("../Staircase11")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase11")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase13" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase13" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 856, 320 )
-connected_door_path = NodePath("../Staircase14")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase14")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase14" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase14" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 256 )
-connected_door_path = NodePath("../Staircase13")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase13")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase15" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase15" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 856, 256 )
-connected_door_path = NodePath("../Staircase16")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase16")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase16" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase16" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 192 )
-connected_door_path = NodePath("../Staircase15")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase15")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase17" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase17" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 856, 192 )
-connected_door_path = NodePath("../Staircase18")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase18")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase18" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase18" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 128 )
-connected_door_path = NodePath("../Staircase17")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase17")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase19" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase19" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 856, 128 )
-connected_door_path = NodePath("../Staircase20")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase20")
 lockLevel = 0
 door_name = ""
 
-[node name="Staircase20" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+[node name="Staircase20" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 64 )
-connected_door_path = NodePath("../Staircase19")
+connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase19")
 lockLevel = 0
 door_name = ""
 
-[node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 144, 256 )
 lockLevel = 2
 doorType = 0
@@ -337,7 +336,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 376, 256 )
 lockLevel = 0
 doorType = 0
@@ -347,7 +346,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 200, 320 )
 lockLevel = 0
 doorType = 0
@@ -357,7 +356,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 200, 384 )
 lockLevel = 0
 doorType = 0
@@ -367,7 +366,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 376, 384 )
 lockLevel = 0
 doorType = 0
@@ -377,7 +376,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 200, 192 )
 lockLevel = 0
 doorType = 0
@@ -387,7 +386,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 200, 128 )
 lockLevel = 0
 doorType = 0
@@ -397,7 +396,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 200, 64 )
 lockLevel = 0
 doorType = 0
@@ -407,7 +406,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 376, 64 )
 lockLevel = 0
 doorType = 0
@@ -417,7 +416,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 640, 64 )
 lockLevel = 0
 doorType = 0
@@ -427,7 +426,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 696, 64 )
 lockLevel = 1
 doorType = 0
@@ -437,7 +436,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall12" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall12" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 696, 128 )
 lockLevel = 0
 doorType = 0
@@ -447,7 +446,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall13" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall13" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 696, 192 )
 lockLevel = 0
 doorType = 0
@@ -457,7 +456,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall18" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall18" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 640, 256 )
 lockLevel = 0
 doorType = 0
@@ -467,7 +466,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall14" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall14" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 696, 320 )
 lockLevel = 0
 doorType = 0
@@ -477,7 +476,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall15" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall15" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 640, 384 )
 lockLevel = 1
 doorType = 0
@@ -487,7 +486,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall16" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall16" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 696, 384 )
 lockLevel = 0
 doorType = 0
@@ -497,7 +496,7 @@ showHintIfLocked = false
 hint = ""
 sig_to_trig = [  ]
 
-[node name="DoorWall17" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+[node name="DoorWall17" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 872, 384 )
 lockLevel = 3
 doorType = 1
@@ -512,108 +511,108 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 292, 8 )
 
-[node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 292, 72 )
 
-[node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 176, 136 )
 
-[node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 288, 136 )
 
-[node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 192, 200 )
 
-[node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 304, 200 )
 
-[node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 248, 264 )
 
-[node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 328, 264 )
 
-[node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 240, 328 )
 
-[node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 336, 328 )
 
-[node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 448, 328 )
 
-[node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 512, 328 )
 
-[node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 584, 328 )
 
-[node name="Light14" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light14" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 736, 328 )
 
-[node name="Light15" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light15" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 832, 328 )
 
-[node name="Light16" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light16" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 784, 264 )
 
-[node name="Light17" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light17" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 824, 200 )
 
-[node name="Light18" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light18" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 704, 200 )
 
-[node name="Light19" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light19" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 728, 136 )
 
-[node name="Light20" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light20" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 816, 136 )
 
-[node name="Light21" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light21" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 784, 72 )
 
-[node name="Light22" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light22" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 840, 8 )
 
-[node name="Light23" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light23" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 728, 8 )
 
-[node name="Light24" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light24" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 576, 8 )
 
-[node name="Light25" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light25" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 504, 8 )
 
-[node name="Light26" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
+[node name="Light26" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 432, 8 )
 
-[node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+[node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 5 )]
 position = Vector2( 40, 256 )
 flicker = false
 flickerSequence = "1110"
 
-[node name="OutdoorLight2" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+[node name="OutdoorLight2" parent="LevelObjects/Lights" instance=ExtResource( 5 )]
 position = Vector2( 448, 256 )
 flicker = false
 flickerSequence = "1110"
 
-[node name="OutdoorLight3" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
+[node name="OutdoorLight3" parent="LevelObjects/Lights" instance=ExtResource( 5 )]
 position = Vector2( 576, 256 )
 flicker = false
 flickerSequence = "1110"
 
-[node name="Tresor" parent="LevelObjects" instance=ExtResource( 8 )]
+[node name="Tresor" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 292, 64 )
 minigameType = 3
 
-[node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 10 )]
+[node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( 325, 128 )
 deactivateAble = [ NodePath("../LaserDetector2"), NodePath("../LaserDetector"), NodePath("../Camera") ]
 
-[node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 9 )]
+[node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 224, 136 )
 heigth = 7
 isStatic = false
@@ -625,7 +624,7 @@ isFlickering = false
 flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
 
-[node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 9 )]
+[node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 152, 152 )
 rotation = -1.5708
 heigth = 6
@@ -638,21 +637,21 @@ isFlickering = false
 flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
 
-[node name="Camera" parent="LevelObjects" instance=ExtResource( 14 )]
+[node name="Camera" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 200, 136 )
 isFixedCam = true
 
-[node name="ControlCabinet2" parent="LevelObjects" instance=ExtResource( 10 )]
+[node name="ControlCabinet2" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( 272, 384 )
 deactivateAble = [ NodePath("../MetalDetector") ]
 
-[node name="MetalDetector" parent="LevelObjects" instance=ExtResource( 15 )]
+[node name="MetalDetector" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 304, 256 )
 
-[node name="Camera2" parent="LevelObjects" instance=ExtResource( 14 )]
+[node name="Camera2" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 280, 328 )
 
-[node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 9 )]
+[node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 720, 300 )
 rotation = -1.5708
 heigth = 10
@@ -664,10 +663,10 @@ isFlickering = false
 flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
 
-[node name="Camera3" parent="LevelObjects" instance=ExtResource( 14 )]
+[node name="Camera3" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 760, 200 )
 
-[node name="LaserDetector4" parent="LevelObjects" instance=ExtResource( 9 )]
+[node name="LaserDetector4" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 696, 200 )
 heigth = 7
 isStatic = false
@@ -679,10 +678,10 @@ isFlickering = false
 flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
 
-[node name="Camera4" parent="LevelObjects" instance=ExtResource( 14 )]
+[node name="Camera4" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 784, 8 )
 
-[node name="LaserDetector5" parent="LevelObjects" instance=ExtResource( 9 )]
+[node name="LaserDetector5" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 208, 8 )
 heigth = 7
 isStatic = false
@@ -705,68 +704,68 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DeskGuard" parent="." instance=ExtResource( 30 )]
+[node name="DeskGuard" parent="." instance=ExtResource( 13 )]
 position = Vector2( 232, 256 )
 lookDirection = 0
 lookDuration = 2.0
 readDuration = 3.0
 removeNotifierDuration = 1.0
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 14 )]
 position = Vector2( 40, 256 )
 z_index = 50
 
-[node name="Guard" parent="." instance=ExtResource( 4 )]
+[node name="Guard" parent="." instance=ExtResource( 15 )]
 position = Vector2( 232, 320 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
 points = PoolVector2Array( 8, -16, 128, -16 )
-script = ExtResource( 35 )
+script = ExtResource( 19 )
 
-[node name="Guard2" parent="." instance=ExtResource( 4 )]
+[node name="Guard2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 488, 384 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard2"]
 points = PoolVector2Array( -88, 0, 72, 0, -24, -8, 128, -8 )
-script = ExtResource( 35 )
+script = ExtResource( 19 )
 
-[node name="Guard3" parent="." instance=ExtResource( 4 )]
+[node name="Guard3" parent="." instance=ExtResource( 15 )]
 position = Vector2( 800, 384 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard3"]
 points = PoolVector2Array( 0, -16, -72, -16, -32, -16, 48, -16 )
-script = ExtResource( 35 )
+script = ExtResource( 19 )
 
-[node name="Guard4" parent="." instance=ExtResource( 4 )]
+[node name="Guard4" parent="." instance=ExtResource( 15 )]
 position = Vector2( 784, 192 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard4"]
 points = PoolVector2Array( 0, -16, -72, -16, -32, -16, 48, -16 )
-script = ExtResource( 35 )
+script = ExtResource( 19 )
 
-[node name="Guard5" parent="." instance=ExtResource( 4 )]
+[node name="Guard5" parent="." instance=ExtResource( 15 )]
 position = Vector2( 784, 128 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard5"]
 points = PoolVector2Array( 0, -16, -56, -16, 40, -16 )
-script = ExtResource( 35 )
+script = ExtResource( 19 )
 
-[node name="Guard6" parent="." instance=ExtResource( 4 )]
+[node name="Guard6" parent="." instance=ExtResource( 15 )]
 position = Vector2( 504, 64 )
 starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard6"]
 points = PoolVector2Array( 48, -16, -24, -16, -96, -16, 16, -24, 120, -16 )
-script = ExtResource( 35 )
+script = ExtResource( 19 )
 
 [node name="MinigameHolder" type="Node2D" parent="."]
 
-[node name="HUD" parent="." instance=ExtResource( 11 )]
+[node name="HUD" parent="." instance=ExtResource( 16 )]
 
 [node name="Label" type="Label" parent="HUD"]
 visible = false
