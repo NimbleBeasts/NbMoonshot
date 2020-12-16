@@ -10,7 +10,7 @@ extents = Vector2( 10.4511, 9.5449 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10.2527, 9.5449 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "alarm"
 length = 0.2
 loop = true
@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ 2, 3 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=4]
 resource_name = "eat"
 length = 0.4
 tracks/0/type = "value"
@@ -43,7 +43,7 @@ tracks/0/keys = {
 "values": [ 0, 7, 8, 7 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "get_up"
 length = 0.5
 tracks/0/type = "value"
@@ -59,8 +59,7 @@ tracks/0/keys = {
 "values": [ 8, 7, 0, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "grr"
+[sub_resource type="Animation" id=6]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -75,7 +74,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "laying_down"
 length = 0.3
 tracks/0/type = "value"
@@ -91,8 +90,7 @@ tracks/0/keys = {
 "values": [ 0, 7, 8 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "look_around"
+[sub_resource type="Animation" id=8]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -106,9 +104,32 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flippable/LOSArea:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 67.202, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -10.3943, -1.25992 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Flippable/LOSArea:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 30.9099, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
 
-[sub_resource type="Animation" id=6]
-resource_name = "walk"
+[sub_resource type="Animation" id=9]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -122,6 +143,30 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 4, 5, 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flippable/LOSArea:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Flippable/LOSArea:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
 }
 
 [node name="Dog" type="KinematicBody2D" groups=[
@@ -138,7 +183,7 @@ script = ExtResource( 2 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 9
-frame = 2
+frame = 7
 
 [node name="LOSArea" type="Area2D" parent="Flippable"]
 
@@ -169,13 +214,13 @@ shape = SubResource( 2 )
 wait_time = 1.6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/alarm = SubResource( 5 )
-anims/eat = SubResource( 9 )
-anims/get_up = SubResource( 7 )
-anims/grr = SubResource( 4 )
-anims/laying_down = SubResource( 8 )
-anims/look_around = SubResource( 3 )
-anims/walk = SubResource( 6 )
+anims/alarm = SubResource( 3 )
+anims/eat = SubResource( 4 )
+anims/get_up = SubResource( 5 )
+anims/grr = SubResource( 6 )
+anims/laying_down = SubResource( 7 )
+anims/look_around = SubResource( 8 )
+anims/walk = SubResource( 9 )
 
 [node name="BarkTimer" type="Timer" parent="."]
 wait_time = 5.0

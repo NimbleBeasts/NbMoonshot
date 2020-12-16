@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Medikit.png-ee93c4b97792843f80669fcc581b2993.stex"
+path="res://.import/Medikit.png-c0a7d5498d074fec6f7951175c1377dc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Src/Levels/Medikit.png"
-dest_files=[ "res://.import/Medikit.png-ee93c4b97792843f80669fcc581b2993.stex" ]
+source_file="res://Assets/Objects/Medikit.png"
+dest_files=[ "res://.import/Medikit.png-c0a7d5498d074fec6f7951175c1377dc.stex" ]
 
 [params]
 
