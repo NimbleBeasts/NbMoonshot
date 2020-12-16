@@ -36,7 +36,9 @@ func _process(delta: float) -> void:
 	position += camVelocity * delta
 	position.x = clamp(position.x, -100, 100)
 	position.y = clamp(position.y, -80, 80)
-		
+	if camDirection == Vector2(0,0) and position != startPosition:
+		releaseHeldSelection()
+
 
 func _input(event: InputEvent) -> void:
 	if not event is InputEventKey:
@@ -64,6 +66,7 @@ func releaseHeldSelection() -> void:
 
 
 func holdSelection() -> void:
+	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
 	Events.emit_signal("block_player_movement")
 	selectionHeld = true
 	set_process(true)
@@ -72,4 +75,6 @@ func holdSelection() -> void:
 func onTimerTimeout() -> void:
 	Events.emit_signal("held_selection")
 	holdSelection()
+	
+
 	
