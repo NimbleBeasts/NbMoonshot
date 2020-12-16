@@ -142,7 +142,7 @@ collision_mask = 33
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
 position = Vector2( 6.30397, 24.2768 )
-polygon = PoolVector2Array( -6.05612, -24.0281, 81.9439, -32.0281, 81.9439, -0.028061 )
+polygon = PoolVector2Array( -5.15227, -30.7655, 81.9439, -32.0281, 81.9439, -0.028061, -3.40227, -1.0155 )
 
 [node name="LOSRay" type="RayCast2D" parent="Flippable"]
 position = Vector2( 3.53218, -10.5355 )

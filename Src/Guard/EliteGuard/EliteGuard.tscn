@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Guards/Guard.png" type="Texture" id=1]
+[ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.gd" type="Script" id=2]
+
+[node name="EliteGuard" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Flippable" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Flippable"]
+scale = Vector2( 2.04284, 1 )
+texture = ExtResource( 1 )
+hframes = 17
+
+[node name="LineOfSight" type="Area2D" parent="Flippable"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
+polygon = PoolVector2Array( 17.6982, -11.6112, 65.3203, -14.9845, 64.3281, 9.62025, 19.2856, 9.42183 )
