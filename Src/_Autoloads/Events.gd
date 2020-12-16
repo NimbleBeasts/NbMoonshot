@@ -111,6 +111,7 @@ signal game_over()
 
 # Holding selection button for 0.6 seconds
 signal held_selection()
+signal released_held_selection()
 
 
 signal switched_weapon(newWeaponIndex)

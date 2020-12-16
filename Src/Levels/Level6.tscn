@@ -26,6 +26,7 @@
 extents = Vector2( 10, 32 )
 
 [node name="Level6" type="Node2D"]
+position = Vector2( 4.56471, 4.89993 )
 script = ExtResource( 1 )
 level_type = 1
 
@@ -218,7 +219,7 @@ position = Vector2( 48, -32 )
 shape = SubResource( 1 )
 
 [node name="Dog" parent="." instance=ExtResource( 7 )]
-position = Vector2( 57.3984, 251.253 )
+position = Vector2( 61.6363, 255.756 )
 
 [node name="DogPathLine" type="Line2D" parent="Dog"]
 points = PoolVector2Array( 5.92296, -10.9913, 26.1797, -11.3326, 56.452, -10.0713 )
