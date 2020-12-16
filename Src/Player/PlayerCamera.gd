@@ -5,9 +5,14 @@ var selectionHeld: bool = false
 var camSpeed: int = 50
 var camDirection: Vector2
 var camVelocity: Vector2
+var startPosition: Vector2
+var tween = Tween.new()
 
 
 func _ready() -> void:
+	add_child(tween)
+	set_process(false)
+	startPosition = position
 	add_child(timer)
 	timer.one_shot = true
 	timer.wait_time = 0.6
@@ -29,7 +34,9 @@ func _process(delta: float) -> void:
 	camDirection.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	camVelocity = camDirection * camSpeed
 	position += camVelocity * delta
-
+	position.x = clamp(position.x, -100, 100)
+	position.y = clamp(position.y, -80, 80)
+		
 
 func _input(event: InputEvent) -> void:
 	if not event is InputEventKey:
@@ -52,6 +59,8 @@ func releaseHeldSelection() -> void:
 	selectionHeld = false
 	Events.emit_signal("unblock_player_movement")
 	set_process(false)
+	tween.interpolate_property(self, "position", position, startPosition, 0.2, Tween.TRANS_LINEAR)
+	tween.start()
 
 
 func holdSelection() -> void:
