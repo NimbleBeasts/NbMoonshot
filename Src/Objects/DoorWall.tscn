@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Assets/Objects/DoorWall.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Doors/DoorWall.png" type="Texture" id=1]
 [ext_resource path="res://Src/Objects/DoorWall.gd" type="Script" id=2]
 [ext_resource path="res://Src/Minigames/LockpickSmallMinigame/LockpickSmallMinigameSpawner.gd" type="Script" id=3]
 [ext_resource path="res://Src/Minigames/LightMinigame/LightMinigameSpawner.gd" type="Script" id=4]
@@ -29,6 +29,7 @@ extents = Vector2( 12, 16 )
 
 [node name="DoorWall" type="Node2D"]
 script = ExtResource( 2 )
+door_name = "DoorWall"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/open_door = SubResource( 1 )

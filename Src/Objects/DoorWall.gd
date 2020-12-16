@@ -21,9 +21,9 @@ export (Array)  var sig_to_trig
 
 func _ready():
 	if doorType == DoorType.metal:
-		$Sprite.texture = preload("res://Assets/Objects/DoorWallMetal.png")
+		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal.png")
 	else:
-		$Sprite.texture = preload("res://Assets/Objects/DoorWall.png")
+		$Sprite.texture = preload("res://Assets/Doors/DoorWall.png")
 	set_process(false)
 	
 

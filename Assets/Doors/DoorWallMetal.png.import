@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DoorWallMetal.png-877e9a504f1fa1a128492d43cadcd88f.stex"
+path="res://.import/DoorWallMetal.png-94900c9af4b76a3acfcafba0ab30bc75.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Objects/DoorWallMetal.png"
-dest_files=[ "res://.import/DoorWallMetal.png-877e9a504f1fa1a128492d43cadcd88f.stex" ]
+source_file="res://Assets/Doors/DoorWallMetal.png"
+dest_files=[ "res://.import/DoorWallMetal.png-94900c9af4b76a3acfcafba0ab30bc75.stex" ]
 
 [params]
 

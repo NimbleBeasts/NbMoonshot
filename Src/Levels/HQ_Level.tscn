@@ -28,7 +28,7 @@
 [ext_resource path="res://Assets/NPCs/ZoneTutorialBriefing.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Assets/Objects/Doll.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Src/Objects/Doll.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Assets/Objects/Worldmap.png" type="Texture" id=30]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=32]
@@ -36,6 +36,7 @@
 [ext_resource path="res://Assets/Level/ControlHint.png" type="Texture" id=34]
 [ext_resource path="res://Src/Levels/ControlHint.gd" type="Script" id=35]
 [ext_resource path="res://Assets/Objects/WallImageLeader.png" type="Texture" id=36]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )

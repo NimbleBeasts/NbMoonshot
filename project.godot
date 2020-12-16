@@ -14,10 +14,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Dog/Dog.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Reference",
 "class": "Doll",
 "language": "GDScript",
-"path": "res://Assets/Objects/Doll.gd"
+"path": "res://Src/Objects/Doll.gd"
 }, {
 "base": "Area2D",
 "class": "Door",

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Staircase/Staircase.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Doors/Staircase.png" type="Texture" id=1]
 [ext_resource path="res://Src/Staircase/Staircase.gd" type="Script" id=2]
 [ext_resource path="res://Src/Minigames/LockpickSmallMinigame/LockpickSmallMinigameSpawner.gd" type="Script" id=3]
 
