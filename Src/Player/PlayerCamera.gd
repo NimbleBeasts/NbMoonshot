@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 	position.x = clamp(position.x, -100, 100)
 	position.y = clamp(position.y, -80, 80)
 	if camDirection == Vector2(0,0) and position != startPosition:
+		Events.emit_signal("released_held_selection")
 		releaseHeldSelection()
 
 
