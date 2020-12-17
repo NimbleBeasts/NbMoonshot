@@ -18,6 +18,8 @@ func _ready() -> void:
 	timer.wait_time = 0.6
 	timer.connect("timeout", self, "onTimerTimeout")
 	Events.connect("minigame_exited", self, "_on_minigame_exited")
+	Events.connect("released_held_selection", self, "releaseHeldSelection")
+	Events.connect("held_selection", self, "holdSelection")	
 
 
 func shake_camera() -> void:
@@ -38,7 +40,6 @@ func _process(delta: float) -> void:
 	position.y = clamp(position.y, -80, 80)
 	if camDirection == Vector2(0,0) and position != startPosition:
 		Events.emit_signal("released_held_selection")
-		releaseHeldSelection()
 
 
 func _input(event: InputEvent) -> void:
@@ -51,11 +52,10 @@ func _input(event: InputEvent) -> void:
 		else:
 			timer.stop()
 			Events.emit_signal("released_held_selection")
-			releaseHeldSelection()
 
 	if event.is_action_released("selection") and timer.time_left != 0:
 		timer.stop()
-		releaseHeldSelection()
+		Events.emit_signal("released_held_selection")
 		
 		
 func releaseHeldSelection() -> void:
@@ -75,7 +75,6 @@ func holdSelection() -> void:
 
 func onTimerTimeout() -> void:
 	Events.emit_signal("held_selection")
-	holdSelection()
 	
 
 	

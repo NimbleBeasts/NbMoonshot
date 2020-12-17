@@ -34,7 +34,9 @@ door_name = "DoorWall"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/open_door = SubResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+"DoorWall",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 4, -16 )

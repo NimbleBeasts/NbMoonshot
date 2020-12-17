@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Assets/Objects/sofa.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
+[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=22]
 
 [node name="TestLevel" type="Node2D"]
 position = Vector2( 4.56471, 4.89993 )
@@ -109,10 +110,16 @@ door_name = "DoorWall11"
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
+lockLevel = 0
+doorType = 0
+door_name = ""
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseCellar")
+lockLevel = 0
+doorType = 0
+door_name = ""
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( -196.565, 256 )
@@ -121,7 +128,9 @@ doorType = 2
 [node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( -156.565, 256 )
 connected_door_path = NodePath("../StaircaseE0")
+lockLevel = 0
 doorType = 1
+door_name = ""
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -195,3 +204,13 @@ position = Vector2( 61.6363, 255.756 )
 [node name="DogPathLine" type="Line2D" parent="Dog"]
 points = PoolVector2Array( 5.92296, -10.9913, 26.1797, -11.3326, 56.452, -10.0713 )
 script = ExtResource( 15 )
+
+[node name="Guard" parent="." instance=ExtResource( 22 )]
+position = Vector2( 15.1969, 254.829 )
+
+[node name="GuardPathLine" type="Line2D" parent="Guard"]
+points = PoolVector2Array( -0.240369, -8.96291, -16.592, -8.96291, -36.8085, -8.071 )
+script = ExtResource( 15 )
+
+[node name="DoorWall" parent="." instance=ExtResource( 8 )]
+position = Vector2( -28.6991, 252.285 )

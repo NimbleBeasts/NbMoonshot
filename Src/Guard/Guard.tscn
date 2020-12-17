@@ -149,6 +149,12 @@ position = Vector2( 3.53218, -10.5355 )
 enabled = true
 cast_to = Vector2( 90, 0 )
 
+[node name="GuardArea" type="Area2D" parent="Flippable"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Flippable/GuardArea"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/alarm = SubResource( 2 )
