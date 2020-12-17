@@ -47,11 +47,9 @@ func open():
 func _process(_delta):
 	if playerInArea:
 		if Input.is_action_just_pressed("interact"):
-			interact(true, playerNode.global_position)
-			Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
-
+			interact(true)
 			
-func interact(run_sub, openerPos: Vector2):
+func interact(run_sub):
 	# shows a game hint if this door is locked
 	if lockLevel == DoorLockType.locked:
 		Events.emit_signal("hud_game_hint", hint)
@@ -73,13 +71,14 @@ func interact(run_sub, openerPos: Vector2):
 		if not doorIsOpen:
 			
 			#check if player close then open to oposit direction of player
+			if playerNode != null and playerNode.state != Types.PlayerStates.DraggingGuard:
 				# Open Animation
-			if openerPos.x < self.global_position.x:
-				# Left Side
-				$Sprite.scale.x = 1
-			else:
-				# Right Side
-				$Sprite.scale.x = -1
+				if playerNode.position.x < self.global_position.x:
+					# Left Side
+					$Sprite.scale.x = 1
+				else:
+					# Right Side
+					$Sprite.scale.x = -1
 			$AnimationPlayer.play("open_door")
 			# playing sound
 			if doorType == DoorType.wooden:
@@ -131,12 +130,11 @@ func _on_Area2D_body_exited(body):
 		playerInArea = false
 		set_process(false)
 
-		
 func _on_door_change_status(_door_name, _lock_type, _run_anim):
 	if door_name == _door_name:
 		lockLevel = _lock_type
 		if save_state:
 			Global.gameState[door_name] = _lock_type
 		if _run_anim:
-			interact(false, playerNode.global_position)
+			interact(false)
 		

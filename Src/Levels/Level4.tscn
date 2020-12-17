@@ -176,74 +176,108 @@ texture = ExtResource( 30 )
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 144, 256 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall7"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 256, 128 )
 lockLevel = 1
+doorType = 0
 door_name = "Blah"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 280, 256 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall9"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 280, 320 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall10"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 144, 320 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall11"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall12" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 608, 256 )
 lockLevel = 2
+doorType = 0
 door_name = "DoorWall12"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall13" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 408, 256 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall13"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseE0")
 lockLevel = 0
-doorType = 0
 door_name = ""
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseCellar")
 lockLevel = 0
-doorType = 0
 door_name = ""
 
 [node name="StaircaseE0_2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 392, 256 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseE1")
 lockLevel = 1
-doorType = 0
 door_name = ""
 
 [node name="StaircaseE1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 392, 192 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseE0_2")
 lockLevel = 0
-doorType = 0
 door_name = ""
 
 [node name="StaircaseE1_2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 176, 192 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseE2")
 lockLevel = 0
-doorType = 0
 door_name = ""
 
 [node name="StaircaseE2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 176, 128 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseE1_2")
 lockLevel = 0
-doorType = 0
 door_name = ""
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
@@ -350,18 +384,13 @@ isFixedCam = true
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 376, 128 )
-type = 0
 hasBounty = true
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 352, 192 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 280, 192 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 336, 320 )
@@ -370,8 +399,6 @@ hasBounty = true
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 640, 256 )
-type = 0
-hasBounty = false
 
 [node name="PhotoMinigameSpawner" type="Area2D" parent="LevelObjects"]
 position = Vector2( 334.762, 116.076 )

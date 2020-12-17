@@ -87,7 +87,6 @@ func stopAllMovement() -> void:
 
 	
 func changeDirection() -> void:
-	print("direction changed")
 	enabled = true
 	movingToCustomPoint = false
 	global_points.invert()

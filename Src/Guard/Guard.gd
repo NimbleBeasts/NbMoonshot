@@ -61,7 +61,6 @@ func _ready() -> void:
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
-	$Flippable/GuardArea.connect("body_entered", self, "onGuardBodyEntered")
 	#warning-ignore:return_value_discarded
 
 
@@ -156,7 +155,7 @@ func _on_LineOfSight_body_entered(body: Node) -> void:
 				player_in_los = true
 	elif body.is_in_group("Guard"):
 		guardInSight = body
-
+	
 
 func _on_LineOfSight_body_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
@@ -275,10 +274,3 @@ func onGuardPathLinePointReached() -> void:
 		goBackToNormalTimer.wait_time = 1
 		Global.startTimerOnce(goBackToNormalTimer)
 		isMovingToPlayer = false
-
-
-func onGuardBodyEntered(body: Node) -> void:
-	if body.is_in_group("DoorWall"):
-		var door = body.get_parent()
-		if door.lockLevel == door.DoorLockType.open:
-			door.interact(true, global_position)

@@ -88,14 +88,12 @@ tile_data = PoolIntArray( 78, 0, 0, 79, 0, 1, 80, 0, 1, 81, 0, 1, 82, 0, 1, 83, 
 position = Vector2( 664, 384 )
 connected_door_path = NodePath("../../../Level17/LevelObjects/Staircase2")
 lockLevel = 0
-doorType = 0
 door_name = ""
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 568, 320 )
 connected_door_path = NodePath("../../../Level17/LevelObjects/Staircase")
 lockLevel = 0
-doorType = 0
 door_name = ""
 
 [node name="ThinArea" parent="LevelObjects" instance=ExtResource( 13 )]
@@ -225,84 +223,145 @@ centered = false
 position = Vector2( 448, 128 )
 connected_door_path = NodePath("../../../../Level17/LevelObjects/Doors/StaircaseF1R")
 lockLevel = 0
-doorType = 0
 door_name = ""
 
 [node name="StaircaseF2R" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 576, 128 )
 connected_door_path = NodePath("../../../../Level17/LevelObjects/Doors/StaircaseF1L")
 lockLevel = 0
-doorType = 0
 door_name = ""
 
 [node name="StaircaseF1R" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 584, 192 )
 connected_door_path = NodePath("../../../../Level17/LevelObjects/Doors/StaircaseF2L")
 lockLevel = 0
-doorType = 0
 door_name = ""
 
 [node name="StaircaseF1L" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 448, 192 )
 connected_door_path = NodePath("../../../../Level17/LevelObjects/Doors/StaircaseF2R")
 lockLevel = 0
-doorType = 0
 door_name = ""
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 144, 256 )
 lockLevel = 1
+doorType = 0
 door_name = "Door1"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 432, 256 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall2"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 512, 192 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall3"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 512, 128 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall4"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 624, 192 )
+lockLevel = 0
 doorType = 1
 door_name = "DoorWall9"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 624, 256 )
+lockLevel = 0
 doorType = 1
 door_name = "DoorWall10"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 624, 320 )
+lockLevel = 0
 doorType = 1
 door_name = "DoorWall11"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall12" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 624, 64 )
+lockLevel = 0
 doorType = 1
 door_name = "DoorWall12"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 384, 128 )
 lockLevel = 2
+doorType = 0
 door_name = "Door2"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 384, 192 )
 lockLevel = 1
+doorType = 0
 door_name = "Door3"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 256, 128 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall7"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 256, 192 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall8"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -420,17 +479,14 @@ hasBounty = true
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 320, 128 )
 type = 1
-hasBounty = false
 
 [node name="Cabinet6" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 296, 128 )
 type = 1
-hasBounty = false
 
 [node name="Cabinet7" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 344, 128 )
 type = 1
-hasBounty = false
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 296, 256 )
@@ -445,7 +501,6 @@ hasBounty = true
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 592, 384 )
 type = 1
-hasBounty = false
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 2 )]
 position = Vector2( 112, 256 )
