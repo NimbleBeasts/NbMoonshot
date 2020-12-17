@@ -6,6 +6,9 @@ var stunBatteryLevel
 onready var player = get_node(playerPath)
 onready var stunRay = get_node(stunRayPath)
 
+func _ready() -> void:
+	set_process(false)
+	
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("weapon"):

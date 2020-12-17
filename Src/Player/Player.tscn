@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Player/CameraMoveIndicator.png" type="Texture" id=7]
 [ext_resource path="res://Src/Player/CameraNotification.gd" type="Script" id=8]
 [ext_resource path="res://Src/Player/Taser.gd" type="Script" id=9]
+[ext_resource path="res://Src/Player/StoneThrower.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -418,6 +419,9 @@ script = ExtResource( 5 )
 script = ExtResource( 9 )
 playerPath = NodePath("../..")
 stunRayPath = NodePath("../../StunRayCast")
+
+[node name="StoneThrower" type="Node" parent="WeaponHandler"]
+script = ExtResource( 10 )
 
 [node name="DogFeeding" type="Node" parent="."]
 script = ExtResource( 6 )
