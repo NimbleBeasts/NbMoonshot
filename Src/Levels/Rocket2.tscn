@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Src/Skybox/RedishSkybox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
+[ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=29]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 32 )
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 1 )
+level_type = 1
+playCarCloseSound = false
+
+[node name="RedishSkybox" parent="." instance=ExtResource( 8 )]
+
+[node name="SpriteWalls" type="Node2D" parent="."]
+
+[node name="Rooms" type="TileMap" parent="."]
+light_mask = 3
+tile_set = ExtResource( 13 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 32
+occluder_light_mask = 3
+format = 1
+tile_data = PoolIntArray( 1572898, 60, 0, 1572899, 60, 0, 1572900, 60, 0, 1572901, 60, 0, 1572902, 60, 0, 1572903, 60, 0, 1572904, 60, 0, 1572905, 60, 0, 1572906, 60, 0, 1572907, 60, 0, 1572908, 60, 0, 1572909, 60, 0, 1572910, 60, 0, 1966084, 42, 0, 1966085, 41, 0, 1966086, 41, 0, 1966087, 41, 0, 1966088, 41, 0, 1966089, 41, 0, 2162716, 26, 0, 2162717, 26, 0, 2162718, 26, 0, 2162719, 26, 0, 2162720, 27, 0, 2162721, 26, 0, 2162722, 26, 0, 2162723, 26, 0, 2162724, 28, 0, 2162725, 26, 0, 2162726, 26, 0, 2162727, 26, 0, 2162728, 27, 0, 2162729, 26, 0, 2162730, 26, 0, 2162731, 26, 0, 2162732, 26, 0, 2162733, 27, 0, 2162734, 26, 0, 2162735, 29, 0, 2162736, 30, 0, 2162737, 31, 0, 2162738, 27, 0 )
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 32
+occluder_light_mask = 3
+format = 1
+tile_data = PoolIntArray( 1638433, 0, 0, 1703969, 0, 65536, 1769505, 0, 65538, 2097179, 0, 0, 2097184, 0, 0, 2097185, 0, 1, 2097186, 0, 1, 2097187, 0, 1, 2097188, 0, 1, 2097189, 0, 1, 2097190, 0, 1, 2097191, 0, 1, 2097192, 0, 1, 2097193, 0, 1, 2097194, 0, 1, 2097195, 0, 1, 2097196, 0, 1, 2097197, 0, 1, 2097198, 0, 1, 2097199, 0, 1, 2097200, 0, 1, 2097201, 0, 1, 2097202, 0, 1, 2097203, 0, 3, 2162715, 0, 65536, 2162739, 0, 65536, 2228251, 0, 65536, 2228275, 0, 65536, 2293787, 0, 65536, 2293811, 0, 65536, 2359323, 0, 65536, 2359347, 0, 65536, 2424859, 0, 65536, 2424883, 0, 65536, 2490395, 0, 65536, 2490419, 0, 65536, 2555931, 0, 131072, 2555932, 0, 1, 2555933, 0, 1, 2555934, 0, 1, 2555935, 0, 1, 2555936, 0, 1, 2555937, 0, 1, 2555938, 0, 1, 2555939, 0, 1, 2555940, 0, 1, 2555941, 0, 1, 2555942, 0, 1, 2555943, 0, 1, 2555944, 0, 1, 2555945, 0, 1, 2555946, 0, 1, 2555947, 0, 1, 2555948, 0, 1, 2555949, 0, 1, 2555950, 0, 1, 2555951, 0, 1, 2555952, 0, 1, 2555953, 0, 1, 2555954, 0, 1, 2555955, 0, 131075 )
+
+[node name="LevelObjects" type="Node2D" parent="."]
+
+[node name="Decorations" type="Node2D" parent="LevelObjects"]
+
+[node name="Lights" type="Node2D" parent="LevelObjects"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 29 )]
+position = Vector2( 80, 256 )
+
+[node name="ThinArea" parent="LevelObjects" instance=ExtResource( 12 )]
+position = Vector2( 224, 264 )
+
+[node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
+position = Vector2( 384, 312 )
+connected_door_path = NodePath("../Staircase2")
+
+[node name="Sprite" parent="LevelObjects/Staircase" index="0"]
+visible = false
+
+[node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
+position = Vector2( 392, 256 )
+connected_door_path = NodePath("../Staircase")
+
+[node name="LevelDarkener" type="ColorRect" parent="."]
+margin_left = -2000.0
+margin_top = -2000.0
+margin_right = 2600.0
+margin_bottom = 2200.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 120, 256 )
+z_index = 50
+
+[node name="MinigameHolder" type="Node2D" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource( 11 )]
+
+[node name="Label" type="Label" parent="HUD"]
+visible = false
+margin_right = 72.0
+margin_bottom = 14.0
+text = "Hello Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -104, 256 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 48, -32 )
+shape = SubResource( 2 )
+
+[editable path="LevelObjects/Staircase"]
