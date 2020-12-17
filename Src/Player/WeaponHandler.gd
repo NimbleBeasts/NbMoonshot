@@ -6,10 +6,10 @@ onready var maxWeaponAmount: int = get_child_count()
 
 
 func _ready() -> void:
+	equipWeapon(0)
 	Events.connect("switched_weapon", self, "equipWeapon")
-	Events.emit_signal("switched_weapon", 0)
 
-	
+
 func _input(event: InputEvent) -> void:
 	if not event is InputEventKey:
 		return
@@ -24,8 +24,11 @@ func _input(event: InputEvent) -> void:
 
 
 func equipWeapon(weaponIndex: int) -> void:
-	print(get_child(weaponIndex).name + " equipped")
+	var oldWeapon = currentWeapon
 	var newWeapon = get_child(weaponIndex)
-	currentWeapon.set_process(false)
+	oldWeapon.set_process(false)
+	oldWeapon.set_physics_process(false)
+	newWeapon.set_physics_process(true)
 	newWeapon.set_process(true)
 	currentWeapon = newWeapon
+	Events.emit_signal("hud_game_hint", "Switched from %s to %s" % [oldWeapon.name, newWeapon.name])

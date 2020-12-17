@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
@@ -270,6 +270,9 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 17.6035, 14.6427 )
 
+[sub_resource type="Gradient" id=19]
+colors = PoolColorArray( 0.964844, 0.0603027, 0.0603027, 1, 1, 0.0585938, 0.0585938, 1 )
+
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
@@ -422,8 +425,21 @@ stunRayPath = NodePath("../../StunRayCast")
 
 [node name="StoneThrower" type="Node" parent="WeaponHandler"]
 script = ExtResource( 10 )
-stonePath = "res://Src/Throwables/Stone.tscn"
 stoneSpawnPath = NodePath("../../StoneSpawn")
+playerPath = NodePath("../..")
+stonePath = "res://Src/Throwables/Stone.tscn"
+stoneGravity = 800.0
+stoneVelocity = Vector2( 70, 0 )
+
+[node name="Line2D" type="Line2D" parent="WeaponHandler/StoneThrower"]
+width = 1.0
+gradient = SubResource( 19 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="PowerIncreaseTimer" type="Timer" parent="WeaponHandler/StoneThrower"]
+wait_time = 0.7
 
 [node name="DogFeeding" type="Node" parent="."]
 script = ExtResource( 6 )

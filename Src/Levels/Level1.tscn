@@ -36,7 +36,6 @@
 [ext_resource path="res://Src/Objects/Flag.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=35]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 21 ) ],
@@ -120,12 +119,14 @@ position = Vector2( 400, 72 )
 position = Vector2( 360, 128 )
 connected_door_path = NodePath("../Staircase2")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 192 )
 connected_door_path = NodePath("../Staircase")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
@@ -136,7 +137,6 @@ keyPadCode = 1234
 position = Vector2( 424, 320 )
 lockLevel = 0
 doorType = 0
-door_name = "DoorWall"
 save_state = false
 showHintIfLocked = false
 hint = ""
