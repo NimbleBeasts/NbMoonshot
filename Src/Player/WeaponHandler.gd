@@ -9,7 +9,7 @@ func _ready() -> void:
 	Events.connect("switched_weapon", self, "equipWeapon")
 	Events.emit_signal("switched_weapon", 0)
 
-	
+
 func _input(event: InputEvent) -> void:
 	if not event is InputEventKey:
 		return
@@ -24,7 +24,7 @@ func _input(event: InputEvent) -> void:
 
 
 func equipWeapon(weaponIndex: int) -> void:
-	print(get_child(weaponIndex).name + " equipped")
+	Events.emit_signal("hud_game_hint", get_child(weaponIndex).name + " equipped")
 	var newWeapon = get_child(weaponIndex)
 	currentWeapon.set_process(false)
 	newWeapon.set_process(true)
