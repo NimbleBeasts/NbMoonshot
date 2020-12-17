@@ -26,9 +26,9 @@ func _input(event: InputEvent) -> void:
 func equipWeapon(weaponIndex: int) -> void:
 	var oldWeapon = currentWeapon
 	var newWeapon = get_child(weaponIndex)
-	oldWeapon.set_process(false)
-	oldWeapon.set_physics_process(false)
-	newWeapon.set_physics_process(true)
-	newWeapon.set_process(true)
+	oldWeapon.setEnabled(false)
+	newWeapon.setEnabled(true)
 	currentWeapon = newWeapon
 	Events.emit_signal("hud_game_hint", "Switched from %s to %s" % [oldWeapon.name, newWeapon.name])
+
+

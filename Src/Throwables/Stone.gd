@@ -4,6 +4,7 @@ export var gravity: float
 var velocity: Vector2
 var canMakeSound: bool = true
 
+
 func _ready() -> void:
 	set_physics_process(false)
 

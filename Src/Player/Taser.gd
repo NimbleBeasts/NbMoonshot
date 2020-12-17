@@ -6,8 +6,9 @@ var stunBatteryLevel
 onready var player = get_node(playerPath)
 onready var stunRay = get_node(stunRayPath)
 
+
 func _ready() -> void:
-	set_process(false)
+	setEnabled(false)
 	
 
 func _process(delta: float) -> void:
@@ -22,3 +23,7 @@ func _process(delta: float) -> void:
 					stunBatteryLevel -= 1
 					Events.emit_signal("taser_fired", stunBatteryLevel)
 					Events.emit_signal("play_sound", "taser_hit")
+
+
+func setEnabled(to: bool) -> void:
+	set_process(to)

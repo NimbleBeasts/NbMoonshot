@@ -411,16 +411,19 @@ stunRayPath = NodePath("../../Flippable/StunRayCast")
 
 [node name="ObjectThrower" type="Node2D" parent="WeaponHandler"]
 script = ExtResource( 10 )
-linePath = NodePath("../../Flippable/Line2D")
+objectSpawnPath = NodePath("../../Flippable/ObjectSpawn")
 playerPath = NodePath("../..")
 objectScenePath = "res://Src/Throwables/Stone.tscn"
-startingObjectVelocity = Vector2( 150, 0 )
 
 [node name="PowerIncreaseTimer" type="Timer" parent="WeaponHandler/ObjectThrower"]
 wait_time = 0.7
 
-[node name="ObjectSpawn" type="Position2D" parent="WeaponHandler/ObjectThrower"]
-position = Vector2( 11.1221, -17.5237 )
+[node name="Line2D" type="Line2D" parent="WeaponHandler/ObjectThrower"]
+width = 1.0
+gradient = SubResource( 19 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="DogFeeding" type="Node" parent="."]
 script = ExtResource( 6 )
@@ -441,10 +444,6 @@ enabled = true
 cast_to = Vector2( 20, 0 )
 collision_mask = 16
 
-[node name="Line2D" type="Line2D" parent="Flippable"]
-width = 1.0
-gradient = SubResource( 19 )
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="ObjectSpawn" type="Position2D" parent="Flippable"]
+position = Vector2( 23.9061, -18.1183 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

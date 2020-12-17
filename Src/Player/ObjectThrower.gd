@@ -1,18 +1,19 @@
 extends Node2D
 
-export var linePath: NodePath
+export var objectSpawnPath: NodePath
 export var playerPath: NodePath
 export (String, FILE) var objectScenePath: String
 export var objectGravity: float = 800
-export var startingObjectVelocity: Vector2 = Vector2(500,0)
+export var startingObjectVelocity: Vector2 = Vector2(150,0)
 export var powerToIncrease: int = 50
 
 var objectScene: Resource
 var maxPoints: int = 15
 var objectVelocity: Vector2
+var lastPlayerDir: Vector2
 
-onready var line: Line2D = get_node(linePath)
-onready var objectSpawn = $ObjectSpawn
+onready var line: Line2D = $Line2D
+onready var objectSpawn = get_node(objectSpawnPath)
 onready var player = get_node(playerPath)
 
 
@@ -20,12 +21,18 @@ func _ready() -> void:
 	objectScene = load(objectScenePath)
 	objectVelocity = startingObjectVelocity
 	$PowerIncreaseTimer.connect("timeout", self, "increaseThrowPower")
-	set_physics_process(false)
+	setEnabled(false)
 
 
+func _process(delta: float) -> void:
+	if player.direction.x != 0:
+		objectVelocity = startingObjectVelocity * player.direction
+		lastPlayerDir = player.direction
+
+		
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("weapon"):
-		objectVelocity = startingObjectVelocity
+		objectVelocity = startingObjectVelocity * lastPlayerDir
 		$PowerIncreaseTimer.start()
 		Events.emit_signal("block_player_movement")
 		updateTrajectory(delta)
@@ -56,3 +63,7 @@ func updateTrajectory(delta: float) -> void:
 func increaseThrowPower() -> void:
 	objectVelocity.x += powerToIncrease
 	updateTrajectory(get_physics_process_delta_time())
+
+
+func setEnabled(to: bool) -> void:
+	set_physics_process(to)
