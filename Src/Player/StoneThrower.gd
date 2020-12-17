@@ -18,7 +18,7 @@ onready var player = get_node(playerPath)
 func _ready() -> void:
 	$PowerIncreaseTimer.connect("timeout", self, "increaseThrowPower")
 	stoneScene = load(stonePath)
-	set_process(false)
+	set_physics_process(false)
 
 
 func _physics_process(delta: float) -> void:
@@ -49,6 +49,7 @@ func updateTrajectory(delta: float) -> void:
 		if pos.y > player.to_global(Vector2(0,0)).y:
 			break
 			
+
 func increaseThrowPower() -> void:
 	stoneVelocity.x += powerToIncrease
 	updateTrajectory(get_physics_process_delta_time())
