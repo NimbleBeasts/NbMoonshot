@@ -17,7 +17,7 @@ func _ready() -> void:
 	set_process(false)
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("weapon"):
 		Events.emit_signal("block_player_movement")
 		updateTrajectory(delta)
@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		stone.gravity = stoneGravity
 		stone.global_position = stoneSpawn.global_position
 		Global.game_manager.getCurrentLevel().add_child(stone)
-		stone.throw(Vector2(500,0))
+		stone.throw(stoneVelocity)
 		Events.emit_signal("unblock_player_movement")
 
 

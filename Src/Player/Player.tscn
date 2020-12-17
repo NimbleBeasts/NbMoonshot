@@ -427,6 +427,7 @@ stunRayPath = NodePath("../../StunRayCast")
 script = ExtResource( 10 )
 stoneSpawnPath = NodePath("../../StoneSpawn")
 stonePath = "res://Src/Throwables/Stone.tscn"
+stoneGravity = 800.0
 stoneVelocity = Vector2( 70, 0 )
 
 [node name="Line2D" type="Line2D" parent="WeaponHandler/StoneThrower"]
