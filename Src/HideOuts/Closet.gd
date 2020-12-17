@@ -1,3 +1,4 @@
+tool
 extends "res://Src/HideOuts/HideOutBase.gd"
 
 
@@ -8,5 +9,8 @@ var type = Types.Wooden
 
 
 func _ready():
-	pass # Replace with function body.
+	if type == Types.Wooden:
+		$Sprite.texture = preload("res://Assets/HideOuts/WoodCloset.png")
+	else:
+		$Sprite.texture = preload("res://Assets/HideOuts/MetalCloset.png")
 
