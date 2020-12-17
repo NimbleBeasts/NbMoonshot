@@ -426,6 +426,7 @@ stunRayPath = NodePath("../../StunRayCast")
 [node name="StoneThrower" type="Node" parent="WeaponHandler"]
 script = ExtResource( 10 )
 stoneSpawnPath = NodePath("../../StoneSpawn")
+playerPath = NodePath("../..")
 stonePath = "res://Src/Throwables/Stone.tscn"
 stoneGravity = 800.0
 stoneVelocity = Vector2( 70, 0 )
@@ -436,6 +437,9 @@ gradient = SubResource( 19 )
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
+
+[node name="PowerIncreaseTimer" type="Timer" parent="WeaponHandler/StoneThrower"]
+wait_time = 0.7
 
 [node name="DogFeeding" type="Node" parent="."]
 script = ExtResource( 6 )
