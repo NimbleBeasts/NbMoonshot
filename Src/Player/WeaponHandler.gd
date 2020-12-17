@@ -1,12 +1,7 @@
 extends Node
 
-
 export var maxWeaponAmount: int = 3
 var currentIndex: int
-
-
-func _ready() -> void:
-	Events.connect("switched_weapon", self, "equipWeapon")
 
 
 func _input(event: InputEvent) -> void:
@@ -20,7 +15,3 @@ func _input(event: InputEvent) -> void:
 			currentIndex = 0
 		
 		Events.emit_signal("switched_weapon", currentIndex)
-
-
-func equipWeapon(weaponIndex: int) -> void:
-	pass

@@ -105,6 +105,8 @@ signal player_enter_door()
 signal player_exit_door()
 signal set_player_state(newState)
 signal player_state_changed(newState)
+signal change_player_animation(newAnim)
+
 
 # Level
 signal game_over()

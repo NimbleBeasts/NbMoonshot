@@ -56,6 +56,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	$WeaponHandler/Taser.stunBatteryLevel = stun_battery_level
 	# sprint upgrade
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
@@ -71,6 +72,7 @@ func _ready() -> void:
 	Events.connect("game_over", self, "onGameOver")
 	Events.connect("update_upgrades", self, "do_upgrade_stuff")
 	Events.connect("set_player_state", self, "set_state")
+	Events.connect("change_player_animation", $AnimationPlayer, "play")
 
 	$PlayerArea.connect("body_entered", $DogFeeding, "onPlayerBodyEntered")
 	$PlayerArea.connect("body_exited", $DogFeeding, "onPlayerBodyExited")
@@ -187,10 +189,6 @@ func _physics_process(delta: float) -> void:
 				$AnimationPlayer.play("jump_up")
 				Events.emit_signal("play_sound", "jump_up")
 	
-	# stunning
-	if state == Types.PlayerStates.Normal and stun_battery_level > 0 and not block_input:
-		stunning()
-		
 
 func update_light_level() -> void:
 	# if there are no overlapping areas, just set light_level to dark
@@ -217,19 +215,6 @@ func travel(target_pos: float) -> void:
 	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, global_position)
 	set_state(Types.PlayerStates.Normal)
 	
-
-func stunning() -> void:
-	if Input.is_action_just_pressed("weapon"):
-		$AnimationPlayer.play("taser")
-		Events.emit_signal("play_sound", "taser_deploy")
-		if stun_raycast.is_colliding():
-			var hit = stun_raycast.get_collider()	
-			if hit != null and hit.has_method("stun") and not hit.isStunned:
-				hit.stun(stun_duration)
-				stun_battery_level -= 1
-				Events.emit_signal("taser_fired", stun_battery_level)
-				Events.emit_signal("play_sound", "taser_hit")
-			
 				
 func do_upgrade_stuff() -> void:
 	# if/ else go brrrrrrrr
