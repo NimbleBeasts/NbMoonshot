@@ -422,7 +422,12 @@ stunRayPath = NodePath("../../StunRayCast")
 
 [node name="StoneThrower" type="Node" parent="WeaponHandler"]
 script = ExtResource( 10 )
+stonePath = "res://Src/Throwables/Stone.tscn"
+stoneSpawnPath = NodePath("../../StoneSpawn")
 
 [node name="DogFeeding" type="Node" parent="."]
 script = ExtResource( 6 )
+
+[node name="StoneSpawn" type="Position2D" parent="."]
+position = Vector2( 23.6088, -15.1453 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

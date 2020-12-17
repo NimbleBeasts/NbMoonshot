@@ -6,10 +6,10 @@ onready var maxWeaponAmount: int = get_child_count()
 
 
 func _ready() -> void:
-	equipWeapon(0)
 	Events.connect("switched_weapon", self, "equipWeapon")
+	Events.emit_signal("switched_weapon", 0)
 
-
+	
 func _input(event: InputEvent) -> void:
 	if not event is InputEventKey:
 		return
