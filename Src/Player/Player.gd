@@ -46,8 +46,8 @@ var isSneaking: bool = false
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
 onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
-onready var stun_raycast: RayCast2D = $StunRayCast
-onready var player_sprite: Sprite = $PlayerSprite
+onready var stun_raycast: RayCast2D = $Flippable/StunRayCast
+onready var player_sprite: Sprite = $Flippable/PlayerSprite
 onready var camera: Camera2D = $Camera2D
 
 
@@ -56,6 +56,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	$WeaponHandler/Taser.stunBatteryLevel = stun_battery_level
 	# sprint upgrade
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
@@ -71,6 +72,7 @@ func _ready() -> void:
 	Events.connect("game_over", self, "onGameOver")
 	Events.connect("update_upgrades", self, "do_upgrade_stuff")
 	Events.connect("set_player_state", self, "set_state")
+	Events.connect("change_player_animation", $AnimationPlayer, "play")
 
 	$PlayerArea.connect("body_entered", $DogFeeding, "onPlayerBodyEntered")
 	$PlayerArea.connect("body_exited", $DogFeeding, "onPlayerBodyExited")
@@ -135,16 +137,8 @@ func _physics_process(delta: float) -> void:
 
 	if not block_input:
 		direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-		
-		# Flip sprite if necessary
-		if direction.x == -1 and player_sprite.flip_h == false:
-			player_sprite.flip_h = true
-			stun_raycast.cast_to *= Vector2(-1, 1)
-		elif direction.x == 1 and player_sprite.flip_h == true:
-			player_sprite.flip_h = false
-			stun_raycast.cast_to *= Vector2(-1, 1)
-
 		direction = direction.normalized()
+		updateFlip()
 	else:
 		direction = Vector2(0,0)
 	
@@ -187,10 +181,6 @@ func _physics_process(delta: float) -> void:
 				$AnimationPlayer.play("jump_up")
 				Events.emit_signal("play_sound", "jump_up")
 	
-	# stunning
-	if state == Types.PlayerStates.Normal and stun_battery_level > 0 and not block_input:
-		stunning()
-		
 
 func update_light_level() -> void:
 	# if there are no overlapping areas, just set light_level to dark
@@ -217,19 +207,6 @@ func travel(target_pos: float) -> void:
 	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, global_position)
 	set_state(Types.PlayerStates.Normal)
 	
-
-func stunning() -> void:
-	if Input.is_action_just_pressed("weapon"):
-		$AnimationPlayer.play("taser")
-		Events.emit_signal("play_sound", "taser_deploy")
-		if stun_raycast.is_colliding():
-			var hit = stun_raycast.get_collider()	
-			if hit != null and hit.has_method("stun") and not hit.isStunned:
-				hit.stun(stun_duration)
-				stun_battery_level -= 1
-				Events.emit_signal("taser_fired", stun_battery_level)
-				Events.emit_signal("play_sound", "taser_hit")
-			
 				
 func do_upgrade_stuff() -> void:
 	# if/ else go brrrrrrrr
@@ -283,7 +260,7 @@ func set_light_level(value: int) -> void:
 		# this is why a custom setter function is needed, may forgot to set visible level and
 		# will fuk everything up
 		setVisibleLevel(light_level)
-		$PlayerSprite.modulate = Color(visibilityLevelsModulations[visible_level])
+		player_sprite.modulate = Color(visibilityLevelsModulations[visible_level])
 		Events.emit_signal("light_level_changed", light_level)
 	
 	
@@ -359,3 +336,8 @@ func enableNormalColliders() -> void:
 func enableDuckColliders() -> void:
 	get_tree().set_group("DuckColliders", "disabled", false)
 	get_tree().set_group("NormalColliders", "disabled", true)
+
+
+func updateFlip() -> void:
+	if direction.x != 0:
+		$Flippable.scale.x = direction.x

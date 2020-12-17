@@ -2,7 +2,11 @@ tool
 extends Door
 
 enum DoorLockType {open, lockedLevel1, lockedLevel2, locked}
+enum DoorType {wooden, metalSwing}
+
+
 export(DoorLockType) var lockLevel = DoorLockType.open
+export(DoorType) var doorType = DoorType.wooden
 var open: bool = false
 
 export var door_name : String = ""
@@ -17,10 +21,10 @@ func _ready():
 	if door_name != "":
 		Events.connect("door_change_status", self, "_on_door_change_status")
 	
-	# if lockLevel == DoorLockType.open:
-	# 	$Sprite.frame = 2
-	# else:
-	# 	$Sprite.frame = 0
+	if doorType == DoorType.metalSwing:
+		$Sprite.texture = preload("res://Assets/Doors/StaircaseMetal.png")
+	else:
+		$Sprite.texture = preload("res://Assets/Doors/Staircase.png")
 	
 
 # overriden

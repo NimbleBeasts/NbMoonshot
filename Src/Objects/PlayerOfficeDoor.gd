@@ -19,9 +19,9 @@ func _ready():
 	$Area2D.connect("body_entered", self,"_on_Area2D_body_entered")
 	$Area2D.connect("body_exited", self, "_on_Area2D_body_exited")
 	if doorType == DoorType.metal:
-		$Sprite.texture = preload("res://Assets/Objects/DoorWallMetal.png")
+		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal.png")
 	else:
-		$Sprite.texture = preload("res://Assets/Objects/DoorWall.png")
+		$Sprite.texture = preload("res://Assets/Doors/DoorWall.png")
 	set_process(false)
 	
 	if door_id != 0:

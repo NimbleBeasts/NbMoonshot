@@ -28,7 +28,7 @@
 [ext_resource path="res://Assets/NPCs/ZoneTutorialBriefing.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Assets/Objects/Doll.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Src/Objects/Doll.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Assets/Objects/Worldmap.png" type="Texture" id=30]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=32]
@@ -150,24 +150,28 @@ position = Vector2( 232, 256 )
 z_index = 0
 connected_door_path = NodePath("../StaircaseL2_1")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="StaircaseL2_1" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 232, 320 )
 connected_door_path = NodePath("../StaircaseL1")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="StaircaseL2_2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 288, 320 )
 connected_door_path = NodePath("../StaircaseL3")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="StaircaseL3" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 136, 384 )
 connected_door_path = NodePath("../StaircaseL2_2")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
@@ -189,7 +193,6 @@ has_level_index = false
 position = Vector2( 192, 256 )
 lockLevel = 0
 doorType = 0
-door_name = "DoorWall"
 save_state = false
 showHintIfLocked = false
 hint = ""

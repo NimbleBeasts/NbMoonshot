@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Doll",
 "language": "GDScript",
-"path": "res://Assets/Objects/Doll.gd"
+"path": "res://Src/Objects/Doll.gd"
 }, {
 "base": "Area2D",
 "class": "Door",

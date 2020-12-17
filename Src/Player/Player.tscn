@@ -1,13 +1,15 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Src/Player/PlayerCamera.gd" type="Script" id=3]
 [ext_resource path="res://Src/Player/GuardPickUp.gd" type="Script" id=4]
-[ext_resource path="res://Src/Player/WeaponSwitch.gd" type="Script" id=5]
+[ext_resource path="res://Src/Player/WeaponHandler.gd" type="Script" id=5]
 [ext_resource path="res://Src/Player/DogFeeding.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Player/CameraMoveIndicator.png" type="Texture" id=7]
 [ext_resource path="res://Src/Player/CameraNotification.gd" type="Script" id=8]
+[ext_resource path="res://Src/Player/Taser.gd" type="Script" id=9]
+[ext_resource path="res://Src/Player/ObjectThrower.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -44,7 +46,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -60,7 +62,7 @@ tracks/0/keys = {
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -77,7 +79,7 @@ length = 0.45
 loop = true
 step = 0.15
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -93,7 +95,7 @@ tracks/0/keys = {
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -105,7 +107,7 @@ tracks/0/keys = {
 "values": [ 12 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerSprite:position")
+tracks/1/path = NodePath("Flippable/PlayerSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -122,7 +124,7 @@ length = 0.45
 loop = true
 step = 0.15
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -138,7 +140,7 @@ tracks/0/keys = {
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -150,7 +152,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerSprite:position")
+tracks/1/path = NodePath("Flippable/PlayerSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -166,7 +168,7 @@ tracks/1/keys = {
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -178,7 +180,7 @@ tracks/0/keys = {
 "values": [ 5, 2, 3 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerSprite:position")
+tracks/1/path = NodePath("Flippable/PlayerSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -194,7 +196,7 @@ tracks/1/keys = {
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -206,7 +208,7 @@ tracks/0/keys = {
 "values": [ 2, 3, 5 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerSprite:position")
+tracks/1/path = NodePath("Flippable/PlayerSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -222,7 +224,7 @@ tracks/1/keys = {
 length = 2.0
 step = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -237,7 +239,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=16]
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -253,7 +255,7 @@ tracks/0/keys = {
 loop = true
 step = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -267,6 +269,9 @@ tracks/0/keys = {
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 17.6035, 14.6427 )
+
+[sub_resource type="Gradient" id=19]
+colors = PoolColorArray( 0.964844, 0.0603027, 0.0603027, 1, 1, 0.0585938, 0.0585938, 1 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -344,20 +349,6 @@ collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="StunRayCast" type="RayCast2D" parent="."]
-position = Vector2( 0, -16 )
-enabled = true
-cast_to = Vector2( 20, 0 )
-collision_mask = 16
-
-[node name="PlayerSprite" type="Sprite" parent="."]
-position = Vector2( 0, -16 )
-z_index = 50
-z_as_relative = false
-texture = ExtResource( 1 )
-hframes = 23
-frame = 7
-
 [node name="CameraNotification" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -23 )
@@ -410,9 +401,49 @@ leftOffset = Vector2( -22, -2 )
 position = Vector2( 1.05208, -13.9461 )
 shape = SubResource( 18 )
 
-[node name="WeaponSwitch" type="Node" parent="."]
+[node name="WeaponHandler" type="Node2D" parent="."]
 script = ExtResource( 5 )
+
+[node name="Taser" type="Node2D" parent="WeaponHandler"]
+script = ExtResource( 9 )
+playerPath = NodePath("../..")
+stunRayPath = NodePath("../../Flippable/StunRayCast")
+
+[node name="ObjectThrower" type="Node2D" parent="WeaponHandler"]
+script = ExtResource( 10 )
+objectSpawnPath = NodePath("../../Flippable/ObjectSpawn")
+playerPath = NodePath("../..")
+objectScenePath = "res://Src/Throwables/Stone.tscn"
+
+[node name="PowerIncreaseTimer" type="Timer" parent="WeaponHandler/ObjectThrower"]
+wait_time = 0.7
+
+[node name="Line2D" type="Line2D" parent="WeaponHandler/ObjectThrower"]
+width = 1.0
+gradient = SubResource( 19 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="DogFeeding" type="Node" parent="."]
 script = ExtResource( 6 )
+
+[node name="Flippable" type="Node2D" parent="."]
+
+[node name="PlayerSprite" type="Sprite" parent="Flippable"]
+position = Vector2( 0, -16 )
+z_index = 50
+z_as_relative = false
+texture = ExtResource( 1 )
+hframes = 23
+frame = 7
+
+[node name="StunRayCast" type="RayCast2D" parent="Flippable"]
+position = Vector2( 0, -16 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 16
+
+[node name="ObjectSpawn" type="Position2D" parent="Flippable"]
+position = Vector2( 23.9061, -18.1183 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

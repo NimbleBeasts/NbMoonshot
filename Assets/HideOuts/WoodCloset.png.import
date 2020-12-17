@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DoorWall.png-31a4be3efd7aa45ec1a6f30a1bd30f56.stex"
+path="res://.import/WoodCloset.png-0d6e18a40737e5d059d79126ad1a8896.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Objects/DoorWall.png"
-dest_files=[ "res://.import/DoorWall.png-31a4be3efd7aa45ec1a6f30a1bd30f56.stex" ]
+source_file="res://Assets/HideOuts/WoodCloset.png"
+dest_files=[ "res://.import/WoodCloset.png-0d6e18a40737e5d059d79126ad1a8896.stex" ]
 
 [params]
 

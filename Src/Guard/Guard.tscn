@@ -127,6 +127,12 @@ one_shot = true
 
 [node name="Flippable" type="Node2D" parent="."]
 
+[node name="GuardArea" type="Area2D" parent="Flippable"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Flippable/GuardArea"]
+position = Vector2( 0, -16 )
+shape = SubResource( 1 )
+
 [node name="Sprite" type="Sprite" parent="Flippable"]
 light_mask = 3
 position = Vector2( 0, 2 )

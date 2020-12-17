@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Objects/DoorWall.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Doors/DoorWall.png" type="Texture" id=1]
 [ext_resource path="res://Src/Objects/MinigameDoorWall.gd" type="Script" id=2]
 [ext_resource path="res://Src/Minigames/KeypadMinigame/KeypadMinigameSpawner.gd" type="Script" id=3]
 

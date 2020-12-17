@@ -61,6 +61,7 @@ func _ready() -> void:
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
+	$Flippable/GuardArea.connect("body_entered", self, "onGuardBodyEntered")
 	#warning-ignore:return_value_discarded
 
 
@@ -142,6 +143,7 @@ func playerDetectLOS() -> void:
 				losRay.set_deferred("enabled", false)
 			Types.LightLevels.BarelyVisible:
 				if not player_detected: # only sets to suspect if hasn't detected player before
+					playerLastSeenPosition = player.global_position
 					set_state(Types.GuardStates.Suspect)
 			Types.LightLevels.Dark:
 				if not player_detected and not isMovingToPlayer: # only sets to wander if hasn't detected player before
@@ -181,18 +183,19 @@ func _on_StunDurationTimer_timeout() -> void:
 
 # Event Hook: audio level changed. audio_pos is the position where the audio notification happened
 func _on_audio_level_changed(audio_level: int, audio_pos: Vector2) -> void:
+	if state == Types.GuardStates.Stunned or state == Types.GuardStates.PlayerDetected:
+		return
 	match audio_level:
 		Types.AudioLevels.LoudNoise:
 			if audio_pos.distance_to(global_position) < audio_suspect_distance:
-				var yDistance = audio_pos.y - global_position.y 
-				if not yDistance > -20 and yDistance < 20:
+				var yDistance = abs(audio_pos.y - global_position.y)
+				if yDistance > 20:
 					return
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
 				playerLastSeenPosition = audio_pos
-				Events.emit_signal("play_sound", "suspicious")
-				guardPathLine.moveToPoint(playerLastSeenPosition)
-				Global.startTimerOnce(goBackToNormalTimer)
+				if state != Types.GuardStates.PlayerDetected:
+					set_state(Types.GuardStates.Suspect)
 
 				
 # use this function to set state instead of doing directly
@@ -210,7 +213,6 @@ func set_state(new_state) -> void:
 				$AnimationPlayer.play("suspicious")
 				guardPathLine.stopAllMovement()
 			Types.GuardStates.Suspect:
-				playerLastSeenPosition = player.global_position
 				Events.emit_signal("play_sound", "suspicious")
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
@@ -274,3 +276,10 @@ func onGuardPathLinePointReached() -> void:
 		goBackToNormalTimer.wait_time = 1
 		Global.startTimerOnce(goBackToNormalTimer)
 		isMovingToPlayer = false
+
+
+func onGuardBodyEntered(body: Node) -> void:
+	if body.is_in_group("DoorWall"):
+		var door = body.get_parent()
+		if door.lockLevel == door.DoorLockType.open:
+			door.interact(true, global_position)
