@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var currentIndex: int
 onready var currentWeapon = get_child(0)

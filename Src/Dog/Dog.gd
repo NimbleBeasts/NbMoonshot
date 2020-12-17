@@ -53,16 +53,17 @@ func _process(delta: float) -> void:
 		
 
 func onAudioLevelChanged(newLevel, audioPosition) -> void:
-	if state == Types.DogStates.Detection:
+	if state == Types.DogStates.Detection or state == Types.DogStates.Eating:
 		return
 	match newLevel:
 		Types.AudioLevels.LoudNoise:
 			if audioPosition.distance_to(global_position) < audioSuspectDistance:
-				var yDistance = audioPosition.y - global_position.y 
-				if yDistance > -20 and yDistance < 20:
-					suspiciousPosition = audioPosition
-					setState(Types.DogStates.Suspicious)
-					losArea.set_deferred("monitoring", true)
+				var yDistance = abs(audioPosition.y - global_position.y)
+				if yDistance > 20:
+					return
+				suspiciousPosition = audioPosition
+				setState(Types.DogStates.Suspicious)
+				losArea.set_deferred("monitoring", true)
 
 
 func setState(newState: int) -> void:

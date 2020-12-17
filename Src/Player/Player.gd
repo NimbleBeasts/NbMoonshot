@@ -46,8 +46,8 @@ var isSneaking: bool = false
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
 onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
-onready var stun_raycast: RayCast2D = $StunRayCast
-onready var player_sprite: Sprite = $PlayerSprite
+onready var stun_raycast: RayCast2D = $Flippable/StunRayCast
+onready var player_sprite: Sprite = $Flippable/PlayerSprite
 onready var camera: Camera2D = $Camera2D
 
 
@@ -137,16 +137,8 @@ func _physics_process(delta: float) -> void:
 
 	if not block_input:
 		direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-		
-		# Flip sprite if necessary
-		if direction.x == -1 and player_sprite.flip_h == false:
-			player_sprite.flip_h = true
-			stun_raycast.cast_to *= Vector2(-1, 1)
-		elif direction.x == 1 and player_sprite.flip_h == true:
-			player_sprite.flip_h = false
-			stun_raycast.cast_to *= Vector2(-1, 1)
-
 		direction = direction.normalized()
+		updateFlip()
 	else:
 		direction = Vector2(0,0)
 	
@@ -268,7 +260,7 @@ func set_light_level(value: int) -> void:
 		# this is why a custom setter function is needed, may forgot to set visible level and
 		# will fuk everything up
 		setVisibleLevel(light_level)
-		$PlayerSprite.modulate = Color(visibilityLevelsModulations[visible_level])
+		player_sprite.modulate = Color(visibilityLevelsModulations[visible_level])
 		Events.emit_signal("light_level_changed", light_level)
 	
 	
@@ -344,3 +336,8 @@ func enableNormalColliders() -> void:
 func enableDuckColliders() -> void:
 	get_tree().set_group("DuckColliders", "disabled", false)
 	get_tree().set_group("NormalColliders", "disabled", true)
+
+
+func updateFlip() -> void:
+	if direction.x != 0:
+		$Flippable.scale.x = direction.x

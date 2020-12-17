@@ -46,7 +46,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -62,7 +62,7 @@ tracks/0/keys = {
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -79,7 +79,7 @@ length = 0.45
 loop = true
 step = 0.15
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -95,7 +95,7 @@ tracks/0/keys = {
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -107,7 +107,7 @@ tracks/0/keys = {
 "values": [ 12 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerSprite:position")
+tracks/1/path = NodePath("Flippable/PlayerSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -124,7 +124,7 @@ length = 0.45
 loop = true
 step = 0.15
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -140,7 +140,7 @@ tracks/0/keys = {
 length = 0.1
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -152,7 +152,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerSprite:position")
+tracks/1/path = NodePath("Flippable/PlayerSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -168,7 +168,7 @@ tracks/1/keys = {
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -180,7 +180,7 @@ tracks/0/keys = {
 "values": [ 5, 2, 3 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerSprite:position")
+tracks/1/path = NodePath("Flippable/PlayerSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -196,7 +196,7 @@ tracks/1/keys = {
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -208,7 +208,7 @@ tracks/0/keys = {
 "values": [ 2, 3, 5 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PlayerSprite:position")
+tracks/1/path = NodePath("Flippable/PlayerSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -224,7 +224,7 @@ tracks/1/keys = {
 length = 2.0
 step = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -239,7 +239,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=16]
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -255,7 +255,7 @@ tracks/0/keys = {
 loop = true
 step = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -349,20 +349,6 @@ collision_mask = 4
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="StunRayCast" type="RayCast2D" parent="."]
-position = Vector2( 0, -16 )
-enabled = true
-cast_to = Vector2( 20, 0 )
-collision_mask = 16
-
-[node name="PlayerSprite" type="Sprite" parent="."]
-position = Vector2( 0, -16 )
-z_index = 50
-z_as_relative = false
-texture = ExtResource( 1 )
-hframes = 23
-frame = 7
-
 [node name="CameraNotification" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -23 )
@@ -415,35 +401,51 @@ leftOffset = Vector2( -22, -2 )
 position = Vector2( 1.05208, -13.9461 )
 shape = SubResource( 18 )
 
-[node name="WeaponHandler" type="Node" parent="."]
+[node name="WeaponHandler" type="Node2D" parent="."]
 script = ExtResource( 5 )
 
-[node name="Taser" type="Node" parent="WeaponHandler"]
+[node name="Taser" type="Node2D" parent="WeaponHandler"]
 script = ExtResource( 9 )
 playerPath = NodePath("../..")
-stunRayPath = NodePath("../../StunRayCast")
+stunRayPath = NodePath("../../Flippable/StunRayCast")
 
-[node name="StoneThrower" type="Node" parent="WeaponHandler"]
+[node name="StoneThrower" type="Node2D" parent="WeaponHandler"]
 script = ExtResource( 10 )
-stoneSpawnPath = NodePath("../../StoneSpawn")
+linePath = NodePath("../../Flippable/Line2D")
+stoneSpawnPath = NodePath("StoneSpawn")
 playerPath = NodePath("../..")
 stonePath = "res://Src/Throwables/Stone.tscn"
-stoneGravity = 800.0
 stoneVelocity = Vector2( 70, 0 )
 
-[node name="Line2D" type="Line2D" parent="WeaponHandler/StoneThrower"]
+[node name="PowerIncreaseTimer" type="Timer" parent="WeaponHandler/StoneThrower"]
+wait_time = 0.7
+
+[node name="StoneSpawn" type="Position2D" parent="WeaponHandler/StoneThrower"]
+position = Vector2( 11.1221, -17.5237 )
+
+[node name="DogFeeding" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="Flippable" type="Node2D" parent="."]
+
+[node name="PlayerSprite" type="Sprite" parent="Flippable"]
+position = Vector2( 0, -16 )
+z_index = 50
+z_as_relative = false
+texture = ExtResource( 1 )
+hframes = 23
+frame = 7
+
+[node name="StunRayCast" type="RayCast2D" parent="Flippable"]
+position = Vector2( 0, -16 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 16
+
+[node name="Line2D" type="Line2D" parent="Flippable"]
 width = 1.0
 gradient = SubResource( 19 )
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
-
-[node name="PowerIncreaseTimer" type="Timer" parent="WeaponHandler/StoneThrower"]
-wait_time = 0.7
-
-[node name="DogFeeding" type="Node" parent="."]
-script = ExtResource( 6 )
-
-[node name="StoneSpawn" type="Position2D" parent="."]
-position = Vector2( 23.6088, -15.1453 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

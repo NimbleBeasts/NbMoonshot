@@ -1,5 +1,6 @@
-extends Node
+extends Node2D
 
+export var linePath: NodePath
 export var stoneSpawnPath: NodePath
 export var playerPath: NodePath
 export (String, FILE) var stonePath: String
@@ -10,7 +11,7 @@ export var powerToIncrease: int = 50
 var stoneScene: Resource
 var maxPoints: int = 15
 
-onready var line: Line2D = $Line2D
+onready var line: Line2D = get_node(linePath)
 onready var stoneSpawn = get_node(stoneSpawnPath)
 onready var player = get_node(playerPath)
 
@@ -43,7 +44,7 @@ func updateTrajectory(delta: float) -> void:
 	var pos = stoneSpawn.global_position
 	var vel = stoneVelocity
 	for i in range(maxPoints):
-		line.add_point(pos)
+		line.add_point(line.to_local(pos))
 		vel.y += stoneGravity * delta
 		pos += vel * delta
 		if pos.y > player.to_global(Vector2(0,0)).y:
