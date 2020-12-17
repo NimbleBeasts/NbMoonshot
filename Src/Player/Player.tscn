@@ -9,7 +9,7 @@
 [ext_resource path="res://Assets/Player/CameraMoveIndicator.png" type="Texture" id=7]
 [ext_resource path="res://Src/Player/CameraNotification.gd" type="Script" id=8]
 [ext_resource path="res://Src/Player/Taser.gd" type="Script" id=9]
-[ext_resource path="res://Src/Player/StoneThrower.gd" type="Script" id=10]
+[ext_resource path="res://Src/Player/ObjectThrower.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -409,18 +409,17 @@ script = ExtResource( 9 )
 playerPath = NodePath("../..")
 stunRayPath = NodePath("../../Flippable/StunRayCast")
 
-[node name="StoneThrower" type="Node2D" parent="WeaponHandler"]
+[node name="ObjectThrower" type="Node2D" parent="WeaponHandler"]
 script = ExtResource( 10 )
 linePath = NodePath("../../Flippable/Line2D")
-stoneSpawnPath = NodePath("StoneSpawn")
 playerPath = NodePath("../..")
-stonePath = "res://Src/Throwables/Stone.tscn"
-stoneVelocity = Vector2( 70, 0 )
+objectScenePath = "res://Src/Throwables/Stone.tscn"
+startingObjectVelocity = Vector2( 150, 0 )
 
-[node name="PowerIncreaseTimer" type="Timer" parent="WeaponHandler/StoneThrower"]
+[node name="PowerIncreaseTimer" type="Timer" parent="WeaponHandler/ObjectThrower"]
 wait_time = 0.7
 
-[node name="StoneSpawn" type="Position2D" parent="WeaponHandler/StoneThrower"]
+[node name="ObjectSpawn" type="Position2D" parent="WeaponHandler/ObjectThrower"]
 position = Vector2( 11.1221, -17.5237 )
 
 [node name="DogFeeding" type="Node" parent="."]
