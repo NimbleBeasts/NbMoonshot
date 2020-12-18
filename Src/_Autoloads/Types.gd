@@ -31,7 +31,7 @@ enum LevelTypes {Western, Eastern}
 enum DialogButtons {Option0 = 0, Option1 = 1, NoBranch = 2}
 
 # Dog
-enum DogStates {Idle, Roaming, Sleeping, Suspicious, Detection, Eating, Stunned, Angry}
+enum DogStates {Idle, Roaming, Sleeping, Suspicious, Detection, Eating, Stunned, Angry, MovingToSnack}
 
 # Potraits
 enum Potraits {Player, Boss, Secretary}

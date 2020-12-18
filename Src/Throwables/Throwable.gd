@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity / 5
 		velocity = velocity.bounce(collision.normal)
 		if canMakeSound:
-			Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, global_position)
+			Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, global_position, self)
 			canMakeSound = false
 
 		

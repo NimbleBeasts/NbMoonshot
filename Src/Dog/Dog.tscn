@@ -176,6 +176,7 @@ position = Vector2( -1, 0 )
 collision_layer = 112
 collision_mask = 16
 script = ExtResource( 2 )
+audioSuspectDistance = 100
 
 [node name="Flippable" type="Node2D" parent="."]
 
@@ -183,7 +184,6 @@ script = ExtResource( 2 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 9
-frame = 7
 
 [node name="LOSArea" type="Area2D" parent="Flippable"]
 

@@ -6,13 +6,14 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.7279, 2.14885 )
 
-[node name="Stone" type="KinematicBody2D" groups=[
-"Stone",
+[node name="Snack" type="KinematicBody2D" groups=[
+"Snack",
 ]]
 script = ExtResource( 2 )
 gravity = 800.0
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.635294, 0.898039, 0.0509804, 1 )
 position = Vector2( 0, -0.231758 )
 scale = Vector2( 0.0927041, 0.0703267 )
 texture = ExtResource( 1 )

@@ -182,7 +182,7 @@ func _on_StunDurationTimer_timeout() -> void:
 
 
 # Event Hook: audio level changed. audio_pos is the position where the audio notification happened
-func _on_audio_level_changed(audio_level: int, audio_pos: Vector2) -> void:
+func _on_audio_level_changed(audio_level: int, audio_pos: Vector2, _emitter) -> void:
 	if state == Types.GuardStates.Stunned or state == Types.GuardStates.PlayerDetected:
 		return
 	match audio_level:

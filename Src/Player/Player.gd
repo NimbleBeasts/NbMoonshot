@@ -74,8 +74,6 @@ func _ready() -> void:
 	Events.connect("set_player_state", self, "set_state")
 	Events.connect("change_player_animation", $AnimationPlayer, "play")
 
-	$PlayerArea.connect("body_entered", $DogFeeding, "onPlayerBodyEntered")
-	$PlayerArea.connect("body_exited", $DogFeeding, "onPlayerBodyExited")
 
 	$AnimationPlayer.play("idle")
 	$FootstepTimer.connect("timeout", self, "onFootstepTimerTimeout")
@@ -204,7 +202,7 @@ func travel(target_pos: float) -> void:
 	#warning-ignore:return_value_discarded
 	travel_tween.start()
 	# emits small noise
-	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, global_position)
+	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, global_position, self)
 	set_state(Types.PlayerStates.Normal)
 	
 				
