@@ -16,6 +16,10 @@ func _input(event: InputEvent) -> void:
 		snackThrower.currentAmmo += snackAmount
 		set_deferred("monitoring", false)
 		set_process_input(false)
+		if snackAmount == 1:
+			Events.emit_signal("hud_game_hint", "Found a snack")
+			return
+		Events.emit_signal("hud_game_hint", "Found %s snacks" % snackAmount)
 
 
 func onBodyEntered(body: Node) -> void:
