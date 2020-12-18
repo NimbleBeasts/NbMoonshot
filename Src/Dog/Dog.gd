@@ -28,6 +28,7 @@ func _ready() -> void:
 	$DetectionDelay.one_shot = true
 	$BarkTimer.one_shot = true
 
+	animPlayer.connect("animation_finished", self, "onAnimationFinished")
 	$BarkTimer.connect("timeout", self, "onBarkTimeout")
 	$DetectionDelay.connect("timeout", self, "onDetectionDelayTimeout")
 	$RoamTimer.connect("timeout", self, "onRoamTimeout")
@@ -159,6 +160,11 @@ func onPathLineNextPointReached() -> void:
 		isMovingToPlayer = false
 
 
+func onAnimationFinished(animName: String) -> void:
+	if animName == "get_up":
+		setState(Types.DogStates.Roaming)
+
+
 func onDogBodyEntered(body: Node) -> void:
 	if body.is_in_group("Snack"):
 		feed()
@@ -185,9 +191,7 @@ func onSleepTimeout() -> void:
 
 
 func onRoamTimeout() -> void:
-	if state == Types.DogStates.Stunned:
-		animPlayer.play("get_up")
-	setState(Types.DogStates.Roaming)
+	animPlayer.play("get_up")
 
 
 func onDetectionDelayTimeout() -> void:

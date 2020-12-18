@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=25]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -237,6 +238,8 @@ script = ExtResource( 15 )
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -240, 256 )
+canHidePlayer = true
+canBeOpened = true
 
 [node name="Guard" parent="." instance=ExtResource( 22 )]
 position = Vector2( -186.111, 250.923 )
@@ -247,3 +250,10 @@ script = ExtResource( 15 )
 
 [node name="Fridge" parent="." instance=ExtResource( 24 )]
 position = Vector2( 118.538, 238.544 )
+
+[node name="EliteGuard" parent="." instance=ExtResource( 25 )]
+position = Vector2( -349, 233 )
+
+[node name="PathLine" type="Line2D" parent="EliteGuard"]
+points = PoolVector2Array( -27.6506, -0.834763, -82.0978, -0.834763, -123.11, 0.579453 )
+script = ExtResource( 15 )

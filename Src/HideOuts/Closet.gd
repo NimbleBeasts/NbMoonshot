@@ -28,7 +28,7 @@ func _ready():
 
 
 func _input(event: InputEvent) -> void:
-	if not event.is_action_pressed("interact") or not player:
+	if not event.is_action_pressed("interact") or not playerInArea:
 		return
 
 	if player.guardPickup.isDraggingGuard:
