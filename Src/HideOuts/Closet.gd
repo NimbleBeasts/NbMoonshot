@@ -21,8 +21,10 @@ func _ready():
 	animPlayer.connect("animation_finished", self, "onAnimationFinished")
 	if type == ClosetTypes.Wooden:
 		$Sprite.texture = preload("res://Assets/HideOuts/WoodCloset.png")
+		$Bg.texture = preload("res://Assets/HideOuts/WoodClosetBg.png")
 	else:
 		$Sprite.texture = preload("res://Assets/HideOuts/MetalCloset.png")
+		$Bg.texture = preload("res://Assets/HideOuts/MetalClosetBg.png")
 
 
 func _input(event: InputEvent) -> void:

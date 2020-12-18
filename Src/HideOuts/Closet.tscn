@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Src/HideOuts/HideOutBase.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/HideOuts/Closet.gd" type="Script" id=2]
 [ext_resource path="res://Assets/HideOuts/WoodCloset.png" type="Texture" id=3]
+[ext_resource path="res://Assets/HideOuts/WoodClosetBg.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.9666, 17.2245 )
@@ -10,12 +11,16 @@ extents = Vector2( 14.9666, 17.2245 )
 [node name="Closet" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Sprite" parent="." index="0"]
+[node name="Bg" parent="." index="0"]
+position = Vector2( 0, -20 )
+texture = ExtResource( 4 )
+
+[node name="Sprite" parent="." index="1"]
 position = Vector2( 0, -20 )
 texture = ExtResource( 3 )
 hframes = 3
 
-[node name="Position2D" parent="." index="1"]
+[node name="Position2D" parent="." index="2"]
 position = Vector2( 7, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
