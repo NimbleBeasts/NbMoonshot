@@ -9,7 +9,7 @@ export var normal_speed: int = 80
 export var normal_acceleration: int = 600
 export var sprint_speed: int = 160
 export var sprint_acceleration: int = 2500
-export var duckSpeed:int = 40
+export var duckSpeed: int = 40
 export var duckAcceleration: int = 300
 
 # upgrade export variables

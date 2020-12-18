@@ -4,15 +4,17 @@
 [ext_resource path="res://Src/Throwables/Stone.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.25, 4.125 )
+extents = Vector2( 2.7279, 2.14885 )
 
 [node name="Stone" type="KinematicBody2D"]
 script = ExtResource( 2 )
 gravity = 800.0
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.154782, 0.13137 )
+position = Vector2( 0, -0.231758 )
+scale = Vector2( 0.0927041, 0.0703267 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0662174, -0.198649 )
 shape = SubResource( 1 )

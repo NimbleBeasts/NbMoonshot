@@ -1,3 +1,4 @@
+class_name Throwable
 extends KinematicBody2D
 
 export var gravity: float

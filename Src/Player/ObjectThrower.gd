@@ -10,7 +10,8 @@ export var powerToIncrease: int = 50
 var objectScene: Resource
 var maxPoints: int = 15
 var objectVelocity: Vector2
-var lastPlayerDir: Vector2
+var lastPlayerDir: Vector2 = Vector2(1, 0) # because player faces right at beginning
+var maxPower: int = 300
 
 onready var line: Line2D = $Line2D
 onready var objectSpawn = get_node(objectSpawnPath)
@@ -61,7 +62,10 @@ func updateTrajectory(delta: float) -> void:
 			
 
 func increaseThrowPower() -> void:
-	objectVelocity.x += powerToIncrease
+	if abs(objectVelocity.x) + powerToIncrease <= maxPower:
+		objectVelocity.x += (powerToIncrease * lastPlayerDir.x)
+	else:
+		$PowerIncreaseTimer.stop()
 	updateTrajectory(get_physics_process_delta_time())
 
 
