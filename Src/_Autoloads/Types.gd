@@ -35,3 +35,6 @@ enum DogStates {Idle, Roaming, Sleeping, Suspicious, Detection, Eating, Stunned,
 
 # Potraits
 enum Potraits {Player, Boss, Secretary}
+
+# Weapons
+enum Weapons {Taser = 0, StoneThrower = 1, SnackThrower = 2}

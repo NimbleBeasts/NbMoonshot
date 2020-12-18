@@ -3,6 +3,7 @@ extends Area2D
 export var rightOffset: Vector2
 export var leftOffset: Vector2
 var guard: Guard
+var isDraggingGuard: bool
 onready var player: Player = get_parent()
 
 
@@ -16,6 +17,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and guard.state == Types.GuardStates.Stunned and guard.isSleeping:
 		guard.set_state(Types.GuardStates.BeingDragged)
 		player.set_state(Types.PlayerStates.DraggingGuard)
+		isDraggingGuard = true
 		return
 
 	if guard.state == Types.GuardStates.BeingDragged:
@@ -26,6 +28,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			guard.state = Types.GuardStates.Stunned
 			player.set_state(Types.PlayerStates.Normal)
+			isDraggingGuard = false
 
 
 func onBodyEntered(body: Node) -> void:
