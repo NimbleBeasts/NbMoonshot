@@ -7,13 +7,14 @@ export var objectGravity: float = 800
 export var startingObjectVelocity: Vector2 = Vector2(150,0)
 export var powerToIncrease: int = 50
 export var infiniteAmmo: bool = true
+export var currentAmmo: int = 3
+
 
 var objectScene: Resource
 var maxPoints: int = 15
 var objectVelocity: Vector2
 var lastPlayerDir: Vector2 = Vector2(1, 0) # because player faces right at beginning
 var maxPower: int = 300
-var currentAmmo: int = 3
 var inShootMode: bool = false
 
 onready var line: Line2D = $Line2D

@@ -9,6 +9,9 @@ extents = Vector2( 2.7279, 2.14885 )
 [node name="Stone" type="KinematicBody2D" groups=[
 "Stone",
 ]]
+z_index = 50
+collision_layer = 256
+collision_mask = 257
 script = ExtResource( 2 )
 gravity = 800.0
 

@@ -311,6 +311,8 @@ menu={
 2d_physics/layer_5="Stun"
 2d_physics/layer_6="Guard"
 2d_physics/layer_7="Dog"
+2d_physics/layer_8="Player"
+2d_physics/layer_9="Throwables"
 
 [rendering]
 
