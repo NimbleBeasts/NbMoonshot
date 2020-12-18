@@ -22,6 +22,7 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("interact"):
 		return
+		
 	if player.guardPickup.isDraggingGuard:
 		print("open, throw body in, close")
 		return

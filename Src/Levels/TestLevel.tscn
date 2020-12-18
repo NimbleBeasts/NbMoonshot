@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -243,3 +244,6 @@ position = Vector2( -186.111, 250.923 )
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
 points = PoolVector2Array( 12.4353, -6.87619, 31.8808, -6.1691, 46.73, -6.1691 )
 script = ExtResource( 15 )
+
+[node name="Fridge" parent="." instance=ExtResource( 24 )]
+position = Vector2( 118.538, 238.544 )

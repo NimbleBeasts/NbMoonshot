@@ -50,6 +50,7 @@ onready var stun_raycast: RayCast2D = $Flippable/StunRayCast
 onready var player_sprite: Sprite = $Flippable/PlayerSprite
 onready var camera: Camera2D = $Camera2D
 onready var guardPickup: Area2D = $GuardPickup
+onready var weaponHandler: Node2D = $WeaponHandler
 
 
 func _init() -> void:
