@@ -14,7 +14,6 @@ var player: Player
 var isMovingToPlayer: bool
 var playerInLOS: bool
 var barkAfterAngry: bool = false
-var isFed: bool = false
 
 onready var pathLine: PathLine = get_node("DogPathLine")
 onready var losArea: Area2D = $Flippable/LOSArea
@@ -53,7 +52,6 @@ func _process(delta: float) -> void:
 
 func onAudioLevelChanged(newLevel, audioPosition, emitter) -> void:
 	if emitter.is_in_group("Snack"):
-		isFed = false
 		suspiciousPosition = emitter.global_position
 		setState(Types.DogStates.MovingToSnack)
 		return
@@ -148,11 +146,7 @@ func stateEatingEnter() -> void:
 
 
 func feed() -> void:
-	if isFed:
-		return
-		
 	setState(Types.DogStates.Eating)
-	isFed = true
 
 
 func onPathLineNextPointReached() -> void:
@@ -184,7 +178,6 @@ func onLOSBodyExited(body: Node) -> void:
 		if $DetectionDelay.time_left > $DetectionDelay.wait_time - 0.3:
 			$DetectionDelay.stop()
 			setState(Types.DogStates.Roaming)
-			print("escape out of dog sight")
 		
 
 func onSleepTimeout() -> void:
