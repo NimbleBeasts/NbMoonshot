@@ -58,7 +58,6 @@ func _ready() -> void:
 	guardPathLine = get_node("GuardPathLine")
 	guardPathLine.connect("next_point_reached", self, "onGuardPathLinePointReached")
 
-
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
 	$Flippable/GuardArea.connect("body_entered", self, "onGuardBodyEntered")

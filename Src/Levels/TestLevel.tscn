@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Assets/Objects/sofa.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
+[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 
 [node name="TestLevel" type="Node2D"]
@@ -154,7 +155,7 @@ hint = ""
 sig_to_trig = [  ]
 
 [node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
-position = Vector2( -156.565, 256 )
+position = Vector2( -129.695, 256.354 )
 connected_door_path = NodePath("../StaircaseE0")
 lockLevel = 0
 doorType = 1
@@ -235,4 +236,10 @@ script = ExtResource( 15 )
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -240, 256 )
-canBeOpened = false
+
+[node name="Guard" parent="." instance=ExtResource( 22 )]
+position = Vector2( -186.111, 250.923 )
+
+[node name="GuardPathLine" type="Line2D" parent="Guard"]
+points = PoolVector2Array( 12.4353, -6.87619, 31.8808, -6.1691, 46.73, -6.1691 )
+script = ExtResource( 15 )
