@@ -187,6 +187,9 @@ func update_light_level() -> void:
 	# this works because the detecting area and the light areas are in their own collision layer
 	set_light_level(Types.LightLevels.Dark)
 	
+	if not $PlayerLightArea.monitoring:
+		return
+	
 	for area in $PlayerLightArea.get_overlapping_areas():
 		if area.is_in_group("FullLight"):
 			if area.get_parent().isOn():
@@ -271,6 +274,7 @@ func set_state(value: int) -> void:
 		Events.emit_signal("player_state_changed", state)
 		match state:
 			Types.PlayerStates.Normal:
+				player_sprite.show()
 				$GuardPickup.stopDragging()
 				speed = normal_speed
 				acceleration = normal_acceleration
@@ -278,20 +282,30 @@ func set_state(value: int) -> void:
 				block_input = false
 				enableNormalColliders()
 			Types.PlayerStates.Duck:
+				player_sprite.show()
 				$GuardPickup.stopDragging()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 				enableDuckColliders()
 			Types.PlayerStates.WallDodge:
+				player_sprite.show()
 				enableNormalColliders()
 				$GuardPickup.stopDragging()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 			Types.PlayerStates.DraggingGuard:
+				player_sprite.show()
 				enableNormalColliders()
 				speed = duckSpeed
 				acceleration = duckAcceleration
-				
+			Types.PlayerStates.InCloset:
+				player_sprite.hide()
+				$CollisionShape2D.set_deferred("disabled", true)
+				$DuckCollisionShape2D.set_deferred("disabled", true)
+				$PlayerLightArea.set_deferred("monitoring", false)
+				$PlayerArea.set_deferred("monitoring", false)
+				block_input = true				
+
 
 # Change animation
 func animation_change(to: String) -> void:

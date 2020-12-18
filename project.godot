@@ -150,6 +150,7 @@ Debug="*res://Src/_Autoloads/Debug.gd"
 
 [debug]
 
+gdscript/warnings/unused_argument=false
 gdscript/warnings/return_value_discarded=false
 
 [display]
