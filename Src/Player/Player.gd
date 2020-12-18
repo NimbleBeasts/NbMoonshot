@@ -9,7 +9,7 @@ export var normal_speed: int = 80
 export var normal_acceleration: int = 600
 export var sprint_speed: int = 160
 export var sprint_acceleration: int = 2500
-export var duckSpeed:int = 40
+export var duckSpeed: int = 40
 export var duckAcceleration: int = 300
 
 # upgrade export variables
@@ -49,6 +49,8 @@ onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
 onready var stun_raycast: RayCast2D = $Flippable/StunRayCast
 onready var player_sprite: Sprite = $Flippable/PlayerSprite
 onready var camera: Camera2D = $Camera2D
+onready var guardPickup: Area2D = $GuardPickup
+onready var weaponHandler: Node2D = $WeaponHandler
 
 
 func _init() -> void:
@@ -74,8 +76,6 @@ func _ready() -> void:
 	Events.connect("set_player_state", self, "set_state")
 	Events.connect("change_player_animation", $AnimationPlayer, "play")
 
-	$PlayerArea.connect("body_entered", $DogFeeding, "onPlayerBodyEntered")
-	$PlayerArea.connect("body_exited", $DogFeeding, "onPlayerBodyExited")
 
 	$AnimationPlayer.play("idle")
 	$FootstepTimer.connect("timeout", self, "onFootstepTimerTimeout")
@@ -187,6 +187,9 @@ func update_light_level() -> void:
 	# this works because the detecting area and the light areas are in their own collision layer
 	set_light_level(Types.LightLevels.Dark)
 	
+	if not $PlayerLightArea.monitoring:
+		return
+	
 	for area in $PlayerLightArea.get_overlapping_areas():
 		if area.is_in_group("FullLight"):
 			if area.get_parent().isOn():
@@ -204,7 +207,7 @@ func travel(target_pos: float) -> void:
 	#warning-ignore:return_value_discarded
 	travel_tween.start()
 	# emits small noise
-	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, global_position)
+	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, global_position, self)
 	set_state(Types.PlayerStates.Normal)
 	
 				
@@ -271,6 +274,7 @@ func set_state(value: int) -> void:
 		Events.emit_signal("player_state_changed", state)
 		match state:
 			Types.PlayerStates.Normal:
+				player_sprite.show()
 				$GuardPickup.stopDragging()
 				speed = normal_speed
 				acceleration = normal_acceleration
@@ -278,20 +282,30 @@ func set_state(value: int) -> void:
 				block_input = false
 				enableNormalColliders()
 			Types.PlayerStates.Duck:
+				player_sprite.show()
 				$GuardPickup.stopDragging()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 				enableDuckColliders()
 			Types.PlayerStates.WallDodge:
+				player_sprite.show()
 				enableNormalColliders()
 				$GuardPickup.stopDragging()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 			Types.PlayerStates.DraggingGuard:
+				player_sprite.show()
 				enableNormalColliders()
 				speed = duckSpeed
 				acceleration = duckAcceleration
-				
+			Types.PlayerStates.InCloset:
+				player_sprite.hide()
+				$CollisionShape2D.set_deferred("disabled", true)
+				$DuckCollisionShape2D.set_deferred("disabled", true)
+				$PlayerLightArea.set_deferred("monitoring", false)
+				$PlayerArea.set_deferred("monitoring", false)
+				block_input = true				
+
 
 # Change animation
 func animation_change(to: String) -> void:

@@ -5,12 +5,10 @@
 [ext_resource path="res://Assets/HideOuts/WoodCloset.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 20 )
+extents = Vector2( 14.9666, 17.2245 )
 
 [node name="Closet" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-canHidePlayer = true
-canBeOpened = true
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, -20 )
@@ -21,5 +19,5 @@ hframes = 3
 position = Vector2( 7, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2( 0, -20 )
+position = Vector2( -0.507835, -16.379 )
 shape = SubResource( 1 )

@@ -9,7 +9,7 @@ enum HudNotificationType {BuyZone, SaveZone, OpenDoor, Interact}
 # Player
 enum LightLevels {Dark = 0, BarelyVisible = 1, FullLight = 2}
 enum AudioLevels {LoudNoise = 0, SmallNoise = 1, Silent = 2}
-enum PlayerStates {Normal, WallDodge, Duck, DraggingGuard}
+enum PlayerStates {Normal, WallDodge, Duck, DraggingGuard, InCloset}
 enum DetectionLevels{Possible, Sure}
 enum UpgradeTypes {Taser_Extended_Battery, Taser_Voltage, False_Alarm, Fitness_Level2, Sneak, DarkNet, Lockpick_Level2, Distraction}
 
@@ -31,7 +31,10 @@ enum LevelTypes {Western, Eastern}
 enum DialogButtons {Option0 = 0, Option1 = 1, NoBranch = 2}
 
 # Dog
-enum DogStates {Idle, Roaming, Sleeping, Suspicious, Detection, Eating, Stunned, Angry}
+enum DogStates {Idle, Roaming, Sleeping, Suspicious, Detection, Eating, Stunned, Angry, MovingToSnack}
 
 # Potraits
 enum Potraits {Player, Boss, Secretary}
+
+# Weapons
+enum Weapons {Taser = 0, StoneThrower = 1, SnackThrower = 2}

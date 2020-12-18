@@ -221,6 +221,7 @@ polygon = PoolVector2Array( 48, 56, 0, 0, 104, 24, 104, 56 )
 position = Vector2( 1, 1 )
 rotation = -1.0472
 cast_to = Vector2( 0, 100 )
+collision_mask = 128
 
 [node name="SureDetectionTimer" type="Timer" parent="."]
 one_shot = true

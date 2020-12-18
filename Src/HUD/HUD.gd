@@ -336,7 +336,7 @@ func updateLightLevel(newLightLevel):
 			print("HUD: Illegal light level provided")
 	
 
-func updateAudioLevel(newAudioLevel, _audio_pos): #TODO: audio_pos needed?
+func updateAudioLevel(newAudioLevel, _audio_pos, _emitter): #TODO: audio_pos needed?
 	if newAudioLevel >= 0 and newAudioLevel < Types.AudioLevels.size():
 		$AudioIndicator.frame = newAudioLevel
 	else:

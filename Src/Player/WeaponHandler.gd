@@ -32,3 +32,5 @@ func equipWeapon(weaponIndex: int) -> void:
 	Events.emit_signal("hud_game_hint", "Switched from %s to %s" % [oldWeapon.name, newWeapon.name])
 
 
+func getWeapon(weaponType: int) -> Node:
+	return get_child(weaponType)
