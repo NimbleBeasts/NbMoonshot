@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+export var normalSpeed: int = 20
+export var chaseSpeed: int = 40
+
 var direction: Vector2
 var velocity: Vector2
 var speed: int = 20
@@ -12,6 +15,7 @@ onready var pathLine: PathLine = $PathLine
 
 
 func _ready() -> void:
+    speed = normalSpeed
     losRay.set_deferred("enabled", false)
     $Flippable/LineOfSight.connect("body_entered", self, "onLOSBodyEntered")
     $Flippable/TaserRange.connect("body_entered", self, "onTaserRangeBodyEntered")
@@ -28,6 +32,7 @@ func _process(delta: float) -> void:
         if losRayIsCollidingWithPlayer():
             foundPlayer = true
             pathLine.moveToPoint(player.global_position)
+            speed = chaseSpeed
             Events.emit_signal("block_player_movement")
             set_process(false)         
 

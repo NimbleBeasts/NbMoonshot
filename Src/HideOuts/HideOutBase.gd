@@ -12,7 +12,6 @@ var destroyGuard: bool
 var guard
 var goInCloset: bool
 
-
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
 #if carry body & E: open, throw body in, close
@@ -25,12 +24,16 @@ func _ready():
 	if not canBeOpened:
 		$Area2D.queue_free()
 
+
 func getPoint():
 	return $Position2D.global_position
 
 
 func _input(event: InputEvent) -> void:
-	if not event.is_action_pressed("interact") or not playerInArea:
+	if not event.is_action_pressed("interact"):
+		return
+
+	if not playerInArea and not goInCloset:
 		return
 
 	if player.guardPickup.isDraggingGuard:
@@ -41,13 +44,15 @@ func _input(event: InputEvent) -> void:
 		return
 
 	destroyGuard = false
-	if isOpen and playerInArea:
+	if isOpen:
 		print("go in and close")
+		$Sprite.z_index = player.z_index + 1
 		$AnimationPlayer.play("close")
 		Events.emit_signal("block_player_movement")
 		goInCloset = true
 		isOpen = false
 	else:
+		$Sprite.z_index = player.z_index - 1
 		goInCloset = false
 		$AnimationPlayer.play("open")
 		if player.state == Types.PlayerStates.InCloset:

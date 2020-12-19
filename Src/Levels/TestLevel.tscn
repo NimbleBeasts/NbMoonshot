@@ -238,15 +238,16 @@ script = ExtResource( 15 )
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -240, 256 )
-canHidePlayer = true
-canBeOpened = true
 
 [node name="Guard" parent="." instance=ExtResource( 22 )]
-position = Vector2( -186.111, 250.923 )
+position = Vector2( -362.162, 254.294 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
-points = PoolVector2Array( 12.4353, -6.87619, 31.8808, -6.1691, 46.73, -6.1691 )
+points = PoolVector2Array( 12.4353, -6.87619, 31.8808, -6.1691, 71.5075, -5.95908 )
 script = ExtResource( 15 )
+
+[node name="Light" parent="Guard/GuardPathLine" instance=ExtResource( 3 )]
+position = Vector2( 120.239, -41.2034 )
 
 [node name="Fridge" parent="." instance=ExtResource( 24 )]
 position = Vector2( 118.538, 238.544 )

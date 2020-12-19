@@ -16,12 +16,11 @@ position = Vector2( 0, -20 )
 texture = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="1"]
-position = Vector2( 0, -20 )
 texture = ExtResource( 3 )
 hframes = 3
 
 [node name="Position2D" parent="." index="2"]
-position = Vector2( 7, -16 )
+position = Vector2( 0.0704498, -0.880947 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2( -0.507835, -16.379 )
