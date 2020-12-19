@@ -218,6 +218,7 @@ func set_state(new_state) -> void:
 			Types.GuardStates.Wander:
 				$Notifier.remove()
 				guardPathLine.startNormalMovement()
+				$AnimationPlayer.play("walk")
 			Types.GuardStates.Stunned:
 				losRay.set_deferred("monitoring", false)
 				$Flippable/GuardArea.set_deferred("monitoring", false)
@@ -229,7 +230,7 @@ func set_state(new_state) -> void:
 				set_process(false)
 				set_physics_process(false)
 
-				
+
 func update_flip() -> void:
 	if direction.x != 0:
 		$Flippable.scale.x = direction.x
@@ -274,6 +275,7 @@ func onVisibleLevelChanged(newLevel: int) -> void:
 
 
 func onGuardPathLinePointReached() -> void:
+	$AnimationPlayer.play("idle")
 	if isMovingToPlayer:
 		goBackToNormalTimer.wait_time = 1
 		guardPathLine.stopAllMovement()

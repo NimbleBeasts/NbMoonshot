@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
     velocity = direction * speed
     velocity = move_and_slide(velocity)
     updateFlip()
-    
+
 
 func _process(delta: float) -> void:
     if playerInLOS:
@@ -40,7 +40,8 @@ func _process(delta: float) -> void:
 func onTaserRangeBodyEntered(body: Node) -> void:
     if body.is_in_group("Player"):
         player = body
-        $Flippable.scale.x = global_position.direction_to(body.global_position).x
+        flipTowards(player.global_position)
+        Events.emit_signal("play_sound", "taser_hit")
         print("start tasing player animation")
         pathLine.stopAllMovement()
         Events.emit_signal("game_over")
@@ -51,6 +52,7 @@ func onLOSBodyEntered(body: Node) -> void:
         losRay.set_deferred("enabled", true)
         playerInLOS = true
         player = body
+        $Notifier.popup(Types.NotifierTypes.Exclamation)
 
 
 func losRayIsCollidingWithPlayer() -> bool:
@@ -59,5 +61,11 @@ func losRayIsCollidingWithPlayer() -> bool:
 
 func updateFlip() -> void:
     if direction.x != 0:
-        $Flippable.scale.x = direction.x
-    
+        $Flippable.scale.x = direction.normalized().x
+
+
+func flipTowards(towards: Vector2) -> void:
+    if towards.x > global_position.x:
+        $Flippable.scale.x = 1
+    elif towards.x < global_position.x:
+        $Flippable.scale.x = -1
