@@ -7,6 +7,17 @@ export(bool) var canBeOpened = true
 var player: Player
 var playerInArea: bool
 
+var isOpen: bool
+var destroyGuard: bool
+var guard
+var goInCloset: bool
+
+
+onready var animPlayer: AnimationPlayer = $AnimationPlayer
+
+#if carry body & E: open, throw body in, close
+#if not carry body & E: open
+#if not cary body & E & open: go in and close
 
 func _ready():
 	$Area2D.connect("body_entered", self, "_on_Area2D_body_entered")
@@ -14,9 +25,35 @@ func _ready():
 	if not canBeOpened:
 		$Area2D.queue_free()
 
-
 func getPoint():
 	return $Position2D.global_position
+
+
+func _input(event: InputEvent) -> void:
+	if not event.is_action_pressed("interact") or not playerInArea:
+		return
+
+	if player.guardPickup.isDraggingGuard:
+		print("hide guard")
+		guard = player.guardPickup.guard
+		destroyGuard = true
+		$AnimationPlayer.play("open")
+		return
+
+	destroyGuard = false
+	if isOpen and playerInArea:
+		print("go in and close")
+		$AnimationPlayer.play("close")
+		Events.emit_signal("block_player_movement")
+		goInCloset = true
+		isOpen = false
+	else:
+		goInCloset = false
+		$AnimationPlayer.play("open")
+		if player.state == Types.PlayerStates.InCloset:
+			player.set_state(Types.PlayerStates.Normal)
+		print("open closet")
+		isOpen = true
 
 
 func _on_Area2D_body_entered(body):
@@ -28,3 +65,14 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("Player"):
 		playerInArea = false
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "open":
+		if destroyGuard:
+			guard.queue_free()
+			animPlayer.play("close")
+	elif anim_name == "close":
+		if goInCloset:
+			player.set_state(Types.PlayerStates.InCloset)
+
