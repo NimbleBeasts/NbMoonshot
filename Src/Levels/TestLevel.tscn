@@ -216,8 +216,6 @@ script = ExtResource( 15 )
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -240, 256 )
-canHidePlayer = true
-canBeOpened = true
 
 [node name="Guard" parent="." instance=ExtResource( 22 )]
 position = Vector2( -362.162, 254.294 )

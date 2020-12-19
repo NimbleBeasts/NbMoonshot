@@ -14,13 +14,14 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and guard.state == Types.GuardStates.Stunned and guard.isSleeping:
-		guard.set_state(Types.GuardStates.BeingDragged)
-		player.set_state(Types.PlayerStates.DraggingGuard)
-		isDraggingGuard = true
-		return
+	if guard != null and not isDraggingGuard:
+		if Input.is_action_just_pressed("interact") and guard.state == Types.GuardStates.Stunned and guard.isSleeping:
+			guard.set_state(Types.GuardStates.BeingDragged)
+			player.set_state(Types.PlayerStates.DraggingGuard)
+			isDraggingGuard = true
+			return
 
-	if guard.state == Types.GuardStates.BeingDragged:
+	if guard != null and guard.state == Types.GuardStates.BeingDragged:
 		if player.direction.x > 0:
 			guard.global_position = player.global_position + rightOffset
 		elif player.direction.x < 0:

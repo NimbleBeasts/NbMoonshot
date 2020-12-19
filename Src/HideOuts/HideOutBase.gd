@@ -51,6 +51,7 @@ func hideGuard() -> void:
 	set_process_input(false)
 	$Area2D.set_deferred("monitoring", false)
 	guard = player.guardPickup.guard
+	player.guardPickup.guard = null
 	destroyGuard = true
 	$AnimationPlayer.play("open")
 
