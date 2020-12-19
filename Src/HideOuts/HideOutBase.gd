@@ -19,6 +19,7 @@ onready var animPlayer: AnimationPlayer = $AnimationPlayer
 #if not cary body & E & open: go in and close
 
 func _ready():
+	set_process_input(false)
 	$Area2D.connect("body_entered", self, "_on_Area2D_body_entered")
 	$Area2D.connect("body_exited", self, "_on_Area2D_body_exited")
 	if not canBeOpened:
@@ -33,43 +34,55 @@ func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("interact"):
 		return
 
-	if not playerInArea and not goInCloset:
-		return
-
 	if player.guardPickup.isDraggingGuard:
-		print("hide guard")
-		guard = player.guardPickup.guard
-		destroyGuard = true
-		$AnimationPlayer.play("open")
+		hideGuard()
 		return
 
 	destroyGuard = false
 	if isOpen:
-		print("go in and close")
-		$Sprite.z_index = player.z_index + 1
-		$AnimationPlayer.play("close")
-		Events.emit_signal("block_player_movement")
-		goInCloset = true
-		isOpen = false
+		hidePlayer()
 	else:
-		$Sprite.z_index = player.z_index - 1
-		goInCloset = false
-		$AnimationPlayer.play("open")
-		if player.state == Types.PlayerStates.InCloset:
-			player.set_state(Types.PlayerStates.Normal)
-		print("open closet")
-		isOpen = true
+		openCloset()
+
+
+func hideGuard() -> void:
+	Events.emit_signal("hud_game_hint", "Hidden guard. Closet is now locked")
+	set_process_input(false)
+	$Area2D.set_deferred("monitoring", false)
+	guard = player.guardPickup.guard
+	destroyGuard = true
+	$AnimationPlayer.play("open")
+
+
+func hidePlayer() -> void:
+	$Sprite.z_index = player.z_index + 1
+	$AnimationPlayer.play("close")
+	Events.emit_signal("block_player_movement")
+	goInCloset = true
+	isOpen = false
+
+
+func openCloset() -> void:
+	$Sprite.z_index = player.z_index - 1
+	goInCloset = false
+	$AnimationPlayer.play("open")
+	if player.state == Types.PlayerStates.InCloset:
+		player.set_state(Types.PlayerStates.Normal)
+	isOpen = true
 
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
 		player = body
 		playerInArea = true
+		set_process_input(true)
 
 
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("Player"):
 		playerInArea = false
+		if not goInCloset:
+			set_process_input(false)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -79,5 +92,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			animPlayer.play("close")
 	elif anim_name == "close":
 		if goInCloset:
-			player.set_state(Types.PlayerStates.InCloset)
-
+			Events.emit_signal("set_player_state", Types.PlayerStates.InCloset)
+			player.global_position = getPoint()

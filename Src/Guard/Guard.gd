@@ -111,8 +111,6 @@ func stun(duration: float) -> void:
 	isStunned = true
 	direction = Vector2(0,0)
 	set_state(Types.GuardStates.Stunned)
-	set_process(false)
-	set_physics_process(false)
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", true)
 	player_in_los = false
 	$AnimationPlayer.play("tasered")
@@ -221,12 +219,17 @@ func set_state(new_state) -> void:
 				$Notifier.remove()
 				guardPathLine.startNormalMovement()
 			Types.GuardStates.Stunned:
+				losRay.set_deferred("monitoring", false)
+				$Flippable/GuardArea.set_deferred("monitoring", false)
+				$Flippable/LineOfSight.set_deferred("monitoring", false)
 				playerLastSeenPosition = player.global_position
 				$Notifier.remove()
 				direction = Vector2(0,0)
 				guardPathLine.stopAllMovement()
+				set_process(false)
+				set_physics_process(false)
 
-
+				
 func update_flip() -> void:
 	if direction.x != 0:
 		$Flippable.scale.x = direction.x
@@ -273,6 +276,7 @@ func onVisibleLevelChanged(newLevel: int) -> void:
 func onGuardPathLinePointReached() -> void:
 	if isMovingToPlayer:
 		goBackToNormalTimer.wait_time = 1
+		guardPathLine.stopAllMovement()
 		Global.startTimerOnce(goBackToNormalTimer)
 		isMovingToPlayer = false
 
