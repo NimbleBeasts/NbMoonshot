@@ -335,6 +335,8 @@ __meta__ = {
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 29 )]
 position = Vector2( 80, 256 )
+flicker = false
+flickerSequence = "1110"
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 17 )]
 position = Vector2( 540, 200 )
@@ -373,7 +375,6 @@ polygon = PoolVector2Array( -103.758, 2.62204, -55.7581, 66.622, -7.75806, 66.62
 scale = Vector2( 2.182, 1.066 )
 enabled = false
 texture = ExtResource( 23 )
-color = Color( 1, 0.988235, 0.682353, 1 )
 energy = 2.32
 
 [node name="Sprite2" type="Sprite" parent="LevelObjects/Lights/Light9/Light2D" index="0"]
@@ -408,7 +409,6 @@ polygon = PoolVector2Array( -103.758, 2.62204, -55.7581, 66.622, -7.75806, 66.62
 scale = Vector2( 2.182, 1.066 )
 enabled = false
 texture = ExtResource( 23 )
-color = Color( 1, 0.988235, 0.682353, 1 )
 energy = 2.32
 
 [node name="Sprite2" type="Sprite" parent="LevelObjects/Lights/Light10/Light2D" index="0"]
@@ -460,57 +460,89 @@ position = Vector2( 920, 136 )
 [node name="ExitStairCase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 464, 320 )
 connected_door_path = NodePath("../../NPCS/LevelObjects/Staircase")
+lockLevel = 0
+doorType = 0
+door_name = ""
 
 [node name="ExitStairCase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 384, 312 )
+connected_door_path = NodePath("")
+lockLevel = 0
+doorType = 0
+door_name = ""
 
 [node name="ExitStairCase3" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 992, 256 )
 connected_door_path = NodePath("../ExitStairCase4")
 lockLevel = 3
+doorType = 0
+door_name = ""
 
 [node name="MiddleStairCase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 700, 192 )
 connected_door_path = NodePath("../MiddleStairCase2")
 lockLevel = 3
 doorType = 1
+door_name = ""
 
 [node name="MiddleStairCase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 700, 256 )
 connected_door_path = NodePath("../MiddleStairCase")
+lockLevel = 0
 doorType = 1
+door_name = ""
 
 [node name="ExitStairCase4" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 992, 320 )
 connected_door_path = NodePath("../ExitStairCase3")
+lockLevel = 0
+doorType = 0
+door_name = ""
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 456, 256 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 800, 256 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 824, 256 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet6" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 920, 256 )
+type = 0
 hasBounty = true
 
 [node name="Cabinet7" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 840, 192 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet8" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 896, 192 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet9" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 1168, 128 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 496, 192 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 512, 192 )
+type = 0
+hasBounty = false
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 624, 200 )
@@ -850,6 +882,10 @@ offset = Vector2( 8, -8 )
 
 [node name="DeskGuard" parent="." instance=ExtResource( 4 )]
 position = Vector2( 280, 256 )
+lookDirection = 0
+lookDuration = 2.0
+readDuration = 3.0
+removeNotifierDuration = 1.0
 
 [node name="NPCS" type="Node2D" parent="."]
 

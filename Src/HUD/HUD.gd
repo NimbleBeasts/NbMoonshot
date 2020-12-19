@@ -20,6 +20,8 @@ var isGameOver: bool = false
 var levelHint: String
 var multipage: bool
 
+var inMissionBriefing: bool
+
 onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
 
 var emittingNode = null
@@ -95,6 +97,7 @@ func showMissionBriefing(level):
 	$MissionBriefing/StartMissionButton.grab_focus()
 	$MissionBriefing.setLevel(level)
 	$MissionBriefing.show()
+	inMissionBriefing = true
 
 
 func debugShaderToggle(_d):
@@ -322,7 +325,11 @@ func showMenu():
 
 func hideMenu():
 	$IngameMenu.hide()
-	get_tree().paused = false
+	if not inMissionBriefing:
+		get_tree().paused = false
+	else:
+		$MissionBriefing/StartMissionButton.grab_focus()
+
 
 func updateLightLevel(newLightLevel):
 	match newLightLevel:
@@ -424,7 +431,10 @@ func _on_ButtonReturn_button_up():
 	Events.emit_signal("play_sound", "menu_click")
 	$IngameMenu.hide()
 	onHideSave()
-	get_tree().paused = false
+	if not inMissionBriefing:
+		get_tree().paused = false
+	else:
+		$MissionBriefing/StartMissionButton.grab_focus()
 
 
 func _on_ButtonSave1_button_up():
@@ -446,7 +456,8 @@ func _on_StartMissionButton_button_up():
 	$MissionBriefing.hide()
 	Events.emit_signal("play_sound", "menu_click")
 	Events.emit_signal("hud_mission_briefing_exited")
-	
+	inMissionBriefing = false
+
 	#hmm duno if this is right place to go but need to trigger update taser text 
 	if Types.UpgradeTypes.Taser_Extended_Battery in Global.gameState.playerUpgrades:
 		taserUpdate(5)

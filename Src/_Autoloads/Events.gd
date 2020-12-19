@@ -106,6 +106,7 @@ signal player_exit_door()
 signal set_player_state(newState)
 signal player_state_changed(newState)
 signal change_player_animation(newAnim)
+signal switched_weapon(newWeaponIndex)
 
 
 # Level
@@ -116,7 +117,7 @@ signal held_selection()
 signal released_held_selection()
 
 
-signal switched_weapon(newWeaponIndex)
+
 
 ###############################################################################
 
