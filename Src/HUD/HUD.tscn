@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://Src/HUD/Dialog.gd" type="Script" id=21]
 [ext_resource path="res://Src/Menu/Slider.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/Portraits/Portraits.png" type="Texture" id=23]
+[ext_resource path="res://Assets/HUD/PromoTitle.png" type="Texture" id=24]
+[ext_resource path="res://Assets/HUD/PromoSteam.png" type="Texture" id=25]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -829,6 +831,23 @@ margin_right = 40.0
 margin_bottom = 6.0
 custom_fonts/font = ExtResource( 10 )
 text = "Sound"
+
+[node name="DebugPromo" type="Button" parent="IngameMenu"]
+margin_left = 272.0
+margin_top = 56.0
+margin_right = 371.0
+margin_bottom = 76.0
+text = "Toggle Promo"
+
+[node name="PromoTitel" type="Sprite" parent="."]
+visible = false
+position = Vector2( 320, 320 )
+texture = ExtResource( 24 )
+
+[node name="PromoSteam" type="Sprite" parent="."]
+visible = false
+position = Vector2( 568, 320 )
+texture = ExtResource( 25 )
 [connection signal="button_up" from="Upgrades/InfoBox/UpgradeButton" to="." method="_on_UpgradeButton_button_up"]
 [connection signal="button_up" from="SaveGame/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
 [connection signal="button_up" from="SaveGame/Menu/ButtonSave1" to="." method="_on_ButtonSave1_button_up"]
@@ -849,3 +868,4 @@ text = "Sound"
 [connection signal="button_up" from="IngameMenu/Menu/ButtonQuit" to="." method="_on_ButtonQuit_button_up"]
 [connection signal="value_changed" from="IngameMenu/Menu/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="IngameMenu/Menu/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
+[connection signal="button_up" from="IngameMenu/DebugPromo" to="." method="_on_DebugPromo_button_up"]

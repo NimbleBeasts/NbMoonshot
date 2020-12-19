@@ -58,6 +58,11 @@ func _ready():
 	for node in $Upgrades/Grid.get_children():
 		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
 
+	if Global.DEBUG:
+		$IngameMenu/DebugPromo.show()
+	else:
+		$IngameMenu/DebugPromo.hide()
+
 	var cat = Debug.addCategory("HUD")
 	Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
 	Debug.addOption(cat, "HudToggle", funcref(self, "debugHudToggle"), null)
@@ -500,3 +505,15 @@ func _on_MusicSlider_value_changed(value):
 func _on_SoundSlider_value_changed(value):
 	$IngameMenu/Menu/SoundSlider/Percentage.set_text(str(value*10)+"%")
 	Events.emit_signal("sound_set_volume", value)
+
+
+func _on_DebugPromo_button_up():
+	debugHudToggle(null) 
+	debugShaderToggle(null)
+	if $PromoSteam.visible:
+		$PromoSteam.hide()
+		$PromoTitel.hide()
+	else:
+		$PromoSteam.show()
+		$PromoTitel.show()
+	
