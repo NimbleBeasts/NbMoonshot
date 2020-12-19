@@ -29,7 +29,13 @@ extents = Vector2( 12, 16 )
 
 [node name="DoorWall" type="Node2D"]
 script = ExtResource( 2 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall"
+save_state = false
+showHintIfLocked = false
+hint = ""
+sig_to_trig = [  ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/open_door = SubResource( 1 )

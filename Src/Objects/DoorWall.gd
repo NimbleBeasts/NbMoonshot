@@ -1,6 +1,7 @@
 
 tool
 extends Node2D
+class_name DoorWall
 
 var minigame_finished: bool = false
 var playerInArea = false
@@ -44,6 +45,7 @@ func _ready():
 func open():
 	lockLevel = DoorLockType.open
 
+	
 func _process(_delta):
 	if playerInArea:
 		if Input.is_action_just_pressed("interact"):

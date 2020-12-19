@@ -218,7 +218,8 @@ func set_state(new_state) -> void:
 			Types.GuardStates.Wander:
 				$Notifier.remove()
 				guardPathLine.startNormalMovement()
-				$AnimationPlayer.play("walk")
+				if direction.x != 0:
+					$AnimationPlayer.play("walk")
 			Types.GuardStates.Stunned:
 				losRay.set_deferred("monitoring", false)
 				$Flippable/GuardArea.set_deferred("monitoring", false)

@@ -26,9 +26,7 @@ func _process(delta: float) -> void:
 		elif player.direction.x < 0:
 			guard.global_position = player.global_position + leftOffset
 		if Input.is_action_just_pressed("interact"):
-			guard.state = Types.GuardStates.Stunned
-			player.set_state(Types.PlayerStates.Normal)
-			isDraggingGuard = false
+			stopDragging()
 
 
 func onBodyEntered(body: Node) -> void:
@@ -46,4 +44,5 @@ func onBodyExited(body: Node) -> void:
 func stopDragging() -> void:
 	if guard:
 		guard.state = Types.GuardStates.Stunned
-
+		player.set_state(Types.PlayerStates.Normal)
+		isDraggingGuard = false

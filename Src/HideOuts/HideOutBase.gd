@@ -46,6 +46,7 @@ func _input(event: InputEvent) -> void:
 
 
 func hideGuard() -> void:
+	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
 	Events.emit_signal("hud_game_hint", "Hidden guard. Closet is now locked")
 	set_process_input(false)
 	$Area2D.set_deferred("monitoring", false)

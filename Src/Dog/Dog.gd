@@ -83,7 +83,7 @@ func stateAngryEnter() -> void:
 	$RoamTimer.stop()
 	pathLine.stopAllMovement()
 	Global.startTimerOnce($DetectionDelay)
-	$Flippable.scale.x = -global_position.direction_to(player.global_position).x
+	flipTowards(player.global_position)
 	animPlayer.play("grr")
 
 
@@ -200,3 +200,10 @@ func onDetectionDelayTimeout() -> void:
 
 func onBarkTimeout() -> void:
 	setState(Types.DogStates.Roaming)
+
+
+func flipTowards(towards: Vector2) -> void:
+	if towards.x > global_position.x:
+		$Flippable.scale.x = -1
+	elif towards.x < global_position.x:
+		$Flippable.scale.x = 1

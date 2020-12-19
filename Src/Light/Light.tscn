@@ -5,9 +5,10 @@
 [ext_resource path="res://Src/Light/Light.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Tileset/Rooms.png" type="Texture" id=4]
 
-[node name="Light" type="Node2D"]
+[node name="Light" type="Node2D" groups=[
+"Light",
+]]
 script = ExtResource( 3 )
-flicker = false
 flickerSequence = "111000"
 
 [node name="TestSprite" type="Sprite" parent="."]

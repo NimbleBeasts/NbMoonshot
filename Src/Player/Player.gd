@@ -275,7 +275,8 @@ func set_state(value: int) -> void:
 		match state:
 			Types.PlayerStates.Normal:
 				player_sprite.show()
-				$GuardPickup.stopDragging()
+				if guardPickup.isDraggingGuard:
+					guardPickup.stopDragging()
 				speed = normal_speed
 				acceleration = normal_acceleration
 				$AnimationPlayer.play("idle")
