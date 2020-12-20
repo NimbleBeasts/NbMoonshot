@@ -19,12 +19,17 @@ func _ready() -> void:
 	losRay.set_deferred("enabled", false)
 	$Flippable/LineOfSight.connect("body_entered", self, "onLOSBodyEntered")
 	$Flippable/TaserRange.connect("body_entered", self, "onTaserRangeBodyEntered")
+	$AnimationPlayer.connect("animation_finished", self, "onAnimationFinished")
 
 
 func _physics_process(delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
 	updateFlip()
+	if direction.x != 0:
+		$AnimationPlayer.play("walk")
+	elif direction.x == 0:
+		$AnimationPlayer.play("idle")
 
 
 func _process(delta: float) -> void:
@@ -42,17 +47,23 @@ func onTaserRangeBodyEntered(body: Node) -> void:
 		player = body
 		flipTowards(player.global_position)
 		Events.emit_signal("play_sound", "taser_hit")
-		print("start tasing player animation")
-		pathLine.stopAllMovement()
-		Events.emit_signal("game_over")
+		set_physics_process(false)
+		$AnimationPlayer.play("taser")
+		Events.emit_signal("block_player_movement")
 
-
+		
 func onLOSBodyEntered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		losRay.set_deferred("enabled", true)
 		playerInLOS = true
 		player = body
 		$Notifier.popup(Types.NotifierTypes.Exclamation)
+
+
+func onAnimationFinished(animName: String) -> void:
+	if animName == "taser":
+		pathLine.stopAllMovement()
+		Events.emit_signal("game_over")
 
 
 func losRayIsCollidingWithPlayer() -> bool:

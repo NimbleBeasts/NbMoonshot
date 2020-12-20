@@ -153,6 +153,8 @@ func feed() -> void:
 func onPathLineNextPointReached() -> void:
 	if state == Types.DogStates.Detection:
 		return
+	if pathLine.stopOnReachedPoint:
+		$AnimationPlayer.play("look_around")
 	if state == Types.DogStates.MovingToSnack:
 		setState(Types.DogStates.Roaming)
 	if isMovingToPlayer and not playerInLOS:
