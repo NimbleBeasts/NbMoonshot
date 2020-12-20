@@ -113,16 +113,10 @@ door_name = "DoorWall11"
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseCellar")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( -196.565, 256 )
@@ -134,9 +128,7 @@ hint = "This door is locked "
 [node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( -129.695, 256.354 )
 connected_door_path = NodePath("../StaircaseE0")
-lockLevel = 0
 doorType = 1
-door_name = ""
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -218,8 +210,6 @@ script = ExtResource( 15 )
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -240, 256 )
-canHidePlayer = true
-canBeOpened = true
 
 [node name="Guard" parent="." instance=ExtResource( 22 )]
 position = Vector2( -362.162, 254.294 )
