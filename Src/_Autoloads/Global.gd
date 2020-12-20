@@ -25,12 +25,14 @@ extends Node
 # Version
 const GAME_VERSION = 0.3
 const CONFIG_VERSION = 1 # Used for config migration
+
 # Debug Options
 const DEBUG = true
 
+
 # Nb Plugin Config
 const NB_PLUGIN_CONFIG = {
-	"gameId": "gameId",
+	"gameId": 1492610,
 	"filePassword": "password",
 	"magic": "magiccode",
 	"devlogUrl": "https://raw.githubusercontent.com/NimbleBeasts/GameLogs/master/GameOff_"+ str(GAME_VERSION) +".txt"
@@ -132,8 +134,7 @@ func _ready():
 	loadConfig()
 	switchFullscreen()
 	
-	print(NB_PLUGIN_CONFIG.devlogUrl)
-
+	
 
 func getSaveGameState():
 	var retVal = []
