@@ -19,6 +19,7 @@ var interactedCounter = 0
 var nextDialogue: String
 var sayingDialogue: bool
 var translation: Translation
+var currentBranchID: String
 
 # gonna comment this .... later 
 
@@ -35,6 +36,7 @@ func _ready() -> void:
 	connect("body_exited", self, "onBodyExited")
 	loadDialogue()
 	currentBranch = loadedDialogue["%s0" % interactedCounter]
+	currentBranchID = "%s0" % interactedCounter
 
 
 func _input(event: InputEvent) -> void:
@@ -42,8 +44,6 @@ func _input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed("interact") and player.direction.x == 0:
 		sayBranch(currentBranch)
-		Events.emit_signal("interacted_with_npc", self)
-		Events.emit_signal("block_player_movement")
 		set_process_input(false)
 		sayingDialogue = true
 
@@ -52,6 +52,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("cancel") and sayingDialogue:
 			if currentBranch.has("lastDialogue"):
 				currentBranch = loadedDialogue.get(currentBranch["lastDialogue"])
+				currentBranchID = currentBranch["lastDialogue"]
+				print(currentBranchID)
 				sayBranch(currentBranch)
 
 
@@ -64,6 +66,7 @@ func onNoBranchButtonPressed() -> void:
 			currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
 		return
 	if currentBranch.has("nextDialogue"):
+		currentBranchID = currentBranch["nextDialogue"]
 		currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
 		sayBranch(currentBranch)
 		return
@@ -78,6 +81,8 @@ func onDialogButtonPressed(buttonType: int) -> void:
 	if currentBranch.has(exitDialogueKey) and currentBranch[exitDialogueKey]:
 		exitDialogue()
 		if loadedDialogue.has(currentBranch["branchID%s" % buttonType]):
+			currentBranchID = currentBranch["branchID%s" % buttonType]
+			print(currentBranchID)
 			currentBranch = get("option%sBranch" % buttonType)
 		return
 	currentBranch = get("option%sBranch" % buttonType)
@@ -112,9 +117,12 @@ func loadTranslation() -> void:
 
 
 func sayBranch(branch: Dictionary) -> void:
+	if translation == null:
+		return
+	Events.emit_signal("block_player_movement")
 	Events.emit_signal("interacted_with_npc", self)
-	Events.emit_signal("hud_dialog_show", npcName, npcColor, translation.get_message(branch["text"]), false, npcPotrait)
-
+	var messageKey = "KEY_" + currentBranchID
+	Events.emit_signal("hud_dialog_show", npcName, npcColor, translation.get_message(messageKey), false, npcPotrait)
 	
 	if branch.has("branchID0") and branch.has("branchID1"):
 		Events.emit_signal("update_no_branch_button_state", false)
@@ -148,6 +156,7 @@ func setInteractedCounter(value: int) -> void:
 	if interactedCounter != value:
 		interactedCounter = value
 		currentBranch = loadedDialogue["%s0" % interactedCounter]
+		currentBranchID = "%s0" % interactedCounter
 		set_process_input(true)
 
 

@@ -34,7 +34,7 @@ func init():
 	# General failure
 	if init['status'] != 1:
 		print("Failed to initialize Steam. "+str(init['verbal'])+" Shutting down...")
-		get_tree().quit()
+		# get_tree().quit()
 	
 	# Get Steam Information
 	online = Steam.loggedOn()
