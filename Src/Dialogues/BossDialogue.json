@@ -1,9 +1,9 @@
 {
 
-"00" : { "text" : "Welcome agent, here you are at last. It is a great honor and obligation to work for Ustria's Secret Service. Our great leader wants to participate in the space race. Therefore, the great nation of Ustria shall be the first on the Moon.", "nextDialogue": "01", "lastDialogue": "03"},
-"01" : {"text" : "Unfortunately we do not even have a rocket yet. And that is why they are here today. Our agency will obtain plans and secret documents to support our great scientists.", "nextDialogue": "02"},
-"02" : {"text": "Before you go on your first mission: In the basement is your office where you can save your progress, your colleague who can equip you with additional upgrades and a training parkour.", "nextDialogue": "03"},
-"03" : {"text": "Mission 0 - Complete the training parkour by unlocking the safe!", "exitDialogue": true, "quest": 0},
+"00" : { "text" : "KEY_00", "nextDialogue": "01", "lastDialogue": "03"},
+"01" : {"text" : "KEY_01", "nextDialogue": "02"},
+"02" : {"text": "KEY_02", "nextDialogue": "03"},
+"03" : {"text": "KEY_03", "exitDialogue": true, "quest": 0},
 
 "10" : {"text" : "Wow, that was really slow, even my grandma could have done it faster. But well, you just have to take what you get.", "nextDialogue": "11", "lastDialogue": "12"},
 "11" : {"text" : "Okay, your first mission will take you to the Soviet Union. Their rocket technology is the best in the world. Our researchers need these plans for, umm ... inspiration.", "nextDialogue": "12"},

@@ -1,11 +1,14 @@
 class_name NewNPC
 extends Area2D
 
-
 export (String, FILE) var dialoguePath: String
 export var npcName: String
 export var npcColor: String
 export (Types.Potraits) var npcPotrait: int
+export (String, FILE) var enTranslationPath: String
+export (String, FILE) var ruTranslationPath: String
+export (String, FILE) var deTranslationPath: String
+export var lang: String
 
 var loadedDialogue
 var option0Branch
@@ -15,10 +18,12 @@ var player: Player
 var interactedCounter = 0 
 var nextDialogue: String
 var sayingDialogue: bool
+var translation: Translation
 
 # gonna comment this .... later 
 
 func _ready() -> void:
+	loadTranslation()
 	set_process_input(false)
 	Events.connect("no_branch_option_pressed", self, "onNoBranchButtonPressed")
 	Events.connect("dialog_button_pressed", self, "onDialogButtonPressed")
@@ -100,9 +105,16 @@ func loadDialogue() -> void:
 	loadedDialogue = dialogue
 
 
+func loadTranslation() -> void:
+	var translationPath = get(lang + "TranslationPath")
+	if translationPath != null:
+		translation = load(translationPath)
+
+
 func sayBranch(branch: Dictionary) -> void:
 	Events.emit_signal("interacted_with_npc", self)
-	Events.emit_signal("hud_dialog_show", npcName, npcColor, branch["text"], false, npcPotrait)
+	Events.emit_signal("hud_dialog_show", npcName, npcColor, translation.get_message(branch["text"]), false, npcPotrait)
+
 	
 	if branch.has("branchID0") and branch.has("branchID1"):
 		Events.emit_signal("update_no_branch_button_state", false)
