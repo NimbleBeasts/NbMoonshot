@@ -19,6 +19,7 @@ enum MinigameResults{Failed, Succeeded, Doing}
 
 # Objects
 enum GuardStates {Wander, Suspect, PlayerDetected, Stunned, BeingDragged}
+enum EliteGuardStates {Roaming, MovingToPlayer, Suspicious, TaseringPlayer}
 enum CameraStates {Normal, Suspect, PlayerDetected, Rotating, Frozen}
 enum WireColors {Red, Purple,Green, Blue}
 enum NotifierTypes{Exclamation, Question}
@@ -38,3 +39,4 @@ enum Potraits {Player, Boss, Secretary}
 
 # Weapons
 enum Weapons {Taser = 0, StoneThrower = 1, SnackThrower = 2}
+

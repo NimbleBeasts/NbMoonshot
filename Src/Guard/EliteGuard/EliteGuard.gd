@@ -9,6 +9,7 @@ var speed: int = 20
 var foundPlayer: bool
 var playerInLOS: bool
 var player
+var state: int
 
 onready var losRay: RayCast2D = $Flippable/LOSRay
 onready var pathLine: PathLine = $PathLine
@@ -16,7 +17,9 @@ onready var pathLine: PathLine = $PathLine
 var guard_normal_texture: Texture = preload("res://Assets/Guards/EliteGuard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/EliteGuardGreen.png")
 
+
 func _ready() -> void:
+	stateRoamingEnter()
 	speed = normalSpeed
 	losRay.set_deferred("enabled", false)
 	$Flippable/LineOfSight.connect("body_entered", self, "onLOSBodyEntered")
@@ -29,6 +32,7 @@ func _ready() -> void:
 			$Flippable/Sprite.texture = guard_normal_texture
 		Types.LevelTypes.Eastern:
 			$Flippable/Sprite.texture = guard_green_texture 
+
 
 func _physics_process(delta: float) -> void:
 	velocity = direction * speed
@@ -43,29 +47,50 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if playerInLOS:
 		if losRayIsCollidingWithPlayer():
-			foundPlayer = true
-			pathLine.moveToPoint(player.global_position)
-			speed = chaseSpeed
-			Events.emit_signal("block_player_movement")
-			set_process(false)         
+			  setState(Types.EliteGuardStates.MovingToPlayer)
+			  set_process(false)       
 
-	
+
+func setState(newState) -> void:
+	if state != newState:
+		state = newState
+		var funcName = "state" + Types.EliteGuardStates.keys()[state] + "Enter"
+		call(funcName)
+		
+
+func stateMovingToPlayerEnter() -> void:
+	foundPlayer = true
+	pathLine.moveToPoint(player.global_position)
+	speed = chaseSpeed
+	Events.emit_signal("block_player_movement")
+	$Notifier.popup(Types.NotifierTypes.Exclamation)
+
+
+func stateTaseringPlayerEnter() -> void:
+	if player:
+		flipTowards(player.global_position)
+	Events.emit_signal("play_sound", "taser_hit")
+	pathLine.stopAllMovement()
+	set_physics_process(false)
+	$AnimationPlayer.play("taser")
+	Events.emit_signal("block_player_movement")
+
+
+func stateRoamingEnter() -> void:
+	pathLine.startNormalMovement()
+
+
 func onTaserRangeBodyEntered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		player = body
-		flipTowards(player.global_position)
-		Events.emit_signal("play_sound", "taser_hit")
-		set_physics_process(false)
-		$AnimationPlayer.play("taser")
-		Events.emit_signal("block_player_movement")
-
+		setState(Types.EliteGuardStates.TaseringPlayer)
+	
 		
 func onLOSBodyEntered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		losRay.set_deferred("enabled", true)
 		playerInLOS = true
 		player = body
-		$Notifier.popup(Types.NotifierTypes.Exclamation)
 
 
 func onAnimationFinished(animName: String) -> void:
@@ -88,3 +113,6 @@ func flipTowards(towards: Vector2) -> void:
 		$Flippable.scale.x = 1
 	elif towards.x < global_position.x:
 		$Flippable.scale.x = -1
+
+
+	

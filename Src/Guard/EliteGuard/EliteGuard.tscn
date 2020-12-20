@@ -69,7 +69,7 @@ script = ExtResource( 2 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 11
-frame = 6
+frame = 1
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
 
