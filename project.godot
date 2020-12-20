@@ -159,6 +159,7 @@ Global="*res://Src/_Autoloads/Global.gd"
 Types="*res://Src/_Autoloads/Types.gd"
 Events="*res://Src/_Autoloads/Events.gd"
 Debug="*res://Src/_Autoloads/Debug.gd"
+SteamWorks="*res://Src/_Autoloads/SteamWorks.gd"
 
 [debug]
 

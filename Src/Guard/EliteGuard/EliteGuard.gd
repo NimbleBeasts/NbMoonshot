@@ -13,6 +13,8 @@ var player
 onready var losRay: RayCast2D = $Flippable/LOSRay
 onready var pathLine: PathLine = $PathLine
 
+var guard_normal_texture: Texture = preload("res://Assets/Guards/EliteGuard.png")
+var guard_green_texture: Texture = preload("res://Assets/Guards/EliteGuardGreen.png")
 
 func _ready() -> void:
 	speed = normalSpeed
@@ -21,6 +23,12 @@ func _ready() -> void:
 	$Flippable/TaserRange.connect("body_entered", self, "onTaserRangeBodyEntered")
 	$AnimationPlayer.connect("animation_finished", self, "onAnimationFinished")
 
+	# sets sprite texture on level type
+	match Global.game_manager.getCurrentLevel().level_type:
+		Types.LevelTypes.Western:
+			$Flippable/Sprite.texture = guard_normal_texture
+		Types.LevelTypes.Eastern:
+			$Flippable/Sprite.texture = guard_green_texture 
 
 func _physics_process(delta: float) -> void:
 	velocity = direction * speed

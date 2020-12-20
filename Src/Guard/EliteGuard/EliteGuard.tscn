@@ -36,10 +36,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 9, 10 ]
+"values": [ 0, 9, 10 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -69,7 +69,7 @@ script = ExtResource( 2 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 11
-frame = 5
+frame = 6
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
 
