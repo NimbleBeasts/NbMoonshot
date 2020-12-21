@@ -16,9 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if guard != null and not isDraggingGuard:
 		if Input.is_action_just_pressed("interact") and guard.state == Types.GuardStates.Stunned and guard.isSleeping:
-			guard.set_state(Types.GuardStates.BeingDragged)
-			player.set_state(Types.PlayerStates.DraggingGuard)
-			isDraggingGuard = true
+			dragGuard()
 			return
 
 	if guard != null and guard.state == Types.GuardStates.BeingDragged:
@@ -47,3 +45,10 @@ func stopDragging() -> void:
 		guard.state = Types.GuardStates.Stunned
 		player.set_state(Types.PlayerStates.Normal)
 		isDraggingGuard = false
+		guard = null
+
+
+func dragGuard() -> void:
+	guard.set_state(Types.GuardStates.BeingDragged)
+	player.set_state(Types.PlayerStates.DraggingGuard)
+	isDraggingGuard = true

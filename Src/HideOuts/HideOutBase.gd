@@ -11,6 +11,7 @@ var isOpen: bool
 var destroyGuard: bool
 var guard
 var goInCloset: bool
+var hiddenGuard
 
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
@@ -34,6 +35,13 @@ func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("interact"):
 		return
 
+	if hiddenGuard:
+		hiddenGuard.show()
+		player.guardPickup.guard = hiddenGuard
+		player.guardPickup.dragGuard()
+		hiddenGuard = null
+		return
+
 	if player.guardPickup.isDraggingGuard:
 		hideGuard()
 		return
@@ -46,12 +54,10 @@ func _input(event: InputEvent) -> void:
 
 
 func hideGuard() -> void:
-	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
 	Events.emit_signal("hud_game_hint", "Hidden guard. Closet is now locked")
-	set_process_input(false)
-	$Area2D.set_deferred("monitoring", false)
 	guard = player.guardPickup.guard
-	player.guardPickup.guard = null
+	guard.global_position = getPoint()
+	player.guardPickup.stopDragging()
 	destroyGuard = true
 	$AnimationPlayer.play("open")
 
@@ -90,7 +96,8 @@ func _on_Area2D_body_exited(body):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "open":
 		if destroyGuard:
-			guard.queue_free()
+			guard.hide()
+			hiddenGuard = guard
 			animPlayer.play("close")
 	elif anim_name == "close":
 		if goInCloset:
