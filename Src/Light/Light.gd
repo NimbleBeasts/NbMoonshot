@@ -1,5 +1,6 @@
 tool
 extends Node2D
+class_name Lights
 
 export(bool) var flicker = false
 export(String) var flickerSequence = "1110"
@@ -8,6 +9,7 @@ enum LightState {On = 1, Off = 0}
 
 var state = LightState.On
 var currentIndex = 0
+var isActive: bool = true
 
 
 func _ready():
@@ -36,6 +38,13 @@ func updateLight():
 			$Light2D.hide()
 
 
+func toggleState() -> void:
+	if isOn():
+		deactivate()
+		return
+	activate()
+
+
 func _on_Timer_timeout():
 	updateLight()
 
@@ -45,3 +54,12 @@ func deactivate() -> void:
 	$FullLight.set_deferred("monitoring", false)
 	$BarelyVisible.set_deferred("monitoring", false)
 	$Timer.stop()
+	state = LightState.Off
+
+
+func activate() -> void:
+	$Light2D.show()
+	$FullLight.set_deferred("monitoring", true)
+	$BarelyVisible.set_deferred("monitoring", true)
+	$Timer.start()
+	state = LightState.On

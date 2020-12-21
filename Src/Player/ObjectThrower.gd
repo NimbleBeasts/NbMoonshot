@@ -9,7 +9,6 @@ export var powerToIncrease: int = 50
 export var infiniteAmmo: bool = true
 export var currentAmmo: int = 3
 
-
 var objectScene: Resource
 var maxPoints: int = 15
 var objectVelocity: Vector2
@@ -26,16 +25,20 @@ func _ready() -> void:
 	objectScene = load(objectScenePath)
 	objectVelocity = startingObjectVelocity
 	$PowerIncreaseTimer.connect("timeout", self, "increaseThrowPower")
+	Events.connect("game_over", self, "onGameOver")
 	setEnabled(false)
 
 
 func _process(delta: float) -> void:
+	if player.blockEntireInput:
+		return
 	if player.direction.x != 0:
 		objectVelocity = startingObjectVelocity * player.direction
 		lastPlayerDir = player.direction
 
-		
 func _input(event: InputEvent) -> void:
+	if player.blockEntireInput:
+		return
 	if not event is InputEventKey:
 		return
 	if Input.is_action_just_pressed("weapon") and (currentAmmo > 0 or infiniteAmmo):
@@ -80,3 +83,7 @@ func increaseThrowPower() -> void:
 
 func setEnabled(to: bool) -> void:
 	set_process_input(to)
+
+
+func onGameOver() -> void:
+	setEnabled(false)

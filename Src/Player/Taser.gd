@@ -12,8 +12,10 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
+	if player.blockEntireInput:
+		return
 	if Input.is_action_just_pressed("weapon"):
-		if player.state == Types.PlayerStates.Normal and stunBatteryLevel > 0 and not player.block_input:
+		if player.state == Types.PlayerStates.Normal and stunBatteryLevel > 0:
 			Events.emit_signal("change_player_animation", "taser")
 			Events.emit_signal("play_sound", "taser_deploy")
 			if stunRay.is_colliding():

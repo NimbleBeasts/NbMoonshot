@@ -1,7 +1,7 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
-[ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=5]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -101,6 +102,7 @@ door_name = "DoorWall7"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
@@ -111,6 +113,7 @@ door_name = "DoorWall9"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
@@ -121,6 +124,7 @@ door_name = "DoorWall10"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
@@ -131,6 +135,7 @@ door_name = "DoorWall11"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
@@ -150,10 +155,11 @@ door_name = ""
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( -196.565, 256 )
 lockLevel = 0
-doorType = 2
+doorType = 1
 save_state = false
-showHintIfLocked = false
-hint = ""
+showHintIfLocked = true
+hint = "This door is locked "
+keyPath = NodePath("../../../Key")
 sig_to_trig = [  ]
 
 [node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
@@ -170,6 +176,9 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( 216, 200 )
+
+[node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
+position = Vector2( -244.304, 215.869 )
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 208 )
@@ -229,31 +238,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Dog" parent="." instance=ExtResource( 2 )]
-position = Vector2( 61.6363, 255.756 )
-
-[node name="DogPathLine" type="Line2D" parent="Dog"]
-points = PoolVector2Array( 5.92296, -10.9913, 26.1797, -11.3326, 56.452, -10.0713 )
-script = ExtResource( 15 )
-
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -240, 256 )
-canHidePlayer = true
-canBeOpened = true
 
 [node name="Guard" parent="." instance=ExtResource( 22 )]
-position = Vector2( -186.111, 250.923 )
+position = Vector2( -362.162, 254.294 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
-points = PoolVector2Array( 12.4353, -6.87619, 31.8808, -6.1691, 46.73, -6.1691 )
+points = PoolVector2Array( 12.4353, -6.87619, 31.8808, -6.1691, 71.5075, -5.95908 )
 script = ExtResource( 15 )
 
 [node name="Fridge" parent="." instance=ExtResource( 24 )]
 position = Vector2( 118.538, 238.544 )
 
 [node name="EliteGuard" parent="." instance=ExtResource( 25 )]
-position = Vector2( -349, 233 )
+position = Vector2( 133.523, 255.832 )
 
 [node name="PathLine" type="Line2D" parent="EliteGuard"]
-points = PoolVector2Array( -27.6506, -0.834763, -82.0978, -0.834763, -123.11, 0.579453 )
+points = PoolVector2Array( -8.22103, -8.6682, -53.6807, -6.70389, -103.35, -6.42328 )
 script = ExtResource( 15 )
+
+[node name="Button" parent="." instance=ExtResource( 26 )]
+position = Vector2( -23.5263, 235.871 )
+unlocks = [ NodePath("../LevelObjects/Lights/Light2"), NodePath("../LevelObjects/Doors/DoorWall") ]
+
+[node name="Key" parent="." instance=ExtResource( 2 )]
+position = Vector2( 17.5308, 250.253 )
+keyColor = 1

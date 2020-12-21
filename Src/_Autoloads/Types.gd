@@ -19,6 +19,7 @@ enum MinigameResults{Failed, Succeeded, Doing}
 
 # Objects
 enum GuardStates {Wander, Suspect, PlayerDetected, Stunned, BeingDragged}
+enum EliteGuardStates {Roaming, MovingToPlayer, Suspicious, TaseringPlayer}
 enum CameraStates {Normal, Suspect, PlayerDetected, Rotating, Frozen}
 enum WireColors {Red, Purple,Green, Blue}
 enum NotifierTypes{Exclamation, Question}
@@ -26,6 +27,7 @@ enum NoteType {SecretService, Local}
 
 # Levels
 enum LevelTypes {Western, Eastern}
+enum Nations {USA, USSR, Ustria}
 
 # Dialog
 enum DialogButtons {Option0 = 0, Option1 = 1, NoBranch = 2}
@@ -38,3 +40,6 @@ enum Potraits {Player, Boss, Secretary}
 
 # Weapons
 enum Weapons {Taser = 0, StoneThrower = 1, SnackThrower = 2}
+
+# Keys
+enum KeyColors {Red, Blue, Yellow}

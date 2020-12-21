@@ -1,33 +1,33 @@
 {
 
-"00" : { "text" : "Welcome agent, here you are at last. It is a great honor and obligation to work for Ustria's Secret Service. Our great leader wants to participate in the space race. Therefore, the great nation of Ustria shall be the first on the Moon.", "nextDialogue": "01", "lastDialogue": "03"},
-"01" : {"text" : "Unfortunately we do not even have a rocket yet. And that is why they are here today. Our agency will obtain plans and secret documents to support our great scientists.", "nextDialogue": "02"},
-"02" : {"text": "Before you go on your first mission: In the basement is your office where you can save your progress, your colleague who can equip you with additional upgrades and a training parkour.", "nextDialogue": "03"},
-"03" : {"text": "Mission 0 - Complete the training parkour by unlocking the safe!", "exitDialogue": true, "quest": 0},
+"00" : {"nextDialogue": "01", "lastDialogue": "03"},
+"01" : { "nextDialogue": "02"},
+"02" : {"nextDialogue": "03"},
+"03" : {"exitDialogue": true, "quest": 0},
 
-"10" : {"text" : "Wow, that was really slow, even my grandma could have done it faster. But well, you just have to take what you get.", "nextDialogue": "11", "lastDialogue": "12"},
-"11" : {"text" : "Okay, your first mission will take you to the Soviet Union. Their rocket technology is the best in the world. Our researchers need these plans for, umm ... inspiration.", "nextDialogue": "12"},
-"12" : {"text" : "My secretary Natasja prepared a detailed mission briefing for this. Take the car in front of the building to start the mission.", "exitDialogue": true, "quest": "1"},
+"10" : {"nextDialogue": "11", "lastDialogue": "12"},
+"11" : {"nextDialogue": "12"},
+"12" : {"exitDialogue": true, "quest": "1"},
 
-"20" : {"text" : "Welcome back comrade, your last mission helped our scientists a lot. But the plans seem to be incomplete or incorrect.", "nextDialogue": "21", "lastDialogue": "22"},
-"21" : {"text" : "One scientist said there were notes on it like \"use glue here\" or \"duct tape there\". This cannot be correct.", "nextDialogue": "22"},
-"22" : {"text" : "Your mission is to infiltrate the Soyuz factory and take pictures of the rockets boosters.", "exitDialogue": true, "quest": "2"},
+"20" : {"nextDialogue": "21", "lastDialogue": "22"},
+"21" : {"nextDialogue": "22"},
+"22" : {"exitDialogue": true, "quest": "2"},
 
-"30" : {"text" : "Well that photos were really impressive. It looks like they have been using a lot of duct tape on that rocket.", "nextDialogue": "31", "lastDialogue": "32"},
-"31" : {"text" : "About your next mission: This time I have a very private task. Top Secret!", "nextDialogue": "32"},
-"32" : {"text" : "I think my wife is cheating on me. Take the camera and give me some solid evidence! Well I hope she is not. ", "exitDialogue": true, "quest": "3"},
+"30" : {"nextDialogue": "31", "lastDialogue": "32"},
+"31" : {"nextDialogue": "32"},
+"32" : {"exitDialogue": true, "quest": "3"},
 
-"40" : {"text" : "I have seen the photos. I guess I already knew it. But something more important: Our intelligence tells us that the American Lunar Landing Mission is very close to a breakthrough.", "nextDialogue": "41", "lastDialogue": "42"},
-"41" : {"text" : "We absolutely need those plans! There is not much time left. Enter the NASA Headquarter, get an overview about what is going on and get us those plans!", "nextDialogue": "42"},
-"42" : {"text" : "Hurry up! Time is ticking.", "exitDialogue": true, "quest": "4"},
-
-
-"50" : {"text" : "Comrade, the secret documents that you provided us with are only a movie script. Apparently the Americans want to trick us and prepare their moon landing somewhere else.", "nextDialogue": "51", "lastDialogue": "52"},
-"51" : {"text" : "Another informant, told us another NASA Lab location. Maybe the plans can be found there.", "nextDialogue": "52"},
-"52" : {"text" : "Infiltrate the building and get those informations.", "exitDialogue": true, "quest": "5"},
+"40" : {"nextDialogue": "41", "lastDialogue": "42"},
+"41" : {"nextDialogue": "42"},
+"42" : {"exitDialogue": true, "quest": "4"},
 
 
+"50" : {"nextDialogue": "51", "lastDialogue": "52"},
+"51" : {"nextDialogue": "52"},
+"52" : {"exitDialogue": true, "quest": "5"},
 
- "60" : {"text" : "Thank you for playing our game! Rate the game and follow us for updates on it._", "exitDialogue": true}
+
+
+ "60" : {"exitDialogue": true}
 
 }

@@ -1,13 +1,14 @@
 
 tool
 extends Node2D
+class_name DoorWall
 
 var minigame_finished: bool = false
 var playerInArea = false
 var doorIsOpen = false
 var playerNode = null
 
-enum DoorLockType {open, lockedLevel1, lockedLevel2, locked}
+enum DoorLockType {open, lockedLevel1, lockedLevel2, locked, buttonLocked, keyLocked}
 enum DoorType {wooden, metal, metalSwing}
 
 export(DoorLockType) var lockLevel = DoorLockType.open
@@ -16,10 +17,16 @@ export var door_name = ""
 export var save_state = false
 export var showHintIfLocked: bool = false
 export var hint: String
+export var keyPath: NodePath
 
 export (Array)  var sig_to_trig
 
+onready var key
+
+
 func _ready():
+	if lockLevel == DoorLockType.keyLocked:
+		key = get_node(keyPath)
 	if doorType == DoorType.metal:
 		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal.png")
 	elif doorType == DoorType.metalSwing:
@@ -44,15 +51,24 @@ func _ready():
 func open():
 	lockLevel = DoorLockType.open
 
+	
 func _process(_delta):
 	if playerInArea:
 		if Input.is_action_just_pressed("interact"):
 			interact(true, playerNode.global_position)
 			
+
 func interact(run_sub, openerPos: Vector2):
 	if playerNode != null:
 		if openerPos == playerNode.global_position and playerNode.state == Types.PlayerStates.DraggingGuard:
 			return
+		
+	if lockLevel == DoorLockType.keyLocked:
+		if key.isPickedUp:
+			open()
+		else:
+			Events.emit_signal("hud_game_hint", "You need a %s key to open this door" % key.stringName)
+
 	# shows a game hint if this door is locked
 	if lockLevel == DoorLockType.locked:
 		Events.emit_signal("hud_game_hint", hint)

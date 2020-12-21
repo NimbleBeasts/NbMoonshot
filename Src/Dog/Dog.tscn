@@ -4,15 +4,14 @@
 [ext_resource path="res://Src/Dog/Dog.gd" type="Script" id=2]
 [ext_resource path="res://Src/Notifier/Notifier.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 25, 10 )
-
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-[sub_resource type="Animation" id=3]
-resource_name = "alarm"
+[sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="Animation" id=4]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -28,8 +27,7 @@ tracks/0/keys = {
 "values": [ 2, 3 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "eat"
+[sub_resource type="Animation" id=5]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -44,8 +42,7 @@ tracks/0/keys = {
 "values": [ 4, 6 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "get_up"
+[sub_resource type="Animation" id=6]
 length = 4.0
 step = 0.05
 tracks/0/type = "value"
@@ -61,7 +58,7 @@ tracks/0/keys = {
 "values": [ 5, 4, 2, 0, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -76,8 +73,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "laying_down"
+[sub_resource type="Animation" id=8]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -92,7 +88,7 @@ tracks/0/keys = {
 "values": [ 2, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -131,7 +127,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -174,6 +170,7 @@ tracks/2/keys = {
 [node name="Dog" type="KinematicBody2D" groups=[
 "Dog",
 ]]
+z_index = 20
 collision_layer = 112
 collision_mask = 16
 script = ExtResource( 2 )
@@ -191,14 +188,14 @@ frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/LOSArea"]
 position = Vector2( -36, -10 )
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
 [node name="DogArea" type="Area2D" parent="Flippable"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/DogArea"]
 visible = false
 position = Vector2( 0, -10 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Notifier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
@@ -212,19 +209,19 @@ wait_time = 10.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, -10 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="DetectionDelay" type="Timer" parent="."]
 wait_time = 1.6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/alarm = SubResource( 3 )
-anims/eat = SubResource( 4 )
-anims/get_up = SubResource( 5 )
-anims/grr = SubResource( 6 )
-anims/laying_down = SubResource( 7 )
-anims/look_around = SubResource( 8 )
-anims/walk = SubResource( 9 )
+anims/alarm = SubResource( 4 )
+anims/eat = SubResource( 5 )
+anims/get_up = SubResource( 6 )
+anims/grr = SubResource( 7 )
+anims/laying_down = SubResource( 8 )
+anims/look_around = SubResource( 9 )
+anims/walk = SubResource( 10 )
 
 [node name="BarkTimer" type="Timer" parent="."]
 wait_time = 5.0

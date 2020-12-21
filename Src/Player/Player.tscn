@@ -399,6 +399,7 @@ shape = SubResource( 18 )
 
 [node name="WeaponHandler" type="Node2D" parent="."]
 script = ExtResource( 5 )
+playerPath = NodePath("..")
 
 [node name="Taser" type="Node2D" parent="WeaponHandler"]
 script = ExtResource( 9 )

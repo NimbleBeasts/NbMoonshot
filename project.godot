@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Door/Door.gd"
 }, {
+"base": "Node2D",
+"class": "DoorWall",
+"language": "GDScript",
+"path": "res://Src/Objects/DoorWall.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Guard",
 "language": "GDScript",
@@ -38,6 +43,11 @@ _global_script_classes=[ {
 "class": "LightMinigameSpawner",
 "language": "GDScript",
 "path": "res://Src/Minigames/LightMinigame/LightMinigameSpawner.gd"
+}, {
+"base": "Node2D",
+"class": "Lights",
+"language": "GDScript",
+"path": "res://Src/Light/Light.gd"
 }, {
 "base": "MinigameSpawner",
 "class": "LockpickMinigameSpawner",
@@ -113,9 +123,11 @@ _global_script_class_icons={
 "Dog": "",
 "Doll": "",
 "Door": "",
+"DoorWall": "",
 "Guard": "",
 "HideOutBase": "",
 "LightMinigameSpawner": "",
+"Lights": "",
 "LockpickMinigameSpawner": "",
 "LockpickSmallMinigameSpawner": "",
 "Minigame": "",
@@ -147,9 +159,11 @@ Global="*res://Src/_Autoloads/Global.gd"
 Types="*res://Src/_Autoloads/Types.gd"
 Events="*res://Src/_Autoloads/Events.gd"
 Debug="*res://Src/_Autoloads/Debug.gd"
+SteamWorks="*res://Src/_Autoloads/SteamWorks.gd"
 
 [debug]
 
+gdscript/warnings/unused_argument=false
 gdscript/warnings/return_value_discarded=false
 
 [display]

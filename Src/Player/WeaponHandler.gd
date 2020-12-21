@@ -1,8 +1,11 @@
 extends Node2D
 
+export var playerPath: NodePath
+
 var currentIndex: int
 onready var currentWeapon = get_child(0)
 onready var maxWeaponAmount: int = get_child_count()
+onready var player = get_node(playerPath)
 
 
 func _ready() -> void:
@@ -11,7 +14,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if not event is InputEventKey:
+	if not event is InputEventKey or player.blockEntireInput:
 		return
 
 	if event.is_action_pressed("selection"):

@@ -37,7 +37,10 @@ const text = [
 
 func setLevel(id):
 	# subtract 1 because of hq level 
-	$BriefingLabel.bbcode_text = text[id - 1]
+	if id - 1 < text.size():
+		$BriefingLabel.bbcode_text = text[id - 1]
+	else:
+		print("Briefing Text out of Range")
 	
 	if id < 3:
 		$MapSprite.frame = 0

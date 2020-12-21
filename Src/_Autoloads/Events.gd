@@ -106,6 +106,11 @@ signal player_exit_door()
 signal set_player_state(newState)
 signal player_state_changed(newState)
 signal change_player_animation(newAnim)
+signal switched_weapon(newWeaponIndex)
+
+# this blocks weapon input while block_player_movement only blocks movement
+signal block_player_input()
+signal unblock_player_input()
 
 
 # Level
@@ -116,7 +121,7 @@ signal held_selection()
 signal released_held_selection()
 
 
-signal switched_weapon(newWeaponIndex)
+
 
 ###############################################################################
 

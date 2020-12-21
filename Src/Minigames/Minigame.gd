@@ -69,6 +69,7 @@ func close() -> void:
 		# Emits signal
 		Events.emit_signal("minigame_exited", result)
 		Events.emit_signal("unblock_player_movement")
+		Events.emit_signal("unblock_player_input")
 		# emit audio notification loud if fail minigame
 		if result == Types.MinigameResults.Failed:
 			Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, owner_obj.global_position, self)

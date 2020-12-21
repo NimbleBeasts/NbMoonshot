@@ -25,12 +25,14 @@ extends Node
 # Version
 const GAME_VERSION = 0.3
 const CONFIG_VERSION = 1 # Used for config migration
+
 # Debug Options
 const DEBUG = true
 
+
 # Nb Plugin Config
 const NB_PLUGIN_CONFIG = {
-	"gameId": "gameId",
+	"gameId": 1492610,
 	"filePassword": "password",
 	"magic": "magiccode",
 	"devlogUrl": "https://raw.githubusercontent.com/NimbleBeasts/GameLogs/master/GameOff_"+ str(GAME_VERSION) +".txt"
@@ -45,6 +47,7 @@ const levels = [
 	"res://Src/Levels/Level4.tscn", #3
 	"res://Src/Levels/Level17.tscn", #4
 	"res://Src/Levels/Level18.tscn", #5
+	"res://Src/Levels/Level2.tscn",
 	"res://Src/Levels/TestLevel.tscn",
 ]
 
@@ -131,8 +134,7 @@ func _ready():
 	loadConfig()
 	switchFullscreen()
 	
-	print(NB_PLUGIN_CONFIG.devlogUrl)
-
+	
 
 func getSaveGameState():
 	var retVal = []
