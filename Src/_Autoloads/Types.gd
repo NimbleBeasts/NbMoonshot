@@ -40,3 +40,5 @@ enum Potraits {Player, Boss, Secretary}
 # Weapons
 enum Weapons {Taser = 0, StoneThrower = 1, SnackThrower = 2}
 
+# Keys
+enum KeyColors {Red, Blue, Yellow}

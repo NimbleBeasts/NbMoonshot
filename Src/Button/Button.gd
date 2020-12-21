@@ -34,4 +34,7 @@ func press() -> void:
 		if node is Lights:
 			node.toggleState()
 		elif node is DoorWall:
-			node.open()
+			if node.lockLevel == node.DoorLockType.buttonLocked:
+				node.open()
+				return
+			printerr("Trying to open %s through a button that isn't of locked level 'buttonLocked'." % node.name)

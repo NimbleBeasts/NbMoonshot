@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
+[ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=5]
@@ -125,10 +126,11 @@ door_name = ""
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( -196.565, 256 )
-lockLevel = 3
-doorType = 2
+lockLevel = 5
+doorType = 1
 showHintIfLocked = true
 hint = "This door is locked "
+keyPath = NodePath("../../../Key")
 
 [node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( -129.695, 256.354 )
@@ -144,11 +146,9 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( 216, 200 )
-flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
-position = Vector2( -241.923, 213.091 )
-flicker = false
+position = Vector2( -244.304, 215.869 )
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 208 )
@@ -233,3 +233,7 @@ script = ExtResource( 15 )
 [node name="Button" parent="." instance=ExtResource( 26 )]
 position = Vector2( -23.5263, 235.871 )
 unlocks = [ NodePath("../LevelObjects/Lights/Light2"), NodePath("../LevelObjects/Doors/DoorWall") ]
+
+[node name="Key" parent="." instance=ExtResource( 2 )]
+position = Vector2( 17.5308, 250.253 )
+keyColor = 1
