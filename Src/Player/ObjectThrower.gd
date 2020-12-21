@@ -30,13 +30,15 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if player.movementBlocked:
+	if player.blockEntireInput:
 		return
 	if player.direction.x != 0:
 		objectVelocity = startingObjectVelocity * player.direction
 		lastPlayerDir = player.direction
 
 func _input(event: InputEvent) -> void:
+	if player.blockEntireInput:
+		return
 	if not event is InputEventKey:
 		return
 	if Input.is_action_just_pressed("weapon") and (currentAmmo > 0 or infiniteAmmo):

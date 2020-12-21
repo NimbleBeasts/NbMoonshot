@@ -12,7 +12,7 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	if player.movementBlocked:
+	if player.blockEntireInput:
 		return
 	if Input.is_action_just_pressed("weapon"):
 		if player.state == Types.PlayerStates.Normal and stunBatteryLevel > 0:

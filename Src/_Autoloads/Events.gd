@@ -108,6 +108,10 @@ signal player_state_changed(newState)
 signal change_player_animation(newAnim)
 signal switched_weapon(newWeaponIndex)
 
+# this blocks weapon input while block_player_movement only blocks movement
+signal block_player_input()
+signal unblock_player_input()
+
 
 # Level
 signal game_over()

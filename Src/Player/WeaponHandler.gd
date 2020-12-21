@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if not event is InputEventKey or player.movementBlocked:
+	if not event is InputEventKey or player.blockEntireInput:
 		return
 
 	if event.is_action_pressed("selection"):

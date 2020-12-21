@@ -27,6 +27,7 @@ var speed: int = normal_speed
 var acceleration: int = normal_acceleration
 var block_input: bool = false
 var movementBlocked = false
+var blockEntireInput = false
 
 #  Use Types.LightLevels enum for both of these. Light level is in which light the player is in
 # and visible_level is actual visibility of player to guards and camera with wall dodging and other benefits
@@ -70,6 +71,8 @@ func _ready() -> void:
 	Events.connect("hud_note_exited", self, "_on_hud_note_exited")
 	Events.connect("hud_note_show", self, "_on_hud_note_showed")
 	Events.connect("block_player_movement", self, "onBlockPlayerMovement")
+	Events.connect("block_player_input", self, "onBlockPlayerInput")
+	Events.connect("unblock_player_input", self, "onUnblockPlayerInput")
 	Events.connect("unblock_player_movement", self, "onUnblockPlayerMovement")
 	Events.connect("game_over", self, "onGameOver")
 	Events.connect("update_upgrades", self, "do_upgrade_stuff")
@@ -88,27 +91,14 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	Global.screen_center = global_position
 
-
 	if state != Types.PlayerStates.WallDodge or isSneaking:
 		update_light_level()
 
-
 	# wall dodging
-	if Input.is_action_pressed("wall_dodge") and not movementBlocked:
-		setVisibleLevel(int(max(light_level - 1, 0)))
-		set_state(Types.PlayerStates.WallDodge)
-		movementBlocked = true if (not has_sneak_upgrade) else false
-	if Input.is_action_just_released("wall_dodge") and state == Types.PlayerStates.WallDodge:
-		setVisibleLevel(light_level)
-		set_state(Types.PlayerStates.Normal)
-		isSneaking = false
+	walldodgeInput()
 
 	# ducking 
-	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding() and not movementBlocked:
-		set_state(Types.PlayerStates.Duck)
-	if Input.is_action_just_released("duck") and state == Types.PlayerStates.Duck:
-		set_state(Types.PlayerStates.Normal)
-
+	duckInput()
 
 	# duck walking animation
 	if state == Types.PlayerStates.Duck and abs(velocity.x) != 0:
@@ -124,8 +114,37 @@ func _process(_delta: float) -> void:
 		$AnimationPlayer.play("dodge")
 		isSneaking = false
 
-	
-func _physics_process(delta: float) -> void:
+
+func walldodgeInput() -> void:
+	if blockEntireInput:
+		return
+	if movementBlocked:
+		return
+	if Input.is_action_pressed("wall_dodge"):
+		setVisibleLevel(int(max(light_level - 1, 0)))
+		set_state(Types.PlayerStates.WallDodge)
+		movementBlocked = true if (not has_sneak_upgrade) else false
+	if Input.is_action_just_released("wall_dodge") and state == Types.PlayerStates.WallDodge:
+		setVisibleLevel(light_level)
+		set_state(Types.PlayerStates.Normal)
+		isSneaking = false
+
+
+func duckInput() -> void:
+	if blockEntireInput:
+		return
+	if movementBlocked:
+		return
+	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
+		set_state(Types.PlayerStates.Duck)
+	if Input.is_action_just_released("duck") and state == Types.PlayerStates.Duck:
+		set_state(Types.PlayerStates.Normal)
+
+
+func movementInput() -> void:
+	if blockEntireInput:
+		direction.x = 0
+		return
 	# changed between speeds depending on whether sprinting or not
 	if Input.is_action_pressed("sprint") and canSprint and state == Types.PlayerStates.Normal:
 		speed = sprint_speed
@@ -134,14 +153,16 @@ func _physics_process(delta: float) -> void:
 		speed = normal_speed
 		acceleration = normal_acceleration
 
-
 	if not movementBlocked:
 		direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		direction = direction.normalized()
 		updateFlip()
 	else:
 		direction = Vector2(0,0)
-	
+
+
+func _physics_process(delta: float) -> void:
+	movementInput()
 	velocity = velocity.move_toward(direction * speed, acceleration * delta)
 	velocity = move_and_slide(velocity)
 	
@@ -235,26 +256,33 @@ func do_upgrade_stuff() -> void:
 func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
 	movementBlocked = true
+	blockEntireInput = true
 	set_state(Types.PlayerStates.Normal)
 
 
 func _on_hud_note_exited(_d) -> void:
 	movementBlocked = false
 
+
 func _on_hud_note_showed(_d, _type: int, _text: String) -> void:
 	movementBlocked = true
 	set_state(Types.PlayerStates.Normal)
-
 
 func onBlockPlayerMovement() -> void:
 	movementBlocked = true
 	set_state(Types.PlayerStates.Normal)
 
-
 func onUnblockPlayerMovement() -> void:
 	movementBlocked = false
 
+func onBlockPlayerInput() -> void:
+	blockEntireInput = true
+	movementBlocked = true
 
+func onUnblockPlayerInput() -> void:
+	blockEntireInput = false
+
+	
 # use this function to set light_level instead of directly changing it
 func set_light_level(value: int) -> void:
 	if light_level != value:
