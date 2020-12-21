@@ -38,12 +38,11 @@ func _input(event: InputEvent) -> void:
 
 	if hiddenGuard != null:
 		unhidingGuard = true
-		$AnimationPlayer.play("open")
+		animPlayer.play("open")
 		get_tree().set_input_as_handled()
 		hiddenGuard.show()
-		player.guardPickup.guard = hiddenGuard
-		player.guardPickup.dragGuard()
-		hiddenGuard = null
+		Events.emit_signal("block_player_movement")
+		$Sprite.z_index = player.z_index - 1
 		return
 
 	if player.guardPickup.isDraggingGuard:
@@ -58,6 +57,7 @@ func _input(event: InputEvent) -> void:
 
 
 func hideGuard() -> void:
+	$Sprite.z_index = player.z_index - 1
 	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
 	Events.emit_signal("hud_game_hint", "Hidden guard.")
 	guard = player.guardPickup.guard
@@ -65,12 +65,13 @@ func hideGuard() -> void:
 	guard.global_position = getPoint()
 	player.guardPickup.stopDragging()
 	destroyGuard = true
-	$AnimationPlayer.play("open")
+	animPlayer.play("open")
+	goInCloset = false
 
 
 func hidePlayer() -> void:
 	$Sprite.z_index = player.z_index + 1
-	$AnimationPlayer.play("close")
+	animPlayer.play("close")
 	Events.emit_signal("block_player_movement")
 	goInCloset = true
 	isOpen = false
@@ -79,7 +80,7 @@ func hidePlayer() -> void:
 func openCloset() -> void:
 	$Sprite.z_index = player.z_index - 1
 	goInCloset = false
-	$AnimationPlayer.play("open")
+	animPlayer.play("open")
 	if player.state == Types.PlayerStates.InCloset:
 		player.set_state(Types.PlayerStates.Normal)
 	isOpen = true
@@ -103,6 +104,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "open":
 		if unhidingGuard:
 			unhidingGuard = false
+			player.guardPickup.guard = hiddenGuard
+			player.guardPickup.dragGuard()
+			hiddenGuard = null
+			goInCloset = false
+			Events.emit_signal("unblock_player_movement")
 			return
 		if destroyGuard:
 			guard.hide()
