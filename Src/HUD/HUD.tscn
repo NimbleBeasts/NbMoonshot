@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Assets/Portraits/Portraits.png" type="Texture" id=23]
 [ext_resource path="res://Assets/HUD/PromoTitle.png" type="Texture" id=24]
 [ext_resource path="res://Assets/HUD/PromoSteam.png" type="Texture" id=25]
+[ext_resource path="res://Src/HUD/MissionProgress.tscn" type="PackedScene" id=26]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -754,6 +755,9 @@ color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MissionProgress" parent="." instance=ExtResource( 26 )]
+visible = false
 
 [node name="IngameMenu" type="Control" parent="."]
 pause_mode = 2
