@@ -35,7 +35,8 @@ func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("interact"):
 		return
 
-	if hiddenGuard:
+	if hiddenGuard != null:
+		get_tree().set_input_as_handled()
 		hiddenGuard.show()
 		player.guardPickup.guard = hiddenGuard
 		player.guardPickup.dragGuard()
@@ -54,8 +55,10 @@ func _input(event: InputEvent) -> void:
 
 
 func hideGuard() -> void:
-	Events.emit_signal("hud_game_hint", "Hidden guard. Closet is now locked")
+	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
+	Events.emit_signal("hud_game_hint", "Hidden guard.")
 	guard = player.guardPickup.guard
+	player.guardPickup.guard = null
 	guard.global_position = getPoint()
 	player.guardPickup.stopDragging()
 	destroyGuard = true
