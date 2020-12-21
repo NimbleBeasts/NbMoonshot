@@ -12,6 +12,7 @@ var destroyGuard: bool
 var guard
 var goInCloset: bool
 var hiddenGuard
+var unhidingGuard: bool
 
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
@@ -36,6 +37,8 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if hiddenGuard != null:
+		unhidingGuard = true
+		$AnimationPlayer.play("open")
 		get_tree().set_input_as_handled()
 		hiddenGuard.show()
 		player.guardPickup.guard = hiddenGuard
@@ -98,6 +101,9 @@ func _on_Area2D_body_exited(body):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "open":
+		if unhidingGuard:
+			unhidingGuard = false
+			return
 		if destroyGuard:
 			guard.hide()
 			hiddenGuard = guard
