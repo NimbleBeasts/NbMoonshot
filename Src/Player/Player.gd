@@ -26,7 +26,7 @@ var velocity: Vector2
 var speed: int = normal_speed
 var acceleration: int = normal_acceleration
 var block_input: bool = false
-var can_move = true
+var movementBlocked = false
 
 #  Use Types.LightLevels enum for both of these. Light level is in which light the player is in
 # and visible_level is actual visibility of player to guards and camera with wall dodging and other benefits
@@ -94,17 +94,17 @@ func _process(_delta: float) -> void:
 
 
 	# wall dodging
-	if Input.is_action_pressed("wall_dodge") and not block_input:
+	if Input.is_action_pressed("wall_dodge") and not movementBlocked:
 		setVisibleLevel(int(max(light_level - 1, 0)))
 		set_state(Types.PlayerStates.WallDodge)
-		block_input = true if (not has_sneak_upgrade) else false
+		movementBlocked = true if (not has_sneak_upgrade) else false
 	if Input.is_action_just_released("wall_dodge") and state == Types.PlayerStates.WallDodge:
 		setVisibleLevel(light_level)
 		set_state(Types.PlayerStates.Normal)
 		isSneaking = false
 
 	# ducking 
-	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding() and not block_input:
+	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding() and not movementBlocked:
 		set_state(Types.PlayerStates.Duck)
 	if Input.is_action_just_released("duck") and state == Types.PlayerStates.Duck:
 		set_state(Types.PlayerStates.Normal)
@@ -135,7 +135,7 @@ func _physics_process(delta: float) -> void:
 		acceleration = normal_acceleration
 
 
-	if not block_input:
+	if not movementBlocked:
 		direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		direction = direction.normalized()
 		updateFlip()
@@ -234,25 +234,25 @@ func do_upgrade_stuff() -> void:
 # Event Hooks
 func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
-	block_input = true
+	movementBlocked = true
 	set_state(Types.PlayerStates.Normal)
 
-# I will remove all these functions other than onBlockPlayerMovement and onUnblockPlayerMovement
+
 func _on_hud_note_exited(_d) -> void:
-	block_input = false
+	movementBlocked = false
 
 func _on_hud_note_showed(_d, _type: int, _text: String) -> void:
-	block_input = true
+	movementBlocked = true
 	set_state(Types.PlayerStates.Normal)
 
 
 func onBlockPlayerMovement() -> void:
-	block_input = true
+	movementBlocked = true
 	set_state(Types.PlayerStates.Normal)
 
 
 func onUnblockPlayerMovement() -> void:
-	block_input = false
+	movementBlocked = false
 
 
 # use this function to set light_level instead of directly changing it
@@ -280,7 +280,7 @@ func set_state(value: int) -> void:
 				speed = normal_speed
 				acceleration = normal_acceleration
 				$AnimationPlayer.play("idle")
-				block_input = false
+				movementBlocked = false
 				enableNormalColliders()
 			Types.PlayerStates.Duck:
 				player_sprite.show()
@@ -305,7 +305,7 @@ func set_state(value: int) -> void:
 				$DuckCollisionShape2D.set_deferred("disabled", true)
 				$PlayerLightArea.set_deferred("monitoring", false)
 				$PlayerArea.set_deferred("monitoring", false)
-				block_input = true				
+				movementBlocked = true				
 
 
 # Change animation
@@ -332,7 +332,7 @@ func onFootstepTimerTimeout() -> void:
 func onGameOver() -> void:
 	set_process(false)
 	set_physics_process(false)
-	block_input = true
+	movementBlocked = true
 	$AnimationPlayer.play("lose")
 	Events.emit_signal("hud_game_over")
 

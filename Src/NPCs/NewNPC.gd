@@ -5,9 +5,7 @@ export (String, FILE) var dialoguePath: String
 export var npcName: String
 export var npcColor: String
 export (Types.Potraits) var npcPotrait: int
-export (String, FILE) var enTranslationPath: String
-export (String, FILE) var ruTranslationPath: String
-export (String, FILE) var deTranslationPath: String
+export (Dictionary) var translations
 export var lang: String
 
 var loadedDialogue
@@ -35,8 +33,8 @@ func _ready() -> void:
 	#warning-ignore:return_value_discarded
 	connect("body_exited", self, "onBodyExited")
 	loadDialogue()
-	currentBranch = loadedDialogue["%s0" % interactedCounter]
 	currentBranchID = "%s0" % interactedCounter
+	currentBranch = loadedDialogue[currentBranchID]
 
 
 func _input(event: InputEvent) -> void:
@@ -51,9 +49,8 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("cancel") and sayingDialogue:
 			if currentBranch.has("lastDialogue"):
-				currentBranch = loadedDialogue.get(currentBranch["lastDialogue"])
 				currentBranchID = currentBranch["lastDialogue"]
-				print(currentBranchID)
+				currentBranch = loadedDialogue.get(currentBranchID)
 				sayBranch(currentBranch)
 
 
@@ -67,7 +64,7 @@ func onNoBranchButtonPressed() -> void:
 		return
 	if currentBranch.has("nextDialogue"):
 		currentBranchID = currentBranch["nextDialogue"]
-		currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
+		currentBranch = loadedDialogue.get(currentBranchID)
 		sayBranch(currentBranch)
 		return
 
@@ -82,7 +79,6 @@ func onDialogButtonPressed(buttonType: int) -> void:
 		exitDialogue()
 		if loadedDialogue.has(currentBranch["branchID%s" % buttonType]):
 			currentBranchID = currentBranch["branchID%s" % buttonType]
-			print(currentBranchID)
 			currentBranch = get("option%sBranch" % buttonType)
 		return
 	currentBranch = get("option%sBranch" % buttonType)
@@ -111,9 +107,7 @@ func loadDialogue() -> void:
 
 
 func loadTranslation() -> void:
-	var translationPath = get(lang + "TranslationPath")
-	if translationPath != null:
-		translation = load(translationPath)
+	translation = translations.get(lang)
 
 
 func sayBranch(branch: Dictionary) -> void:

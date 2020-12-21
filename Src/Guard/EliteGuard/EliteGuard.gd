@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var normalSpeed: int = 20
 export var chaseSpeed: int = 40
+export var audioSuspectDistance: int = 100
 
 var direction: Vector2
 var velocity: Vector2
@@ -10,6 +11,7 @@ var foundPlayer: bool
 var playerInLOS: bool
 var player
 var state: int
+var suspiciousPosition: Vector2
 
 onready var losRay: RayCast2D = $Flippable/LOSRay
 onready var pathLine: PathLine = $PathLine
@@ -25,6 +27,11 @@ func _ready() -> void:
 	$Flippable/LineOfSight.connect("body_entered", self, "onLOSBodyEntered")
 	$Flippable/TaserRange.connect("body_entered", self, "onTaserRangeBodyEntered")
 	$AnimationPlayer.connect("animation_finished", self, "onAnimationFinished")
+	$RoamingEnterTimer.connect("timeout", self, "setState", [Types.EliteGuardStates.Roaming])
+	$RoamingEnterTimer.one_shot = true
+
+	Events.connect("audio_level_changed", self, "onAudioLevelChanged")
+
 
 	# sets sprite texture on level type
 	match Global.game_manager.getCurrentLevel().level_type:
@@ -63,6 +70,7 @@ func stateMovingToPlayerEnter() -> void:
 	pathLine.moveToPoint(player.global_position)
 	speed = chaseSpeed
 	Events.emit_signal("block_player_movement")
+	Events.disconnect("audio_level_changed", self, "onAudioLevelChanged")
 	$Notifier.popup(Types.NotifierTypes.Exclamation)
 
 
@@ -76,7 +84,26 @@ func stateTaseringPlayerEnter() -> void:
 	Events.emit_signal("block_player_movement")
 
 
+func onAudioLevelChanged(newLevel, audioPosition, emitter) -> void:
+	match newLevel:
+		Types.AudioLevels.LoudNoise:
+			if audioPosition.distance_to(global_position) < audioSuspectDistance:
+				var yDistance = abs(audioPosition.y - global_position.y)
+				if yDistance > 20:
+					return
+				suspiciousPosition = audioPosition
+				setState(Types.EliteGuardStates.Suspicious)
+
+
+func stateSuspiciousEnter() -> void:
+	pathLine.stopAllMovement()
+	flipTowards(suspiciousPosition)
+	$Notifier.popup(Types.NotifierTypes.Question)
+	$RoamingEnterTimer.start()
+
+
 func stateRoamingEnter() -> void:
+	$Notifier.remove()
 	pathLine.startNormalMovement()
 
 
@@ -114,5 +141,3 @@ func flipTowards(towards: Vector2) -> void:
 	elif towards.x < global_position.x:
 		$Flippable.scale.x = -1
 
-
-	

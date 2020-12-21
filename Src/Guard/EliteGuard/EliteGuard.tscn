@@ -97,3 +97,6 @@ autoplay = "idle"
 anims/idle = SubResource( 3 )
 anims/taser = SubResource( 4 )
 anims/walk = SubResource( 5 )
+
+[node name="RoamingEnterTimer" type="Timer" parent="."]
+wait_time = 2.0
