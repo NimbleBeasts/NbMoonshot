@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -36,206 +36,6 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "detection_left"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 4, 5 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "detection_right"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 4, 5 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=4]
-length = 0.6
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=5]
-length = 0.6
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "rotation"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 6, 7, 6 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "susp_left"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 2, 3 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "susp_right"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 2, 3 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
@@ -426,10 +226,26 @@ position = Vector2( 816, 200 )
 position = Vector2( 904, 200 )
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 17 )]
-position = Vector2( 588, 158 )
+position = Vector2( 592, 160 )
 scale = Vector2( 1, 0.633 )
 flicker = true
 flickerSequence = "111110111111101011"
+
+[node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 17 )]
+position = Vector2( 912, 264 )
+scale = Vector2( 2.147, 1 )
+flicker = true
+flickerSequence = "100001111w1001000"
+
+[node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 17 )]
+position = Vector2( 736, 264 )
+scale = Vector2( 2.147, 1 )
+
+[node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 17 )]
+position = Vector2( 540, 264 )
+scale = Vector2( 2.147, 1 )
+flicker = true
+flickerSequence = "100001111w1001000"
 
 [node name="ThinArea" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 224, 264 )
@@ -462,6 +278,9 @@ connected_door_path = NodePath("../../NPCS/LevelObjects/Staircase")
 
 [node name="ExitStairCase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 384, 312 )
+
+[node name="Sprite" parent="LevelObjects/ExitStairCase2" index="0"]
+visible = false
 
 [node name="ExitStairCase3" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 992, 256 )
@@ -526,20 +345,6 @@ position = Vector2( 512, 192 )
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 624, 200 )
 isFixedCam = true
-
-[node name="Camera2" parent="LevelObjects" instance=ExtResource( 15 )]
-position = Vector2( 776, 200 )
-camDirection = 1
-isFixedCam = true
-
-[node name="AnimationPlayer" parent="LevelObjects/Camera2" index="3"]
-anims/detection_left = SubResource( 2 )
-anims/detection_right = SubResource( 3 )
-anims/idle_left = SubResource( 4 )
-anims/idle_right = SubResource( 5 )
-anims/rotation = SubResource( 6 )
-anims/susp_left = SubResource( 7 )
-anims/susp_right = SubResource( 8 )
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 18 )]
 position = Vector2( 888, 128 )
@@ -642,10 +447,6 @@ sig_to_trig = [  ]
 
 [node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 22 )]
 position = Vector2( 1232, 128 )
-
-[node name="ControlCabinet2" parent="LevelObjects" instance=ExtResource( 22 )]
-position = Vector2( 728, 256 )
-deactivateAble = [ NodePath("../UnlockeableDoorWall") ]
 
 [node name="Decorations" type="Node2D" parent="."]
 
@@ -865,27 +666,25 @@ position = Vector2( 280, 256 )
 [node name="NPCS" type="Node2D" parent="."]
 
 [node name="Dog" parent="NPCS" instance=ExtResource( 5 )]
-position = Vector2( 1040, 128 )
+position = Vector2( 976, 128 )
 
 [node name="DogPathLine" type="Line2D" parent="NPCS/Dog"]
-points = PoolVector2Array( -64, -8, 96, -8 )
+points = PoolVector2Array( 0, -8, 160, -8 )
 script = ExtResource( 9 )
 
 [node name="Guard" parent="NPCS" instance=ExtResource( 26 )]
-position = Vector2( 568, 190 )
+position = Vector2( 491, 190 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard"]
-position = Vector2( -95.8293, -6 )
 scale = Vector2( 1.08537, 1 )
-points = PoolVector2Array( 8, 0, 152, 0 )
+points = PoolVector2Array( -2.76404, -6, 115.168, -6 )
 script = ExtResource( 9 )
 
 [node name="Guard2" parent="NPCS" instance=ExtResource( 26 )]
 position = Vector2( 792, 190 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard2"]
-position = Vector2( -96, -6 )
-points = PoolVector2Array( 96, 0, 232, 0 )
+points = PoolVector2Array( 0, -6, 144, -6 )
 script = ExtResource( 9 )
 
 [node name="Guard5" parent="NPCS" instance=ExtResource( 26 )]
@@ -899,16 +698,14 @@ script = ExtResource( 9 )
 position = Vector2( 904, 318 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard3"]
-position = Vector2( -96, -6 )
-points = PoolVector2Array( 144, 0, -56, 0 )
+points = PoolVector2Array( 56, -6, -160, -6 )
 script = ExtResource( 9 )
 
 [node name="Guard4" parent="NPCS" instance=ExtResource( 26 )]
 position = Vector2( 496, 318 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard4"]
-position = Vector2( -96, -6 )
-points = PoolVector2Array( 96, 0, 336, 0 )
+points = PoolVector2Array( 0, -6, 240, -6 )
 script = ExtResource( 9 )
 
 [node name="LaserDetector" parent="." instance=ExtResource( 30 )]
@@ -929,6 +726,6 @@ standbyTimerAfterDetection = 3.0
 
 [editable path="LevelObjects/Lights/Light10"]
 
-[editable path="LevelObjects/Camera"]
+[editable path="LevelObjects/ExitStairCase2"]
 
-[editable path="LevelObjects/Camera2"]
+[editable path="LevelObjects/Camera"]
