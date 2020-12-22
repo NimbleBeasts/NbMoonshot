@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=2]
@@ -33,209 +33,10 @@
 [ext_resource path="res://Assets/Objects/SearchLight.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Objects/HospitalBedSide.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Objects/HospitalRontgen.png" type="Texture" id=33]
+[ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=34]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "detection_left"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 4, 5 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "detection_right"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 4, 5 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=4]
-length = 0.6
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=5]
-length = 0.6
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "rotation"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 6, 7, 6 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "susp_left"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 2, 3 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "susp_right"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 2, 3 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
@@ -336,32 +137,24 @@ __meta__ = {
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 80, 256 )
-flicker = false
-flickerSequence = "1110"
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 540, 200 )
-flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 700, 200.1 )
-flicker = false
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 700, 136 )
-flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 816, 136 )
-flicker = false
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 904, 136 )
-flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 960, 64 )
-flicker = false
 
 [node name="FullLight" parent="LevelObjects/Lights/Light9" index="1"]
 visible = true
@@ -396,7 +189,6 @@ texture = ExtResource( 31 )
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 1152, 64 )
 scale = Vector2( -1, 1 )
-flicker = false
 
 [node name="FullLight" parent="LevelObjects/Lights/Light10" index="1"]
 visible = true
@@ -430,11 +222,9 @@ texture = ExtResource( 31 )
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 816, 200 )
-flicker = false
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 904, 200 )
-flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 588, 158 )
@@ -474,6 +264,9 @@ connected_door_path = NodePath("../../NPCS/LevelObjects/Staircase")
 [node name="ExitStairCase2" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 384, 312 )
 
+[node name="Sprite" parent="LevelObjects/ExitStairCase2" index="0"]
+visible = false
+
 [node name="ExitStairCase3" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 992, 256 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/ExitStairCase4")
@@ -496,48 +289,34 @@ connected_door_path = NodePath("../../../Level2/LevelObjects/ExitStairCase3")
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 456, 256 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 800, 256 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 824, 256 )
-type = 0
-hasBounty = false
+
+[node name="Key" parent="LevelObjects" instance=ExtResource( 34 )]
+position = Vector2( 899.687, 251.869 )
 
 [node name="Cabinet6" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 920, 256 )
-type = 0
 hasBounty = true
 
 [node name="Cabinet7" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 840, 192 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet8" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 896, 192 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet9" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 1168, 128 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 496, 192 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 512, 192 )
-type = 0
-hasBounty = false
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( 624, 200 )
@@ -548,68 +327,115 @@ position = Vector2( 776, 200 )
 camDirection = 1
 isFixedCam = true
 
-[node name="AnimationPlayer" parent="LevelObjects/Camera2" index="3"]
-anims/detection_left = SubResource( 2 )
-anims/detection_right = SubResource( 3 )
-anims/idle_left = SubResource( 4 )
-anims/idle_right = SubResource( 5 )
-anims/rotation = SubResource( 6 )
-anims/susp_left = SubResource( 7 )
-anims/susp_right = SubResource( 8 )
-
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 896, 128 )
+lockLevel = 0
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 1152, 128 )
 lockLevel = 1
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 1264, 128 )
 lockLevel = 1
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 632, 256 )
 lockLevel = 3
 doorType = 2
+save_state = false
 showHintIfLocked = true
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 760, 192 )
 lockLevel = 3
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 832, 320 )
 lockLevel = 3
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 640, 320 )
 lockLevel = 3
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 632, 192 )
+lockLevel = 0
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="UnlockeableDoorWall" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 760, 256 )
 lockLevel = 1
 doorType = 1
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 952, 256 )
 lockLevel = 3
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 1024, 256 )
 lockLevel = 3
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 2 )]
 position = Vector2( 1232, 128 )
@@ -832,10 +658,6 @@ offset = Vector2( 8, -8 )
 
 [node name="DeskGuard" parent="." instance=ExtResource( 3 )]
 position = Vector2( 280, 256 )
-lookDirection = 0
-lookDuration = 2.0
-readDuration = 3.0
-removeNotifierDuration = 1.0
 
 [node name="NPCS" type="Node2D" parent="."]
 
