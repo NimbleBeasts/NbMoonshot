@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Lamp.png-c3084b8c259f08df9af8141faa62b87f.stex"
+path="res://.import/LightWide7.png-c3840b8581c817897a41c9e6363e687c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/Lamp.png"
-dest_files=[ "res://.import/Lamp.png-c3084b8c259f08df9af8141faa62b87f.stex" ]
+source_file="res://Assets/Light/LightWide7.png"
+dest_files=[ "res://.import/LightWide7.png-c3840b8581c817897a41c9e6363e687c.stex" ]
 
 [params]
 

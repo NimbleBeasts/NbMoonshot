@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Src/Player/ObjectThrower.gd" type="Script" id=1]
-
-[sub_resource type="Gradient" id=1]
-colors = PoolColorArray( 0.964844, 0.0603027, 0.0603027, 1, 1, 0.0585938, 0.0585938, 1 )
+[ext_resource path="res://Assets/Player/Throw.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Player/Mark.png" type="Texture" id=3]
 
 [node name="ObjectThrower" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,8 +14,14 @@ objectScenePath = "res://Src/Throwables/Stone.tscn"
 wait_time = 0.7
 
 [node name="Line2D" type="Line2D" parent="."]
-width = 1.0
-gradient = SubResource( 1 )
+width = 4.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 2 )
+texture_mode = 1
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
+
+[node name="Mark" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )

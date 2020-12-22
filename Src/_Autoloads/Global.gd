@@ -311,3 +311,4 @@ func setGameState(value: Dictionary) -> void:
 func startTimerOnce(timer: Timer) -> void:
 	if timer.is_stopped():
 		timer.start(timer.wait_time)
+

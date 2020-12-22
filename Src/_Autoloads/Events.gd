@@ -61,6 +61,8 @@ signal dialog_button_pressed(buttonType)
 signal update_branch_button_state(enabled)
 signal update_no_branch_button_state(enabled)
 
+signal change_dialog_button_state(buttonType, enabled)
+
 signal save_game()
 
 # WebMonetization Pulse

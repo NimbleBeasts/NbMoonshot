@@ -16,9 +16,6 @@ var unhidingGuard: bool
 
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
-#if carry body & E: open, throw body in, close
-#if not carry body & E: open
-#if not cary body & E & open: go in and close
 
 func _ready():
 	set_process_input(false)
@@ -36,6 +33,7 @@ func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed("interact"):
 		return
 
+	# unhiding guard if hidden and press E
 	if hiddenGuard != null:
 		unhidingGuard = true
 		animPlayer.play("open")
@@ -46,6 +44,8 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if player.guardPickup.isDraggingGuard:
+		if not isOpen:
+			openCloset()
 		hideGuard()
 		return
 
@@ -59,20 +59,19 @@ func _input(event: InputEvent) -> void:
 func hideGuard() -> void:
 	$Sprite.z_index = player.z_index - 1
 	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
-	Events.emit_signal("hud_game_hint", "Hidden guard.")
 	guard = player.guardPickup.guard
 	player.guardPickup.guard = null
 	guard.global_position = getPoint()
 	player.guardPickup.stopDragging()
 	destroyGuard = true
-	animPlayer.play("open")
+	animPlayer.play_backwards("open")
 	goInCloset = false
 
 
 func hidePlayer() -> void:
 	$Sprite.z_index = player.z_index + 1
 	animPlayer.play("close")
-	Events.emit_signal("block_player_movement")
+	Events.emit_signal("block_player_input")
 	goInCloset = true
 	isOpen = false
 
@@ -113,7 +112,13 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		if destroyGuard:
 			guard.hide()
 			hiddenGuard = guard
-			animPlayer.play("close")
+
+		# making sure input and movement is not blocked
+		if player.movementBlocked:
+			Events.emit_signal("unblock_player_movement")
+		if player.blockEntireInput:
+			Events.emit_signal("unblock_player_input")
+
 	elif anim_name == "close":
 		if goInCloset:
 			Events.emit_signal("set_player_state", Types.PlayerStates.InCloset)

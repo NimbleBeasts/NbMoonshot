@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
@@ -27,11 +27,32 @@
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 256, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 256, 4 )
+
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
 level_type = 1
 
 [node name="UstriaSkybox" parent="." instance=ExtResource( 9 )]
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Left" type="StaticBody2D" parent="Ground"]
+position = Vector2( -176.565, 259.995 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Left"]
+shape = SubResource( 1 )
+
+[node name="Right" type="StaticBody2D" parent="Ground"]
+position = Vector2( 464, 264 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Right"]
+position = Vector2( 0, -4.00452 )
+shape = SubResource( 2 )
 
 [node name="SpriteWalls" type="Node2D" parent="."]
 
@@ -96,78 +117,39 @@ centered = false
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 144, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall7"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 280, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall9"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 280, 320 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall10"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 144, 320 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall11"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseCellar")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( -196.565, 256 )
-lockLevel = 0
 doorType = 1
-save_state = false
 showHintIfLocked = true
 hint = "This door is locked "
 keyPath = NodePath("../../../Key")
-sig_to_trig = [  ]
 
 [node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( -129.695, 256.354 )
 connected_door_path = NodePath("../StaircaseE0")
-lockLevel = 0
 doorType = 1
-door_name = ""
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {

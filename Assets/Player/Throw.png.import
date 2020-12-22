@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LightPoleOutdoor.png-97ed316f616ae783ad96b3cc2159399e.stex"
+path="res://.import/Throw.png-82289dabd1464bb0858ffa5c67231ea0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Objects/LightPoleOutdoor.png"
-dest_files=[ "res://.import/LightPoleOutdoor.png-97ed316f616ae783ad96b3cc2159399e.stex" ]
+source_file="res://Assets/Player/Throw.png"
+dest_files=[ "res://.import/Throw.png-82289dabd1464bb0858ffa5c67231ea0.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

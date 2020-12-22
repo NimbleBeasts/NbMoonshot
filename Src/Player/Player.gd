@@ -118,8 +118,6 @@ func _process(_delta: float) -> void:
 func walldodgeInput() -> void:
 	if blockEntireInput:
 		return
-	if movementBlocked:
-		return
 	if Input.is_action_pressed("wall_dodge"):
 		setVisibleLevel(int(max(light_level - 1, 0)))
 		set_state(Types.PlayerStates.WallDodge)
