@@ -1,8 +1,9 @@
 extends Control
 
 var dialogTyping: bool = false
-var onOption0: bool = false
+var currentOption: int = 0
 var noBranchFocusDelayTimer: Timer = Timer.new()
+
 
 func _ready() -> void:
 	add_child(noBranchFocusDelayTimer)
@@ -17,27 +18,23 @@ func _ready() -> void:
 	#warning-ignore:return_value_discarded
 	$Option1Button.connect("button_up", self, "onOption1ButtonUp")
 	#warning-ignore:return_value_discarded
+	$Option2Button.connect("button_up", self, "onOption2ButtonUp")
 	$NoBranchButton.connect("button_up", self, "onNoBranchButtonPressed")
 	Events.connect("dialog_typing_changed", self, "onDialogTypingChanged")
+	Events.connect("change_dialog_button_state", self, "changeButtonState")
 	changeNoBranchButtonState(false)
 	changeOptionButtonsState(false)
-	set_process_input(false)
-
-
-func _input(event: InputEvent):
-	if not event is InputEventKey:
-		return
-	if event.is_action_pressed("move_right") or event.is_action_pressed("move_left"):
-		onOption0 = not onOption0
-		if onOption0:
-			$Option0Button.grab_focus()
-			return
-		$Option1Button.grab_focus()
 
 
 func onUpdateDialogOption(buttonType: int, newText: String) -> void:
 	get_node(Types.DialogButtons.keys()[buttonType] + "Button").updateLabel(newText)
-	
+
+
+func changeButtonState(buttonType: int, enabled) -> void:
+	var node = get_node(Types.DialogButtons.keys()[buttonType] + "Button")
+	node.visible = enabled
+	node.disabled = not enabled
+
 
 func onOption0ButtonUp() -> void:
 	if not dialogTyping:
@@ -53,6 +50,13 @@ func onOption1ButtonUp() -> void:
 	Events.emit_signal("skip_dialog")
 
 
+func onOption2ButtonUp() -> void:
+	if not dialogTyping:
+		Events.emit_signal("dialog_button_pressed", Types.DialogButtons.Option2)
+		return
+	Events.emit_signal("skip_dialog")
+
+
 func onNoBranchButtonPressed() -> void:
 	if not dialogTyping:
 		Events.emit_signal("no_branch_option_pressed")
@@ -61,14 +65,16 @@ func onNoBranchButtonPressed() -> void:
 
 	
 func changeOptionButtonsState(enabled: bool) -> void:
-	$Option0Button.visible = enabled
-	$Option0Button.disabled = not enabled
-	$Option1Button.visible = enabled
-	$Option1Button.disabled = not enabled
-	onOption0 = true
+	# loops through the button and does it's stuff
+	var i = 0
+	while i < 3:
+		var node = get_node("Option%sButton" % i)
+		node.visible = enabled
+		node.disabled = not enabled
+		i += 1
+	currentOption = 0
 	if enabled:
 		$Option0Button.grab_focus()
-		set_process_input(true)
 
 		
 func changeNoBranchButtonState(enabled: bool) -> void:
@@ -77,7 +83,6 @@ func changeNoBranchButtonState(enabled: bool) -> void:
 	if enabled:
 		# no idea why this needs a delay and the option ones doesn't 
 		noBranchFocusDelayTimer.start(0.08)
-		set_process_input(false)
 
 
 func onDialogTypingChanged(value: bool) -> void:

@@ -9,8 +9,11 @@ export (Dictionary) var translations
 export var lang: String
 
 var loadedDialogue
+
 var option0Branch
 var option1Branch
+var option2Branch
+
 var currentBranch
 var player: Player
 var interactedCounter = 0 
@@ -35,7 +38,7 @@ func _ready() -> void:
 	loadDialogue()
 	currentBranchID = "%s0" % interactedCounter
 	if loadedDialogue.has(currentBranchID):
-		currentBranch = loadedDialogue[currentBranchID]
+		setCurrentBranch(loadedDialogue[currentBranchID])
 
 
 func _input(event: InputEvent) -> void:
@@ -47,11 +50,12 @@ func _input(event: InputEvent) -> void:
 		sayingDialogue = true
 
 
+# TODO: Put this in _input and remove set_process() calls
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("cancel") and sayingDialogue:
 			if currentBranch.has("lastDialogue"):
 				currentBranchID = currentBranch["lastDialogue"]
-				currentBranch = loadedDialogue.get(currentBranchID)
+				setCurrentBranch(loadedDialogue.get(currentBranchID))
 				sayBranch(currentBranch)
 
 
@@ -61,11 +65,12 @@ func onNoBranchButtonPressed() -> void:
 	if currentBranch.has("exitDialogue") and currentBranch["exitDialogue"]:
 		exitDialogue()
 		if currentBranch.has("nextDialogue") and loadedDialogue.has(currentBranch["nextDialogue"]):
-			currentBranch = loadedDialogue.get(currentBranch["nextDialogue"])
+			currentBranchID = currentBranch["nextDialogue"]
+			setCurrentBranch(loadedDialogue.get(currentBranch[currentBranchID]))
 		return
 	if currentBranch.has("nextDialogue"):
 		currentBranchID = currentBranch["nextDialogue"]
-		currentBranch = loadedDialogue.get(currentBranchID)
+		setCurrentBranch(loadedDialogue.get(currentBranchID))
 		sayBranch(currentBranch)
 		return
 
@@ -80,11 +85,12 @@ func onDialogButtonPressed(buttonType: int) -> void:
 		exitDialogue()
 		if loadedDialogue.has(currentBranch["branchID%s" % buttonType]):
 			currentBranchID = currentBranch["branchID%s" % buttonType]
-			currentBranch = get("option%sBranch" % buttonType)
+			setCurrentBranch(get("option%sBranch" % buttonType))
 		return
-	currentBranch = get("option%sBranch" % buttonType)
+	currentBranchID = currentBranch["branchID%s" % buttonType]
+	setCurrentBranch(get("option%sBranch" % buttonType))
 	sayBranch(currentBranch)
-
+	
 
 func onBodyEntered(body: Node) -> void:
 	if body.is_in_group("Player"):
@@ -119,14 +125,11 @@ func sayBranch(branch: Dictionary) -> void:
 	var messageKey = "KEY_" + currentBranchID
 	Events.emit_signal("hud_dialog_show", npcName, npcColor, translation.get_message(messageKey), false, npcPotrait)
 	
-	if branch.has("branchID0") and branch.has("branchID1"):
+	if branch.has("branchID0") or branch.has("branchID1") or branch.has("branchID2"):
 		Events.emit_signal("update_no_branch_button_state", false)
 		Events.emit_signal("update_branch_button_state", true)
-		updateButtons(currentBranch)
-		if loadedDialogue.has(branch["branchID0"]):
-			option0Branch = loadedDialogue.get(branch["branchID0"])
-		if loadedDialogue.has(branch["branchID1"]):
-			option1Branch = loadedDialogue.get(branch["branchID1"])
+		updateButtons(branch)
+		updateOptionBranches(branch)
 		return
 
 	Events.emit_signal("update_branch_button_state", false)
@@ -140,6 +143,8 @@ func updateButtons(branch: Dictionary) -> void:
 		Events.emit_signal("update_dialog_option", Types.DialogButtons.Option0, branch["branchChoice0"])
 	if branch.has("branchChoice1"):
 		Events.emit_signal("update_dialog_option", Types.DialogButtons.Option1, branch["branchChoice1"])
+	if branch.has("branchChoice2"):
+		Events.emit_signal("update_dialog_option", Types.DialogButtons.Option2, branch["branchChoice2"])
 
 	
 # this function is meant to be overriden
@@ -150,8 +155,8 @@ func checkForQuests() -> void:
 func setInteractedCounter(value: int) -> void:
 	if interactedCounter != value:
 		interactedCounter = value
-		currentBranch = loadedDialogue["%s0" % interactedCounter]
 		currentBranchID = "%s0" % interactedCounter
+		setCurrentBranch(loadedDialogue[currentBranchID])
 		set_process_input(true)
 
 
@@ -165,3 +170,25 @@ func onDialogHidden() -> void:
 	if player:
 		set_process_input(true)
 
+
+func setCurrentBranch(newBranch) -> void:
+	if currentBranch != newBranch:
+		currentBranch = newBranch
+		
+
+func updateOptionBranches(branch: Dictionary) -> void:
+	# TODO: Refactor this shit
+	if branch.has("branchID0"):
+		option0Branch = loadedDialogue.get(branch["branchID0"]) if loadedDialogue.has(branch["branchID0"]) else option0Branch
+	else:
+		Events.emit_signal("change_dialog_button_state", Types.DialogButtons.Option0, false)
+
+	if branch.has("branchID1"):
+		option1Branch = loadedDialogue.get(branch["branchID1"]) if loadedDialogue.has(branch["branchID1"]) else option1Branch
+	else:
+		Events.emit_signal("change_dialog_button_state", Types.DialogButtons.Option1, false)
+	
+	if branch.has("branchID2"):
+		option2Branch = loadedDialogue.get(branch["branchID2"]) if loadedDialogue.has(branch["branchID2"]) else option2Branch
+	else:
+		Events.emit_signal("change_dialog_button_state", Types.DialogButtons.Option2, false)

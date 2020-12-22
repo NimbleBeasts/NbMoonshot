@@ -30,7 +30,7 @@ enum LevelTypes {Western, Eastern}
 enum Nations {USA, USSR, Ustria}
 
 # Dialog
-enum DialogButtons {Option0 = 0, Option1 = 1, NoBranch = 2}
+enum DialogButtons {Option0 = 0, Option1 = 1, Option2 = 2, NoBranch = 3}
 
 # Dog
 enum DogStates {Idle, Roaming, Sleeping, Suspicious, Detection, Eating, Stunned, Angry, MovingToSnack}

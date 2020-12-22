@@ -568,21 +568,31 @@ margin_left = -58.0
 margin_top = 88.0
 margin_right = 70.0
 margin_bottom = 112.0
-label = "Button"
+focus_neighbour_left = NodePath("../Option2Button")
+focus_neighbour_right = NodePath("../Option1Button")
 
 [node name="Option1Button" parent="Dialog" instance=ExtResource( 16 )]
+margin_left = 82.5227
+margin_top = 88.0
+margin_right = 210.523
+margin_bottom = 112.0
+focus_neighbour_left = NodePath("../Option0Button")
+focus_neighbour_right = NodePath("../Option2Button")
+
+[node name="Option2Button" parent="Dialog" instance=ExtResource( 16 )]
 margin_left = 223.0
 margin_top = 88.0
 margin_right = 351.0
 margin_bottom = 112.0
-label = "Button"
+focus_neighbour_left = NodePath("../Option1Button")
+focus_neighbour_right = NodePath("../Option0Button")
 
 [node name="NoBranchButton" parent="Dialog" instance=ExtResource( 16 )]
 margin_left = 83.8735
 margin_top = 88.0
 margin_right = 211.874
 margin_bottom = 112.0
-label = "Button"
+rect_rotation = 0.0806047
 
 [node name="Sprite" type="Sprite" parent="Dialog"]
 position = Vector2( -32, 32 )
