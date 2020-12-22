@@ -24,7 +24,7 @@
 [ext_resource path="res://Assets/Objects/Medikit.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Objects/LargeDoor.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Objects/Light8.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Light/Light8.png" type="Texture" id=25]
 [ext_resource path="res://Assets/Objects/HospitalBedSideTable.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Objects/HospitalER.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Objects/HospitalSpacer.png" type="Texture" id=28]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Assets/Objects/SearchLight.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Objects/HospitalBedSide.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Objects/HospitalRontgen.png" type="Texture" id=33]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
