@@ -49,16 +49,7 @@ func _input(event: InputEvent) -> void:
 		set_process_input(false)
 		sayingDialogue = true
 
-
-# TODO: Put this in _input and remove set_process() calls
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("cancel") and sayingDialogue:
-			if currentBranch.has("lastDialogue"):
-				currentBranchID = currentBranch["lastDialogue"]
-				setCurrentBranch(loadedDialogue.get(currentBranchID))
-				sayBranch(currentBranch)
-
-
+		
 func onNoBranchButtonPressed() -> void:
 	if not player:
 		return
@@ -95,14 +86,12 @@ func onDialogButtonPressed(buttonType: int) -> void:
 func onBodyEntered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		set_process_input(true)
-		set_process(true)
 		player = body
 
 
 func onBodyExited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		set_process_input(false)
-		set_process(false)
 		player = null
 
 
@@ -177,7 +166,6 @@ func setCurrentBranch(newBranch) -> void:
 		
 
 func updateOptionBranches(branch: Dictionary) -> void:
-	# TODO: Refactor this shit
 	if branch.has("branchID0"):
 		option0Branch = loadedDialogue.get(branch["branchID0"]) if loadedDialogue.has(branch["branchID0"]) else option0Branch
 	else:
