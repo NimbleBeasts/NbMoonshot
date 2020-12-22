@@ -50,6 +50,7 @@ func _input(event: InputEvent) -> void:
 		inShootMode = true
 	elif Input.is_action_just_released("weapon") and inShootMode:
 		line.hide()
+		$Mark.hide()
 		$PowerIncreaseTimer.stop()
 		var object = objectScene.instance()
 		object.gravity = objectGravity
@@ -71,7 +72,13 @@ func updateTrajectory(delta: float) -> void:
 		pos += vel * delta
 		if pos.y > player.to_global(Vector2(0,0)).y:
 			break
-			
+	
+	var lastPoint = line.get_point_count() - 1
+	var markPos = line.get_point_position(lastPoint)
+	line.remove_point(lastPoint)
+	
+	$Mark.position = markPos
+	$Mark.show()
 
 func increaseThrowPower() -> void:
 	if abs(objectVelocity.x) + powerToIncrease <= maxPower:
