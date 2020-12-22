@@ -34,13 +34,14 @@ func _ready() -> void:
 	connect("body_exited", self, "onBodyExited")
 	loadDialogue()
 	currentBranchID = "%s0" % interactedCounter
-	currentBranch = loadedDialogue[currentBranchID]
+	if loadedDialogue.has(currentBranchID):
+		currentBranch = loadedDialogue[currentBranchID]
 
 
 func _input(event: InputEvent) -> void:
 	if not player or not event is InputEventKey:
 		return
-	if event.is_action_pressed("interact") and player.direction.x == 0:
+	if event.is_action_pressed("interact") and player.direction.x == 0 and currentBranch != {}:
 		sayBranch(currentBranch)
 		set_process_input(false)
 		sayingDialogue = true
