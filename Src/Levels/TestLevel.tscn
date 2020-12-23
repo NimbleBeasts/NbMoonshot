@@ -238,7 +238,6 @@ isLadder = true
 
 [node name="ThinArea3" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( -664, 136 )
-isLadder = true
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0

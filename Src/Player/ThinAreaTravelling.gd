@@ -21,26 +21,41 @@ func _physics_process(delta: float) -> void:
 	# Can't use elif since both of these can be true at same time
 	if travelRayDown.is_colliding() and player.state == Types.PlayerStates.Normal:
 		var thinArea := travelRayDown.get_collider() as ThinArea
-		if thinArea:
-			if Input.is_action_just_pressed("travel_down"):
-				var travelDuration = travelDurationLadder if thinArea.isLadder else travelDurationNormal
-				var correctAnim: String = "ladder" if thinArea.isLadder else "jump_down"
-				travel(thinArea.destination_down_position.y, travelDuration)
-				Events.emit_signal("block_player_input")
-				Events.emit_signal("change_player_animation", correctAnim)
-				Events.emit_signal("play_sound", "jump_down")
+		if thinArea == null:
+			return
+		if Input.is_action_just_pressed("travel_down"):
+			var travelDuration: float
+			var correctAnim: String
+			if thinArea.isLadder:
+				travelDuration = travelDurationLadder
+				correctAnim = "ladder"
+			else:
+				travelDuration = travelDurationNormal
+				correctAnim = "jump_down"
+			travel(thinArea.destination_down_position.y, travelDuration)
+			Events.emit_signal("block_player_input")
+			Events.emit_signal("change_player_animation", correctAnim)
+			Events.emit_signal("play_sound", "jump_down")
+
 
 	if travelRayUp.is_colliding() and player.state == Types.PlayerStates.Normal:
 		var thinArea := travelRayUp.get_collider() as ThinArea
-		if thinArea:
-			# Tweening
-			if Input.is_action_just_pressed("travel_up"):
-				var travelDuration = travelDurationLadder if thinArea.isLadder else travelDurationNormal
-				var correctAnim: String = "ladder" if thinArea.isLadder else "jump_up"
-				travel(thinArea.destination_up_position.y, travelDuration)
-				Events.emit_signal("block_player_input")
-				Events.emit_signal("change_player_animation", correctAnim)
-				Events.emit_signal("play_sound", "jump_up")
+		if thinArea == null:
+			return
+		# Tweening
+		if Input.is_action_just_pressed("travel_up"):
+			var travelDuration: float
+			var correctAnim: String
+			if thinArea.isLadder:
+				travelDuration = travelDurationLadder
+				correctAnim = "ladder"
+			else:
+				travelDuration = travelDurationNormal
+				correctAnim = "jump_up"
+			travel(thinArea.destination_up_position.y, travelDuration)
+			Events.emit_signal("block_player_input")
+			Events.emit_signal("change_player_animation", correctAnim)
+			Events.emit_signal("play_sound", "jump_up")
 
 
 func travel(targetPosition: float, tweenDuration: float) -> void:
