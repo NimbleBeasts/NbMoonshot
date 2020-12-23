@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 		objectVelocity = startingObjectVelocity * player.direction
 		lastPlayerDir = player.direction
 
+
 func _input(event: InputEvent) -> void:
 	if player.blockEntireInput:
 		return
@@ -46,6 +47,7 @@ func _input(event: InputEvent) -> void:
 		objectVelocity = startingObjectVelocity * lastPlayerDir
 		$PowerIncreaseTimer.start()
 		Events.emit_signal("block_player_movement")
+		Events.emit_signal("change_player_animation", "throw_load")
 		updateTrajectory(get_physics_process_delta_time())
 		currentAmmo = int(max(currentAmmo - 1, 0))
 		inShootMode = true
@@ -59,7 +61,7 @@ func _input(event: InputEvent) -> void:
 		object.stopPosition = player.to_global(objectStopPosition)
 		Global.game_manager.getCurrentLevel().add_child(object)
 		object.throw(objectVelocity)
-		Events.emit_signal("unblock_player_movement")
+		Events.emit_signal("change_player_animation", "throw")
 		inShootMode = false
 
 

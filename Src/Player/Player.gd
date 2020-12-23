@@ -52,6 +52,7 @@ onready var player_sprite: Sprite = $Flippable/PlayerSprite
 onready var camera: Camera2D = $Camera2D
 onready var guardPickup: Area2D = $GuardPickup
 onready var weaponHandler: Node2D = $WeaponHandler
+onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
 
 func _init() -> void:
@@ -179,28 +180,6 @@ func _physics_process(delta: float) -> void:
 		elif (state == Types.PlayerStates.Duck or state == Types.PlayerStates.WallDodge):
 			Events.emit_signal("play_sound", "player_crouch_footstep")
 
-			
-	# Traveling up and down
-	# Only needs to check if the respective direction key for each raycast is pressed
-	# means only need to check if up is pressed when up raycast is colliding and vice versa
-	# Can't use elif since both of these can be true at same time
-	if travel_raycast_down.is_colliding() and state == Types.PlayerStates.Normal:
-		var thin_area := travel_raycast_down.get_collider() as ThinArea
-		if thin_area:
-			if Input.is_action_just_pressed("travel_down"):
-				travel(thin_area.destination_down_position.y)
-				$AnimationPlayer.play("jump_down")
-				Events.emit_signal("play_sound", "jump_down")
-
-	if travel_raycast_up.is_colliding() and state == Types.PlayerStates.Normal:
-		var thin_area := travel_raycast_up.get_collider() as ThinArea
-		if thin_area:
-			# Tweening
-			if Input.is_action_just_pressed("travel_up"):
-				travel(thin_area.destination_up_position.y)
-				$AnimationPlayer.play("jump_up")
-				Events.emit_signal("play_sound", "jump_up")
-	
 
 func update_light_level() -> void:
 	# if there are no overlapping areas, just set light_level to dark
@@ -218,18 +197,6 @@ func update_light_level() -> void:
 			if area.get_parent().isOn():
 				set_light_level(Types.LightLevels.BarelyVisible)
 
-	
-func travel(target_pos: float) -> void:
-	# just tweening position
-	#warning-ignore:return_value_discarded
-	travel_tween.interpolate_property(self, "global_position:y", global_position.y, 
-			target_pos, 0.2, Tween.TRANS_LINEAR)
-	#warning-ignore:return_value_discarded
-	travel_tween.start()
-	# emits small noise
-	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, global_position, self)
-	set_state(Types.PlayerStates.Normal)
-	
 				
 func do_upgrade_stuff() -> void:
 	# if/ else go brrrrrrrr
@@ -280,7 +247,6 @@ func onBlockPlayerInput() -> void:
 
 func onUnblockPlayerInput() -> void:
 	blockEntireInput = false
-
 	
 # use this function to set light_level instead of directly changing it
 func set_light_level(value: int) -> void:
@@ -348,13 +314,19 @@ func animation_change(to: String) -> void:
 		if $AnimationPlayer.current_animation == "idle" and to == "walk" or \
 			$AnimationPlayer.current_animation == "walk" and to == "idle":
 			$AnimationPlayer.play(to)
-		
+
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	# Only non-looped animation will reach this point
-	if anim_name == "lose":
-		Global.game_manager.reloadLevel()
-		return
+	match anim_name:
+		"lose":
+			Global.game_manager.reloadLevel()
+			return
+		"throw":
+			movementBlocked = false
+		"throw_load":
+			return
+
 	$AnimationPlayer.play("idle")
 	
 
