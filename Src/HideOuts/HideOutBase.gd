@@ -30,7 +30,7 @@ func getPoint():
 
 
 func _input(event: InputEvent) -> void:
-	if not event.is_action_pressed("interact"):
+	if not event.is_action_pressed("interact") or player.state == Types.PlayerStates.DraggingItem:
 		return
 
 	# unhiding guard if hidden and press E

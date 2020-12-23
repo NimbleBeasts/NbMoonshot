@@ -301,6 +301,7 @@ func set_state(value: int) -> void:
 		Events.emit_signal("player_state_changed", state)
 		match state:
 			Types.PlayerStates.Normal:
+				$ItemPickup.dropCurrentItem()
 				player_sprite.show()
 				if guardPickup.isDraggingGuard:
 					guardPickup.stopDragging()
@@ -326,13 +327,18 @@ func set_state(value: int) -> void:
 				enableNormalColliders()
 				speed = duckSpeed
 				acceleration = duckAcceleration
+			Types.PlayerStates.DraggingItem:
+				player_sprite.show()
+				enableNormalColliders()
+				speed = duckSpeed
+				acceleration = duckAcceleration
 			Types.PlayerStates.InCloset:
 				player_sprite.hide()
 				$CollisionShape2D.set_deferred("disabled", true)
 				$DuckCollisionShape2D.set_deferred("disabled", true)
 				$PlayerLightArea.set_deferred("monitoring", false)
 				$PlayerArea.set_deferred("monitoring", false)
-				movementBlocked = true				
+				movementBlocked = true
 
 
 # Change animation
