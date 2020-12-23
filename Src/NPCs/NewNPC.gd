@@ -128,13 +128,11 @@ func sayBranch(branch: Dictionary) -> void:
 
 
 func updateButtons(branch: Dictionary) -> void:
-	if branch.has("branchChoice0"):
-		Events.emit_signal("update_dialog_option", Types.DialogButtons.Option0, branch["branchChoice0"])
-	if branch.has("branchChoice1"):
-		Events.emit_signal("update_dialog_option", Types.DialogButtons.Option1, branch["branchChoice1"])
-	if branch.has("branchChoice2"):
-		Events.emit_signal("update_dialog_option", Types.DialogButtons.Option2, branch["branchChoice2"])
-
+	# 3 is chosen because that is the current amount of possible branches that dialog may have
+	for i in range(3):
+		if branch.has("branchChoice%s" % i):
+			Events.emit_signal("update_dialog_option", i, branch["branchChoice%s" % i])
+			
 	
 # this function is meant to be overriden
 func checkForQuests() -> void:
@@ -166,17 +164,11 @@ func setCurrentBranch(newBranch) -> void:
 		
 
 func updateOptionBranches(branch: Dictionary) -> void:
-	if branch.has("branchID0"):
-		option0Branch = loadedDialogue.get(branch["branchID0"]) if loadedDialogue.has(branch["branchID0"]) else option0Branch
-	else:
-		Events.emit_signal("change_dialog_button_state", Types.DialogButtons.Option0, false)
-
-	if branch.has("branchID1"):
-		option1Branch = loadedDialogue.get(branch["branchID1"]) if loadedDialogue.has(branch["branchID1"]) else option1Branch
-	else:
-		Events.emit_signal("change_dialog_button_state", Types.DialogButtons.Option1, false)
-	
-	if branch.has("branchID2"):
-		option2Branch = loadedDialogue.get(branch["branchID2"]) if loadedDialogue.has(branch["branchID2"]) else option2Branch
-	else:
-		Events.emit_signal("change_dialog_button_state", Types.DialogButtons.Option2, false)
+	# checks for the branchID that the json might have and updates the optionNumberBranch or disables the respective button
+	# 3 is chosen because that's the amount of supported branches in the dialog system (currently)
+	for i in range(3):
+		if branch.has("branchID%s" % i):
+			var correctVar = "option" + str(i) + "Branch"
+			set(correctVar, loadedDialogue.get(branch["branchID" + str(i)]))
+		else:
+			Events.emit_signal("change_dialog_button_state", i, false)

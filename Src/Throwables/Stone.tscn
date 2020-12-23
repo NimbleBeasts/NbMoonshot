@@ -28,8 +28,10 @@ tracks/0/keys = {
 ]]
 z_index = 50
 collision_layer = 256
-collision_mask = 257
 script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
 gravity = 800.0
 
 [node name="Sprite" type="Sprite" parent="."]

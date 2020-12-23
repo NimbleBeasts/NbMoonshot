@@ -32,9 +32,11 @@ func _ready() -> void:
 func disablePhysics():
 	set_physics_process(false)
 
+	
 func remove():
-	print("remove")
 	$AnimationPlayer.play("fadeout")
+	timerRemove.disconnect("timeout", self, "remove")
+
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta

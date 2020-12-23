@@ -60,7 +60,6 @@ func _init() -> void:
 
 func _ready() -> void:
 	$WeaponHandler/Taser.stunBatteryLevel = stun_battery_level
-	# sprint upgrade
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
 	set_state(Types.PlayerStates.Normal)
@@ -83,7 +82,9 @@ func _ready() -> void:
 	$AnimationPlayer.play("idle")
 	$FootstepTimer.connect("timeout", self, "onFootstepTimerTimeout")
 	$FootstepTimer.start()
-	
+	$PlayerArea.connect("area_entered", $ItemPickup, "onPlayerAreaEntered")
+	$PlayerArea.connect("area_exited", $ItemPickup, "onPlayerAreaExited")
+
 	# Initial set taser level
 	Events.emit_signal("taser_fired", stun_battery_level)
 
