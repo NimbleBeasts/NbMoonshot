@@ -45,6 +45,15 @@ func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 	global_position += velocity * delta
 	rotation = velocity.angle()
+	# test move only
+	var collision = move_and_collide(velocity * delta, true, true, true)
+	if collision:
+		# if collides, velocity divides and bounces
+		rotation_degrees = 0
+		velocity /= 5
+		velocity = velocity.bounce(collision.normal)
+
+	# stopPosition is the player's foot, this is to stop the obj
 	if global_position.y > stopPosition.y:
 		rotation_degrees = 0
 		velocity = Vector2(0,0)
@@ -67,3 +76,4 @@ func throw(initialVelocity: Vector2) -> void:
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	queue_free()
+
