@@ -14,16 +14,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if currentPickup == null:
+			# Picking up
 			currentPickup = possiblePickup
 			currentPickup.pickup()
-			Events.emit_signal("hud_game_hint", "Picked up " + str(currentPickup.pickupName))
-		# else:
-		# 	# Dropping a pickup
-		# 	currentPickup = null
-		# 	Events.emit_signal("hud_game_hint", "Dropped " + str(currentPickup.pickupName))
+			return
 
 	if currentPickup != null:
 		currentPickup.global_position = player.global_position + currentPickup.pickupOffset
+		if Input.is_action_just_pressed("interact"):
+			# Dropping a pickup
+			currentPickup.drop()
+			currentPickup = null
 
 
 func onPlayerAreaEntered(area: Area2D) -> void:

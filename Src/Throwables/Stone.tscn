@@ -35,7 +35,6 @@ __meta__ = {
 gravity = 800.0
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, -3 )
 texture = ExtResource( 1 )
 
@@ -45,4 +44,3 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fadeout = SubResource( 2 )
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

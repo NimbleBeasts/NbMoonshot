@@ -14,7 +14,8 @@ var timerRemove
 
 func _ready() -> void:
 	set_physics_process(false)
-	
+	$AnimationPlayer.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
+
 	timerDisablePhysics = Timer.new()
 	timerDisablePhysics.one_shot = true
 	timerDisablePhysics.wait_time = TIMER_PHYSICS_DISABLE
@@ -29,6 +30,7 @@ func _ready() -> void:
 	
 	$Sprite.modulate = Color(1, 1, 1, 1)
 
+
 func disablePhysics():
 	set_physics_process(false)
 
@@ -40,8 +42,9 @@ func remove():
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
+	position += velocity * delta
 	rotation = velocity.angle()
-	var collision = move_and_collide(velocity * delta)
+	var collision = move_and_collide(velocity * delta, true, true, true)
 	if collision:
 		rotation_degrees = 0
 
@@ -56,8 +59,7 @@ func _physics_process(delta: float) -> void:
 				$Sprite.frame = 1
 			
 			timerRemove.start()
-			# We can use this as potential optimization
-			#timerDisablePhysics.start() 
+			timerDisablePhysics.start() 
 
 
 func throw(initialVelocity: Vector2) -> void:
