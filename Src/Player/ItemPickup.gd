@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 			# Picking up
 			currentPickup = possiblePickup
 			currentPickup.pickup()
+			Events.emit_signal("set_player_state", Types.PlayerStates.DraggingItem)
 			return
 
 	if currentPickup != null:
@@ -24,6 +25,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			# Dropping a pickup
 			currentPickup.drop()
+			Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
 			currentPickup = null
 
 
@@ -37,3 +39,10 @@ func onPlayerAreaExited(area: Area2D) -> void:
 	if area == possiblePickup:
 		possiblePickup = null
 		set_process(false)
+
+
+func dropCurrentItem() -> void:
+	if currentPickup == null:
+		return
+	currentPickup.drop()
+	currentPickup = null

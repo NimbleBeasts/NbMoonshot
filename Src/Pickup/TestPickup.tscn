@@ -7,10 +7,10 @@
 extents = Vector2( 10, 8.62905 )
 
 [node name="TestPickup" type="Area2D"]
+z_index = 100
 script = ExtResource( 2 )
 pickupOffset = Vector2( 0, -10 )
 pickupName = "TestPickup"
-isDragged = true
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.909804, 0.0117647, 0.0117647, 1 )

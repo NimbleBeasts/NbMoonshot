@@ -10,6 +10,7 @@ var canMakeSound: bool = true
 
 var timerDisablePhysics
 var timerRemove
+var stopPosition: Vector2
 
 
 func _ready() -> void:
@@ -42,14 +43,11 @@ func remove():
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
-	position += velocity * delta
+	global_position += velocity * delta
 	rotation = velocity.angle()
-	var collision = move_and_collide(velocity * delta, true, true, true)
-	if collision:
+	if global_position.y > stopPosition.y:
 		rotation_degrees = 0
-
-		velocity = velocity / 5
-		velocity = velocity.bounce(collision.normal)
+		velocity = Vector2(0,0)
 		if canMakeSound:
 			Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, global_position, self)
 			canMakeSound = false
@@ -59,7 +57,7 @@ func _physics_process(delta: float) -> void:
 				$Sprite.frame = 1
 			
 			timerRemove.start()
-			timerDisablePhysics.start() 
+			disablePhysics()
 
 
 func throw(initialVelocity: Vector2) -> void:

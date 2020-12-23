@@ -53,7 +53,7 @@ func open():
 
 	
 func _process(_delta):
-	if playerInArea:
+	if playerInArea and playerNode.state != Types.PlayerStates.DraggingGuard:
 		if Input.is_action_just_pressed("interact"):
 			interact(true, playerNode.global_position)
 			
