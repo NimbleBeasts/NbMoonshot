@@ -53,6 +53,7 @@ func _input(event: InputEvent) -> void:
 
 	if player.guardPickup.isDraggingGuard:
 		if not isOpen:
+			playerLastPickup = null
 			openCloset()
 		hideGuard()
 		return
@@ -65,6 +66,7 @@ func _input(event: InputEvent) -> void:
 
 
 func hideGuard() -> void:
+	playerLastPickup = null
 	$Sprite.z_index = player.z_index - 1
 	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
 	guard = player.guardPickup.guard
@@ -79,6 +81,7 @@ func hideGuard() -> void:
 
 
 func hidePlayer() -> void:
+	playerLastPickup = null
 	$Sprite.z_index = player.z_index + 1
 	animPlayer.play("close")
 	Events.emit_signal("block_player_input")

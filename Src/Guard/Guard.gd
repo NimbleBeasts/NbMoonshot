@@ -13,6 +13,7 @@ export var extended_time_to_alarm: float = 3.5
 export var playerSuspectDistance: int = 30
 export var playerDetectDistance: int = 16
 
+
 var velocity: Vector2
 var direction: Vector2
 var state: int = Types.GuardStates.Wander # Types.GuardStates
@@ -290,3 +291,6 @@ func onGuardBodyEntered(body: Node) -> void:
 		var door = body.get_parent()
 		if door.lockLevel == door.DoorLockType.open:
 			door.interact(true, global_position)
+
+func pickedUp() -> bool:
+	return state == Types.GuardStates.BeingDragged
