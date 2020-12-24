@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=2]
@@ -35,7 +35,6 @@
 [ext_resource path="res://Assets/Objects/HospitalRontgen.png" type="Texture" id=33]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=35]
-[ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Assets/Objects/FireExtinguisher.png" type="Texture" id=37]
 [ext_resource path="res://Assets/Objects/Board.png" type="Texture" id=38]
 
@@ -366,6 +365,9 @@ position = Vector2( 776, 200 )
 camDirection = 1
 isFixedCam = true
 
+[node name="CollisionPolygon2D" parent="LevelObjects/Camera2/FOV" index="0"]
+polygon = PoolVector2Array( 16, 56, 0, 0, 72, 24, 72, 56 )
+
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 888, 128 )
 doorType = 2
@@ -422,9 +424,6 @@ doorType = 2
 [node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 2 )]
 position = Vector2( 1232, 128 )
 deactivateAble = [ NodePath("../DeactivableDoor1"), NodePath("../DeactivableDoor2") ]
-
-[node name="Closet" parent="LevelObjects" instance=ExtResource( 36 )]
-position = Vector2( 880, 320 )
 
 [node name="Decorations" type="Node2D" parent="."]
 
@@ -707,14 +706,14 @@ script = ExtResource( 18 )
 position = Vector2( 904, 320 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard3"]
-points = PoolVector2Array( 0, 0, -160, 0 )
+points = PoolVector2Array( 0, 0, -408, 0 )
 script = ExtResource( 18 )
 
 [node name="Guard4" parent="NPCS" instance=ExtResource( 5 )]
 position = Vector2( 496, 320 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard4"]
-points = PoolVector2Array( 0, 0, 232, 0 )
+points = PoolVector2Array( 0, 0, 408, 0 )
 script = ExtResource( 18 )
 
 [node name="LaserDetector" parent="." instance=ExtResource( 6 )]
@@ -742,3 +741,5 @@ standbyTimerAfterDetection = 3.0
 [editable path="LevelObjects/ExitStairCase2"]
 
 [editable path="LevelObjects/Camera"]
+
+[editable path="LevelObjects/Camera2"]
