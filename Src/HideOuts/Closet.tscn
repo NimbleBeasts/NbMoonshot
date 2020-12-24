@@ -10,6 +10,8 @@ extents = Vector2( 14.9666, 17.2245 )
 
 [node name="Closet" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+canHidePlayer = true
+canBeOpened = true
 
 [node name="Bg" parent="." index="0"]
 position = Vector2( 0, -20 )

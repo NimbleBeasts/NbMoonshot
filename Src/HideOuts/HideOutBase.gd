@@ -81,7 +81,6 @@ func hideGuard() -> void:
 
 
 func hidePlayer() -> void:
-	playerLastPickup = null
 	$Sprite.z_index = player.z_index + 1
 	animPlayer.play("close")
 	Events.emit_signal("block_player_input")
