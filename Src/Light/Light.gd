@@ -39,7 +39,7 @@ func updateLight():
 
 
 func toggleState() -> void:
-	if isOn():
+	if isActive:
 		deactivate()
 		return
 	activate()
@@ -54,7 +54,7 @@ func deactivate() -> void:
 	$FullLight.set_deferred("monitoring", false)
 	$BarelyVisible.set_deferred("monitoring", false)
 	$Timer.stop()
-	state = LightState.Off
+	isActive = false
 
 
 func activate() -> void:
@@ -62,4 +62,4 @@ func activate() -> void:
 	$FullLight.set_deferred("monitoring", true)
 	$BarelyVisible.set_deferred("monitoring", true)
 	$Timer.start()
-	state = LightState.On
+	isActive = true

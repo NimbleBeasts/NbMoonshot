@@ -339,6 +339,7 @@ menu={
 2d_physics/layer_7="Dog"
 2d_physics/layer_8="Player"
 2d_physics/layer_9="Throwables"
+2d_physics/layer_10="Pressure"
 
 [rendering]
 

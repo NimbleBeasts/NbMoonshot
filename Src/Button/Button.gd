@@ -37,4 +37,4 @@ func press() -> void:
 			if node.lockLevel == node.DoorLockType.buttonLocked:
 				node.open()
 				return
-			printerr("Trying to open %s through a button that isn't of locked level 'buttonLocked'." % node.name)
+			printerr("Trying to open %s that isn't of locked level 'buttonLocked' through %s" % [node.name, name])

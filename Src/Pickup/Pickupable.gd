@@ -6,8 +6,13 @@ export var pickupOffset: Vector2
 export var pickupName: String
 export var showGameHints: bool = true
 var isPickedUp: bool = false
+var mainNode = self # this is needed for the pressure button, don't remove this
 
+func _ready() -> void:
+    # for pressure
+    set_collision_layer_bit(9, true)
 
+    
 func pickup() -> void:
     isPickedUp = true
     if showGameHints:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 4 )
@@ -118,47 +119,19 @@ centered = false
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 144, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall7"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 280, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall9"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 280, 320 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall10"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 144, 320 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall11"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
@@ -174,23 +147,6 @@ lockLevel = 0
 doorType = 0
 door_name = ""
 
-[node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
-position = Vector2( -196.565, 256 )
-lockLevel = 0
-doorType = 1
-save_state = false
-showHintIfLocked = true
-hint = "This door is locked "
-keyPath = NodePath("../../../Key")
-sig_to_trig = [  ]
-
-[node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
-position = Vector2( -129.695, 256.354 )
-connected_door_path = NodePath("../StaircaseE0")
-lockLevel = 0
-doorType = 1
-door_name = ""
-
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
 "_edit_lock_": true
@@ -200,7 +156,7 @@ __meta__ = {
 position = Vector2( 216, 200 )
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
-position = Vector2( -244.304, 215.869 )
+position = Vector2( -105, 212 )
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 208 )
@@ -268,7 +224,7 @@ __meta__ = {
 }
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
-position = Vector2( -240, 256 )
+position = Vector2( -295, 256 )
 canHidePlayer = true
 canBeOpened = true
 
@@ -308,3 +264,11 @@ tile_data = PoolIntArray( 982970, 20, 0, 982971, 21, 0, 982972, 21, 0, 982973, 2
 
 [node name="TestPickup" parent="." instance=ExtResource( 27 )]
 position = Vector2( -421.923, 246.697 )
+
+[node name="PressureButton" parent="." instance=ExtResource( 28 )]
+position = Vector2( -248, 254 )
+unlocks = [ NodePath("../LevelObjects/Lights/Light2"), NodePath("../DoorWall") ]
+
+[node name="DoorWall" parent="." instance=ExtResource( 8 )]
+position = Vector2( -208.927, 254.744 )
+lockLevel = 4

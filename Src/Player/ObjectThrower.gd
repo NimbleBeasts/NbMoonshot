@@ -20,6 +20,7 @@ onready var objectStopPosition: Vector2 = Vector2(0,-3)
 onready var line: Line2D = $Line2D
 onready var objectSpawn = get_node(objectSpawnPath)
 onready var player = get_node(playerPath)
+onready var testBody: KinematicBody2D = $TestBody
 
 
 func _ready() -> void:
@@ -60,6 +61,7 @@ func _input(event: InputEvent) -> void:
 		object.global_position = objectSpawn.global_position
 		object.stopPosition = player.to_global(objectStopPosition)
 		Global.game_manager.getCurrentLevel().add_child(object)
+		testBody.get_node("CollisionShape2D").shape = object.collisionShape.shape
 		object.throw(objectVelocity)
 		Events.emit_signal("change_player_animation", "throw")
 		inShootMode = false
@@ -69,11 +71,16 @@ func updateTrajectory(delta: float) -> void:
 	line.show()
 	line.clear_points()
 	var pos = objectSpawn.global_position
+	# testBody.global_position = pos
 	var vel = objectVelocity
 	for _i in range(maxPoints):
 		line.add_point(line.to_local(pos))
 		vel.y += objectGravity * delta
 		pos += vel * delta
+		# var collision = testBody.move_and_collide(vel * delta, true, true, true)
+		# if collision:
+		# 	vel /= 5
+		# 	vel = vel.bounce(collision.normal)
 		if pos.y > player.to_global(objectStopPosition).y:
 			break
 	

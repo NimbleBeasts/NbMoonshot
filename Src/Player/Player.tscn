@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Src/Player/Taser.gd" type="Script" id=9]
 [ext_resource path="res://Src/Throwables/ObjectThrower.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/Player/ThinAreaTravelling.gd" type="Script" id=11]
+[ext_resource path="res://Src/Button/PressureArea.gd" type="Script" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -436,6 +437,9 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 17.6035, 14.6427 )
 
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 5, 14 )
+
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
@@ -602,7 +606,7 @@ cast_to = Vector2( 20, 0 )
 collision_mask = 16
 
 [node name="ObjectSpawn" type="Position2D" parent="Flippable"]
-position = Vector2( 17.0682, -15.7399 )
+position = Vector2( 7.63202, -15.2539 )
 
 [node name="CarryPosition" type="Position2D" parent="Flippable"]
 position = Vector2( 3, -13 )
@@ -617,4 +621,14 @@ travelTweenPath = NodePath("../TravelTween")
 travelRayDownPath = NodePath("../TravelRayCasts/RayCast2DDown")
 travelRayUpPath = NodePath("../TravelRayCasts/RayCast2DUp")
 playerPath = NodePath("..")
+
+[node name="PressureArea" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 0
+script = ExtResource( 12 )
+mainNodePath = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressureArea"]
+position = Vector2( 0, -14 )
+shape = SubResource( 26 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

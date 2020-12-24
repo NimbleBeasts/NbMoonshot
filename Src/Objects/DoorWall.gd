@@ -7,6 +7,7 @@ var minigame_finished: bool = false
 var playerInArea = false
 var doorIsOpen = false
 var playerNode = null
+var startingLockLevel: int
 
 enum DoorLockType {open, lockedLevel1, lockedLevel2, locked, buttonLocked, keyLocked}
 enum DoorType {wooden, metal, metalSwing}
@@ -25,6 +26,7 @@ onready var key
 
 
 func _ready():
+	startingLockLevel = lockLevel
 	if lockLevel == DoorLockType.keyLocked:
 		key = get_node(keyPath)
 	if doorType == DoorType.metal:
@@ -51,7 +53,11 @@ func _ready():
 func open():
 	lockLevel = DoorLockType.open
 
-	
+
+func resetState() -> void:
+	lockLevel = startingLockLevel
+
+
 func _process(_delta):
 	if playerInArea and playerNode.state != Types.PlayerStates.DraggingGuard:
 		if Input.is_action_just_pressed("interact"):
@@ -123,6 +129,9 @@ func try_sub_emit():
 			var emitRef = funcref(Events, "emit_signal")
 			emitRef.call_funcv( sig )
 
+
+
+		
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	if not doorIsOpen:
 		# Door is now open

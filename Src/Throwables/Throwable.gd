@@ -12,6 +12,8 @@ var timerDisablePhysics
 var timerRemove
 var stopPosition: Vector2
 
+onready var collisionShape = $CollisionShape2D
+
 
 func _ready() -> void:
 	set_physics_process(false)

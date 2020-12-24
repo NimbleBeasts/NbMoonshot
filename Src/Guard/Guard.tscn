@@ -1,11 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Guards/Guard.png" type="Texture" id=1]
 [ext_resource path="res://Src/Guard/Guard.gd" type="Script" id=2]
 [ext_resource path="res://Src/Notifier/Notifier.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Button/PressureArea.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 14, 4.82171 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "alarm"
@@ -141,7 +145,7 @@ position = Vector2( 0, 2 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 hframes = 20
-frame = 7
+frame = 18
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
 position = Vector2( 11.0983, -22.2613 )
@@ -157,6 +161,16 @@ position = Vector2( 3.53218, -10.5355 )
 enabled = true
 cast_to = Vector2( 90, 0 )
 collision_mask = 128
+
+[node name="PressureArea" type="Area2D" parent="Flippable"]
+collision_layer = 512
+collision_mask = 0
+script = ExtResource( 4 )
+mainNodePath = NodePath("../..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/PressureArea"]
+position = Vector2( 3, -2 )
+shape = SubResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"

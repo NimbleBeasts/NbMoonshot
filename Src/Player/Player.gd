@@ -289,11 +289,13 @@ func set_state(value: int) -> void:
 				speed = duckSpeed
 				acceleration = duckAcceleration
 			Types.PlayerStates.DraggingGuard:
+				$ItemPickup.dropCurrentItem()
 				player_sprite.show()
 				enableNormalColliders()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 			Types.PlayerStates.DraggingItem:
+				guardPickup.stopDragging()
 				player_sprite.show()
 				enableNormalColliders()
 				speed = duckSpeed
