@@ -13,6 +13,10 @@ export(Types.Direction) var sprite_face_direction = Types.Direction.Left
 
 func _ready() -> void:
 	set_process(false)
+	var levelIndex: int = Global.game_manager.getCurrentLevelIndex()
+	if levelIndex != 0:
+		Global.gameState["level"]["hasActiveMission"] = true
+		Global.gameState["level"]["lastActiveMission"] = levelIndex
 	#warning-ignore-all:return_value_discarded
 	connect("body_entered", self, "_on_body_entered")
 	connect("body_exited", self, "_on_body_exited")
