@@ -2,9 +2,12 @@ extends Node
 
 var possiblePickup
 var currentPickup
+var processAnims: bool
 
 export var playerPath: NodePath
+export var carryPositionPath: NodePath
 onready var player = get_node(playerPath)
+onready var carryPosition = get_node(carryPositionPath)
 
 
 func _ready() -> void:
@@ -16,8 +19,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if currentPickup != null:
-		currentPickup.global_position.x = player.global_position.x + currentPickup.pickupOffset.x
-
+		currentPickup.global_position = carryPosition.global_position
+		if processAnims:
+			if int(player.velocity.x) != 0:
+				Events.emit_signal("change_player_animation", "carryWalk")
+			else:
+				Events.emit_signal("change_player_animation", "carryIdle")
+		
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
@@ -44,14 +52,27 @@ func dropCurrentItem() -> void:
 	if currentPickup == null:
 		return
 	currentPickup.drop()
-	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
-	currentPickup = null
-	set_process(false)
+	processAnims = false
+	Events.emit_signal("block_player_input")
+	Events.emit_signal("change_player_animation", "laydown")
 
 
-func pickupItem(item) -> void:
+func pickupItem(item: Pickupable) -> void:
 	currentPickup = item
 	item.pickup()
-	currentPickup.global_position = player.global_position + currentPickup.pickupOffset
 	Events.emit_signal("set_player_state", Types.PlayerStates.DraggingItem)
+	Events.emit_signal("change_player_animation", "pickup")
 	set_process(true)
+
+
+func onAnimationFinished(animName: String) -> void:
+	if animName == "laydown":
+		currentPickup.global_position = carryPosition.global_position
+		Events.emit_signal("unblock_player_input")
+		Events.emit_signal("unblock_player_movement")
+		Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
+		currentPickup = null
+	elif animName == "pickup":
+		processAnims = true
+		currentPickup.global_position = carryPosition.global_position
+

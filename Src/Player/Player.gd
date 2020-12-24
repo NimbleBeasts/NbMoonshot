@@ -85,6 +85,7 @@ func _ready() -> void:
 	$FootstepTimer.start()
 	$PlayerArea.connect("area_entered", $ItemPickup, "onPlayerAreaEntered")
 	$PlayerArea.connect("area_exited", $ItemPickup, "onPlayerAreaExited")
+	$AnimationPlayer.connect("animation_finished", $ItemPickup, "onAnimationFinished")
 
 	# Initial set taser level
 	Events.emit_signal("taser_fired", stun_battery_level)

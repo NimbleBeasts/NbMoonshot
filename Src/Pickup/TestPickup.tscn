@@ -4,18 +4,19 @@
 [ext_resource path="res://Src/Pickup/Pickupable.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 8.62905 )
+extents = Vector2( 5.5, 5 )
 
 [node name="TestPickup" type="Area2D"]
 z_index = 100
 script = ExtResource( 2 )
-pickupOffset = Vector2( 0, -5 )
 pickupName = "TestPickup"
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.909804, 0.0117647, 0.0117647, 1 )
-scale = Vector2( 0.303985, 0.276145 )
+position = Vector2( 0, -5 )
+scale = Vector2( 0.168415, 0.156218 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -5 )
 shape = SubResource( 1 )

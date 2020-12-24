@@ -5,6 +5,7 @@ var player
 
 
 func _ready() -> void:
+	$Sprite.frame = 0
 	connect("body_entered", self, "onBodyEntered")
 	connect("body_exited", self, "onBodyExited")
 	set_process_input(false)
@@ -28,6 +29,7 @@ func onBodyExited(body: Node) -> void:
 
 
 func press() -> void:
+	$Sprite.frame = 1
 	Events.emit_signal("hud_game_hint", "Button pressed")
 	for thing in unlocks:
 		var node = get_node(thing)

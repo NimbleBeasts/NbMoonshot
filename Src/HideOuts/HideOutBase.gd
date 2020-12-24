@@ -40,8 +40,8 @@ func _input(event: InputEvent) -> void:
 	if player.state == Types.PlayerStates.DraggingItem:
 		playerLastPickup = player.itemPickup.currentPickup
 		Events.emit_signal("drop_current_item")
+		Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
 
-		
 	# unhiding guard if hidden and press E
 	if hiddenGuard != null:
 		unhidingGuard = true
