@@ -34,6 +34,7 @@ onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
 onready var losRay: RayCast2D = $Flippable/LOSRay
 onready var player = Global.player
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
+onready var sprite: Sprite = $Flippable/Sprite
 
 
 func _ready() -> void:

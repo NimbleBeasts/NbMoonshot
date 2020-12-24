@@ -109,6 +109,8 @@ signal set_player_state(newState)
 signal player_state_changed(newState)
 signal change_player_animation(newAnim)
 signal switched_weapon(newWeaponIndex)
+signal drop_current_item()
+signal pickup_item(newItem)
 
 # this blocks weapon input while block_player_movement only blocks movement
 signal block_player_input()

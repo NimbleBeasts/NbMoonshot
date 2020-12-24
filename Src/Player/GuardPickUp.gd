@@ -16,9 +16,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if guard != null and guard.state == Types.GuardStates.BeingDragged:
 		if player.direction.x > 0:
-			guard.global_position = player.global_position + rightOffset
+			guard.global_position.x = player.global_position.x + rightOffset.x
 		elif player.direction.x < 0:
-			guard.global_position = player.global_position + leftOffset
+			guard.global_position.x = player.global_position.x + leftOffset.x
 	
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -46,7 +46,7 @@ func onBodyExited(body: Node) -> void:
 
 
 func stopDragging() -> void:
-	if guard:
+	if guard and guard.state == Types.GuardStates.BeingDragged:
 		guard.state = Types.GuardStates.Stunned
 		player.set_state(Types.PlayerStates.Normal)
 		isDraggingGuard = false

@@ -14,6 +14,8 @@ var goInCloset: bool
 var hiddenGuard
 var unhidingGuard: bool
 
+var playerLastPickup
+
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
 
@@ -30,14 +32,20 @@ func getPoint():
 
 
 func _input(event: InputEvent) -> void:
-	if not event.is_action_pressed("interact") or player.state == Types.PlayerStates.DraggingItem:
+	if not event.is_action_pressed("interact"):
 		return
 
+	get_tree().set_input_as_handled()
+
+	if player.state == Types.PlayerStates.DraggingItem:
+		playerLastPickup = player.itemPickup.currentPickup
+		Events.emit_signal("drop_current_item")
+
+		
 	# unhiding guard if hidden and press E
 	if hiddenGuard != null:
 		unhidingGuard = true
 		animPlayer.play("open")
-		get_tree().set_input_as_handled()
 		hiddenGuard.show()
 		Events.emit_signal("block_player_movement")
 		$Sprite.z_index = player.z_index - 1
@@ -61,6 +69,8 @@ func hideGuard() -> void:
 	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
 	guard = player.guardPickup.guard
 	player.guardPickup.guard = null
+	if guard == null:
+		return
 	guard.global_position = getPoint()
 	player.guardPickup.stopDragging()
 	destroyGuard = true
@@ -82,6 +92,8 @@ func openCloset() -> void:
 	animPlayer.play("open")
 	if player.state == Types.PlayerStates.InCloset:
 		player.set_state(Types.PlayerStates.Normal)
+		if playerLastPickup != null:
+			Events.emit_signal("pickup_item", playerLastPickup)
 	isOpen = true
 
 

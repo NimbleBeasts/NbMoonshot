@@ -48,12 +48,12 @@ onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
 onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
 onready var stun_raycast: RayCast2D = $Flippable/StunRayCast
-onready var player_sprite: Sprite = $Flippable/PlayerSprite
+onready var sprite: Sprite = $Flippable/PlayerSprite
 onready var camera: Camera2D = $Camera2D
 onready var guardPickup: Area2D = $GuardPickup
 onready var weaponHandler: Node2D = $WeaponHandler
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
-
+onready var itemPickup = $ItemPickup
 
 func _init() -> void:
 	Global.player = self
@@ -256,7 +256,7 @@ func set_light_level(value: int) -> void:
 		# this is why a custom setter function is needed, may forgot to set visible level and
 		# will fuk everything up
 		setVisibleLevel(light_level)
-		player_sprite.modulate = Color(visibilityLevelsModulations[visible_level])
+		sprite.modulate = Color(visibilityLevelsModulations[visible_level])
 		Events.emit_signal("light_level_changed", light_level)
 	
 	
@@ -267,46 +267,46 @@ func set_state(value: int) -> void:
 		Events.emit_signal("player_state_changed", state)
 		match state:
 			Types.PlayerStates.Normal:
+				changeColliderState(true)
 				$ItemPickup.dropCurrentItem()
-				player_sprite.show()
+				sprite.show()
 				if guardPickup.isDraggingGuard:
 					guardPickup.stopDragging()
 				speed = normal_speed
 				acceleration = normal_acceleration
 				$AnimationPlayer.play("idle")
 				movementBlocked = false
+				blockEntireInput = false
 				enableNormalColliders()
 			Types.PlayerStates.Duck:
-				player_sprite.show()
+				sprite.show()
 				$GuardPickup.stopDragging()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 				enableDuckColliders()
 			Types.PlayerStates.WallDodge:
-				player_sprite.show()
+				sprite.show()
 				enableNormalColliders()
 				$GuardPickup.stopDragging()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 			Types.PlayerStates.DraggingGuard:
 				$ItemPickup.dropCurrentItem()
-				player_sprite.show()
+				sprite.show()
 				enableNormalColliders()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 			Types.PlayerStates.DraggingItem:
 				guardPickup.stopDragging()
-				player_sprite.show()
+				sprite.show()
 				enableNormalColliders()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 			Types.PlayerStates.InCloset:
-				player_sprite.hide()
-				$CollisionShape2D.set_deferred("disabled", true)
-				$DuckCollisionShape2D.set_deferred("disabled", true)
-				$PlayerLightArea.set_deferred("monitoring", false)
-				$PlayerArea.set_deferred("monitoring", false)
+				sprite.hide()
+				changeColliderState(false)
 				movementBlocked = true
+				blockEntireInput = true
 
 
 # Change animation
@@ -363,3 +363,10 @@ func enableDuckColliders() -> void:
 func updateFlip() -> void:
 	if direction.x != 0:
 		$Flippable.scale.x = direction.x
+
+
+func changeColliderState(enabled: bool) -> void:
+	$CollisionShape2D.set_deferred("disabled", not enabled)
+	$DuckCollisionShape2D.set_deferred("disabled", not enabled)
+	$PlayerLightArea.set_deferred("monitoring", enabled)
+	$PlayerArea.set_deferred("monitoring", enabled)

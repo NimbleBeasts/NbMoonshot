@@ -8,6 +8,9 @@ export var showGameHints: bool = true
 var isPickedUp: bool = false
 var mainNode = self # this is needed for the pressure button, don't remove this
 
+onready var sprite: Sprite = $Sprite # also for pressure button
+
+
 func _ready() -> void:
     # for pressure
     set_collision_layer_bit(9, true)

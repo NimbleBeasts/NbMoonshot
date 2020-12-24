@@ -1,7 +1,8 @@
 extends Area2D
 
-var pressureObjects = []
 export (Array, NodePath) var unlocks: Array
+export var offset: float = 6
+var pressureObjects = []
 
 
 func _ready() -> void:
@@ -13,13 +14,17 @@ func onAreaEntered(area: Area2D) -> void:
 	# don't need to put a check whether it collided with a pressure node or not 
 	# because this areas collision mask only allows it to collide with 'Pressure' objects
 	if pressureObjects == []:
+		# turned on
 		pressureObjects.append(area.mainNode)
+		area.mainNode.sprite.position.y -= offset
 		press()
 
 
 func onAreaExited(area: Area2D) -> void:
 	if pressureObjects.has(area.mainNode):
+		# turned off
 		pressureObjects.erase(area.mainNode)
+		area.mainNode.sprite.position.y += offset
 		if pressureObjects == []:
 			press()
 
