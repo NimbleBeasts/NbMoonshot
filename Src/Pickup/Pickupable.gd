@@ -24,3 +24,7 @@ func drop() -> void:
     isPickedUp = false
     if showGameHints:
         Events.emit_signal("hud_game_hint", "Dropped " + str(pickupName))
+
+
+func getProgessState() -> bool:
+    return isPickedUp
