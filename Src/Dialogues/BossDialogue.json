@@ -3,11 +3,10 @@
 "00" : {"nextDialogue": "01", "lastDialogue": "03"},
 "01" : { "nextDialogue": "02"},
 "02" : {"nextDialogue": "03"},
-"03" : {"branchID0": "train", "branchChoice0": "No, lets train", "branchID1": "officeReply","branchChoice1": "Where is my office?",
-    "branchID2": "skipTutorial","branchChoice2": "Skip tutorial"},
+"03" : {"branchID0": "train", "branchID1": "officeReply", "branchID2": "skipTutorial"},
 "train" : {"exitDialogue": true, "quest": "0"},
 "officeReply": {"nextDialogue": "03"},
-"skipTutorial" : {"branchID0": "train", "branchChoice0": "No, lets train", "branchID1": "11", "branchChoice1": "Yes, skip it"},
+"skipTutorial" : {"branchID0": "train", "branchID1": "11"},
 
 "10" : {"nextDialogue": "11", "lastDialogue": "12"},
 "11" : {"nextDialogue": "12"},

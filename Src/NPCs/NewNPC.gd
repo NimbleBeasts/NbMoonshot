@@ -129,11 +129,15 @@ func sayBranch(branch: Dictionary) -> void:
 
 func updateButtons(branch: Dictionary) -> void:
 	# 3 is chosen because that is the current amount of possible branches that dialog may have
+	# loops through, checks if branch has respective key which has some text, and then updates the respective dialog button with the text
 	for i in range(3):
-		if branch.has("branchChoice%s" % i):
-			Events.emit_signal("update_dialog_option", i, branch["branchChoice%s" % i])
+		if branch.has("branchID%s" % i):
+			# gets the correct key from the csv file "CHOICE_03_0" where 03 is the branch code in json file and 0 is the branch id
+			# 0 is first branch, 1 is second branch and so on
+			var key = "CHOICE_%s_%s" % [currentBranchID, i]
+			Events.emit_signal("update_dialog_option", i, translation.get_message(key))
+
 			
-	
 # this function is meant to be overriden
 func checkForQuests() -> void:
 	pass
