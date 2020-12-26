@@ -12,6 +12,7 @@ extents = Vector2( 27, 17 )
 
 [node name="Note" type="Node2D"]
 script = ExtResource( 1 )
+translationCSVPath = "res://Translations/NoteTranslations/NoteTranslations.csv"
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -18 )

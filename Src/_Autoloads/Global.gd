@@ -122,6 +122,8 @@ onready var screen_center := get_viewport().get_visible_rect().size / 2
 onready var screen_bottom_center = Vector2(get_viewport().get_visible_rect().size.x / 2, get_viewport().get_visible_rect().size.y + 500)
 onready var game_manager := get_node("/root/GameManager")
 
+var languageLocale: String = "en"
+
 ###############################################################################
 # Functions
 ###############################################################################
@@ -312,3 +314,7 @@ func startTimerOnce(timer: Timer) -> void:
 	if timer.is_stopped():
 		timer.start(timer.wait_time)
 
+
+func changeLanguageLocale(newLocale: String) -> void:
+	languageLocale = newLocale
+	get_tree().call_group("HasTranslationSupport", "loadTranslation")

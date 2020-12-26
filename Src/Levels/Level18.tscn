@@ -210,130 +210,150 @@ flip_h = true
 position = Vector2( 176, 256 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase2")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase2" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 176, 320 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase3" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 352, 320 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase4")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase4" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 176, 384 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase3")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase5" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 352, 256 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase6")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase6" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 176, 192 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase5")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase7" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 352, 192 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase8")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase8" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 176, 128 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase7")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase9" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 352, 128 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase10")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase10" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 176, 64 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase9")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase11" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 384 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase12")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase12" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 320 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase11")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase13" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 856, 320 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase14")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase14" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 256 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase13")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase15" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 856, 256 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase16")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase16" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 192 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase15")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase17" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 856, 192 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase18")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase18" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 128 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase17")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase19" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 856, 128 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase20")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Staircase20" parent="LevelObjects/Doors" instance=ExtResource( 3 )]
 position = Vector2( 672, 64 )
 connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase19")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 144, 256 )
 lockLevel = 2
 doorType = 0
-door_name = "DoorWall"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -344,6 +364,7 @@ door_name = "DoorWall2"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -354,6 +375,7 @@ door_name = "DoorWall3"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -364,6 +386,7 @@ door_name = "DoorWall4"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -374,6 +397,7 @@ door_name = "DoorWall5"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -384,6 +408,7 @@ door_name = "DoorWall6"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -394,6 +419,7 @@ door_name = "DoorWall7"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -404,6 +430,7 @@ door_name = "DoorWall8"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -414,6 +441,7 @@ door_name = "DoorWall9"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -424,6 +452,7 @@ door_name = "DoorWall10"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -434,6 +463,7 @@ door_name = "DoorWall11"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall12" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -444,6 +474,7 @@ door_name = "DoorWall12"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall13" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -454,6 +485,7 @@ door_name = "DoorWall13"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall18" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -464,6 +496,7 @@ door_name = "DoorWall18"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall14" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -474,6 +507,7 @@ door_name = "DoorWall14"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall15" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -484,6 +518,7 @@ door_name = "DoorWall15"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall16" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -494,6 +529,7 @@ door_name = "DoorWall16"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall17" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
@@ -504,6 +540,7 @@ door_name = "DoorWall17"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
@@ -513,81 +550,107 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 292, 8 )
+flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 292, 72 )
+flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 176, 136 )
+flicker = false
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 288, 136 )
+flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 192, 200 )
+flicker = false
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 304, 200 )
+flicker = false
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 248, 264 )
+flicker = false
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 328, 264 )
+flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 240, 328 )
+flicker = false
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 336, 328 )
+flicker = false
 
 [node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 448, 328 )
+flicker = false
 
 [node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 512, 328 )
+flicker = false
 
 [node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 584, 328 )
+flicker = false
 
 [node name="Light14" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 736, 328 )
+flicker = false
 
 [node name="Light15" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 832, 328 )
+flicker = false
 
 [node name="Light16" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 784, 264 )
+flicker = false
 
 [node name="Light17" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 824, 200 )
+flicker = false
 
 [node name="Light18" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 704, 200 )
+flicker = false
 
 [node name="Light19" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 728, 136 )
+flicker = false
 
 [node name="Light20" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 816, 136 )
+flicker = false
 
 [node name="Light21" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 784, 72 )
+flicker = false
 
 [node name="Light22" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 840, 8 )
+flicker = false
 
 [node name="Light23" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 728, 8 )
+flicker = false
 
 [node name="Light24" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 576, 8 )
+flicker = false
 
 [node name="Light25" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 504, 8 )
+flicker = false
 
 [node name="Light26" parent="LevelObjects/Lights" instance=ExtResource( 4 )]
 position = Vector2( 432, 8 )
+flicker = false
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 5 )]
 position = Vector2( 40, 256 )

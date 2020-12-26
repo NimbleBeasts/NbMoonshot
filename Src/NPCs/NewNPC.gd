@@ -5,8 +5,7 @@ export (String, FILE) var dialoguePath: String
 export var npcName: String
 export var npcColor: String
 export (Types.Potraits) var npcPotrait: int
-export (Dictionary) var translations
-export var lang: String
+export (String, FILE) var translationCSVPath: String
 
 var loadedDialogue
 
@@ -25,6 +24,7 @@ var currentBranchID: String
 # gonna comment this .... later 
 
 func _ready() -> void:
+	add_to_group("HasTranslationSupport")
 	loadTranslation()
 	set_process_input(false)
 	Events.connect("no_branch_option_pressed", self, "onNoBranchButtonPressed")
@@ -103,7 +103,9 @@ func loadDialogue() -> void:
 
 
 func loadTranslation() -> void:
-	translation = translations.get(lang)
+	# finds the correct string path through the csv with some string magic, replacing the .csv with .locale.translation
+	var translationPath: String = translationCSVPath.replace(".csv", "." + Global.languageLocale + ".translation")
+	translation = load(translationPath)
 
 
 func sayBranch(branch: Dictionary) -> void:
@@ -134,7 +136,7 @@ func updateButtons(branch: Dictionary) -> void:
 		if branch.has("branchID%s" % i):
 			# gets the correct key from the csv file "CHOICE_03_0" where 03 is the branch code in json file and 0 is the branch id
 			# 0 is first branch, 1 is second branch and so on
-			var key = "CHOICE_%s_%s" % [currentBranchID, i]
+			var key: String = "CHOICE_%s_%s" % [currentBranchID, i]
 			Events.emit_signal("update_dialog_option", i, translation.get_message(key))
 
 			

@@ -164,7 +164,6 @@ centered = false
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 344, 96 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="LevelObjects/Decorations"]
@@ -176,33 +175,80 @@ texture = ExtResource( 30 )
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 144, 256 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall7"
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 256, 128 )
 lockLevel = 1
+doorType = 0
 door_name = "Blah"
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 280, 256 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall9"
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 280, 320 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall10"
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 144, 320 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall11"
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall12" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 608, 256 )
 lockLevel = 2
+doorType = 0
 door_name = "DoorWall12"
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall13" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 408, 256 )
+lockLevel = 0
+doorType = 0
 door_name = "DoorWall13"
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 240, 320 )
@@ -253,6 +299,7 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 216, 200 )
+flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 208, 72 )
@@ -261,6 +308,7 @@ flickerSequence = "11100000000000000"
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 352, 200 )
+flicker = false
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 152, 208 )
@@ -342,6 +390,7 @@ isFixedCam = true
 position = Vector2( 11, 256 )
 text = "Remember, turn off security system in the shed in the backyard."
 highlight = true
+translationKey = "LEVEL_4_0"
 
 [node name="Camera3" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 152, 72 )

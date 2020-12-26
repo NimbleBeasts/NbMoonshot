@@ -140,6 +140,7 @@ doorType = 0
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 15 )]
@@ -150,6 +151,7 @@ door_name = "DoorWall2"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
@@ -165,6 +167,7 @@ door_name = "DoorWall3"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 15 )]
@@ -175,6 +178,7 @@ door_name = "DoorWall4"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 15 )]
@@ -185,6 +189,7 @@ door_name = "DoorWall5"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 15 )]
@@ -195,6 +200,7 @@ door_name = "DoorWall6"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
@@ -207,6 +213,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -333,18 +340,23 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 200 )
+flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 408, 200 )
+flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 256, 200 )
+flicker = false
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 224, 136 )
+flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 408, 136 )
+flicker = false
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 136 )
@@ -352,15 +364,19 @@ flicker = true
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 72 )
+flicker = false
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 448, 72 )
+flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 352, 72 )
+flicker = false
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 224, 72 )
+flicker = false
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 29 )]
 position = Vector2( 80, 256 )

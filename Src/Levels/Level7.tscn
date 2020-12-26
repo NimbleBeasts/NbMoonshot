@@ -150,60 +150,66 @@ frame = 2
 position = Vector2( 199.956, 255.764 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall1"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 312.126, 255.173 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall2"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 400.823, 255.966 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall3"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 399.632, 328.789 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall4"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 400.132, 545.789 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall5"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 519.981, 546.185 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall6"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -211,106 +217,119 @@ visible = false
 position = Vector2( 312.169, 545.439 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall7"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 175.801, 471.771 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall8"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 135.905, 399.75 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall9"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 712.124, 544.924 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall10"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 839.94, 471.345 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall11"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall12" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 999.927, 471.817 )
 lockLevel = 0
 doorType = 1
-door_name = ""
+door_name = "DoorWall12"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall13" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 839.782, 545.109 )
 lockLevel = 0
 doorType = 0
-door_name = ""
+door_name = "DoorWall13"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="Lab2ToLabLounge" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 1134.75, 470.037 )
 connected_door_path = NodePath("../LabLoungeToLab2")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Lab2ToGarbageRoom" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 1102.2, 470.187 )
 connected_door_path = NodePath("../LabLoungeToLab2")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="GarbageRoomToLab2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 1101.3, 396.246 )
 connected_door_path = NodePath("../LabLoungeToLab2")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="LabLoungeToLab2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 1135.89, 543.703 )
 connected_door_path = NodePath("../Lab2ToLabLounge")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="GroundToSub1" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 457.311, 255.176 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseCellar")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Sub1ToGround" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 457.99, 326.423 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
 lockLevel = 0
+doorType = 0
 door_name = ""
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
@@ -333,42 +352,55 @@ flickerSequence = "1110"
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 232.499, 206.122 )
+flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 285.737, 206.122 )
+flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 880.587, 490 )
+flicker = false
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 804.483, 490 )
+flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 754.337, 490 )
+flicker = false
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 590.094, 490 )
+flicker = false
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 450, 490 )
+flicker = false
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 360.511, 490 )
+flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 252.649, 490 )
+flicker = false
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 183.903, 490 )
+flicker = false
 
 [node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 108.353, 490 )
+flicker = false
 
 [node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 106.563, 418.583 )
+flicker = false
 
 [node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 25 )]
 position = Vector2( 93.6569, 348.405 )
+flicker = false
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 438.289, 255.218 )

@@ -83,42 +83,52 @@ position = Vector2( 408, 320 )
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 280, 328 )
+flicker = false
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 248, 392 )
+flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 360, 392 )
+flicker = false
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 456, 392 )
+flicker = false
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 400, 264 )
+flicker = false
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 400, 200 )
+flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 320, 200 )
+flicker = false
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 240, 200 )
+flicker = false
 
 [node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 160, 264 )
+flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 288, 264 )
+flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 20 )]
 position = Vector2( 130, 256 )
@@ -184,6 +194,7 @@ text = "Damn, we've lost your key. You will have to lockpick this door.
 xoxo,
 Natasja"
 highlight = true
+translationKey = "HQ_0"
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 16, 256 )
@@ -196,6 +207,7 @@ doorType = 0
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 8 )]
@@ -206,6 +218,7 @@ door_name = "DoorWall2"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 8 )]
@@ -216,6 +229,7 @@ door_name = "DoorWall3"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 8 )]
@@ -226,6 +240,7 @@ door_name = "DoorWall4"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall-HQ-PlayerOffice" parent="LevelObjects" instance=ExtResource( 8 )]
@@ -236,6 +251,7 @@ door_name = "HQ-PlayerOfficeDoor"
 save_state = true
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 8 )]
@@ -246,6 +262,7 @@ door_name = "DoorWall5"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 8 )]
@@ -256,6 +273,7 @@ door_name = "DoorWall6"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects" instance=ExtResource( 8 )]
@@ -266,6 +284,7 @@ door_name = "DoorWall7"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects" instance=ExtResource( 8 )]
@@ -276,6 +295,7 @@ door_name = "DoorWall9"
 save_state = false
 showHintIfLocked = false
 hint = ""
+keyPath = NodePath("")
 sig_to_trig = [  ]
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 10 )]

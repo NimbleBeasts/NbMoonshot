@@ -94,31 +94,66 @@ __meta__ = {
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 80, 256 )
+flicker = false
+flickerSequence = "1110"
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 384, 256 )
 lockLevel = 5
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 384, 184 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 512, 184 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 512, 256 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+sig_to_trig = [  ]
 
 [node name="Staircases" type="Node2D" parent="LevelObjects"]
 
 [node name="Staircase" parent="LevelObjects/Staircases" instance=ExtResource( 9 )]
 position = Vector2( 320, 256 )
 connected_door_path = NodePath("../Staircase2")
+lockLevel = 0
+doorType = 0
+door_name = ""
 
 [node name="Staircase2" parent="LevelObjects/Staircases" instance=ExtResource( 9 )]
 position = Vector2( 320, 184 )
 connected_door_path = NodePath("../Staircase")
+lockLevel = 0
+doorType = 0
+door_name = ""
 
 [node name="Cameras" type="Node2D" parent="LevelObjects"]
 position = Vector2( 8, 0 )
