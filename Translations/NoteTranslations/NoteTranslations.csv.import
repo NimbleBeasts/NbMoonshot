@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://Translations/NoteTranslations/NoteTranslations.en.translation", "res://Translations/NoteTranslations/NoteTranslations.ru.translation", "res://Translations/NoteTranslations/NoteTranslations.de.translation" ]
+
+source_file="res://Translations/NoteTranslations/NoteTranslations.csv"
+dest_files=[ "res://Translations/NoteTranslations/NoteTranslations.en.translation", "res://Translations/NoteTranslations/NoteTranslations.ru.translation", "res://Translations/NoteTranslations/NoteTranslations.de.translation" ]
+
+[params]
+
+compress=true
+delimiter=0
