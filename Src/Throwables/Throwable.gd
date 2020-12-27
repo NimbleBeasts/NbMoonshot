@@ -46,7 +46,6 @@ func remove():
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 	global_position += velocity * delta
-	rotation = velocity.angle()
 	# test move only
 	var collision = move_and_collide(velocity * delta, true, true, true)
 	if collision:

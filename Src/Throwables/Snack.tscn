@@ -4,7 +4,7 @@
 [ext_resource path="res://Src/Throwables/Throwable.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3.96515, 3.58387 )
+extents = Vector2( 3.37595, 2.53501 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "fadeout"
@@ -35,12 +35,12 @@ __meta__ = {
 gravity = 800.0
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -3.41008 )
+position = Vector2( 0.0936451, -0.608687 )
 texture = ExtResource( 1 )
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.117981, -2.93814 )
+position = Vector2( -0.0379333, -0.187136 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

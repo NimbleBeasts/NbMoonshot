@@ -16,7 +16,7 @@ var lastPlayerDir: Vector2 = Vector2(1, 0) # because player faces right at begin
 var maxPower: int = 300
 var inShootMode: bool = false
 
-onready var objectStopPosition: Vector2 = Vector2(0,-3)
+onready var objectStopPosition: Vector2 = Vector2(0,-2.5)
 onready var line: Line2D = $Line2D
 onready var objectSpawn = get_node(objectSpawnPath)
 onready var player = get_node(playerPath)
