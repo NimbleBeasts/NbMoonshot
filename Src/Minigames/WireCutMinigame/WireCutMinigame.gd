@@ -1,7 +1,7 @@
 extends Minigame
 
 
-var atm_cd:int = 12
+var countdown: int = 12
 
 
 onready var plier: Area2D = $Plier
@@ -56,6 +56,7 @@ func _ready() -> void:
 	# gives labels a unique color
 	randomize()
 	var rand_color1 = colors[randi() % colors.size()]
+	colors.erase(rand_color1) # so that the next one can't be the same
 	var rand_color2 = colors[randi() % colors.size()]
 	
 	$Labels/Label.bbcode_text = "Disable: Cut the [color="+rand_color1+"]" + enum2text[goal_cuts[0]] + "[/color] and [color="+rand_color2+"]" +enum2text[goal_cuts[1]]+ "[/color] wires"
@@ -72,10 +73,12 @@ func hideMouse(yes):
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+
 func _process(delta: float) -> void:
 	v_scale =  OS.get_window_size() / Vector2(640, 360)
 	plier.global_position = get_global_mouse_position() / v_scale
 	
+
 func _input(event):
 		
 	if event.is_action_pressed("move_up"):
@@ -112,17 +115,17 @@ func _on_wire_cut(color_type: int) -> void:
 		close()
 	
 func run_countdown_timer():
-	while( atm_cd >= 0 ):
-		if atm_cd > 9:
-			var twochar = String(atm_cd)
+	while( countdown >= 0 ):
+		if countdown > 9:
+			var twochar = String(countdown)
 			$WireTimer/dig5.frame = int(twochar[0])
 			$WireTimer/dig6.frame = int(twochar[1])
 		else:
 			$WireTimer/dig5.frame = 0
-			$WireTimer/dig6.frame = atm_cd
+			$WireTimer/dig6.frame = countdown
 		yield(get_tree().create_timer(1.0), "timeout")
-		if atm_cd == 0:
+		if countdown == 0:
 			set_result(Types.MinigameResults.Failed)
 			close()
 			return
-		atm_cd = atm_cd - 1
+		countdown = countdown - 1

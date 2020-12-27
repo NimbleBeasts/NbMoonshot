@@ -8,11 +8,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 14, 4.82171 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "alarm"
+[sub_resource type="Animation" id=3]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -27,7 +26,7 @@ tracks/0/keys = {
 "values": [ 9, 10, 11, 12 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -43,8 +42,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "stand_up"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
 tracks/0/interp = 1
@@ -58,7 +56,7 @@ tracks/0/keys = {
 "values": [ 15, 14, 13, 16, 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
 tracks/0/interp = 1
@@ -72,7 +70,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 1.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -87,7 +85,7 @@ tracks/0/keys = {
 "values": [ 13, 14, 15, 13, 14, 15, 13, 14, 15, 13, 14, 16, 17, 18 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 1.6
 loop = true
 step = 0.2
@@ -160,7 +158,7 @@ polygon = PoolVector2Array( -5.15227, -30.7655, 81.9439, -32.0281, 81.9439, -0.0
 position = Vector2( 3.53218, -10.5355 )
 enabled = true
 cast_to = Vector2( 90, 0 )
-collision_mask = 128
+collision_mask = 129
 
 [node name="PressureArea" type="Area2D" parent="Flippable"]
 collision_layer = 512
@@ -170,16 +168,16 @@ mainNodePath = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/PressureArea"]
 position = Vector2( 3, -2 )
-shape = SubResource( 8 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/alarm = SubResource( 2 )
-anims/idle = SubResource( 3 )
-anims/stand_up = SubResource( 4 )
-anims/suspicious = SubResource( 5 )
-anims/tasered = SubResource( 6 )
-anims/walk = SubResource( 7 )
+anims/alarm = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/stand_up = SubResource( 5 )
+anims/suspicious = SubResource( 6 )
+anims/tasered = SubResource( 7 )
+anims/walk = SubResource( 8 )
 
 [node name="Notifier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
