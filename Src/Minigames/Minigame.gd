@@ -49,7 +49,7 @@ func open() -> void:
 		tweenIsInUse = true
 		# Emits signal
 		Events.emit_signal("minigame_entered", minigame_type)
-		Events.emit_signal("block_player_movement")
+		Events.emit_signal("block_player_input")
 		is_open = true
 		#print("open minigame")
 

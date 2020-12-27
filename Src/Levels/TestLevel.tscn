@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
@@ -14,20 +14,17 @@
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
-[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Objects/tv.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Objects/sofa.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
-[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 4 )
@@ -214,9 +211,11 @@ flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 5 )]
-position = Vector2( 11, 256 )
+position = Vector2( -234, 257 )
 text = "Remember, turn off security system in the shed in the backyard."
 highlight = true
+translationKey = "SECRET_CODE"
+tresorPath = NodePath("../../Tresor")
 
 [node name="ThinArea2" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( -664, 200 )
@@ -255,25 +254,9 @@ __meta__ = {
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -295, 256 )
-canHidePlayer = true
-canBeOpened = true
-
-[node name="Guard" parent="." instance=ExtResource( 22 )]
-position = Vector2( -362.162, 254.294 )
-
-[node name="GuardPathLine" type="Line2D" parent="Guard"]
-points = PoolVector2Array( 12.4353, -6.87619, 31.8808, -6.1691, 71.5075, -5.95908 )
-script = ExtResource( 15 )
 
 [node name="Fridge" parent="." instance=ExtResource( 24 )]
 position = Vector2( 118.538, 238.544 )
-
-[node name="EliteGuard" parent="." instance=ExtResource( 25 )]
-position = Vector2( 133.523, 255.832 )
-
-[node name="PathLine" type="Line2D" parent="EliteGuard"]
-points = PoolVector2Array( -8.22103, -8.6682, -53.6807, -6.70389, -103.35, -6.42328 )
-script = ExtResource( 15 )
 
 [node name="Button" parent="." instance=ExtResource( 26 )]
 position = Vector2( -23.5263, 235.871 )
@@ -294,16 +277,17 @@ tile_data = PoolIntArray( 982970, 20, 0, 982971, 21, 0, 982972, 21, 0, 982973, 2
 [node name="TestPickup" parent="." instance=ExtResource( 27 )]
 position = Vector2( -420, 255 )
 
-[node name="PressureButton" parent="." instance=ExtResource( 28 )]
-position = Vector2( -248, 254 )
-unlocks = [ NodePath("../LevelObjects/Lights/Light2"), NodePath("../DoorWall") ]
-
 [node name="DoorWall" parent="." instance=ExtResource( 8 )]
 position = Vector2( -208.927, 254.744 )
-lockLevel = 4
+lockLevel = 0
 doorType = 0
 save_state = false
 showHintIfLocked = false
 hint = ""
 keyPath = NodePath("")
 sig_to_trig = [  ]
+
+[node name="Tresor" parent="." instance=ExtResource( 29 )]
+position = Vector2( -362, 255 )
+showHintOnSucceed = true
+hint = "Opened the safe"

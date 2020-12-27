@@ -187,6 +187,8 @@ door_name = ""
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 520, 320 )
 keyPadCode = 123
+showHintOnSucceed = true
+hint = "Tutorial mission succeeded"
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 320, 320 )

@@ -6,6 +6,7 @@ export(bool) var highlight = false
 export(Types.NoteType) var type = Types.NoteType.SecretService
 export (String, FILE) var translationCSVPath: String
 export var translationKey: String 
+export var tresorPath: NodePath
 
 var readable = false
 var isReading = false
@@ -19,8 +20,25 @@ func _ready():
 	if translationKey != "":
 		# finds text in the translation
 		text = translation.get_message(translationKey)
+		if translationKey == "SECRET_CODE":
+			# sets tresor code to a repeated two digit number 
+			randomize()
+			# gens a random 2 digit code
+			var code := int(rand_range(10, 99))
+			var stringCode = str(code) + str(code)
+			text += " " + stringCode
+			setTresorCode(int(stringCode))
+
 	updateHighlight()
 	Events.connect("hud_note_exited", self, "_hud_note_exited")
+
+
+func setTresorCode(code: int) -> void:
+	var tresor := get_node_or_null(tresorPath)
+	if tresor:
+		tresor.keyPadCode = code
+		return
+	printerr("Can't find tresor at %s. Reported by  %s" % [tresorPath, name])
 
 
 func updateHighlight():

@@ -15,25 +15,26 @@ const keypadSpawnerScript := preload("res://Src/Minigames/KeypadMinigame/KeypadM
 func getProgessState():
 	return isUsed
 	
+
 func _ready():
 	match minigameType:
 		Types.Minigames.Keypad:
 			$MinigameSpawner.set_script(keypadSpawnerScript)
-			#warning-ignore:return_value_discarded
-			$MinigameSpawner.connect("minigame_succeeded", self, "openTresor")
 			$MinigameSpawner.lock_code = keyPadCode
 		Types.Minigames.Lockpick:
 			$MinigameSpawner.set_script(lockpickSpawnerScript)
-			#warning-ignore:return_value_discarded
-			$MinigameSpawner.connect("minigame_succeeded", self, "openTresor")
-
+		_:
+			printerr("Warning! Tresor only supports the keypad and lockpick minigame atm, defaulting to keypad minigame.")
+			$MinigameSpawner.set_script(keypadSpawnerScript)
+			$MinigameSpawner.lock_code = keyPadCode
+	$MinigameSpawner.connect("minigame_succeeded", self, "openTresor")
+	
 
 func openTresor():
 	$Sprite.frame = 1
 	isUsed = true
 	if Global.gameState.interactionCounters.boss == 0:
 		Events.emit_signal("tutorial_finished")
-		Events.emit_signal("hud_game_hint", "Tutorial mission finished")
 	if showHintOnSucceed:
 		Events.emit_signal("hud_game_hint", hint)
 	if openTarget:
