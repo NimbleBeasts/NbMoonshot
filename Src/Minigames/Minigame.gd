@@ -11,9 +11,11 @@ var is_open: bool = false
 var canCloseMinigame: bool = true
 var canOpenMinigame: bool = true
 var tweenIsInUse: bool = false
+var playerLastGuard
 
 onready var tween: Tween = get_node_or_null("Tween")
 onready var newTween: Tween = Tween.new()
+onready var player: Player = Global.player
 
 
 func _ready() -> void:
@@ -25,14 +27,15 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if owner_obj:
-		if owner_obj.player_entered: # only can interact if player close to owner door
-			if Input.is_action_just_pressed("interact") and not is_open:
-				open()
-			
-			# closes minigame if either close button is pressed OR
-			if Input.is_action_just_pressed("cancel") and canCloseMinigame:
-				close()
+	if owner_obj == null:
+		return
+	if owner_obj.player_entered: # only can interact if player close to owner door
+		if Input.is_action_just_pressed("interact") and not is_open:
+			open()
+		
+		# closes minigame if either close button is pressed OR
+		if Input.is_action_just_pressed("cancel") and canCloseMinigame:
+			close()
 
 
 	
@@ -47,8 +50,10 @@ func open() -> void:
 		#warning-ignore:return_value_discarded
 		newTween.start()
 		tweenIsInUse = true
-		# Emits signal
+		if player.guardPickup.isDraggingGuard and player.guardPickup.guard != null:
+			playerLastGuard = player.guardPickup.guard
 		Events.emit_signal("minigame_entered", minigame_type)
+		Events.emit_signal("drop_guard")
 		Events.emit_signal("block_player_input")
 		is_open = true
 
@@ -69,6 +74,9 @@ func close() -> void:
 		Events.emit_signal("minigame_exited", result)
 		Events.emit_signal("unblock_player_movement")
 		Events.emit_signal("unblock_player_input")
+		if playerLastGuard:
+			player.guardPickup.guard = playerLastGuard
+			player.guardPickup.dragGuard()
 		# emit audio notification loud if fail minigame
 		if result == Types.MinigameResults.Failed:
 			Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, owner_obj.global_position, self)

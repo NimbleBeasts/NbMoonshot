@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
@@ -14,14 +14,17 @@
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
+[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Objects/tv.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Objects/sofa.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=22]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=29]
@@ -291,3 +294,13 @@ sig_to_trig = [  ]
 position = Vector2( -362, 255 )
 showHintOnSucceed = true
 hint = "Opened the safe"
+
+[node name="Guard" parent="." instance=ExtResource( 15 )]
+position = Vector2( -420, 255 )
+
+[node name="GuardPathLine" type="Line2D" parent="Guard"]
+points = PoolVector2Array( 19, -8, 34, -8, 47, -8 )
+script = ExtResource( 22 )
+
+[node name="PressureButton" parent="." instance=ExtResource( 25 )]
+position = Vector2( -259, 254 )

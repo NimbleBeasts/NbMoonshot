@@ -85,6 +85,7 @@ func stateAngryEnter() -> void:
 	Global.startTimerOnce($DetectionDelay)
 	flipTowards(player.global_position)
 	animPlayer.play("grr")
+	animPlayer.stop
 
 
 func stateMovingToSnackEnter() -> void:

@@ -1,7 +1,7 @@
 extends Area2D
 
 export (Array, NodePath) var unlocks: Array
-export var offset: float = 6
+var offset: float = 6
 var pressureObjects = []
 
 
@@ -16,7 +16,7 @@ func onAreaEntered(area: Area2D) -> void:
 	if pressureObjects == []:
 		# turned on
 		pressureObjects.append(area.mainNode)
-		area.mainNode.sprite.global_position.y -= 4
+		area.mainNode.sprite.global_position.y -= offset
 
 		press()
 
@@ -25,7 +25,7 @@ func onAreaExited(area: Area2D) -> void:
 	if pressureObjects.has(area.mainNode):
 		# turned off
 		pressureObjects.erase(area.mainNode)
-		area.mainNode.sprite.global_position.y += 4
+		area.mainNode.sprite.global_position.y += offset
 		if pressureObjects == []:
 			press()
 

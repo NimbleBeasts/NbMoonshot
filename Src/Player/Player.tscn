@@ -564,8 +564,8 @@ wait_time = 0.25
 [node name="GuardPickup" type="Area2D" parent="."]
 collision_mask = 32
 script = ExtResource( 4 )
-rightOffset = Vector2( 22, -2 )
-leftOffset = Vector2( -22, -2 )
+playerPath = NodePath("..")
+carryPositionPath = NodePath("../Flippable/CarryPosition")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuardPickup"]
 position = Vector2( 1.05208, -13.9461 )

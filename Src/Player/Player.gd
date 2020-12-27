@@ -28,6 +28,7 @@ var acceleration: int = normal_acceleration
 var block_input: bool = false
 var movementBlocked = false
 var blockEntireInput = false
+var guardToPickup
 
 #  Use Types.LightLevels enum for both of these. Light level is in which light the player is in
 # and visible_level is actual visibility of player to guards and camera with wall dodging and other benefits
@@ -54,6 +55,7 @@ onready var guardPickup: Area2D = $GuardPickup
 onready var weaponHandler: Node2D = $WeaponHandler
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 onready var itemPickup = $ItemPickup
+
 
 func _init() -> void:
 	Global.player = self
@@ -86,6 +88,7 @@ func _ready() -> void:
 	$PlayerArea.connect("area_entered", $ItemPickup, "onPlayerAreaEntered")
 	$PlayerArea.connect("area_exited", $ItemPickup, "onPlayerAreaExited")
 	$AnimationPlayer.connect("animation_finished", $ItemPickup, "onAnimationFinished")
+	$AnimationPlayer.connect("animation_finished", guardPickup, "onAnimationFinished")
 
 	# Initial set taser level
 	Events.emit_signal("taser_fired", stun_battery_level)
@@ -230,10 +233,14 @@ func _on_minigame_entered(_type: int) -> void:
 func _on_hud_note_exited(_d) -> void:
 	movementBlocked = false
 
-
 func _on_hud_note_showed(_d, _type: int, _text: String) -> void:
 	movementBlocked = true
 	set_state(Types.PlayerStates.Normal)
+	if guardPickup.isDraggingGuard:
+		guardPickup.stopDragging()
+	if itemPickup.currentPickup != null:
+		itemPickup.dropCurrentItem()
+
 
 func onBlockPlayerMovement() -> void:
 	movementBlocked = true
@@ -249,6 +256,7 @@ func onBlockPlayerInput() -> void:
 func onUnblockPlayerInput() -> void:
 	blockEntireInput = false
 	
+
 # use this function to set light_level instead of directly changing it
 func set_light_level(value: int) -> void:
 	if light_level != value:
@@ -292,13 +300,11 @@ func set_state(value: int) -> void:
 				speed = duckSpeed
 				acceleration = duckAcceleration
 			Types.PlayerStates.DraggingGuard:
-				$ItemPickup.dropCurrentItem()
 				sprite.show()
 				enableNormalColliders()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 			Types.PlayerStates.DraggingItem:
-				guardPickup.stopDragging()
 				sprite.show()
 				enableNormalColliders()
 				speed = duckSpeed

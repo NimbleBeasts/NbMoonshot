@@ -21,14 +21,12 @@ func _process(delta: float) -> void:
 	if currentPickup != null:
 		currentPickup.global_position = carryPosition.global_position
 		if processAnims:
-			if int(player.velocity.x) != 0:
-				Events.emit_signal("change_player_animation", "carryWalk")
-			else:
-				Events.emit_signal("change_player_animation", "carryIdle")
-		
+			var correctAnim = "carryIdle" if int(player.velocity.x) == 0 else "carryWalk"
+			Events.emit_signal("change_player_animation", correctAnim)
+
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("interact") and not player.guardPickup.isDraggingGuard:
 		if currentPickup == null:
 			# Picking up
 			pickupItem(possiblePickup)
@@ -66,6 +64,9 @@ func pickupItem(item: Pickupable) -> void:
 
 
 func onAnimationFinished(animName: String) -> void:
+	# making sure animation finished is from this 
+	if currentPickup == null:
+		return
 	if animName == "laydown":
 		currentPickup.global_position = carryPosition.global_position
 		Events.emit_signal("unblock_player_input")
