@@ -184,3 +184,7 @@ func _on_ButtonShader_button_up():
 	playClick()
 	Events.emit_signal("switch_shader", !Global.userConfig.shader)
 	updateSettings()
+
+
+func _on_SteamTest_button_up():
+	SteamWorks.setAchievement(Types.Achievement.Test)

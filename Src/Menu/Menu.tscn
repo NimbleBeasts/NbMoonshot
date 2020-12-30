@@ -413,6 +413,13 @@ custom_fonts/normal_font = ExtResource( 7 )
 bbcode_enabled = true
 bbcode_text = "[right]Version[/right]"
 text = "Version"
+
+[node name="SteamTest" type="Button" parent="."]
+margin_left = 496.0
+margin_top = 44.0
+margin_right = 632.0
+margin_bottom = 64.0
+text = "GetAchievement"
 [connection signal="button_up" from="Main/LevelSelect/DebugButton" to="." method="_on_DebugButton_button_up"]
 [connection signal="button_up" from="Main/ButtonPlay" to="." method="_on_ButtonPlay_button_up"]
 [connection signal="button_up" from="Main/ButtonLoad" to="." method="_on_ButtonLoad_button_up"]
@@ -430,3 +437,4 @@ text = "Version"
 [connection signal="button_up" from="LoadGame/ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="button_up" from="Credits/ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="meta_clicked" from="Copyright" to="." method="_on_Copyright_meta_clicked"]
+[connection signal="button_up" from="SteamTest" to="." method="_on_SteamTest_button_up"]

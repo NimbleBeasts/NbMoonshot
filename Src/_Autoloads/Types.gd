@@ -3,6 +3,10 @@ extends Node
 enum Direction { Top, Right, Down, Left }
 enum GameStates {Menu, Game, Settings} 
 
+# Steam
+enum Achievement {Test = 0}
+var AchievementStrings = ["ACH_BETA_TEST"]
+
 # HUD
 enum HudNotificationType {BuyZone, SaveZone, OpenDoor, Interact}
 
