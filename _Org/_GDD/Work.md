@@ -7,23 +7,10 @@ Pick your task, enter your name and move it to "In progress". In this file you f
 
 # Active Work Tasks
 
-## WP-6 Guard
+## WP-10 Civilians
 
-- Check and implement whats not in
-
-## WP-7 Elite Guard
-
-- Implement Elite Guard as described
-
-## WP-2 Stone & Meat Throw
-
-- Implement stone throw meachnism
-- Implement drawing predicted flying curve (guess line2d)
-- Hitting the floor will result in a "sound" which shall distract the guards
-- Guard distraction shall be adapted if not working correctly
-- Dogs are unaffected by stones, but react to meat
-
-Requires: WP-1, WP-5, WP-6
+- Implement according to GDD
+- Have 4 dummy animations: idle, walk, kneeDown, knee_idle
 
 ## WP-8 Multi Language Support
 
@@ -81,3 +68,21 @@ Requires: WP-1
 ## WP-5 Dog
 
 - Implement Dog as described
+
+## WP-6 Guard
+
+- Check and implement whats not in
+
+## WP-7 Elite Guard
+
+- Implement Elite Guard as described
+
+## WP-2 Stone & Meat Throw
+
+- Implement stone throw meachnism
+- Implement drawing predicted flying curve (guess line2d)
+- Hitting the floor will result in a "sound" which shall distract the guards
+- Guard distraction shall be adapted if not working correctly
+- Dogs are unaffected by stones, but react to meat
+
+Requires: WP-1, WP-5, WP-6

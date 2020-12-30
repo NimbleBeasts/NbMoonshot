@@ -339,6 +339,11 @@ Buttons can unlock mechanical doors or turn lights on/off.
 
 Like normal buttons but it turns off when no pressure is on the button. Could be any carry-able object or even a stunned body.
 
+## Civilians WP-10
+
+Civilians dont have an direct impact on the gameplay. They can either follow a path (if attached) or idle (if no path attached). Civilians have multiple type of skins (e.g. scientist, normal guy, normal girl, betrayer). The skin is selected via an exported enum variable "skin". All civilians are stun-able and can be carried. They dont react to stones or meat. The betrayer can be mission objective. Civilians stop on path points for a few msec before continue the path. Guess this could be sourced out as shared between most npcs.
+Civilians shall have a exported bool isHostileArea. If isHostileArea is true and the player walks in the FOV, the civilian get on his knees and hide. He will remain in that state forever. If a guard detects the kneeing civilian, the guard will ring the alarm. If isHostileArea the civilian does not react to the player, FOV can be removed.
+
 ## Minigames
 
 ### Wirecut
