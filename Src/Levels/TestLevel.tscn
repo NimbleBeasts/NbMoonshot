@@ -276,17 +276,18 @@ sig_to_trig = [  ]
 
 [node name="Civillian" parent="." instance=ExtResource( 5 )]
 position = Vector2( -408, 256 )
+isHostileArea = true
 
 [node name="PathLine" type="Line2D" parent="Civillian"]
-points = PoolVector2Array( 8, -16, 32, -16, 64, -16 )
+points = PoolVector2Array( 8, -16, 42, -16, 84, -16 )
 script = ExtResource( 15 )
 
 [node name="Guard" parent="." instance=ExtResource( 22 )]
-position = Vector2( -320, 256 )
+position = Vector2( -350, 256 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
-position = Vector2( -96, 104 )
-points = PoolVector2Array( 112, -120, 144, -120, 176, -120 )
+position = Vector2( 0, -10 )
+points = PoolVector2Array( 0, 0, 50, 0, 100, 0, 0, 0 )
 script = ExtResource( 15 )
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]

@@ -12,10 +12,17 @@ var beingDragged: bool
 var state: int
 
 onready var pathLine: PathLine = get_node_or_null("PathLine")
+onready var fovArea: Area2D = $Flippable/FOV
 
+func _ready() -> void:
+	fovArea.connect("body_entered", self, "onFOVBodyEntered")
+	if not isHostileArea:
+		fovArea.queue_free()
 
+	
 func _physics_process(delta: float) -> void:
 	velocity = direction * speed
+	updateFlip()
 	velocity = move_and_slide(velocity)
 
 	
@@ -28,11 +35,30 @@ func setState(newState: int) -> void:
 			if pathLine != null:
 				pathLine.stopAllMovement()
 			isStunned = true
-			
+			fovArea.set_deferred("monitoring", false)
+		Types.CivilianStates.Kneeling:
+			print("kneeling state")
+			if pathLine != null:
+				pathLine.stopAllMovement()
+
+
+func updateFlip() -> void:
+	if direction.x != 0:
+		$Flippable.scale.x = direction.x
+
 
 func stun(_d) -> void:
 	setState(Types.CivilianStates.Stunned)
+
 	
+func onFOVBodyEntered(body: Node) -> void:
+	if body.is_in_group("Player"):
+		setState(Types.CivilianStates.Kneeling)
+
+
+# for the pickup script, since it's for both guards and civilians and they don't have the same variables,
+# i used functions that returned correct value instead
+# this causes 1 liner functions but oh well
 func canDrag() -> bool:
 	return state == Types.CivilianStates.Stunned
 
@@ -45,5 +71,6 @@ func drag() -> void:
 func stopBeingDragged() -> void:
 	state = Types.CivilianStates.Stunned
 
+# level objective support
 func getProgessState() -> bool:
 	return isBeingDragged()

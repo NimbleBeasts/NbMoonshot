@@ -13,7 +13,6 @@ export var extended_time_to_alarm: float = 3.5
 export var playerSuspectDistance: int = 30
 export var playerDetectDistance: int = 16
 
-
 var velocity: Vector2
 var direction: Vector2
 var state: int = Types.GuardStates.Wander # Types.GuardStates
@@ -63,6 +62,7 @@ func _ready() -> void:
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
 	$Flippable/GuardArea.connect("body_entered", self, "onGuardBodyEntered")
+	$Flippable/LineOfSight.connect("body_entered", $CivilianDetect, "onGuardLOSBodyEntered")
 	#warning-ignore:return_value_discarded
 
 
@@ -87,17 +87,17 @@ func _process(_delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if player_in_los:
-		if losRayIsCollidingWithPlayer(): # ray checking
+		if losRayIsCollidingWith(player): # ray checking
 			playerDetectLOS()
 
-
-func losRayIsCollidingWithPlayer() -> bool:
-	return losRay.is_colliding() and losRay.get_collider().is_in_group("Player")
+			
+func losRayIsCollidingWith(obj: Node) -> bool:
+	return losRay.is_colliding() and losRay.get_collider() == obj
 
 
 func detectPlayerIfClose() -> void:
 	if player.global_position.distance_to(global_position) < playerSuspectDistance and state != Types.GuardStates.Stunned:
-		if player.state != Types.PlayerStates.WallDodge and losRayIsCollidingWithPlayer() and not player_detected:
+		if player.state != Types.PlayerStates.WallDodge and losRayIsCollidingWith(player) and not player_detected:
 				guardPathLine.moveToPoint(player.global_position)
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
@@ -174,8 +174,8 @@ func _on_SureDetectionTimer_timeout() -> void:
 	set_physics_process(false)
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 	Events.emit_signal("play_sound", "alarm")
-
 	
+
 func _on_StunDurationTimer_timeout() -> void:
 	unstun()
 

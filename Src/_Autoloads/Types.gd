@@ -26,7 +26,7 @@ enum GuardStates {Wander, Suspect, PlayerDetected, Stunned, BeingDragged}
 enum EliteGuardStates {Roaming, MovingToPlayer, Suspicious, TaseringPlayer}
 
 # Civilians
-enum CivilianStates {Normal, Stunned, BeingDragged}
+enum CivilianStates {Normal, Stunned, BeingDragged, Kneeling}
 
 # Objects
 enum CameraStates {Normal, Suspect, PlayerDetected, Rotating, Frozen}

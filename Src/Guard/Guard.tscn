@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Guards/Guard.png" type="Texture" id=1]
 [ext_resource path="res://Src/Guard/Guard.gd" type="Script" id=2]
 [ext_resource path="res://Src/Notifier/Notifier.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Button/PressureArea.gd" type="Script" id=4]
+[ext_resource path="res://Src/Guard/GuardCivilianDetect.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -149,7 +150,7 @@ frame = 18
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
 position = Vector2( 11.0983, -22.2613 )
 collision_layer = 33
-collision_mask = 33
+collision_mask = 1057
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
 position = Vector2( 6.30397, 24.2768 )
@@ -182,6 +183,10 @@ anims/walk = SubResource( 8 )
 
 [node name="Notifier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
+
+[node name="CivilianDetect" type="Node" parent="."]
+script = ExtResource( 5 )
+guardPath = NodePath("..")
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]
 [connection signal="body_entered" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_body_entered"]
