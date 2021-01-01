@@ -12,6 +12,7 @@ onready var carryPosition: Position2D = get_node(carryPositionPath)
 
 func _ready() -> void:
 	set_process(false)
+	set_process_unhandled_input(false)
 	Events.connect("drop_guard", self, "stopDragging")
 	connect("body_entered", self, "onBodyEntered")
 	connect("body_exited", self, "onBodyExited")
@@ -29,24 +30,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if possibleObject == null:
 		return
 	if event.is_action_pressed("interact"):
-		object = possibleObject
-		if object.isBeingDragged():
+		if isDragging:
 			stopDragging()
 			return
-		if not isDragging and player.itemPickup.currentPickup == null and object.canDrag():
-			dragPossibleObject()
-			
-
-func onBodyEntered(body: Node) -> void:
-	if body.is_in_group("Draggable"):
-		possibleObject = body
-		set_process(true)
-
-
-func onBodyExited(body: Node) -> void:
-	if body == possibleObject:
-		possibleObject = null
-		set_process(false)
+		object = possibleObject
+		if player.itemPickup.currentPickup == null and object.canDrag():
+			dragObject()
 
 
 func stopDragging() -> void:
@@ -58,7 +47,7 @@ func stopDragging() -> void:
 		Events.emit_signal("change_player_animation", "laydown")
 
 
-func dragPossibleObject() -> void:
+func dragObject() -> void:
 	object.drag()
 	player.set_state(Types.PlayerStates.DraggingGuard)
 	isDragging = true
@@ -66,6 +55,7 @@ func dragPossibleObject() -> void:
 	Events.emit_signal("block_player_input")
 	Events.emit_signal("change_player_animation", "pickup")
 	Events.emit_signal("forcefully_close_minigame")
+	set_process(true)
 
 
 func onAnimationFinished(animName: String) -> void:
@@ -80,3 +70,16 @@ func onAnimationFinished(animName: String) -> void:
 		Events.emit_signal("unblock_player_movement")
 		isDragging = false
 		processAnims = false
+		set_process(false)
+
+
+func onBodyEntered(body: Node) -> void:
+	if body.is_in_group("Draggable"):
+		possibleObject = body
+		set_process_unhandled_input(true)
+
+
+func onBodyExited(body: Node) -> void:
+	if body == possibleObject and not isDragging:
+		possibleObject = null
+		set_process_unhandled_input(false)
