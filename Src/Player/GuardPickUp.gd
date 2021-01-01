@@ -34,8 +34,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			stopDragging()
 			return
 		if not isDragging and player.itemPickup.currentPickup == null and object.canDrag():
-			dragGuard()
-	
+			dragPossibleObject()
+			
 
 func onBodyEntered(body: Node) -> void:
 	if body.is_in_group("Draggable"):
@@ -58,7 +58,7 @@ func stopDragging() -> void:
 		Events.emit_signal("change_player_animation", "laydown")
 
 
-func dragGuard() -> void:
+func dragPossibleObject() -> void:
 	object.drag()
 	player.set_state(Types.PlayerStates.DraggingGuard)
 	isDragging = true

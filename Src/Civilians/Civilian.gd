@@ -13,38 +13,44 @@ var state: int
 
 onready var pathLine: PathLine = get_node_or_null("PathLine")
 onready var fovArea: Area2D = $Flippable/FOV
+onready var animPlayer: AnimationPlayer = $AnimationPlayer
+
 
 func _ready() -> void:
 	fovArea.connect("body_entered", self, "onFOVBodyEntered")
 	if not isHostileArea:
 		fovArea.queue_free()
-
-	
+		fovArea = null
+		
+		
 func _physics_process(delta: float) -> void:
 	velocity = direction * speed
-	updateFlip()
+	if direction.x != 0:
+		$Flippable.scale.x = direction.x
+		animPlayer.play("walk")
+	else:
+		animPlayer.play("idle")
 	velocity = move_and_slide(velocity)
 
-	
+
 func setState(newState: int) -> void:
 	if state == newState:
 		return
 	state = newState
 	match state:
 		Types.CivilianStates.Stunned:
+			set_physics_process(false)
+			animPlayer.play("tasered")
 			if pathLine != null:
 				pathLine.stopAllMovement()
 			isStunned = true
-			fovArea.set_deferred("monitoring", false)
+			if fovArea != null:
+				fovArea.set_deferred("monitoring", false)
 		Types.CivilianStates.Kneeling:
-			print("kneeling state")
+			set_physics_process(false)
+			animPlayer.play("kneeling")
 			if pathLine != null:
 				pathLine.stopAllMovement()
-
-
-func updateFlip() -> void:
-	if direction.x != 0:
-		$Flippable.scale.x = direction.x
 
 
 func stun(_d) -> void:
@@ -67,7 +73,7 @@ func isBeingDragged() -> bool:
 
 func drag() -> void:
 	setState(Types.CivilianStates.BeingDragged)
-	
+
 func stopBeingDragged() -> void:
 	state = Types.CivilianStates.Stunned
 

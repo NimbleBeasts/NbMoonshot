@@ -118,7 +118,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		if unhidingGuard:
 			unhidingGuard = false
 			player.guardPickup.object = hiddenGuard
-			player.guardPickup.dragGuard()
+			player.guardPickup.dragPossibleObject()
 			hiddenGuard = null
 			goInCloset = false
 			Events.emit_signal("unblock_player_movement")

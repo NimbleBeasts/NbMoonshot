@@ -109,7 +109,7 @@ tracks/0/keys = {
 ]]
 z_index = 54
 collision_layer = 48
-collision_mask = 16
+collision_mask = 0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true

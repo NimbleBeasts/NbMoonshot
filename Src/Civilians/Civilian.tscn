@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Guards/Guard.png" type="Texture" id=1]
 [ext_resource path="res://Src/Civilians/Civilian.gd" type="Script" id=2]
@@ -8,6 +8,18 @@ extents = Vector2( 27, 14 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 14 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+
+[sub_resource type="Animation" id=5]
+resource_name = "kneeling"
+
+[sub_resource type="Animation" id=4]
+resource_name = "tasered"
+
+[sub_resource type="Animation" id=6]
+resource_name = "walk"
 
 [node name="Civillian" type="KinematicBody2D" groups=[
 "Civilian",
@@ -33,3 +45,10 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -14 )
 shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 3 )
+anims/kneeling = SubResource( 5 )
+anims/tasered = SubResource( 4 )
+anims/walk = SubResource( 6 )
