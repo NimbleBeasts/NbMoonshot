@@ -83,6 +83,7 @@ signal interacted_with_npc(npc)
 signal npc_interaction_stopped(npc)
 signal level_hint(hint)
 
+
 # Sound
 signal play_sound(sound, volume, pos)
 signal play_music(level_type)

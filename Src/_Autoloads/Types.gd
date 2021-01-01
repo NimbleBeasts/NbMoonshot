@@ -21,9 +21,14 @@ enum UpgradeTypes {Taser_Extended_Battery, Taser_Voltage, False_Alarm, Fitness_L
 enum Minigames{Test, Keypad, WireCut, Lockpick, Photo}
 enum MinigameResults{Failed, Succeeded, Doing}
 
-# Objects
+# Guards
 enum GuardStates {Wander, Suspect, PlayerDetected, Stunned, BeingDragged}
 enum EliteGuardStates {Roaming, MovingToPlayer, Suspicious, TaseringPlayer}
+
+# Civilians
+enum CivilianStates {Normal, Stunned, BeingDragged}
+
+# Objects
 enum CameraStates {Normal, Suspect, PlayerDetected, Rotating, Frozen}
 enum WireColors {Red, Purple,Green, Blue}
 enum NotifierTypes{Exclamation, Question}

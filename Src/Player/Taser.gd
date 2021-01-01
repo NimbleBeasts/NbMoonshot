@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 			Events.emit_signal("change_player_animation", "taser")
 			Events.emit_signal("play_sound", "taser_deploy")
 			if stunRay.is_colliding():
-				var hit = stunRay.get_collider()	
+				var hit = stunRay.get_collider()
 				if hit != null and hit.has_method("stun") and not hit.isStunned:
 					hit.stun(player.stun_duration)
 					stunBatteryLevel -= 1

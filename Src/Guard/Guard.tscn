@@ -103,6 +103,7 @@ tracks/0/keys = {
 }
 
 [node name="Guard" type="KinematicBody2D" groups=[
+"Draggable",
 "Guard",
 ]]
 z_index = 54

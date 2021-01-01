@@ -2,12 +2,12 @@ extends Area2D
 
 export var playerPath: NodePath
 export var carryPositionPath: NodePath
-var guard: Guard
-var isDraggingGuard: bool
+var possibleObject
+var object
+var isDragging: bool
 var processAnims: bool
 onready var player: Player = get_node(playerPath)
 onready var carryPosition: Position2D = get_node(carryPositionPath)
-
 
 
 func _ready() -> void:
@@ -18,50 +18,50 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if guard != null and isDraggingGuard:
-		guard.global_position = carryPosition.global_position
+	if object != null and isDragging:
+		object.global_position = carryPosition.global_position
 		if processAnims:
 			var correctAnim: String = "carryIdle" if int(player.velocity.x) == 0 else "carryWalk"
 			Events.emit_signal("change_player_animation", correctAnim)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if guard == null:
+	if possibleObject == null:
 		return
-	if not isDraggingGuard and player.itemPickup.currentPickup == null:
-		if Input.is_action_just_pressed("interact") and guard.state == Types.GuardStates.Stunned and guard.isSleeping:
-			dragGuard()
-			return
-	if guard.state == Types.GuardStates.BeingDragged:
-		if event.is_action_pressed("interact"):
+	if event.is_action_pressed("interact"):
+		object = possibleObject
+		if object.isBeingDragged():
 			stopDragging()
-
+			return
+		if not isDragging and player.itemPickup.currentPickup == null and object.canDrag():
+			dragGuard()
+	
 
 func onBodyEntered(body: Node) -> void:
-	if body.is_in_group("Guard"):
-		guard = body
+	if body.is_in_group("Draggable"):
+		possibleObject = body
 		set_process(true)
 
 
 func onBodyExited(body: Node) -> void:
-	if body == guard:
-		guard = null
+	if body == possibleObject:
+		possibleObject = null
 		set_process(false)
 
 
 func stopDragging() -> void:
-	if guard != null and isDraggingGuard:
+	if object != null and isDragging:
 		processAnims = false
-		guard.state = Types.GuardStates.Stunned
+		object.stopBeingDragged()
 		player.set_state(Types.PlayerStates.Normal)
 		Events.emit_signal("block_player_input")
 		Events.emit_signal("change_player_animation", "laydown")
 
 
 func dragGuard() -> void:
-	guard.set_state(Types.GuardStates.BeingDragged)
+	object.drag()
 	player.set_state(Types.PlayerStates.DraggingGuard)
-	isDraggingGuard = true
+	isDragging = true
 	processAnims = false
 	Events.emit_signal("block_player_input")
 	Events.emit_signal("change_player_animation", "pickup")
@@ -69,7 +69,7 @@ func dragGuard() -> void:
 
 
 func onAnimationFinished(animName: String) -> void:
-	if not isDraggingGuard:
+	if not isDragging:
 		return
 	if animName == "pickup":
 		Events.emit_signal("unblock_player_input")
@@ -78,5 +78,5 @@ func onAnimationFinished(animName: String) -> void:
 	elif animName == "laydown":
 		Events.emit_signal("unblock_player_input")
 		Events.emit_signal("unblock_player_movement")
-		isDraggingGuard = false
+		isDragging = false
 		processAnims = false

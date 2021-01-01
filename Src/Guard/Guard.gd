@@ -293,5 +293,15 @@ func onGuardBodyEntered(body: Node) -> void:
 		if door.lockLevel == door.DoorLockType.open:
 			door.interact(true, global_position)
 
-func pickedUp() -> bool:
+
+func canDrag() -> bool:
+	return state == Types.GuardStates.Stunned and isSleeping
+
+func isBeingDragged() -> bool:
 	return state == Types.GuardStates.BeingDragged
+
+func drag() -> void:
+	set_state(Types.GuardStates.BeingDragged)
+
+func stopBeingDragged() -> void:
+	state = Types.GuardStates.Stunned

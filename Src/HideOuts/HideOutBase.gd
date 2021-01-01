@@ -51,7 +51,7 @@ func _input(event: InputEvent) -> void:
 		$Sprite.z_index = player.z_index - 1
 		return
 
-	if player.guardPickup.isDraggingGuard:
+	if player.guardPickup.isDragging:
 		if not isOpen:
 			playerLastPickup = null
 			openCloset()
@@ -69,8 +69,8 @@ func hideGuard() -> void:
 	playerLastPickup = null
 	$Sprite.z_index = player.z_index - 1
 	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
-	guard = player.guardPickup.guard
-	player.guardPickup.guard = null
+	guard = player.guardPickup.object
+	player.guardPickup.object = null
 	if guard == null:
 		return
 	guard.global_position = getPoint()
@@ -117,7 +117,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "open":
 		if unhidingGuard:
 			unhidingGuard = false
-			player.guardPickup.guard = hiddenGuard
+			player.guardPickup.object = hiddenGuard
 			player.guardPickup.dragGuard()
 			hiddenGuard = null
 			goInCloset = false

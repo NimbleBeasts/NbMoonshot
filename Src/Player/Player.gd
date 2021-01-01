@@ -166,7 +166,7 @@ func movementInput() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	movementInput()
+	movementInput()	
 	velocity = velocity.move_toward(direction * speed, acceleration * delta)
 	velocity = move_and_slide(velocity)
 	
@@ -231,15 +231,13 @@ func _on_minigame_entered(_type: int) -> void:
 
 
 func _on_hud_note_exited(_d) -> void:
+	blockEntireInput = false
 	movementBlocked = false
 
 func _on_hud_note_showed(_d, _type: int, _text: String) -> void:
+	blockEntireInput = true
 	movementBlocked = true
 	set_state(Types.PlayerStates.Normal)
-	if guardPickup.isDraggingGuard:
-		guardPickup.stopDragging()
-	if itemPickup.currentPickup != null:
-		itemPickup.dropCurrentItem()
 
 
 func onBlockPlayerMovement() -> void:
@@ -279,8 +277,8 @@ func set_state(value: int) -> void:
 				changeColliderState(true)
 				$ItemPickup.dropCurrentItem()
 				sprite.show()
-				if guardPickup.isDraggingGuard:
-					guardPickup.stopDragging()
+				guardPickup.stopDragging()
+				itemPickup.dropCurrentItem()
 				speed = normal_speed
 				acceleration = normal_acceleration
 				$AnimationPlayer.play("idle")
@@ -290,6 +288,7 @@ func set_state(value: int) -> void:
 			Types.PlayerStates.Duck:
 				sprite.show()
 				$GuardPickup.stopDragging()
+				itemPickup.dropCurrentItem()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 				enableDuckColliders()
@@ -297,6 +296,7 @@ func set_state(value: int) -> void:
 				sprite.show()
 				enableNormalColliders()
 				$GuardPickup.stopDragging()
+				itemPickup.dropCurrentItem()
 				speed = duckSpeed
 				acceleration = duckAcceleration
 			Types.PlayerStates.DraggingGuard:
@@ -314,7 +314,6 @@ func set_state(value: int) -> void:
 				changeColliderState(false)
 				movementBlocked = true
 				blockEntireInput = true
-
 
 # Change animation
 func animation_change(to: String) -> void:

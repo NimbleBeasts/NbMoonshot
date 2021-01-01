@@ -50,7 +50,7 @@ func open() -> void:
 		#warning-ignore:return_value_discarded
 		newTween.start()
 		tweenIsInUse = true
-		if player.guardPickup.isDraggingGuard and player.guardPickup.guard != null:
+		if player.guardPickup.isDragging and player.guardPickup.guard != null:
 			playerLastGuard = player.guardPickup.guard
 		Events.emit_signal("minigame_entered", minigame_type)
 		Events.emit_signal("drop_guard")

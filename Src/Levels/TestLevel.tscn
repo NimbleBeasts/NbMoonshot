@@ -1,10 +1,10 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=8]
@@ -14,20 +14,17 @@
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
-[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Objects/tv.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Objects/sofa.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
-[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=22]
+[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=29]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 4 )
@@ -213,13 +210,6 @@ isFlickering = false
 flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
 
-[node name="Note" parent="LevelObjects" instance=ExtResource( 5 )]
-position = Vector2( -234, 257 )
-text = "Remember, turn off security system in the shed in the backyard."
-highlight = true
-translationKey = "SECRET_CODE"
-tresorPath = NodePath("../../Tresor")
-
 [node name="ThinArea2" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( -664, 200 )
 isLadder = true
@@ -255,9 +245,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Closet" parent="." instance=ExtResource( 23 )]
-position = Vector2( -295, 256 )
-
 [node name="Fridge" parent="." instance=ExtResource( 24 )]
 position = Vector2( 118.538, 238.544 )
 
@@ -277,9 +264,6 @@ occluder_light_mask = 3
 format = 1
 tile_data = PoolIntArray( 982970, 20, 0, 982971, 21, 0, 982972, 21, 0, 982973, 21, 0, 982974, 21, 0, 982975, 21, 0, 982976, 22, 0, 1114041, 26, 0, 1114049, 26, 0, 1179577, 25, 0, 1179585, 25, 0, 1245113, 25, 0, 1245121, 25, 0, 1310649, 25, 0, 1310657, 25, 0, 1376185, 25, 0, 1376193, 25, 0, 1441721, 25, 0, 1441729, 25, 0, 1507257, 25, 0, 1507258, 20, 0, 1507259, 21, 0, 1507260, 21, 0, 1507261, 21, 0, 1507262, 21, 0, 1507263, 21, 0, 1507264, 22, 0, 1507265, 25, 0, 1507266, 20, 0, 1507267, 21, 0, 1507268, 21, 0, 1507269, 21, 0, 1507270, 21, 0, 1507271, 21, 0, 1507272, 22, 0, 1572793, 24, 0, 1572801, 24, 0, 1638329, 26, 0, 1638337, 26, 0, 1638345, 26, 0, 1703865, 25, 0, 1703873, 25, 0, 1703881, 25, 0, 1769401, 25, 0, 1769409, 25, 0, 1769417, 25, 0, 1834937, 25, 0, 1834945, 25, 0, 1834953, 25, 0, 1900473, 25, 0, 1900481, 25, 0, 1900489, 25, 0, 1966009, 25, 0, 1966017, 25, 0, 1966025, 25, 0, 2031545, 25, 0, 2031553, 25, 0, 2031561, 25, 0, 2097081, 24, 0, 2097089, 24, 0, 2097097, 24, 0 )
 
-[node name="TestPickup" parent="." instance=ExtResource( 27 )]
-position = Vector2( -420, 255 )
-
 [node name="DoorWall" parent="." instance=ExtResource( 8 )]
 position = Vector2( -208.927, 254.744 )
 lockLevel = 0
@@ -290,17 +274,20 @@ hint = ""
 keyPath = NodePath("")
 sig_to_trig = [  ]
 
-[node name="Tresor" parent="." instance=ExtResource( 29 )]
-position = Vector2( -362, 255 )
-showHintOnSucceed = true
-hint = "Opened the safe"
+[node name="Civillian" parent="." instance=ExtResource( 5 )]
+position = Vector2( -408, 256 )
 
-[node name="Guard" parent="." instance=ExtResource( 15 )]
-position = Vector2( -420, 255 )
+[node name="PathLine" type="Line2D" parent="Civillian"]
+points = PoolVector2Array( 8, -16, 32, -16, 64, -16 )
+script = ExtResource( 15 )
+
+[node name="Guard" parent="." instance=ExtResource( 22 )]
+position = Vector2( -320, 256 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
-points = PoolVector2Array( 19, -8, 34, -8, 47, -8 )
-script = ExtResource( 22 )
+position = Vector2( -96, 104 )
+points = PoolVector2Array( 112, -120, 144, -120, 176, -120 )
+script = ExtResource( 15 )
 
-[node name="PressureButton" parent="." instance=ExtResource( 25 )]
-position = Vector2( -259, 254 )
+[node name="Closet" parent="." instance=ExtResource( 23 )]
+position = Vector2( -272, 256 )
