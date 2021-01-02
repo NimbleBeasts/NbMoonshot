@@ -8,6 +8,7 @@ var minigame
 onready var wordContainer = $Word
 onready var codeContainer = $Code
 
+
 func _ready() -> void:
 	wordContainer.word = word
 	wordContainer.minigame = minigame

@@ -9,7 +9,7 @@ var unit
 
 func initWord() -> void:
 	columns = word.length()
-	for i in word.length():
+	for i in range(word.length()):
 		var letter = word[i]
 		var character = characterScene.instance()
 		add_child(character, true)
