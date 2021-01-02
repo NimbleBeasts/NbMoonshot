@@ -12,11 +12,10 @@ extents = Vector2( 8, 14 )
 [sub_resource type="Animation" id=3]
 resource_name = "idle"
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "kneeling"
 
-[sub_resource type="Animation" id=4]
-resource_name = "tasered"
+[sub_resource type="Animation" id=5]
 
 [sub_resource type="Animation" id=6]
 resource_name = "walk"
@@ -49,6 +48,6 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/idle = SubResource( 3 )
-anims/kneeling = SubResource( 5 )
-anims/tasered = SubResource( 4 )
+anims/kneeling = SubResource( 4 )
+anims/tasered = SubResource( 5 )
 anims/walk = SubResource( 6 )

@@ -255,9 +255,6 @@ flickerSequence = "11111111010100000000010"
 [node name="CollisionPolygon2D2" parent="LevelObjects/Lights/Light6/BarelyVisible" index="1"]
 polygon = PoolVector2Array( -101.161, 2.53969, -80.564, 58.9582, -64.8884, 58.7598 )
 
-[node name="Light2D" parent="LevelObjects/Lights/Light6" index="3"]
-visible = false
-
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 904, 200 )
 flicker = false

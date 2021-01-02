@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Src/Minigames/CryptogramMinigame/CryptogramMinigame.gd" type="Script" id=2]
+
+[node name="CryptogramMinigame" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_left = 104.0
+margin_top = 64.0
+margin_right = 520.0
+margin_bottom = 296.0
+columns = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}

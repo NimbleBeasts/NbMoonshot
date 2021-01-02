@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Src/Minigames/CryptogramMinigame/Word.gd" type="Script" id=1]
+[ext_resource path="res://Src/Minigames/CryptogramMinigame/Unit.gd" type="Script" id=2]
+
+[node name="Unit0" type="Control"]
+margin_right = 64.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 64, 32 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Word" type="GridContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 40, 16 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Code" type="GridContainer" parent="."]
+margin_top = 16.0
+margin_right = 40.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 40, 16 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

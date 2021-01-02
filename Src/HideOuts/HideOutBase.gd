@@ -46,7 +46,6 @@ func _input(event: InputEvent) -> void:
 	if hiddenGuard != null:
 		unhidingGuard = true
 		animPlayer.play("open")
-		hiddenGuard.show()
 		Events.emit_signal("block_player_movement")
 		$Sprite.z_index = player.z_index - 1
 		return
@@ -119,6 +118,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			unhidingGuard = false
 			player.guardPickup.object = hiddenGuard
 			player.guardPickup.dragObject()
+			hiddenGuard.show()
 			hiddenGuard = null
 			goInCloset = false
 			Events.emit_signal("unblock_player_movement")

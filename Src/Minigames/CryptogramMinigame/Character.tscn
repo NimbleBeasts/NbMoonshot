@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Src/Minigames/CryptogramMinigame/Character.gd" type="Script" id=2]
+
+[node name="Character0" type="Label"]
+margin_right = 8.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 8, 14 )
+custom_fonts/font = ExtResource( 1 )
+text = "P"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
