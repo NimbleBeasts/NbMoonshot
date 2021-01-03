@@ -6,6 +6,8 @@ var characterScene: PackedScene = preload("res://Src/Minigames/CryptogramMinigam
 var processVisibilites: bool = true
 var minigame
 var unit
+var codeContainer
+
 
 func initWord() -> void:
 	columns = word.length()
@@ -14,6 +16,8 @@ func initWord() -> void:
 		var character = characterScene.instance()
 		add_child(character, true)
 		character.text = letter
+		if codeContainer != null:
+			character.keyLabel = codeContainer.get_child(i)
 		character.unit = unit
 		if processVisibilites and bool(int(visibilities[i])) == false:
 			character.setVisibility(false)

@@ -12,7 +12,7 @@ extents = Vector2( 4, 17.7818 )
 [node name="CryptogramMinigame" type="Node2D"]
 script = ExtResource( 2 )
 minigame_type = 5
-sentenceDeciphered = "POOP JACK"
+sentenceDeciphered = "POOP JACO"
 sentenceCipher = "KFFK JPQF"
 wordVisibilty = "1001 1010"
 

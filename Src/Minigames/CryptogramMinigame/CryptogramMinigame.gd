@@ -19,6 +19,7 @@ onready var enterPosition: Position2D = $EnterPosition
 onready var enterPositionLabel: Label = $EnterPosition/Label
 onready var gridContainer: GridContainer = $GridContainer
 
+
 func _ready() -> void:
 	# converts the sentences (deciphered and ciphered) into arrays
 	var decipheredWords = sentenceDeciphered.split(" ")
@@ -48,7 +49,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if selectedCharacterIndex >= invisibleCharacters.size():
+	if invisibleCharacters.empty():
 		return
 	if event is InputEventKey and event.is_pressed():
 		var rotate = event.get_action_strength("move_right") - event.get_action_strength("move_left")
@@ -58,21 +59,28 @@ func _input(event: InputEvent) -> void:
 				# gets selected character and sets its text
 				var character = getSelectedCharacter()
 				character.text = enterPositionLabel.text
-				character.setVisibility(true)
-				invisibleCharacters.erase(character)
 				# gets the letter that the player was supposed to write. word is a string
 				var targetLetter = character.unit.word[character.get_index()]
-				# checks if player gave correct character and sets color accordingly
-				if character.text == targetLetter:
-					character.setColor(Color.green)
-					return
-				character.setColor(Color.red)
+				# checks if the inputted letter is correct and assigns a color
+				var correctColor = Color.green if character.text == targetLetter else Color.red
+				for bruh in getAllCharactersThatAre(character.text):
+						bruh.text = character.text
+						bruh.setVisibility(true)
+						bruh.setColor(correctColor)
+						invisibleCharacters.erase(bruh)
 
 
 func getSelectedCharacter():
-	return invisibleCharacters[selectedCharacterIndex]
+	return invisibleCharacters[0]
 
 
 func onLetterAreaEntered(area: Area2D, emitter: Label) -> void:
 	if area == enterPosition:
 		enterPositionLabel.text = emitter.text
+
+# function returns all characters from all units that are of text "letter"
+func getAllCharactersThatAre(letter: String) -> Array:
+	var result: Array
+	for unit in gridContainer.get_children():
+		result += unit.getDecipheredCharactersOf(letter)
+	return result
