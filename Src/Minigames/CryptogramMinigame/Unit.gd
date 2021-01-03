@@ -16,6 +16,14 @@ func _ready() -> void:
 	wordContainer.unit = self
 	codeContainer.unit = self
 	codeContainer.word = code
-	codeContainer.processVisibilites = false	
+	codeContainer.processVisibilites = false
 	wordContainer.initWord()
 	codeContainer.initWord()
+
+
+func getCharactersOfLetter(letter: String) -> Array:
+		var result := []
+		for character in wordContainer.get_children():
+			if character.text == letter:
+				result.append(character)
+		return result

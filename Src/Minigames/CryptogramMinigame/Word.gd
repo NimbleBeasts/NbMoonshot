@@ -18,5 +18,3 @@ func initWord() -> void:
 		if processVisibilites and bool(int(visibilities[i])) == false:
 			character.setVisibility(false)
 			minigame.invisibleCharacters.append(character)
-
-	

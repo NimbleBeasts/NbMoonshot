@@ -4,22 +4,27 @@ export var sentenceDeciphered: String
 export var sentenceCipher: String
 export var wordVisibilty: String
 
-var dict = {}
+var dict: Dictionary = {}
 
-var visibilities = []
+var visibilities: Array = []
 
-var invisibleCharacters = []
-var selectedCharacterIndex = 0
-var usedCharacters = []
+var invisibleCharacters: Array = []
+var selectedCharacterIndex: int = 0
 
-var unitScene = preload("res://Src/Minigames/CryptogramMinigame/Unit.tscn")
+var unitScene : PackedScene = preload("res://Src/Minigames/CryptogramMinigame/Unit.tscn")
 
+onready var wheelLetters: Node2D = $Wheel/Letters
+onready var wheel: Node2D = $Wheel
+onready var enterPosition: Position2D = $EnterPosition
+onready var enterPositionLabel: Label = $EnterPosition/Label
+onready var gridContainer: GridContainer = $GridContainer
 
 func _ready() -> void:
 	# converts the sentences (deciphered and ciphered) into arrays
 	var decipheredWords = sentenceDeciphered.split(" ")
 	var cipheredWords = sentenceCipher.split(" ")
 	visibilities = wordVisibilty.split(" ")
+
 	# makes a new unit, sets the word and code for every word in the deciphered array
 	for i in range(decipheredWords.size()):
 		var key = decipheredWords[i]
@@ -29,28 +34,45 @@ func _ready() -> void:
 		unit.visibilities = visibilities[i]
 		unit.code = dict[key]
 		unit.minigame = self
-		$GridContainer.add_child(unit, true)
-		
+		gridContainer.add_child(unit, true)
+
+	# initializes cogwheel
+	for i in range(invisibleCharacters.size()):
+			var character = invisibleCharacters[i]
+			if wheelLetters.get_child(i).text != character.text:
+				wheelLetters.get_child(i).text = character.text
+
+	# connects all of the signal + additional [label] to pass in the node that emmitted the signal
+	for label in wheelLetters.get_children():
+			label.get_node("Area2D").connect("area_entered", self, "onLetterAreaEntered", [label])
+
 
 func _input(event: InputEvent) -> void:
 	if selectedCharacterIndex >= invisibleCharacters.size():
 		return
 	if event is InputEventKey and event.is_pressed():
-		# gets the character and sets the text correctly
-		var character = getSelectedCharacter()
-		character.text = OS.get_scancode_string(event.scancode)
-		character.setVisibility(true)
-		selectedCharacterIndex += 1 # goes to next character
-		# appends to an array incase the player wants to undo
-		usedCharacters.append(character)
-		# gets the letter that the player was supposed to write. word is a string
-		var targetLetter = character.unit.word[character.get_index()]
-		# checks if player gave correct character and sets color accordingly
-		if character.text == targetLetter:
-			character.setColor(Color.green)
-			return
-		character.setColor(Color.red)
+		var rotate = event.get_action_strength("move_right") - event.get_action_strength("move_left")
+		wheel.rotation_degrees += rotate * 400 * get_process_delta_time()
+		if event.is_action_pressed("interact"):
+			if enterPositionLabel.text != "":
+				# gets selected character and sets its text
+				var character = getSelectedCharacter()
+				character.text = enterPositionLabel.text
+				character.setVisibility(true)
+				invisibleCharacters.erase(character)
+				# gets the letter that the player was supposed to write. word is a string
+				var targetLetter = character.unit.word[character.get_index()]
+				# checks if player gave correct character and sets color accordingly
+				if character.text == targetLetter:
+					character.setColor(Color.green)
+					return
+				character.setColor(Color.red)
 
 
 func getSelectedCharacter():
 	return invisibleCharacters[selectedCharacterIndex]
+
+
+func onLetterAreaEntered(area: Area2D, emitter: Label) -> void:
+	if area == enterPosition:
+		enterPositionLabel.text = emitter.text
