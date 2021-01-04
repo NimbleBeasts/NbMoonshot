@@ -167,28 +167,6 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Letters/Label5/Area2D"]
 shape = SubResource( 1 )
 
-[node name="Label6" type="Label" parent="Wheel/Letters"]
-margin_left = 34.0
-margin_top = 7.99998
-margin_right = 41.0
-margin_bottom = 22.0
-rect_min_size = Vector2( 7, 14 )
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Area2D" type="Area2D" parent="Wheel/Letters/Label6"]
-position = Vector2( 10.0001, 10.0001 )
-rotation = 1.94979
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Letters/Label6/Area2D"]
-shape = SubResource( 1 )
-
 [node name="Label7" type="Label" parent="Wheel/Letters"]
 margin_left = 36.0
 margin_top = -24.0
@@ -211,8 +189,33 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/Letters/Label7/Area2D"]
 shape = SubResource( 1 )
 
+[node name="LabelRemove" type="Label" parent="Wheel"]
+margin_left = 40.0
+margin_top = 10.0
+margin_right = 47.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 7, 14 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="Wheel/LabelRemove" groups=[
+"LabelRemove",
+]]
+position = Vector2( 10.0001, 10.0001 )
+rotation = 1.94979
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheel/LabelRemove/Area2D"]
+shape = SubResource( 1 )
+
 [node name="EnterPosition" type="Area2D" parent="."]
-position = Vector2( -18, 0 )
+position = Vector2( -10, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnterPosition"]
 shape = SubResource( 2 )
@@ -228,7 +231,3 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 68, 0 )
-current = true

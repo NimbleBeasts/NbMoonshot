@@ -24,4 +24,5 @@ func initWord() -> void:
 			minigame.connect("selected_character_changed", character, "onSelectedCharacterChanged")
 		if processVisibilites and bool(int(visibilities[i])) == false:
 			character.text = "-"
+			minigame.selectableCharacters.append(character)
 			minigame.invisibleCharacters.append(character)

@@ -31,9 +31,9 @@ func getLabelsFromKey(key: String) -> Array:
 		return result
 
 		
-# func getDecipheredCharactersOf(letter: String) -> Array:
-# 	var result := []
-# 	for character in wordContainer.get_children():
-# 		if character.text == letter:
-# 			result.append(character)
-# 	return result
+func getDecipheredCharactersOf(letter: String) -> Array:
+	var result := []
+	for character in wordContainer.get_children():
+		if character.text == letter:
+			result.append(character)
+	return result

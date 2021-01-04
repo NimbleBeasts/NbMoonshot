@@ -12,6 +12,10 @@ func setVisibility(visible: bool) -> void:
 func setColor(color: Color) -> void:
 	set("custom_colors/font_color", color)
 
+	
+func getColor() -> Color:
+	return get("custom_colors/font_color")
+	
 
 func onSelectedCharacterChanged(newCharacter) -> void:
 	if newCharacter == self:
