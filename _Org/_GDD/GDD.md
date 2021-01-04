@@ -51,31 +51,62 @@ Total Missions: 20 linear, 10 sabotages, 1 love
 
 Please note that the level difficulty shall rise.
 
-| #   | Title | Desc                          | Location | Add.              |
-| --- | ----- | ----------------------------- | -------- | ----------------- |
-| 0   |       | HQ Trainingsmission           | Ustria   | HQ Level from Jam |
-| 1   |       | Rocket 1                      | USSR     | L1 from Jam       |
-| 2   |       | Rocket 2                      | USSR     | to be created     |
-| 3   |       | Chimpanzee                    | USA      | to be created     |
-| 4   |       | Affaire                       | Ustria   | L3 from Jam       |
-| 5   |       | Affaire 2                     | Ustria   | to be created     |
-| 6   |       | Rocket 3                      | USSR     | L2 from Jam       |
-| 7   |       | Affaire 3                     | Ustria   | to be created     |
-| 8   |       | Rocket 4                      | USSR     | to be created     |
-| 9   |       |                               | USA      | not yet defined   |
-| 10  |       |                               | USSR     | not yet defined   |
-| 11  |       |                               | USA      | not yet defined   |
-| 12  |       |                               | USA      | not yet defined   |
-| 13  |       |                               | USA      | not yet defined   |
-| 14  |       |                               | USA      | not yet defined   |
-| 15  |       |                               | USSR     | not yet defined   |
-| 16  |       |                               | USSR     | not yet defined   |
-| 17  |       | Apollo 1                      | USA      | L4 from Jam       |
-| 18  |       | Apollo 2                      | USA      | L5 from Jam       |
-| 19  |       | Apollo 3                      | USA      | not yet defined   |
-| 20  |       | Epic Showdown, but no idea :) | Ustria   | not yet defined   |
+| #    | Title | Desc                                    | Location | Goal       | Add.              |
+| ---- | ----- | --------------------------------------- | -------- | ---------- | ----------------- |
+| 0    |       | HQ Trainingsmission                     | Ustria   | Safe       | HQ Level from Jam |
+| 1    |       | Rocket 1                                | USSR     | Safe       | L1 from Jam       |
+| 2    |       | Rocket 2                                | USSR     | Safe       | to be created     |
+| 3    |       | Chimpanzee                              | USA      | Photo      | to be created     |
+| 4    |       | Affaire                                 | Ustria   | Photo      | L3 from Jam       |
+| 5    |       | Affaire 2                               | Ustria   | Kidnapping | to be created     |
+| 6    |       | Rocket 3                                | USSR     | Safe       | L2 from Jam       |
+| 7    |       | Affaire 3                               | Ustria   | Safe       | to be created     |
+| 8    |       | Rocket 4 (Later 1962)                   | USSR     | Blackbox   | to be created     |
+| 9    |       |                                         | USA      |            | not yet defined   |
+| 10   |       | Luna 3 Moon Photos(not actual year1959) | USSR     | Safe       | to be created     |
+| 11   |       | Atlas 9 (1963)                          | USA      | Kidnapping | to be created     |
+| 12   |       |                                         | USA      |            | not yet defined   |
+| 13   |       | Luna 10 - Satelitte (1966)              | USSR     | Safe       | to be created     |
+| 14   |       | Apollo 1 (Jan 67)                       | USA      | Sabotage   | to be created     |
+| 15   |       | Pre-Soyuz                               | USSR     | Kidnapping | to be created     |
+| 16   |       | Soyuz 1 (April 67)                      | USSR     | Sabotage   | to be created     |
+| 17   |       | Apollo 8 (Dec 68)                       | USA      | Blackbox   | to be created     |
+| 18   |       | Apollo 11 1                             | USA      | Safe       | L4 from Jam       |
+| 19   |       | Apollo 11 2                             | USA      | Safe       | L5 from Jam       |
+| 20/1 |       | Pre-Final Level: USA Win                | Ustria   |            | not yet defined   |
+| 20/2 |       | Pre-Final Level: USTRIA Win             | Ustria   |            | not yet defined   |
+| 20/3 |       | Pre-Final Level: RUSSIA Win             | Ustria   |            | not yet defined   |
+| 20/4 |       | Pre-Final Level: Love Win               | Ustria   |            | not yet defined   |
 
 #### Substories
+
+#### Apollo 8
+
+December 1968. Apollo 8 sucessfully orbited the moon, get the blackbox of the capsule. USA Labs
+
+#### Soyuz 1
+
+April 1967. Before USSR can launch the soyuz, destroy one of the solar panel of the command capsule. This mission is on a driving train. (Bg is parallax scrolling).
+
+#### Pre-Soyuz
+
+During 1967. Rumors spread the USSR has also a rocket ready for lunar landing. Kidnap the lead scientiest. USSR/Hotel
+
+##### Apollo 1
+
+Januar 1967. Intel got informations that the USA has a space ship ready for lunar landing. To disrupt the progress, sabotage the command module in the lab before they can launch it. (Resulting in burn out of the command capsule killing all 3 crew members in an planned test flight). USA, factory/lab.
+
+##### Luna 10
+
+1966 USSR place a satellite in moons orbit to gather more informations. You have to look for the results. Safe mission in USSR. Space lab or something.
+
+##### Luna 3
+
+In the 1963, is trying to gather landing informations by stealing pictures made by the Luna 3 moon mission in 1959 ussr. Mission environment is the space flight archive of USSR.
+
+##### Atlas 9
+
+May 1963. Earth Orbiter Mission. Capture the pilot to get more information on his physical behaviour after long time stay in space. (Hospital USA)
 
 ##### Rocket 1
 
