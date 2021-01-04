@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Src/Minigames/CryptogramMinigame/CryptogramMinigameSpawner.gd" type="Script" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -31,6 +32,8 @@ extents = Vector2( 256, 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 256, 4 )
+
+[sub_resource type="RectangleShape2D" id=3]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -280,3 +283,10 @@ position = Vector2( -300, 256 )
 [node name="DogPathLine" type="Line2D" parent="Dog"]
 points = PoolVector2Array( 0, 0, -30, 0, -60, 0 )
 script = ExtResource( 15 )
+
+[node name="CryptoSpawn" type="Area2D" parent="."]
+position = Vector2( -408, 248 )
+script = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CryptoSpawn"]
+shape = SubResource( 3 )

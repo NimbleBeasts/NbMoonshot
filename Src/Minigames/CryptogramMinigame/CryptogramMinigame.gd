@@ -57,9 +57,13 @@ func _ready() -> void:
 		label.get_node("Area2D").connect("area_exited", self, "onLetterAreaExited", [label])
 
 
+func _process(delta: float) -> void:
+	var rotate = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	wheel.rotation_degrees += rotate * 150 * delta
+
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
-		var rotate = event.get_action_strength("move_right") - event.get_action_strength("move_left")
 		var selectionStatus = event.get_action_strength("move_up") - event.get_action_strength("move_down")
 		if selectionStatus != 0:
 			selectedCharacterIndex += selectionStatus
@@ -68,7 +72,6 @@ func _input(event: InputEvent) -> void:
 			elif selectedCharacterIndex <= 0:
 				selectedCharacterIndex = invisibleCharacters.size() - 1
 			emit_signal("selected_character_changed", getSelectedCharacter())
-		wheel.rotation_degrees += rotate * 400 * get_process_delta_time()
 		if event.is_action_pressed("interact"):
 			if enterPositionLabel.text != "":
 				# gets selected character and sets its text
@@ -88,6 +91,10 @@ func _input(event: InputEvent) -> void:
 					bruh.setVisibility(true)
 					bruh.setColor(correctColor)
 					invisibleCharacters.erase(bruh)
+					if invisibleCharacters == []:
+						set_result(Types.MinigameResults.Succeeded)
+						close()
+						return
 					selectedCharacterIndex = 0
 					emit_signal("selected_character_changed", getSelectedCharacter())
 

@@ -9,6 +9,7 @@ var minigame_scene: PackedScene
 var can_make_minigame: bool = true
 var minigame_succeeded: bool = false
 var playerState: int
+var holderNodeInLevel: String = "HUD"
 
 onready var game_manager := get_node("/root/GameManager")
 
