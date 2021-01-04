@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Src/Minigames/CryptogramMinigame/Character.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [node name="Character0" type="Label"]
 margin_right = 8.0
@@ -13,3 +14,10 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 2.27358, 6.76819 )
+scale = Vector2( 0.281354, 0.211374 )
+z_index = -2
+texture = ExtResource( 3 )

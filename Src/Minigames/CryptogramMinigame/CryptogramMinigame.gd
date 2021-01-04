@@ -1,5 +1,7 @@
 extends Minigame
 
+signal selected_character_changed(newCharacter)
+
 export var sentenceDeciphered: String
 export var sentenceCipher: String
 export var wordVisibilty: String
@@ -10,6 +12,7 @@ var visibilities: Array = []
 
 var invisibleCharacters: Array = []
 var selectedCharacterIndex: int = 0
+var cogWheelCharacters: Array = []
 
 var unitScene : PackedScene = preload("res://Src/Minigames/CryptogramMinigame/Unit.tscn")
 
@@ -39,48 +42,80 @@ func _ready() -> void:
 
 	# initializes cogwheel
 	for i in range(invisibleCharacters.size()):
-			var character = invisibleCharacters[i]
-			if wheelLetters.get_child(i).text != character.text:
-				wheelLetters.get_child(i).text = character.text
+		var character = invisibleCharacters[i]
+		if cogWheelCharacters.has(character.correctText):
+			continue
+		cogWheelCharacters.append(character.correctText)
+	updateCogWheelCharacters()
+
+	# so it focuses on the first label
+	emit_signal("selected_character_changed", getSelectedCharacter())
 
 	# connects all of the signal + additional [label] to pass in the node that emmitted the signal
 	for label in wheelLetters.get_children():
-			label.get_node("Area2D").connect("area_entered", self, "onLetterAreaEntered", [label])
+		label.get_node("Area2D").connect("area_entered", self, "onLetterAreaEntered", [label])
+		label.get_node("Area2D").connect("area_exited", self, "onLetterAreaExited", [label])
 
 
 func _input(event: InputEvent) -> void:
-	if invisibleCharacters.empty():
-		return
 	if event is InputEventKey and event.is_pressed():
 		var rotate = event.get_action_strength("move_right") - event.get_action_strength("move_left")
+		var selectionStatus = event.get_action_strength("move_up") - event.get_action_strength("move_down")
+		if selectionStatus != 0:
+			selectedCharacterIndex += selectionStatus
+			if selectedCharacterIndex > invisibleCharacters.size() - 1:
+				selectedCharacterIndex = 0
+			elif selectedCharacterIndex <= 0:
+				selectedCharacterIndex = invisibleCharacters.size() - 1
+			emit_signal("selected_character_changed", getSelectedCharacter())
 		wheel.rotation_degrees += rotate * 400 * get_process_delta_time()
 		if event.is_action_pressed("interact"):
 			if enterPositionLabel.text != "":
 				# gets selected character and sets its text
 				var character = getSelectedCharacter()
 				character.text = enterPositionLabel.text
+				# gets the letter in the cogwheel that has the inputted letter and sets its text to ""
+				var inputtedLetterCogwheel = wheelLetters.get_child(cogWheelCharacters.find(character.text))
+				inputtedLetterCogwheel.visible = false
+				inputtedLetterCogwheel.get_node("Area2D").set_deferred("monitoring", false)
+				enterPositionLabel.text = ""
 				# gets the letter that the player was supposed to write. word is a string
 				var targetLetter = character.unit.word[character.get_index()]
 				# checks if the inputted letter is correct and assigns a color
 				var correctColor = Color.green if character.text == targetLetter else Color.red
-				for bruh in getAllCharactersThatAre(character.text):
-						bruh.text = character.text
-						bruh.setVisibility(true)
-						bruh.setColor(correctColor)
-						invisibleCharacters.erase(bruh)
+				for bruh in getAllCharactersThatHaveKey(character.keyLabel.text):
+					bruh.text = character.text
+					bruh.setVisibility(true)
+					bruh.setColor(correctColor)
+					invisibleCharacters.erase(bruh)
+					selectedCharacterIndex = 0
+					emit_signal("selected_character_changed", getSelectedCharacter())
 
 
 func getSelectedCharacter():
-	return invisibleCharacters[0]
+	return invisibleCharacters[selectedCharacterIndex]
 
 
 func onLetterAreaEntered(area: Area2D, emitter: Label) -> void:
 	if area == enterPosition:
 		enterPositionLabel.text = emitter.text
 
+
+func onLetterAreaExited(area: Area2D, emitter: Label) -> void:
+	if emitter.text ==  enterPositionLabel.text:
+		enterPositionLabel.text = ""
+
+
 # function returns all characters from all units that are of text "letter"
-func getAllCharactersThatAre(letter: String) -> Array:
-	var result: Array
+func getAllCharactersThatHaveKey(letter: String) -> Array:
+	var result: Array = []
 	for unit in gridContainer.get_children():
-		result += unit.getDecipheredCharactersOf(letter)
+		result += unit.getLabelsFromKey(letter)
 	return result
+
+
+func updateCogWheelCharacters() -> void:
+	for i in range(cogWheelCharacters.size()):
+		wheelLetters.get_child(i).text = cogWheelCharacters[i]
+	
+

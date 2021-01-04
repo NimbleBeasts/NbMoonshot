@@ -16,9 +16,12 @@ func initWord() -> void:
 		var character = characterScene.instance()
 		add_child(character, true)
 		character.text = letter
+		character.correctText = letter
 		if codeContainer != null:
 			character.keyLabel = codeContainer.get_child(i)
 		character.unit = unit
+		if minigame != null:
+			minigame.connect("selected_character_changed", character, "onSelectedCharacterChanged")
 		if processVisibilites and bool(int(visibilities[i])) == false:
-			character.setVisibility(false)
+			character.text = "-"
 			minigame.invisibleCharacters.append(character)
