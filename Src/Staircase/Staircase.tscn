@@ -26,7 +26,9 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 15 )
 
-[node name="Staircase" type="Area2D"]
+[node name="Staircase" type="Area2D" groups=[
+"Interactable",
+]]
 z_index = 32
 script = ExtResource( 2 )
 
