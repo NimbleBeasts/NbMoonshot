@@ -50,8 +50,8 @@ func open() -> void:
 		#warning-ignore:return_value_discarded
 		newTween.start()
 		tweenIsInUse = true
-		if player.guardPickup.isDragging and player.guardPickup.guard != null:
-			playerLastGuard = player.guardPickup.guard
+		if player.guardPickup.isDragging and player.guardPickup.object != null:
+			playerLastGuard = player.guardPickup.object
 		Events.emit_signal("minigame_entered", minigame_type)
 		Events.emit_signal("drop_guard")
 		Events.emit_signal("block_player_input")
@@ -75,7 +75,7 @@ func close() -> void:
 		Events.emit_signal("unblock_player_movement")
 		Events.emit_signal("unblock_player_input")
 		if playerLastGuard:
-			player.guardPickup.guard = playerLastGuard
+			player.guardPickup.object = playerLastGuard
 			player.guardPickup.dragObject()
 		# emit audio notification loud if fail minigame
 		if result == Types.MinigameResults.Failed:
