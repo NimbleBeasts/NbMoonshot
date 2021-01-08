@@ -29,6 +29,8 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if possibleObject == null:
 		return
+	if player.currentInteractable != null:
+		return
 	if event.is_action_pressed("interact"):
 		if isDragging:
 			stopDragging()

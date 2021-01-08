@@ -29,6 +29,7 @@ var block_input: bool = false
 var movementBlocked = false
 var blockEntireInput = false
 var guardToPickup
+var currentInteractable
 
 #  Use Types.LightLevels enum for both of these. Light level is in which light the player is in
 # and visible_level is actual visibility of player to guards and camera with wall dodging and other benefits
@@ -87,6 +88,8 @@ func _ready() -> void:
 	$FootstepTimer.start()
 	$PlayerArea.connect("area_entered", $ItemPickup, "onPlayerAreaEntered")
 	$PlayerArea.connect("area_exited", $ItemPickup, "onPlayerAreaExited")
+	$PlayerArea.connect("area_entered", self, "onPlayerAreaEntered")
+	$PlayerArea.connect("area_exited", self, "onPlayerAreaExited")
 	$AnimationPlayer.connect("animation_finished", $ItemPickup, "onAnimationFinished")
 	$AnimationPlayer.connect("animation_finished", guardPickup, "onAnimationFinished")
 
@@ -243,6 +246,7 @@ func _on_hud_note_showed(_d, _type: int, _text: String) -> void:
 func onBlockPlayerMovement() -> void:
 	movementBlocked = true
 	set_state(Types.PlayerStates.Normal)
+	print('reafched here')
 
 func onUnblockPlayerMovement() -> void:
 	movementBlocked = false
@@ -376,3 +380,12 @@ func changeColliderState(enabled: bool) -> void:
 	$DuckCollisionShape2D.set_deferred("disabled", not enabled)
 	$PlayerLightArea.set_deferred("monitoring", enabled)
 	$PlayerArea.set_deferred("monitoring", enabled)
+	
+func onPlayerAreaEntered(area: Area2D) -> void:
+	if area.is_in_group("Interactable"):
+		currentInteractable = area
+	
+func onPlayerAreaExited(area: Area2D) -> void:
+	if currentInteractable == area:
+		currentInteractable = null
+		
