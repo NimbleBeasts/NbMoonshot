@@ -7,6 +7,13 @@ Pick your task, enter your name and move it to "In progress". In this file you f
 
 # Active Work Tasks
 
+## WP-11 Simon Says Game for Metal Doors Level 1
+
+- Could be like original simon says 4 fields or more
+- I was thinking about creating some hardware platine look a like thing (like arduino simon says implementations)
+- It plays a random sequence of 4-6 (also random) colors (blue, red, green, yellow)
+- Player has to repeat this sequence in the right order to unlock the door
+
 ## WP-10 Civilians
 
 - Implement according to GDD

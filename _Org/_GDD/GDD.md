@@ -55,12 +55,12 @@ Please note that the level difficulty shall rise.
 | ---- | ----- | --------------------------------------- | -------- | ---------- | ----------------- |
 | 0    |       | HQ Trainingsmission                     | Ustria   | Safe       | HQ Level from Jam |
 | 1    |       | Rocket 1                                | USSR     | Safe       | L1 from Jam       |
-| 2    |       | Rocket 2                                | USSR     | Safe       | to be created     |
-| 3    |       | Chimpanzee                              | USA      | Photo      | to be created     |
+| 2    |       | Rocket 2                                | USSR     | Safe       | sehgel            |
+| 3    |       | Chimpanzee                              | USA      | Photo      | kodkuce           |
 | 4    |       | Affaire                                 | Ustria   | Photo      | L3 from Jam       |
-| 5    |       | Affaire 2                               | Ustria   | Kidnapping | to be created     |
+| 5    |       | Affaire 2                               | Ustria   | Kidnapping | kodkuce           |
 | 6    |       | Rocket 3                                | USSR     | Safe       | L2 from Jam       |
-| 7    |       | Affaire 3                               | Ustria   | Safe       | to be created     |
+| 7    |       | Affaire 3                               | Ustria   | Safe       | sehgel            |
 | 8    |       | Rocket 4 (Later 1962)                   | USSR     | Blackbox   | to be created     |
 | 9    |       |                                         | USA      |            | not yet defined   |
 | 10   |       | Luna 3 Moon Photos(not actual year1959) | USSR     | Safe       | to be created     |
