@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-enum Skins {Test}
+enum Skins {Scientist1, Scientist2}
 export (Skins) var skin: int
 export var isHostileArea: bool 
 export var speed: int = 35
@@ -17,6 +17,12 @@ onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
+	match skin:
+		Skins.Scientist1:
+			$Flippable/Sprite.texture = preload("res://Assets/Guards/Civ_Scientist.png")
+		_:
+			$Flippable/Sprite.texture = preload("res://Assets/Guards/Civ_Scientist2.png")
+	
 	fovArea.connect("body_entered", self, "onFOVBodyEntered")
 	if not isHostileArea:
 		fovArea.queue_free()

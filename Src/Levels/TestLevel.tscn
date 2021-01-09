@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=8]
@@ -13,6 +14,7 @@
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Objects/tv.png" type="Texture" id=18]
@@ -141,11 +143,9 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( 216, 200 )
-flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -105, 212 )
-flicker = false
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 208 )
@@ -216,6 +216,22 @@ position = Vector2( -23.5263, 235.871 )
 [node name="Key" parent="." instance=ExtResource( 2 )]
 position = Vector2( 17.5308, 250.253 )
 keyColor = 1
+
+[node name="Civillian" parent="." instance=ExtResource( 5 )]
+position = Vector2( -704, 256 )
+
+[node name="Path2D" type="Line2D" parent="Civillian"]
+points = PoolVector2Array( 0, -8, 40, -8, 104, -8 )
+script = ExtResource( 15 )
+
+[node name="Civillian2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -704, 192 )
+skin = 1
+isHostileArea = true
+
+[node name="Path2D" type="Line2D" parent="Civillian2"]
+points = PoolVector2Array( 0, -8, 40, -8, 104, -8 )
+script = ExtResource( 15 )
 
 [node name="Overlay" type="TileMap" parent="."]
 z_index = 60
