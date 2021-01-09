@@ -1,10 +1,9 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=8]
@@ -14,17 +13,13 @@
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
-[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Objects/tv.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Objects/sofa.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
-[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Src/Minigames/CryptogramMinigame/CryptogramMinigameSpawner.gd" type="Script" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -32,8 +27,6 @@ extents = Vector2( 256, 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 256, 4 )
-
-[sub_resource type="RectangleShape2D" id=3]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -119,61 +112,27 @@ centered = false
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 144, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall7"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 280, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall9"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 280, 320 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall10"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 144, 320 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall11"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseCellar")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -267,26 +226,7 @@ occluder_light_mask = 3
 format = 1
 tile_data = PoolIntArray( 982970, 20, 0, 982971, 21, 0, 982972, 21, 0, 982973, 21, 0, 982974, 21, 0, 982975, 21, 0, 982976, 22, 0, 1114041, 26, 0, 1114049, 26, 0, 1179577, 25, 0, 1179585, 25, 0, 1245113, 25, 0, 1245121, 25, 0, 1310649, 25, 0, 1310657, 25, 0, 1376185, 25, 0, 1376193, 25, 0, 1441721, 25, 0, 1441729, 25, 0, 1507257, 25, 0, 1507258, 20, 0, 1507259, 21, 0, 1507260, 21, 0, 1507261, 21, 0, 1507262, 21, 0, 1507263, 21, 0, 1507264, 22, 0, 1507265, 25, 0, 1507266, 20, 0, 1507267, 21, 0, 1507268, 21, 0, 1507269, 21, 0, 1507270, 21, 0, 1507271, 21, 0, 1507272, 22, 0, 1572793, 24, 0, 1572801, 24, 0, 1638329, 26, 0, 1638337, 26, 0, 1638345, 26, 0, 1703865, 25, 0, 1703873, 25, 0, 1703881, 25, 0, 1769401, 25, 0, 1769409, 25, 0, 1769417, 25, 0, 1834937, 25, 0, 1834945, 25, 0, 1834953, 25, 0, 1900473, 25, 0, 1900481, 25, 0, 1900489, 25, 0, 1966009, 25, 0, 1966017, 25, 0, 1966025, 25, 0, 2031545, 25, 0, 2031553, 25, 0, 2031561, 25, 0, 2097081, 24, 0, 2097089, 24, 0, 2097097, 24, 0 )
 
-[node name="Guard" parent="." instance=ExtResource( 22 )]
-position = Vector2( -256, 256 )
-
-[node name="GuardPathLine" type="Line2D" parent="Guard"]
-points = PoolVector2Array( 0, 0, 40, 0, 80, 0 )
-script = ExtResource( 15 )
-
-[node name="Closet" parent="." instance=ExtResource( 23 )]
-position = Vector2( -175, 256 )
-
-[node name="Dog" parent="." instance=ExtResource( 5 )]
-position = Vector2( -300, 256 )
-
-[node name="DogPathLine" type="Line2D" parent="Dog"]
-points = PoolVector2Array( 0, 0, -30, 0, -60, 0 )
-script = ExtResource( 15 )
-
-[node name="CryptoSpawn" type="Area2D" parent="."]
-position = Vector2( -408, 248 )
-script = ExtResource( 25 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CryptoSpawn"]
-shape = SubResource( 3 )
+[node name="DoorWall" parent="." instance=ExtResource( 8 )]
+position = Vector2( -420, 256 )
+lockLevel = 1
+doorType = 1

@@ -88,6 +88,9 @@ func interact(run_sub, openerPos: Vector2):
 			return
 	if doorType == DoorType.metal:
 		if lockLevel == DoorLockType.lockedLevel1:
+			$SimonSays.run_minigame(door_name)
+			return
+		if lockLevel == DoorLockType.lockedLevel2:
 			$LightMinigameSpawner.run_minigame(door_name,1,true)
 			return
 	
