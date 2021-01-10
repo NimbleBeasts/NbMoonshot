@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WebMonetization16.png-a59003628dfeb10dd185ea427d8755b7.stex"
+path="res://.import/DialogueBg.png-042fbf252ff2111f474a6b631551b14a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HUD/WebMonetization16.png"
-dest_files=[ "res://.import/WebMonetization16.png-a59003628dfeb10dd185ea427d8755b7.stex" ]
+source_file="res://Assets/HUD/DialogueBg.png"
+dest_files=[ "res://.import/DialogueBg.png-042fbf252ff2111f474a6b631551b14a.stex" ]
 
 [params]
 

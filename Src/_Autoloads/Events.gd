@@ -65,8 +65,7 @@ signal change_dialog_button_state(buttonType, enabled)
 
 signal save_game()
 
-# WebMonetization Pulse
-signal web_monetization_pulse(isPaying)
+
 
 # Detection
 signal player_detected(detection_type) # Types.DetectionLevels

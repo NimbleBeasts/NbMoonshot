@@ -59,6 +59,7 @@ func _physics_process(delta: float) -> void:
 
 
 func travel(targetPosition: Vector2, tweenDuration: float) -> void:
+	#Maybe tween the player first to target position 
 	player.global_position.x = targetPosition.x
 	# just tweening position
 	travelTween.interpolate_property(player, "global_position:y", player.global_position.y, 

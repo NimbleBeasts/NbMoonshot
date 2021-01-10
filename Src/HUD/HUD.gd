@@ -1,7 +1,7 @@
 
 extends CanvasLayer
 
-enum HoverType {Light, Audio, Web}
+enum HoverType {Light, Audio}
 
 var count = 0
 var detected_value: int
@@ -115,7 +115,6 @@ func debugHudToggle(_d):
 	if $LightIndicator.visible:
 		$LightIndicator.hide()
 		$AudioIndicator.hide()
-		$WebMonetization.hide()
 		$AlarmIndicator.hide()
 		$ChargeIndicator.hide()
 		$MoneyIndicator.hide()
@@ -123,7 +122,6 @@ func debugHudToggle(_d):
 	else:
 		$LightIndicator.show()
 		$AudioIndicator.show()
-		$WebMonetization.show()
 		$AlarmIndicator.show()
 		$ChargeIndicator.show()
 		$MoneyIndicator.show()
@@ -368,9 +366,6 @@ func onHideSave() -> void:
 	
 func hover(type):
 	match type:
-		HoverType.Web:
-			$Hovers/Indicator.position = Vector2(12, 0)
-			$Hovers/Label.set_text("Status: Web Monetization Plugin.")
 		HoverType.Audio:
 			$Hovers/Indicator.position = Vector2(43, 0)
 			$Hovers/Label.set_text("This is your noise indicator.")
@@ -407,13 +402,6 @@ func _on_AudioHover_mouse_entered():
 func _on_AudioHover_mouse_exited():
 	$Hovers.hide()
 
-
-func _on_WebHover_mouse_entered():
-	hover(HoverType.Web)
-
-
-func _on_WebHover_mouse_exited():
-	$Hovers.hide()
 
 
 func _on_ButtonQuit_button_up():

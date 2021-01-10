@@ -3,7 +3,6 @@
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
 [ext_resource path="res://Assets/HUD/AudioIndicator.png" type="Texture" id=3]
-[ext_resource path="res://Src/WebMonetization/WebMonetization.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/HUD/UpgradeButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/HUD/HoverIndicator.png" type="Texture" id=6]
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
@@ -26,6 +25,7 @@
 [ext_resource path="res://Assets/HUD/PromoTitle.png" type="Texture" id=24]
 [ext_resource path="res://Assets/HUD/PromoSteam.png" type="Texture" id=25]
 [ext_resource path="res://Src/HUD/MissionProgress.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Assets/HUD/DialogueBg.png" type="Texture" id=27]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -543,12 +543,19 @@ margin_top = -296.0
 margin_right = 192.0
 margin_bottom = -208.0
 script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="Sprite" parent="Dialog"]
+texture = ExtResource( 27 )
+centered = false
 
 [node name="Text" type="RichTextLabel" parent="Dialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 8.0
-margin_right = -8.0
+margin_left = 6.0
+margin_top = 4.0
 custom_fonts/normal_font = ExtResource( 14 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
@@ -628,17 +635,6 @@ margin_left = -8.0
 margin_top = -12.0
 margin_right = 16.0
 margin_bottom = 12.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WebMonetization" parent="." instance=ExtResource( 4 )]
-position = Vector2( 544, 12 )
-pulseDelay = 5.0
-
-[node name="WebHover" type="Control" parent="WebMonetization"]
-margin_right = 24.0
-margin_bottom = 24.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -874,8 +870,6 @@ texture = ExtResource( 25 )
 [connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]
 [connection signal="mouse_entered" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_entered"]
 [connection signal="mouse_exited" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_exited"]
-[connection signal="mouse_entered" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_entered"]
-[connection signal="mouse_exited" from="WebMonetization/WebHover" to="." method="_on_WebHover_mouse_exited"]
 [connection signal="button_up" from="MenuButton" to="." method="_on_MenuButton_button_up"]
 [connection signal="button_up" from="MissionBriefing/StartMissionButton" to="." method="_on_StartMissionButton_button_up"]
 [connection signal="button_up" from="IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]

@@ -8,7 +8,6 @@ var detected_value: int = 0
 var current_level: int
 var quest_index: int = 0 
 
-var debugWebMoney = false
 
 func _ready():
 	# I know you guys like changing pause mode so I hardcoded it..
@@ -31,31 +30,20 @@ func _ready():
 	Events.connect_signal("menu_back", self, "_backToMenu")
 	Events.connect("player_detected", self, "_on_player_detected")
 	Events.connect("allowed_detections_updated", self, "onAllowedDetectionsUpdated")
-	
-	Events.connect("web_monetization_pulse", self, "webMoneyPulse")
+
 	
 	switchTo(Types.GameStates.Menu)
 	
 	debugPlayerSkills()
 	debugMoney()
-	
-func webMoneyPulse(paying):
-	return #dont know why the perfomance is so bad
-	#TODO: Will be removed soon
-	if paying or debugWebMoney:
-		Global.addMoney(Global.gameConstant.webMoneyPerTick)
-	else:
-		print("WebMonetiazionPlugin not active or not paying. Use console to cheat. Missed: $" + str(Global.gameConstant.webMoneyPerTick))
+
 
 func debugMoney():
 	var cat = Debug.addCategory("Money")
 	Debug.addOption(cat, "Add 1000", funcref(Global, "addMoney"), 1000)
 	Debug.addOption(cat, "Remove 200", funcref(Global, "addMoney"), -200)
-	Debug.addOption(cat, "WebMoneyEmulation Toggle", funcref(self, "debugWebMoneyEmulation"), null)
 
-func debugWebMoneyEmulation(_d):
-	debugWebMoney = !debugWebMoney
-	print("DebugWebMoney:" + str(debugWebMoney))
+
 
 func debugPlayerSkills():
 	var cat = Debug.addCategory("PlayerSkills")
