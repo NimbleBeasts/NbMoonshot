@@ -68,6 +68,9 @@ func onFOVBodyEntered(body: Node) -> void:
 		setState(Types.CivilianStates.Kneeling)
 
 
+func flip(direction):
+	$Flippable.scale.x = direction
+
 # for the pickup script, since it's for both guards and civilians and they don't have the same variables,
 # i used functions that returned correct value instead
 # this causes 1 liner functions but oh well
@@ -78,10 +81,17 @@ func isBeingDragged() -> bool:
 	return state == Types.CivilianStates.BeingDragged
 
 func drag() -> void:
+	# Put in foreground
+	#TODO: Maybe we change the index when stunned so we have no overlap change
+	$Flippable/Sprite.z_index = 51
 	setState(Types.CivilianStates.BeingDragged)
+	$AnimationPlayer.play("carry")
 
 func stopBeingDragged() -> void:
+	# Put background again
+	$Flippable/Sprite.z_index = 0
 	state = Types.CivilianStates.Stunned
+	$AnimationPlayer.play("drop")
 
 # level objective support
 func getProgessState() -> bool:
