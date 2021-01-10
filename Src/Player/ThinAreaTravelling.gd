@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 			else:
 				travelDuration = travelDurationNormal
 				correctAnim = "jump_down"
-			travel(thinArea.destination_down_position.y, travelDuration)
+			travel(thinArea.destination_down_position, travelDuration)
 			Events.emit_signal("block_player_input")
 			Events.emit_signal("change_player_animation", correctAnim)
 			Events.emit_signal("play_sound", "jump_down")
@@ -52,16 +52,17 @@ func _physics_process(delta: float) -> void:
 			else:
 				travelDuration = travelDurationNormal
 				correctAnim = "jump_up"
-			travel(thinArea.destination_up_position.y, travelDuration)
+			travel(thinArea.destination_up_position, travelDuration)
 			Events.emit_signal("block_player_input")
 			Events.emit_signal("change_player_animation", correctAnim)
 			Events.emit_signal("play_sound", "jump_up")
 
 
-func travel(targetPosition: float, tweenDuration: float) -> void:
+func travel(targetPosition: Vector2, tweenDuration: float) -> void:
+	player.global_position.x = targetPosition.x
 	# just tweening position
 	travelTween.interpolate_property(player, "global_position:y", player.global_position.y, 
-			targetPosition, tweenDuration, Tween.TRANS_LINEAR)
+			targetPosition.y, tweenDuration, Tween.TRANS_LINEAR)
 	travelTween.start()
 	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, player.global_position, self)
 	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
