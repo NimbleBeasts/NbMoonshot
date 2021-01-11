@@ -20,7 +20,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if object != null and isDragging:
-		object.global_position = carryPosition.global_position + Vector2(0, 4) #TODO: adding offset to the object for cool effect. needs to be removed
+		var playerCurrentAnim =  player.animPlayer.current_animation
+		var offset: Vector2 = Vector2(0, 4) if playerCurrentAnim ==  "carryIdle" or playerCurrentAnim == "carryWalk" else Vector2(0,0)
+		object.global_position = carryPosition.global_position + offset #TODO: adding offset to the object for cool effect. needs to be removed
 		
 		if player.direction.x != 0:
 			object.flip(player.direction.x)

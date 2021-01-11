@@ -145,9 +145,11 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( 216, 200 )
+flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -105, 212 )
+flicker = false
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 208 )
@@ -229,6 +231,8 @@ connected_door_path = NodePath("../Staircase")
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -600, 256 )
+canHidePlayer = true
+canBeOpened = true
 
 [node name="Key" parent="." instance=ExtResource( 2 )]
 position = Vector2( 17.5308, 250.253 )
