@@ -30,7 +30,6 @@ enum CivilianStates {Normal, Stunned, BeingDragged, Kneeling}
 
 # Objects
 enum CameraStates {Normal, Suspect, PlayerDetected, Rotating, Frozen}
-enum WireColors {Red, Purple,Green, Blue}
 enum NotifierTypes{Exclamation, Question}
 enum NoteType {SecretService, Local}
 
@@ -52,3 +51,7 @@ enum Weapons {Taser = 0, StoneThrower = 1, SnackThrower = 2}
 
 # Keys
 enum KeyColors {Red, Blue, Yellow}
+
+#Minigames 
+enum WireColors {Red, Purple,Green, Blue}
+enum SimonSaysColors {Red, Blue, Yellow, Green}
