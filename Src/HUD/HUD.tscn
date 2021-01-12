@@ -752,16 +752,6 @@ margin_right = 384.0
 margin_bottom = 352.0
 label = "Start Mission"
 
-[node name="Shader" type="ColorRect" parent="MissionBriefing"]
-material = ExtResource( 9 )
-margin_right = 640.0
-margin_bottom = 360.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="MissionProgress" parent="." instance=ExtResource( 26 )]
 visible = false
 

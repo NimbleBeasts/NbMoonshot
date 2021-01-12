@@ -9,6 +9,7 @@ var stringName: String
 func _ready() -> void:
 	connect("body_entered", self, "onBodyEntered")
 	stringName = Types.KeyColors.keys()[keyColor].to_lower()
+	$Sprite.frame = keyColor
 
 
 func onBodyEntered(body: Node) -> void:
