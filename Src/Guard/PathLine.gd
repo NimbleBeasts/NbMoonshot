@@ -91,3 +91,11 @@ func changeDirection() -> void:
 	movingToCustomPoint = false
 	global_points.invert()
 	timer.start()
+
+
+func moveToStartingPoint() -> void:
+	next_point = global_points[0]
+	moveToNextPoint()
+	enabled = true
+	movingToCustomPoint = false
+	timer.start()

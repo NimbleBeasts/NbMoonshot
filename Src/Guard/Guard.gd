@@ -1,7 +1,6 @@
 class_name Guard
 extends KinematicBody2D
 
-
 export var speed: int = 50
 export var direction_change_time: float = 2
 export var starting_direction: Vector2
@@ -292,6 +291,9 @@ func onGuardBodyEntered(body: Node) -> void:
 		var door = body.get_parent()
 		if door.lockLevel == door.DoorLockType.open:
 			door.interact(true, global_position)
+		else:
+			$Notifier.remove()
+			guardPathLine.moveToStartingPoint()
 
 
 func canDrag() -> bool:

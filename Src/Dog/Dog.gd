@@ -171,6 +171,13 @@ func onDogBodyEntered(body: Node) -> void:
 	if body.is_in_group("Snack"):
 		feed()
 		body.queue_free()
+	elif body.is_in_group("DoorWall"):
+		var door = body.get_parent()
+		if door.lockLevel == door.DoorLockType.open:
+			door.interact(true, global_position)
+		else:
+			$Notifier.remove()
+			pathLine.moveToStartingPoint()
 
 
 func onLOSBodyEntered(body: Node) -> void:

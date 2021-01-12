@@ -246,8 +246,8 @@ func _on_hud_note_showed(_d, _type: int, _text: String) -> void:
 func onBlockPlayerMovement() -> void:
 	movementBlocked = true
 	set_state(Types.PlayerStates.Normal)
-	print('reafched here')
 
+	
 func onUnblockPlayerMovement() -> void:
 	movementBlocked = false
 

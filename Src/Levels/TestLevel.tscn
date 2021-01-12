@@ -127,7 +127,7 @@ position = Vector2( 280, 320 )
 door_name = "DoorWall10"
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
-position = Vector2( -352, 256 )
+position = Vector2( -326, 256 )
 lockLevel = 5
 door_name = "DoorWall11"
 showHintIfLocked = true
@@ -196,7 +196,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -384, 256 )
+position = Vector2( -376, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="Node2D" parent="."]
@@ -218,11 +218,6 @@ position = Vector2( 118.538, 238.544 )
 [node name="Button" parent="." instance=ExtResource( 26 )]
 position = Vector2( -23.5263, 235.871 )
 
-[node name="DoorWall" parent="." instance=ExtResource( 8 )]
-position = Vector2( -320, 256 )
-lockLevel = 1
-doorType = 1
-
 [node name="Staircase" parent="." instance=ExtResource( 10 )]
 position = Vector2( -680, 256 )
 connected_door_path = NodePath("../Staircase2")
@@ -233,6 +228,8 @@ connected_door_path = NodePath("../Staircase")
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -600, 256 )
+canHidePlayer = true
+canBeOpened = true
 
 [node name="Key" parent="." instance=ExtResource( 2 )]
 position = Vector2( -416, 240 )

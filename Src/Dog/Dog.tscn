@@ -9,7 +9,7 @@ extents = Vector2( 25, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ 2, 3 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "values": [ 4, 6 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 4.0
 step = 0.05
 tracks/0/type = "value"
@@ -56,7 +56,7 @@ tracks/0/keys = {
 "values": [ 5, 4, 2, 0, 1, 0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -71,7 +71,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -86,7 +86,7 @@ tracks/0/keys = {
 "values": [ 2, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -125,7 +125,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -208,13 +208,13 @@ wait_time = 10.0
 wait_time = 1.6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/alarm = SubResource( 4 )
-anims/eat = SubResource( 5 )
-anims/get_up = SubResource( 6 )
-anims/grr = SubResource( 7 )
-anims/laying_down = SubResource( 8 )
-anims/look_around = SubResource( 9 )
-anims/walk = SubResource( 10 )
+anims/alarm = SubResource( 3 )
+anims/eat = SubResource( 4 )
+anims/get_up = SubResource( 5 )
+anims/grr = SubResource( 6 )
+anims/laying_down = SubResource( 7 )
+anims/look_around = SubResource( 8 )
+anims/walk = SubResource( 9 )
 
 [node name="BarkTimer" type="Timer" parent="."]
 wait_time = 5.0
