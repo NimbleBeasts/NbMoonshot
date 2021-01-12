@@ -29,6 +29,9 @@ func _ready():
 	startingLockLevel = lockLevel
 	if lockLevel == DoorLockType.keyLocked:
 		key = get_node(keyPath)
+		$KeySign.show()
+		$KeySign.frame = key.keyColor
+		
 	if doorType == DoorType.metal:
 		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal.png")
 	elif doorType == DoorType.metalSwing:

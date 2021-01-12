@@ -50,7 +50,7 @@ enum Potraits {Player, Boss, Secretary}
 enum Weapons {Taser = 0, StoneThrower = 1, SnackThrower = 2}
 
 # Keys
-enum KeyColors {Red, Blue, Yellow}
+enum KeyColors {Red = 0, Blue = 1, Yellow = 2}
 
 #Minigames 
 enum WireColors {Red, Purple,Green, Blue}
