@@ -127,8 +127,12 @@ position = Vector2( 280, 320 )
 door_name = "DoorWall10"
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
-position = Vector2( 144, 320 )
+position = Vector2( -352, 256 )
+lockLevel = 5
 door_name = "DoorWall11"
+showHintIfLocked = true
+hint = "Key Please"
+keyPath = NodePath("../../../Key")
 
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
@@ -145,11 +149,9 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( 216, 200 )
-flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -105, 212 )
-flicker = false
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 208 )
@@ -194,7 +196,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -464, 255.711 )
+position = Vector2( -384, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="Node2D" parent="."]
@@ -217,7 +219,7 @@ position = Vector2( 118.538, 238.544 )
 position = Vector2( -23.5263, 235.871 )
 
 [node name="DoorWall" parent="." instance=ExtResource( 8 )]
-position = Vector2( -420, 256 )
+position = Vector2( -320, 256 )
 lockLevel = 1
 doorType = 1
 
@@ -231,11 +233,9 @@ connected_door_path = NodePath("../Staircase")
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -600, 256 )
-canHidePlayer = true
-canBeOpened = true
 
 [node name="Key" parent="." instance=ExtResource( 2 )]
-position = Vector2( 17.5308, 250.253 )
+position = Vector2( -416, 240 )
 keyColor = 1
 
 [node name="Civillian" parent="." instance=ExtResource( 5 )]

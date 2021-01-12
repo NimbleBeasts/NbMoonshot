@@ -17,6 +17,8 @@ func _ready() -> void:
 	print(flashAmount)
 	$ColorFlashTimer.connect("timeout", self, "flashColor")
 	$ColorFlashTimer.start()
+	$Buttons/Button.grab_focus()
+	
 	var index = randi() % Colors.keys().size()
 	currentFlash = $Lights.get_child(index)
 	for i in range($Buttons.get_children().size()):
