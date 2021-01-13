@@ -37,7 +37,6 @@ onready var sprite: Sprite = $Flippable/Sprite
 
 
 func _ready() -> void:
-	global_position.y -= 2 
 	#warning-ignore:return_value_discarded
 	goBackToNormalTimer.connect("timeout", self, "onGoBackToNormalTimeout")
 	add_to_group("Upgradable")
