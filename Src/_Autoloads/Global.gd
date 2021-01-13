@@ -43,11 +43,12 @@ const NB_PLUGIN_CONFIG = {
 const levels = [
 	"res://Src/Levels/HQ_Level.tscn",
 	"res://Src/Levels/Level1.tscn",
-	"res://Src/Levels/Level6.tscn", #2
+	"res://Src/Levels/Level2.tscn",
 	"res://Src/Levels/Level4.tscn", #3
+	"res://Src/Levels/Level6.tscn", #2
+	"res://Src/Levels/Level8.tscn",
 	"res://Src/Levels/Level17.tscn", #4
 	"res://Src/Levels/Level18.tscn", #5
-	"res://Src/Levels/Level2.tscn",
 	"res://Src/Levels/TestLevel.tscn",
 ]
 
