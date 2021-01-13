@@ -18,12 +18,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if player.blockEntireInput or player.movementBlocked:
+		return
 	# Can't use elif since both of these can be true at same time
 	if travelRayDown.is_colliding() and player.state == Types.PlayerStates.Normal:
 		var thinArea := travelRayDown.get_collider() as ThinArea
 		if thinArea == null:
 			return
 		if Input.is_action_just_pressed("travel_down"):
+			Events.emit_signal("drop_guard")
+			Events.emit_signal("drop_current_item")
 			var travelDuration: float
 			var correctAnim: String
 			if thinArea.isLadder:
@@ -44,6 +48,8 @@ func _physics_process(delta: float) -> void:
 			return
 		# Tweening
 		if Input.is_action_just_pressed("travel_up"):
+			Events.emit_signal("drop_guard")
+			Events.emit_signal("drop_current_item")
 			var travelDuration: float
 			var correctAnim: String
 			if thinArea.isLadder:

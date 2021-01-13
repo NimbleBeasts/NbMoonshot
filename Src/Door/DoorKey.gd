@@ -17,3 +17,4 @@ func onBodyEntered(body: Node) -> void:
 		isPickedUp = true
 		hide()
 		Events.emit_signal("hud_game_hint", "Found a %s key" % stringName)
+		set_deferred("monitoring", false)
