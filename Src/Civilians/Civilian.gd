@@ -17,6 +17,15 @@ onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
+	for child in self.get_children():
+		if child is Line2D:
+			# Path detected
+			pathLine = child
+			
+			if not child.has_method("moveToNextPoint"):
+				print("Civilian: " + str(self) + " - Path node used. Was this intended?")
+
+	
 	match skin:
 		Skins.Scientist1:
 			$Flippable/Sprite.texture = preload("res://Assets/Guards/Civ_Scientist.png")

@@ -34,7 +34,10 @@ func switchTo(to):
 
 	match to:
 		MenuState.Main:
-			$Main/ButtonPlay.grab_focus()
+			if $Main/LevelSelect.visible:
+				$Main/LevelSelect/DebugButton.grab_focus()
+			else:
+				$Main/ButtonPlay.grab_focus()
 			$Main.show()
 		MenuState.Settings:
 			$Settings/SoundSlider.grab_focus()

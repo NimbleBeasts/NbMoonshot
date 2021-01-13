@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Guards/Guard.png" type="Texture" id=1]
 [ext_resource path="res://Src/Guard/Guard.gd" type="Script" id=2]
@@ -25,6 +25,38 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 9, 10, 11, 12 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "carry"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 20 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "drop"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 17, 18 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -141,11 +173,9 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Flippable"]
 light_mask = 3
-position = Vector2( 0, 2 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
-hframes = 20
-frame = 14
+hframes = 21
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
 position = Vector2( 11.0983, -22.2613 )
@@ -175,6 +205,8 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/alarm = SubResource( 3 )
+anims/carry = SubResource( 9 )
+anims/drop = SubResource( 10 )
 anims/idle = SubResource( 4 )
 anims/stand_up = SubResource( 5 )
 anims/suspicious = SubResource( 6 )

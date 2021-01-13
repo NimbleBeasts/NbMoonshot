@@ -9,7 +9,7 @@ extents = Vector2( 27, 14 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 14 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 resource_name = "carry"
 length = 0.1
 tracks/0/type = "value"
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ 18 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 resource_name = "drop"
 length = 0.3
 tracks/0/type = "value"
@@ -41,8 +41,7 @@ tracks/0/keys = {
 "values": [ 16, 17 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle"
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -57,8 +56,7 @@ tracks/0/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "kneeling"
+[sub_resource type="Animation" id=6]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -73,7 +71,7 @@ tracks/0/keys = {
 "values": [ 0, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 length = 1.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -88,8 +86,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 12, 13, 14, 12, 13, 14, 12, 13, 15, 16, 17 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "walk"
+[sub_resource type="Animation" id=8]
 length = 1.6
 loop = true
 step = 0.2
@@ -120,6 +117,7 @@ script = ExtResource( 2 )
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 19
+frame = 16
 
 [node name="FOV" type="Area2D" parent="Flippable"]
 
@@ -133,9 +131,9 @@ shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/carry = SubResource( 7 )
-anims/drop = SubResource( 8 )
-anims/idle = SubResource( 3 )
-anims/kneeling = SubResource( 4 )
-anims/tasered = SubResource( 5 )
-anims/walk = SubResource( 6 )
+anims/carry = SubResource( 3 )
+anims/drop = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/kneeling = SubResource( 6 )
+anims/tasered = SubResource( 7 )
+anims/walk = SubResource( 8 )

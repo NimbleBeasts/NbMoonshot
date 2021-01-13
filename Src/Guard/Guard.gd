@@ -55,8 +55,16 @@ func _ready() -> void:
 	$SureDetectionTimer.wait_time = time_to_sure_detection
 
 	direction.x = 0
-	guardPathLine = get_node("GuardPathLine")
-	guardPathLine.connect("next_point_reached", self, "onGuardPathLinePointReached")
+	
+	for child in self.get_children():
+		if child is Line2D:
+			# Path detected
+			guardPathLine = child
+			
+			if child.has_method("moveToNextPoint"):
+				guardPathLine.connect("next_point_reached", self, "onGuardPathLinePointReached")
+			else:
+				print("Guard: " + str(self) + " - Wrong path node used. Was this intended?")
 
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
@@ -233,6 +241,8 @@ func set_state(new_state) -> void:
 				set_process(false)
 				set_physics_process(false)
 
+func flip(dir):
+	$Flippable.scale.x = dir
 
 func update_flip() -> void:
 	if direction.x != 0:
@@ -303,7 +313,14 @@ func isBeingDragged() -> bool:
 	return state == Types.GuardStates.BeingDragged
 
 func drag() -> void:
+	# Put in foreground
+	#TODO: Maybe we change the index when stunned so we have no overlap change
+	$Flippable/Sprite.z_index = 51
+	$AnimationPlayer.play("carry")
 	set_state(Types.GuardStates.BeingDragged)
 
 func stopBeingDragged() -> void:
+	# Put background again
+	$Flippable/Sprite.z_index = 0
+	$AnimationPlayer.play("drop")
 	state = Types.GuardStates.Stunned
