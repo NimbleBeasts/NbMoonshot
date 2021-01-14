@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/ThinArea/Ladder.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 4 )
+extents = Vector2( 7.9774, 4 )
 
 [node name="Ladder" type="Area2D"]
 collision_layer = 2147483652
@@ -13,7 +13,7 @@ script = ExtResource( 1 )
 isLadder = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 16.0226, -4.00452 )
+position = Vector2( 8, -4 )
 shape = SubResource( 1 )
 
 [node name="DestinationUp" type="Position2D" parent="."]
