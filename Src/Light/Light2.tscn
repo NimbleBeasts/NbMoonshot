@@ -12,6 +12,7 @@ script = ExtResource( 3 )
 flickerSequence = "111000"
 
 [node name="TestSprite" type="Sprite" parent="."]
+visible = false
 modulate = Color( 0.815686, 0.815686, 0.815686, 1 )
 light_mask = 3
 position = Vector2( 0, 120 )

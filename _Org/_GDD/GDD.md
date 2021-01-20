@@ -51,32 +51,32 @@ Total Missions: 20 linear, 10 sabotages, 1 love
 
 Please note that the level difficulty shall rise.
 
-| #    | Title | Desc                                    | Location | Goal       | Add.              |
-| ---- | ----- | --------------------------------------- | -------- | ---------- | ----------------- |
-| 0    |       | HQ Trainingsmission                     | Ustria   | Safe       | HQ Level from Jam |
-| 1    |       | Rocket 1                                | USSR     | Safe       | L1 from Jam       |
-| 2    |       | Rocket 2                                | USSR     | Safe       | sehgel            |
-| 3    |       | Chimpanzee                              | USA      | Photo      | kodkuce           |
-| 4    |       | Affaire                                 | Ustria   | Photo      | L3 from Jam       |
-| 5    |       | Affaire 2                               | Ustria   | Kidnapping | kodkuce           |
-| 6    |       | Rocket 3                                | USSR     | Safe       | L2 from Jam       |
-| 7    |       | Affaire 3                               | Ustria   | Safe       | sehgel            |
-| 8    |       | Rocket 4 (Later 1962)                   | USSR     | Blackbox   | to be created     |
-| 9    |       |                                         | USA      |            | not yet defined   |
-| 10   |       | Luna 3 Moon Photos(not actual year1959) | USSR     | Safe       | to be created     |
-| 11   |       | Atlas 9 (1963)                          | USA      | Kidnapping | to be created     |
-| 12   |       |                                         | USA      |            | not yet defined   |
-| 13   |       | Luna 10 - Satelitte (1966)              | USSR     | Safe       | to be created     |
-| 14   |       | Apollo 1 (Jan 67)                       | USA      | Sabotage   | to be created     |
-| 15   |       | Pre-Soyuz                               | USSR     | Kidnapping | to be created     |
-| 16   |       | Soyuz 1 (April 67)                      | USSR     | Sabotage   | to be created     |
-| 17   |       | Apollo 8 (Dec 68)                       | USA      | Blackbox   | to be created     |
-| 18   |       | Apollo 11 1                             | USA      | Safe       | L4 from Jam       |
-| 19   |       | Apollo 11 2                             | USA      | Safe       | L5 from Jam       |
-| 20/1 |       | Pre-Final Level: USA Win                | Ustria   |            | not yet defined   |
-| 20/2 |       | Pre-Final Level: USTRIA Win             | Ustria   |            | not yet defined   |
-| 20/3 |       | Pre-Final Level: RUSSIA Win             | Ustria   |            | not yet defined   |
-| 20/4 |       | Pre-Final Level: Love Win               | Ustria   |            | not yet defined   |
+| #    | Title | Desc                                    | Location | Goal       | Add.              | Mechanics            |
+| ---- | ----- | --------------------------------------- | -------- | ---------- | ----------------- | -------------------- |
+| 0    |       | HQ Trainingsmission                     | Ustria   | Safe       | HQ Level from Jam |                      |
+| 1    |       | Rocket 1                                | USSR     | Safe       | L1 from Jam       |                      |
+| 2    |       | Rocket 2                                | USSR     | Safe       | sehgel            |                      |
+| 3    |       | Chimpanzee                              | USA      | Photo      | kodkuce           |                      |
+| 4    |       | Affaire                                 | Ustria   | Photo      | L3 from Jam       |                      |
+| 5    |       | Affaire 2                               | Ustria   | Kidnapping | kodkuce           |                      |
+| 6    |       | Rocket 3                                | USSR     | Safe       | L2 from Jam       |                      |
+| 7    |       | Affaire 3                               | Ustria   | Safe       | sehgel            |                      |
+| 8    |       | Rocket 4 (Later 1962)                   | USSR     | Blackbox   | to be created     | Carry Item & Buttons |
+| 9    |       |                                         | USA      |            | not yet defined   |                      |
+| 10   |       | Luna 3 Moon Photos(not actual year1959) | USSR     | Safe       | to be created     |                      |
+| 11   |       | Atlas 9 (1963)                          | USA      | Kidnapping | to be created     |                      |
+| 12   |       |                                         | USA      |            | not yet defined   |                      |
+| 13   |       | Luna 10 - Satelitte (1966)              | USSR     | Safe       | to be created     |                      |
+| 14   |       | Apollo 1 (Jan 67)                       | USA      | Sabotage   | to be created     |                      |
+| 15   |       | Pre-Soyuz                               | USSR     | Kidnapping | to be created     |                      |
+| 16   |       | Soyuz 1 (April 67)                      | USSR     | Sabotage   | to be created     |                      |
+| 17   |       | Apollo 8 (Dec 68)                       | USA      | Blackbox   | to be created     |                      |
+| 18   |       | Apollo 11 1                             | USA      | Safe       | L4 from Jam       |                      |
+| 19   |       | Apollo 11 2                             | USA      | Safe       | L5 from Jam       |                      |
+| 20/1 |       | Pre-Final Level: USA Win                | Ustria   |            | not yet defined   |                      |
+| 20/2 |       | Pre-Final Level: USTRIA Win             | Ustria   |            | not yet defined   |                      |
+| 20/3 |       | Pre-Final Level: RUSSIA Win             | Ustria   |            | not yet defined   |                      |
+| 20/4 |       | Pre-Final Level: Love Win               | Ustria   |            | not yet defined   |                      |
 
 #### Substories
 

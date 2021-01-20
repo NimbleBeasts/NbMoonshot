@@ -7,17 +7,26 @@ Pick your task, enter your name and move it to "In progress". In this file you f
 
 # Active Work Tasks
 
-## WP-11 Simon Says Game for Metal Doors Level 1
+## WP-12 Fake Gravity
 
-- Could be like original simon says 4 fields or more
-- I was thinking about creating some hardware platine look a like thing (like arduino simon says implementations)
-- It plays a random sequence of 4-6 (also random) colors (blue, red, green, yellow)
-- Player has to repeat this sequence in the right order to unlock the door
+To enable some more cool features we need some sort of fake gravity on items, stunned guards and the player
 
-## WP-10 Civilians
+- Add Raycast2D for the player (guess we need 2 so the player can stay on edges)
+- Add gravity to the player if the non of the raycasts detect ground
+- Add Raycast2D for stunned guards and gravity so the player can throw them from a building
+- Add Raycast2D for items so the player can throw them from a building
 
-- Implement according to GDD
-- Have 4 dummy animations: idle, walk, kneeDown, knee_idle
+## WP-13 Distraction Feature
+
+Add a distraction feature which result in changing the guards routes
+
+- Guards shall support multiple path routes (e.g. first child is normal patrolling, second is special or special routes are marked with a boolean)
+- Guards shall provide a switch function which will be called from the distraction node
+- Distraction nodes shall export a array of node paths
+- If a guards switch function is activated, he will leave the default route and follow the special route
+- At the end of the special route he shall wait a specific amount of time and return to point 0 to fall back to normal route
+- Distraction nodes shall be activated by the player by pressing "E"
+- Distraction nodes shall behave like a note (highlighting and !)
 
 ## WP-8 Multi Language Support
 
@@ -25,6 +34,8 @@ Pick your task, enter your name and move it to "In progress". In this file you f
 - Add mechanism for Notes
 - Add mechanism for dialogues
 - Add mechanism for safe code. The code shall be random 2 digit wise like 4242 or 6565 generated on level ready. The code must be assigned on safe as well as on the note
+
+# Backlog
 
 ## WP-9 Doors and Keys
 
@@ -49,7 +60,17 @@ Minigames:
 - LockPicking lite for wooden doors
 - Connect 5 for metal doors. (we need an easier version of that for L1 doors)
 
-# Backlog
+## WP-11 Simon Says Game for Metal Doors Level 1
+
+- Could be like original simon says 4 fields or more
+- I was thinking about creating some hardware platine look a like thing (like arduino simon says implementations)
+- It plays a random sequence of 4-6 (also random) colors (blue, red, green, yellow)
+- Player has to repeat this sequence in the right order to unlock the door
+
+## WP-10 Civilians
+
+- Implement according to GDD
+- Have 4 dummy animations: idle, walk, kneeDown, knee_idle
 
 ## WP-3 Mission Progress Screen
 
