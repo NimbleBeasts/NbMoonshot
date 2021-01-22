@@ -318,7 +318,7 @@ func onGuardBodyEntered(body: Node) -> void:
 
 
 func canDrag() -> bool:
-	return state == Types.GuardStates.Stunned and isSleeping
+	return state == Types.GuardStates.Stunned and isSleeping and not applyGravity
 
 func isBeingDragged() -> bool:
 	return state == Types.GuardStates.BeingDragged

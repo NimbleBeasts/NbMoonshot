@@ -4,7 +4,7 @@
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=8]
@@ -240,13 +240,6 @@ canBeOpened = true
 position = Vector2( -344, 240 )
 keyColor = 1
 
-[node name="Civillian" parent="." instance=ExtResource( 5 )]
-position = Vector2( -512, 128 )
-
-[node name="Path2D" type="Line2D" parent="Civillian"]
-points = PoolVector2Array( 0, -8, 40, -8, 104, -8 )
-script = ExtResource( 15 )
-
 [node name="Overlay" type="TileMap" parent="."]
 z_index = 60
 tile_set = ExtResource( 13 )
@@ -271,3 +264,6 @@ script = ExtResource( 15 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -496, 136 )
 shape = SubResource( 3 )
+
+[node name="TestPickup" parent="." instance=ExtResource( 5 )]
+position = Vector2( -512, 128 )

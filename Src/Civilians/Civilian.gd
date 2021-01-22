@@ -102,7 +102,7 @@ func flip(to):
 # i used functions that returned correct value instead
 # this causes 1 liner functions but oh well
 func canDrag() -> bool:
-	return state == Types.CivilianStates.Stunned and isSleeping
+	return state == Types.CivilianStates.Stunned and isSleeping and not applyGravity
 
 func isBeingDragged() -> bool:
 	return state == Types.CivilianStates.BeingDragged
