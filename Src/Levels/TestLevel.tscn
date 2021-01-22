@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
@@ -33,6 +33,9 @@ extents = Vector2( 256, 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 256, 4 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 72, 8 )
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -198,7 +201,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -408, 256 )
+position = Vector2( -464, 120 )
 z_index = 50
 
 [node name="MinigameHolder" type="Node2D" parent="."]
@@ -233,34 +236,12 @@ position = Vector2( -600, 256 )
 canHidePlayer = true
 canBeOpened = true
 
-[node name="Guard" parent="." instance=ExtResource( 25 )]
-position = Vector2( -704, 256 )
-time_to_sure_detection = 5.0
-normal_time_to_alarm = 5.0
-playerSuspectDistance = 60
-playerDetectDistance = 2
-
-[node name="PathLine" type="Line2D" parent="Guard"]
-points = PoolVector2Array( 0, -16, 48, -16, 72, -16 )
-script = ExtResource( 15 )
-
-[node name="Guard2" parent="." instance=ExtResource( 25 )]
-position = Vector2( -704, 192 )
-time_to_sure_detection = 5.0
-normal_time_to_alarm = 5.0
-playerSuspectDistance = 60
-playerDetectDistance = 2
-
-[node name="PathLine" type="Line2D" parent="Guard2"]
-points = PoolVector2Array( 0, -16, 48, -16, 72, -16 )
-script = ExtResource( 15 )
-
 [node name="Key" parent="." instance=ExtResource( 2 )]
 position = Vector2( -344, 240 )
 keyColor = 1
 
 [node name="Civillian" parent="." instance=ExtResource( 5 )]
-position = Vector2( -704, 128 )
+position = Vector2( -512, 128 )
 
 [node name="Path2D" type="Line2D" parent="Civillian"]
 points = PoolVector2Array( 0, -8, 40, -8, 104, -8 )
@@ -277,3 +258,16 @@ tile_data = PoolIntArray( 982970, 20, 0, 982971, 21, 0, 982972, 21, 0, 982973, 2
 
 [node name="Note" parent="." instance=ExtResource( 27 )]
 position = Vector2( -288, 256 )
+
+[node name="Guard" parent="." instance=ExtResource( 25 )]
+position = Vector2( -696, 128 )
+
+[node name="PathLine" type="Line2D" parent="Guard"]
+points = PoolVector2Array( 8, -8, 56, -8, 96, -8 )
+script = ExtResource( 15 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -496, 136 )
+shape = SubResource( 3 )

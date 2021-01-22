@@ -11,6 +11,7 @@ export var normal_time_to_alarm: float = 1.5
 export var extended_time_to_alarm: float = 3.5
 export var playerSuspectDistance: int = 30
 export var playerDetectDistance: int = 16
+export var gravity: int = 800
 
 var velocity: Vector2
 var direction: Vector2
@@ -18,6 +19,7 @@ var state: int = Types.GuardStates.Wander # Types.GuardStates
 var player_in_los: bool = false
 var player_detected: bool = false
 var playerLastSeenPosition: Vector2
+var processAI: bool = false
 
 var guard_normal_texture: Texture = preload("res://Assets/Guards/Guard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/GuardGreen.png")
@@ -27,6 +29,7 @@ var guardInSight: Guard
 var isSleeping: bool
 var isMovingToPlayer: bool
 var isStunned: bool
+var applyGravity: bool
 
 onready var los_area: Area2D = $Flippable/LineOfSight
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
@@ -69,19 +72,16 @@ func _ready() -> void:
 	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
 	$Flippable/GuardArea.connect("body_entered", self, "onGuardBodyEntered")
 	$Flippable/LineOfSight.connect("body_entered", $CivilianDetect, "onGuardLOSBodyEntered")
+	$GroundDetection.connect("apply_gravity", self, "setApplyGravity", ["dummy", true])
+	$GroundDetection.connect("body_entered", self, "setApplyGravity", [false])
 	#warning-ignore:return_value_discarded
 
 
-func _process(_delta: float) -> void:
-	velocity = direction * speed
-	velocity = move_and_slide(velocity)
-	update_flip()
+func _process(delta: float) -> void:
 	if state == Types.GuardStates.Wander or state == Types.GuardStates.Suspect:
 		detectPlayerIfClose()
-
-
 	if state != Types.GuardStates.Stunned and state != Types.GuardStates.PlayerDetected:
-		if not velocity.is_equal_approx(Vector2.ZERO):
+		if not velocity.x == 0:
 			$AnimationPlayer.play("walk")
 		else:
 			$AnimationPlayer.play("idle")
@@ -91,12 +91,21 @@ func _process(_delta: float) -> void:
 			set_state(Types.GuardStates.PlayerDetected)
 
 
-func _physics_process(_delta: float) -> void:
-	if player_in_los:
+func _physics_process(delta: float) -> void:
+	if player_in_los and processAI:
 		if losRayIsCollidingWith(player): # ray checking
 			playerDetectLOS()
-
-			
+	
+	update_flip()
+	if applyGravity:
+		velocity.y += gravity * delta
+		direction.x = 0
+		velocity.x = 0
+	else:
+		velocity = direction * speed
+	velocity = move_and_slide(velocity)
+	
+	
 func losRayIsCollidingWith(obj: Node) -> bool:
 	return losRay.is_colliding() and losRay.get_collider() == obj
 
@@ -135,7 +144,8 @@ func unstun() -> void:
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
 	$Notifier.remove()
 	set_process(true)
-	set_physics_process(true)
+#	set_physics_process(true)
+	processAI = true
 	isSleeping = false
 
 	
@@ -177,7 +187,8 @@ func _on_LineOfSight_body_exited(body: Node) -> void:
 func _on_SureDetectionTimer_timeout() -> void:
 	$AnimationPlayer.play("alarm")
 	set_process(false)
-	set_physics_process(false)
+#	set_physics_process(false)
+	processAI = false
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 	Events.emit_signal("play_sound", "alarm")
 	
@@ -238,7 +249,8 @@ func set_state(new_state) -> void:
 				direction = Vector2(0,0)
 				guardPathLine.stopAllMovement()
 				set_process(false)
-				set_physics_process(false)
+#				set_physics_process(false)
+				processAI = false
 
 func flip(dir):
 	$Flippable.scale.x = dir
@@ -323,3 +335,6 @@ func stopBeingDragged() -> void:
 	$Flippable/Sprite.z_index = 0
 	$AnimationPlayer.play("drop")
 	state = Types.GuardStates.Stunned
+
+func setApplyGravity(_dummyargument, to: bool):
+	applyGravity = to

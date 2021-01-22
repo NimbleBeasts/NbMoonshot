@@ -38,7 +38,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if player.currentInteractable != null:
 		return
 	if event.is_action_pressed("interact"):
-		if isDragging:
+		if isDragging and not player.applyGravity:
 			stopDragging()
 			return
 		object = possibleObject

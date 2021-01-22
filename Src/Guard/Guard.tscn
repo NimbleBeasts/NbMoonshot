@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Guards/Guard.png" type="Texture" id=1]
 [ext_resource path="res://Src/Guard/Guard.gd" type="Script" id=2]
 [ext_resource path="res://Src/Notifier/Notifier.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Button/PressureArea.gd" type="Script" id=4]
 [ext_resource path="res://Src/Guard/GuardCivilianDetect.gd" type="Script" id=5]
+[ext_resource path="res://Src/Player/GroundDetection.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -27,7 +28,7 @@ tracks/0/keys = {
 "values": [ 9, 10, 11, 12 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=4]
 resource_name = "carry"
 length = 0.1
 tracks/0/type = "value"
@@ -43,7 +44,7 @@ tracks/0/keys = {
 "values": [ 20 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=5]
 resource_name = "drop"
 length = 0.3
 tracks/0/type = "value"
@@ -59,7 +60,7 @@ tracks/0/keys = {
 "values": [ 17, 18 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -75,7 +76,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
 tracks/0/interp = 1
@@ -89,7 +90,7 @@ tracks/0/keys = {
 "values": [ 15, 14, 13, 16, 0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
 tracks/0/interp = 1
@@ -103,7 +104,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 length = 1.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/Sprite:frame")
@@ -118,7 +119,7 @@ tracks/0/keys = {
 "values": [ 13, 14, 15, 13, 14, 15, 13, 14, 15, 13, 14, 16, 17, 18 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 length = 1.6
 loop = true
 step = 0.2
@@ -135,6 +136,9 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 1.55427, 0.230757 )
+
 [node name="Guard" type="KinematicBody2D" groups=[
 "Draggable",
 "Guard",
@@ -150,6 +154,7 @@ speed = 25
 direction_change_time = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -16 )
 shape = SubResource( 1 )
 
@@ -166,6 +171,7 @@ one_shot = true
 [node name="Flippable" type="Node2D" parent="."]
 
 [node name="GuardArea" type="Area2D" parent="Flippable"]
+visible = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Flippable/GuardArea"]
 position = Vector2( 0, -16 )
@@ -178,6 +184,7 @@ offset = Vector2( 0, -16 )
 hframes = 21
 
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
+visible = false
 position = Vector2( 11.0983, -22.2613 )
 collision_layer = 33
 collision_mask = 1057
@@ -193,6 +200,7 @@ cast_to = Vector2( 90, 0 )
 collision_mask = 129
 
 [node name="PressureArea" type="Area2D" parent="Flippable"]
+visible = false
 collision_layer = 512
 collision_mask = 0
 script = ExtResource( 4 )
@@ -205,13 +213,13 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/alarm = SubResource( 3 )
-anims/carry = SubResource( 9 )
-anims/drop = SubResource( 10 )
-anims/idle = SubResource( 4 )
-anims/stand_up = SubResource( 5 )
-anims/suspicious = SubResource( 6 )
-anims/tasered = SubResource( 7 )
-anims/walk = SubResource( 8 )
+anims/carry = SubResource( 4 )
+anims/drop = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/stand_up = SubResource( 7 )
+anims/suspicious = SubResource( 8 )
+anims/tasered = SubResource( 9 )
+anims/walk = SubResource( 10 )
 
 [node name="Notifier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
@@ -219,6 +227,13 @@ position = Vector2( 0, -32 )
 [node name="CivilianDetect" type="Node" parent="."]
 script = ExtResource( 5 )
 guardPath = NodePath("..")
+
+[node name="GroundDetection" type="Area2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetection"]
+position = Vector2( 0.198603, 0.270277 )
+shape = SubResource( 11 )
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]
 [connection signal="body_entered" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_body_entered"]

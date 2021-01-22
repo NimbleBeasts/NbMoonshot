@@ -11,6 +11,7 @@ export var sprint_speed: int = 160
 export var sprint_acceleration: int = 2500
 export var duckSpeed: int = 40
 export var duckAcceleration: int = 300
+export var gravity: int = 800
 
 # upgrade export variables
 export var normal_stun_battery: int = 3
@@ -45,6 +46,7 @@ var canSprint: bool
 
 var playFootstepSound: bool = true
 var isSneaking: bool = false
+var applyGravity: bool = false
 
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
@@ -60,7 +62,6 @@ onready var itemPickup = $ItemPickup
 
 func _init() -> void:
 	Global.player = self
-
 
 func _ready() -> void:
 	$WeaponHandler/Taser.stunBatteryLevel = stun_battery_level
@@ -92,6 +93,8 @@ func _ready() -> void:
 	$PlayerArea.connect("area_exited", self, "onPlayerAreaExited")
 	$AnimationPlayer.connect("animation_finished", $ItemPickup, "onAnimationFinished")
 	$AnimationPlayer.connect("animation_finished", guardPickup, "onAnimationFinished")
+	$GroundDetection.connect("apply_gravity", self, "setApplyGravity", ["dummy", true])
+	$GroundDetection.connect("body_entered", self, "setApplyGravity", [false])
 
 	# Initial set taser level
 	Events.emit_signal("taser_fired", stun_battery_level)
@@ -169,8 +172,13 @@ func movementInput() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	movementInput()	
-	velocity = velocity.move_toward(direction * speed, acceleration * delta)
+	if applyGravity:
+		velocity.y += gravity * delta
+		direction.x = 0
+		velocity.x = 0
+	else:
+		movementInput()	
+		velocity = velocity.move_toward(direction * speed, acceleration * delta)
 	velocity = move_and_slide(velocity)
 	
 	$Label.set_text(str(abs(velocity.x)))
@@ -389,3 +397,5 @@ func onPlayerAreaExited(area: Area2D) -> void:
 	if currentInteractable == area:
 		currentInteractable = null
 		
+func setApplyGravity(_dummyargument, to: bool):
+	applyGravity = to
