@@ -632,7 +632,7 @@ playerPath = NodePath("..")
 position = Vector2( -0.334087, -0.8909 )
 collision_mask = 5
 script = ExtResource( 12 )
-areaCollidersGroup = "ThinArea"
+areaCollidersGroup = "ThinArea;"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetection"]
 position = Vector2( 0.394875, 2.10965 )
