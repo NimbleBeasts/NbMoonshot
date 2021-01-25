@@ -528,7 +528,7 @@ texture = ExtResource( 7 )
 script = ExtResource( 8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -1, 1 )
+position = Vector2( 0, -12 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 limit_smoothed = true
