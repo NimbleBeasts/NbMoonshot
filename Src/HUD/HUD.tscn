@@ -1,8 +1,9 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
 [ext_resource path="res://Assets/HUD/AudioIndicator.png" type="Texture" id=3]
+[ext_resource path="res://Assets/HUD/HudBarBg.png" type="Texture" id=4]
 [ext_resource path="res://Src/HUD/UpgradeButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/HUD/HoverIndicator.png" type="Texture" id=6]
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
@@ -26,6 +27,7 @@
 [ext_resource path="res://Assets/HUD/PromoSteam.png" type="Texture" id=25]
 [ext_resource path="res://Src/HUD/MissionProgress.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Assets/HUD/DialogueBg.png" type="Texture" id=27]
+[ext_resource path="res://Src/HUD/HudBar.gd" type="Script" id=28]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -605,6 +607,56 @@ rect_rotation = 0.0806047
 position = Vector2( -32, 32 )
 texture = ExtResource( 23 )
 hframes = 3
+
+[node name="Display" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HudBar" type="Label" parent="Display"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_top = -40.0
+margin_right = 64.0
+margin_bottom = -27.0
+grow_horizontal = 2
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "_1 ®3 $0 ¦1:11:11"
+align = 1
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="NinePatchRect" parent="Display/HudBar"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
+texture = ExtResource( 4 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="RealText" type="RichTextLabel" parent="Display/HudBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[center]_1 ®3 $0 ¦1:11:11[/center]"
+text = "_1 ®3 $0 ¦1:11:11"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LightIndicator" type="Sprite" parent="."]
 position = Vector2( 616, 24 )
