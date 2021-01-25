@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Switches/Pressure.png" type="Texture" id=1]
 [ext_resource path="res://Src/Button/PressureButton.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -12,15 +12,15 @@ collision_mask = 512
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.157494, 0 )
-scale = Vector2( 0.502922, 0.0591503 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -12 )
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -2 )
 shape = SubResource( 1 )
 
 [node name="Enter" type="Position2D" parent="."]
-position = Vector2( 0, -2 )
+position = Vector2( 0, -3 )
 
 [node name="Exit" type="Position2D" parent="."]
-position = Vector2( 0, 2 )

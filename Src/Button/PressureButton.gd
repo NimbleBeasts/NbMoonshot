@@ -17,7 +17,7 @@ func onAreaEntered(area: Area2D) -> void:
 		# turned on
 		pressureObjects.append(area.mainNode)
 		area.mainNode.sprite.global_position.y -= offset
-
+		$Sprite.frame = 1
 		press()
 
 
@@ -26,6 +26,7 @@ func onAreaExited(area: Area2D) -> void:
 		# turned off
 		pressureObjects.erase(area.mainNode)
 		area.mainNode.sprite.global_position.y += offset
+		$Sprite.frame = 0
 		if pressureObjects == []:
 			press()
 
