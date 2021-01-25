@@ -31,3 +31,5 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetection"]
 position = Vector2( -0.122772, 0.706722 )
 shape = SubResource( 2 )
+
+[node name="PressureArea" type="Area2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 4 )
@@ -264,3 +265,6 @@ shape = SubResource( 3 )
 
 [node name="TestPickup" parent="." instance=ExtResource( 5 )]
 position = Vector2( -512, 128 )
+
+[node name="PressureButton" parent="." instance=ExtResource( 28 )]
+position = Vector2( -162.133, 256.777 )

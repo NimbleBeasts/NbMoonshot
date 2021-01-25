@@ -11,7 +11,7 @@
 extents = Vector2( 8, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 14, 4.82171 )
+extents = Vector2( 4.98376, 1.81699 )
 
 [sub_resource type="Animation" id=3]
 length = 0.6
@@ -200,14 +200,13 @@ cast_to = Vector2( 90, 0 )
 collision_mask = 129
 
 [node name="PressureArea" type="Area2D" parent="Flippable"]
-visible = false
 collision_layer = 512
 collision_mask = 0
 script = ExtResource( 4 )
 mainNodePath = NodePath("../..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/PressureArea"]
-position = Vector2( 3, -2 )
+position = Vector2( 0.391243, -1.57322 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
