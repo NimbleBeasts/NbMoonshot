@@ -14,9 +14,11 @@ func onAreaEntered(area: Area2D) -> void:
 	# don't need to put a check whether it collided with a pressure node or not 
 	# because this areas collision mask only allows it to collide with 'Pressure' objects
 	# turned on
+	if pressureObjects == []:
+		$Sprite.frame = 1
+		press()
+
 	pressureObjects.append(area.mainNode)
-	$Sprite.frame = 1
-	press()
 
 	
 func onAreaExited(area: Area2D) -> void:
@@ -36,8 +38,10 @@ func press() -> void:
 		elif node is DoorWall:
 			if node.lockLevel == node.DoorLockType.buttonLocked:
 				node.open()
+				node.interact(false, global_position)
 				return
 			elif node.lockLevel == node.DoorLockType.open:
+				node.interact(false, global_position)
 				node.resetState()
 				return
 			printerr("Trying to open %s that isn't of locked level 'buttonLocked' through %s" % [node.name, name])
