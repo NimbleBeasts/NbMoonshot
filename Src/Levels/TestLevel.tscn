@@ -131,14 +131,6 @@ door_name = "DoorWall9"
 position = Vector2( 280, 320 )
 door_name = "DoorWall10"
 
-[node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
-position = Vector2( -326, 256 )
-lockLevel = 5
-door_name = "DoorWall11"
-showHintIfLocked = true
-hint = "Key Please"
-keyPath = NodePath("../../../Key")
-
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
@@ -253,10 +245,15 @@ tile_data = PoolIntArray( 982970, 20, 0, 982971, 21, 0, 982972, 21, 0, 982973, 2
 position = Vector2( -288, 256 )
 
 [node name="Guard" parent="." instance=ExtResource( 25 )]
-position = Vector2( -696, 128 )
+position = Vector2( -248, 256 )
 
 [node name="PathLine" type="Line2D" parent="Guard"]
 points = PoolVector2Array( 8, -8, 56, -8, 96, -8 )
+script = ExtResource( 15 )
+
+[node name="PathLineDistract" type="Line2D" parent="Guard"]
+position = Vector2( -40, 0 )
+points = PoolVector2Array( -40, -8, -112, -8, -192, -8 )
 script = ExtResource( 15 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

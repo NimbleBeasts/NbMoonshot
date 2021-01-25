@@ -24,6 +24,7 @@ var processAI: bool = false
 var guard_normal_texture: Texture = preload("res://Assets/Guards/Guard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/GuardGreen.png")
 var guardPathLine
+var distractPathLine
 var playerVisibility: int 
 var guardInSight: Guard
 var isSleeping: bool
@@ -58,13 +59,18 @@ func _ready() -> void:
 
 	direction.x = 0
 	
+	var detectedPath = false
 	for child in self.get_children():
 		if child is Line2D:
 			# Path detected
-			guardPathLine = child
-			
+			if not detectedPath:
+				guardPathLine = child
+				detectedPath = true
+			else:
+				distractPathLine = child
+				distractPathLine.stopAllMovement()
 			if child.has_method("moveToNextPoint"):
-				guardPathLine.connect("next_point_reached", self, "onGuardPathLinePointReached")
+				child.connect("next_point_reached", self, "onGuardPathLinePointReached")
 			else:
 				print("Guard: " + str(self) + " - Wrong path node used. Was this intended?")
 
@@ -338,3 +344,9 @@ func stopBeingDragged() -> void:
 
 func setApplyGravity(_dummyargument, to: bool):
 	applyGravity = to
+
+	
+func stopMovement():
+	guardPathLine.stopAllMovement()
+	if distractPathLine:
+		distractPathLine.stopAllMovement()

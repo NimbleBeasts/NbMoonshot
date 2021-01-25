@@ -625,7 +625,9 @@ travelRayUpPath = NodePath("../TravelRayCasts/RayCast2DUp")
 playerPath = NodePath("..")
 
 [node name="GroundDetection" type="Area2D" parent="."]
+collision_mask = 5
 script = ExtResource( 12 )
+areaCollidersGroup = "ThinArea"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetection"]
 position = Vector2( 0.394875, 2.10965 )

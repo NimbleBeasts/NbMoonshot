@@ -99,3 +99,5 @@ func moveToStartingPoint() -> void:
 	enabled = true
 	movingToCustomPoint = false
 	timer.start()
+
+
