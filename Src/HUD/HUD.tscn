@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Src/HUD/MissionProgress.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Assets/HUD/DialogueBg.png" type="Texture" id=27]
 [ext_resource path="res://Src/HUD/HudBar.gd" type="Script" id=28]
+[ext_resource path="res://Assets/HUD/HudBar/Icons.png" type="Texture" id=29]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection"
@@ -616,13 +617,15 @@ __meta__ = {
 }
 
 [node name="HudBar" type="NinePatchRect" parent="Display"]
-show_behind_parent = true
-anchor_right = 1.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 200.0
-margin_top = 336.0
-margin_right = -200.0
-margin_bottom = -8.0
+margin_left = -62.0
+margin_top = -40.0
+margin_right = 62.0
+margin_bottom = -24.0
+grow_horizontal = 2
 texture = ExtResource( 4 )
 patch_margin_left = 2
 patch_margin_top = 2
@@ -632,6 +635,97 @@ script = ExtResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="vbox" type="HBoxContainer" parent="Display/HudBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = -1.0
+grow_horizontal = 2
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ILives" type="Control" parent="Display/HudBar/vbox"]
+margin_left = 3.0
+margin_right = 17.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 14, 14 )
+
+[node name="Sprite" type="Sprite" parent="Display/HudBar/vbox/ILives"]
+texture = ExtResource( 29 )
+centered = false
+hframes = 4
+
+[node name="LLives" type="Label" parent="Display/HudBar/vbox"]
+margin_left = 17.0
+margin_top = 1.0
+margin_right = 24.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 14 )
+text = "3"
+
+[node name="IAmount" type="Control" parent="Display/HudBar/vbox"]
+margin_left = 24.0
+margin_right = 38.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 14, 14 )
+
+[node name="Sprite" type="Sprite" parent="Display/HudBar/vbox/IAmount"]
+texture = ExtResource( 29 )
+centered = false
+hframes = 4
+frame = 1
+
+[node name="LAmount" type="Label" parent="Display/HudBar/vbox"]
+margin_left = 38.0
+margin_top = 1.0
+margin_right = 45.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 14 )
+text = "3"
+
+[node name="IMoney" type="Control" parent="Display/HudBar/vbox"]
+margin_left = 45.0
+margin_right = 59.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 14, 14 )
+
+[node name="Sprite" type="Sprite" parent="Display/HudBar/vbox/IMoney"]
+texture = ExtResource( 29 )
+centered = false
+hframes = 4
+frame = 2
+
+[node name="LMoney" type="Label" parent="Display/HudBar/vbox"]
+margin_left = 59.0
+margin_top = 1.0
+margin_right = 66.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 14 )
+text = "0"
+
+[node name="ITime" type="Control" parent="Display/HudBar/vbox"]
+margin_left = 66.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 14, 14 )
+
+[node name="Sprite" type="Sprite" parent="Display/HudBar/vbox/ITime"]
+texture = ExtResource( 29 )
+centered = false
+hframes = 4
+frame = 3
+
+[node name="LTime" type="Label" parent="Display/HudBar/vbox"]
+margin_left = 80.0
+margin_top = 1.0
+margin_right = 121.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 14 )
+text = "0:00:00"
 
 [node name="LightIndicator" type="Sprite" parent="."]
 position = Vector2( 616, 24 )
@@ -882,6 +976,7 @@ texture = ExtResource( 25 )
 [connection signal="button_up" from="SaveGame/Menu/ButtonSave3" to="." method="_on_ButtonSave3_button_up"]
 [connection signal="animation_finished" from="GameOverNotification/GameOverNotifcationAnimationPlayer" to="." method="_on_GameOverNotifcationAnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="GameHintNotification/GameHintAnimationPlayer" to="." method="_on_GameHintAnimationPlayer_animation_finished"]
+[connection signal="resized" from="Display/HudBar/vbox" to="Display/HudBar" method="_on_vbox_resized"]
 [connection signal="mouse_entered" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_entered"]
 [connection signal="mouse_exited" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_exited"]
 [connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]
