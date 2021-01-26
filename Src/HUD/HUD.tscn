@@ -615,45 +615,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HudBar" type="Label" parent="Display"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -64.0
-margin_top = -40.0
-margin_right = 64.0
-margin_bottom = -27.0
-grow_horizontal = 2
-custom_fonts/font = ExtResource( 14 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "_1 ®3 $0 ¦1:11:11"
-align = 1
-script = ExtResource( 28 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Bg" type="NinePatchRect" parent="Display/HudBar"]
+[node name="HudBar" type="NinePatchRect" parent="Display"]
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 1.0
-margin_bottom = 1.0
+margin_left = 200.0
+margin_top = 336.0
+margin_right = -200.0
+margin_bottom = -8.0
 texture = ExtResource( 4 )
 patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
-
-[node name="RealText" type="RichTextLabel" parent="Display/HudBar"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/normal_font = ExtResource( 14 )
-bbcode_enabled = true
-bbcode_text = "[center]_1 ®3 $0 ¦1:11:11[/center]"
-text = "_1 ®3 $0 ¦1:11:11"
-scroll_active = false
+script = ExtResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
