@@ -19,7 +19,7 @@ onready var player: Player = Global.player
 
 
 func _ready() -> void:
-	Events.connect("forcefully_close_minigame", self, "onForcefullyCloseMinigame")
+	Events.connect("minigame_forcefully_close", self, "onForcefullyCloseMinigame")
 	add_child(newTween)
 	#warning-ignore:return_value_discarded
 	newTween.connect("tween_all_completed", self, "_on_tween_all_completed")

@@ -19,7 +19,7 @@ func _ready():
 	
 	door_name = self.name
 	if door_name != "":
-		Events.connect("door_change_status", self, "_on_door_change_status")
+		Events.connect("minigame_door_change_status", self, "_on_minigame_door_change_status")
 	
 	if doorType == DoorType.metalSwing:
 		$Sprite.texture = preload("res://Assets/Doors/StaircaseMetal.png")
@@ -58,7 +58,7 @@ func onAnimationFinished(_animName: String) -> void:
 		Events.emit_signal("player_exit_door")
 		open = false
 		
-func _on_door_change_status(_door_name, _lock_type, _run_anim):
+func _on_minigame_door_change_status(_door_name, _lock_type, _run_anim):
 	if door_name == _door_name:
 		lockLevel = _lock_type
 		if _run_anim:

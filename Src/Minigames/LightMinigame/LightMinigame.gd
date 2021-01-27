@@ -114,6 +114,6 @@ func check_win():
 			return
 	yield(get_tree().create_timer(0.25), "timeout")
 	set_result(Types.MinigameResults.Succeeded)
-	Events.emit_signal("door_change_status",door_name, 0, run_anim)
+	Events.emit_signal("minigame_door_change_status",door_name, 0, run_anim)
 	close()
 	

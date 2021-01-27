@@ -8,54 +8,86 @@ const DEBUG_OUTPUT_ON_SIGNAL_CONNECT = false
 # Global Signal List
 ###############################################################################
 
+#####################################################################################
 # Level Management
+#####################################################################################
+## Starts a new Game
 signal new_game(startLevel)
 
-
-# Light Levels
-signal light_level_changed(newLevel) #Types.LightLevels
-# Audio Levels, audio_pos is the position where the audio notification was emitted for nearby guards
+#####################################################################################
+# Detection
+#####################################################################################
+## Emitted when player makes noises - Audio Levels, audio_pos is the position where the audio notification was emitted for nearby guards
 signal audio_level_changed(newLevel, audio_pos, emitter) #Types.AudioLevels
+## Emitted when players visibility changes
 signal visible_level_changed(newLevel)
+## Emitted when the player is detected
+signal player_detected(detection_type) # Types.DetectionLevels
 
-# minigame
+#####################################################################################
+# Minigames
+#####################################################################################
+## Emitted when a minigame is started
 signal minigame_entered(minigame_type) #Types.Minigames
+## Emitted when a minigame is closed
 signal minigame_exited(result) #Types.Minigames
-signal forcefully_close_minigame()
+## Emitted when menu is called or player is detected
+signal minigame_forcefully_close()
+## Emitted by minigame to open/close door
+signal minigame_door_change_status(door_name, lock_type, exec_anim) #exec anim is bool for switch state anim
 
-# Door open close
-signal door_change_status(door_name, lock_type, exec_anim) #exec anim is bool for switch state anim
-
+#####################################################################################
 # HUD
+#####################################################################################
+## Emitted to show note
 signal hud_note_show(node, type, text)
+## Emitted on closing note
 signal hud_note_exited(node)
+## Emitted to show dialogue
 signal hud_dialog_show(name, nameColor, text, isMultipage, npcPotrait)
+## Emitted on closing dialogue
 signal hud_dialog_exited()
+## Emitted to show upgrade window
+signal hud_upgrade_window_show()
+## Emitted on closing upgrade window
+signal hud_upgrade_window_exited() #TODO: no listener
+## Emitted to show save window
+signal hud_save_window_show()
+## Emitted on closing save window
+signal hud_save_window_exited()
+## Emitted to show mission briefing window
+signal hud_mission_briefing(level)
+## Emitted on closing mission briefing window
+signal hud_mission_briefing_exited()
+## Emitted to show game over screen
+signal hud_game_over()
+## Emitted on closing game over screen
+signal hud_game_over_exited() #TODO: no listener
+
+## Emitted on money update
+signal hud_update_money(total, amount)
+## Emitted to show game hint
+signal hud_game_hint(text)
+## Emitted to show photo flash anim
+signal hud_photo_flash()
+
+
+
+
+#####################################################################################
+#TODO: Emitted but never listend to list - can be removed?:
 signal hud_notification_show(type, node) #Types.HudNotificationType, self reference
 signal hud_notification_exited()
-signal hud_upgrade_window_show()
-signal hud_upgrade_window_exited()
-signal hud_save_window_show()
-signal hud_save_window_exited()
 signal hud_level_transition(level) #Mission briefing or -1 for returning to HQ
 signal hud_level_transition_exited()
-signal hud_update_money(total, amount)
-signal hide_dialog()
-signal hud_mission_briefing(level)
-signal hud_mission_briefing_exited()
-signal hud_game_over()
-signal hud_game_over_exited()
-signal hud_game_hint(text)
-signal hud_photo_flash()
-signal hide_save()
-signal update_upgrades()
-signal dialog_typing_changed(value)
-signal skip_dialog()
+#####################################################################################
 
 # dialog branching
+signal dialogue_hide()
 signal update_dialog_option(type, text)
 signal no_branch_option_pressed()
-
+signal dialog_typing_changed(value)
+signal skip_dialog()
 signal dialog_button_pressed(buttonType)
 
 signal update_branch_button_state(enabled)
@@ -67,15 +99,12 @@ signal save_game()
 
 
 
-# Detection
-signal player_detected(detection_type) # Types.DetectionLevels
-signal possible_detection_num_changed(value)
-signal sure_detection_num_changed(value)
+
+
 # Taser
 signal taser_fired(charges_remaining)
 
-# Allowed detections
-signal allowed_detections_updated(value)
+
 
 # NPC
 signal interacted_with_npc(npc)
@@ -101,6 +130,8 @@ signal switch_shader(value)
 signal tutorial_finished()
 
 # player
+## Performs the upgrade
+signal player_upgrades_do()
 signal block_player_movement()
 signal unblock_player_movement()
 signal player_enter_door()
@@ -127,6 +158,18 @@ signal held_selection()
 signal released_held_selection()
 
 
+
+
+
+
+
+
+# Light Levels
+#TODO: knightmare this is contradicting with visible_level_changed. The player do emit it but no one reacts to it. Please remove it if not necessary or adapt player code.
+signal light_level_changed(newLevel) #Types.LightLevels
+
+#TODO: Im not quite sure if we really need this one
+signal allowed_detections_updated(value)
 
 
 ###############################################################################

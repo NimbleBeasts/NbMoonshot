@@ -25,7 +25,7 @@ func _ready():
 	set_process(false)
 	
 	if door_id != 0:
-		Events.connect("door_change_status", self, "_on_door_change_status")
+		Events.connect("minigame_door_change_status", self, "_on_minigame_door_change_status")
 	
 
 func _process(_delta):
@@ -86,7 +86,7 @@ func _on_Area2D_body_exited(body):
 		playerInArea = false
 		set_process(false)
 
-func _on_door_change_status(id, lock_type, play):
+func _on_minigame_door_change_status(id, lock_type, play):
 	if id == door_id:
 		lockLevel = lock_type
 	if play:

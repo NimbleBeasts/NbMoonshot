@@ -79,7 +79,7 @@ func _ready() -> void:
 	Events.connect("unblock_player_input", self, "onUnblockPlayerInput")
 	Events.connect("unblock_player_movement", self, "onUnblockPlayerMovement")
 	Events.connect("game_over", self, "onGameOver")
-	Events.connect("update_upgrades", self, "do_upgrade_stuff")
+	Events.connect("player_upgrades_do", self, "do_upgrade_stuff")
 	Events.connect("set_player_state", self, "set_state")
 	Events.connect("change_player_animation", $AnimationPlayer, "play")
 

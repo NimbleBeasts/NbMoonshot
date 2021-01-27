@@ -156,7 +156,7 @@ func saveGame(slotId):
 	saveFile.store_line(to_json(gameState))
 	saveFile.close()
 	Events.emit_signal("hud_game_hint", "Game saved")
-	Events.emit_signal("hide_save")
+	Events.emit_signal("hud_save_window_exited")
 
 # Load Game
 func loadSave(slotId):

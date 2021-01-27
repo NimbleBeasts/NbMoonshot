@@ -46,7 +46,7 @@ func _ready():
 	if door_name == "":
 		door_name = name
 	
-	Events.connect("door_change_status", self, "_on_door_change_status")
+	Events.connect("minigame_door_change_status", self, "_on_minigame_door_change_status")
 
 	#load state form save if it exists
 	if Global.gameState.has(door_name):
@@ -163,7 +163,7 @@ func _on_Area2D_body_exited(body):
 		set_process(false)
 
 
-func _on_door_change_status(_door_name, _lock_type, _run_anim):
+func _on_minigame_door_change_status(_door_name, _lock_type, _run_anim):
 	if door_name == _door_name:
 		lockLevel = _lock_type
 		if save_state:

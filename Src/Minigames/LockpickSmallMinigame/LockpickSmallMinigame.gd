@@ -78,7 +78,7 @@ func tap_pin():
 		pin.position = Vector2( pin.position.x, pin.position.y - move_up)
 		yield(get_tree().create_timer(0.25), "timeout")
 		set_result(Types.MinigameResults.Succeeded)
-		Events.emit_signal("door_change_status",door_name, 0, run_anim)
+		Events.emit_signal("minigame_door_change_status",door_name, 0, run_anim)
 		close()
 	else:
 		Events.emit_signal("play_sound", "lockpick_miss")

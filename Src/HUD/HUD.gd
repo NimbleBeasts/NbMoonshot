@@ -38,12 +38,12 @@ func _ready():
 	Events.connect("hud_dialog_show", self, "showDialog")
 	Events.connect("hud_upgrade_window_show", self, "showUpgrade")
 	Events.connect("hud_save_window_show", self, "showSave")
-	Events.connect("hide_save", self, "onHideSave")
+	Events.connect("hud_save_window_exited", self, "onHideSave")
 
-	Events.connect("sure_detection_num_changed", self, "alarmIndication")
+	Events.connect("player_detected", self, "alarmIndication")
 	Events.connect("taser_fired", self, "taserUpdate")
 	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
-	Events.connect("hide_dialog", self, "hideDialog")
+	Events.connect("dialogue_hide", self, "hideDialog")
 	Events.connect("skip_dialog", self, "skipDialog")
 	
 	Events.connect("hud_update_money", self, "moneyUpdate")
@@ -173,7 +173,7 @@ func taserUpdate(value):
 	$ChargeIndicator/Label.set_text(str(value))
 
 
-func alarmIndication(_value): #TODO: providing a value is superfluous 
+func alarmIndication(type):
 	if detected_value - 1 >= 0:
 		detected_value -= 1
 		$DetectFlash/AnimationPlayer.play("detection")
@@ -215,7 +215,7 @@ func _on_UpgradeButton_button_up():
 		Global.addUpgrade(currentSelectedUpgrade)
 		Global.addMoney(-upgrade.cost)
 		upgradeSelect(currentSelectedUpgrade)
-		Events.emit_signal("update_upgrades")
+		Events.emit_signal("player_upgrades_do")
 		updateUpgrades()
 	
 
@@ -286,7 +286,7 @@ func _physics_process(_delta):
 			$Note.hide()
 			Events.emit_signal("hud_note_exited", emittingNode)
 		elif $Dialog.visible:
-			Events.emit_signal("hide_dialog")
+			Events.emit_signal("dialogue_hide")
 		elif $Upgrades.visible:
 			$Upgrades.hide()
 			Events.emit_signal("unblock_player_movement")
@@ -328,7 +328,7 @@ func showMenu():
 	$IngameMenu/Menu/SoundSlider.value = value
 	
 	get_tree().paused = true
-	Events.emit_signal("forcefully_close_minigame")
+	Events.emit_signal("minigame_forcefully_close")
 
 
 func hideMenu():
@@ -487,7 +487,7 @@ func onNoBranchOptionPressed() -> void:
 		if nextText != "":
 			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText, true, nextPotrait)
 		elif multipage:
-			Events.emit_signal("hide_dialog")
+			Events.emit_signal("dialogue_hide")
 
 
 func _on_MusicSlider_value_changed(value):

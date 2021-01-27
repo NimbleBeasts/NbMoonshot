@@ -62,7 +62,7 @@ func dragObject() -> void:
 	processAnims = false
 	Events.emit_signal("block_player_input")
 	Events.emit_signal("change_player_animation", "pickup")
-	Events.emit_signal("forcefully_close_minigame")
+	Events.emit_signal("minigame_forcefully_close")
 	set_process(true)
 
 
