@@ -621,9 +621,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -62.0
+margin_left = -73.0
 margin_top = -40.0
-margin_right = 62.0
+margin_right = 72.0
 margin_bottom = -24.0
 grow_horizontal = 2
 texture = ExtResource( 4 )
@@ -702,14 +702,14 @@ frame = 2
 [node name="LMoney" type="Label" parent="Display/HudBar/vbox"]
 margin_left = 59.0
 margin_top = 1.0
-margin_right = 66.0
+margin_right = 87.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 14 )
-text = "0"
+text = "5000"
 
 [node name="ITime" type="Control" parent="Display/HudBar/vbox"]
-margin_left = 66.0
-margin_right = 80.0
+margin_left = 87.0
+margin_right = 101.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 14, 14 )
 
@@ -720,9 +720,9 @@ hframes = 4
 frame = 3
 
 [node name="LTime" type="Label" parent="Display/HudBar/vbox"]
-margin_left = 80.0
+margin_left = 101.0
 margin_top = 1.0
-margin_right = 121.0
+margin_right = 142.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 14 )
 text = "0:00:00"

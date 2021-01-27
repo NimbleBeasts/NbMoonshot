@@ -165,6 +165,8 @@ func moneyUpdate(total, change):
 		# Update button if money is enough
 		upgradeSelect(currentSelectedUpgrade)
 
+	$Display/HudBar.updateMoney(total, change)
+
 func taserUpdate(value):
 	var clamped = clamp( value, 0, 3)
 	$ChargeIndicator.frame = 3 - clamped
@@ -177,11 +179,14 @@ func alarmIndication(_value): #TODO: providing a value is superfluous
 		$DetectFlash/AnimationPlayer.play("detection")
 		$AlarmIndicator/AlarmAnimation.play("downgrade")
 		$AlarmIndicator/Label.set_text(str(detected_value))
+		
+		$Display/HudBar.updateAlarm(detected_value)
 
 
 func allowedDetectionsUpdate(value) -> void:
 	detected_value = value 
 	$AlarmIndicator/Label.set_text(str(detected_value))
+	$Display/HudBar.updateAlarm(detected_value)
 
 	
 func showNote(node, type, text):
