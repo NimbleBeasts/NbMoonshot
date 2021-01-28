@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Entry.png" type="Texture" id=2]
@@ -16,6 +16,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 104, 8 )
 
 [node name="Level8" type="Node2D"]
 script = ExtResource( 1 )
@@ -54,6 +57,9 @@ tile_data = PoolIntArray( 393234, 0, 0, 1048593, 13, 0, 1048595, 14, 0, 1048597,
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 664, 384 )
 connected_door_path = NodePath("../../../Level17/LevelObjects/Staircase2")
+lockLevel = 0
+doorType = 0
+door_name = ""
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 14 )]
 position = Vector2( -8, 256 )
@@ -82,6 +88,9 @@ centered = false
 [node name="StaircaseF1L" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 448, 192 )
 connected_door_path = NodePath("../../../../Level17/LevelObjects/Doors/StaircaseF2R")
+lockLevel = 0
+doorType = 0
+door_name = ""
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -116,8 +125,13 @@ script = ExtResource( 20 )
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( -104, 256 )
+position = Vector2( -64, 224 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 48, -32 )
 shape = SubResource( 1 )
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2( 32, 264 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource( 2 )

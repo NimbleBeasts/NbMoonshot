@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=2]
@@ -40,6 +40,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 136, 8 )
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
@@ -133,6 +136,13 @@ position = Vector2( -104, 256 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 48, -32 )
 shape = SubResource( 1 )
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2( 96, 264 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2( -16, 0 )
+shape = SubResource( 2 )
 
 [node name="LevelObjects" type="Node2D" parent="."]
 
