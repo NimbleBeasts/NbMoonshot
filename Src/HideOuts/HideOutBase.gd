@@ -39,14 +39,14 @@ func _input(event: InputEvent) -> void:
 
 	if player.state == Types.PlayerStates.DraggingItem:
 		playerLastPickup = player.itemPickup.currentPickup
-		Events.emit_signal("drop_current_item")
-		Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
+		Events.emit_signal("player_item_drop")
+		Events.emit_signal("player_state_set", Types.PlayerStates.Normal)
 
 	# unhiding guard if hidden and press E
 	if hiddenGuard != null:
 		unhidingGuard = true
 		animPlayer.play("open")
-		Events.emit_signal("block_player_movement")
+		Events.emit_signal("player_block_movement")
 		$Sprite.z_index = player.z_index - 1
 		return
 
@@ -67,7 +67,7 @@ func _input(event: InputEvent) -> void:
 func hideGuard() -> void:
 	playerLastPickup = null
 	$Sprite.z_index = player.z_index - 1
-	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
+	Events.emit_signal("player_state_set", Types.PlayerStates.Normal)
 	guard = player.guardPickup.object
 	player.guardPickup.object = null
 	if guard == null:
@@ -82,7 +82,7 @@ func hideGuard() -> void:
 func hidePlayer() -> void:
 	$Sprite.z_index = player.z_index + 1
 	animPlayer.play("close")
-	Events.emit_signal("block_player_input")
+	Events.emit_signal("player_block_input")
 	goInCloset = true
 	isOpen = false
 
@@ -94,7 +94,7 @@ func openCloset() -> void:
 	if player.state == Types.PlayerStates.InCloset:
 		player.set_state(Types.PlayerStates.Normal)
 		if playerLastPickup != null:
-			Events.emit_signal("pickup_item", playerLastPickup)
+			Events.emit_signal("player_item_pickup", playerLastPickup)
 	isOpen = true
 
 
@@ -121,7 +121,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			hiddenGuard.show()
 			hiddenGuard = null
 			goInCloset = false
-			Events.emit_signal("unblock_player_movement")
+			Events.emit_signal("player_unblock_movement")
 			return
 		if destroyGuard:
 			guard.hide()
@@ -129,11 +129,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 		# making sure input and movement is not blocked
 		if player.movementBlocked:
-			Events.emit_signal("unblock_player_movement")
+			Events.emit_signal("player_unblock_movement")
 		if player.blockEntireInput:
-			Events.emit_signal("unblock_player_input")
+			Events.emit_signal("player_unblock_input")
 
 	elif anim_name == "close":
 		if goInCloset:
-			Events.emit_signal("set_player_state", Types.PlayerStates.InCloset)
+			Events.emit_signal("player_state_set", Types.PlayerStates.InCloset)
 			player.global_position = getPoint()

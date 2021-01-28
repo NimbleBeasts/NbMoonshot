@@ -3,8 +3,8 @@ extends Sprite
 
 func _ready() -> void:
 	hide()
-	Events.connect("held_selection", self, "onCameraHeldSelection")
-	Events.connect("released_held_selection", self, "onCameraReleasedSelection")
+	Events.connect("player_selection_held", self, "onCameraHeldSelection")
+	Events.connect("player_selection_released", self, "onCameraReleasedSelection")
 
 
 func onCameraHeldSelection() -> void:

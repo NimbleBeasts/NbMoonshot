@@ -39,8 +39,7 @@ func interact() -> void:
 	
 	# teleports to connected door
 	if connected_door and not animPlayer.is_playing():
-		Events.emit_signal("block_player_input")
-		Events.emit_signal("player_enter_door")
+		Events.emit_signal("player_block_input")
 		animPlayer.play("open")
 		Events.emit_signal("play_sound", "door_wooden_open")
 		open = true
@@ -53,9 +52,8 @@ func onAnimationFinished(_animName: String) -> void:
 		player.global_position = connected_door.get_node("PlayerTeleportPosition").global_position
 		connected_door.animPlayer.play_backwards("open")
 		Events.emit_signal("play_sound", "door_wooden_close")
-		Events.emit_signal("unblock_player_input")
-		Events.emit_signal("unblock_player_movement")
-		Events.emit_signal("player_exit_door")
+		Events.emit_signal("player_unblock_input")
+		Events.emit_signal("player_unblock_movement")
 		open = false
 		
 func _on_minigame_door_change_status(_door_name, _lock_type, _run_anim):

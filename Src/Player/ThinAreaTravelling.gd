@@ -26,8 +26,8 @@ func _physics_process(delta: float) -> void:
 		if thinArea == null:
 			return
 		if Input.is_action_just_pressed("travel_down"):
-			Events.emit_signal("drop_guard")
-			Events.emit_signal("drop_current_item")
+			Events.emit_signal("player_guard_drop")
+			Events.emit_signal("player_item_drop")
 			var travelDuration: float
 			var correctAnim: String
 			if thinArea.isLadder:
@@ -37,8 +37,8 @@ func _physics_process(delta: float) -> void:
 				travelDuration = travelDurationNormal
 				correctAnim = "jump_down"
 			travel(thinArea.destination_down_position, travelDuration)
-			Events.emit_signal("block_player_input")
-			Events.emit_signal("change_player_animation", correctAnim)
+			Events.emit_signal("player_block_input")
+			Events.emit_signal("player_animation_change", correctAnim)
 			Events.emit_signal("play_sound", "jump_down")
 
 
@@ -48,8 +48,8 @@ func _physics_process(delta: float) -> void:
 			return
 		# Tweening
 		if Input.is_action_just_pressed("travel_up"):
-			Events.emit_signal("drop_guard")
-			Events.emit_signal("drop_current_item")
+			Events.emit_signal("player_guard_drop")
+			Events.emit_signal("player_item_drop")
 			var travelDuration: float
 			var correctAnim: String
 			if thinArea.isLadder:
@@ -59,8 +59,8 @@ func _physics_process(delta: float) -> void:
 				travelDuration = travelDurationNormal
 				correctAnim = "jump_up"
 			travel(thinArea.destination_up_position, travelDuration)
-			Events.emit_signal("block_player_input")
-			Events.emit_signal("change_player_animation", correctAnim)
+			Events.emit_signal("player_block_input")
+			Events.emit_signal("player_animation_change", correctAnim)
 			Events.emit_signal("play_sound", "jump_up")
 
 
@@ -70,12 +70,12 @@ func travel(targetPosition: Vector2, tweenDuration: float) -> void:
 			targetPosition.y, tweenDuration, Tween.TRANS_LINEAR)
 	travelTween.start()
 	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, player.global_position, self)
-	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
+	Events.emit_signal("player_state_set", Types.PlayerStates.Normal)
 
 
 func onTravelTweenAllCompleted() -> void:
 	# unblocking player input because it gets blocked when starting the tweening
-	Events.emit_signal("unblock_player_input")
-	Events.emit_signal("unblock_player_movement")
+	Events.emit_signal("player_unblock_input")
+	Events.emit_signal("player_unblock_movement")
 	# to rest player anim to idle
-	Events.emit_signal("change_player_animation", "idle")
+	Events.emit_signal("player_animation_change", "idle")

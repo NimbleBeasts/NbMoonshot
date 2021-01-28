@@ -27,15 +27,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and player_entered and Global.player.direction == Vector2(0,0) and not dialogTyping:
 		# this is kind of a weird way to do this but it works :DDDDDDDDDDDD
 		if not dialogueRead:
-			Events.emit_signal("interacted_with_npc", self)
-			Events.emit_signal("block_player_movement")
+			Events.emit_signal("player_block_movement")
 			interact()
 		else:
 			dialogueRead = false
-			Events.emit_signal("npc_interaction_stopped", self)
 	elif Input.is_action_just_pressed("ui_cancel") and player_entered:
-		Events.emit_signal("unblock_player_movement")
-		Events.emit_signal("npc_interaction_stopped", self)
+		Events.emit_signal("player_unblock_movement")
 
 
 # function for loading dialogues
@@ -65,7 +62,7 @@ func interact() -> void:
 	dialogue_index = 0
 	say_dialogue_text(interacted_counter, dialogue_index)
 	dialogue_index += 1
-	Events.emit_signal("unblock_player_movement")
+	Events.emit_signal("player_unblock_movement")
 
 # this function checks if dialogue exists from a passed interacted counter(first digit) and index(second digit) in the json file
 func has_dialogue(counter, index) -> bool:

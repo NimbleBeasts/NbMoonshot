@@ -41,9 +41,9 @@ func _ready():
 	Events.connect("hud_save_window_exited", self, "onHideSave")
 
 	Events.connect("player_detected", self, "alarmIndication")
-	Events.connect("taser_fired", self, "taserUpdate")
+	Events.connect("player_taser_fired", self, "taserUpdate")
 	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
-	Events.connect("dialogue_hide", self, "hideDialog")
+	Events.connect("hud_dialogue_hide", self, "hideDialog")
 	Events.connect("skip_dialog", self, "skipDialog")
 	
 	Events.connect("hud_update_money", self, "moneyUpdate")
@@ -132,7 +132,7 @@ func showSave():
 	if $SaveGame.is_visible_in_tree():
 		return
 	
-	Events.emit_signal("block_player_movement")
+	Events.emit_signal("player_block_movement")
 	var saves = Global.getSaveGameState()
 	
 	var i = 1
@@ -272,11 +272,11 @@ func showDialog(pname: String, nameColor: String, text: String, isMultipage: boo
 # call this function to hide dialogue instead of simply hiding it 
 func hideDialog() -> void:
 	$Dialog.hide()
-	Events.emit_signal("hud_dialog_exited")
+	Events.emit_signal("hud_dialogue_exited")
 	dialogTypeTimer.stop()
 	$Dialog/Text.visible_characters = 0
-	Events.emit_signal("unblock_player_movement")
-	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
+	Events.emit_signal("player_unblock_movement")
+	Events.emit_signal("player_state_set", Types.PlayerStates.Normal)
 
 
 func _physics_process(_delta):
@@ -286,10 +286,10 @@ func _physics_process(_delta):
 			$Note.hide()
 			Events.emit_signal("hud_note_exited", emittingNode)
 		elif $Dialog.visible:
-			Events.emit_signal("dialogue_hide")
+			Events.emit_signal("hud_dialogue_hide")
 		elif $Upgrades.visible:
 			$Upgrades.hide()
-			Events.emit_signal("unblock_player_movement")
+			Events.emit_signal("player_unblock_movement")
 		elif $SaveGame.visible:
 			onHideSave()
 
@@ -365,7 +365,7 @@ func _on_GoBackToNormal_timeout() -> void:
 
 
 func onHideSave() -> void:
-	Events.emit_signal("unblock_player_movement")
+	Events.emit_signal("player_unblock_movement")
 	$SaveGame.hide()
 
 	
@@ -487,17 +487,17 @@ func onNoBranchOptionPressed() -> void:
 		if nextText != "":
 			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText, true, nextPotrait)
 		elif multipage:
-			Events.emit_signal("dialogue_hide")
+			Events.emit_signal("hud_dialogue_hide")
 
 
 func _on_MusicSlider_value_changed(value):
 	$IngameMenu/Menu/MusicSlider/Percentage.set_text(str(value*10)+"%")
-	Events.emit_signal("music_set_volume", value)
+	Events.emit_signal("cfg_music_set_volume", value)
 
 
 func _on_SoundSlider_value_changed(value):
 	$IngameMenu/Menu/SoundSlider/Percentage.set_text(str(value*10)+"%")
-	Events.emit_signal("sound_set_volume", value)
+	Events.emit_signal("cfg_sound_set_volume", value)
 
 
 func _on_DebugPromo_button_up():

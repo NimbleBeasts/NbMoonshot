@@ -13,7 +13,7 @@ onready var carryPosition: Position2D = get_node(carryPositionPath)
 func _ready() -> void:
 	set_process(false)
 	set_process_unhandled_input(false)
-	Events.connect("drop_guard", self, "stopDragging")
+	Events.connect("player_guard_drop", self, "stopDragging")
 	connect("body_entered", self, "onBodyEntered")
 	connect("body_exited", self, "onBodyExited")
 
@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 
 		if processAnims:
 			var correctAnim: String = "carryIdle" if int(player.velocity.x) == 0 else "carryWalk"
-			Events.emit_signal("change_player_animation", correctAnim)
+			Events.emit_signal("player_animation_change", correctAnim)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -51,8 +51,8 @@ func stopDragging() -> void:
 		processAnims = false
 		object.stopBeingDragged()
 		player.set_state(Types.PlayerStates.Normal)
-		Events.emit_signal("block_player_input")
-		Events.emit_signal("change_player_animation", "laydown")
+		Events.emit_signal("player_block_input")
+		Events.emit_signal("player_animation_change", "laydown")
 
 
 func dragObject() -> void:
@@ -60,8 +60,8 @@ func dragObject() -> void:
 	player.set_state(Types.PlayerStates.DraggingGuard)
 	isDragging = true
 	processAnims = false
-	Events.emit_signal("block_player_input")
-	Events.emit_signal("change_player_animation", "pickup")
+	Events.emit_signal("player_block_input")
+	Events.emit_signal("player_animation_change", "pickup")
 	Events.emit_signal("minigame_forcefully_close")
 	set_process(true)
 
@@ -70,12 +70,12 @@ func onAnimationFinished(animName: String) -> void:
 	if not isDragging:
 		return
 	if animName == "pickup":
-		Events.emit_signal("unblock_player_input")
-		Events.emit_signal("unblock_player_movement")
+		Events.emit_signal("player_unblock_input")
+		Events.emit_signal("player_unblock_movement")
 		processAnims = true
 	elif animName == "laydown":
-		Events.emit_signal("unblock_player_input")
-		Events.emit_signal("unblock_player_movement")
+		Events.emit_signal("player_unblock_input")
+		Events.emit_signal("player_unblock_movement")
 		isDragging = false
 		processAnims = false
 		set_process(false)

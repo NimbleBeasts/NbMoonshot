@@ -5,10 +5,10 @@ export(String, MULTILINE) var text = ""
 var isShown = false
 
 #signal hud_dialog_show(name, nameColor, text)
-#signal hud_dialog_exited()
+#signal hud_dialogue_exited()
 
 func _ready():
-	Events.connect("hud_dialog_exited", self, "remove")
+	Events.connect("hud_dialogue_exited", self, "remove")
 	set_process(false)
 
 func remove():

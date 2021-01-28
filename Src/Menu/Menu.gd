@@ -5,7 +5,7 @@ enum MenuState {Main, Settings, LoadGame, Credits}
 func _ready():
 	# Event Hooks
 	Events.connect_signal("menu_back", self, "_back")
-	Events.connect_signal("switch_fullscreen", self, "_switchFullscreen")
+	Events.connect_signal("cfg_switch_fullscreen", self, "_switchFullscreen")
 
 	$Version.bbcode_text = "[right]"+ Global.getVersionString() + "[/right]"
 
@@ -169,23 +169,23 @@ func _on_Copyright_meta_clicked(meta):
 
 func _on_SoundSlider_value_changed(value):
 	$Settings/SoundSlider/Percentage.set_text(str(value*10) + "%")
-	Events.emit_signal("sound_set_volume", value)
+	Events.emit_signal("cfg_sound_set_volume", value)
 
 
 func _on_MusicSlider_value_changed(value):
 	$Settings/MusicSlider/Percentage.set_text(str(value*10) + "%")
-	Events.emit_signal("music_set_volume", value)
+	Events.emit_signal("cfg_music_set_volume", value)
 
 
 func _on_ButtonFullscreen_button_up():
 	playClick()
-	Events.emit_signal("switch_fullscreen", !Global.userConfig.fullscreen)
+	Events.emit_signal("cfg_switch_fullscreen", !Global.userConfig.fullscreen)
 	updateSettings()
 
 
 func _on_ButtonShader_button_up():
 	playClick()
-	Events.emit_signal("switch_shader", !Global.userConfig.shader)
+	Events.emit_signal("cfg_switch_shader", !Global.userConfig.shader)
 	updateSettings()
 
 

@@ -30,7 +30,7 @@ func _ready() -> void:
 	Events.connect("no_branch_option_pressed", self, "onNoBranchButtonPressed")
 	Events.connect("dialog_button_pressed", self, "onDialogButtonPressed")
 
-	Events.connect("dialogue_hide", self, "onDialogHidden")
+	Events.connect("hud_dialogue_hide", self, "onDialogHidden")
 	#warning-ignore:return_value_discarded
 	connect("body_entered", self, "onBodyEntered")
 	#warning-ignore:return_value_discarded
@@ -111,8 +111,7 @@ func loadTranslation() -> void:
 func sayBranch(branch: Dictionary) -> void:
 	if translation == null:
 		return
-	Events.emit_signal("block_player_movement")
-	Events.emit_signal("interacted_with_npc", self)
+	Events.emit_signal("player_block_movement")
 	var messageKey = "KEY_" + currentBranchID
 	Events.emit_signal("hud_dialog_show", npcName, npcColor, translation.get_message(messageKey), false, npcPotrait)
 	
@@ -155,7 +154,7 @@ func setInteractedCounter(value: int) -> void:
 
 func exitDialogue() -> void:
 	checkForQuests()
-	Events.emit_signal("dialogue_hide")
+	Events.emit_signal("hud_dialogue_hide")
 	sayingDialogue = false
 
 	

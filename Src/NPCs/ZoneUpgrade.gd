@@ -10,9 +10,9 @@ func _process(_delta):
 	if player:
 		if Input.is_action_just_pressed("interact"):
 			Events.emit_signal("hud_upgrade_window_show")
-			Events.emit_signal("block_player_movement")
+			Events.emit_signal("player_block_movement")
 		elif Input.is_action_just_pressed("ui_cancel"):
-			Events.emit_signal("unblock_player_movement")
+			Events.emit_signal("player_unblock_movement")
 
 
 func _on_ZoneUpgrade_body_entered(body):

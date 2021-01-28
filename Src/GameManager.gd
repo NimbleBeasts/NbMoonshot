@@ -21,10 +21,10 @@ func _ready():
 	Global.debugLabel = $Debug
 
 	# Event Hooks
-	Events.connect("music_set_volume", self, "setMusicVolume")
-	Events.connect("sound_set_volume", self, "setSoundVolume")
-	Events.connect("switch_shader", self, "switchShader")
-	Events.connect_signal("switch_fullscreen", self, "_switchFullscreen")
+	Events.connect("cfg_music_set_volume", self, "setMusicVolume")
+	Events.connect("cfg_sound_set_volume", self, "setSoundVolume")
+	Events.connect("cfg_switch_shader", self, "switchShader")
+	Events.connect_signal("cfg_switch_fullscreen", self, "_switchFullscreen")
 	Events.connect_signal("new_game", self, "_newGame")
 	Events.connect_signal("menu_back", self, "_backToMenu")
 	Events.connect("allowed_detections_updated", self, "onAllowedDetectionsUpdated")

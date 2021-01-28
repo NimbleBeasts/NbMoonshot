@@ -69,7 +69,7 @@ func stateMovingToPlayerEnter() -> void:
 	foundPlayer = true
 	pathLine.moveToPoint(player.global_position)
 	speed = chaseSpeed
-	Events.emit_signal("block_player_input")
+	Events.emit_signal("player_block_input")
 	Events.disconnect("audio_level_changed", self, "onAudioLevelChanged")
 	$Notifier.popup(Types.NotifierTypes.Exclamation)
 
@@ -81,7 +81,7 @@ func stateTaseringPlayerEnter() -> void:
 	pathLine.stopAllMovement()
 	set_physics_process(false)
 	$AnimationPlayer.play("taser")
-	Events.emit_signal("block_player_movement")
+	Events.emit_signal("player_block_movement")
 
 
 func onAudioLevelChanged(newLevel, audioPosition, emitter) -> void:

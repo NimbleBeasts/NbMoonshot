@@ -26,8 +26,8 @@ func _ready():
 	Events.connect("play_music", self, "onPlayMusic")
 	Events.connect("game_over", self, "onGameOver")
 	
-	Events.connect("music_set_volume", self, "setMusicVolume")
-	Events.connect("sound_set_volume", self, "setSoundVolume")
+	Events.connect("cfg_music_set_volume", self, "setMusicVolume")
+	Events.connect("cfg_sound_set_volume", self, "setSoundVolume")
 
 
 

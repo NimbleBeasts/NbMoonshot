@@ -32,7 +32,7 @@ func _process(_delta: float) -> void:
 		if Global.gameState["level"]["hasActiveMission"] and Global.gameState["level"]["lastActiveMission"] != 0:
 			$AnimationPlayer.play("open")
 			Events.emit_signal("play_sound", "car_open")
-			Events.emit_signal("block_player_movement")
+			Events.emit_signal("player_block_movement")
 			set_process(false)
 
 			

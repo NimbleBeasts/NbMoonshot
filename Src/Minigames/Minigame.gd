@@ -53,8 +53,8 @@ func open() -> void:
 		if player.guardPickup.isDragging and player.guardPickup.object != null:
 			playerLastGuard = player.guardPickup.object
 		Events.emit_signal("minigame_entered", minigame_type)
-		Events.emit_signal("drop_guard")
-		Events.emit_signal("block_player_input")
+		Events.emit_signal("player_guard_drop")
+		Events.emit_signal("player_block_input")
 		is_open = true
 
 
@@ -72,8 +72,8 @@ func close() -> void:
 		is_open = false
 		# Emits signal
 		Events.emit_signal("minigame_exited", result)
-		Events.emit_signal("unblock_player_movement")
-		Events.emit_signal("unblock_player_input")
+		Events.emit_signal("player_unblock_movement")
+		Events.emit_signal("player_unblock_input")
 		if playerLastGuard:
 			player.guardPickup.object = playerLastGuard
 			player.guardPickup.dragObject()
@@ -105,7 +105,7 @@ func _on_tween_all_completed() -> void:
 	tweenIsInUse = false
 	if not is_open: # destroys minigame if tween close animation finishes
 		queue_free()
-		Events.emit_signal("unblock_player_movement")
+		Events.emit_signal("player_unblock_movement")
 
 			
 func onForcefullyCloseMinigame() -> void:

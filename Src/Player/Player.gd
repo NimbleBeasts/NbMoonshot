@@ -74,14 +74,14 @@ func _ready() -> void:
 	Events.connect("minigame_entered", self,  "_on_minigame_entered")
 	Events.connect("hud_note_exited", self, "_on_hud_note_exited")
 	Events.connect("hud_note_show", self, "_on_hud_note_showed")
-	Events.connect("block_player_movement", self, "onBlockPlayerMovement")
-	Events.connect("block_player_input", self, "onBlockPlayerInput")
-	Events.connect("unblock_player_input", self, "onUnblockPlayerInput")
-	Events.connect("unblock_player_movement", self, "onUnblockPlayerMovement")
+	Events.connect("player_block_movement", self, "onBlockPlayerMovement")
+	Events.connect("player_block_input", self, "onBlockPlayerInput")
+	Events.connect("player_unblock_input", self, "onUnblockPlayerInput")
+	Events.connect("player_unblock_movement", self, "onUnblockPlayerMovement")
 	Events.connect("game_over", self, "onGameOver")
 	Events.connect("player_upgrades_do", self, "do_upgrade_stuff")
-	Events.connect("set_player_state", self, "set_state")
-	Events.connect("change_player_animation", $AnimationPlayer, "play")
+	Events.connect("player_state_set", self, "set_state")
+	Events.connect("player_animation_change", $AnimationPlayer, "play")
 
 
 	$AnimationPlayer.play("idle")
@@ -97,7 +97,7 @@ func _ready() -> void:
 	$GroundDetection.connect("body_entered", self, "setApplyGravity", [false])
 
 	# Initial set taser level
-	Events.emit_signal("taser_fired", stun_battery_level)
+	Events.emit_signal("player_taser_fired", stun_battery_level)
 
 
 func _process(_delta: float) -> void:

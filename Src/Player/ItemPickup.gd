@@ -13,8 +13,8 @@ onready var carryPosition = get_node(carryPositionPath)
 func _ready() -> void:
 	set_process(false)
 	set_process_unhandled_input(false)
-	Events.connect("drop_current_item", self, "dropCurrentItem")
-	Events.connect("pickup_item", self, "pickupItem")
+	Events.connect("player_item_drop", self, "dropCurrentItem")
+	Events.connect("player_item_pickup", self, "pickupItem")
 
 
 func _process(delta: float) -> void:
@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		currentPickup.global_position = carryPosition.global_position
 		if processAnims:
 			var correctAnim = "carryIdle" if int(player.velocity.x) == 0 else "carryWalk"
-			Events.emit_signal("change_player_animation", correctAnim)
+			Events.emit_signal("player_animation_change", correctAnim)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -51,15 +51,15 @@ func dropCurrentItem() -> void:
 		return
 	currentPickup.drop()
 	processAnims = false
-	Events.emit_signal("block_player_input")
-	Events.emit_signal("change_player_animation", "laydown")
+	Events.emit_signal("player_block_input")
+	Events.emit_signal("player_animation_change", "laydown")
 
 
 func pickupItem(item: Pickupable) -> void:
 	currentPickup = item
 	item.pickup()
-	Events.emit_signal("set_player_state", Types.PlayerStates.DraggingItem)
-	Events.emit_signal("change_player_animation", "pickup")
+	Events.emit_signal("player_state_set", Types.PlayerStates.DraggingItem)
+	Events.emit_signal("player_animation_change", "pickup")
 	set_process(true)
 
 
@@ -69,9 +69,9 @@ func onAnimationFinished(animName: String) -> void:
 		return
 	if animName == "laydown":
 		currentPickup.global_position = carryPosition.global_position
-		Events.emit_signal("unblock_player_input")
-		Events.emit_signal("unblock_player_movement")
-		Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
+		Events.emit_signal("player_unblock_input")
+		Events.emit_signal("player_unblock_movement")
+		Events.emit_signal("player_state_set", Types.PlayerStates.Normal)
 		currentPickup = null
 	elif animName == "pickup":
 		processAnims = true

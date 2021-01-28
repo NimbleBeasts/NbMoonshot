@@ -18,8 +18,8 @@ func _ready() -> void:
 	timer.wait_time = 0.6
 	timer.connect("timeout", self, "onTimerTimeout")
 	Events.connect("minigame_exited", self, "_on_minigame_exited")
-	Events.connect("released_held_selection", self, "releaseHeldSelection")
-	Events.connect("held_selection", self, "holdSelection")
+	Events.connect("player_selection_released", self, "releaseHeldSelection")
+	Events.connect("player_selection_held", self, "holdSelection")
 
 
 func shake_camera() -> void:
@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	position.x = clamp(position.x, -100, 100)
 	position.y = clamp(position.y, -80, 80)
 	if camDirection == Vector2(0,0) and position != startPosition:
-		Events.emit_signal("released_held_selection")
+		Events.emit_signal("player_selection_released")
 
 
 func _input(event: InputEvent) -> void:
@@ -51,30 +51,30 @@ func _input(event: InputEvent) -> void:
 			Global.startTimerOnce(timer)
 		else:
 			timer.stop()
-			Events.emit_signal("released_held_selection")
+			Events.emit_signal("player_selection_released")
 
 	if event.is_action_released("selection") and timer.time_left != 0:
 		timer.stop()
-		Events.emit_signal("released_held_selection")
+		Events.emit_signal("player_selection_released")
 		
 		
 func releaseHeldSelection() -> void:
 	selectionHeld = false
-	Events.emit_signal("unblock_player_movement")
+	Events.emit_signal("player_unblock_movement")
 	set_process(false)
 	tween.interpolate_property(self, "position", position, startPosition, 0.2, Tween.TRANS_LINEAR)
 	tween.start()
 
 
 func holdSelection() -> void:
-	Events.emit_signal("set_player_state", Types.PlayerStates.Normal)
-	Events.emit_signal("block_player_movement")
+	Events.emit_signal("player_state_set", Types.PlayerStates.Normal)
+	Events.emit_signal("player_block_movement")
 	selectionHeld = true
 	set_process(true)
 
 
 func onTimerTimeout() -> void:
-	Events.emit_signal("held_selection")
+	Events.emit_signal("player_selection_held")
 	
 
 	

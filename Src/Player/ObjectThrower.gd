@@ -47,8 +47,8 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("weapon") and (currentAmmo > 0 or infiniteAmmo):
 		objectVelocity = startingObjectVelocity * lastPlayerDir
 		$PowerIncreaseTimer.start()
-		Events.emit_signal("block_player_movement")
-		Events.emit_signal("change_player_animation", "throw_load")
+		Events.emit_signal("player_block_movement")
+		Events.emit_signal("player_animation_change", "throw_load")
 		updateTrajectory(get_physics_process_delta_time())
 		currentAmmo = int(max(currentAmmo - 1, 0))
 		inShootMode = true
@@ -63,7 +63,7 @@ func _input(event: InputEvent) -> void:
 		Global.game_manager.getCurrentLevel().add_child(object)
 		# testBody.get_node("CollisionShape2D").shape = object.collisionShape.shape
 		object.throw(objectVelocity)
-		Events.emit_signal("change_player_animation", "throw")
+		Events.emit_signal("player_animation_change", "throw")
 		inShootMode = false
 
 
