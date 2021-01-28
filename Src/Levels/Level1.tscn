@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -27,7 +27,6 @@
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Assets/Objects/Bookshelf.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Objects/Bookshelf2.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Objects/Tree.png" type="Texture" id=28]
 [ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=31]
@@ -304,11 +303,6 @@ position = Vector2( 448, 144 )
 texture = ExtResource( 27 )
 centered = false
 
-[node name="Tree" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 168, 232 )
-texture = ExtResource( 28 )
-centered = false
-
 [node name="Sign" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 57, 228 )
 texture = ExtResource( 19 )
@@ -350,7 +344,7 @@ position = Vector2( 408, 200 )
 flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
-position = Vector2( 256, 200 )
+position = Vector2( 288, 200 )
 flicker = false
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
@@ -450,7 +444,7 @@ __meta__ = {
 }
 
 [node name="DeskGuard" parent="." instance=ExtResource( 30 )]
-position = Vector2( 192, 256 )
+position = Vector2( 208, 256 )
 lookDirection = 1
 lookDuration = 2.0
 readDuration = 3.0
