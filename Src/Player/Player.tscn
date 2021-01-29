@@ -630,7 +630,7 @@ playerPath = NodePath("..")
 
 [node name="GroundDetection" type="Area2D" parent="."]
 position = Vector2( -0.334087, -0.8909 )
-collision_mask = 5
+collision_mask = 2053
 script = ExtResource( 12 )
 areaCollidersGroup = "ThinArea;"
 

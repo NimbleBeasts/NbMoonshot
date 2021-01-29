@@ -4,12 +4,9 @@ signal apply_gravity()
 var colliders: Array = []
 export var areaCollidersGroup: String
 
-func _ready():
+func _ready() -> void:
 	connect("body_entered", self, "onBodyEntered")
 	connect("body_exited", self, "onBodyExited")
-	connect("area_entered", self, "onAreaEntered")
-	connect("area_exited", self, "onAreaExited")
-
 
 func _process(delta):
 	if get_overlapping_bodies() == []:
@@ -26,14 +23,3 @@ func onBodyExited(body: Node) -> void:
 	if colliders == []:
 		emit_signal("apply_gravity")
 
-
-func onAreaEntered(area: Area2D) -> void:
-	if area.is_in_group("AreaGround"):
-		colliders.append(area)
-
-
-func onAreaExited(area: Area2D) -> void:
-	if area in colliders:
-		colliders.erase(area)
-		if colliders == []:
-			emit_signal("apply_gravity")

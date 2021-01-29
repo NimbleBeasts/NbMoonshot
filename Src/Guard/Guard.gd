@@ -234,7 +234,7 @@ func set_state(new_state) -> void:
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
 				player_detected = true
 				$AnimationPlayer.play("suspicious")
-				guardPathLine.stopAllMovement()
+				stopMovement()
 			Types.GuardStates.Suspect:
 				Events.emit_signal("play_sound", "suspicious")
 				if not $Notifier.isShowing:
@@ -253,7 +253,7 @@ func set_state(new_state) -> void:
 				playerLastSeenPosition = player.global_position
 				$Notifier.remove()
 				direction = Vector2(0,0)
-				guardPathLine.stopAllMovement()
+				stopMovement()
 				set_process(false)
 #				set_physics_process(false)
 				processAI = false
@@ -285,8 +285,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		"alarm":
 			pass
 		"stand_up":
-			# TODO: Make a seperate state for this
-			guardPathLine.stopAllMovement()
+			stopMovement()
 			Events.emit_signal("play_sound", "suspicious")
 			if not $Notifier.isShowing:
 				$Notifier.popup(Types.NotifierTypes.Question)
@@ -308,7 +307,7 @@ func onGuardPathLinePointReached() -> void:
 	$AnimationPlayer.play("idle")
 	if isMovingToPlayer:
 		goBackToNormalTimer.wait_time = 1
-		guardPathLine.stopAllMovement()
+		stopMovement()
 		Global.startTimerOnce(goBackToNormalTimer)
 		isMovingToPlayer = false
 
@@ -350,3 +349,11 @@ func stopMovement():
 	guardPathLine.stopAllMovement()
 	if distractPathLine:
 		distractPathLine.stopAllMovement()
+
+func switchPaths():
+	if distractPathLine.enabled:
+		distractPathLine.stopAllMovement()
+		guardPathLine.startNormalMovement()
+	elif guardPathLine.enabled:
+		guardPathLine.stopAllMovement()
+		distractPathLine.startNormalMovement()

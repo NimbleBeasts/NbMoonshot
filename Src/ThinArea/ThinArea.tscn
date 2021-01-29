@@ -29,3 +29,11 @@ light_mask = 3
 position = Vector2( 0, -8 )
 texture = ExtResource( 2 )
 centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2048
+collision_mask = 2147483648
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 15.9601, -3.44202 )
+shape = SubResource( 1 )

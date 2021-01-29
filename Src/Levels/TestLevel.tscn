@@ -194,7 +194,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -637.341, 255.323 )
+position = Vector2( -440, 128 )
 z_index = 50
 
 [node name="MinigameHolder" type="Node2D" parent="."]
@@ -261,6 +261,10 @@ script = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -496, 136 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -496, 264 )
 shape = SubResource( 3 )
 
 [node name="TestPickup" parent="." instance=ExtResource( 5 )]
