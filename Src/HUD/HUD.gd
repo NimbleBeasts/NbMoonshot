@@ -44,7 +44,6 @@ func _ready():
 	Events.connect("player_taser_fired", self, "taserUpdate")
 	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
 	Events.connect("hud_dialogue_hide", self, "hideDialog")
-	Events.connect("skip_dialog", self, "skipDialog")
 	
 	Events.connect("hud_update_money", self, "moneyUpdate")
 	Events.connect("hud_mission_briefing", self, "showMissionBriefing")
@@ -476,11 +475,6 @@ func _on_MenuButton_button_up():
 
 func onLevelHint(hint: String) -> void:
 	levelHint = hint
-
-
-func skipDialog() -> void:
-	$Dialog/Text.visible_characters = $Dialog/Text.text.length()
-
 
 func onNoBranchOptionPressed() -> void:
 	if not dialogIsTyping:

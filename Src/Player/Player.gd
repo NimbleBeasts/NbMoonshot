@@ -278,7 +278,6 @@ func set_light_level(value: int) -> void:
 		# will fuk everything up
 		setVisibleLevel(light_level)
 		sprite.modulate = Color(visibilityLevelsModulations[visible_level])
-		Events.emit_signal("light_level_changed", light_level)
 	
 	
 # use this function to set state

@@ -34,6 +34,7 @@ signal player_block_movement()
 signal player_unblock_movement()
 ## Blocks player input
 signal player_block_input() #TODO: knight do we really need both variants?
+	# No we don't right now, but we did when I added this
 ## Unblock player input 
 signal player_unblock_input()
 ## This is used to change player states - e.g. dragging items, in closet ..
@@ -133,15 +134,16 @@ signal hud_dialogue_exited()
 signal update_dialog_option(type, text)
 ## 
 signal no_branch_option_pressed() #TODO: knightmare what does it actually do :D
+	# It is a signal from when ok button is pressed :) so npc can react properly
 ## Emitted when choice button is pressed
 signal dialog_button_pressed(buttonType)
 ## Emitted to switch visibility of choice buttons
 signal update_branch_button_state(enabled)
 ## Emitted to switch visibility of "ok" button
 signal update_no_branch_button_state(enabled) #TODO: knightmare isnt this just the opposite of the signal above?
-## 
+## No Branch button is the ok button and Dialog button button for the branching
 signal change_dialog_button_state(buttonType, enabled) #TODO: knightmare also dont really understand what this is for
-
+# Disables or enables the button we want, options are in Types.DialogButtons. There's some naming conflicts here
 
 ###########################################################################
 # The WTF Signal List :) 
@@ -157,22 +159,26 @@ signal hud_level_transition_exited()
 
 #TODO: knightmare what? do we need it? its pretty much the same as hud_game_hint
 signal level_hint(hint)
+# Check discord
 
 #TODO: knightmare emitter and listener are in the same src file. Do we really need it?
 signal switched_weapon(newWeaponIndex)
 
 # Light Levels
 #TODO: knightmare this is contradicting with visible_level_changed. The player do emit it but no one reacts to it. Please remove it if not necessary or adapt player code.
-signal light_level_changed(newLevel) #Types.LightLevels
+# Removed light_level_changed, guess its something only player needs to know about
 
 #TODO: knightmare Im not quite sure if we really need this one
 signal allowed_detections_updated(value)
+# This is for that upgrade, normally a level only has 3 allowed detections but if you have the upgrade, you get 5
+# So this is just a signal for hud to get correct number from BaseLevel
 
 #TODO: knightmare from what I see we dont need it?!
 signal dialog_typing_changed(value)
+# Check discord
 
 #TODO: knightmare I dont think we need this either emitter is a node of HUD receiver is the same node in HUD
-signal skip_dialog()
+# Removed skip_dialog
 
 ###############################################################################
 # Global Event Functions

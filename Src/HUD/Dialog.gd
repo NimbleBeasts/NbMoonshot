@@ -40,28 +40,28 @@ func onOption0ButtonUp() -> void:
 	if not dialogTyping:
 		Events.emit_signal("dialog_button_pressed", Types.DialogButtons.Option0)
 		return
-	Events.emit_signal("skip_dialog")
+	skipDialog()
 
 
 func onOption1ButtonUp() -> void:
 	if not dialogTyping:
 		Events.emit_signal("dialog_button_pressed", Types.DialogButtons.Option1)
 		return
-	Events.emit_signal("skip_dialog")
+	skipDialog()
 
 
 func onOption2ButtonUp() -> void:
 	if not dialogTyping:
 		Events.emit_signal("dialog_button_pressed", Types.DialogButtons.Option2)
 		return
-	Events.emit_signal("skip_dialog")
+	skipDialog()
 
 
 func onNoBranchButtonPressed() -> void:
 	if not dialogTyping:
 		Events.emit_signal("no_branch_option_pressed")
 		return
-	Events.emit_signal("skip_dialog")
+	skipDialog()
 
 	
 func changeOptionButtonsState(enabled: bool) -> void:
@@ -92,3 +92,6 @@ func onDialogTypingChanged(value: bool) -> void:
 func onNoBranchFocusDelayTimeout() -> void:
 	$NoBranchButton.grab_focus()
 
+
+func skipDialog() -> void:
+	$Text.visible_characters = $Text.text.length()
