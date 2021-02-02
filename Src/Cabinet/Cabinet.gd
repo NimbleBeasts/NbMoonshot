@@ -14,7 +14,9 @@ func getProgessState():
 	return isUsed
 
 func _ready():
-	$Sprite.frame = type
+	if $Sprite.hframes > 1:
+		$Sprite.frame = type
+		# Ignore type for lockers, maybe I add some more locker types
 	
 	if hasBounty:
 		loot = Global.gameConstant.basicLoot

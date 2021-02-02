@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cabinet.png-6ce8beb859bc92bb10c99c856d74b789.stex"
+path="res://.import/Locker.png-f8386de883aad274bcf5a9dbc5b7d8f4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Objects/Cabinet.png"
-dest_files=[ "res://.import/Cabinet.png-6ce8beb859bc92bb10c99c856d74b789.stex" ]
+source_file="res://Assets/Loot/Locker.png"
+dest_files=[ "res://.import/Locker.png-f8386de883aad274bcf5a9dbc5b7d8f4.stex" ]
 
 [params]
 
