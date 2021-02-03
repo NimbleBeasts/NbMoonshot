@@ -524,7 +524,6 @@ standbyTimerAfterDetection = 3.0
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 272, 128 )
 type = 1
-hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 240, 128 )
@@ -534,53 +533,35 @@ hasBounty = true
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 400, 384 )
 type = 2
-hasBounty = false
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 592, 384 )
 type = 2
-hasBounty = false
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 696, 384 )
 type = 2
-hasBounty = false
 
 [node name="Cabinet6" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 824, 384 )
 type = 2
-hasBounty = false
 
 [node name="Cabinet7" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 800, 256 )
-type = 0
 hasBounty = true
 
 [node name="Cabinet8" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 752, 256 )
-type = 0
 hasBounty = true
 
 [node name="Cabinet9" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 872, 128 )
-type = 0
 hasBounty = true
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 680, 200 )
 camDirection = 1
 isFixedCam = true
-
-[node name="LevelDarkener" type="ColorRect" parent="."]
-margin_left = -2000.0
-margin_top = -2000.0
-margin_right = 2600.0
-margin_bottom = 2200.0
-color = Color( 0, 0, 0, 0.501961 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
 
 [node name="DeskGuard" parent="." instance=ExtResource( 7 )]
 position = Vector2( 272, 256 )

@@ -762,17 +762,6 @@ isFlickering = false
 flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
 
-[node name="LevelDarkener" type="ColorRect" parent="."]
-margin_left = -2000.0
-margin_top = -2000.0
-margin_right = 2600.0
-margin_bottom = 2200.0
-color = Color( 0, 0, 0, 0.501961 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
 [node name="DeskGuard" parent="." instance=ExtResource( 13 )]
 position = Vector2( 232, 256 )
 lookDirection = 0

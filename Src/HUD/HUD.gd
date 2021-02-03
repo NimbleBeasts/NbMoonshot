@@ -118,6 +118,7 @@ func debugHudToggle(_d):
 		$ChargeIndicator.hide()
 		$MoneyIndicator.hide()
 		$MenuButton.hide()
+		$Display.hide()
 	else:
 		$LightIndicator.show()
 		$AudioIndicator.show()
@@ -125,6 +126,7 @@ func debugHudToggle(_d):
 		$ChargeIndicator.show()
 		$MoneyIndicator.show()
 		$MenuButton.show()
+		$Display.show()
 
 func showSave():
 	#dont open if allready opend :)

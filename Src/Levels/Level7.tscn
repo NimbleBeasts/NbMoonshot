@@ -429,17 +429,6 @@ removeNotifierDuration = 1.0
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 934.699, 534.391 )
 
-[node name="LevelDarkener" type="ColorRect" parent="."]
-margin_left = -2000.0
-margin_top = -2000.0
-margin_right = 2600.0
-margin_bottom = 2200.0
-color = Color( 0, 0, 0, 0.501961 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -56, 256 )
 z_index = 50

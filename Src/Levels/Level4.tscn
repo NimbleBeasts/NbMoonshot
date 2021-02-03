@@ -167,6 +167,7 @@ centered = false
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 344, 96 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="LevelObjects/Decorations"]
@@ -402,18 +403,13 @@ isFixedCam = true
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 376, 128 )
-type = 0
 hasBounty = true
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 352, 192 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 280, 192 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 336, 320 )
@@ -422,8 +418,6 @@ hasBounty = true
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 640, 256 )
-type = 0
-hasBounty = false
 
 [node name="PhotoMinigameSpawner" type="Area2D" parent="LevelObjects"]
 position = Vector2( 334.762, 116.076 )
@@ -435,17 +429,6 @@ cameraMoveSpeed = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/PhotoMinigameSpawner"]
 shape = SubResource( 2 )
-
-[node name="LevelDarkener" type="ColorRect" parent="."]
-margin_left = -2000.0
-margin_top = -2000.0
-margin_right = 2600.0
-margin_bottom = 2200.0
-color = Color( 0, 0, 0, 0.501961 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -56, 256 )

@@ -215,6 +215,7 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -398,11 +399,9 @@ hasBounty = true
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 416, 128 )
 type = 1
-hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 480, 320 )
-type = 0
 hasBounty = true
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
@@ -430,17 +429,6 @@ standbyTimerAfterDetection = 3.0
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 34 )]
 position = Vector2( 104, 256 )
 flagType = 1
-
-[node name="LevelDarkener" type="ColorRect" parent="."]
-margin_left = -2000.0
-margin_top = -2000.0
-margin_right = 2600.0
-margin_bottom = 2200.0
-color = Color( 0, 0, 0, 0.501961 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
 
 [node name="DeskGuard" parent="." instance=ExtResource( 30 )]
 position = Vector2( 208, 256 )

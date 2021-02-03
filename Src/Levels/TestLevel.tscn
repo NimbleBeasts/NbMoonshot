@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Distraction/Radio.tscn" type="PackedScene" id=2]
@@ -33,6 +33,9 @@
 [ext_resource path="res://Assets/Objects/Chimney_Anim1.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Objects/Chimney_Anim2.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Distraction/Radio.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Objects/Bookshelf3.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Objects/CouchTable.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Objects/PaintingStarryNight.png" type="Texture" id=36]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 4 )
@@ -107,7 +110,7 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" type="AnimatedSprite" parent="LevelObjects/Decorations"]
-position = Vector2( -616, 116 )
+position = Vector2( -596, 116 )
 frames = SubResource( 3 )
 playing = true
 
@@ -137,16 +140,28 @@ texture = ExtResource( 20 )
 centered = false
 
 [node name="Sprite" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( -616, 99 )
+position = Vector2( -595, 99 )
 texture = ExtResource( 33 )
 
 [node name="Couch" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( -656, 116 )
+position = Vector2( -629, 116 )
 texture = ExtResource( 28 )
 
+[node name="Couch5" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( -656, 96 )
+texture = ExtResource( 36 )
+
 [node name="Couch2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( -692, 116 )
+position = Vector2( -672, 116 )
 texture = ExtResource( 27 )
+
+[node name="Couch3" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( -697, 108 )
+texture = ExtResource( 34 )
+
+[node name="Couch4" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( -655, 120 )
+texture = ExtResource( 35 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -210,6 +225,10 @@ flicker = false
 position = Vector2( -105, 212 )
 flicker = false
 
+[node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
+position = Vector2( -656, 72 )
+flicker = false
+
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 208 )
 rotation = -1.5708
@@ -255,33 +274,11 @@ position = Vector2( -776, 128 )
 type = 1
 hasBounty = true
 
-[node name="LevelDarkener" type="ColorRect" parent="."]
-margin_left = -2000.0
-margin_top = -2000.0
-margin_right = 2600.0
-margin_bottom = 2200.0
-color = Color( 0, 0, 0, 0.501961 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( -400, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="Node2D" parent="."]
-
-[node name="HUD" parent="." instance=ExtResource( 7 )]
-
-[node name="Label" type="Label" parent="HUD"]
-visible = false
-margin_right = 72.0
-margin_bottom = 14.0
-text = "Hello Level"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Fridge" parent="." instance=ExtResource( 24 )]
 position = Vector2( 118.538, 238.544 )
@@ -341,3 +338,17 @@ script = ExtResource( 15 )
 points = PoolVector2Array( -7, -12, -71, -12, -127, -12 )
 script = ExtResource( 15 )
 distractWaitTime = 4.0
+
+[node name="HUD" parent="." instance=ExtResource( 7 )]
+
+[node name="Label" type="Label" parent="HUD"]
+visible = false
+margin_right = 72.0
+margin_bottom = 14.0
+text = "Hello Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasModulate" type="CanvasModulate" parent="HUD"]
+color = Color( 0.74902, 0.74902, 0.74902, 1 )
