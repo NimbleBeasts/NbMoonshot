@@ -68,6 +68,7 @@ func _ready() -> void:
 				detectedPath = true
 			else:
 				distractPathLine = child
+				distractPathLine.isDistract = true
 				distractPathLine.stopAllMovement()
 			if child.has_method("moveToNextPoint"):
 				child.connect("next_point_reached", self, "onGuardPathLinePointReached")
@@ -350,10 +351,17 @@ func stopMovement():
 	if distractPathLine:
 		distractPathLine.stopAllMovement()
 
-func switchPaths():
-	if distractPathLine.enabled:
-		distractPathLine.stopAllMovement()
-		guardPathLine.startNormalMovement()
-	elif guardPathLine.enabled:
-		guardPathLine.stopAllMovement()
-		distractPathLine.startNormalMovement()
+
+func distractMode():
+	$Notifier.popupForTime(Types.NotifierTypes.Question, 1)
+	guardPathLine.stopAllMovement()
+	distractPathLine.global_points[0].x = global_position.x
+	distractPathLine.startNormalMovement()
+	print("distract mode")
+
+
+func normalMode():
+	$Notifier.remove()
+	distractPathLine.stopAllMovement()
+	guardPathLine.startNormalMovement()
+	print("normal mode")

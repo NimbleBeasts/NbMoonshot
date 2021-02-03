@@ -30,4 +30,6 @@ hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/popup = SubResource( 1 )
+
+[node name="PopupTimer" type="Timer" parent="."]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

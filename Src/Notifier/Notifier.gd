@@ -6,6 +6,8 @@ var isShowing = false
 func _ready():
 	$Sprite.scale = Vector2(0.01, 0.01)
 	$Sprite.hide()
+	$PopupTimer.connect("timeout", self, "remove")
+	$PopupTimer.one_shot = true	
 
 func popup(type):
 	show()
@@ -30,3 +32,7 @@ func remove():
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	if toBeRemoved:
 		hide()
+
+func popupForTime(notifierType: int, time: float):
+	popup(notifierType)
+	$PopupTimer.start(time)

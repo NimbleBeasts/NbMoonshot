@@ -5,9 +5,9 @@ class_name PathLine
 
 signal next_point_reached
 
-
 export var stop_time: float = 1.5
 export var stopOnReachedPoint: bool = true
+export var distractWaitTime: float = 2
 
 var global_points: Array = []
 var next_point: Vector2
@@ -16,14 +16,21 @@ var is_next_point_reached: bool
 var movingToCustomPoint: bool = false
 var currentIndex: int
 var timer: Timer = Timer.new()
+var distractTimer: Timer = Timer.new()
+
+var isDistract: bool = false
 
 onready var target = get_parent()
 
 
 func _ready() -> void:
 	add_child(timer)
+	add_child(distractTimer)
 	timer.connect("timeout", self, "onTimerTimeout")
+	distractTimer.connect("timeout", self, "onDistractTimerTimeout")
 	timer.one_shot = true
+	distractTimer.one_shot = true
+
 	timer.wait_time = stop_time
 	hide()
 
@@ -57,13 +64,18 @@ func onTimerTimeout() -> void:
 func moveToNextPoint():
 	if currentIndex >= global_points.size() - 1:
 		currentIndex = 0
-		global_points.invert()
+		if not isDistract:
+			global_points.invert()
+		else:
+			# stopping because we reached the last point and this is for distraction
+			stopAllMovement()
+			distractTimer.start(distractWaitTime)
 	currentIndex += 1
 	if stopOnReachedPoint:
 		timer.start()
 	else:
 		next_point = global_points[currentIndex]
-		
+
 
 func moveToPoint(newPoint: Vector2) -> void:
 	next_point = newPoint
@@ -76,9 +88,9 @@ func moveToPoint(newPoint: Vector2) -> void:
 func startNormalMovement() -> void:
 	movingToCustomPoint = false
 	enabled = true
-	timer.start()
+	timer.start(0.3) # experimental line of code, don't know if this will break anything else
 
-
+	
 func stopAllMovement() -> void:
 	enabled = false
 	movingToCustomPoint = false
@@ -101,3 +113,6 @@ func moveToStartingPoint() -> void:
 	timer.start()
 
 
+func onDistractTimerTimeout() -> void:
+	if target.has_method("normalMode"):
+		target.normalMode()
