@@ -13,8 +13,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		for guardPath in guards:
 			var guard = get_node(guardPath)
-			guard.distractMode()
-			Events.emit_signal("play_sound", "suspicious")
+			if not guard.inDistractMode:
+				guard.distractMode()
 
 
 func onBodyEntered(body: Node) -> void:

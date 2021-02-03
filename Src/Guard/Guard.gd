@@ -31,6 +31,7 @@ var isSleeping: bool
 var isMovingToPlayer: bool
 var isStunned: bool
 var applyGravity: bool
+var inDistractMode: bool
 
 onready var los_area: Area2D = $Flippable/LineOfSight
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
@@ -353,15 +354,18 @@ func stopMovement():
 
 
 func distractMode():
+	if state != Types.GuardStates.Wander:
+		return
 	$Notifier.popupForTime(Types.NotifierTypes.Question, 1)
 	guardPathLine.stopAllMovement()
 	distractPathLine.global_points[0].x = global_position.x
 	distractPathLine.startNormalMovement()
-	print("distract mode")
+	Events.emit_signal("play_sound", "suspicious")
+	inDistractMode = true
 
 
 func normalMode():
 	$Notifier.remove()
 	distractPathLine.stopAllMovement()
 	guardPathLine.startNormalMovement()
-	print("normal mode")
+	inDistractMode = false
