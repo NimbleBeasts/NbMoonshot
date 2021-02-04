@@ -1,25 +1,18 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
 [ext_resource path="res://Assets/HUD/AudioIndicator.png" type="Texture" id=3]
 [ext_resource path="res://Assets/HUD/HudBarBg.png" type="Texture" id=4]
 [ext_resource path="res://Src/HUD/UpgradeButton.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/HUD/HoverIndicator.png" type="Texture" id=6]
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
 [ext_resource path="res://Assets/HUD/Note.png" type="Texture" id=8]
 [ext_resource path="res://Shaders/Crt-Shader.tres" type="Material" id=9]
 [ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=10]
-[ext_resource path="res://Assets/HUD/Alarm.png" type="Texture" id=11]
-[ext_resource path="res://Assets/HUD/Battery.png" type="Texture" id=12]
 [ext_resource path="res://Src/HUD/MissionBriefing.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=14]
-[ext_resource path="res://Assets/HUD/Dollar.png" type="Texture" id=15]
 [ext_resource path="res://Src/BaseButton/BaseButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Fonts/mago3.3.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://Assets/HUD/MenuButton/MenuButton1.png" type="Texture" id=18]
-[ext_resource path="res://Assets/HUD/MenuButton/MenuButton3.png" type="Texture" id=19]
-[ext_resource path="res://Assets/HUD/MenuButton/MenuButton2.png" type="Texture" id=20]
 [ext_resource path="res://Src/HUD/Dialog.gd" type="Script" id=21]
 [ext_resource path="res://Src/Menu/Slider.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/Portraits/Portraits.png" type="Texture" id=23]
@@ -29,22 +22,6 @@
 [ext_resource path="res://Assets/HUD/DialogueBg.png" type="Texture" id=27]
 [ext_resource path="res://Src/HUD/HudBar.gd" type="Script" id=28]
 [ext_resource path="res://Assets/HUD/HudBar/Icons.png" type="Texture" id=29]
-
-[sub_resource type="Animation" id=1]
-resource_name = "detection"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
 
 [sub_resource type="Animation" id=2]
 length = 0.2
@@ -61,21 +38,21 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="ButtonGroup" id=3]
-
-[sub_resource type="ButtonGroup" id=4]
-
-[sub_resource type="ButtonGroup" id=5]
-
-[sub_resource type="ButtonGroup" id=6]
-
-[sub_resource type="ButtonGroup" id=7]
-
-[sub_resource type="ButtonGroup" id=8]
-
-[sub_resource type="ButtonGroup" id=9]
-
-[sub_resource type="ButtonGroup" id=10]
+[sub_resource type="Animation" id=1]
+resource_name = "detection"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="DynamicFont" id=11]
 size = 32
@@ -129,121 +106,48 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=15]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 1, 2, 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Label:custom_colors/font_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 1, 1, 1, 1 ) ]
-}
+[sub_resource type="ButtonGroup" id=3]
 
-[sub_resource type="Animation" id=16]
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
+[sub_resource type="ButtonGroup" id=4]
 
-[sub_resource type="Animation" id=17]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Label:custom_colors/font_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 0.788235, 0.188235, 0.219608, 1 ), Color( 1, 1, 1, 1 ) ]
-}
+[sub_resource type="ButtonGroup" id=5]
 
-[sub_resource type="Animation" id=18]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Label:custom_colors/font_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.317647, 0.768627, 0.247059, 1 ), Color( 0.317647, 0.768627, 0.247059, 1 ), Color( 1, 1, 1, 1 ) ]
-}
+[sub_resource type="ButtonGroup" id=6]
 
-[node name="HUD" type="CanvasLayer"]
+[sub_resource type="ButtonGroup" id=7]
+
+[sub_resource type="ButtonGroup" id=8]
+
+[sub_resource type="ButtonGroup" id=9]
+
+[sub_resource type="ButtonGroup" id=10]
+
+[node name="HUD" type="Control"]
 pause_mode = 2
-layer = 127
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.74902, 0.74902, 0.74902, 1 )
+[node name="LevelModulation" type="CanvasModulate" parent="."]
+color = Color( 0.984314, 0.984314, 0.984314, 1 )
 
-[node name="PhotoFlash" type="ColorRect" parent="."]
-modulate = Color( 1, 1, 1, 0 )
+[node name="HUDLayer" type="CanvasLayer" parent="."]
+
+[node name="Shader" type="ColorRect" parent="HUDLayer"]
+material = ExtResource( 9 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PhotoFlash"]
-anims/detection = SubResource( 1 )
-
-[node name="DetectFlash" type="ColorRect" parent="."]
+[node name="DetectFlash" type="ColorRect" parent="HUDLayer"]
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -254,10 +158,121 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DetectFlash"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUDLayer/DetectFlash"]
 anims/detection = SubResource( 2 )
 
-[node name="Upgrades" type="NinePatchRect" parent="."]
+[node name="PhotoFlash" type="ColorRect" parent="HUDLayer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUDLayer/PhotoFlash"]
+anims/detection = SubResource( 1 )
+
+[node name="GameOverNotification" type="Label" parent="HUDLayer"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.0
+margin_top = -39.2
+margin_right = 228.0
+margin_bottom = 0.800003
+rect_scale = Vector2( 0.1, 0.1 )
+rect_pivot_offset = Vector2( 120, 32 )
+custom_fonts/font = SubResource( 11 )
+text = "GAME OVER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverNotifcationAnimationPlayer" type="AnimationPlayer" parent="HUDLayer/GameOverNotification"]
+anims/pop = SubResource( 12 )
+
+[node name="GameHintNotification" type="Label" parent="HUDLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -52.0
+margin_right = 192.0
+margin_bottom = -11.9975
+rect_pivot_offset = Vector2( 120, 32 )
+custom_fonts/font = SubResource( 13 )
+text = "Example Text Goes Here"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameHintAnimationPlayer" type="AnimationPlayer" parent="HUDLayer/GameHintNotification"]
+anims/pop = SubResource( 14 )
+
+[node name="PromoShot" type="Node2D" parent="HUDLayer"]
+visible = false
+
+[node name="PromoTitel" type="Sprite" parent="HUDLayer/PromoShot"]
+position = Vector2( 320, 320 )
+texture = ExtResource( 24 )
+
+[node name="PromoSteam" type="Sprite" parent="HUDLayer/PromoShot"]
+position = Vector2( 568, 320 )
+texture = ExtResource( 25 )
+
+[node name="Display" type="Control" parent="HUDLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Note" type="TextureRect" parent="HUDLayer/Display"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -56.0
+margin_right = 96.0
+margin_bottom = 56.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="HUDLayer/Display/Note"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 12.0
+margin_right = -16.0
+margin_bottom = -12.0
+custom_fonts/normal_font = ExtResource( 14 )
+custom_colors/default_color = Color( 0.121569, 0.0941176, 0.2, 1 )
+bbcode_enabled = true
+bbcode_text = "-- Close with ESC --
+Lorem Ipsum is simply dummy text of ..."
+text = "-- Close with ESC --
+Lorem Ipsum is simply dummy text of ..."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Upgrades" type="NinePatchRect" parent="HUDLayer/Display"]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -276,7 +291,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Grid" type="GridContainer" parent="Upgrades"]
+[node name="Grid" type="GridContainer" parent="HUDLayer/Display/Upgrades"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -291,35 +306,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UpgradeButton0" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+[node name="UpgradeButton0" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 group = SubResource( 3 )
 skill = 0
 
-[node name="UpgradeButton1" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+[node name="UpgradeButton1" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
 margin_right = 75.0
 group = SubResource( 4 )
 skill = 1
 
-[node name="UpgradeButton2" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+[node name="UpgradeButton2" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 86.0
 margin_right = 118.0
 group = SubResource( 5 )
 skill = 2
 
-[node name="UpgradeButton3" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+[node name="UpgradeButton3" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 129.0
 margin_right = 161.0
 group = SubResource( 6 )
 skill = 3
 
-[node name="UpgradeButton4" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+[node name="UpgradeButton4" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_top = 43.0
 margin_bottom = 75.0
 group = SubResource( 7 )
 skill = 4
 
-[node name="UpgradeButton5" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+[node name="UpgradeButton5" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
 margin_top = 43.0
 margin_right = 75.0
@@ -327,7 +342,7 @@ margin_bottom = 75.0
 group = SubResource( 8 )
 skill = 5
 
-[node name="UpgradeButton6" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+[node name="UpgradeButton6" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 86.0
 margin_top = 43.0
 margin_right = 118.0
@@ -335,7 +350,7 @@ margin_bottom = 75.0
 group = SubResource( 9 )
 skill = 6
 
-[node name="UpgradeButton7" parent="Upgrades/Grid" instance=ExtResource( 5 )]
+[node name="UpgradeButton7" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 129.0
 margin_top = 43.0
 margin_right = 161.0
@@ -343,7 +358,7 @@ margin_bottom = 75.0
 group = SubResource( 10 )
 skill = 7
 
-[node name="InfoBox" type="NinePatchRect" parent="Upgrades"]
+[node name="InfoBox" type="NinePatchRect" parent="HUDLayer/Display/Upgrades"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
@@ -360,7 +375,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Titel" type="Label" parent="Upgrades/InfoBox"]
+[node name="Titel" type="Label" parent="HUDLayer/Display/Upgrades/InfoBox"]
 margin_left = 8.0
 margin_top = 4.0
 margin_right = 152.0
@@ -368,7 +383,7 @@ margin_bottom = 18.0
 custom_fonts/font = ExtResource( 10 )
 text = "Titel"
 
-[node name="Description" type="RichTextLabel" parent="Upgrades/InfoBox"]
+[node name="Description" type="RichTextLabel" parent="HUDLayer/Display/Upgrades/InfoBox"]
 margin_left = 8.0
 margin_top = 18.0
 margin_right = 152.0
@@ -378,14 +393,14 @@ bbcode_enabled = true
 bbcode_text = "Increases the battery capacity to allow taser usages."
 text = "Increases the battery capacity to allow taser usages."
 
-[node name="UpgradeButton" parent="Upgrades/InfoBox" instance=ExtResource( 16 )]
+[node name="UpgradeButton" parent="HUDLayer/Display/Upgrades/InfoBox" instance=ExtResource( 16 )]
 margin_left = 16.0
 margin_top = 72.0
 margin_right = 144.0
 margin_bottom = 96.0
 label = "Buy Upgrade"
 
-[node name="SaveGame" type="Control" parent="."]
+[node name="SaveGame" type="Control" parent="HUDLayer/Display"]
 pause_mode = 2
 visible = false
 anchor_right = 1.0
@@ -394,7 +409,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Menu" type="NinePatchRect" parent="SaveGame"]
+[node name="Menu" type="NinePatchRect" parent="HUDLayer/Display/SaveGame"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -419,126 +434,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonReturn" parent="SaveGame/Menu" instance=ExtResource( 16 )]
+[node name="ButtonReturn" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
 margin_left = 16.0
 margin_top = 12.0
 margin_right = 144.0
 margin_bottom = 36.0
 label = "Continue"
 
-[node name="ButtonSave1" parent="SaveGame/Menu" instance=ExtResource( 16 )]
+[node name="ButtonSave1" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
 margin_left = 16.0
 margin_top = 52.0
 margin_right = 144.0
 margin_bottom = 76.0
 label = "Slot 1 (Overwrite)"
 
-[node name="ButtonSave2" parent="SaveGame/Menu" instance=ExtResource( 16 )]
+[node name="ButtonSave2" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
 margin_left = 16.0
 margin_top = 84.0
 margin_right = 144.0
 margin_bottom = 108.0
 label = "Slot 2"
 
-[node name="ButtonSave3" parent="SaveGame/Menu" instance=ExtResource( 16 )]
+[node name="ButtonSave3" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
 margin_left = 16.0
 margin_top = 116.0
 margin_right = 144.0
 margin_bottom = 140.0
 label = "Slot 3"
 
-[node name="Note" type="TextureRect" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -96.0
-margin_top = -56.0
-margin_right = 96.0
-margin_bottom = 56.0
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Text" type="RichTextLabel" parent="Note"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 30.0
-margin_top = 12.0
-margin_right = -16.0
-margin_bottom = -12.0
-custom_fonts/normal_font = ExtResource( 14 )
-custom_colors/default_color = Color( 0.121569, 0.0941176, 0.2, 1 )
-bbcode_enabled = true
-bbcode_text = "-- Close with ESC --
-Lorem Ipsum is simply dummy text of ..."
-text = "-- Close with ESC --
-Lorem Ipsum is simply dummy text of ..."
-scroll_active = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GameOverNotification" type="Label" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -120.0
-margin_top = -68.0
-margin_right = 120.0
-margin_bottom = -28.0
-rect_scale = Vector2( 0.1, 0.1 )
-rect_pivot_offset = Vector2( 120, 32 )
-custom_fonts/font = SubResource( 11 )
-text = "GAME OVER"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GameOverNotifcationAnimationPlayer" type="AnimationPlayer" parent="GameOverNotification"]
-anims/pop = SubResource( 12 )
-
-[node name="GameHintNotification" type="Label" parent="."]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -192.0
-margin_top = -52.0
-margin_right = 192.0
-margin_bottom = -11.9975
-rect_pivot_offset = Vector2( 120, 32 )
-custom_fonts/font = SubResource( 13 )
-text = "Example Text Goes Here"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GameHintAnimationPlayer" type="AnimationPlayer" parent="GameHintNotification"]
-anims/pop = SubResource( 14 )
-
-[node name="Shader" type="ColorRect" parent="."]
-material = ExtResource( 9 )
-margin_right = 640.0
-margin_bottom = 360.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Dialog" type="Control" parent="."]
+[node name="Dialog" type="Control" parent="HUDLayer/Display"]
 visible = false
 anchor_left = 0.5
 anchor_top = 1.0
@@ -553,11 +477,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite2" type="Sprite" parent="Dialog"]
+[node name="Sprite2" type="Sprite" parent="HUDLayer/Display/Dialog"]
 texture = ExtResource( 27 )
 centered = false
 
-[node name="Text" type="RichTextLabel" parent="Dialog"]
+[node name="Text" type="RichTextLabel" parent="HUDLayer/Display/Dialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 6.0
@@ -573,10 +497,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DialogueTypeTimer" type="Timer" parent="Dialog"]
+[node name="DialogueTypeTimer" type="Timer" parent="HUDLayer/Display/Dialog"]
 wait_time = 0.03
 
-[node name="Option0Button" parent="Dialog" instance=ExtResource( 16 )]
+[node name="Option0Button" parent="HUDLayer/Display/Dialog" instance=ExtResource( 16 )]
 margin_left = 88.0
 margin_top = 96.0
 margin_right = 216.0
@@ -584,7 +508,7 @@ margin_bottom = 120.0
 focus_neighbour_left = NodePath("../Option2Button")
 focus_neighbour_right = NodePath("../Option1Button")
 
-[node name="Option1Button" parent="Dialog" instance=ExtResource( 16 )]
+[node name="Option1Button" parent="HUDLayer/Display/Dialog" instance=ExtResource( 16 )]
 margin_left = 88.0
 margin_top = 128.0
 margin_right = 216.0
@@ -592,7 +516,7 @@ margin_bottom = 152.0
 focus_neighbour_left = NodePath("../Option0Button")
 focus_neighbour_right = NodePath("../Option2Button")
 
-[node name="Option2Button" parent="Dialog" instance=ExtResource( 16 )]
+[node name="Option2Button" parent="HUDLayer/Display/Dialog" instance=ExtResource( 16 )]
 margin_left = 88.0
 margin_top = 160.0
 margin_right = 216.0
@@ -600,26 +524,103 @@ margin_bottom = 184.0
 focus_neighbour_left = NodePath("../Option1Button")
 focus_neighbour_right = NodePath("../Option0Button")
 
-[node name="NoBranchButton" parent="Dialog" instance=ExtResource( 16 )]
+[node name="NoBranchButton" parent="HUDLayer/Display/Dialog" instance=ExtResource( 16 )]
 margin_left = 88.0
 margin_top = 96.0
 margin_right = 216.0
 margin_bottom = 120.0
 rect_rotation = 0.0806047
 
-[node name="Sprite" type="Sprite" parent="Dialog"]
+[node name="Sprite" type="Sprite" parent="HUDLayer/Display/Dialog"]
 position = Vector2( -32, 32 )
 texture = ExtResource( 23 )
 hframes = 3
 
-[node name="Display" type="Control" parent="."]
+[node name="IngameMenu" type="Control" parent="HUDLayer/Display"]
+pause_mode = 2
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HudBar" type="NinePatchRect" parent="Display"]
+[node name="DarkerBG" type="ColorRect" parent="HUDLayer/Display/IngameMenu"]
+visible = false
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.623529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="NinePatchRect" parent="HUDLayer/Display/IngameMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0
+margin_top = -96.0
+margin_right = 80.0
+margin_bottom = 56.0
+texture = ExtResource( 7 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonReturn" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 12.0
+margin_right = 144.0
+margin_bottom = 36.0
+label = "Continue"
+
+[node name="ButtonQuit" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 116.0
+margin_right = 144.0
+margin_bottom = 140.0
+label = "Quit"
+
+[node name="MusicSlider" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 22 )]
+margin_left = 16.0
+margin_top = 85.0
+margin_right = 112.0
+margin_bottom = 109.0
+
+[node name="Label" type="Label" parent="HUDLayer/Display/IngameMenu/Menu/MusicSlider"]
+margin_top = -8.0
+margin_right = 40.0
+margin_bottom = 6.0
+custom_fonts/font = ExtResource( 10 )
+text = "Music"
+
+[node name="SoundSlider" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 22 )]
+margin_left = 16.0
+margin_top = 50.0
+margin_right = 112.0
+margin_bottom = 74.0
+
+[node name="Label" type="Label" parent="HUDLayer/Display/IngameMenu/Menu/SoundSlider"]
+margin_top = -8.0
+margin_right = 40.0
+margin_bottom = 6.0
+custom_fonts/font = ExtResource( 10 )
+text = "Sound"
+
+[node name="DebugPromo" type="Button" parent="HUDLayer/Display/IngameMenu"]
+margin_left = 272.0
+margin_top = 56.0
+margin_right = 371.0
+margin_bottom = 76.0
+text = "Toggle Promo"
+
+[node name="HudBar" type="NinePatchRect" parent="HUDLayer/Display"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -639,7 +640,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vbox" type="HBoxContainer" parent="Display/HudBar"]
+[node name="vbox" type="HBoxContainer" parent="HUDLayer/Display/HudBar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -1.0
@@ -651,18 +652,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ILives" type="Control" parent="Display/HudBar/vbox"]
+[node name="ILives" type="Control" parent="HUDLayer/Display/HudBar/vbox"]
 margin_left = 3.0
 margin_right = 17.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 14, 14 )
 
-[node name="Sprite" type="Sprite" parent="Display/HudBar/vbox/ILives"]
+[node name="Sprite" type="Sprite" parent="HUDLayer/Display/HudBar/vbox/ILives"]
 texture = ExtResource( 29 )
 centered = false
 hframes = 4
 
-[node name="LLives" type="Label" parent="Display/HudBar/vbox"]
+[node name="LLives" type="Label" parent="HUDLayer/Display/HudBar/vbox"]
 margin_left = 17.0
 margin_top = 1.0
 margin_right = 24.0
@@ -670,19 +671,19 @@ margin_bottom = 14.0
 custom_fonts/font = ExtResource( 14 )
 text = "3"
 
-[node name="IAmount" type="Control" parent="Display/HudBar/vbox"]
+[node name="IAmount" type="Control" parent="HUDLayer/Display/HudBar/vbox"]
 margin_left = 24.0
 margin_right = 38.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 14, 14 )
 
-[node name="Sprite" type="Sprite" parent="Display/HudBar/vbox/IAmount"]
+[node name="Sprite" type="Sprite" parent="HUDLayer/Display/HudBar/vbox/IAmount"]
 texture = ExtResource( 29 )
 centered = false
 hframes = 4
 frame = 1
 
-[node name="LAmount" type="Label" parent="Display/HudBar/vbox"]
+[node name="LAmount" type="Label" parent="HUDLayer/Display/HudBar/vbox"]
 margin_left = 38.0
 margin_top = 1.0
 margin_right = 45.0
@@ -690,19 +691,19 @@ margin_bottom = 14.0
 custom_fonts/font = ExtResource( 14 )
 text = "3"
 
-[node name="IMoney" type="Control" parent="Display/HudBar/vbox"]
+[node name="IMoney" type="Control" parent="HUDLayer/Display/HudBar/vbox"]
 margin_left = 45.0
 margin_right = 59.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 14, 14 )
 
-[node name="Sprite" type="Sprite" parent="Display/HudBar/vbox/IMoney"]
+[node name="Sprite" type="Sprite" parent="HUDLayer/Display/HudBar/vbox/IMoney"]
 texture = ExtResource( 29 )
 centered = false
 hframes = 4
 frame = 2
 
-[node name="LMoney" type="Label" parent="Display/HudBar/vbox"]
+[node name="LMoney" type="Label" parent="HUDLayer/Display/HudBar/vbox"]
 margin_left = 59.0
 margin_top = 1.0
 margin_right = 87.0
@@ -710,25 +711,38 @@ margin_bottom = 14.0
 custom_fonts/font = ExtResource( 14 )
 text = "5000"
 
-[node name="ITime" type="Control" parent="Display/HudBar/vbox"]
+[node name="ITime" type="Control" parent="HUDLayer/Display/HudBar/vbox"]
 margin_left = 87.0
 margin_right = 101.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 14, 14 )
 
-[node name="Sprite" type="Sprite" parent="Display/HudBar/vbox/ITime"]
+[node name="Sprite" type="Sprite" parent="HUDLayer/Display/HudBar/vbox/ITime"]
 texture = ExtResource( 29 )
 centered = false
 hframes = 4
 frame = 3
 
-[node name="LTime" type="Label" parent="Display/HudBar/vbox"]
+[node name="LTime" type="Label" parent="HUDLayer/Display/HudBar/vbox"]
 margin_left = 101.0
 margin_top = 1.0
 margin_right = 142.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 14 )
 text = "0:00:00"
+
+[node name="MissionProgress" parent="HUDLayer/Display" instance=ExtResource( 26 )]
+visible = false
+
+[node name="MissionBriefing" parent="HUDLayer/Display" instance=ExtResource( 13 )]
+visible = false
+
+[node name="StartMissionButton" parent="HUDLayer/Display/MissionBriefing" instance=ExtResource( 16 )]
+margin_left = 256.0
+margin_top = 328.0
+margin_right = 384.0
+margin_bottom = 352.0
+label = "Start Mission"
 
 [node name="LightIndicator" type="Sprite" parent="."]
 position = Vector2( 616, 24 )
@@ -762,233 +776,22 @@ margin_bottom = 12.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AlarmIndicator" type="Sprite" parent="."]
-position = Vector2( 61, 24 )
-texture = ExtResource( 11 )
-hframes = 3
-
-[node name="Label" type="Label" parent="AlarmIndicator"]
-margin_left = 12.0
-margin_top = -8.0
-margin_right = 32.0
-margin_bottom = 6.0
-custom_fonts/font = ExtResource( 10 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "0
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AlarmAnimation" type="AnimationPlayer" parent="AlarmIndicator"]
-anims/downgrade = SubResource( 15 )
-
-[node name="ChargeIndicator" type="Sprite" parent="."]
-position = Vector2( 101, 24 )
-texture = ExtResource( 12 )
-hframes = 4
-
-[node name="Label" type="Label" parent="ChargeIndicator"]
-margin_left = 13.0
-margin_top = -8.0
-margin_right = 33.0
-margin_bottom = 6.0
-custom_fonts/font = ExtResource( 10 )
-text = "3"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MoneyIndicator" type="Sprite" parent="."]
-position = Vector2( 140, 23 )
-texture = ExtResource( 15 )
-hframes = 3
-
-[node name="Label" type="Label" parent="MoneyIndicator"]
-margin_left = 12.0
-margin_top = -7.0
-margin_right = 32.0
-margin_bottom = 8.0
-custom_fonts/font = ExtResource( 10 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MoneyIndicator"]
-anims/idle = SubResource( 16 )
-anims/moneyDown = SubResource( 17 )
-anims/moneyUp = SubResource( 18 )
-next/moneyDown = "idle"
-next/moneyUp = "idle"
-
-[node name="MenuButton" type="TextureButton" parent="."]
-margin_left = 17.6187
-margin_top = 12.4983
-margin_right = 41.6187
-margin_bottom = 36.4983
-texture_normal = ExtResource( 18 )
-texture_pressed = ExtResource( 19 )
-texture_hover = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Hovers" type="Node2D" parent="."]
-visible = false
-position = Vector2( 544, 40 )
-
-[node name="Background" type="ColorRect" parent="Hovers"]
-margin_left = -112.0
-margin_top = 8.0
-margin_right = 88.0
-margin_bottom = 32.0
-color = Color( 0.227451, 0.266667, 0.4, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Hovers"]
-margin_left = -108.0
-margin_top = 13.0
-margin_right = 85.0
-margin_bottom = 27.0
-custom_fonts/font = ExtResource( 14 )
-text = "This is your visibilty indicator."
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Indicator" type="Sprite" parent="Hovers"]
-position = Vector2( 43, 0 )
-texture = ExtResource( 6 )
-
-[node name="MissionBriefing" parent="." instance=ExtResource( 13 )]
-visible = false
-
-[node name="StartMissionButton" parent="MissionBriefing" instance=ExtResource( 16 )]
-margin_left = 256.0
-margin_top = 328.0
-margin_right = 384.0
-margin_bottom = 352.0
-label = "Start Mission"
-
-[node name="MissionProgress" parent="." instance=ExtResource( 26 )]
-visible = false
-
-[node name="IngameMenu" type="Control" parent="."]
-pause_mode = 2
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DarkerBG" type="ColorRect" parent="IngameMenu"]
-visible = false
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.623529 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Menu" type="NinePatchRect" parent="IngameMenu"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -80.0
-margin_top = -96.0
-margin_right = 80.0
-margin_bottom = 56.0
-texture = ExtResource( 7 )
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonReturn" parent="IngameMenu/Menu" instance=ExtResource( 16 )]
-margin_left = 16.0
-margin_top = 12.0
-margin_right = 144.0
-margin_bottom = 36.0
-label = "Continue"
-
-[node name="ButtonQuit" parent="IngameMenu/Menu" instance=ExtResource( 16 )]
-margin_left = 16.0
-margin_top = 116.0
-margin_right = 144.0
-margin_bottom = 140.0
-label = "Quit"
-
-[node name="MusicSlider" parent="IngameMenu/Menu" instance=ExtResource( 22 )]
-margin_left = 16.0
-margin_top = 85.0
-margin_right = 112.0
-margin_bottom = 109.0
-
-[node name="Label" type="Label" parent="IngameMenu/Menu/MusicSlider"]
-margin_top = -8.0
-margin_right = 40.0
-margin_bottom = 6.0
-custom_fonts/font = ExtResource( 10 )
-text = "Music"
-
-[node name="SoundSlider" parent="IngameMenu/Menu" instance=ExtResource( 22 )]
-margin_left = 16.0
-margin_top = 50.0
-margin_right = 112.0
-margin_bottom = 74.0
-
-[node name="Label" type="Label" parent="IngameMenu/Menu/SoundSlider"]
-margin_top = -8.0
-margin_right = 40.0
-margin_bottom = 6.0
-custom_fonts/font = ExtResource( 10 )
-text = "Sound"
-
-[node name="DebugPromo" type="Button" parent="IngameMenu"]
-margin_left = 272.0
-margin_top = 56.0
-margin_right = 371.0
-margin_bottom = 76.0
-text = "Toggle Promo"
-
-[node name="PromoTitel" type="Sprite" parent="."]
-visible = false
-position = Vector2( 320, 320 )
-texture = ExtResource( 24 )
-
-[node name="PromoSteam" type="Sprite" parent="."]
-visible = false
-position = Vector2( 568, 320 )
-texture = ExtResource( 25 )
-[connection signal="button_up" from="Upgrades/InfoBox/UpgradeButton" to="." method="_on_UpgradeButton_button_up"]
-[connection signal="button_up" from="SaveGame/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
-[connection signal="button_up" from="SaveGame/Menu/ButtonSave1" to="." method="_on_ButtonSave1_button_up"]
-[connection signal="button_up" from="SaveGame/Menu/ButtonSave2" to="." method="_on_ButtonSave2_button_up"]
-[connection signal="button_up" from="SaveGame/Menu/ButtonSave3" to="." method="_on_ButtonSave3_button_up"]
-[connection signal="animation_finished" from="GameOverNotification/GameOverNotifcationAnimationPlayer" to="." method="_on_GameOverNotifcationAnimationPlayer_animation_finished"]
-[connection signal="animation_finished" from="GameHintNotification/GameHintAnimationPlayer" to="." method="_on_GameHintAnimationPlayer_animation_finished"]
-[connection signal="resized" from="Display/HudBar/vbox" to="Display/HudBar" method="_on_vbox_resized"]
+[connection signal="animation_finished" from="HUDLayer/GameOverNotification/GameOverNotifcationAnimationPlayer" to="." method="_on_GameOverNotifcationAnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="HUDLayer/GameHintNotification/GameHintAnimationPlayer" to="." method="_on_GameHintAnimationPlayer_animation_finished"]
+[connection signal="button_up" from="HUDLayer/Display/Upgrades/InfoBox/UpgradeButton" to="." method="_on_UpgradeButton_button_up"]
+[connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
+[connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonSave1" to="." method="_on_ButtonSave1_button_up"]
+[connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonSave2" to="." method="_on_ButtonSave2_button_up"]
+[connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonSave3" to="." method="_on_ButtonSave3_button_up"]
+[connection signal="button_up" from="HUDLayer/Display/IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
+[connection signal="button_up" from="HUDLayer/Display/IngameMenu/Menu/ButtonQuit" to="." method="_on_ButtonQuit_button_up"]
+[connection signal="value_changed" from="HUDLayer/Display/IngameMenu/Menu/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="HUDLayer/Display/IngameMenu/Menu/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
+[connection signal="button_up" from="HUDLayer/Display/IngameMenu/DebugPromo" to="." method="_on_DebugPromo_button_up"]
+[connection signal="resized" from="HUDLayer/Display/HudBar/vbox" to="HUDLayer/Display/HudBar" method="_on_vbox_resized"]
+[connection signal="button_up" from="HUDLayer/Display/MissionBriefing/StartMissionButton" to="." method="_on_StartMissionButton_button_up"]
 [connection signal="mouse_entered" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_entered"]
 [connection signal="mouse_exited" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_exited"]
 [connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]
 [connection signal="mouse_entered" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_entered"]
 [connection signal="mouse_exited" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_exited"]
-[connection signal="button_up" from="MenuButton" to="." method="_on_MenuButton_button_up"]
-[connection signal="button_up" from="MissionBriefing/StartMissionButton" to="." method="_on_StartMissionButton_button_up"]
-[connection signal="button_up" from="IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
-[connection signal="button_up" from="IngameMenu/Menu/ButtonQuit" to="." method="_on_ButtonQuit_button_up"]
-[connection signal="value_changed" from="IngameMenu/Menu/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
-[connection signal="value_changed" from="IngameMenu/Menu/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
-[connection signal="button_up" from="IngameMenu/DebugPromo" to="." method="_on_DebugPromo_button_up"]

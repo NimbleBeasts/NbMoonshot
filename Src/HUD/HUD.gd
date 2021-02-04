@@ -1,7 +1,6 @@
 
-extends CanvasLayer
+extends Control
 
-enum HoverType {Light, Audio}
 
 var count = 0
 var detected_value: int
@@ -22,115 +21,118 @@ var multipage: bool
 
 var inMissionBriefing: bool
 
-onready var dialogTypeTimer: Timer = $Dialog/DialogueTypeTimer
+onready var dialogTypeTimer: Timer = $HUDLayer/Display/Dialog/DialogueTypeTimer
 
 var emittingNode = null
 
 func _ready():
-	$AlarmIndicator/Label.set_text(str(detected_value))
-	#warning-ignore:return_value_discarded
-	dialogTypeTimer.connect("timeout", self, "onDialogTypeTimerTimeout")
-	Events.connect("visible_level_changed", self, "updateLightLevel")
-	Events.connect("audio_level_changed", self, "updateAudioLevel")
-	Events.connect("level_hint", self, "onLevelHint")
-	
-	Events.connect("hud_note_show", self, "showNote")
-	Events.connect("hud_dialog_show", self, "showDialog")
-	Events.connect("hud_upgrade_window_show", self, "showUpgrade")
-	Events.connect("hud_save_window_show", self, "showSave")
-	Events.connect("hud_save_window_exited", self, "onHideSave")
+	#$AlarmIndicator/Label.set_text(str(detected_value)) TODO
 
-	Events.connect("player_detected", self, "alarmIndication")
-	Events.connect("player_taser_fired", self, "taserUpdate")
-	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
-	Events.connect("hud_dialogue_hide", self, "hideDialog")
-	
-	Events.connect("hud_update_money", self, "moneyUpdate")
-	Events.connect("hud_mission_briefing", self, "showMissionBriefing")
+	# Connect signals
+	hookSetup()
 
-	Events.connect("hud_game_over", self, "showGameOverNotification")
-	Events.connect("hud_game_hint", self, "showGameHintNotification")
-
-	Events.connect("hud_photo_flash", self, "photoFlash")
-	Events.connect("no_branch_option_pressed", self, "onNoBranchOptionPressed")
-
-	for node in $Upgrades/Grid.get_children():
-		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
+	if Global.userConfig.shader:
+		$HUDLayer/Shader.show()
+	else:
+		$HUDLayer/Shader.hide()
 
 	if Global.DEBUG:
-		$IngameMenu/DebugPromo.show()
+		$HUDLayer/Display/IngameMenu/DebugPromo.show()
+		var cat = Debug.addCategory("HUD")
+		Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
+		Debug.addOption(cat, "HudToggle", funcref(self, "debugHudToggle"), null)
+		
 	else:
 		$IngameMenu/DebugPromo.hide()
 
-	var cat = Debug.addCategory("HUD")
-	Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
-	Debug.addOption(cat, "HudToggle", funcref(self, "debugHudToggle"), null)
-	
+
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 
-	if Global.userConfig.shader:
-		$Shader.show()
-	else:
-		$Shader.hide()
+
+func _physics_process(_delta):
+	# Hide Note
+	if Input.is_action_just_pressed("close_menu"):
+		if $HUDLayer/Display/Note.visible:
+			$HUDLayer/Display/Note.hide()
+			Events.emit_signal("hud_note_exited", emittingNode)
+		elif $HUDLayer/Display/Dialog.visible:
+			Events.emit_signal("hud_dialogue_hide")
+		elif $HUDLayer/Display/Upgrades.visible:
+			$HUDLayer/Display/Upgrades.hide()
+			Events.emit_signal("player_unblock_movement")
+		elif $HUDLayer/Display/SaveGame.visible:
+			onHideSave()
+
+	if Input.is_action_just_pressed("menu"):
+		if $HUDLayer/Display/IngameMenu.visible:
+			hideMenu()
+		else:
+			showMenu()
+
+	
+	setDialogIsTyping($HUDLayer/Display/Dialog/Text.visible_characters != $HUDLayer/Display/Dialog/Text.text.length() and $HUDLayer/Display/Dialog.visible)
+
+	# hide when press E in note
+	if Input.is_action_just_pressed("interact"):
+		if $HUDLayer/Display/Note.visible:
+			$HUDLayer/Display/Note.hide()
+			Events.emit_signal("hud_note_exited", emittingNode)
+
+	if levelHint != "":
+		if not $HUDLayer/Display/Dialog.visible:
+			Events.emit_signal("hud_game_hint", levelHint)
+			levelHint = ""
 		
-		
+
 
 func photoFlash():
-	$PhotoFlash/AnimationPlayer.play("detection")
+	$HUDLayer/PhotoFlash/AnimationPlayer.play("detection")
 
 func showGameHintNotification(text):
-	$GameHintNotification.set_text(text)
-	$GameHintNotification.show()
-	$GameHintNotification/GameHintAnimationPlayer.play("pop")
+	$HUDLayer/GameHintNotification.set_text(text)
+	$HUDLayer/GameHintNotification.show()
+	$HUDLayer/GameHintNotification/GameHintAnimationPlayer.play("pop")
 
 func _on_GameHintAnimationPlayer_animation_finished(_anim_name):
-	$GameHintNotification.hide()
+	$HUDLayer/GameHintNotification.hide()
 
 
 func showGameOverNotification():
-	$GameOverNotification.show()
-	$GameOverNotification/GameOverNotifcationAnimationPlayer.play("pop")
+	$HUDLayer/GameOverNotification.show()
+	$HUDLayer/GameOverNotification/GameOverNotifcationAnimationPlayer.play("pop")
 
 	
 func _on_GameOverNotifcationAnimationPlayer_animation_finished(_anim_name):
-	$GameOverNotification.hide()
+	$HUDLayer/GameOverNotification.hide()
 	Events.emit_signal("hud_game_over_exited")
 
 
 func showMissionBriefing(level):
-	$MissionBriefing/StartMissionButton.grab_focus()
-	$MissionBriefing.setLevel(level)
-	$MissionBriefing.show()
+	$HUDLayer/Display/MissionBriefing/StartMissionButton.grab_focus()
+	$HUDLayer/Display/MissionBriefing.setLevel(level)
+	$HUDLayer/Display/MissionBriefing.show()
 	inMissionBriefing = true
 
 
 func debugShaderToggle(_d):
-	if $Shader.visible:
-		$Shader.hide()
+	if $HUDLayer/Shader.visible:
+		$HUDLayer/Shader.hide()
 	else:
-		$Shader.show()
+		$HUDLayer/Shader.show()
 
 func debugHudToggle(_d):
 	if $LightIndicator.visible:
 		$LightIndicator.hide()
 		$AudioIndicator.hide()
-		$AlarmIndicator.hide()
-		$ChargeIndicator.hide()
-		$MoneyIndicator.hide()
-		$MenuButton.hide()
-		$Display.hide()
+		$HUDLayer/Display.hide()
 	else:
 		$LightIndicator.show()
 		$AudioIndicator.show()
-		$AlarmIndicator.show()
-		$ChargeIndicator.show()
-		$MoneyIndicator.show()
-		$MenuButton.show()
-		$Display.show()
+		$HUDLayer/Display.show()
 
 func showSave():
 	#dont open if allready opend :)
-	if $SaveGame.is_visible_in_tree():
+	if $HUDLayer/Display/SaveGame.is_visible_in_tree():
 		return
 	
 	Events.emit_signal("player_block_movement")
@@ -138,14 +140,14 @@ func showSave():
 	
 	var i = 1
 	for element in saves:
-		var button = get_node("SaveGame/Menu/ButtonSave" + str(i))
+		var button = get_node("HUDLayer/Display/SaveGame/Menu/ButtonSave" + str(i))
 		if element == true: # File Exists
 			button.updateLabel("Slot " + str(i) + " (Overwrite)")
 		else:
 			button.updateLabel("Slot " + str(i) + " (New)")
 		i += 1
-	$SaveGame.show()
-	$SaveGame/Menu.grab_focus()
+	$HUDLayer/Display/SaveGame.show()
+	$HUDLayer/Display/SaveGame/Menu.grab_focus()
 
 
 func save(slot):
@@ -153,61 +155,53 @@ func save(slot):
 
 
 func moneyUpdate(total, change):
-	$MoneyIndicator/Label.set_text(str(total))
-	
-	if change == 0:
-		pass
-	elif change < 0:
-		$MoneyIndicator/AnimationPlayer.play("moneyDown")
-	else:
-		$MoneyIndicator/AnimationPlayer.play("moneyUp")
-
-	if $Upgrades.visible:
+	if $HUDLayer/Display/Upgrades.visible:
 		# Update button if money is enough
 		upgradeSelect(currentSelectedUpgrade)
 
-	$Display/HudBar.updateMoney(total, change)
+	$HUDLayer/Display/HudBar.updateMoney(total, change)
 
 func taserUpdate(value):
 	var clamped = clamp( value, 0, 3)
-	$ChargeIndicator.frame = 3 - clamped
-	$ChargeIndicator/Label.set_text(str(value))
+	#TODO
+	#$ChargeIndicator.frame = 3 - clamped
+	#$ChargeIndicator/Label.set_text(str(value))
 
 
 func alarmIndication(type):
 	if detected_value - 1 >= 0:
 		detected_value -= 1
-		$DetectFlash/AnimationPlayer.play("detection")
-		$AlarmIndicator/AlarmAnimation.play("downgrade")
-		$AlarmIndicator/Label.set_text(str(detected_value))
+		$HUDLayer/DetectFlash/AnimationPlayer.play("detection")
+		#$AlarmIndicator/AlarmAnimation.play("downgrade")
+		#$AlarmIndicator/Label.set_text(str(detected_value))
 		
-		$Display/HudBar.updateAlarm(detected_value)
+		$HUDLayer/Display/HudBar.updateAlarm(detected_value)
 
 
 func allowedDetectionsUpdate(value) -> void:
 	detected_value = value 
-	$AlarmIndicator/Label.set_text(str(detected_value))
-	$Display/HudBar.updateAlarm(detected_value)
+	#$AlarmIndicator/Label.set_text(str(detected_value))
+	$HUDLayer/Display/HudBar.updateAlarm(detected_value)
 
 	
 func showNote(node, type, text):
 	if type == Types.NoteType.Local:
-		$Note.texture = preload("res://Assets/HUD/NoteLocal.png")
+		$HUDLayer/Display/Note.texture = preload("res://Assets/HUD/NoteLocal.png")
 	else:
-		$Note.texture = preload("res://Assets/HUD/Note.png")
+		$HUDLayer/Display/Note.texture = preload("res://Assets/HUD/Note.png")
 
 	emittingNode = node
-	$Note/Text.bbcode_text = str(text)
+	$HUDLayer/Display/Note/Text.bbcode_text = str(text)
 	Events.emit_signal("play_sound", "note_open")
-	$Note.show()
+	$HUDLayer/Display/Note.show()
 
 
 func updateUpgrades():
 	# Clear old results
-	for node in $Upgrades/Grid.get_children():
+	for node in $HUDLayer/Display/Upgrades/Grid.get_children():
 		node.disabled = false
 	for upgradeId in Global.gameState.playerUpgrades:
-		get_node("Upgrades/Grid/UpgradeButton" + str(upgradeId)).disabled = true
+		get_node("HUDLayer/Display/Upgrades/Grid/UpgradeButton" + str(upgradeId)).disabled = true
 
 
 func _on_UpgradeButton_button_up():
@@ -223,28 +217,28 @@ func _on_UpgradeButton_button_up():
 func upgradeSelect(id):
 	currentSelectedUpgrade = id
 	var upgrade = Global.upgrades[id]
-	$Upgrades/InfoBox/Titel.set_text(upgrade.name + " $" + str(upgrade.cost))
-	$Upgrades/InfoBox/Description.bbcode_text = upgrade.desc
+	$HUDLayer/Display/Upgrades/InfoBox/Titel.set_text(upgrade.name + " $" + str(upgrade.cost))
+	$HUDLayer/Display/Upgrades/InfoBox/Description.bbcode_text = upgrade.desc
 	
 	if -1 == Global.gameState.playerUpgrades.find(id):
 		if Global.gameState.money >= upgrade.cost:
-			$Upgrades/InfoBox/UpgradeButton.updateLabel("Buy Upgrade")
-			$Upgrades/InfoBox/UpgradeButton.disabled = false
+			$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.updateLabel("Buy Upgrade")
+			$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.disabled = false
 		else:
-			$Upgrades/InfoBox/UpgradeButton.updateLabel("Not Enough Cash")
-			$Upgrades/InfoBox/UpgradeButton.disabled = true
+			$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.updateLabel("Not Enough Cash")
+			$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.disabled = true
 	else:
-		$Upgrades/InfoBox/UpgradeButton.updateLabel("Already Owned")
-		$Upgrades/InfoBox/UpgradeButton.disabled = true
+		$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.updateLabel("Already Owned")
+		$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.disabled = true
 
 
 func showUpgrade():
 	# Set focus so we can use gamepad with ui
-	$Upgrades/Grid/UpgradeButton0.grab_focus()
+	$HUDLayer/Display/Upgrades/Grid/UpgradeButton0.grab_focus()
 	upgradeSelect(0)
 	
 	updateUpgrades()
-	$Upgrades.show()
+	$HUDLayer/Display/Upgrades.show()
 
 
 func showDialog(pname: String, nameColor: String, text: String, isMultipage: bool, portrait: int) -> void:
@@ -260,10 +254,10 @@ func showDialog(pname: String, nameColor: String, text: String, isMultipage: boo
 		nextNameColor = nameColor
 		nextPotrait = portrait
 
-	$Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
-	$Dialog/Text.visible_characters = pname.length()
-	$Dialog.show()
-	$Dialog/Sprite.frame = portrait
+	$HUDLayer/Display/Dialog/Text.bbcode_text = "[color="+nameColor+"]"+pname+"[/color]: " + text
+	$HUDLayer/Display/Dialog/Text.visible_characters = pname.length()
+	$HUDLayer/Display/Dialog.show()
+	$HUDLayer/Display/Dialog/Sprite.frame = portrait
 	
 	currentText = text
 	multipage = isMultipage
@@ -272,72 +266,36 @@ func showDialog(pname: String, nameColor: String, text: String, isMultipage: boo
 
 # call this function to hide dialogue instead of simply hiding it 
 func hideDialog() -> void:
-	$Dialog.hide()
+	$HUDLayer/Display/Dialog.hide()
 	Events.emit_signal("hud_dialogue_exited")
 	dialogTypeTimer.stop()
-	$Dialog/Text.visible_characters = 0
+	$HUDLayer/Display/Dialog/Text.visible_characters = 0
 	Events.emit_signal("player_unblock_movement")
 	Events.emit_signal("player_state_set", Types.PlayerStates.Normal)
 
 
-func _physics_process(_delta):
-	# Hide Note
-	if Input.is_action_just_pressed("close_menu"):
-		if $Note.visible:
-			$Note.hide()
-			Events.emit_signal("hud_note_exited", emittingNode)
-		elif $Dialog.visible:
-			Events.emit_signal("hud_dialogue_hide")
-		elif $Upgrades.visible:
-			$Upgrades.hide()
-			Events.emit_signal("player_unblock_movement")
-		elif $SaveGame.visible:
-			onHideSave()
-
-			
-	if Input.is_action_just_pressed("menu"):
-		if $IngameMenu.visible:
-			hideMenu()
-		else:
-			showMenu()
-
-		
-	setDialogIsTyping($Dialog/Text.visible_characters != $Dialog/Text.text.length() and $Dialog.visible)
-
-	# hide when press E in note
-	if Input.is_action_just_pressed("interact"):
-		if $Note.visible:
-			$Note.hide()
-			Events.emit_signal("hud_note_exited", emittingNode)
-
-	if levelHint != "":
-		if not $Dialog.visible:
-			Events.emit_signal("hud_game_hint", levelHint)
-			levelHint = ""
-
-
 func showMenu():
-	$IngameMenu.show()
-	$IngameMenu/Menu/ButtonReturn.grab_focus()
+	$HUDLayer/Display/IngameMenu.show()
+	$HUDLayer/Display/IngameMenu/Menu/ButtonReturn.grab_focus()
 	
 	var value = Global.userConfig.musicVolume
-	$IngameMenu/Menu/MusicSlider/Percentage.set_text(str(value*10)+"%")
-	$IngameMenu/Menu/MusicSlider.value = value
+	$HUDLayer/Display/IngameMenu/Menu/MusicSlider/Percentage.set_text(str(value*10)+"%")
+	$HUDLayer/Display/IngameMenu/Menu/MusicSlider.value = value
 
 	value = Global.userConfig.soundVolume
-	$IngameMenu/Menu/SoundSlider/Percentage.set_text(str(value*10)+"%")
-	$IngameMenu/Menu/SoundSlider.value = value
+	$HUDLayer/Display/IngameMenu/Menu/SoundSlider/Percentage.set_text(str(value*10)+"%")
+	$HUDLayer/Display/IngameMenu/Menu/SoundSlider.value = value
 	
 	get_tree().paused = true
 	Events.emit_signal("minigame_forcefully_close")
 
 
 func hideMenu():
-	$IngameMenu.hide()
+	$HUDLayer/Display/IngameMenu.hide()
 	if not inMissionBriefing:
 		get_tree().paused = false
 	else:
-		$MissionBriefing/StartMissionButton.grab_focus()
+		$HUDLayer/Display/MissionBriefing/StartMissionButton.grab_focus()
 
 
 func updateLightLevel(newLightLevel):
@@ -367,23 +325,14 @@ func _on_GoBackToNormal_timeout() -> void:
 
 func onHideSave() -> void:
 	Events.emit_signal("player_unblock_movement")
-	$SaveGame.hide()
+	$HUDLayer/Display/SaveGame.hide()
 
 	
-func hover(type):
-	match type:
-		HoverType.Audio:
-			$Hovers/Indicator.position = Vector2(43, 0)
-			$Hovers/Label.set_text("This is your noise indicator.")
-		_: #Light
-			$Hovers/Indicator.position = Vector2(72, 0)
-			$Hovers/Label.set_text("This is your visibilty indicator.")
-	$Hovers.show()
 
 
 func onDialogTypeTimerTimeout() -> void:
-	if $Dialog/Text.text.length() != $Dialog/Text.visible_characters:
-		$Dialog/Text.visible_characters += 1
+	if $HUDLayer/Display/Dialog/Text.text.length() != $Dialog/Text.visible_characters:
+		$HUDLayer/Display/Dialog/Text.visible_characters += 1
 		Events.emit_signal("play_sound", "type")
 	else:
 		dialogTypeTimer.stop()
@@ -393,20 +342,37 @@ func typeDialog() -> void:
 	dialogTypeTimer.start()
 	
 
-func _on_LightHover_mouse_entered():
-	hover(HoverType.Light)
+		
+func setDialogIsTyping(value: bool) -> void:
+	if dialogIsTyping != value:
+		dialogIsTyping = value
+		Events.emit_signal("dialog_typing_changed", dialogIsTyping)
 
 
-func _on_LightHover_mouse_exited():
-	$Hovers.hide()
 
 
-func _on_AudioHover_mouse_entered():
-	hover(HoverType.Audio)
+func onLevelHint(hint: String) -> void:
+	levelHint = hint
+
+func onNoBranchOptionPressed() -> void:
+	if not dialogIsTyping:
+		if nextText != "":
+			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText, true, nextPotrait)
+		elif multipage:
+			Events.emit_signal("hud_dialogue_hide")
+
+###############################################################################
+# Callbacks
+###############################################################################
+
+func _on_MusicSlider_value_changed(value):
+	$HUDLayer/Display/IngameMenu/Menu/MusicSlider/Percentage.set_text(str(value*10)+"%")
+	Events.emit_signal("cfg_music_set_volume", value)
 
 
-func _on_AudioHover_mouse_exited():
-	$Hovers.hide()
+func _on_SoundSlider_value_changed(value):
+	$HUDLayer/Display/IngameMenu/Menu/SoundSlider/Percentage.set_text(str(value*10)+"%")
+	Events.emit_signal("cfg_sound_set_volume", value)
 
 
 
@@ -416,24 +382,14 @@ func _on_ButtonQuit_button_up():
 	Global.newGameState()
 
 
-func _on_ButtonSound_button_up():
-	Events.emit_signal("play_sound", "menu_click")
-
-
-
-func _on_ButtonMusic_button_up():
-	Events.emit_signal("play_sound", "menu_click")
-
-
-
 func _on_ButtonReturn_button_up():
 	Events.emit_signal("play_sound", "menu_click")
-	$IngameMenu.hide()
+	$HUDLayer/Display/IngameMenu.hide()
 	onHideSave()
 	if not inMissionBriefing:
 		get_tree().paused = false
 	else:
-		$MissionBriefing/StartMissionButton.grab_focus()
+		$HUDLayer/Display/MissionBriefing/StartMissionButton.grab_focus()
 
 
 func _on_ButtonSave1_button_up():
@@ -452,7 +408,7 @@ func _on_ButtonSave3_button_up():
 
 
 func _on_StartMissionButton_button_up():
-	$MissionBriefing.hide()
+	$HUDLayer/Display/MissionBriefing.hide()
 	Events.emit_signal("play_sound", "menu_click")
 	Events.emit_signal("hud_mission_briefing_exited")
 	inMissionBriefing = false
@@ -462,47 +418,50 @@ func _on_StartMissionButton_button_up():
 		taserUpdate(5)
 
 
-func setDialogIsTyping(value: bool) -> void:
-	if dialogIsTyping != value:
-		dialogIsTyping = value
-		Events.emit_signal("dialog_typing_changed", dialogIsTyping)
-
-
-func _on_MenuButton_button_up():
-	if $IngameMenu.visible:
-		hideMenu()
-	else:
-		showMenu()
-
-
-func onLevelHint(hint: String) -> void:
-	levelHint = hint
-
-func onNoBranchOptionPressed() -> void:
-	if not dialogIsTyping:
-		if nextText != "":
-			Events.emit_signal("hud_dialog_show", nextName, nextNameColor, nextText, true, nextPotrait)
-		elif multipage:
-			Events.emit_signal("hud_dialogue_hide")
-
-
-func _on_MusicSlider_value_changed(value):
-	$IngameMenu/Menu/MusicSlider/Percentage.set_text(str(value*10)+"%")
-	Events.emit_signal("cfg_music_set_volume", value)
-
-
-func _on_SoundSlider_value_changed(value):
-	$IngameMenu/Menu/SoundSlider/Percentage.set_text(str(value*10)+"%")
-	Events.emit_signal("cfg_sound_set_volume", value)
 
 
 func _on_DebugPromo_button_up():
-	debugHudToggle(null) 
-	debugShaderToggle(null)
-	if $PromoSteam.visible:
-		$PromoSteam.hide()
-		$PromoTitel.hide()
-	else:
-		$PromoSteam.show()
-		$PromoTitel.show()
+	if Global.DEBUG:
+		debugHudToggle(null) 
+		debugShaderToggle(null)
+		if $HUDLayer/PromoShot/PromoSteam.visible:
+			$HUDLayer/PromoShot/PromoSteam.hide()
+			$HUDLayer/PromoShot/PromoTitel.hide()
+		else:
+			$HUDLayer/PromoShot/PromoSteam.show()
+			$HUDLayer/PromoShot/PromoTitel.show()
 	
+
+
+
+func hookSetup():
+	# External Signals
+	Events.connect("visible_level_changed", self, "updateLightLevel")
+	Events.connect("audio_level_changed", self, "updateAudioLevel")
+	Events.connect("level_hint", self, "onLevelHint")
+	
+	Events.connect("hud_note_show", self, "showNote")
+	Events.connect("hud_dialog_show", self, "showDialog")
+	Events.connect("hud_upgrade_window_show", self, "showUpgrade")
+	Events.connect("hud_save_window_show", self, "showSave")
+	Events.connect("hud_save_window_exited", self, "onHideSave")
+
+	Events.connect("player_detected", self, "alarmIndication")
+	Events.connect("player_taser_fired", self, "taserUpdate")
+	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
+	Events.connect("hud_dialogue_hide", self, "hideDialog")
+	
+	Events.connect("hud_update_money", self, "moneyUpdate")
+	Events.connect("hud_mission_briefing", self, "showMissionBriefing")
+
+	Events.connect("hud_game_over", self, "showGameOverNotification")
+	Events.connect("hud_game_hint", self, "showGameHintNotification")
+
+	Events.connect("hud_photo_flash", self, "photoFlash")
+	Events.connect("no_branch_option_pressed", self, "onNoBranchOptionPressed")
+
+	# Signal from Nodes
+	for node in $HUDLayer/Display/Upgrades/Grid.get_children():
+		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
+
+	dialogTypeTimer.connect("timeout", self, "onDialogTypeTimerTimeout")

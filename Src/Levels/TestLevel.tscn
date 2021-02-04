@@ -112,6 +112,7 @@ position = Vector2( -104, 256 )
 [node name="Chimney" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( -596, 116 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
@@ -349,6 +350,3 @@ text = "Hello Level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="CanvasModulate" type="CanvasModulate" parent="HUD"]
-color = Color( 0.74902, 0.74902, 0.74902, 1 )
