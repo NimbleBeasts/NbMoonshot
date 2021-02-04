@@ -250,7 +250,7 @@ func _on_hud_note_exited(_d) -> void:
 func _on_hud_note_showed(_d, _type: int, _text: String) -> void:
 	blockEntireInput = true
 	movementBlocked = true
-	set_state(Types.PlayerStates.Normal)
+	# set_state(Types.PlayerStates.Normal)
 
 
 func onBlockPlayerMovement() -> void:
