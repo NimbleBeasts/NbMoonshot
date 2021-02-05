@@ -32,6 +32,7 @@ func _ready() -> void:
 	distractTimer.one_shot = true
 
 	timer.wait_time = stop_time
+	distractTimer.wait_time = distractWaitTime
 	hide()
 
 	for i in points.size():
