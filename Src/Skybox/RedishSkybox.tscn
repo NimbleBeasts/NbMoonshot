@@ -18,6 +18,16 @@ layer = -101
 texture = ExtResource( 3 )
 centered = false
 
+[node name="Label" type="Label" parent="FixedBackground"]
+margin_left = 176.0
+margin_top = 120.0
+margin_right = 416.0
+margin_bottom = 134.0
+text = "Deprecated Skybox - Use: NewSkybox"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="L3" type="ParallaxLayer" parent="ParallaxBackground"]

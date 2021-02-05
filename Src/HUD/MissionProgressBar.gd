@@ -2,14 +2,14 @@ tool
 extends Control
 
 
-export(Types.Nations) var nation = Types.Nations.USA
+export(Types.LevelTypes) var nation = Types.LevelTypes.USA
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	match nation:
-		Types.Nations.USA:
+		Types.LevelTypes.USA:
 			$Foreground.texture_progress = preload("res://Assets/HUD/ProgressBar/BarBlue.png")
-		Types.Nations.USSR:
+		Types.LevelTypes.USSR:
 			$Foreground.texture_progress = preload("res://Assets/HUD/ProgressBar/BarRed.png")
 		_:
 			$Foreground.texture_progress = preload("res://Assets/HUD/ProgressBar/BarGreen.png")

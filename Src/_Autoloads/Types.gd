@@ -34,9 +34,9 @@ enum NotifierTypes{Exclamation, Question}
 enum NoteType {SecretService, Local}
 
 # Levels
-enum LevelTypes {Western, Eastern}
+enum LevelTypes {USA, USSR, Ustria}
 enum LevelLightning {Dusk, Night, Dawn}
-enum Nations {USA, USSR, Ustria}
+
 
 # Dialog
 enum DialogButtons {Option0 = 0, Option1 = 1, Option2 = 2, NoBranch = 3}

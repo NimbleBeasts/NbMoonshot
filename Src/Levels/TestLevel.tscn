@@ -8,7 +8,7 @@
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Src/Skybox/UstriaSkybox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=12]
@@ -56,9 +56,8 @@ extents = Vector2( 240, 8 )
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
-level_type = 1
 
-[node name="UstriaSkybox" parent="." instance=ExtResource( 9 )]
+[node name="NewSkybox" parent="." instance=ExtResource( 9 )]
 
 [node name="Ground" type="Node2D" parent="."]
 

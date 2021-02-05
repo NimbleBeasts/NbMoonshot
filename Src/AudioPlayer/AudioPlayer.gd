@@ -140,10 +140,10 @@ func playRandomSound(audioPlayer, array: Array) -> void:
 
 func onPlayMusic(level_type) -> void:
 	match level_type:
-		Types.LevelTypes.Western:
+		Types.LevelTypes.USA:
 			musicPlayer.stream = westernMusic
 			musicPlayer.play()
-		Types.LevelTypes.Eastern:
+		Types.LevelTypes.USSR:
 			musicPlayer.stream = easternMusic
 			musicPlayer.play()
 		"HQ":
