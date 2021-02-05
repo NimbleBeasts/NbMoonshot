@@ -23,6 +23,21 @@
 [ext_resource path="res://Src/HUD/HudBar.gd" type="Script" id=28]
 [ext_resource path="res://Assets/HUD/HudBar/Icons.png" type="Texture" id=29]
 
+[sub_resource type="Animation" id=1]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [sub_resource type="Animation" id=2]
 length = 0.2
 tracks/0/type = "value"
@@ -38,29 +53,13 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "detection"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 17 )
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=4]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -75,11 +74,11 @@ tracks/0/keys = {
 "values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=5]
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 17 )
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=6]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -106,14 +105,6 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="ButtonGroup" id=3]
-
-[sub_resource type="ButtonGroup" id=4]
-
-[sub_resource type="ButtonGroup" id=5]
-
-[sub_resource type="ButtonGroup" id=6]
-
 [sub_resource type="ButtonGroup" id=7]
 
 [sub_resource type="ButtonGroup" id=8]
@@ -121,6 +112,14 @@ tracks/1/keys = {
 [sub_resource type="ButtonGroup" id=9]
 
 [sub_resource type="ButtonGroup" id=10]
+
+[sub_resource type="ButtonGroup" id=11]
+
+[sub_resource type="ButtonGroup" id=12]
+
+[sub_resource type="ButtonGroup" id=13]
+
+[sub_resource type="ButtonGroup" id=14]
 
 [node name="HUD" type="Control"]
 pause_mode = 2
@@ -132,7 +131,7 @@ __meta__ = {
 }
 
 [node name="LevelModulation" type="CanvasModulate" parent="."]
-color = Color( 0.984314, 0.984314, 0.984314, 1 )
+color = Color( 0.768627, 0.811765, 0.839216, 1 )
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 
@@ -159,7 +158,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUDLayer/DetectFlash"]
-anims/detection = SubResource( 2 )
+anims/detection = SubResource( 1 )
 
 [node name="PhotoFlash" type="ColorRect" parent="HUDLayer"]
 modulate = Color( 1, 1, 1, 0 )
@@ -172,7 +171,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUDLayer/PhotoFlash"]
-anims/detection = SubResource( 1 )
+anims/detection = SubResource( 2 )
 
 [node name="GameOverNotification" type="Label" parent="HUDLayer"]
 visible = false
@@ -186,7 +185,7 @@ margin_right = 228.0
 margin_bottom = 0.800003
 rect_scale = Vector2( 0.1, 0.1 )
 rect_pivot_offset = Vector2( 120, 32 )
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 3 )
 text = "GAME OVER"
 align = 1
 valign = 1
@@ -195,7 +194,7 @@ __meta__ = {
 }
 
 [node name="GameOverNotifcationAnimationPlayer" type="AnimationPlayer" parent="HUDLayer/GameOverNotification"]
-anims/pop = SubResource( 12 )
+anims/pop = SubResource( 4 )
 
 [node name="GameHintNotification" type="Label" parent="HUDLayer"]
 visible = false
@@ -209,7 +208,7 @@ margin_top = -52.0
 margin_right = 192.0
 margin_bottom = -11.9975
 rect_pivot_offset = Vector2( 120, 32 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 5 )
 text = "Example Text Goes Here"
 align = 1
 valign = 1
@@ -218,7 +217,7 @@ __meta__ = {
 }
 
 [node name="GameHintAnimationPlayer" type="AnimationPlayer" parent="HUDLayer/GameHintNotification"]
-anims/pop = SubResource( 14 )
+anims/pop = SubResource( 6 )
 
 [node name="PromoShot" type="Node2D" parent="HUDLayer"]
 visible = false
@@ -307,31 +306,31 @@ __meta__ = {
 }
 
 [node name="UpgradeButton0" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
-group = SubResource( 3 )
+group = SubResource( 7 )
 skill = 0
 
 [node name="UpgradeButton1" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
 margin_right = 75.0
-group = SubResource( 4 )
+group = SubResource( 8 )
 skill = 1
 
 [node name="UpgradeButton2" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 86.0
 margin_right = 118.0
-group = SubResource( 5 )
+group = SubResource( 9 )
 skill = 2
 
 [node name="UpgradeButton3" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 129.0
 margin_right = 161.0
-group = SubResource( 6 )
+group = SubResource( 10 )
 skill = 3
 
 [node name="UpgradeButton4" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_top = 43.0
 margin_bottom = 75.0
-group = SubResource( 7 )
+group = SubResource( 11 )
 skill = 4
 
 [node name="UpgradeButton5" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
@@ -339,7 +338,7 @@ margin_left = 43.0
 margin_top = 43.0
 margin_right = 75.0
 margin_bottom = 75.0
-group = SubResource( 8 )
+group = SubResource( 12 )
 skill = 5
 
 [node name="UpgradeButton6" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
@@ -347,7 +346,7 @@ margin_left = 86.0
 margin_top = 43.0
 margin_right = 118.0
 margin_bottom = 75.0
-group = SubResource( 9 )
+group = SubResource( 13 )
 skill = 6
 
 [node name="UpgradeButton7" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
@@ -355,7 +354,7 @@ margin_left = 129.0
 margin_top = 43.0
 margin_right = 161.0
 margin_bottom = 75.0
-group = SubResource( 10 )
+group = SubResource( 14 )
 skill = 7
 
 [node name="InfoBox" type="NinePatchRect" parent="HUDLayer/Display/Upgrades"]

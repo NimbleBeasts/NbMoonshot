@@ -3,6 +3,7 @@ extends Node2D
 export var extended_allowed_detections: int = 5
 export var normal_allowed_detections: int = 3
 
+export (Types.LevelLightning) var level_lightning: int
 export (Types.LevelTypes) var level_type: int
 export(NodePath) var level_objectives = null
 export var playCarCloseSound: bool = true 
@@ -64,6 +65,9 @@ func _ready():
 		Events.emit_signal("hud_update_money", Global.gameState.money, 0)
 	else:
 		Events.emit_signal("hud_update_money", 0, 0)
+		
+		
+	Events.emit_signal("hud_light_level", level_lightning)
 
 		
 func _process(_delta: float) -> void:

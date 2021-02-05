@@ -77,7 +77,7 @@ const upgrades = [
 const gameConstant = {
 	basicLoot = 20,
 	upgradeDarkNetModifier = 1.25,
-	
+	lightLevels = [Color("#b194a0"), Color("#787878"), Color("#c4cfd6")]
 }
 
 

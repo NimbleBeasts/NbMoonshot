@@ -112,7 +112,6 @@ position = Vector2( -104, 256 )
 [node name="Chimney" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( -596, 116 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
@@ -276,7 +275,7 @@ type = 1
 hasBounty = true
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -400, 256 )
+position = Vector2( -628, 111 )
 z_index = 50
 
 [node name="MinigameHolder" type="Node2D" parent="."]

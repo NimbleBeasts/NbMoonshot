@@ -35,6 +35,7 @@ enum NoteType {SecretService, Local}
 
 # Levels
 enum LevelTypes {Western, Eastern}
+enum LevelLightning {Dusk, Night, Dawn}
 enum Nations {USA, USSR, Ustria}
 
 # Dialog

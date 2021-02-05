@@ -128,6 +128,8 @@ signal hud_dialog_show(name, nameColor, text, isMultipage, npcPotrait)
 signal hud_dialogue_hide()
 ## Emitted on closing dialogue
 signal hud_dialogue_exited()
+## Emitted on changing light level
+signal hud_light_level(level)
 
 #TODO: rename remaining signals after I understand what they are doing :D
 ## Emitted when dialogue choices has to update text 

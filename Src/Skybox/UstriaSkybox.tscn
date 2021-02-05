@@ -58,6 +58,7 @@ centered = false
 [node name="BackgroundDarken" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="BackgroundDarken"]
+visible = false
 margin_right = 640.0
 margin_bottom = 360.0
 color = Color( 0, 0, 0, 0.109804 )
