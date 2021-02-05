@@ -6,6 +6,7 @@ var possibleObject
 var object
 var isDragging: bool
 var processAnims: bool
+var canDrop: bool
 onready var player: Player = get_node(playerPath)
 onready var carryPosition: Position2D = get_node(carryPositionPath)
 
@@ -26,7 +27,8 @@ func _process(delta: float) -> void:
 		
 		if player.direction.x != 0:
 			object.flip(player.direction.x)
-
+		
+		# TODO: Fix bug where if you walk into a wall with guard in hand, the game acts weird.
 		if processAnims:
 			var correctAnim: String = "carryIdle" if int(player.velocity.x) == 0 else "carryWalk"
 			Events.emit_signal("player_animation_change", correctAnim)

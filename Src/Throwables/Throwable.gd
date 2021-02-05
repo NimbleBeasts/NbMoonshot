@@ -45,9 +45,8 @@ func remove():
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
-	global_position += velocity * delta
-	# test move only
-	var collision = move_and_collide(velocity * delta, true, true, true)
+	# global_position += velocity * delta
+	var collision = move_and_collide(velocity * delta)
 	if collision:
 		# if collides, velocity divides and bounces
 		rotation_degrees = 0
@@ -55,9 +54,9 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.bounce(collision.normal)
 
 	# stopPosition is the player's foot, this is to stop the obj
-	if global_position.y > stopPosition.y:
-		rotation_degrees = 0
-		velocity = Vector2(0,0)
+	# if global_position.y > stopPosition.y:
+	# 	rotation_degrees = 0
+	# 	velocity = Vector2(0,0)
 		if canMakeSound:
 			Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, global_position, self)
 			canMakeSound = false
@@ -67,7 +66,7 @@ func _physics_process(delta: float) -> void:
 				$Sprite.frame = 1
 			
 			timerRemove.start()
-			disablePhysics()
+			# disablePhysics()
 
 
 func throw(initialVelocity: Vector2) -> void:

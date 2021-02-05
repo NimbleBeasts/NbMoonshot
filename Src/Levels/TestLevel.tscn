@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Distraction/Radio.tscn" type="PackedScene" id=2]
@@ -112,6 +112,7 @@ position = Vector2( -104, 256 )
 [node name="Chimney" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( -596, 116 )
 frames = SubResource( 3 )
+frame = 2
 playing = true
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
@@ -262,6 +263,7 @@ position = Vector2( -664, 136 )
 
 [node name="Locker" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( -768, 128 )
+type = 0
 hasBounty = true
 
 [node name="Locker2" parent="LevelObjects" instance=ExtResource( 29 )]
@@ -275,7 +277,7 @@ type = 1
 hasBounty = true
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -628, 111 )
+position = Vector2( -360, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="Node2D" parent="."]
@@ -349,3 +351,6 @@ text = "Hello Level"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Note" parent="." instance=ExtResource( 37 )]
+position = Vector2( -296, 256 )

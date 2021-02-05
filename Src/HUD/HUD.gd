@@ -72,15 +72,9 @@ func _physics_process(_delta):
 			hideMenu()
 		else:
 			showMenu()
-
 	
 	setDialogIsTyping($HUDLayer/Display/Dialog/Text.visible_characters != $HUDLayer/Display/Dialog/Text.text.length() and $HUDLayer/Display/Dialog.visible)
 
-	# hide when press E in note
-	if Input.is_action_just_pressed("interact"):
-		if $HUDLayer/Display/Note.visible:
-			$HUDLayer/Display/Note.hide()
-			Events.emit_signal("hud_note_exited", emittingNode)
 
 	if levelHint != "":
 		if not $HUDLayer/Display/Dialog.visible:
@@ -88,6 +82,12 @@ func _physics_process(_delta):
 			levelHint = ""
 		
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		if $HUDLayer/Display/Note.visible:
+			$HUDLayer/Display/Note.hide()
+			get_tree().set_input_as_handled()
+			Events.emit_signal("hud_note_exited", emittingNode)
 
 func setLightLevel(level):
 	level_lightning_level = level

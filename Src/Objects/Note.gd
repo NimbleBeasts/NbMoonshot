@@ -56,8 +56,11 @@ func _process(_delta):
 		decouple = false
 		return
 	
-	if readable and not isReading:
-		if Input.is_action_just_pressed("open_minigame"):
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		if readable and not isReading:
+			get_tree().set_input_as_handled()
 			isReading = true
 			Events.emit_signal("hud_note_show", self, type, text)
 			
@@ -66,7 +69,7 @@ func _process(_delta):
 				$Notifier.remove()
 				highlight = false 
 				updateHighlight()
-
+				
 
 func _hud_note_exited(node):
 	if node == self:
