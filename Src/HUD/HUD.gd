@@ -49,7 +49,7 @@ func _ready():
 	else:
 		$IngameMenu/DebugPromo.hide()
 
-
+	$HUDLayer/Display/HudBar.visible = true
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 
 
@@ -351,7 +351,7 @@ func onHideSave() -> void:
 
 
 func onDialogTypeTimerTimeout() -> void:
-	if $HUDLayer/Display/Dialog/Text.text.length() != $Dialog/Text.visible_characters:
+	if $HUDLayer/Display/Dialog/Text.text.length() != $HUDLayer/Display/Dialog/Text.visible_characters:
 		$HUDLayer/Display/Dialog/Text.visible_characters += 1
 		Events.emit_signal("play_sound", "type")
 	else:
