@@ -129,7 +129,7 @@ func debugLightToggle(_d):
 	if level_lightning_level >= Types.LevelLightning.size():
 		level_lightning_level = 0
 	
-	setLightLevel(level_lightning_level)
+	Events.emit_signal("hud_light_level", level_lightning_level)
 	
 	print("LightLevel: " + str(Types.LevelLightning.keys()[level_lightning_level]))
 
