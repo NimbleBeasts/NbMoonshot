@@ -3,7 +3,7 @@
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Src/Skybox/UstriaSkybox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=7]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
 [ext_resource path="res://Assets/Objects/WallImageRocket.png" type="Texture" id=15]
-[ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Objects/Tree.png" type="Texture" id=17]
 [ext_resource path="res://Src/NPCs/ZoneUpgrade.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Src/NPCs/ZoneSave.tscn" type="PackedScene" id=19]
@@ -40,6 +39,7 @@
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=38]
 [ext_resource path="res://Assets/Objects/Sign.png" type="Texture" id=39]
 [ext_resource path="res://Assets/Objects/UPS.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Objects/SpiderWeb.png" type="Texture" id=41]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -57,8 +57,9 @@ extents = Vector2( 64, 8 )
 script = ExtResource( 1 )
 extended_allowed_detections = 99
 normal_allowed_detections = 99
+level_nation_type = 2
 
-[node name="Skybox" parent="." instance=ExtResource( 4 )]
+[node name="NewSkybox" parent="." instance=ExtResource( 4 )]
 
 [node name="Rooms" type="TileMap" parent="."]
 light_mask = 2
@@ -110,7 +111,8 @@ flicker = false
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
 position = Vector2( 400, 264 )
-flicker = false
+flicker = true
+flickerSequence = "1110111110"
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 light_mask = 3
@@ -171,14 +173,14 @@ doorType = 0
 door_name = ""
 
 [node name="StaircaseL2_1" parent="LevelObjects" instance=ExtResource( 6 )]
-position = Vector2( 232, 320 )
+position = Vector2( 226, 320 )
 connected_door_path = NodePath("../StaircaseL1")
 lockLevel = 0
 doorType = 0
 door_name = ""
 
 [node name="StaircaseL2_2" parent="LevelObjects" instance=ExtResource( 6 )]
-position = Vector2( 288, 320 )
+position = Vector2( 294, 320 )
 connected_door_path = NodePath("../StaircaseL3")
 lockLevel = 0
 doorType = 0
@@ -198,7 +200,7 @@ showHintOnSucceed = true
 hint = "Tutorial mission succeeded"
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 23 )]
-position = Vector2( 320, 320 )
+position = Vector2( 328, 320 )
 text = "Damn, we've lost your key. You will have to lockpick this door.
 xoxo,
 Natasja"
@@ -268,7 +270,7 @@ position = Vector2( 432, 304 )
 texture = ExtResource( 13 )
 
 [node name="Painting" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 216, 296 )
+position = Vector2( 247, 294 )
 texture = ExtResource( 15 )
 
 [node name="Painting2" type="Sprite" parent="LevelObjects/Decorations"]
@@ -294,8 +296,10 @@ texture = ExtResource( 39 )
 [node name="Sprite" type="Sprite" parent="LevelObjects/Decorations/Sign"]
 texture = ExtResource( 40 )
 
-[node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 16 )]
-position = Vector2( 248, 320 )
+[node name="SpiderWeb" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 436, 276 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 41 )
 
 [node name="CamTraining" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 344, 335 )
@@ -371,15 +375,9 @@ shape = SubResource( 2 )
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 392, 328 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 4
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 432, 364 )
@@ -390,9 +388,6 @@ moveSpeed = 0.25
 moveDistance = 3
 moveDirection = 0
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="Note3" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 248, 448 )
@@ -442,7 +437,7 @@ position = Vector2( 328, 256 )
 position = Vector2( 400, 256 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 81, 256 )
+position = Vector2( 372, 384 )
 
 [node name="MinigameHolder" type="Node2D" parent="."]
 

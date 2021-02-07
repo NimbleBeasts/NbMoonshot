@@ -367,25 +367,13 @@ hasBounty = true
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 280, 72 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
 isFlickering = true
 flickerSequence = "1110000000"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 256, 72 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
 isFlickering = true
 flickerSequence = "0000111111"
-standbyTimerAfterDetection = 3.0
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 34 )]
 position = Vector2( 104, 256 )
