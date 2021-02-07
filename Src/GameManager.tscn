@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/nbSplash.png" type="Texture" id=2]
 [ext_resource path="res://Src/Menu/Menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Environment" id=2]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.16
+glow_blend_mode = 1
 
 [sub_resource type="Animation" id=1]
 resource_name = "start"
@@ -49,6 +55,9 @@ audio_listener_enable_2d = true
 
 [node name="LevelHolder" type="Node2D" parent="gameViewport/Viewport"]
 pause_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="gameViewport/Viewport"]
+environment = SubResource( 2 )
 
 [node name="menuViewport" type="ViewportContainer" parent="."]
 anchor_right = 1.0
