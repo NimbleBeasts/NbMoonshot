@@ -9,7 +9,7 @@ export(float) var lookDuration = 2
 export(float) var readDuration = 3
 export var removeNotifierDuration: float = 1
 
-onready var style = get_parent().level_type #Types.LevelTypes
+onready var style = get_parent().level_nation_type #Types.LevelTypes
 
 var guardState = GuardState.Reading
 var player = null

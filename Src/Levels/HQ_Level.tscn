@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -38,6 +38,8 @@
 [ext_resource path="res://Assets/Objects/WallImageLeader.png" type="Texture" id=36]
 [ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=37]
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Assets/Objects/Sign.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Objects/UPS.png" type="Texture" id=40]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -136,12 +138,12 @@ position = Vector2( 288, 264 )
 flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 20 )]
-position = Vector2( 130, 256 )
+position = Vector2( 90, 256 )
 flicker = false
 flickerSequence = "1110"
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 20 )]
-position = Vector2( 32, 256 )
+position = Vector2( 1, 256 )
 flicker = false
 flickerSequence = "1110"
 
@@ -161,7 +163,7 @@ position = Vector2( 288, 392 )
 isFixedCam = true
 
 [node name="StaircaseL1" parent="LevelObjects" instance=ExtResource( 6 )]
-position = Vector2( 232, 256 )
+position = Vector2( 226, 256 )
 z_index = 0
 connected_door_path = NodePath("../StaircaseL2_1")
 lockLevel = 0
@@ -209,101 +211,42 @@ has_level_index = false
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 256 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 280, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall2"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall3"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 320 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall4"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall-HQ-PlayerOffice" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 320 )
 lockLevel = 1
-doorType = 0
 door_name = "HQ-PlayerOfficeDoor"
 save_state = true
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 382.768 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall5"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 384, 448 )
 lockLevel = 4
 doorType = 1
 door_name = "DoorWall6"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 296, 448 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall7"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 384 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall9"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 168, 256 )
@@ -343,6 +286,13 @@ texture = ExtResource( 30 )
 [node name="Blueprint" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 160, 296 )
 texture = ExtResource( 32 )
+
+[node name="Sign" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 123, 240 )
+texture = ExtResource( 39 )
+
+[node name="Sprite" type="Sprite" parent="LevelObjects/Decorations/Sign"]
+texture = ExtResource( 40 )
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 248, 320 )

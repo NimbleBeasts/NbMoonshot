@@ -51,7 +51,6 @@ extents = Vector2( 104, 8 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
-level_type = 1
 level_objectives = NodePath("LevelObjects/Tresor")
 playCarCloseSound = false
 
@@ -137,24 +136,10 @@ keyPadCode = 1234
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 424, 320 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 144, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall2"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
@@ -163,47 +148,23 @@ nextSecretaryInteractionCounter = 2
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 320 )
-lockLevel = 0
 doorType = 1
 door_name = "DoorWall3"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 256 )
-lockLevel = 0
 doorType = 1
 door_name = "DoorWall4"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 192 )
-lockLevel = 0
 doorType = 1
 door_name = "DoorWall5"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 128 )
-lockLevel = 0
 doorType = 1
 door_name = "DoorWall6"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
@@ -433,9 +394,6 @@ flagType = 1
 [node name="DeskGuard" parent="." instance=ExtResource( 30 )]
 position = Vector2( 208, 256 )
 lookDirection = 1
-lookDuration = 2.0
-readDuration = 3.0
-removeNotifierDuration = 1.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 8, 312 )
