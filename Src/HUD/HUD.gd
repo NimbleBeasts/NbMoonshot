@@ -117,6 +117,9 @@ func _on_GameOverNotifcationAnimationPlayer_animation_finished(_anim_name):
 
 
 func showMissionBriefing(level):
+	
+	$HUDLayer/LevelFade/AnimationPlayer.play_backwards("fade_out")
+	
 	$HUDLayer/Display/MissionBriefing/StartMissionButton.grab_focus()
 	$HUDLayer/Display/MissionBriefing.setLevel(level)
 	$HUDLayer/Display/MissionBriefing.show()
@@ -432,6 +435,8 @@ func _on_StartMissionButton_button_up():
 	Events.emit_signal("play_sound", "menu_click")
 	Events.emit_signal("hud_mission_briefing_exited")
 	inMissionBriefing = false
+	
+	$HUDLayer/LevelFade/AnimationPlayer.play("fade_out")
 
 	#hmm duno if this is right place to go but need to trigger update taser text 
 	if Types.UpgradeTypes.Taser_Extended_Battery in Global.gameState.playerUpgrades:

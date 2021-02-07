@@ -492,7 +492,7 @@ position = Vector2( 328, 256 )
 position = Vector2( 400, 256 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 448, 448 )
+position = Vector2( 81, 256 )
 
 [node name="MinigameHolder" type="Node2D" parent="."]
 
