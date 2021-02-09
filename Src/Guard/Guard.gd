@@ -49,10 +49,10 @@ func _ready() -> void:
 	losRay.set_deferred("enabled", false)
 
 	# sets sprite texture on level type
-	match Global.game_manager.getCurrentLevel().level_type:
-		Types.LevelTypes.Western:
+	match Global.game_manager.getCurrentLevel().level_nation_type:
+		Types.LevelTypes.USA:
 			$Flippable/Sprite.texture = guard_normal_texture
-		Types.LevelTypes.Eastern:
+		Types.LevelTypes.USSR:
 			$Flippable/Sprite.texture = guard_green_texture 
 
 	# sets the wait_time to the exported variable

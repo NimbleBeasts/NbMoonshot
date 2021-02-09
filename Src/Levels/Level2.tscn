@@ -49,16 +49,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Some thinfloors need to be replaced with the new ladder"
 }
-level_type = 1
 playCarCloseSound = false
-
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 344, 232 )
-
-[node name="Flow1" type="Line2D" parent="Position2D"]
-visible = false
-position = Vector2( -184, -8 )
-points = PoolVector2Array( -232, 24, 80, 24, 80, 72, 832, 72, 832, 16, 976, 16, 976, -56, 1008, -56, 1008, 16, 1120, 16, 1118.22, -120, 776, -120, 776, -56, 544, -56, 544, 0, 776, 0, 776, 16, 528, 16, 528, -56, 304, -56, 304, 8, 0, 8, -16, 16, -16, 0, -32, 8 )
 
 [node name="RedishSkybox" parent="." instance=ExtResource( 15 )]
 
@@ -725,10 +716,6 @@ offset = Vector2( 8, -8 )
 
 [node name="DeskGuard" parent="." instance=ExtResource( 3 )]
 position = Vector2( 280, 256 )
-lookDirection = 0
-lookDuration = 2.0
-readDuration = 3.0
-removeNotifierDuration = 1.0
 
 [node name="NPCS" type="Node2D" parent="."]
 
@@ -768,17 +755,19 @@ position = Vector2( 496, 320 )
 points = PoolVector2Array( 0, 0, 408, 0 )
 script = ExtResource( 18 )
 
+[node name="Position2D" type="Position2D" parent="."]
+visible = false
+position = Vector2( 344, 232 )
+
+[node name="Flow1" type="Line2D" parent="Position2D"]
+position = Vector2( -184, -8 )
+points = PoolVector2Array( -232, 24, 80, 24, 80, 72, 832, 72, 832, 16, 976, 16, 976, -56, 1008, -56, 1008, 16, 1120, 16, 1118.22, -120, 776, -120, 776, -56, 544, -56, 544, 0, 776, 0, 776, 16, 528, 16, 528, -56, 304, -56, 304, 8, 0, 8, -16, 16, -16, 0, -32, 8 )
+
 [node name="LaserDetector" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1184, 72 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
-moveDistance = 5
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
 flickerSequence = "1111010001111"
-standbyTimerAfterDetection = 3.0
 
 [editable path="LevelObjects/Lights/OutdoorLight"]
 

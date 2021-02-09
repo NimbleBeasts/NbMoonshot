@@ -1,12 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/nbSplash.png" type="Texture" id=2]
 [ext_resource path="res://Src/Menu/Menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Animation" id=1]
-resource_name = "start"
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 0.5
+glow_strength = 0.9
+glow_bloom = 0.15
+glow_blend_mode = 1
+adjustment_enabled = true
+
+[sub_resource type="Animation" id=2]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("TextureRect:self_modulate")
@@ -50,6 +58,9 @@ audio_listener_enable_2d = true
 [node name="LevelHolder" type="Node2D" parent="gameViewport/Viewport"]
 pause_mode = 1
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="gameViewport/Viewport"]
+environment = SubResource( 1 )
+
 [node name="menuViewport" type="ViewportContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -92,6 +103,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BootSplash"]
 autoplay = "start"
-anims/start = SubResource( 1 )
+anims/start = SubResource( 2 )
 
 [node name="AudioPlayer" parent="." instance=ExtResource( 4 )]

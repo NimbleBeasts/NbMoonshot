@@ -18,6 +18,16 @@ layer = -101
 texture = ExtResource( 1 )
 centered = false
 
+[node name="Label" type="Label" parent="FixedBackground"]
+margin_left = 152.0
+margin_top = 88.0
+margin_right = 392.0
+margin_bottom = 102.0
+text = "Deprecated Skybox - Use: NewSkybox"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="L3" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -58,6 +68,7 @@ centered = false
 [node name="BackgroundDarken" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="BackgroundDarken"]
+visible = false
 margin_right = 640.0
 margin_bottom = 360.0
 color = Color( 0, 0, 0, 0.109804 )

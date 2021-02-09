@@ -2,6 +2,10 @@
 extends Control
 
 
+var level_lightning_level = 0
+
+
+
 var count = 0
 var detected_value: int
 
@@ -41,11 +45,11 @@ func _ready():
 		var cat = Debug.addCategory("HUD")
 		Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
 		Debug.addOption(cat, "HudToggle", funcref(self, "debugHudToggle"), null)
-		
+		Debug.addOption(cat, "LightningToggle", funcref(self, "debugLightToggle"), null)
 	else:
 		$IngameMenu/DebugPromo.hide()
 
-
+	$HUDLayer/Display/HudBar.visible = true
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 
 
@@ -85,7 +89,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_tree().set_input_as_handled()
 			Events.emit_signal("hud_note_exited", emittingNode)
 
-			
+func setLightLevel(level):
+	level_lightning_level = level
+	$LevelModulation.color = Global.gameConstant.lightLevels[level]
+
+
 func photoFlash():
 	$HUDLayer/PhotoFlash/AnimationPlayer.play("detection")
 
@@ -109,10 +117,24 @@ func _on_GameOverNotifcationAnimationPlayer_animation_finished(_anim_name):
 
 
 func showMissionBriefing(level):
+	
+	$HUDLayer/LevelFade/AnimationPlayer.play_backwards("fade_out")
+	
 	$HUDLayer/Display/MissionBriefing/StartMissionButton.grab_focus()
 	$HUDLayer/Display/MissionBriefing.setLevel(level)
 	$HUDLayer/Display/MissionBriefing.show()
 	inMissionBriefing = true
+
+
+func debugLightToggle(_d):
+	level_lightning_level += 1
+	
+	if level_lightning_level >= Types.LevelLightning.size():
+		level_lightning_level = 0
+	
+	Events.emit_signal("hud_light_level", level_lightning_level)
+	
+	print("LightLevel: " + str(Types.LevelLightning.keys()[level_lightning_level]))
 
 
 func debugShaderToggle(_d):
@@ -413,6 +435,8 @@ func _on_StartMissionButton_button_up():
 	Events.emit_signal("play_sound", "menu_click")
 	Events.emit_signal("hud_mission_briefing_exited")
 	inMissionBriefing = false
+	
+	$HUDLayer/LevelFade/AnimationPlayer.play("fade_out")
 
 	#hmm duno if this is right place to go but need to trigger update taser text 
 	if Types.UpgradeTypes.Taser_Extended_Battery in Global.gameState.playerUpgrades:
@@ -460,6 +484,8 @@ func hookSetup():
 
 	Events.connect("hud_photo_flash", self, "photoFlash")
 	Events.connect("no_branch_option_pressed", self, "onNoBranchOptionPressed")
+
+	Events.connect("hud_light_level", self, "setLightLevel")
 
 	# Signal from Nodes
 	for node in $HUDLayer/Display/Upgrades/Grid.get_children():

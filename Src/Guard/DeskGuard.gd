@@ -9,7 +9,7 @@ export(float) var lookDuration = 2
 export(float) var readDuration = 3
 export var removeNotifierDuration: float = 1
 
-onready var style = get_parent().level_type #Types.LevelTypes
+onready var style = get_parent().level_nation_type #Types.LevelTypes
 
 var guardState = GuardState.Reading
 var player = null
@@ -39,18 +39,18 @@ func _process(_delta):
 func switchState(to):
 	match to:
 		GuardState.Reading:
-			$Sprite.frame = 1 if (style == Types.LevelTypes.Western) else 5
+			$Sprite.frame = 1 if (style == Types.LevelTypes.USA) else 5
 			switchFOV(false)
 			$ReadTimer.start()
 		GuardState.Looking:
 			if lookDirection == LookDirectionType.Left:
-				$Sprite.frame = 2 if (style == Types.LevelTypes.Western) else 6
+				$Sprite.frame = 2 if (style == Types.LevelTypes.USA) else 6
 			else:
-				$Sprite.frame = 0 if (style == Types.LevelTypes.Western) else 4
+				$Sprite.frame = 0 if (style == Types.LevelTypes.USA) else 4
 			switchFOV(true)
 			$LookTimer.start()
 		GuardState.Hidden:
-			if (style == Types.LevelTypes.Western):
+			if (style == Types.LevelTypes.USA):
 				$AnimationPlayer.play("hide_blue")
 			else:
 				$AnimationPlayer.play("hide_green")

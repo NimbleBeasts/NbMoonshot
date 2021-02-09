@@ -51,7 +51,6 @@ extents = Vector2( 104, 8 )
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
-level_type = 1
 level_objectives = NodePath("LevelObjects/Tresor")
 playCarCloseSound = false
 
@@ -370,25 +369,13 @@ hasBounty = true
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 280, 72 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
 isFlickering = true
 flickerSequence = "1110000000"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 256, 72 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
 isFlickering = true
 flickerSequence = "0000111111"
-standbyTimerAfterDetection = 3.0
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 34 )]
 position = Vector2( 104, 256 )
@@ -397,9 +384,6 @@ flagType = 1
 [node name="DeskGuard" parent="." instance=ExtResource( 30 )]
 position = Vector2( 208, 256 )
 lookDirection = 1
-lookDuration = 2.0
-readDuration = 3.0
-removeNotifierDuration = 1.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 8, 312 )

@@ -3,7 +3,8 @@ extends Node2D
 export var extended_allowed_detections: int = 5
 export var normal_allowed_detections: int = 3
 
-export (Types.LevelTypes) var level_type: int
+export (Types.LevelLightning) var level_lightning: int
+export (Types.LevelTypes) var level_nation_type: int
 export(NodePath) var level_objectives = null
 export var playCarCloseSound: bool = true 
 
@@ -28,7 +29,7 @@ func can_change_level():
 func _ready():
 	var musicEmit 
 	if Global.game_manager.getCurrentLevelIndex() != 0:
-		musicEmit = level_type
+		musicEmit = level_nation_type
 	else:
 		musicEmit = "HQ"
 	Events.emit_signal("play_music", musicEmit)
@@ -64,6 +65,12 @@ func _ready():
 		Events.emit_signal("hud_update_money", Global.gameState.money, 0)
 	else:
 		Events.emit_signal("hud_update_money", 0, 0)
+		
+		
+	Events.emit_signal("hud_light_level", level_lightning)
+
+	if get_node_or_null("NewSkybox"):
+		get_node("NewSkybox").setup(level_nation_type)
 
 		
 func _process(_delta: float) -> void:
