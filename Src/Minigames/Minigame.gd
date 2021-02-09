@@ -37,7 +37,6 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("cancel") and canCloseMinigame:
 			close()
 
-
 	
 # Basically open and close minigame are just tweening the minigame position 
 func open() -> void:

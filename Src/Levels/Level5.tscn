@@ -54,7 +54,7 @@ tile_data = PoolIntArray( 917536, 0, 0, 917537, 0, 1, 917538, 0, 1, 917539, 0, 1
 position = Vector2( 96, 256 )
 z_index = 50
 
-[node name="MinigameHolder" type="Node2D" parent="."]
+[node name="MinigameHolder" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource( 13 )]
 
@@ -91,42 +91,15 @@ flickerSequence = "1110"
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 384, 256 )
 lockLevel = 5
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 384, 184 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 512, 184 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 512, 256 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="Staircases" type="Node2D" parent="LevelObjects"]
 

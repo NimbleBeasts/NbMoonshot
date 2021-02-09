@@ -106,7 +106,7 @@ tile_data = PoolIntArray( 524399, 0, 0, 524400, 0, 1, 524401, 0, 1, 524402, 0, 1
 position = Vector2( 96, 256 )
 z_index = 50
 
-[node name="MinigameHolder" type="Node2D" parent="."]
+[node name="MinigameHolder" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource( 13 )]
 
@@ -254,9 +254,6 @@ flickerSequence = "11111111010100000000010"
 [node name="CollisionPolygon2D2" parent="LevelObjects/Lights/Light6/BarelyVisible" index="1"]
 polygon = PoolVector2Array( -101.161, 2.53969, -80.564, 58.9582, -64.8884, 58.7598 )
 
-[node name="Light2D" parent="LevelObjects/Lights/Light6" index="3"]
-visible = false
-
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 904, 200 )
 flicker = false
@@ -360,12 +357,18 @@ door_name = ""
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 456, 256 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 800, 256 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 824, 256 )
+type = 0
+hasBounty = false
 
 [node name="Key" parent="LevelObjects" instance=ExtResource( 34 )]
 position = Vector2( 939, 254 )
@@ -373,22 +376,33 @@ rotation = -1.5708
 
 [node name="Cabinet6" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 920, 256 )
+type = 0
 hasBounty = true
 
 [node name="Cabinet7" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 840, 192 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet8" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 896, 192 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet9" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 1168, 128 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 496, 192 )
+type = 0
+hasBounty = false
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 512, 192 )
+type = 0
+hasBounty = false
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( 624, 200 )
@@ -404,114 +418,56 @@ polygon = PoolVector2Array( 16, 56, 0, 0, 72, 24, 72, 56 )
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 888, 128 )
-lockLevel = 0
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 1152, 128 )
 lockLevel = 2
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 1264, 128 )
-lockLevel = 0
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 632, 256 )
 lockLevel = 3
 doorType = 2
-save_state = false
 showHintIfLocked = true
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 760, 192 )
 lockLevel = 5
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
 keyPath = NodePath("../Key")
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 832, 320 )
 lockLevel = 3
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 640, 320 )
 lockLevel = 3
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 632, 192 )
-lockLevel = 0
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="UnlockeableDoorWall" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 760, 256 )
 lockLevel = 1
 doorType = 1
 door_name = "FirstDoor"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DeactivableDoor2" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 952, 256 )
 lockLevel = 3
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DeactivableDoor1" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( 1024, 256 )
-lockLevel = 0
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 2 )]
 position = Vector2( 1232, 128 )

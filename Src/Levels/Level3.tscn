@@ -526,74 +526,28 @@ texture = ExtResource( 73 )
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 384, 64 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 97, 64 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 888.556, 254.223 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 775.846, 192 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 312.181, 256.223 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 240, 256.223 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( -23.8994, 256.223 )
-lockLevel = 0
 doorType = 1
 door_name = "DoorWall7"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="StaircaseE0toE1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 256 )
@@ -716,37 +670,50 @@ __meta__ = {
 position = Vector2( 555.592, 109.359 )
 rotation = -1.5708
 scale = Vector2( 1, 1.5 )
+flicker = false
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 20 )]
 position = Vector2( 1043.09, 256 )
+flicker = false
+flickerSequence = "1110"
 
 [node name="OutdoorLight2" parent="LevelObjects/Lights" instance=ExtResource( 20 )]
 position = Vector2( 990.476, 256.223 )
 scale = Vector2( -1, 1 )
+flicker = false
+flickerSequence = "1110"
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 820.346, 200 )
+flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 717.103, 200.1 )
+flicker = false
 
 [node name="Light22" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 607.211, 328 )
+flicker = false
 
 [node name="Light23" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 688.9, 328 )
+flicker = false
 
 [node name="Light24" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 517.695, 328 )
+flicker = false
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 675.625, 72 )
+flicker = false
 
 [node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 152, 72 )
+flicker = false
 
 [node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 53, 72 )
+flicker = false
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 771.547, 72 )
@@ -754,36 +721,47 @@ flicker = true
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 597.7, 200 )
+flicker = false
 
 [node name="Light14" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 280, 200 )
+flicker = false
 
 [node name="Light15" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 204.6, 199.257 )
+flicker = false
 
 [node name="Light16" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 140.6, 199.257 )
+flicker = false
 
 [node name="Light27" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( 49.3, 200.604 )
+flicker = false
 
 [node name="Light18" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
 position = Vector2( -75, 200.1 )
+flicker = false
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 18 )]
 position = Vector2( 832.346, 136 )
+flicker = false
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 18 )]
 position = Vector2( 723.703, 136 )
+flicker = false
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 18 )]
 position = Vector2( 644.011, 136 )
+flicker = false
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 18 )]
 position = Vector2( 560.9, 134 )
+flicker = false
 
 [node name="Light25" parent="LevelObjects/Lights" instance=ExtResource( 18 )]
 position = Vector2( 724.203, 264 )
+flicker = false
 
 [node name="Light26" parent="LevelObjects/Lights" instance=ExtResource( 18 )]
 position = Vector2( 781.103, 264 )
@@ -791,12 +769,15 @@ flicker = true
 
 [node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 18 )]
 position = Vector2( 344, 136 )
+flicker = false
 
 [node name="Light19" parent="LevelObjects/Lights" instance=ExtResource( 18 )]
 position = Vector2( -50.0598, 136.035 )
+flicker = false
 
 [node name="Light20" parent="LevelObjects/Lights" instance=ExtResource( 18 )]
 position = Vector2( 152, 8.08648 )
+flicker = false
 
 [node name="Light21" parent="LevelObjects/Lights" instance=ExtResource( 18 )]
 position = Vector2( 316.8, 8.08648 )
@@ -804,6 +785,7 @@ flicker = true
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 18 )]
 position = Vector2( 480.895, 136 )
+flicker = false
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 48 )]
 position = Vector2( 793.146, 128 )
@@ -896,7 +878,7 @@ __meta__ = {
 position = Vector2( 1081.81, 256 )
 z_index = 50
 
-[node name="MinigameHolder" type="Node2D" parent="."]
+[node name="MinigameHolder" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="." instance=ExtResource( 12 )]
 
@@ -910,6 +892,9 @@ shape = SubResource( 1 )
 [node name="DeskGuard" parent="." instance=ExtResource( 9 )]
 position = Vector2( 758.179, 255.495 )
 lookDirection = 1
+lookDuration = 2.0
+readDuration = 3.0
+removeNotifierDuration = 1.0
 
 [node name="Civillian" parent="." instance=ExtResource( 39 )]
 position = Vector2( 277.6, 64 )

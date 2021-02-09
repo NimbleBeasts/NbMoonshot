@@ -136,6 +136,7 @@ __meta__ = {
 color = Color( 0.984314, 0.984314, 0.984314, 1 )
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
+layer = 20
 
 [node name="Shader" type="ColorRect" parent="HUDLayer"]
 material = ExtResource( 9 )
