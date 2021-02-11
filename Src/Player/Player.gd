@@ -277,8 +277,10 @@ func set_light_level(value: int) -> void:
 		# this is why a custom setter function is needed, may forgot to set visible level and
 		# will fuk everything up
 		setVisibleLevel(light_level)
-		sprite.modulate = Color(visibilityLevelsModulations[visible_level])
+		updateModulate()
 	
+func updateModulate():
+	sprite.modulate = Color(visibilityLevelsModulations[visible_level])
 	
 # use this function to set state
 func set_state(value: int) -> void:
@@ -367,7 +369,7 @@ func setVisibleLevel(value: int) -> void:
 	if visible_level != value:
 		visible_level = value
 		Events.emit_signal("visible_level_changed", visible_level)
-
+		updateModulate()
 
 func enableNormalColliders() -> void:
 	get_tree().set_group("DuckColliders", "disabled", true)
