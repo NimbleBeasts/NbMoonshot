@@ -213,101 +213,42 @@ has_level_index = false
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 256 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 280, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall2"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall3"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 320 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall4"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall-HQ-PlayerOffice" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 320 )
 lockLevel = 1
-doorType = 0
 door_name = "HQ-PlayerOfficeDoor"
 save_state = true
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 382.768 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall5"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 384, 448 )
 lockLevel = 4
 doorType = 1
 door_name = "DoorWall6"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 296, 448 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall7"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 384 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall9"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 168, 256 )
@@ -434,15 +375,9 @@ shape = SubResource( 2 )
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 392, 328 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 4
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 432, 364 )
@@ -453,9 +388,6 @@ moveSpeed = 0.25
 moveDistance = 3
 moveDirection = 0
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="Note3" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 248, 448 )
@@ -505,7 +437,7 @@ position = Vector2( 328, 256 )
 position = Vector2( 400, 256 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 372, 384 )
+position = Vector2( 232, 385 )
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 

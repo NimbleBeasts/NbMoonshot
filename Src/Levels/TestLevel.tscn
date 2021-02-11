@@ -111,6 +111,7 @@ position = Vector2( -104, 256 )
 [node name="Chimney" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( -596, 116 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
@@ -166,36 +167,15 @@ texture = ExtResource( 35 )
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 144, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall7"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 280, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall9"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 280, 320 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall10"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
@@ -234,24 +214,15 @@ rotation = -1.5708
 heigth = 16
 isStatic = false
 moveSpeed = 0.2
-moveDistance = 5
 moveDirection = 2
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 200 )
-heigth = 7
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 16
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="Ladder" parent="LevelObjects" instance=ExtResource( 22 )]
 position = Vector2( -664, 200 )
@@ -261,7 +232,6 @@ position = Vector2( -664, 136 )
 
 [node name="Locker" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( -768, 128 )
-type = 0
 hasBounty = true
 
 [node name="Locker2" parent="LevelObjects" instance=ExtResource( 29 )]

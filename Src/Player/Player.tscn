@@ -23,13 +23,22 @@ radius = 5.0
 height = 10.4134
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 5.18156, 14.3244 )
+extents = Vector2( 4, 8 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 5.18156, 10.3554 )
+extents = Vector2( 4, 4 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 5.18156, 14.3244 )
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 4, 2 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 4, 1 )
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 17.6035, 14.6427 )
 
 [sub_resource type="Animation" id=6]
 step = 0.05
@@ -435,15 +444,6 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[sub_resource type="RectangleShape2D" id=25]
-extents = Vector2( 17.6035, 14.6427 )
-
-[sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 5.5477, 1.09889 )
-
-[sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 5.40705, 1.57489 )
-
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
@@ -454,12 +454,14 @@ sprint_acceleration = 1200
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
 "NormalColliders",
 ]]
+visible = false
 position = Vector2( -0.140306, -14.3508 )
 shape = SubResource( 1 )
 
 [node name="DuckCollisionShape2D" type="CollisionShape2D" parent="." groups=[
 "DuckColliders",
 ]]
+visible = false
 position = Vector2( -0.07, -10.5 )
 shape = SubResource( 2 )
 
@@ -473,16 +475,14 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerLightArea" groups=[
 "NormalColliders",
 ]]
-position = Vector2( 0.131449, -13.8838 )
+position = Vector2( 0, -8 )
 shape = SubResource( 3 )
 
 [node name="DuckCollisionShape2D" type="CollisionShape2D" parent="PlayerLightArea" groups=[
 "DuckColliders",
 ]]
-position = Vector2( -0.0790121, -9.95515 )
+position = Vector2( 0, -4 )
 shape = SubResource( 4 )
-
-[node name="TravelTween" type="Tween" parent="."]
 
 [node name="PlayerArea" type="Area2D" parent="." groups=[
 "PlayerArea",
@@ -501,6 +501,40 @@ shape = SubResource( 5 )
 ]]
 position = Vector2( -0.0790121, -9.95515 )
 shape = SubResource( 4 )
+
+[node name="GroundDetection" type="Area2D" parent="."]
+visible = false
+collision_mask = 2053
+script = ExtResource( 12 )
+areaCollidersGroup = "ThinArea;"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetection"]
+position = Vector2( 0, 2 )
+shape = SubResource( 26 )
+
+[node name="PressureArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 512
+collision_mask = 0
+script = ExtResource( 13 )
+mainNodePath = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PressureArea"]
+position = Vector2( 0, -1 )
+shape = SubResource( 27 )
+
+[node name="GuardPickup" type="Area2D" parent="."]
+visible = false
+collision_mask = 16
+script = ExtResource( 4 )
+playerPath = NodePath("..")
+carryPositionPath = NodePath("../Flippable/CarryPosition")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardPickup"]
+position = Vector2( 1.05208, -13.9461 )
+shape = SubResource( 25 )
+
+[node name="TravelTween" type="Tween" parent="."]
 
 [node name="TravelRayCasts" type="Node2D" parent="."]
 
@@ -569,16 +603,6 @@ anims/walk = SubResource( 24 )
 [node name="FootstepTimer" type="Timer" parent="."]
 wait_time = 0.25
 
-[node name="GuardPickup" type="Area2D" parent="."]
-collision_mask = 16
-script = ExtResource( 4 )
-playerPath = NodePath("..")
-carryPositionPath = NodePath("../Flippable/CarryPosition")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardPickup"]
-position = Vector2( 1.05208, -13.9461 )
-shape = SubResource( 25 )
-
 [node name="WeaponHandler" type="Node2D" parent="."]
 script = ExtResource( 5 )
 playerPath = NodePath("..")
@@ -627,24 +651,4 @@ travelTweenPath = NodePath("../TravelTween")
 travelRayDownPath = NodePath("../TravelRayCasts/RayCast2DDown")
 travelRayUpPath = NodePath("../TravelRayCasts/RayCast2DUp")
 playerPath = NodePath("..")
-
-[node name="GroundDetection" type="Area2D" parent="."]
-position = Vector2( -0.334087, -0.8909 )
-collision_mask = 2053
-script = ExtResource( 12 )
-areaCollidersGroup = "ThinArea;"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetection"]
-position = Vector2( 0.394875, 2.10965 )
-shape = SubResource( 26 )
-
-[node name="PressureArea" type="Area2D" parent="."]
-collision_layer = 512
-collision_mask = 0
-script = ExtResource( 13 )
-mainNodePath = NodePath("..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PressureArea"]
-position = Vector2( 0.280618, -0.982155 )
-shape = SubResource( 27 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
