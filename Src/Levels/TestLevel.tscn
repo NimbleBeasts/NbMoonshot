@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Distraction/Radio.tscn" type="PackedScene" id=2]
@@ -36,6 +36,8 @@
 [ext_resource path="res://Assets/Objects/Bookshelf3.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Objects/CouchTable.png" type="Texture" id=35]
 [ext_resource path="res://Assets/Objects/PaintingStarryNight.png" type="Texture" id=36]
+[ext_resource path="res://Src/Objects/Nature/Tree.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Assets/Objects/Nature/Tree_Needle.png" type="Texture" id=38]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 4 )
@@ -163,6 +165,39 @@ texture = ExtResource( 34 )
 position = Vector2( -655, 120 )
 texture = ExtResource( 35 )
 
+[node name="Tree2" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
+position = Vector2( -424, 184 )
+frame = 3
+season = 1
+variant = 1
+
+[node name="Tree7" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
+position = Vector2( -464, 184 )
+frame = 2
+season = 1
+
+[node name="Tree3" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
+position = Vector2( -384, 184 )
+
+[node name="Tree4" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
+position = Vector2( -344, 184 )
+frame = 1
+variant = 1
+
+[node name="Tree5" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
+position = Vector2( -304, 184 )
+texture = ExtResource( 38 )
+hframes = 2
+tree = 1
+
+[node name="Tree6" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
+position = Vector2( -267, 184 )
+texture = ExtResource( 38 )
+hframes = 2
+frame = 1
+tree = 1
+variant = 1
+
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
@@ -180,16 +215,10 @@ door_name = "DoorWall10"
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseCellar")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -259,16 +288,10 @@ position = Vector2( -23.5263, 235.871 )
 [node name="Staircase" parent="." instance=ExtResource( 10 )]
 position = Vector2( -704, 256 )
 connected_door_path = NodePath("../Staircase2")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="Staircase2" parent="." instance=ExtResource( 10 )]
 position = Vector2( -590, 192 )
 connected_door_path = NodePath("../Staircase")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -600, 256 )
@@ -282,7 +305,7 @@ cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 32
 occluder_light_mask = 3
 format = 1
-tile_data = PoolIntArray( 982970, 20, 0, 982971, 21, 0, 982972, 21, 0, 982973, 21, 0, 982974, 21, 0, 982975, 21, 0, 982976, 22, 0, 1114041, 26, 0, 1114049, 26, 0, 1179577, 25, 0, 1179585, 25, 0, 1245113, 25, 0, 1245121, 25, 0, 1310649, 25, 0, 1310657, 25, 0, 1376185, 25, 0, 1376193, 25, 0, 1441721, 25, 0, 1441729, 25, 0, 1507257, 25, 0, 1507258, 20, 0, 1507259, 21, 0, 1507260, 21, 0, 1507261, 21, 0, 1507262, 21, 0, 1507263, 21, 0, 1507264, 22, 0, 1507265, 25, 0, 1507266, 20, 0, 1507267, 21, 0, 1507268, 21, 0, 1507269, 21, 0, 1507270, 21, 0, 1507271, 21, 0, 1507272, 22, 0, 1572793, 24, 0, 1572801, 24, 0, 1638329, 26, 0, 1638337, 26, 0, 1638345, 26, 0, 1703865, 25, 0, 1703873, 25, 0, 1703881, 25, 0, 1769401, 25, 0, 1769409, 25, 0, 1769417, 25, 0, 1834937, 25, 0, 1834945, 25, 0, 1834953, 25, 0, 1900473, 25, 0, 1900481, 25, 0, 1900489, 25, 0, 1966009, 25, 0, 1966017, 25, 0, 1966025, 25, 0, 2031545, 25, 0, 2031553, 25, 0, 2031561, 25, 0, 2097081, 24, 0, 2097089, 24, 0, 2097097, 24, 0 )
+tile_data = PoolIntArray( 982970, 20, 0, 982971, 21, 0, 982972, 21, 0, 982973, 21, 0, 982974, 21, 0, 982975, 21, 0, 982976, 22, 0, 1114041, 26, 0, 1114049, 26, 0, 1179577, 25, 0, 1179585, 25, 0, 1245113, 25, 0, 1245121, 25, 0, 1310649, 25, 0, 1310657, 25, 0, 1376185, 25, 0, 1376193, 25, 0, 1441721, 25, 0, 1441729, 25, 0, 1507257, 25, 0, 1507258, 20, 0, 1507259, 21, 0, 1507260, 21, 0, 1507261, 21, 0, 1507262, 21, 0, 1507263, 21, 0, 1507264, 22, 0, 1507265, 25, 0, 1507266, 20, 0, 1507267, 21, 0, 1507268, 21, 0, 1507269, 22, 0, 1572793, 24, 0, 1572801, 24, 0, 1638329, 26, 0, 1638337, 26, 0, 1638341, 26, 0, 1703865, 25, 0, 1703873, 25, 0, 1703877, 25, 0, 1769401, 25, 0, 1769409, 25, 0, 1769413, 25, 0, 1834937, 25, 0, 1834945, 25, 0, 1834949, 25, 0, 1900473, 25, 0, 1900481, 25, 0, 1900485, 25, 0, 1966009, 25, 0, 1966017, 25, 0, 1966021, 25, 0, 2031545, 25, 0, 2031553, 25, 0, 2031557, 25, 0, 2097081, 24, 0, 2097089, 24, 0, 2097093, 24, 0 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -328, 264 )

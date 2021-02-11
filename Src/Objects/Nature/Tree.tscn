@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Objects/Nature/Tree_Deciduous.png" type="Texture" id=1]
+[ext_resource path="res://Src/Objects/Nature/Tree.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+// Wind settings.
+uniform float speed = 1.0;
+uniform float minStrength : hint_range(0.0, 1.0);
+uniform float maxStrength : hint_range(0.0, 1.0);
+uniform float strengthScale = 100.0;
+uniform float interval = 3.5;
+uniform float detail = 1.0;
+uniform float distortion : hint_range(0.0, 1.0);
+uniform float heightOffset = 0.0;
+
+float getWind(vec2 vertex, vec2 uv, float timer){
+	vec2 pos = mix(vec2(1.0), vertex, distortion).xy;
+	float time = timer * speed + pos.x * pos.y;
+	float diff = pow(maxStrength - minStrength, 2.0);
+	float strength = clamp(minStrength + diff + sin(time / interval) * diff, minStrength, maxStrength) * strengthScale;
+	float wind = (sin(time) + cos(time * detail)) * strength * max(0.0, (1.0-uv.y) - heightOffset);
+	
+	return wind;
+	}
+
+void vertex() {
+	VERTEX.x += getWind(VERTEX.xy, UV, TIME);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/speed = 1.0
+shader_param/minStrength = 0.02
+shader_param/maxStrength = 0.052
+shader_param/strengthScale = 50.0
+shader_param/interval = 3.5
+shader_param/detail = 1.0
+shader_param/distortion = 0.4
+shader_param/heightOffset = 0.0
+
+[node name="Tree" type="Sprite"]
+material = SubResource( 2 )
+position = Vector2( -16, -72 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 4
+script = ExtResource( 2 )

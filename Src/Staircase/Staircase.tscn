@@ -24,7 +24,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 10, 15 )
+extents = Vector2( 10, 16 )
 
 [node name="Staircase" type="Area2D" groups=[
 "Interactable",
@@ -52,5 +52,5 @@ anims/open = SubResource( 2 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LockpickSmallMinigameSpawner"]
-position = Vector2( 0, -20 )
+position = Vector2( 0, -16 )
 shape = SubResource( 3 )
