@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Shaders/Water.shader" type="Shader" id=1]
+[ext_resource path="res://Src/Objects/Nature/Water.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Tileset/MuddyWater.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/scale_x = 68.0
+shader_param/direction = 1.0
+
+[node name="Water" type="Sprite"]
+material = SubResource( 1 )
+position = Vector2( 0, -8 )
+scale = Vector2( 8, 1 )
+texture = ExtResource( 3 )
+centered = false
+script = ExtResource( 2 )
+[connection signal="item_rect_changed" from="." to="." method="_on_Water_item_rect_changed"]

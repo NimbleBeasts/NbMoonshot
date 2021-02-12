@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Assets/Objects/Bookshelf.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Objects/Bookshelf2.png" type="Texture" id=27]
+[ext_resource path="res://Src/Objects/Nature/Water.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=31]
@@ -119,16 +120,10 @@ position = Vector2( 400, 72 )
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 128 )
 connected_door_path = NodePath("../Staircase2")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 192 )
 connected_door_path = NodePath("../Staircase")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 170, 128 )
@@ -176,7 +171,6 @@ texture = ExtResource( 16 )
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 532, 300 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
@@ -360,11 +354,9 @@ hasBounty = true
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 416, 128 )
 type = 1
-hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 480, 320 )
-type = 0
 hasBounty = true
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
@@ -412,6 +404,11 @@ starting_direction = Vector2( -1, 0 )
 [node name="GuardPathLine" type="Line2D" parent="Guard3"]
 points = PoolVector2Array( 0, -16, -64, -16, 40, -24 )
 script = ExtResource( 35 )
+
+[node name="Water" parent="." instance=ExtResource( 28 )]
+position = Vector2( -72, 360 )
+scale = Vector2( 68, 1 )
+z_index = 51
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
