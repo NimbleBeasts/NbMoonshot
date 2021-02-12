@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/eliteguard_halt.wav-fd24e147af778431f03a59b50fc6be7b.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/eliteguard_halt.wav"
+dest_files=[ "res://.import/eliteguard_halt.wav-fd24e147af778431f03a59b50fc6be7b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

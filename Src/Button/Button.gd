@@ -30,6 +30,7 @@ func onBodyExited(body: Node) -> void:
 
 func press() -> void:
 	$Sprite.frame = 1
+	Events.emit_signal("play_sound", "button")
 	Events.emit_signal("hud_game_hint", "Button pressed")
 	for thing in unlocks:
 		var node = get_node(thing)

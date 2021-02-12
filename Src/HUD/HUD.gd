@@ -101,6 +101,7 @@ func showGameHintNotification(text):
 	$HUDLayer/GameHintNotification.set_text(text)
 	$HUDLayer/GameHintNotification.show()
 	$HUDLayer/GameHintNotification/GameHintAnimationPlayer.play("pop")
+	Events.emit_signal("play_sound", "game_hint")
 
 func _on_GameHintAnimationPlayer_animation_finished(_anim_name):
 	$HUDLayer/GameHintNotification.hide()

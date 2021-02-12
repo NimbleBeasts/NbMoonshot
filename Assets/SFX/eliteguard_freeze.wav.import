@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/eliteguard_freeze.wav-0bdd16677eb985e6c125a19922d57980.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/eliteguard_freeze.wav"
+dest_files=[ "res://.import/eliteguard_freeze.wav-0bdd16677eb985e6c125a19922d57980.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

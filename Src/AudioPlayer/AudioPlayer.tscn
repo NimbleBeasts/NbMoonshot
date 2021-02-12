@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
@@ -53,6 +53,16 @@
 [ext_resource path="res://Assets/SFX/gameover.wav" type="AudioStream" id=51]
 [ext_resource path="res://Assets/Music/title_main.ogg" type="AudioStream" id=52]
 [ext_resource path="res://Assets/Music/hq_intro.ogg" type="AudioStream" id=53]
+[ext_resource path="res://Assets/SFX/closet_open.wav" type="AudioStream" id=54]
+[ext_resource path="res://Assets/SFX/closet_close.wav" type="AudioStream" id=55]
+[ext_resource path="res://Assets/SFX/body_pickup.wav" type="AudioStream" id=56]
+[ext_resource path="res://Assets/SFX/body_fall.wav" type="AudioStream" id=57]
+[ext_resource path="res://Assets/SFX/button.wav" type="AudioStream" id=58]
+[ext_resource path="res://Assets/SFX/hint.wav" type="AudioStream" id=59]
+[ext_resource path="res://Assets/SFX/growl.wav" type="AudioStream" id=60]
+[ext_resource path="res://Assets/SFX/bark1.wav" type="AudioStream" id=61]
+[ext_resource path="res://Assets/SFX/bark_2.wav" type="AudioStream" id=62]
+[ext_resource path="res://Assets/SFX/key_pickup.wav" type="AudioStream" id=63]
 
 [node name="AudioPlayer" type="Node2D"]
 script = ExtResource( 2 )
@@ -60,6 +70,7 @@ guardAlarmSounds = [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtRe
 guardSuspiciousSounds = [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 12 ) ]
 playerFootstepSounds = [ ExtResource( 35 ), ExtResource( 38 ), ExtResource( 36 ), ExtResource( 37 ) ]
 playerCrouchWalkSounds = [ ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 39 ) ]
+dogBarkSounds = [ ExtResource( 61 ), ExtResource( 62 ) ]
 westernMusic = ExtResource( 44 )
 easternMusic = ExtResource( 48 )
 hqIntro = ExtResource( 53 )
@@ -203,4 +214,36 @@ stream = ExtResource( 45 )
 
 [node name="GameOver" type="AudioStreamPlayer" parent="General"]
 stream = ExtResource( 51 )
+
+[node name="Closet" type="Node2D" parent="."]
+
+[node name="Open" type="AudioStreamPlayer" parent="Closet"]
+stream = ExtResource( 54 )
+
+[node name="Close" type="AudioStreamPlayer" parent="Closet"]
+stream = ExtResource( 55 )
+
+[node name="StunnedBody" type="Node2D" parent="."]
+
+[node name="BodyPickup" type="AudioStreamPlayer" parent="StunnedBody"]
+stream = ExtResource( 56 )
+
+[node name="BodyFall" type="AudioStreamPlayer" parent="StunnedBody"]
+stream = ExtResource( 57 )
+
+[node name="Button" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 58 )
+
+[node name="GameHint" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 59 )
+
+[node name="Dog" type="Node2D" parent="."]
+
+[node name="Growl" type="AudioStreamPlayer" parent="Dog"]
+stream = ExtResource( 60 )
+
+[node name="Bark" type="AudioStreamPlayer" parent="Dog"]
+
+[node name="KeyPickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 63 )
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]

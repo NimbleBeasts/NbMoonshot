@@ -18,3 +18,4 @@ func onBodyEntered(body: Node) -> void:
 		hide()
 		Events.emit_signal("hud_game_hint", "Found a %s key" % stringName)
 		set_deferred("monitoring", false)
+		Events.emit_signal("play_sound", "key_pickup")

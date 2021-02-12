@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/taser_deploy_eliteguard.wav-9e4f97529c67b6533c74516af4a6fdf7.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/taser_deploy_eliteguard.wav"
+dest_files=[ "res://.import/taser_deploy_eliteguard.wav-9e4f97529c67b6533c74516af4a6fdf7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

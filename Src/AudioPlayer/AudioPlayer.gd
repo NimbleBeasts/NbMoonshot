@@ -4,6 +4,7 @@ export (Array, AudioStream) var guardAlarmSounds
 export (Array, AudioStream) var guardSuspiciousSounds
 export (Array, AudioStream) var playerFootstepSounds
 export (Array, AudioStream) var playerCrouchWalkSounds
+export (Array, AudioStream) var dogBarkSounds
 
 export (AudioStream) var westernMusic
 export (AudioStream) var easternMusic
@@ -118,7 +119,25 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 				$ChestSounds/Locked.play()
 			"deskguard_detect":
 				$Guard/DeskGuardDetect.play()
-			_:
+			"closet_open":
+				$Closet/Open.play()
+			"closet_close":
+				$Closet/Close.play()
+			"body_pickup":
+				$StunnedBody/BodyPickup.play()
+			"body_fall":
+				$StunnedBody/BodyFall.play()
+			"button":
+				$Button.play()
+			"game_hint":
+				$GameHint.play()
+			"dog_growl":
+				$Dog/Growl.play()
+			"dog_bark":
+				playRandomSound($Dog/Bark, dogBarkSounds)
+			"key_pickup":
+				$KeyPickup.play()
+			_: 
 				print("error: sound not found - name: " + str(sound))
 
 
