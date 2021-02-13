@@ -14,26 +14,26 @@ func _ready() -> void:
 	showTimer.one_shot = true
 	showTimer.connect("timeout", self, "showTimerTimeout")
 	flashAmount = int(rand_range(4, 6))
-	print(flashAmount)
 	$ColorFlashTimer.connect("timeout", self, "flashColor")
 	$ColorFlashTimer.start()
-	$Buttons/Button.grab_focus()
 	
 	var index = randi() % Colors.keys().size()
 	currentFlash = $Lights.get_child(index)
 	for i in range($Buttons.get_children().size()):
 		var button = $Buttons.get_child(i)
-		button.connect("button_up", self,  "onButtonUp", [i])
-		button.disabled = true
+		if button is TextureButton:
+			button.connect("button_up", self,  "onButtonUp", [i])
+			button.disabled = true
 
 func flashColor():
 	if flashedColors.size() >= flashAmount:
 		for button in $Buttons.get_children():
-			button.disabled = false
+			if button is TextureButton:
+				button.disabled = false
 		currentFlash.hide()
 		$ColorFlashTimer.stop()
-		print("enabled buttons")
 		$Buttons/Button.grab_focus()
+		print("grabbed button focus")
 		return
 	currentFlash.enabled = false
 	showTimer.start(0.1)
