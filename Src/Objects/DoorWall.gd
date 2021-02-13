@@ -75,6 +75,7 @@ func interact(run_sub, openerPos: Vector2):
 	if lockLevel == DoorLockType.keyLocked:
 		if key.isPickedUp:
 			open()
+			Events.emit_signal("play_sound", "key_use")
 		else:
 			Events.emit_signal("hud_game_hint", "You need a %s key to open this door" % key.stringName)
 

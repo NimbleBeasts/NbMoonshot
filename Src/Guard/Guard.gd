@@ -111,7 +111,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 	else:
 		velocity = direction * speed
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	
 func losRayIsCollidingWith(obj: Node) -> bool:
@@ -344,8 +344,9 @@ func stopBeingDragged() -> void:
 	state = Types.GuardStates.Stunned
 
 func setApplyGravity(_dummyargument, to: bool):
-	applyGravity = to
-
+	if applyGravity != to:
+		applyGravity = to
+		
 	
 func stopMovement():
 	guardPathLine.stopAllMovement()

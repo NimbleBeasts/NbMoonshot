@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Distraction/Radio.tscn" type="PackedScene" id=2]
@@ -58,8 +58,14 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 240, 8 )
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 72, 10 )
+
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 
 [node name="NewSkybox" parent="." instance=ExtResource( 9 )]
 
@@ -115,7 +121,7 @@ position = Vector2( -104, 256 )
 [node name="Chimney" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( -596, 116 )
 frames = SubResource( 3 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
@@ -215,36 +221,15 @@ variant = 1
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 144, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall7"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 280, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall9"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 280, 320 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall10"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
@@ -324,7 +309,7 @@ type = 1
 hasBounty = true
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -360, 256 )
+position = Vector2( -178, 254 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -373,16 +358,17 @@ shape = SubResource( 4 )
 position = Vector2( -512, 128 )
 
 [node name="Key" parent="." instance=ExtResource( 40 )]
-position = Vector2( -396, 248 )
+position = Vector2( -202, 248 )
 
 [node name="Radio" parent="." instance=ExtResource( 2 )]
 position = Vector2( -340, 256 )
 guards = [ NodePath("../Guard") ]
 
 [node name="Guard" parent="." instance=ExtResource( 25 )]
-position = Vector2( -261, 256 )
+position = Vector2( 28, 254 )
 
 [node name="PathLine" type="Line2D" parent="Guard"]
+position = Vector2( 1, 0 )
 points = PoolVector2Array( 4, -13, 58, -13, 140, -13 )
 script = ExtResource( 15 )
 
@@ -413,3 +399,15 @@ position = Vector2( -464, 256 )
 [node name="DogPathLine" type="Line2D" parent="Dog"]
 points = PoolVector2Array( -12, -8, -64, -8, -120, -8 )
 script = ExtResource( 15 )
+
+[node name="Roof" type="StaticBody2D" parent="."]
+position = Vector2( -556, 136 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
+position = Vector2( 60, 2 )
+shape = SubResource( 5 )
+
+[node name="DoorWall" parent="." instance=ExtResource( 8 )]
+position = Vector2( -146, 256 )
+lockLevel = 5
+keyPath = NodePath("../Key")

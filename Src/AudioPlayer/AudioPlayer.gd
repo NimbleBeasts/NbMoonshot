@@ -5,6 +5,8 @@ export (Array, AudioStream) var guardSuspiciousSounds
 export (Array, AudioStream) var playerFootstepSounds
 export (Array, AudioStream) var playerCrouchWalkSounds
 export (Array, AudioStream) var dogBarkSounds
+export (Array, AudioStream) var eliteGuardDetectSounds
+
 
 export (AudioStream) var westernMusic
 export (AudioStream) var easternMusic
@@ -136,7 +138,14 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 			"dog_bark":
 				playRandomSound($Dog/Bark, dogBarkSounds)
 			"key_pickup":
-				$KeyPickup.play()
+				$Key/KeyPickup.play()
+			"eliteguard_detect":
+				playRandomSound($EliteGuard/Detect, eliteGuardDetectSounds)
+			"eliteguard_taser":
+				$EliteGuard/TaserDeploy.play()
+				$EliteGuard/Taser.play()
+			"key_use":
+				$Key/KeyUse.play()
 			_: 
 				print("error: sound not found - name: " + str(sound))
 

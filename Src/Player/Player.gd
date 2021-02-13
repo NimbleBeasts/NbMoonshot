@@ -401,4 +401,7 @@ func onPlayerAreaExited(area: Area2D) -> void:
 		currentInteractable = null
 		
 func setApplyGravity(_dummyargument, to: bool):
-	applyGravity = to
+	if applyGravity != to:
+		applyGravity = to
+		if not applyGravity:
+			Events.emit_signal("play_sound", "body_fall")
