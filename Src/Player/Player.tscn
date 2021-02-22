@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Src/Player/ThinAreaTravelling.gd" type="Script" id=11]
 [ext_resource path="res://Src/Player/GroundDetection.gd" type="Script" id=12]
 [ext_resource path="res://Src/Button/PressureArea.gd" type="Script" id=13]
+[ext_resource path="res://Src/Debug/DisplayCollisionShape2D.gd" type="Script" id=14]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -23,24 +24,24 @@ radius = 5.0
 height = 10.4134
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4, 8 )
+extents = Vector2( 2, 2 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 4, 4 )
+extents = Vector2( 2, 2 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 5.18156, 14.3244 )
 
-[sub_resource type="RectangleShape2D" id=26]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 4, 2 )
 
-[sub_resource type="RectangleShape2D" id=27]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 4, 1 )
 
-[sub_resource type="RectangleShape2D" id=25]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 17.6035, 14.6427 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=9]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:offset")
@@ -55,7 +56,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 20, 0 ), Vector2( 20, 20 ), Vector2( 0, 20 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=10]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
@@ -70,8 +71,7 @@ tracks/0/keys = {
 "values": [ 10, 0 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "carryIdle"
+[sub_resource type="Animation" id=11]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -99,8 +99,7 @@ tracks/1/keys = {
 "values": [ Vector2( 3, -13 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "carryWalk"
+[sub_resource type="Animation" id=12]
 length = 1.6
 loop = true
 step = 0.2
@@ -129,7 +128,7 @@ tracks/1/keys = {
 "values": [ Vector2( 3, -13 ), Vector2( 3, -12 ), Vector2( 2, -13 ), Vector2( 2, -14 ), Vector2( 3, -13 ), Vector2( 3, -12 ), Vector2( 2, -12 ), Vector2( 2, -13 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=13]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -145,7 +144,7 @@ tracks/0/keys = {
 "values": [ 11 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=14]
 length = 0.45
 loop = true
 step = 0.15
@@ -162,7 +161,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=15]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -190,7 +189,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -16 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=16]
 length = 0.45
 loop = true
 step = 0.15
@@ -207,7 +206,7 @@ tracks/0/keys = {
 "values": [ 16, 15, 17 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=17]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -235,7 +234,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -16 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=18]
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
@@ -263,7 +262,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -16 ), Vector2( 0, -18 ), Vector2( 0, -16 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=19]
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
@@ -291,8 +290,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -16 ), Vector2( 0, -20 ), Vector2( 0, -16 ) ]
 }
 
-[sub_resource type="Animation" id=17]
-resource_name = "ladder"
+[sub_resource type="Animation" id=20]
 length = 0.9
 loop = true
 step = 0.3
@@ -309,8 +307,7 @@ tracks/0/keys = {
 "values": [ 26, 27, 28 ]
 }
 
-[sub_resource type="Animation" id=18]
-resource_name = "laydown"
+[sub_resource type="Animation" id=21]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
@@ -337,7 +334,7 @@ tracks/1/keys = {
 "values": [ Vector2( 3, -13 ), Vector2( 9, 0 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=22]
 length = 2.0
 step = 0.2
 tracks/0/type = "value"
@@ -353,8 +350,7 @@ tracks/0/keys = {
 "values": [ 18, 19, 20, 21, 22, 23, 24, 25 ]
 }
 
-[sub_resource type="Animation" id=20]
-resource_name = "pickup"
+[sub_resource type="Animation" id=23]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
@@ -381,7 +377,7 @@ tracks/1/keys = {
 "values": [ Vector2( 9, 0 ), Vector2( 3, -13 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=24]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
@@ -396,7 +392,7 @@ tracks/0/keys = {
 "values": [ 9, 0 ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=25]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
@@ -411,7 +407,7 @@ tracks/0/keys = {
 "values": [ 30, 31 ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=26]
 length = 0.3
 step = 0.15
 tracks/0/type = "value"
@@ -427,7 +423,7 @@ tracks/0/keys = {
 "values": [ 29, 30 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=27]
 length = 0.96
 loop = true
 step = 0.12
@@ -450,6 +446,28 @@ tracks/0/keys = {
 collision_layer = 130
 script = ExtResource( 2 )
 sprint_acceleration = 1200
+
+[node name="Flippable" type="Node2D" parent="."]
+
+[node name="PlayerSprite" type="Sprite" parent="Flippable"]
+position = Vector2( 0, -16 )
+z_index = 50
+z_as_relative = false
+texture = ExtResource( 1 )
+hframes = 42
+frame = 4
+
+[node name="StunRayCast" type="RayCast2D" parent="Flippable"]
+position = Vector2( 0, -16 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 16
+
+[node name="ObjectSpawn" type="Position2D" parent="Flippable"]
+position = Vector2( 5, -15 )
+
+[node name="CarryPosition" type="Position2D" parent="Flippable"]
+position = Vector2( 3, -13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
 "NormalColliders",
@@ -475,14 +493,18 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerLightArea" groups=[
 "NormalColliders",
 ]]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -13 )
 shape = SubResource( 3 )
+script = ExtResource( 14 )
 
 [node name="DuckCollisionShape2D" type="CollisionShape2D" parent="PlayerLightArea" groups=[
 "DuckColliders",
 ]]
-position = Vector2( 0, -4 )
+position = Vector2( 0, -6 )
 shape = SubResource( 4 )
+script = ExtResource( 14 )
+col = Color( 0.443137, 1, 0.101961, 1 )
+layer = 501
 
 [node name="PlayerArea" type="Area2D" parent="." groups=[
 "PlayerArea",
@@ -510,7 +532,7 @@ areaCollidersGroup = "ThinArea;"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetection"]
 position = Vector2( 0, 2 )
-shape = SubResource( 26 )
+shape = SubResource( 6 )
 
 [node name="PressureArea" type="Area2D" parent="."]
 visible = false
@@ -521,7 +543,7 @@ mainNodePath = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PressureArea"]
 position = Vector2( 0, -1 )
-shape = SubResource( 27 )
+shape = SubResource( 7 )
 
 [node name="GuardPickup" type="Area2D" parent="."]
 visible = false
@@ -532,7 +554,7 @@ carryPositionPath = NodePath("../Flippable/CarryPosition")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuardPickup"]
 position = Vector2( 1.05208, -13.9461 )
-shape = SubResource( 25 )
+shape = SubResource( 8 )
 
 [node name="TravelTween" type="Tween" parent="."]
 
@@ -570,7 +592,7 @@ smoothing_speed = 50.0
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
-anims/shake = SubResource( 6 )
+anims/shake = SubResource( 9 )
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -581,24 +603,24 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/action = SubResource( 7 )
-anims/carryIdle = SubResource( 8 )
-anims/carryWalk = SubResource( 9 )
-anims/dodge = SubResource( 10 )
-anims/dodge_walk = SubResource( 11 )
-anims/duck = SubResource( 12 )
-anims/duck_walk = SubResource( 13 )
-anims/idle = SubResource( 14 )
-anims/jump_down = SubResource( 15 )
-anims/jump_up = SubResource( 16 )
-anims/ladder = SubResource( 17 )
-anims/laydown = SubResource( 18 )
-anims/lose = SubResource( 19 )
-anims/pickup = SubResource( 20 )
-anims/taser = SubResource( 21 )
-anims/throw = SubResource( 22 )
-anims/throw_load = SubResource( 23 )
-anims/walk = SubResource( 24 )
+anims/action = SubResource( 10 )
+anims/carryIdle = SubResource( 11 )
+anims/carryWalk = SubResource( 12 )
+anims/dodge = SubResource( 13 )
+anims/dodge_walk = SubResource( 14 )
+anims/duck = SubResource( 15 )
+anims/duck_walk = SubResource( 16 )
+anims/idle = SubResource( 17 )
+anims/jump_down = SubResource( 18 )
+anims/jump_up = SubResource( 19 )
+anims/ladder = SubResource( 20 )
+anims/laydown = SubResource( 21 )
+anims/lose = SubResource( 22 )
+anims/pickup = SubResource( 23 )
+anims/taser = SubResource( 24 )
+anims/throw = SubResource( 25 )
+anims/throw_load = SubResource( 26 )
+anims/walk = SubResource( 27 )
 
 [node name="FootstepTimer" type="Timer" parent="."]
 wait_time = 0.25
@@ -617,28 +639,6 @@ stunRayPath = NodePath("../../Flippable/StunRayCast")
 [node name="SnackThrower" parent="WeaponHandler" instance=ExtResource( 10 )]
 objectScenePath = "res://Src/Throwables/Snack.tscn"
 infiniteAmmo = false
-
-[node name="Flippable" type="Node2D" parent="."]
-
-[node name="PlayerSprite" type="Sprite" parent="Flippable"]
-position = Vector2( 0, -16 )
-z_index = 50
-z_as_relative = false
-texture = ExtResource( 1 )
-hframes = 42
-frame = 4
-
-[node name="StunRayCast" type="RayCast2D" parent="Flippable"]
-position = Vector2( 0, -16 )
-enabled = true
-cast_to = Vector2( 20, 0 )
-collision_mask = 16
-
-[node name="ObjectSpawn" type="Position2D" parent="Flippable"]
-position = Vector2( 5, -15 )
-
-[node name="CarryPosition" type="Position2D" parent="Flippable"]
-position = Vector2( 3, -13 )
 
 [node name="ItemPickup" type="Node" parent="."]
 script = ExtResource( 6 )

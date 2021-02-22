@@ -11,7 +11,7 @@ var AchievementStrings = ["ACH_BETA_TEST"]
 enum HudNotificationType {BuyZone, SaveZone, OpenDoor, Interact}
 
 # Player
-enum LightLevels {Dark = 0, BarelyVisible = 1, FullLight = 2}
+enum LightLevels {EvenDarker = 0, Dark = 1, BarelyVisible = 2, FullLight = 3}
 enum AudioLevels {LoudNoise = 0, SmallNoise = 1, Silent = 2}
 enum PlayerStates {Normal, WallDodge, Duck, DraggingGuard, InCloset, DraggingItem}
 enum DetectionLevels{Possible, Sure}

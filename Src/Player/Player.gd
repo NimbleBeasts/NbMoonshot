@@ -2,7 +2,8 @@ class_name Player
 extends KinematicBody2D
 
 #enum LightLevels {Dark = 0, BarelyVisible = 1, FullLight = 2}
-const visibilityLevelsModulations = ["#707070", "#989898", "#ffffff"]
+const visibilityLevelsModulations = ["#444444", "#555555", "#888888", "#ffffff"]
+#export(Array, Color, RGBA) var visibilityLevelsModulations = ["#555555", "#888888", "#ffffff"]
 
 # movement variables
 export var normal_speed: int = 80

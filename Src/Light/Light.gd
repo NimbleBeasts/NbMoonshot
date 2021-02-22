@@ -5,11 +5,34 @@ class_name Lights
 export(bool) var flicker = false
 export(String) var flickerSequence = "1110"
 
+export(bool) var DebugLight = false
+export(Color, RGBA) var col1 = Color(1,0.1,1,1)
+export(Color, RGBA) var col2 = Color(0.2,0.2,1,1)
+
 enum LightState {On = 1, Off = 0}
 
 var state = LightState.On
 var currentIndex = 0
 var isActive: bool = true
+
+
+func _draw():
+	if DebugLight:
+		var poly = $BarelyVisible/Left.polygon
+		draw_line(poly[0], poly[1], col1)
+		draw_line(poly[1], poly[2], col1)
+		draw_line(poly[2], poly[0], col1)
+		
+		poly = $BarelyVisible/Right.polygon
+		draw_line(poly[0], poly[1], col1)
+		draw_line(poly[1], poly[2], col1)
+		draw_line(poly[2], poly[0], col1)
+
+		poly = $FullLight/CollisionPolygon2D.polygon
+		draw_line(poly[0], poly[1], col2)
+		draw_line(poly[1], poly[2], col2)
+		draw_line(poly[2], poly[3], col2)
+		draw_line(poly[3], poly[0], col2)
 
 
 func _ready():
