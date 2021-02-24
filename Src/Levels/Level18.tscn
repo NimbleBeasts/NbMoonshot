@@ -19,19 +19,26 @@
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=17]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=18]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=19]
-[ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Objects/Laboratory/Blueprint.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Objects/UsaFlagLarge.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Objects/LargeDoor.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Objects/WallImageMoonLanding.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Objects/WallImageEarthMoon.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Objects/Office/WallImageMoonLanding.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Objects/Office/WallImageEarthMoon.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Objects/Tree2.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Objects/Sign.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Objects/WallNasa2.png" type="Texture" id=29]
-[ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Objects/Apollo11.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Objects/Bush.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Objects/Laboratory/WallNasa2.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Objects/Laboratory/Apollo11.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Nature/Bush.png" type="Texture" id=32]
+
+
+
+
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )

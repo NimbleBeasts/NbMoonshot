@@ -15,26 +15,32 @@
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Assets/Level/Bathroom.png" type="Texture" id=14]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Assets/Objects/WallGravitySec.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Objects/Laboratory/WallGravitySec.png" type="Texture" id=16]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Assets/Objects/ContolRoom1.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Objects/Laboratory/ContolRoom1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Objects/Sign.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Objects/ContolRoom2.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Objects/ContolRoom3.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Objects/WallPockocmoc.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Objects/Elevator.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Objects/Laboratory/ContolRoom2.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Objects/Laboratory/ContolRoom3.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Objects/Laboratory/WallPockocmoc.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Objects/Office/Elevator.png" type="Texture" id=23]
 [ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Assets/Objects/Bookshelf.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Objects/Bookshelf2.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Objects/Office/Bookshelf.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Objects/Office/Bookshelf2.png" type="Texture" id=27]
 [ext_resource path="res://Src/Objects/Nature/Water.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Objects/WallImageEarthMoon.png" type="Texture" id=32]
-[ext_resource path="res://Assets/Objects/WallImageSatellite.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Office/WallImageEarthMoon.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Objects/Office/WallImageSatellite.png" type="Texture" id=33]
 [ext_resource path="res://Src/Objects/Flag.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=35]
+
+
+
+
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

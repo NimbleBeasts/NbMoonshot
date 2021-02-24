@@ -18,25 +18,34 @@
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Src/MetalDetector/MetalDetector.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=19]
 [ext_resource path="res://Src/Skybox/RedishSkybox.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigameSpawner.gd" type="Script" id=21]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Objects/Laboratory/Blueprint.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Objects/LargeDoor.png" type="Texture" id=24]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Objects/Elevator.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Objects/Bookshelf.png" type="Texture" id=29]
-[ext_resource path="res://Assets/Objects/ContolRoom1.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Objects/ContolRoom2.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Objects/ContolRoom3.png" type="Texture" id=32]
-[ext_resource path="res://Assets/Objects/WallPockocmoc.png" type="Texture" id=33]
-[ext_resource path="res://Assets/Objects/Soyuz.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Objects/Office/Elevator.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Objects/Office/Bookshelf.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Objects/Laboratory/ContolRoom1.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Objects/Laboratory/ContolRoom2.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Laboratory/ContolRoom3.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Objects/Laboratory/WallPockocmoc.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Objects/Laboratory/Soyuz.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Objects/UssrFlagLarge.png" type="Texture" id=35]
-[ext_resource path="res://Assets/Objects/Sputnik.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Objects/Laboratory/Sputnik.png" type="Texture" id=36]
 [ext_resource path="res://Assets/Minigames/KeyPadBackground.png" type="Texture" id=37]
+
+
+
+
+
+
+
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

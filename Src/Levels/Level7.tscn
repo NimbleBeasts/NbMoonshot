@@ -4,21 +4,21 @@
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Objects/Tree2.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Objects/WallImageLeader.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Objects/Office/WallImageLeader.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Objects/UssrFlagLarge.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Objects/Laboratory/Blueprint.png" type="Texture" id=8]
 [ext_resource path="res://Src/Skybox/UstriaSkybox.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Assets/Objects/Bookshelf.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Objects/Office/Bookshelf.png" type="Texture" id=10]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Assets/Objects/tv.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Objects/Home/tv.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Objects/sofa.png" type="Texture" id=16]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=19]
 [ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/Objects/Skeleton.png" type="Texture" id=21]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=22]
@@ -27,6 +27,13 @@
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=27]
+
+
+
+
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )

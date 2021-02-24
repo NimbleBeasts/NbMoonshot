@@ -18,25 +18,32 @@
 [ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=17]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=18]
-[ext_resource path="res://Assets/Objects/HospitalBedFront.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalBedFront.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Level/Bathroom.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=21]
-[ext_resource path="res://Assets/Objects/Medikit.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Objects/Hospital/Medikit.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Objects/LargeDoor.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Light/Light8.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Objects/HospitalBedSideTable.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Objects/HospitalER.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Objects/HospitalSpacer.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Objects/HospitalLiquid.png" type="Texture" id=29]
-[ext_resource path="res://Assets/Objects/Elevator.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalBedSideTable.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalER.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalSpacer.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalLiquid.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Objects/Office/Elevator.png" type="Texture" id=30]
 [ext_resource path="res://Assets/Objects/SearchLight.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Objects/HospitalBedSide.png" type="Texture" id=32]
-[ext_resource path="res://Assets/Objects/HospitalRontgen.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalBedSide.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalRontgen.png" type="Texture" id=33]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=34]
-[ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=35]
-[ext_resource path="res://Assets/Objects/FireExtinguisher.png" type="Texture" id=37]
-[ext_resource path="res://Assets/Objects/Board.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Objects/Office/FireExtinguisher.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Objects/Laboratory/Board.png" type="Texture" id=38]
+
+
+
+
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )

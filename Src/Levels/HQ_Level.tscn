@@ -12,10 +12,10 @@
 [ext_resource path="res://Src/Objects/Flag.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
-[ext_resource path="res://Assets/Objects/WallImageRocket.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Objects/Tree.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Objects/Office/WallImageRocket.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Objects/Nature/Tree.png" type="Texture" id=17]
 [ext_resource path="res://Src/NPCs/ZoneUpgrade.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Src/NPCs/ZoneSave.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=20]
@@ -28,13 +28,13 @@
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Src/Objects/Doll.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Assets/Objects/Worldmap.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Objects/Office/Worldmap.png" type="Texture" id=30]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Objects/Laboratory/Blueprint.png" type="Texture" id=32]
 [ext_resource path="res://Src/NPCs/Coworker.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Assets/Level/ControlHint.png" type="Texture" id=34]
 [ext_resource path="res://Src/Levels/ControlHint.gd" type="Script" id=35]
-[ext_resource path="res://Assets/Objects/WallImageLeader.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Objects/Office/WallImageLeader.png" type="Texture" id=36]
 [ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=37]
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=38]
 [ext_resource path="res://Assets/Objects/Sign.png" type="Texture" id=39]
@@ -321,7 +321,7 @@ position = Vector2( 247, 294 )
 texture = ExtResource( 15 )
 
 [node name="Painting2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 336, 227 )
+position = Vector2( 408, 225 )
 texture = ExtResource( 36 )
 
 [node name="Tree" type="Sprite" parent="LevelObjects/Decorations"]
@@ -493,7 +493,7 @@ position = Vector2( 328, 256 )
 position = Vector2( 400, 256 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 232, 385 )
+position = Vector2( 154, 256 )
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 

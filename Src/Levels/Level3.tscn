@@ -13,47 +13,47 @@
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Assets/Objects/ControlPoint.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Objects/Laboratory/ControlPoint.png" type="Texture" id=14]
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Objects/Tree2.png" type="Texture" id=17]
 [ext_resource path="res://Src/Light/Light2.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Assets/Objects/HospitalRontgen.png" type="Texture" id=21]
-[ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Objects/WallImageEarthMoon.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalRontgen.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Objects/Office/WallImageEarthMoon.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Objects/UsaFlagLarge.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Objects/HospitalER.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Objects/WallNasa2.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Objects/Bush.png" type="Texture" id=29]
-[ext_resource path="res://Assets/Objects/Blueprint.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Objects/WallNasa.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Objects/Board.png" type="Texture" id=32]
-[ext_resource path="res://Assets/Objects/tv.png" type="Texture" id=33]
-[ext_resource path="res://Assets/Objects/HospitalSpacer.png" type="Texture" id=34]
-[ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=35]
-[ext_resource path="res://Assets/Objects/HospitalSink.png" type="Texture" id=36]
-[ext_resource path="res://Assets/Objects/WallImageSatellite.png" type="Texture" id=37]
-[ext_resource path="res://Assets/Objects/BedsideTable.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalER.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Objects/Laboratory/WallNasa2.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Objects/Nature/Bush.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Objects/Laboratory/Blueprint.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Objects/Laboratory/WallNasa.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Laboratory/Board.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Objects/Home/tv.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalSpacer.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalSink.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Objects/Office/WallImageSatellite.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Objects/Home/BedsideTable.png" type="Texture" id=38]
 [ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Src/HideOuts/HideOutBase.tscn" type="PackedScene" id=40]
 [ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=41]
 [ext_resource path="res://Assets/Level/Bathroom.png" type="Texture" id=42]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=43]
-[ext_resource path="res://Assets/Objects/FireExtinguisher.png" type="Texture" id=44]
+[ext_resource path="res://Assets/Objects/Office/FireExtinguisher.png" type="Texture" id=44]
 [ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=45]
-[ext_resource path="res://Assets/Objects/ClothRack.png" type="Texture" id=46]
-[ext_resource path="res://Assets/Objects/Clock.png" type="Texture" id=47]
+[ext_resource path="res://Assets/Objects/Office/ClothRack.png" type="Texture" id=46]
+[ext_resource path="res://Assets/Objects/Office/Clock.png" type="Texture" id=47]
 [ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=48]
-[ext_resource path="res://Assets/Objects/Medikit.png" type="Texture" id=49]
-[ext_resource path="res://Assets/Objects/ContolRoom1.png" type="Texture" id=50]
-[ext_resource path="res://Assets/Objects/Board2.png" type="Texture" id=51]
+[ext_resource path="res://Assets/Objects/Hospital/Medikit.png" type="Texture" id=49]
+[ext_resource path="res://Assets/Objects/Laboratory/ContolRoom1.png" type="Texture" id=50]
+[ext_resource path="res://Assets/Objects/Laboratory/Board2.png" type="Texture" id=51]
 [ext_resource path="res://Assets/Objects/sofa.png" type="Texture" id=52]
-[ext_resource path="res://Assets/Objects/Bookshelf.png" type="Texture" id=53]
-[ext_resource path="res://Assets/Objects/ClockOld.png" type="Texture" id=54]
+[ext_resource path="res://Assets/Objects/Office/Bookshelf.png" type="Texture" id=53]
+[ext_resource path="res://Assets/Objects/Home/ClockOld.png" type="Texture" id=54]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=55]
 [ext_resource path="res://Assets/Temp/MetalShelf.png" type="Texture" id=56]
 [ext_resource path="res://Assets/Temp/WashingMachine.png" type="Texture" id=57]
@@ -71,9 +71,26 @@
 [ext_resource path="res://Assets/Temp/Couch-Side.png" type="Texture" id=69]
 [ext_resource path="res://Assets/Temp/Plant2.png" type="Texture" id=70]
 [ext_resource path="res://Src/Light/LightTV.tscn" type="PackedScene" id=71]
-[ext_resource path="res://Assets/Objects/WallImageRocket.png" type="Texture" id=72]
+[ext_resource path="res://Assets/Objects/Office/WallImageRocket.png" type="Texture" id=72]
 [ext_resource path="res://Assets/Temp/Barrel.png" type="Texture" id=73]
 [ext_resource path="res://Assets/Guards/Dog.png" type="Texture" id=74]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )

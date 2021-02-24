@@ -6,7 +6,7 @@
 [ext_resource path="res://Src/Skybox/UstriaSkybox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Objects/tv.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Objects/Home/tv.png" type="Texture" id=7]
 [ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Objects/sofa.png" type="Texture" id=9]
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=10]
@@ -22,16 +22,24 @@
 [ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigameSpawner.gd" type="Script" id=21]
 [ext_resource path="res://Assets/Objects/Tree2.png" type="Texture" id=22]
-[ext_resource path="res://Assets/Objects/Bush.png" type="Texture" id=23]
-[ext_resource path="res://Assets/Objects/Bookshelf.png" type="Texture" id=24]
-[ext_resource path="res://Assets/Objects/DeskChair.png" type="Texture" id=25]
-[ext_resource path="res://Assets/Objects/Plant.png" type="Texture" id=26]
-[ext_resource path="res://Assets/Objects/Bed2.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Objects/Nature/Bush.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Objects/Office/Bookshelf.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Objects/Home/Bed2.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Dummy.png" type="Texture" id=28]
-[ext_resource path="res://Assets/Objects/Bed1.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Objects/Home/Bed1.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Objects/Skeleton.png" type="Texture" id=30]
-[ext_resource path="res://Assets/Objects/Kitchen.png" type="Texture" id=31]
-[ext_resource path="res://Assets/Objects/Boxes.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Objects/Home/Kitchen.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=37]
+
+
+
+
+
+
+
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
