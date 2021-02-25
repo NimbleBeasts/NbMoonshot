@@ -3,7 +3,7 @@
 [ext_resource path="res://Src/NPCs/ZoneUpgrade.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 16 )
+extents = Vector2( 10, 16 )
 
 [node name="ZoneUpgrade" type="Area2D"]
 script = ExtResource( 1 )

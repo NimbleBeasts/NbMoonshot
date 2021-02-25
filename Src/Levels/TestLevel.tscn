@@ -41,14 +41,6 @@
 [ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Src/Minigames/SimonSays/SimonSaysSpawner.gd" type="Script" id=40]
 
-
-
-
-
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 4 )
 
@@ -131,6 +123,7 @@ position = Vector2( -104, 256 )
 [node name="Chimney" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( -596, 116 )
 frames = SubResource( 3 )
+frame = 2
 playing = true
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
@@ -301,7 +294,6 @@ position = Vector2( -664, 136 )
 
 [node name="Locker" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( -768, 128 )
-type = 0
 hasBounty = true
 
 [node name="Locker2" parent="LevelObjects" instance=ExtResource( 29 )]

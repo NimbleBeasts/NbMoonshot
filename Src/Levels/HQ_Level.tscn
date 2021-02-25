@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -10,11 +10,12 @@
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Objects/Flag.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Objects/Office/Vending.png" type="Texture" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
 [ext_resource path="res://Assets/Objects/Office/WallImageRocket.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Objects/Home/ChairFront.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Objects/Nature/Tree.png" type="Texture" id=17]
 [ext_resource path="res://Src/NPCs/ZoneUpgrade.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Src/NPCs/ZoneSave.tscn" type="PackedScene" id=19]
@@ -40,6 +41,8 @@
 [ext_resource path="res://Assets/Objects/Sign.png" type="Texture" id=39]
 [ext_resource path="res://Assets/Objects/UPS.png" type="Texture" id=40]
 [ext_resource path="res://Assets/Objects/SpiderWeb.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Objects/Home/TableSmall.png" type="Texture" id=42]
+[ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=43]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -85,6 +88,80 @@ position = Vector2( 160, 320 )
 
 [node name="ZoneSave" parent="LevelObjects" instance=ExtResource( 19 )]
 position = Vector2( 428, 320 )
+
+[node name="Decorations" type="Node2D" parent="LevelObjects"]
+
+[node name="Desk" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 431, 240 )
+texture = ExtResource( 13 )
+
+[node name="Chair" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 241, 244 )
+texture = ExtResource( 16 )
+
+[node name="Vending" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 259, 289 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="Table" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 254, 244 )
+texture = ExtResource( 42 )
+
+[node name="Chair2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 269, 244 )
+texture = ExtResource( 16 )
+
+[node name="Tree2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 560, 184 )
+texture = ExtResource( 31 )
+centered = false
+
+[node name="Desk2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 432, 304 )
+texture = ExtResource( 13 )
+
+[node name="Painting" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 247, 294 )
+texture = ExtResource( 15 )
+
+[node name="Painting2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 408, 225 )
+texture = ExtResource( 36 )
+
+[node name="Tree" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 305, 244 )
+texture = ExtResource( 17 )
+
+[node name="Map" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 392, 292 )
+texture = ExtResource( 30 )
+
+[node name="Blueprint" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 160, 296 )
+texture = ExtResource( 32 )
+
+[node name="Sign" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 123, 240 )
+texture = ExtResource( 39 )
+
+[node name="Sprite" type="Sprite" parent="LevelObjects/Decorations/Sign"]
+texture = ExtResource( 40 )
+
+[node name="SpiderWeb" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 436, 276 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 41 )
+
+[node name="Cabinet" parent="LevelObjects" instance=ExtResource( 43 )]
+position = Vector2( 375, 256 )
+type = 1
+hasBounty = true
+
+[node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 43 )]
+position = Vector2( 119, 320 )
+type = 1
+hasBounty = true
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 
@@ -168,7 +245,7 @@ doorType = 0
 door_name = ""
 
 [node name="StaircaseL2_2" parent="LevelObjects" instance=ExtResource( 6 )]
-position = Vector2( 294, 320 )
+position = Vector2( 299, 320 )
 connected_door_path = NodePath("../StaircaseL3")
 lockLevel = 0
 doorType = 0
@@ -188,7 +265,7 @@ showHintOnSucceed = true
 hint = "Tutorial mission succeeded"
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 23 )]
-position = Vector2( 328, 320 )
+position = Vector2( 330, 320 )
 text = "Damn, we've lost your key. You will have to lockpick this door.
 xoxo,
 Natasja"
@@ -201,152 +278,49 @@ has_level_index = false
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 256 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 280, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall2"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 256 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall3"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 320 )
-lockLevel = 0
-doorType = 0
 door_name = "DoorWall4"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall-HQ-PlayerOffice" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 320 )
 lockLevel = 1
-doorType = 0
 door_name = "HQ-PlayerOfficeDoor"
 save_state = true
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 352, 384 )
-lockLevel = 0
 doorType = 2
 door_name = "DoorWall5"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 384, 448 )
 lockLevel = 4
 doorType = 2
 door_name = "DoorWall6"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 296, 448 )
-lockLevel = 0
 doorType = 2
 door_name = "DoorWall7"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 384 )
-lockLevel = 0
 doorType = 2
 door_name = "DoorWall9"
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-sig_to_trig = [  ]
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 168, 256 )
 flagType = 0
-
-[node name="Decorations" type="Node2D" parent="LevelObjects"]
-
-[node name="Desk" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 431, 240 )
-texture = ExtResource( 13 )
-
-[node name="Tree2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 560, 184 )
-texture = ExtResource( 31 )
-centered = false
-
-[node name="Desk2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 432, 304 )
-texture = ExtResource( 13 )
-
-[node name="Painting" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 247, 294 )
-texture = ExtResource( 15 )
-
-[node name="Painting2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 408, 225 )
-texture = ExtResource( 36 )
-
-[node name="Tree" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 303, 244 )
-texture = ExtResource( 17 )
-
-[node name="Map" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 392, 292 )
-texture = ExtResource( 30 )
-
-[node name="Blueprint" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 160, 296 )
-texture = ExtResource( 32 )
-
-[node name="Sign" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 123, 240 )
-texture = ExtResource( 39 )
-
-[node name="Sprite" type="Sprite" parent="LevelObjects/Decorations/Sign"]
-texture = ExtResource( 40 )
-
-[node name="SpiderWeb" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 436, 276 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 41 )
 
 [node name="CamTraining" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 344, 335 )
@@ -487,10 +461,10 @@ unlocks = [ NodePath("../DoorWall6") ]
 position = Vector2( 504, 448 )
 
 [node name="Secretary" parent="." instance=ExtResource( 22 )]
-position = Vector2( 328, 256 )
+position = Vector2( 330, 256 )
 
 [node name="Boss" parent="." instance=ExtResource( 21 )]
-position = Vector2( 400, 256 )
+position = Vector2( 412, 256 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 154, 256 )
@@ -499,14 +473,3 @@ position = Vector2( 154, 256 )
 
 [node name="Coworker" parent="." instance=ExtResource( 33 )]
 position = Vector2( 152, 320 )
-
-[node name="HUD" parent="." instance=ExtResource( 11 )]
-
-[node name="Label" type="Label" parent="HUD"]
-visible = false
-margin_right = 72.0
-margin_bottom = 14.0
-text = "Hello Level"
-__meta__ = {
-"_edit_use_anchors_": false
-}

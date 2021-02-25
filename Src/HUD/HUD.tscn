@@ -653,7 +653,6 @@ margin_bottom = 76.0
 text = "Toggle Promo"
 
 [node name="HudBar" type="NinePatchRect" parent="HUDLayer/Display"]
-visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5

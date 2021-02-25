@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MuddyWater.png-7d6d3a247a1ad4e9accad2f00ab46bee.stex"
+path="res://.import/BarrelRed.png-73568b9afa807a855747d2afd6deb4d0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tileset/MuddyWater.png"
-dest_files=[ "res://.import/MuddyWater.png-7d6d3a247a1ad4e9accad2f00ab46bee.stex" ]
+source_file="res://Assets/Objects/Laboratory/BarrelRed.png"
+dest_files=[ "res://.import/BarrelRed.png-73568b9afa807a855747d2afd6deb4d0.stex" ]
 
 [params]
 
@@ -24,7 +24,7 @@ flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false

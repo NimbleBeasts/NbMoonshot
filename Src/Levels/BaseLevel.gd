@@ -27,6 +27,9 @@ func can_change_level():
 
 
 func _ready():
+	var hud = preload("res://Src/HUD/HUD.tscn").instance()
+	self.add_child(hud)
+	
 	var musicEmit 
 	if Global.game_manager.getCurrentLevelIndex() != 0:
 		musicEmit = level_nation_type

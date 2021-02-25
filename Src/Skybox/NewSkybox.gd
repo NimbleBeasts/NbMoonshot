@@ -1,3 +1,4 @@
+tool
 extends Node2D
 
 #enum Nations {USA, USSR, Ustria}
@@ -6,6 +7,7 @@ const baseDirectory = "res://Assets/Skyboxes/"
 const pathNames = ["CityBlueish", "CityRedish", "UstriaSkybox"]
 
 func _ready():
+	setup(get_parent().level_nation_type)
 	Events.connect("hud_light_level", self, "setLightLevel")
 
 func setup(level_type):
@@ -20,5 +22,5 @@ func setup(level_type):
 func setLightLevel(level):
 	print("lightlevel set")
 	var color = Global.gameConstant.lightLevels[level]
-	$FixedBackground/CanvasModulate.color = color
+	#$FixedBackground/CanvasModulate.color = color
 	$ParallaxBackground/CanvasModulate.color = color

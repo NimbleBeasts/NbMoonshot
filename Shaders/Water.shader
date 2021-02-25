@@ -6,7 +6,7 @@ uniform float direction = -1.0; // Flow direction -1 -> right, +1 -> left
 void fragment() {
 	vec2 adjusted_uv = UV;
 	adjusted_uv.x *= scale_x;
-	adjusted_uv.y *= 0.8;
+	adjusted_uv.y *= 0.8 + 0.2;
 	
 	vec2 waves_uv_offset;
 	waves_uv_offset.x = TIME * direction * 0.8;
