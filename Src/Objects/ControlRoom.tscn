@@ -17,7 +17,7 @@ animations = [ {
 [node name="ControlRoom" type="AnimatedSprite"]
 position = Vector2( 531, 300 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="." groups=[
