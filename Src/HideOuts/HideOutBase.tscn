@@ -1,38 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Src/HideOuts/HideOutBase.gd" type="Script" id=1]
-
-[sub_resource type="Animation" id=1]
-resource_name = "close"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 2, 1, 0 ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "open"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2 ]
-}
 
 [node name="HideOutBase" type="Node2D"]
 script = ExtResource( 1 )
@@ -45,8 +13,6 @@ position = Vector2( 0, -20 )
 [node name="Position2D" type="Position2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/close = SubResource( 1 )
-anims/open = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 128

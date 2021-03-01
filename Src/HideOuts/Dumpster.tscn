@@ -1,15 +1,15 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/HideOuts/HideOutBase.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Src/HideOuts/Closet.gd" type="Script" id=2]
-[ext_resource path="res://Assets/HideOuts/WoodCloset.png" type="Texture" id=3]
-[ext_resource path="res://Assets/HideOuts/WoodClosetBg.png" type="Texture" id=4]
+[ext_resource path="res://Assets/HideOuts/DumpsterBg.png" type="Texture" id=2]
+[ext_resource path="res://Assets/HideOuts/Dumpster.png" type="Texture" id=3]
+[ext_resource path="res://Src/HideOuts/Dumpster.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=3]
 resource_name = "close"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Bg:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -20,12 +20,24 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 2, 1, 0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 1, 0 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "open"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Bg:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -36,21 +48,33 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3.67171, 17.2245 )
+extents = Vector2( 13.5078, 17.2245 )
 
-[node name="Closet" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="Dumpster" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
 
 [node name="Bg" parent="." index="0"]
 position = Vector2( 0, -20 )
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
+hframes = 3
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource( 3 )
 hframes = 3
-frame = 2
 
 [node name="Position2D" parent="." index="2"]
 position = Vector2( 0.0704498, -0.880947 )
