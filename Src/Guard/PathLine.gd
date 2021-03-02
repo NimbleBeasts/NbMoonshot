@@ -24,15 +24,16 @@ onready var target = get_parent()
 
 
 func _ready() -> void:
-	add_child(timer)
+	
 	add_child(distractTimer)
-	timer.connect("timeout", self, "onTimerTimeout")
 	distractTimer.connect("timeout", self, "onDistractTimerTimeout")
-	timer.one_shot = true
 	distractTimer.one_shot = true
-
-	timer.wait_time = stop_time
 	distractTimer.wait_time = distractWaitTime
+
+	add_child(timer)
+	timer.connect("timeout", self, "onTimerTimeout")
+	timer.one_shot = true
+	timer.wait_time = stop_time
 	hide()
 
 	for i in points.size():
