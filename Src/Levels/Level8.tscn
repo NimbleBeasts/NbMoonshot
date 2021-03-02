@@ -14,8 +14,6 @@
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=20]
 [ext_resource path="res://Assets/Objects/Office/Elevator.png" type="Texture" id=29]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
 

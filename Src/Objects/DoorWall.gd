@@ -9,10 +9,10 @@ var playerNode = null
 var startingLockLevel: int
 
 enum DoorLockType {open, lockedLevel1, lockedLevel2, locked, buttonLocked, keyLocked}
-enum DoorType {wooden, metal, metalSwing}
+enum DoorType {wooden, metal, metalSwing} 
 
 export(DoorLockType) var lockLevel = DoorLockType.open
-export(DoorType) var doorType = DoorType.wooden
+export(DoorType) var doorType = DoorType.wooden setget update_texture
 export var door_name = "" 
 export var save_state = false
 export var showHintIfLocked: bool = false
@@ -32,7 +32,7 @@ func _ready():
 		$KeySign.show()
 		$KeySign.frame = key.keyColor
 		
-	update_texture()
+#	update_texture(doorType)
 
 	$Sprite.frame = 0
 
@@ -45,7 +45,8 @@ func _ready():
 	if Global.gameState.has(door_name):
 		lockLevel = Global.gameState[door_name]
 
-func update_texture() -> void:
+func update_texture(new_door_type) -> void:
+	doorType = new_door_type
 	if doorType == DoorType.metal:
 		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal.png")
 	elif doorType == DoorType.metalSwing:
