@@ -1,4 +1,3 @@
-
 tool
 extends Node2D
 class_name DoorWall
@@ -26,20 +25,14 @@ onready var key
 
 
 func _ready():
+	set_process_unhandled_input(false)
 	startingLockLevel = lockLevel
 	if lockLevel == DoorLockType.keyLocked:
 		key = get_node(keyPath)
 		$KeySign.show()
 		$KeySign.frame = key.keyColor
 		
-	if doorType == DoorType.metal:
-		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal.png")
-	elif doorType == DoorType.metalSwing:
-		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal2.png")
-	else:
-		$Sprite.texture = preload("res://Assets/Doors/DoorWall.png")
-	set_process(false)
-	
+	update_texture()
 
 	$Sprite.frame = 0
 
@@ -51,7 +44,15 @@ func _ready():
 	#load state form save if it exists
 	if Global.gameState.has(door_name):
 		lockLevel = Global.gameState[door_name]
-	
+
+func update_texture() -> void:
+	if doorType == DoorType.metal:
+		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal.png")
+	elif doorType == DoorType.metalSwing:
+		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal2.png")
+	else:
+		$Sprite.texture = preload("res://Assets/Doors/DoorWall.png")
+
 
 func open():
 	lockLevel = DoorLockType.open
@@ -61,10 +62,11 @@ func resetState() -> void:
 	lockLevel = startingLockLevel
 
 
-func _process(_delta):
-	if playerInArea and playerNode.state != Types.PlayerStates.DraggingGuard:
-		if Input.is_action_just_pressed("interact"):
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		if playerNode.state != Types.PlayerStates.DraggingGuard:
 			interact(true, playerNode.global_position)
+			get_tree().set_input_as_handled()
 			
 
 func interact(run_sub, openerPos: Vector2):
@@ -154,14 +156,16 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
 		playerNode = body
 		playerInArea = true
-		set_process(true)
+#		set_process(true)
+		set_process_unhandled_input(true)
 
 
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("Player"):
 		playerNode = null
 		playerInArea = false
-		set_process(false)
+#		set_process(false)
+		set_process_unhandled_input(false)
 
 
 func _on_minigame_door_change_status(_door_name, _lock_type, _run_anim):
