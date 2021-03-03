@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Distraction/Radio.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=10]
@@ -39,7 +38,6 @@
 [ext_resource path="res://Src/Objects/Nature/Tree.tscn" type="PackedScene" id=37]
 [ext_resource path="res://Assets/Objects/Nature/Tree_Needle.png" type="Texture" id=38]
 [ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=39]
-[ext_resource path="res://Src/Minigames/SimonSays/SimonSaysSpawner.gd" type="Script" id=40]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 4 )
@@ -60,8 +58,6 @@ extents = Vector2( 240, 8 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 72, 10 )
-
-[sub_resource type="RectangleShape2D" id=6]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -254,12 +250,24 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( 216, 200 )
+flicker = false
+DebugLight = false
+col1 = Color( 1, 0.1, 1, 1 )
+col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -105, 212 )
+flicker = false
+DebugLight = false
+col1 = Color( 1, 0.1, 1, 1 )
+col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -656, 72 )
+flicker = false
+DebugLight = false
+col1 = Color( 1, 0.1, 1, 1 )
+col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 208 )
@@ -294,6 +302,7 @@ position = Vector2( -664, 136 )
 
 [node name="Locker" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( -768, 128 )
+type = 0
 hasBounty = true
 
 [node name="Locker2" parent="LevelObjects" instance=ExtResource( 29 )]
@@ -359,30 +368,6 @@ position = Vector2( -512, 128 )
 position = Vector2( -340, 256 )
 guards = [ NodePath("../Guard") ]
 
-[node name="Guard" parent="." instance=ExtResource( 25 )]
-position = Vector2( 28, 254 )
-
-[node name="PathLine" type="Line2D" parent="Guard"]
-position = Vector2( 1, 0 )
-points = PoolVector2Array( 4, -13, 58, -13, 140, -13 )
-script = ExtResource( 15 )
-
-[node name="PathLine2" type="Line2D" parent="Guard"]
-points = PoolVector2Array( -7, -12, -71, -12, -127, -12 )
-script = ExtResource( 15 )
-distractWaitTime = 4.0
-
-[node name="HUD" parent="." instance=ExtResource( 7 )]
-
-[node name="Label" type="Label" parent="HUD"]
-visible = false
-margin_right = 72.0
-margin_bottom = 14.0
-text = "Hello Level"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Closet2" parent="." instance=ExtResource( 23 )]
 position = Vector2( -304, 256 )
 canHidePlayer = true
@@ -402,9 +387,13 @@ position = Vector2( -556, 136 )
 position = Vector2( 60, 2 )
 shape = SubResource( 5 )
 
-[node name="SimonSaysSpawner" type="Area2D" parent="."]
-position = Vector2( -178, 246 )
-script = ExtResource( 40 )
+[node name="DoorWall" parent="." instance=ExtResource( 8 )]
+position = Vector2( -264, 256 )
+doorType = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SimonSaysSpawner"]
-shape = SubResource( 6 )
+[node name="Guard2" parent="." instance=ExtResource( 25 )]
+position = Vector2( -224, 256 )
+
+[node name="PathLine" type="Line2D" parent="Guard2"]
+points = PoolVector2Array( 16, -16, 80, -16, 144, -16 )
+script = ExtResource( 15 )
