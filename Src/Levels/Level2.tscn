@@ -195,7 +195,7 @@ offset = Vector2( 12, -8 )
 flip_h = true
 
 [node name="HospitalBedFront5" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 536, 192 )
+position = Vector2( 512, 192 )
 texture = ExtResource( 28 )
 offset = Vector2( 12, -16 )
 
@@ -215,7 +215,7 @@ texture = ExtResource( 22 )
 offset = Vector2( 12, -12 )
 
 [node name="MedKit2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 477, 176 )
+position = Vector2( 448, 176 )
 texture = ExtResource( 22 )
 offset = Vector2( 12, -12 )
 
@@ -331,7 +331,7 @@ texture = ExtResource( 26 )
 offset = Vector2( 8, -8 )
 
 [node name="HospitalBedFront8" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 848, 240 )
+position = Vector2( 592, 176 )
 texture = ExtResource( 33 )
 offset = Vector2( 8, -8 )
 
@@ -356,7 +356,7 @@ texture = ExtResource( 29 )
 offset = Vector2( 8, -16 )
 
 [node name="HospitalER" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 568, 192 )
+position = Vector2( 552, 192 )
 texture = ExtResource( 27 )
 offset = Vector2( 20, -28 )
 
@@ -626,10 +626,10 @@ position = Vector2( 896, 192 )
 position = Vector2( 1168, 128 )
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 10 )]
-position = Vector2( 496, 192 )
+position = Vector2( 472, 192 )
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 10 )]
-position = Vector2( 512, 192 )
+position = Vector2( 488, 192 )
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( 624, 200 )
@@ -710,9 +710,9 @@ lockLevel = 3
 doorType = 2
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
-position = Vector2( 640, 320 )
-lockLevel = 3
+position = Vector2( 632, 320 )
 doorType = 2
+door_name = ""
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 632, 192 )
@@ -775,7 +775,7 @@ script = ExtResource( 18 )
 position = Vector2( 496, 320 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard4"]
-points = PoolVector2Array( 0, 0, 408, 0 )
+points = PoolVector2Array( 0, 0, 112, 0, 172.367, 0, 256, 0 )
 script = ExtResource( 18 )
 
 [node name="Position2D" type="Position2D" parent="."]
