@@ -31,7 +31,6 @@ extents = Vector2( 10, 16 )
 
 [node name="DoorWall" type="Node2D"]
 script = ExtResource( 2 )
-door_name = "DoorWall"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/open_door = SubResource( 1 )

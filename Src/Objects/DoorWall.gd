@@ -13,7 +13,6 @@ enum DoorType {wooden, metal, metalSwing}
 
 export(DoorLockType) var lockLevel = DoorLockType.open
 export(DoorType) var doorType = DoorType.wooden setget update_texture
-export var door_name = "" 
 export var save_state = false
 export var showHintIfLocked: bool = false
 export var hint: String
@@ -35,15 +34,12 @@ func _ready():
 #	update_texture(doorType)
 
 	$Sprite.frame = 0
-
-	if door_name == "":
-		door_name = name
 	
 	Events.connect("minigame_door_change_status", self, "_on_minigame_door_change_status")
 
 	#load state form save if it exists
-	if Global.gameState.has(door_name):
-		lockLevel = Global.gameState[door_name]
+	if Global.gameState.has("TutorialDoor"):
+		lockLevel = Global.gameState["TutorialDoor"]
 
 func update_texture(new_door_type) -> void:
 	doorType = new_door_type
@@ -81,25 +77,27 @@ func interact(run_sub, openerPos: Vector2):
 			Events.emit_signal("play_sound", "key_use")
 		else:
 			Events.emit_signal("hud_game_hint", "You need a %s key to open this door" % key.stringName)
-
+	print("active node:" + str(self))
 	# shows a game hint if this door is locked
 	if lockLevel == DoorLockType.locked:
 		Events.emit_signal("hud_game_hint", hint)
 	#pick difent minigames depening on type if locked
 	if doorType == DoorType.wooden:
 		if lockLevel == DoorLockType.lockedLevel1:
-			$LockpickSmallMinigameSpawner.run_minigame(door_name, 1, true)
+			$LockpickSmallMinigameSpawner.run_minigame(self, 1, true)
 			return
 		if lockLevel == DoorLockType.lockedLevel2:
-			$LockpickSmallMinigameSpawner.run_minigame(door_name, 2, true)
+			$LockpickSmallMinigameSpawner.run_minigame(self, 2, true)
 			return
 	if doorType == DoorType.metal:
 		if lockLevel == DoorLockType.lockedLevel1:
-			$SimonSays.run_minigame(door_name)
+			$SimonSays.run_minigame(self)
 			return
 		if lockLevel == DoorLockType.lockedLevel2:
-			$LightMinigameSpawner.run_minigame(door_name,1,true)
+			$LightMinigameSpawner.run_minigame(self,1,true)
 			return
+	
+
 	
 	#if its open just play anims
 	if lockLevel == DoorLockType.open:
@@ -169,11 +167,16 @@ func _on_Area2D_body_exited(body):
 		set_process_unhandled_input(false)
 
 
-func _on_minigame_door_change_status(_door_name, _lock_type, _run_anim):
-	if door_name == _door_name:
+func _on_minigame_door_change_status(instance, _lock_type, _run_anim):
+	print("signal rec")
+	print(instance)
+	print(self)
+	if instance == self:
+		print("match")
 		lockLevel = _lock_type
 		if save_state:
-			Global.gameState[door_name] = _lock_type
+			#TODO workaround here
+			Global.gameState["TutorialDoor"] = _lock_type
 		if _run_anim:
 			interact(false, Global.player.global_position)
 		

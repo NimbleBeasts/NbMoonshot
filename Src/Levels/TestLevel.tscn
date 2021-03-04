@@ -217,31 +217,22 @@ variant = 1
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
-[node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
-position = Vector2( 144, 256 )
-door_name = "DoorWall7"
-
-[node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
-position = Vector2( 280, 256 )
-door_name = "DoorWall9"
-
-[node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
-position = Vector2( 280, 320 )
-door_name = "DoorWall10"
-
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseCellar")
-lockLevel = 0
-doorType = 0
-door_name = ""
+
+[node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
+position = Vector2( -671, 192 )
+lockLevel = 1
+doorType = 2
+
+[node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
+position = Vector2( -697, 192 )
+lockLevel = 1
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -250,24 +241,12 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( 216, 200 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -105, 212 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -656, 72 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 208 )
@@ -302,7 +281,6 @@ position = Vector2( -664, 136 )
 
 [node name="Locker" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( -768, 128 )
-type = 0
 hasBounty = true
 
 [node name="Locker2" parent="LevelObjects" instance=ExtResource( 29 )]
@@ -316,7 +294,7 @@ type = 1
 hasBounty = true
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -178, 254 )
+position = Vector2( -678, 192 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -327,24 +305,8 @@ position = Vector2( 118.538, 238.544 )
 [node name="Button" parent="." instance=ExtResource( 26 )]
 position = Vector2( -23.5263, 235.871 )
 
-[node name="Staircase" parent="." instance=ExtResource( 10 )]
-position = Vector2( -704, 256 )
-connected_door_path = NodePath("../Staircase2")
-lockLevel = 0
-doorType = 0
-door_name = ""
-
-[node name="Staircase2" parent="." instance=ExtResource( 10 )]
-position = Vector2( -590, 192 )
-connected_door_path = NodePath("../Staircase")
-lockLevel = 0
-doorType = 0
-door_name = ""
-
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -600, 256 )
-canHidePlayer = true
-canBeOpened = true
 
 [node name="Overlay" type="TileMap" parent="."]
 z_index = 60
@@ -370,8 +332,6 @@ guards = [ NodePath("../Guard") ]
 
 [node name="Closet2" parent="." instance=ExtResource( 23 )]
 position = Vector2( -304, 256 )
-canHidePlayer = true
-canBeOpened = true
 
 [node name="Dog" parent="." instance=ExtResource( 39 )]
 position = Vector2( -464, 256 )
@@ -386,10 +346,6 @@ position = Vector2( -556, 136 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
 position = Vector2( 60, 2 )
 shape = SubResource( 5 )
-
-[node name="DoorWall" parent="." instance=ExtResource( 8 )]
-position = Vector2( -264, 256 )
-doorType = 1
 
 [node name="Guard2" parent="." instance=ExtResource( 25 )]
 position = Vector2( -224, 256 )

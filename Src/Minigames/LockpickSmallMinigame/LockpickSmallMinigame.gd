@@ -1,6 +1,5 @@
 extends Minigame
 
-export var door_name:String
 export var difficulty:int
 export var run_anim:bool
 
@@ -17,6 +16,12 @@ var haccu:float
 
 onready var pin = $LockpickSmallPin
 onready var pin_goal = $LockpickSmallPinGoal
+
+var targetInstance = null setget setTarget
+
+func setTarget(instance):
+	print("set: " + str(instance))
+	targetInstance = instance
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -78,7 +83,7 @@ func tap_pin():
 		pin.position = Vector2( pin.position.x, pin.position.y - move_up)
 		yield(get_tree().create_timer(0.25), "timeout")
 		set_result(Types.MinigameResults.Succeeded)
-		Events.emit_signal("minigame_door_change_status",door_name, 0, run_anim)
+		Events.emit_signal("minigame_door_change_status", targetInstance, 0, run_anim)
 		close()
 	else:
 		Events.emit_signal("play_sound", "lockpick_miss")

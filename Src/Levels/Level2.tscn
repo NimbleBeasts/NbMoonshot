@@ -566,38 +566,26 @@ position = Vector2( 920, 136 )
 
 [node name="ExitStairCase" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 472, 320 )
-connected_door_path = NodePath("")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="ExitStairCase3" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 992, 256 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/ExitStairCase4")
 lockLevel = 3
-doorType = 0
-door_name = ""
 
 [node name="MiddleStairCase" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 700, 192 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/MiddleStairCase2")
 lockLevel = 3
 doorType = 1
-door_name = ""
 
 [node name="MiddleStairCase2" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 700, 256 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/MiddleStairCase")
-lockLevel = 0
 doorType = 1
-door_name = ""
 
 [node name="ExitStairCase4" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 992, 320 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/ExitStairCase3")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 456, 256 )
@@ -609,8 +597,7 @@ position = Vector2( 800, 256 )
 position = Vector2( 824, 256 )
 
 [node name="Key" parent="LevelObjects" instance=ExtResource( 34 )]
-position = Vector2( 939, 254 )
-rotation = -1.5708
+position = Vector2( 928, 232 )
 
 [node name="Cabinet6" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 920, 256 )
@@ -652,33 +639,27 @@ deactivateAble = [ NodePath("../DeactivableDoor1"), NodePath("../DeactivableDoor
 [node name="ElevatorDoors" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 384, 256 )
 doorType = 1
-door_name = ""
 
 [node name="ElevatorDoors2" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 440, 256 )
 doorType = 1
-door_name = ""
 
 [node name="ElevatorDoors3" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 384, 320 )
 lockLevel = 3
 doorType = 1
-door_name = ""
 
 [node name="ElevatorDoors4" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 440, 320 )
 doorType = 1
-door_name = "ElevatorDoors2"
 
 [node name="ElevatorDoors5" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 384, 192 )
 doorType = 1
-door_name = "ElevatorDoors2"
 
 [node name="ElevatorDoors6" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 440, 192 )
 doorType = 1
-door_name = "ElevatorDoors2"
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 888, 128 )
@@ -705,14 +686,13 @@ doorType = 1
 keyPath = NodePath("../../Key")
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
-position = Vector2( 832, 320 )
-lockLevel = 3
+position = Vector2( 824, 320 )
+lockLevel = 1
 doorType = 2
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 632, 320 )
 doorType = 2
-door_name = ""
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 632, 192 )
@@ -722,7 +702,6 @@ doorType = 2
 position = Vector2( 760, 256 )
 lockLevel = 1
 doorType = 1
-door_name = "FirstDoor"
 
 [node name="DeactivableDoor2" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 952, 256 )
