@@ -20,6 +20,7 @@ enum UpgradeTypes {Taser_Extended_Battery, Taser_Voltage, False_Alarm, Fitness_L
 # Minigames
 enum Minigames{Test, Keypad, WireCut, Lockpick, Photo, Cryptogram}
 enum MinigameResults{Failed, Succeeded, Doing}
+enum DoorLockType {open = 0, lockedLevel1 = 1, lockedLevel2 = 2, locked = 3, buttonLocked = 4, keyLocked = 5}
 
 # Guards
 enum GuardStates {Wander, Suspect, PlayerDetected, Stunned, BeingDragged}
