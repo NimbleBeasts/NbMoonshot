@@ -9,7 +9,6 @@ export(DoorLockType) var lockLevel = DoorLockType.open
 export(DoorType) var doorType = DoorType.wooden
 var open: bool = false
 
-export var door_name : String = ""
 
 func _ready():
 	#warning-ignore:return_value_discarded
@@ -17,9 +16,7 @@ func _ready():
 	#lockLevel = DoorLockType.locked
 	$Sprite.frame = 0
 	
-	door_name = self.name
-	if door_name != "":
-		Events.connect("minigame_door_change_status", self, "_on_minigame_door_change_status")
+	Events.connect("minigame_door_change_status", self, "_on_minigame_door_change_status")
 	
 	if doorType == DoorType.metalSwing:
 		$Sprite.texture = preload("res://Assets/Doors/StaircaseMetal.png")
@@ -30,10 +27,10 @@ func _ready():
 # overriden
 func interact() -> void:
 	if lockLevel == DoorLockType.lockedLevel1:
-		$LockpickSmallMinigameSpawner.run_minigame(door_name, 1, true)
+		$LockpickSmallMinigameSpawner.run_minigame(self, 1, true)
 		return
 	if lockLevel == DoorLockType.lockedLevel2:
-		$LockpickSmallMinigameSpawner.run_minigame(door_name, 2, true)
+		$LockpickSmallMinigameSpawner.run_minigame(self, 2, true)
 		return
 	
 	
@@ -56,8 +53,8 @@ func onAnimationFinished(_animName: String) -> void:
 		Events.emit_signal("player_unblock_movement")
 		open = false
 		
-func _on_minigame_door_change_status(_door_name, _lock_type, _run_anim):
-	if door_name == _door_name:
+func _on_minigame_door_change_status(targetInstance, _lock_type, _run_anim):
+	if targetInstance == self:
 		lockLevel = _lock_type
 		if _run_anim:
 			interact()

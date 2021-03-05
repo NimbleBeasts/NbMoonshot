@@ -11,6 +11,7 @@ var minigame_succeeded: bool = false
 var playerState: int
 var minigameHolder: String = "MinigameHolder"
 
+
 onready var game_manager := get_node("/root/GameManager")
 
 

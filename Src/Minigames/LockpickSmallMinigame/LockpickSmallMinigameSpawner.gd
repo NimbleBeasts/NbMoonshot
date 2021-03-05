@@ -15,11 +15,12 @@ func create_minigame() -> Minigame:
 	return minigame_instance
 	
 
-func run_minigame(_door_name, _lock_level, _run_anim):
+func run_minigame(_targetInstance, _lock_level, _run_anim):
+	print("lockpick: " + str(_targetInstance))
 	if can_make_minigame and minigame == null:
 		# Creates a minigame and opens it 
 		minigame = create_minigame()
-		minigame.door_name = _door_name
+		minigame.targetInstance = _targetInstance
 		minigame.difficulty = _lock_level #1 2 used for diff
 		minigame.run_anim = _run_anim
 		#warning-ignore:return_value_discarded

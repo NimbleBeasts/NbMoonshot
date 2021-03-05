@@ -91,7 +91,7 @@ signal minigame_exited(result) #Types.Minigames
 ## Emitted when menu is called or player is detected
 signal minigame_forcefully_close()
 ## Emitted by minigame to open/close door
-signal minigame_door_change_status(door_name, lock_type, exec_anim) #exec anim is bool for switch state anim
+signal minigame_door_change_status(targetRef, lock_type, exec_anim) #exec anim is bool for switch state anim
 
 ###########################################################################
 # HUD

@@ -195,7 +195,7 @@ offset = Vector2( 12, -8 )
 flip_h = true
 
 [node name="HospitalBedFront5" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 536, 192 )
+position = Vector2( 512, 192 )
 texture = ExtResource( 28 )
 offset = Vector2( 12, -16 )
 
@@ -215,7 +215,7 @@ texture = ExtResource( 22 )
 offset = Vector2( 12, -12 )
 
 [node name="MedKit2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 477, 176 )
+position = Vector2( 448, 176 )
 texture = ExtResource( 22 )
 offset = Vector2( 12, -12 )
 
@@ -331,7 +331,7 @@ texture = ExtResource( 26 )
 offset = Vector2( 8, -8 )
 
 [node name="HospitalBedFront8" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 848, 240 )
+position = Vector2( 592, 176 )
 texture = ExtResource( 33 )
 offset = Vector2( 8, -8 )
 
@@ -356,7 +356,7 @@ texture = ExtResource( 29 )
 offset = Vector2( 8, -16 )
 
 [node name="HospitalER" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 568, 192 )
+position = Vector2( 552, 192 )
 texture = ExtResource( 27 )
 offset = Vector2( 20, -28 )
 
@@ -428,67 +428,30 @@ __meta__ = {
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 80, 256 )
-flicker = false
-flickerSequence = "1110"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 540, 200 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light14" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 296, 200 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light15" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 349, 200 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 700, 200.1 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 700, 136 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 816, 136 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 904, 136 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 960, 64 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="FullLight" parent="LevelObjects/Lights/Light9" index="1"]
 visible = true
@@ -517,10 +480,6 @@ texture = ExtResource( 31 )
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 1152, 64 )
 scale = Vector2( -1, 1 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="FullLight" parent="LevelObjects/Lights/Light10" index="1"]
 visible = true
@@ -550,52 +509,32 @@ texture = ExtResource( 31 )
 position = Vector2( 808, 200 )
 flicker = true
 flickerSequence = "11111111010100000000010"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 904, 200 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 588.223, 158 )
 scale = Vector2( 1, 0.633 )
 flicker = true
 flickerSequence = "111110111111101011"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 736, 264 )
 scale = Vector2( 2, 1 )
 flicker = true
 flickerSequence = "11111010001111"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 544, 264 )
 scale = Vector2( 2, 1 )
 flicker = true
 flickerSequence = "11111010001111"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 928, 264 )
 scale = Vector2( 2, 1 )
-flicker = false
 flickerSequence = "q111000"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="ThinArea" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 400, 264 )
@@ -627,87 +566,57 @@ position = Vector2( 920, 136 )
 
 [node name="ExitStairCase" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 472, 320 )
-connected_door_path = NodePath("")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="ExitStairCase3" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 992, 256 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/ExitStairCase4")
 lockLevel = 3
-doorType = 0
-door_name = ""
 
 [node name="MiddleStairCase" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 700, 192 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/MiddleStairCase2")
 lockLevel = 3
 doorType = 1
-door_name = ""
 
 [node name="MiddleStairCase2" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 700, 256 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/MiddleStairCase")
-lockLevel = 0
 doorType = 1
-door_name = ""
 
 [node name="ExitStairCase4" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 992, 320 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/ExitStairCase3")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 456, 256 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 800, 256 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 824, 256 )
-type = 0
-hasBounty = false
 
 [node name="Key" parent="LevelObjects" instance=ExtResource( 34 )]
-position = Vector2( 939, 254 )
-rotation = -1.5708
+position = Vector2( 928, 232 )
 
 [node name="Cabinet6" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 920, 256 )
-type = 0
 hasBounty = true
 
 [node name="Cabinet7" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 840, 192 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet8" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 896, 192 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet9" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 1168, 128 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 10 )]
-position = Vector2( 496, 192 )
-type = 0
-hasBounty = false
+position = Vector2( 472, 192 )
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 10 )]
-position = Vector2( 512, 192 )
-type = 0
-hasBounty = false
+position = Vector2( 488, 192 )
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( 624, 200 )
@@ -730,33 +639,27 @@ deactivateAble = [ NodePath("../DeactivableDoor1"), NodePath("../DeactivableDoor
 [node name="ElevatorDoors" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 384, 256 )
 doorType = 1
-door_name = "ElevatorDoors"
 
 [node name="ElevatorDoors2" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 440, 256 )
 doorType = 1
-door_name = "ElevatorDoors2"
 
 [node name="ElevatorDoors3" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 384, 320 )
 lockLevel = 3
 doorType = 1
-door_name = "ElevatorDoors3"
 
 [node name="ElevatorDoors4" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 440, 320 )
 doorType = 1
-door_name = "ElevatorDoors2"
 
 [node name="ElevatorDoors5" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 384, 192 )
 doorType = 1
-door_name = "ElevatorDoors2"
 
 [node name="ElevatorDoors6" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 440, 192 )
 doorType = 1
-door_name = "ElevatorDoors2"
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 888, 128 )
@@ -783,13 +686,12 @@ doorType = 1
 keyPath = NodePath("../../Key")
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
-position = Vector2( 832, 320 )
-lockLevel = 3
+position = Vector2( 824, 320 )
+lockLevel = 1
 doorType = 2
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
-position = Vector2( 640, 320 )
-lockLevel = 3
+position = Vector2( 632, 320 )
 doorType = 2
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
@@ -800,7 +702,6 @@ doorType = 2
 position = Vector2( 760, 256 )
 lockLevel = 1
 doorType = 1
-door_name = "FirstDoor"
 
 [node name="DeactivableDoor2" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 952, 256 )
@@ -853,7 +754,7 @@ script = ExtResource( 18 )
 position = Vector2( 496, 320 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard4"]
-points = PoolVector2Array( 0, 0, 408, 0 )
+points = PoolVector2Array( 0, 0, 112, 0, 172.367, 0, 256, 0 )
 script = ExtResource( 18 )
 
 [node name="Position2D" type="Position2D" parent="."]

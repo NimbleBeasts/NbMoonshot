@@ -7,7 +7,7 @@ var flashedColors: Array = []
 var flashAmount: int
 var showTimer: Timer = Timer.new()
 var inputtedButtons: Array = []
-var door_name
+var targetInstance
 
 func _ready() -> void:
 	add_child(showTimer)
@@ -55,6 +55,6 @@ func onButtonUp(buttonType: int) -> void:
 		return
 	if inputtedButtons.size() == flashedColors.size():
 		print("suceeded")
-		Events.emit_signal("minigame_door_change_status" ,door_name, 0, true)
+		Events.emit_signal("minigame_door_change_status" ,targetInstance, 0, true)
 		set_result(Types.MinigameResults.Succeeded)
 		close()

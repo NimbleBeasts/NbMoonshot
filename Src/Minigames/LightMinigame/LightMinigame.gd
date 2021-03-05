@@ -3,7 +3,7 @@ extends Minigame
 export var normal_color:Color = Color.white
 export var active_color:Color = Color.red
 
-export var door_name:String
+export var targetInstance
 export var difficulty:int
 export var run_anim:bool
 
@@ -114,6 +114,6 @@ func check_win():
 			return
 	yield(get_tree().create_timer(0.25), "timeout")
 	set_result(Types.MinigameResults.Succeeded)
-	Events.emit_signal("minigame_door_change_status",door_name, 0, run_anim)
+	Events.emit_signal("minigame_door_change_status", targetInstance, 0, run_anim) #TODO instead of using events we could directly call the instance
 	close()
 	

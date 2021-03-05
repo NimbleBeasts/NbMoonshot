@@ -14,11 +14,11 @@ func create_minigame() -> Minigame:
 	return minigame_instance
 	
 	
-func run_minigame(_door_name):
+func run_minigame(_targetInstance):
 	if can_make_minigame and minigame == null:
 		# Creates a minigame and opens it 
 		minigame = create_minigame()
-		minigame.door_name = _door_name
+		minigame.targetInstance = _targetInstance
 		#warning-ignore:return_value_discarded
 		minigame.connect("result_changed", self, "_on_minigame_result_changed")
 		minigame.open()
