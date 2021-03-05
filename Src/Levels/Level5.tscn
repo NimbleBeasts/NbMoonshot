@@ -16,7 +16,6 @@ extents = Vector2( 10, 32 )
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
-level_type = 1
 playCarCloseSound = false
 
 [node name="Position2D" type="Position2D" parent="."]
@@ -85,6 +84,9 @@ __meta__ = {
 position = Vector2( 80, 256 )
 flicker = false
 flickerSequence = "1110"
+DebugLight = false
+col1 = Color( 1, 0.1, 1, 1 )
+col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -108,14 +110,12 @@ position = Vector2( 320, 256 )
 connected_door_path = NodePath("../Staircase2")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="Staircase2" parent="LevelObjects/Staircases" instance=ExtResource( 9 )]
 position = Vector2( 320, 184 )
 connected_door_path = NodePath("../Staircase")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="Cameras" type="Node2D" parent="LevelObjects"]
 position = Vector2( 8, 0 )

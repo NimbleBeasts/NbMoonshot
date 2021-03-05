@@ -59,7 +59,6 @@ position = Vector2( 664, 384 )
 connected_door_path = NodePath("../../../Level17/LevelObjects/Staircase2")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 14 )]
 position = Vector2( -8, 256 )
@@ -90,7 +89,6 @@ position = Vector2( 448, 192 )
 connected_door_path = NodePath("../../../../Level17/LevelObjects/Doors/StaircaseF2R")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
