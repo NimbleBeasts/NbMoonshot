@@ -547,7 +547,6 @@ doorType = 1
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( -23.8994, 256.223 )
 doorType = 1
-door_name = "DoorWall7"
 
 [node name="StaircaseE0toE1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 256 )
@@ -556,7 +555,6 @@ scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE1toE0")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseE1toE0" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 192 )
@@ -565,7 +563,6 @@ scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE0toE1")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseE1toE2" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 744.914, 192 )
@@ -574,7 +571,6 @@ scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE2toE1")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseE2toE1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 744.633, 128 )
@@ -583,7 +579,6 @@ scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE1toE2")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseE3toE2-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 128, 64 )
@@ -592,7 +587,6 @@ scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE2toE3-LAB")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseE2toE3-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 128, 128 )
@@ -601,7 +595,6 @@ scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE3toE2-LAB")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseE2toE0-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 93, 128 )
@@ -610,7 +603,6 @@ scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE0toE2-LAB")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseE0toE2-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 85, 255.659 )
@@ -619,21 +611,18 @@ scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE2toE0-LAB")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseE0toE-1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 632, 256 )
 connected_door_path = NodePath("../StaircaseE-1toE0")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseE-1toE0" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 632, 320 )
 connected_door_path = NodePath("../StaircaseE0toE-1")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseE-1toE-2" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 320 )
@@ -641,7 +630,6 @@ scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../StaircaseE-2toE-1")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseE-2toE-1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 383.568 )
@@ -649,7 +637,6 @@ scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../StaircaseE-1toE-2")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="Keys" type="Node2D" parent="LevelObjects"]
 

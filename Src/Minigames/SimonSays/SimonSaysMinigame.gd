@@ -2,7 +2,7 @@ extends Minigame
 
 enum Colors {Red, Green, Blue, Yellow}
 
-var currentFlash
+var currentFlash = null
 var flashedColors: Array = []
 var flashAmount: int
 var showTimer: Timer = Timer.new()
@@ -35,15 +35,19 @@ func flashColor():
 		$Buttons/Button.grab_focus()
 		print("grabbed button focus")
 		return
-	currentFlash.enabled = false
+	currentFlash.show()
 	showTimer.start(0.1)
 
 func showTimerTimeout() -> void:
 	var index = randi() % Colors.keys().size()
+	
+	if currentFlash:
+		currentFlash.hide()
 	currentFlash = $Lights.get_child(index)
 	print(Colors.keys()[index])
 	flashedColors.append(index)
-	currentFlash.enabled = true
+	currentFlash.show()
+	Events.emit_signal("play_sound", "menu_click")
 
 func onButtonUp(buttonType: int) -> void:
 	inputtedButtons.append(buttonType)

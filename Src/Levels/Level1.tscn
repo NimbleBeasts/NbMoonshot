@@ -378,14 +378,12 @@ position = Vector2( 360, 128 )
 connected_door_path = NodePath("../Staircase2")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 192 )
 connected_door_path = NodePath("../Staircase")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 170, 128 )
@@ -396,7 +394,6 @@ position = Vector2( 424, 320 )
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 144, 256 )
-door_name = "DoorWall2"
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -31, 256 )
@@ -406,20 +403,16 @@ nextSecretaryInteractionCounter = 2
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 320 )
 doorType = 1
-door_name = "DoorWall3"
 
 [node name="DoorWall8" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 512, 128 )
-door_name = "DoorWall8"
 
 [node name="DoorWall9" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 296, 128 )
-door_name = "DoorWall9"
 
 [node name="DoorWall10" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 296, 192 )
 lockLevel = 1
-door_name = "DoorWall10"
 
 [node name="DoorWall7" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 344, 320 )
@@ -428,18 +421,15 @@ lockLevel = 3
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 256 )
 doorType = 1
-door_name = "DoorWall4"
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 192 )
 lockLevel = 3
 doorType = 1
-door_name = "DoorWall5"
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 128 )
 doorType = 1
-door_name = "DoorWall6"
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {

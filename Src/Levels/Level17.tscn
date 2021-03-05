@@ -92,14 +92,12 @@ position = Vector2( 664, 384 )
 connected_door_path = NodePath("../../../Level17/LevelObjects/Staircase2")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 568, 320 )
 connected_door_path = NodePath("../../../Level17/LevelObjects/Staircase")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="ThinArea" parent="LevelObjects" instance=ExtResource( 13 )]
 position = Vector2( 392, 264 )
@@ -229,83 +227,67 @@ position = Vector2( 448, 128 )
 connected_door_path = NodePath("../../../../Level17/LevelObjects/Doors/StaircaseF1R")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseF2R" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 576, 128 )
 connected_door_path = NodePath("../../../../Level17/LevelObjects/Doors/StaircaseF1L")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseF1R" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 584, 192 )
 connected_door_path = NodePath("../../../../Level17/LevelObjects/Doors/StaircaseF2L")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="StaircaseF1L" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 448, 192 )
 connected_door_path = NodePath("../../../../Level17/LevelObjects/Doors/StaircaseF2R")
 lockLevel = 0
 doorType = 0
-door_name = ""
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 144, 256 )
 lockLevel = 1
-door_name = "Door1"
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 432, 256 )
-door_name = "DoorWall2"
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 512, 192 )
-door_name = "DoorWall3"
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 512, 128 )
-door_name = "DoorWall4"
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 624, 192 )
 doorType = 1
-door_name = "DoorWall9"
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 624, 256 )
 doorType = 1
-door_name = "DoorWall10"
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 624, 320 )
 doorType = 1
-door_name = "DoorWall11"
 
 [node name="DoorWall12" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 624, 64 )
 doorType = 1
-door_name = "DoorWall12"
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 384, 128 )
 lockLevel = 2
-door_name = "Door2"
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 384, 192 )
 lockLevel = 1
-door_name = "Door3"
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 256, 128 )
-door_name = "DoorWall7"
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 256, 192 )
-door_name = "DoorWall8"
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {

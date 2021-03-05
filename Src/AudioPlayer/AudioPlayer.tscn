@@ -117,7 +117,7 @@ stream = ExtResource( 13 )
 stream = ExtResource( 14 )
 
 [node name="Footstep" type="AudioStreamPlayer" parent="PlayerSounds"]
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="CrossfadeTween" type="Tween" parent="PlayerSounds/Footstep"]
 
