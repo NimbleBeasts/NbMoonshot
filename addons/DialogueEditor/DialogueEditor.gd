@@ -8,7 +8,7 @@ var quest_scn: PackedScene = preload("res://addons/DialogueEditor/QuestNode.tscn
 var graph_edit: GraphEdit = GraphEdit.new()
 var node_index: int
 var files: Array = []
-var node_offset: Vector2 = Vector2(80, 0)
+var node_offset: Vector2 = Vector2(160, 0)
 var selected_node: Node
 
 # will be converted to the json file
@@ -43,15 +43,15 @@ func save_dict_to_editing_file() -> void:
 	file.close()
 	
 	
-func save_connection_list_to_dict(connection_list: Array) -> void:
+func save_connection_list_to_dict() -> void:
 	dict = {}
 	dict["nodes"] = {}
 	
 	for child in $GraphEdit.get_children():
 		if child is GraphNode:
 			if child is QuestNode:
-				child.name = "Quest" + str(child.get_quest())
-				child.title = child.name
+				child.title = "Quest" + str(child.get_quest()) if child.get_quest() != 9999 else child.title
+				child.name = child.title
 				
 			if child is BaseBranch:
 				child.title = child.get_node("BranchID").text if child.get_node("BranchID").text != "" else child.title
@@ -65,7 +65,8 @@ func save_connection_list_to_dict(connection_list: Array) -> void:
 				for i in 3:
 					dict[child.title]["branchText%s" % i] = child.get_node("LineEdit%s" % i).text
 				
-			
+	var connection_list = $GraphEdit.get_connection_list()
+	
 	for i in connection_list.size():
 		var from_branch_choice: int
 		var to_branch: String
@@ -87,8 +88,28 @@ func save_connection_list_to_dict(connection_list: Array) -> void:
 		
 		if to_node is QuestNode:
 			dict[from_node.title]["quest"] = to_node.get_quest()
+			dict[from_node.title]["exitDialogue"] = true
 			dict[from_node.title].erase("branchID%s" % from_branch_choice)
 			
+			
+	for i in $GraphEdit.get_children().size():
+		var child = $GraphEdit.get_child(i)
+		if not child is GraphNode:
+			continue
+		if dict.has(child.title):
+			var branch_amount: int
+			for j in dict[child.title].keys().size():
+				if dict[child.title].keys()[j].begins_with("branchID"):
+					branch_amount += 1
+			if branch_amount == 1:
+				var to_branch
+				for j in 3:
+					var branch_value = "branchID%s" % j
+					if dict[child.title].has(branch_value) and dict[child.title][branch_value] != "":
+						to_branch = dict[child.title][branch_value]
+					dict[child.title].erase(branch_value)
+				dict[child.title]["nextDialogue"] = to_branch
+				
 
 func _on_graph_connection_request(from, from_slot, to, to_slot):
 	$GraphEdit.connect_node(from, from_slot, to, to_slot)
@@ -108,7 +129,7 @@ func _on_add_branch_pressed() -> void:
 	
 
 func _on_save_pressed():
-	save_connection_list_to_dict($GraphEdit.get_connection_list())
+	save_connection_list_to_dict()
 	save_dict_to_editing_file()
 	
 
@@ -124,11 +145,11 @@ func _on_go_to_selected_file():
 	
 func parse_connection_dict(dict: Dictionary) -> void:
 	# adding nodes to graph
-	if not dict.has("nodes"):
-		printerr("Cannot read file!")
-		return
 	var node_dict
-	node_dict = dict["nodes"]
+	if dict.has("nodes"):
+		node_dict = dict["nodes"]
+	else:
+		printerr("Cannot read file!")
 	
 	for i in node_dict.keys().size():
 		if not node_dict.keys()[i].begins_with("Quest"):
@@ -156,14 +177,19 @@ func parse_connection_dict(dict: Dictionary) -> void:
 		var branches = dict[key]
 		for j in branches.keys().size():
 			var found = branches.keys()[j]
-			if found.begins_with("branchID"):
+			if found == "nextDialogue":
+				var from_port = 1
+				var to_port = 0
+				var to = get_node_from_title(branches.values()[j])
+				$GraphEdit.connect_node(from.name, from_port, to.name, to_port)
+			elif found.begins_with("branchID"):
 				var from_port = int(found.replace("branchID", "")) + 1
 				var to_port = 0
 				var to = get_node_from_title(branches.values()[j])
 				$GraphEdit.connect_node(from.name, from_port, to.name, to_port)
 			elif found.begins_with("quest"):
 				var to = get_node_from_title("Quest" + str(branches.values()[j]))
-				$GraphEdit.connect_node(from.name, 0, to.name, 0)
+				$GraphEdit.connect_node(from.name, 1, to.name, 0)
 			elif found.begins_with("branchText"):
 				var index := int(found.replace("branchText", ""))
 				from.get_node("LineEdit%s" % index).text = branches.values()[j]
