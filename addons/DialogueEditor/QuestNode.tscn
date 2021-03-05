@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/DialogueEditor/QuestNode.gd" type="Script" id=1]
+
+[node name="QuestNode" type="GraphNode" groups=[
+"QuestNode",
+]]
+margin_right = 105.0
+margin_bottom = 63.0
+title = "Quest"
+show_close = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 89.0
+margin_bottom = 48.0
+[connection signal="close_request" from="." to="." method="_on_QuestNode_close_request"]

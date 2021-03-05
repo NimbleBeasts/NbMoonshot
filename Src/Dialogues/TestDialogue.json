@@ -1,8 +1,49 @@
 {
-    "00": {"text": "Yo is milk good?", "branchID0": "0milkGoodReply", "branchID1": "0milkBadReply", "branchChoice0": "milk gud", "branchChoice1": "milk bad", "exitDialogue0" : false, "exitDialogue1" : false},
-    "0milkGoodReply": {"text": "yes", "branchID0": "0youGoodReply", "branchID1": "34", "branchChoice0": "i agree, you good", "branchChoice1": "man i was joking lol", "exitDialogue0" : false, "exitDialogue1" : false},
-    "0milkBadReply": {"text": "you bad", "branchID0": "00", "branchID1": "0disagreeReply", "branchChoice0": "no u", "branchChoice1": "i disagree with you, whats the issue", "exitDialogue0" : true, "exitDialogue1" : false},
-    "0youGoodReply" : {"text": "thnx m8, you so kind", "exitDialogue": true, "choice": "ok bye"},
-    "0disagreeReply": {"text": "u are such a b", "branchID0": "35236", "branchID1": "0moreOfABReply", "branchChoice0": "exit", "branchChoice1": "you are more of a b", "exitDialogue0" : true, "exitDialogue1" : false},
-    "0moreOfABReply" : { "text": "shut up", "exitDialogue": true, "choice": "get the hell out of here?", "quest" : "1"}
+	"nodes": {
+		"where going": [
+			0,
+			0
+		],
+		"have fun being lesb": [
+			320,
+			240
+		],
+		"have fun being gae": [
+			380,
+			0
+		],
+		"Quest12": [
+			780,
+			60
+		],
+		"Quest15": [
+			700,
+			260
+		]
+	},
+	"where going": {
+		"branchText0": "gae",
+		"branchText1": "lesb",
+		"branchText2": "",
+		"branchID0": "have fun being gae",
+		"branchID1": "have fun being lesb"
+	},
+	"have fun being lesb": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": 15
+	},
+	"have fun being gae": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": 12
+	},
+	"Quest12": {
+
+	},
+	"Quest15": {
+
+	}
 }
