@@ -54,20 +54,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackToMenuButton" type="Button" parent="VBoxContainer"]
+[node name="ClearGraph" type="Button" parent="VBoxContainer"]
 margin_top = 59.0
 margin_right = 114.0
-margin_bottom = 89.0
-rect_min_size = Vector2( 100, 30 )
-text = "Back to menu"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClearGraph" type="Button" parent="VBoxContainer"]
-margin_top = 93.0
-margin_right = 114.0
-margin_bottom = 114.0
+margin_bottom = 80.0
 text = "Clear Graph"
 
 [node name="FileSelect" type="OptionButton" parent="."]
@@ -87,18 +77,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GoToFile" type="Button" parent="VBoxContainer2"]
+[node name="IndexFiles" type="Button" parent="VBoxContainer2"]
 margin_right = 138.0
 margin_bottom = 21.0
-text = "Read file"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="IndexFiles" type="Button" parent="VBoxContainer2"]
-margin_top = 25.0
-margin_right = 138.0
-margin_bottom = 46.0
 text = "Update file list"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
@@ -120,6 +101,6 @@ text = "Add quest"
 [connection signal="pressed" from="VBoxContainer/BranchButton" to="." method="_on_add_branch_pressed"]
 [connection signal="pressed" from="VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="VBoxContainer/ClearGraph" to="." method="clear_graph"]
-[connection signal="pressed" from="VBoxContainer2/GoToFile" to="." method="_on_go_to_selected_file"]
+[connection signal="item_selected" from="FileSelect" to="." method="_on_file_selected"]
 [connection signal="pressed" from="VBoxContainer2/IndexFiles" to="." method="index_files"]
 [connection signal="pressed" from="VBoxContainer3/AddQuest" to="." method="_on_add_quest"]
