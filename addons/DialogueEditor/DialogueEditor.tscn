@@ -95,6 +95,15 @@ __meta__ = {
 margin_right = 106.0
 margin_bottom = 21.0
 text = "Add quest"
+
+[node name="TranslationFiles" type="OptionButton" parent="."]
+margin_left = 252.707
+margin_top = 52.0172
+margin_right = 488.707
+margin_bottom = 74.0172
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="connection_request" from="GraphEdit" to="." method="_on_graph_connection_request"]
 [connection signal="disconnection_request" from="GraphEdit" to="." method="_on_graph_disconnection_request"]
 [connection signal="node_selected" from="GraphEdit" to="." method="_on_node_selected"]
@@ -104,3 +113,4 @@ text = "Add quest"
 [connection signal="item_selected" from="FileSelect" to="." method="_on_file_selected"]
 [connection signal="pressed" from="VBoxContainer2/IndexFiles" to="." method="index_files"]
 [connection signal="pressed" from="VBoxContainer3/AddQuest" to="." method="_on_add_quest"]
+[connection signal="item_selected" from="TranslationFiles" to="." method="update_translations"]

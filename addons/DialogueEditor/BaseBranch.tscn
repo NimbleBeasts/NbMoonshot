@@ -3,8 +3,8 @@
 [ext_resource path="res://addons/DialogueEditor/BaseBranch.gd" type="Script" id=1]
 
 [node name="Branch" type="GraphNode"]
-margin_right = 96.0
-margin_bottom = 153.0
+margin_right = 152.0
+margin_bottom = 157.0
 title = "Node "
 show_close = true
 resizable = true
@@ -14,10 +14,10 @@ slot/0/left_color = Color( 1, 0, 0, 1 )
 slot/0/right_enabled = true
 slot/0/right_type = 0
 slot/0/right_color = Color( 1, 0, 0, 1 )
-slot/1/left_enabled = true
+slot/1/left_enabled = false
 slot/1/left_type = 0
 slot/1/left_color = Color( 0, 1, 0, 1 )
-slot/1/right_enabled = true
+slot/1/right_enabled = false
 slot/1/right_type = 0
 slot/1/right_color = Color( 0, 1, 0, 1 )
 slot/2/left_enabled = true
@@ -32,6 +32,12 @@ slot/3/left_color = Color( 0, 1, 0, 1 )
 slot/3/right_enabled = true
 slot/3/right_type = 0
 slot/3/right_color = Color( 0, 1, 0, 1 )
+slot/4/left_enabled = true
+slot/4/left_type = 0
+slot/4/left_color = Color( 0, 1, 0, 1 )
+slot/4/right_enabled = true
+slot/4/right_type = 0
+slot/4/right_color = Color( 0, 1, 0, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -40,29 +46,36 @@ __meta__ = {
 [node name="BranchID" type="LineEdit" parent="."]
 margin_left = 16.0
 margin_top = 24.0
-margin_right = 80.0
-margin_bottom = 54.0
-rect_min_size = Vector2( 20, 30 )
+margin_right = 136.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 120, 34 )
+
+[node name="Text" type="TextEdit" parent="."]
+margin_left = 16.0
+margin_top = 59.0
+margin_right = 136.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 120, 50 )
 
 [node name="LineEdit0" type="LineEdit" parent="."]
 margin_left = 16.0
-margin_top = 55.0
-margin_right = 80.0
-margin_bottom = 85.0
+margin_top = 110.0
+margin_right = 136.0
+margin_bottom = 140.0
 rect_min_size = Vector2( 20, 30 )
 
 [node name="LineEdit1" type="LineEdit" parent="."]
 margin_left = 16.0
-margin_top = 86.0
-margin_right = 80.0
-margin_bottom = 116.0
+margin_top = 141.0
+margin_right = 136.0
+margin_bottom = 171.0
 rect_min_size = Vector2( 20, 30 )
 
 [node name="LineEdit2" type="LineEdit" parent="."]
 margin_left = 16.0
-margin_top = 117.0
-margin_right = 80.0
-margin_bottom = 147.0
+margin_top = 172.0
+margin_right = 136.0
+margin_bottom = 202.0
 rect_min_size = Vector2( 64, 30 )
 [connection signal="close_request" from="." to="." method="_on_Branch_close_request"]
 [connection signal="resize_request" from="." to="." method="_on_Branch_resize_request"]
