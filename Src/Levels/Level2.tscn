@@ -1,8 +1,9 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Objects/Home/TableSmall.png" type="Texture" id=4]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=7]
@@ -39,12 +40,17 @@
 [ext_resource path="res://Assets/Objects/Laboratory/Board.png" type="Texture" id=38]
 [ext_resource path="res://Assets/Objects/Antenna2.png" type="Texture" id=39]
 [ext_resource path="res://Src/Objects/Nature/Tree.tscn" type="PackedScene" id=40]
-[ext_resource path="res://Assets/Objects/Sign.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Objects/Hospital/SignHospital.png" type="Texture" id=41]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Assets/Objects/Laboratory/Boxes2.png" type="Texture" id=43]
 [ext_resource path="res://Assets/Objects/Office/Broom.png" type="Texture" id=44]
 [ext_resource path="res://Assets/Objects/Office/Clock.png" type="Texture" id=45]
 [ext_resource path="res://Src/ThinArea/Ladder.tscn" type="PackedScene" id=46]
+[ext_resource path="res://Assets/Objects/Home/ChairFront.png" type="Texture" id=47]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalSink.png" type="Texture" id=48]
+[ext_resource path="res://Assets/Objects/Laboratory/BarrelBlue.png" type="Texture" id=49]
+[ext_resource path="res://Assets/Objects/Laboratory/Storage.png" type="Texture" id=50]
+[ext_resource path="res://Assets/Objects/Office/Vending.png" type="Texture" id=51]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
@@ -102,6 +108,12 @@ tree = 0
 season = 0
 variant = 0
 
+[node name="Tree3" parent="BackgroundDecorations" instance=ExtResource( 40 )]
+position = Vector2( 1192, 184 )
+tree = 0
+season = 0
+variant = 0
+
 [node name="Tree2" parent="BackgroundDecorations" instance=ExtResource( 40 )]
 position = Vector2( -104, 184 )
 tree = 0
@@ -136,13 +148,18 @@ position = Vector2( 384, 80 )
 texture = ExtResource( 36 )
 centered = false
 
+[node name="ElevatorWall2" type="Sprite" parent="SpriteWalls"]
+position = Vector2( 668, 80 )
+texture = ExtResource( 36 )
+centered = false
+
 [node name="Antenna" type="Sprite" parent="SpriteWalls"]
 position = Vector2( 376, 16 )
 texture = ExtResource( 39 )
 centered = false
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
-position = Vector2( 192, 256 )
+position = Vector2( 728, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -172,7 +189,7 @@ centered = false
 flip_h = true
 
 [node name="Broom" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1152, 233 )
+position = Vector2( 1152, 232 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 44 )
 centered = false
@@ -207,7 +224,7 @@ offset = Vector2( 12, -8 )
 flip_h = true
 
 [node name="HospitalBedFront5" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 512, 192 )
+position = Vector2( 511, 192 )
 texture = ExtResource( 28 )
 offset = Vector2( 12, -16 )
 
@@ -227,7 +244,7 @@ texture = ExtResource( 22 )
 offset = Vector2( 12, -12 )
 
 [node name="MedKit2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 448, 176 )
+position = Vector2( 448, 180 )
 texture = ExtResource( 22 )
 offset = Vector2( 12, -12 )
 
@@ -258,8 +275,14 @@ texture = ExtResource( 43 )
 offset = Vector2( 12, -12 )
 
 [node name="Boxes21" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 704, 320 )
+position = Vector2( 690, 317 )
 texture = ExtResource( 23 )
+offset = Vector2( 12, -12 )
+
+[node name="Boxes25" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 671, 284 )
+texture = ExtResource( 50 )
+centered = false
 offset = Vector2( 12, -12 )
 
 [node name="Boxes22" type="Sprite" parent="LevelObjects/Decorations"]
@@ -268,8 +291,8 @@ texture = ExtResource( 23 )
 offset = Vector2( 12, -12 )
 
 [node name="Boxes23" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 736, 320 )
-texture = ExtResource( 23 )
+position = Vector2( 727, 317 )
+texture = ExtResource( 49 )
 offset = Vector2( 12, -12 )
 
 [node name="Boxes24" type="Sprite" parent="LevelObjects/Decorations"]
@@ -343,7 +366,7 @@ texture = ExtResource( 26 )
 offset = Vector2( 8, -8 )
 
 [node name="HospitalBedFront8" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 592, 176 )
+position = Vector2( 588, 176 )
 texture = ExtResource( 33 )
 offset = Vector2( 8, -8 )
 
@@ -368,7 +391,7 @@ texture = ExtResource( 29 )
 offset = Vector2( 8, -16 )
 
 [node name="HospitalER" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 552, 192 )
+position = Vector2( 546, 192 )
 texture = ExtResource( 27 )
 offset = Vector2( 20, -28 )
 
@@ -377,55 +400,40 @@ position = Vector2( 1216, 128 )
 texture = ExtResource( 26 )
 offset = Vector2( 8, -8 )
 
-[node name="HospitalER3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1224, 128 )
-texture = ExtResource( 26 )
-offset = Vector2( 8, -8 )
-
-[node name="HospitalER6" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1224, 117 )
-texture = ExtResource( 26 )
-offset = Vector2( 8, -8 )
-
-[node name="HospitalER7" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1216, 117 )
-texture = ExtResource( 26 )
-offset = Vector2( 8, -8 )
-
-[node name="HospitalER9" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1224, 106 )
-texture = ExtResource( 26 )
-offset = Vector2( 8, -8 )
-
 [node name="HospitalER10" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1208, 128 )
+position = Vector2( 1205, 128 )
 texture = ExtResource( 26 )
 offset = Vector2( 8, -8 )
 
-[node name="HospitalER11" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1208, 117 )
-texture = ExtResource( 26 )
-offset = Vector2( 8, -8 )
+[node name="Table" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 661, 232 )
+texture = ExtResource( 4 )
+centered = false
 
-[node name="HospitalER12" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1208, 106 )
-texture = ExtResource( 26 )
-offset = Vector2( 8, -8 )
+[node name="Chair" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 644, 232 )
+texture = ExtResource( 47 )
+centered = false
 
-[node name="HospitalER13" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1200, 117 )
-texture = ExtResource( 26 )
-offset = Vector2( 8, -8 )
+[node name="Chair2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 728, 224 )
+texture = ExtResource( 51 )
+centered = false
 
-[node name="HospitalER14" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1200, 128 )
-texture = ExtResource( 26 )
-offset = Vector2( 8, -8 )
+[node name="Medkit" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 656, 160 )
+texture = ExtResource( 22 )
+centered = false
 
-[node name="HospitalER15" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1184, 128 )
-texture = ExtResource( 26 )
-offset = Vector2( 8, -8 )
+[node name="Medkit2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 468, 168 )
+texture = ExtResource( 48 )
+centered = false
+
+[node name="Medkit3" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 912, 104 )
+texture = ExtResource( 37 )
+centered = false
 
 [node name="Objects" type="Node2D" parent="LevelObjects"]
 
@@ -634,19 +642,21 @@ doorType = 1
 [node name="MiddleStairCase" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 700, 192 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/MiddleStairCase2")
-lockLevel = 3
+doorType = 1
+
+[node name="MiddleStairCase3" parent="LevelObjects" instance=ExtResource( 9 )]
+position = Vector2( 700, 128 )
+connected_door_path = NodePath("../MiddleStairCase")
 doorType = 1
 
 [node name="MiddleStairCase2" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 700, 256 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/MiddleStairCase")
-lockLevel = 0
 doorType = 1
 
 [node name="ExitStairCase4" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 992, 320 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/ExitStairCase3")
-lockLevel = 0
 doorType = 1
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 10 )]
@@ -688,12 +698,12 @@ type = 0
 hasBounty = false
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 10 )]
-position = Vector2( 472, 192 )
+position = Vector2( 736, 192 )
 type = 0
 hasBounty = false
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 10 )]
-position = Vector2( 488, 192 )
+position = Vector2( 600, 192 )
 type = 0
 hasBounty = false
 
@@ -718,6 +728,9 @@ deactivateAble = [ NodePath("../DeactivableDoor1"), NodePath("../DeactivableDoor
 [node name="ElevatorDoors" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 384, 256 )
 doorType = 1
+
+[node name="ElevatorDoors7" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+position = Vector2( 256, 256 )
 
 [node name="ElevatorDoors2" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 440, 256 )

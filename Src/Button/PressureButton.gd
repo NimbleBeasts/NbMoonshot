@@ -36,11 +36,11 @@ func press() -> void:
 		if node is Lights:
 			node.toggleState()
 		elif node is DoorWall:
-			if node.lockLevel == node.DoorLockType.buttonLocked:
+			if node.lockLevel == Types.DoorLockType.buttonLocked:
 				node.open()
 				node.interact(false, global_position)
 				return
-			elif node.lockLevel == node.DoorLockType.open:
+			elif node.lockLevel == Types.DoorLockType.open:
 				node.interact(false, global_position)
 				node.resetState()
 				return

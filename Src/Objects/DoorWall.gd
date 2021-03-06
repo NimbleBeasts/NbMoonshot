@@ -69,18 +69,18 @@ func interact(run_sub, openerPos: Vector2):
 	if playerNode != null:
 		if openerPos == playerNode.global_position and playerNode.state == Types.PlayerStates.DraggingGuard:
 			return
-		
-	if lockLevel == Types.DoorLockType.keyLocked:
-		if key.isPickedUp:
-			open()
-			Events.emit_signal("play_sound", "key_use")
-		else:
-			Events.emit_signal("hud_game_hint", "You need a %s key to open this door" % key.stringName)
 
 	print("active node:" + str(self))
 	# shows a game hint if this door is locked
 
 	match lockLevel:
+		Types.DoorLockType.keyLocked:
+			if key.isPickedUp:
+				open()
+				Events.emit_signal("play_sound", "key_use")
+			else:
+				Events.emit_signal("hud_game_hint", "You need a %s key to open this door" % key.stringName)
+				return
 		Types.DoorLockType.locked:
 			Events.emit_signal("hud_game_hint", hint)
 		Types.DoorLockType.lockedLevel1:
