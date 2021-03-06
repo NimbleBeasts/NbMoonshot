@@ -1,11 +1,11 @@
 tool
 extends Door
 
-enum DoorLockType {open, lockedLevel1, lockedLevel2, locked}
+
 enum DoorType {wooden, metalSwing}
 
 
-export(DoorLockType) var lockLevel = DoorLockType.open
+export(Types.DoorLockType) var lockLevel = Types.DoorLockType.open
 export(DoorType) var doorType = DoorType.wooden
 var open: bool = false
 
@@ -26,14 +26,19 @@ func _ready():
 
 # overriden
 func interact() -> void:
-	if lockLevel == DoorLockType.lockedLevel1:
-		$LockpickSmallMinigameSpawner.run_minigame(self, 1, true)
-		return
-	if lockLevel == DoorLockType.lockedLevel2:
-		$LockpickSmallMinigameSpawner.run_minigame(self, 2, true)
-		return
-	
-	
+	match lockLevel:
+		Types.DoorLockType.lockedLevel1:
+			$LockpickSmallMinigameSpawner.run_minigame(self, 1, true)
+			return
+		Types.DoorLockType.lockedLevel2:
+			$LockpickSmallMinigameSpawner.run_minigame(self, 2, true)
+			return
+		Types.DoorLockType.locked:
+			#TODO: play locked sound
+			return
+		_:
+			pass
+
 	# teleports to connected door
 	if connected_door and not animPlayer.is_playing():
 		Events.emit_signal("player_block_input")

@@ -132,7 +132,7 @@ position = Vector2( 218, 335 )
 texture = ExtResource( 41 )
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 18 )]
-frame = 2
+frame = 0
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
 light_mask = 3
@@ -376,14 +376,10 @@ position = Vector2( 400, 72 )
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 128 )
 connected_door_path = NodePath("../Staircase2")
-lockLevel = 0
-doorType = 0
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 192 )
 connected_door_path = NodePath("../Staircase")
-lockLevel = 0
-doorType = 0
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 170, 128 )
@@ -541,11 +537,9 @@ hasBounty = true
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 416, 128 )
 type = 1
-hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 463, 320 )
-type = 0
 hasBounty = true
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
