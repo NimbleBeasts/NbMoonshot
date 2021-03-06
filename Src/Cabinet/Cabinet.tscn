@@ -47,9 +47,9 @@ hframes = 3
 [node name="Label" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = -16.0
-margin_top = -64.0
+margin_top = -48.0
 margin_right = 32.0
-margin_bottom = -50.0
+margin_bottom = -34.0
 rect_pivot_offset = Vector2( 24, 14 )
 custom_fonts/font = ExtResource( 3 )
 text = "$20"

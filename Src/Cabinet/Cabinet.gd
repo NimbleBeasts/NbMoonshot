@@ -5,6 +5,7 @@ enum CabinetType {Blue = 0, Grey = 1, Brown = 2}
 
 export(CabinetType) var type = CabinetType.Blue
 export(bool) var hasBounty = false
+export(bool) var isObjective = false
 
 var isUsed = false
 var playerInRange
@@ -29,7 +30,11 @@ func _ready():
 func _process(_delta):
 	if playerInRange and playerInRange.state != Types.PlayerStates.DraggingGuard:
 		if Input.is_action_just_pressed("open_minigame"):
-			if hasBounty and not isUsed:
+			if isObjective:
+				isUsed = true
+				Events.emit_signal("level_hint", "Objective Obtained")
+				Events.emit_signal("play_sound", "chest_bounty")
+			elif (hasBounty and not isUsed):
 				# Add money popup anim
 				# Emit Hud money update
 				isUsed = true
