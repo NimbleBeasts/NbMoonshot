@@ -28,7 +28,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
-dialoguePath = "res://Src/Dialogues/BossDialogue.json"
+dialoguePath = "res://Src/Dialogues/BossDialogueEditor.json"
 npcName = "General"
 npcColor = "#4c93ad"
 npcPotrait = 1

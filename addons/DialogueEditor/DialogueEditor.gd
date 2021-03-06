@@ -87,7 +87,7 @@ func save_connection_list_to_dict() -> void:
 		dict[from_node.title]["branchID%s" % from_branch_choice] = to_branch
 		
 		if to_node is QuestNode:
-			dict[from_node.title]["quest"] = to_node.get_quest()
+			dict[from_node.title]["quest"] = to_node.title.replace("Quest", "")
 			dict[from_node.title]["exitDialogue"] = true
 			dict[from_node.title].erase("branchID%s" % from_branch_choice)
 			
@@ -109,6 +109,8 @@ func save_connection_list_to_dict() -> void:
 						to_branch = dict[child.title][branch_value]
 					dict[child.title].erase(branch_value)
 				dict[child.title]["nextDialogue"] = to_branch
+			elif branch_amount == 0 and child is BaseBranch:
+				dict[child.title]["exitDialogue"] = true
 				
 
 func _on_graph_connection_request(from, from_slot, to, to_slot):
@@ -122,7 +124,7 @@ func _on_graph_disconnection_request(from, from_slot, to, to_slot):
 func _on_add_branch_pressed() -> void:
 	var branch: GraphNode = base_branch_scn.instance()
 	$GraphEdit.add_child(branch)
-	branch.offset += (node_offset * node_index)
+	branch.offset = $GraphEdit.scroll_offset + Vector2(600, 260)
 	node_index += 1
 	branch.name = "Branch " + str(node_index)
 	branch.title = str(node_index)
@@ -144,6 +146,7 @@ func _on_go_to_selected_file():
 	
 	
 func parse_connection_dict(dict: Dictionary) -> void:
+	clear_graph()
 	# adding nodes to graph
 	var node_dict
 	if dict.has("nodes"):
@@ -164,6 +167,7 @@ func parse_connection_dict(dict: Dictionary) -> void:
 			var key_string = node_dict.keys()[i]
 			quest.name = key_string
 			quest.title = quest.name
+			quest.get_node("LineEdit").text = quest.name.replace("Quest", "")
 			quest.offset = Vector2(node_dict.values()[i][0], node_dict.values()[i][1])
 			
 		
@@ -196,6 +200,7 @@ func parse_connection_dict(dict: Dictionary) -> void:
 				
 
 func clear_graph():
+	$GraphEdit.clear_connections()
 	node_index = 0
 	for child in $GraphEdit.get_children():
 		if child is GraphNode:
@@ -213,7 +218,7 @@ func get_node_from_title(title: String) -> GraphNode:
 func _on_add_quest():
 	var quest_node = quest_scn.instance()
 	$GraphEdit.add_child(quest_node)
-	quest_node.offset += (node_offset * node_index)
+	quest_node.offset = $GraphEdit.scroll_offset + Vector2(600, 260)
 	node_index += 1
 
 func _on_node_selected(node):

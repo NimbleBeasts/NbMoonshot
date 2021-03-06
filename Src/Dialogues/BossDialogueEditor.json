@@ -1,32 +1,8 @@
 {
 	"nodes": {
-		"00": [
-			-100,
-			-20
-		],
-		"01": [
-			100,
-			-40
-		],
 		"02": [
 			320,
 			-160
-		],
-		"03": [
-			540,
-			-20
-		],
-		"officeReply": [
-			920,
-			0
-		],
-		"skipTutorial": [
-			880,
-			240
-		],
-		"11": [
-			1380,
-			140
 		],
 		"train": [
 			780,
@@ -35,7 +11,148 @@
 		"Quest0": [
 			1160,
 			-120
+		],
+		"11": [
+			1180,
+			100
+		],
+		"skipTutorial": [
+			760,
+			220
+		],
+		"03": [
+			500,
+			0
+		],
+		"00": [
+			-100,
+			-20
+		],
+		"01": [
+			120,
+			20
+		],
+		"Quest1": [
+			1720,
+			100
+		],
+		"officeReply": [
+			900,
+			0
+		],
+		"12": [
+			1400,
+			60
+		],
+		"10": [
+			1440,
+			-120
+		],
+		"Quest2": [
+			2760,
+			-320
+		],
+		"20": [
+			2100,
+			-480
+		],
+		"30": [
+			2040,
+			-180
+		],
+		"42": [
+			2480,
+			80
+		],
+		"Quest4": [
+			2700,
+			60
+		],
+		"22": [
+			2500,
+			-480
+		],
+		"21": [
+			2300,
+			-460
+		],
+		"31": [
+			2280,
+			-200
+		],
+		"32": [
+			2500,
+			-220
+		],
+		"Quest3": [
+			2760,
+			-180
+		],
+		"40": [
+			2040,
+			100
+		],
+		"41": [
+			2260,
+			40
+		],
+		"50": [
+			2000,
+			360
+		],
+		"51": [
+			2240,
+			340
+		],
+		"Quest5": [
+			2700,
+			280
+		],
+		"52": [
+			2480,
+			300
+		],
+		"60": [
+			2240,
+			580
 		]
+	},
+	"02": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "03"
+	},
+	"train": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "0",
+		"exitDialogue": true
+	},
+	"Quest0": {
+
+	},
+	"11": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "12"
+	},
+	"skipTutorial": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"branchID0": "train",
+		"branchID1": "11"
+	},
+	"03": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"branchID1": "officeReply",
+		"branchID2": "skipTutorial",
+		"branchID0": "train"
 	},
 	"00": {
 		"branchText0": "",
@@ -49,19 +166,8 @@
 		"branchText2": "",
 		"nextDialogue": "02"
 	},
-	"02": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"nextDialogue": "03"
-	},
-	"03": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"branchID1": "officeReply",
-		"branchID2": "skipTutorial",
-		"branchID0": "train"
+	"Quest1": {
+
 	},
 	"officeReply": {
 		"branchText0": "",
@@ -69,26 +175,111 @@
 		"branchText2": "",
 		"nextDialogue": "03"
 	},
-	"skipTutorial": {
+	"12": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"branchID0": "train",
-		"branchID1": "11"
-	},
-	"11": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": ""
-	},
-	"train": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"quest": 0,
+		"quest": "1",
 		"exitDialogue": true
 	},
-	"Quest0": {
+	"10": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "11"
+	},
+	"Quest2": {
 
+	},
+	"20": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "21"
+	},
+	"30": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "31"
+	},
+	"42": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "4",
+		"exitDialogue": true
+	},
+	"Quest4": {
+
+	},
+	"22": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "2",
+		"exitDialogue": true
+	},
+	"21": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "22"
+	},
+	"31": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "32"
+	},
+	"32": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "3",
+		"exitDialogue": true
+	},
+	"Quest3": {
+
+	},
+	"40": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "41"
+	},
+	"41": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "42"
+	},
+	"50": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "51"
+	},
+	"51": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "52"
+	},
+	"Quest5": {
+
+	},
+	"52": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "5",
+		"exitDialogue": true
+	},
+	"60": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"exitDialogue": true
 	}
 }
