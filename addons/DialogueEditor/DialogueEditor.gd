@@ -16,11 +16,6 @@ var dict = {
 	
 }
 
-
-func _ready() -> void:
-	$VBoxContainer/BackToMenuButton.connect("pressed", self, "emit_signal", ["enter_menu_mode"])
-
-
 func index_files() -> void:
 	$FileSelect.clear()
 	var dir = Directory.new()
@@ -134,10 +129,10 @@ func _on_save_pressed():
 	save_connection_list_to_dict()
 	save_dict_to_editing_file()
 	
-
-func _on_go_to_selected_file():
+	
+func open_file(file_name: String) -> void:
 	clear_graph()
-	var file_path: String = "res://Src/Dialogues/%s" % $FileSelect.get_item_text($FileSelect.selected)
+	var file_path: String = "res://Src/Dialogues/%s" % file_name
 	var file := File.new()
 	file.open(file_path, File.READ)
 	var file_dict: Dictionary = parse_json(file.get_as_text())
@@ -224,3 +219,7 @@ func _on_add_quest():
 func _on_node_selected(node):
 	if node is GraphNode:
 		selected_node = node
+
+
+func _on_file_selected(index: int) -> void:
+	open_file($FileSelect.get_item_text(index))
