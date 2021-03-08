@@ -1,45 +1,45 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Src/Skybox/UstriaSkybox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Objects/Home/tv.png" type="Texture" id=7]
 [ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/Objects/sofa.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Objects/Home/CouchTable.png" type="Texture" id=9]
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Src/Objects/Nature/Tree.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Objects/Home/PaintingStarryNight.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=19]
 [ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigameSpawner.gd" type="Script" id=21]
-[ext_resource path="res://Assets/Objects/Tree2.png" type="Texture" id=22]
+[ext_resource path="res://Src/Objects/Chimney.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/Objects/Nature/Bush.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Objects/Office/Bookshelf.png" type="Texture" id=24]
 [ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=25]
 [ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Objects/Home/Bed2.png" type="Texture" id=27]
-[ext_resource path="res://Assets/Dummy.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Objects/Home/BedsideTable.png" type="Texture" id=28]
 [ext_resource path="res://Assets/Objects/Home/Bed1.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Objects/Skeleton.png" type="Texture" id=30]
 [ext_resource path="res://Assets/Objects/Home/Kitchen.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Home/Couch.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Objects/Home/ClockOld.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Objects/Office/Broom.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Objects/Laboratory/BarrelBlue.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Objects/Hospital/WashingMachine.png" type="Texture" id=36]
 [ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=37]
-
-
-
-
-
-
-
-
+[ext_resource path="res://Assets/Objects/Home/Mower.png" type="Texture" id=38]
+[ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=39]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=40]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -60,10 +60,10 @@ extents = Vector2( 120, 8 )
 
 [node name="Level4" type="Node2D"]
 script = ExtResource( 1 )
-level_type = 1
+level_nation_type = 2
 level_objectives = NodePath("../Level4/LevelObjects/PhotoMinigameSpawner")
 
-[node name="UstriaSkybox" parent="." instance=ExtResource( 4 )]
+[node name="NewSkybox" parent="." instance=ExtResource( 4 )]
 
 [node name="SpriteWalls" type="Node2D" parent="."]
 
@@ -79,7 +79,7 @@ cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 32
 occluder_light_mask = 3
 format = 1
-tile_data = PoolIntArray( 524307, 11, 0, 524309, 11, 0, 524311, 11, 0, 524313, 13, 0, 524315, 11, 0, 524317, 11, 0, 524319, 11, 0, 524321, 11, 0, 524323, 11, 0, 524325, 13, 0, 524327, 11, 0, 524329, 11, 0, 524331, 11, 0, 524333, 13, 0, 524335, 11, 0, 524337, 11, 0, 720947, 58, 0, 786464, 1, 0, 1048595, 6, 0, 1048597, 6, 0, 1048599, 6, 0, 1048601, 8, 0, 1048603, 6, 0, 1048605, 6, 0, 1048607, 6, 0, 1048609, 8, 0, 1048611, 6, 0, 1048613, 6, 0, 1048615, 6, 0, 1048617, 8, 0, 1048619, 6, 0, 1048621, 6, 0, 1048623, 6, 0, 1048625, 6, 0, 1245235, 58, 0, 1572883, 32, 0, 1572885, 34, 0, 1572887, 32, 0, 1572889, 34, 0, 1572891, 32, 0, 1572893, 32, 0, 1572895, 34, 0, 1572897, 32, 0, 1572900, 0, 0, 1572902, 0, 0, 1572904, 0, 0, 1572906, 0, 0, 1572908, 4, 0, 1572909, 3, 0, 1572911, 5, 0, 1572912, 0, 0, 1572914, 0, 0, 1572941, 49, 0, 1572943, 49, 0, 1572945, 49, 0, 1572947, 49, 0, 1572949, 49, 0, 1572951, 49, 0, 1572953, 49, 0, 1572955, 49, 0, 1704014, 55, 0, 1704016, 55, 0, 1835010, 59, 0, 1835012, 59, 0, 1835014, 59, 0, 1835016, 59, 0, 1835018, 59, 0, 1835020, 59, 0, 1835022, 59, 0, 1835024, 59, 0, 1835026, 1, 0, 1835043, 1, 0, 1835059, 1, 0, 1835060, 59, 0, 1835062, 59, 0, 1835064, 59, 0, 1835066, 59, 0, 1835068, 59, 0, 1835070, 59, 0, 1835072, 59, 0, 1835074, 59, 0, 1835076, 59, 0, 1835078, 59, 0, 1835080, 59, 0, 1835082, 59, 0, 1835084, 1, 0, 1835101, 59, 0, 1835103, 59, 0, 1835105, 59, 0, 1900632, 57, 0, 2097163, 54, 0, 2097166, 54, 0, 2097169, 54, 0, 2097172, 54, 0, 2097175, 54, 0, 2097178, 54, 0, 2097181, 54, 0, 2097184, 54, 0, 2097187, 54, 0, 2097190, 54, 0, 2097193, 54, 0, 2097196, 54, 0, 2097199, 54, 0, 2097202, 54, 0, 2097205, 54, 0, 2097208, 54, 0, 2293772, 55, 0, 2293774, 55, 0, 2293814, 55, 0, 2293816, 55, 0, 2359314, 1, 0, 2359331, 1, 0, 2490392, 57, 0 )
+tile_data = PoolIntArray( 524307, 11, 0, 524309, 11, 0, 524311, 11, 0, 524313, 13, 0, 524315, 11, 0, 524317, 11, 0, 524319, 11, 0, 524321, 11, 0, 524323, 11, 0, 524325, 13, 0, 524327, 11, 0, 524329, 11, 0, 524331, 11, 0, 524333, 13, 0, 524335, 11, 0, 524337, 11, 0, 720947, 58, 0, 786464, 1, 0, 1048595, 6, 0, 1048597, 6, 0, 1048599, 6, 0, 1048601, 8, 0, 1048603, 6, 0, 1048605, 6, 0, 1048607, 6, 0, 1048609, 8, 0, 1048611, 6, 0, 1048613, 6, 0, 1048615, 6, 0, 1048617, 6, 0, 1048619, 6, 0, 1048621, 6, 0, 1048623, 6, 0, 1048625, 6, 0, 1245235, 58, 0, 1572883, 32, 0, 1572885, 34, 0, 1572887, 32, 0, 1572889, 34, 0, 1572891, 32, 0, 1572893, 32, 0, 1572895, 34, 0, 1572897, 32, 0, 1572900, 0, 0, 1572902, 0, 0, 1572904, 0, 0, 1572906, 0, 0, 1572908, 4, 0, 1572909, 3, 0, 1572911, 5, 0, 1572912, 0, 0, 1572914, 0, 0, 1572941, 49, 0, 1572943, 49, 0, 1572945, 49, 0, 1572947, 49, 0, 1572949, 49, 0, 1572951, 49, 0, 1572953, 49, 0, 1572955, 49, 0, 1704014, 55, 0, 1704016, 55, 0, 1835010, 59, 0, 1835012, 59, 0, 1835014, 59, 0, 1835016, 59, 0, 1835018, 59, 0, 1835020, 59, 0, 1835022, 59, 0, 1835024, 59, 0, 1835026, 1, 0, 1835043, 1, 0, 1835059, 1, 0, 1835060, 59, 0, 1835062, 59, 0, 1835064, 59, 0, 1835066, 59, 0, 1835068, 59, 0, 1835070, 59, 0, 1835072, 59, 0, 1835074, 59, 0, 1835076, 59, 0, 1835078, 59, 0, 1835080, 59, 0, 1835082, 59, 0, 1835084, 1, 0, 1835101, 59, 0, 1835103, 59, 0, 1835105, 59, 0, 1900632, 57, 0, 2097163, 54, 0, 2097166, 54, 0, 2097169, 54, 0, 2097172, 54, 0, 2097175, 54, 0, 2097178, 54, 0, 2097181, 54, 0, 2097184, 54, 0, 2097187, 54, 0, 2097188, 74, 0, 2097189, 75, 0, 2097190, 74, 0, 2097191, 74, 0, 2097192, 74, 0, 2097193, 74, 0, 2097194, 74, 0, 2097195, 74, 0, 2097196, 74, 0, 2097197, 74, 0, 2097198, 74, 0, 2097199, 74, 0, 2097200, 74, 0, 2097201, 74, 0, 2097202, 74, 0, 2097203, 75, 0, 2097204, 74, 0, 2097205, 16, 0, 2097206, 54, 0, 2097209, 54, 0, 2293772, 55, 0, 2293774, 55, 0, 2293814, 55, 0, 2293816, 55, 0, 2359314, 1, 0, 2359331, 1, 0, 2490392, 57, 0 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -117,14 +117,30 @@ position = Vector2( 160, 296 )
 texture = ExtResource( 37 )
 centered = false
 
+[node name="Box6" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 104, 296 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="Box5" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 304, 296 )
+texture = ExtResource( 36 )
+centered = false
+
 [node name="Box2" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 392, 296 )
-texture = ExtResource( 37 )
+texture = ExtResource( 35 )
 centered = false
 
 [node name="Box4" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 696, 232 )
+position = Vector2( 712, 232 )
 texture = ExtResource( 37 )
+centered = false
+
+[node name="Box7" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 624, 232 )
+texture = ExtResource( 38 )
 centered = false
 
 [node name="Box3" type="Sprite" parent="LevelObjects/Decorations"]
@@ -144,27 +160,17 @@ centered = false
 
 [node name="Sofa" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 184, 232 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="Sofa2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 191, 240 )
 texture = ExtResource( 9 )
 centered = false
 
 [node name="Plant" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 256, 224 )
 texture = ExtResource( 26 )
-centered = false
-
-[node name="Tree" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 40, 184 )
-texture = ExtResource( 18 )
-centered = false
-
-[node name="Tree2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 752, 184 )
-texture = ExtResource( 18 )
-centered = false
-
-[node name="Tree3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 544, 208 )
-texture = ExtResource( 22 )
 centered = false
 
 [node name="Tree4" type="Sprite" parent="LevelObjects/Decorations"]
@@ -182,79 +188,94 @@ position = Vector2( 568, 296 )
 z_index = 50
 texture = ExtResource( 30 )
 
+[node name="Sprite2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 296, 112 )
+z_index = 50
+texture = ExtResource( 28 )
+centered = false
+
+[node name="Sprite5" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 224, 88 )
+z_index = 50
+texture = ExtResource( 33 )
+centered = false
+
+[node name="Sprite4" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 358, 112 )
+z_index = 50
+texture = ExtResource( 28 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 344, 149 )
+z_index = 50
+texture = ExtResource( 18 )
+centered = false
+
+[node name="Tree" parent="LevelObjects/Decorations" instance=ExtResource( 11 )]
+position = Vector2( 56, 184 )
+tree = 0
+season = 0
+variant = 0
+
+[node name="Tree2" parent="LevelObjects/Decorations" instance=ExtResource( 11 )]
+position = Vector2( 520, 184 )
+tree = 0
+season = 0
+variant = 1
+
+[node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 22 )]
+position = Vector2( 356, 180 )
+
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 144, 256 )
-door_name = "DoorWall7"
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 256, 128 )
 lockLevel = 1
-door_name = "Blah"
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 280, 256 )
-door_name = "DoorWall9"
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 280, 320 )
-door_name = "DoorWall10"
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 144, 320 )
-door_name = "DoorWall11"
 
 [node name="DoorWall12" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 608, 256 )
 lockLevel = 2
-door_name = "DoorWall12"
 
 [node name="DoorWall13" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 408, 256 )
-door_name = "DoorWall13"
 
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseE0")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
-position = Vector2( 240, 256 )
+position = Vector2( 239, 256 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseCellar")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="StaircaseE0_2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 392, 256 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseE1")
 lockLevel = 1
-doorType = 0
-door_name = ""
 
 [node name="StaircaseE1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 392, 192 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseE0_2")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="StaircaseE1_2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 176, 192 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseE2")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="StaircaseE2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 176, 128 )
 connected_door_path = NodePath("../../../../Level4/LevelObjects/Doors/StaircaseE1_2")
-lockLevel = 0
-doorType = 0
-door_name = ""
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -263,7 +284,6 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 216, 200 )
-flicker = false
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 208, 72 )
@@ -272,7 +292,6 @@ flickerSequence = "11100000000000000"
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
 position = Vector2( 352, 200 )
-flicker = false
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 152, 208 )
@@ -362,19 +381,14 @@ camDirection = 1
 isFixedCam = true
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 20 )]
-position = Vector2( 376, 128 )
-type = 0
+position = Vector2( 388, 128 )
 hasBounty = true
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 20 )]
-position = Vector2( 352, 192 )
-type = 0
-hasBounty = false
+position = Vector2( 192, 192 )
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 280, 192 )
-type = 0
-hasBounty = false
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 336, 320 )
@@ -382,15 +396,12 @@ type = 2
 hasBounty = true
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 20 )]
-position = Vector2( 640, 256 )
-type = 0
-hasBounty = false
+position = Vector2( 688, 256 )
 
 [node name="PhotoMinigameSpawner" type="Area2D" parent="LevelObjects"]
 position = Vector2( 334.762, 116.076 )
 script = ExtResource( 21 )
 countDownTime = 23
-targetTexture = ExtResource( 28 )
 targetColliderExtents = Vector2( 50, 50 )
 cameraMoveSpeed = 300.0
 
@@ -401,18 +412,14 @@ shape = SubResource( 2 )
 position = Vector2( -56, 256 )
 z_index = 50
 
+[node name="Dog" parent="." instance=ExtResource( 39 )]
+position = Vector2( 576, 256 )
+
+[node name="PathLine" type="Line2D" parent="Dog"]
+points = PoolVector2Array( -8, -8, -40, -8, -136, -8 )
+script = ExtResource( 40 )
+
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="." instance=ExtResource( 11 )]
-
-[node name="Label" type="Label" parent="HUD"]
-visible = false
-margin_right = 72.0
-margin_bottom = 14.0
-text = "Hello Level"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -200, 256 )
