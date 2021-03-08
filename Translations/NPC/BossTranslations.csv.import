@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://Translations/NPC/BossTranslations.en.translation", "res://Translations/NPC/BossTranslations.ru.translation", "res://Translations/NPC/BossTranslations.de.translation" ]
+
+source_file="res://Translations/NPC/BossTranslations.csv"
+dest_files=[ "res://Translations/NPC/BossTranslations.en.translation", "res://Translations/NPC/BossTranslations.ru.translation", "res://Translations/NPC/BossTranslations.de.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

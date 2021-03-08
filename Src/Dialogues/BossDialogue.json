@@ -1,36 +1,5 @@
 {
+	"nodes": {
 
-"00" : {"nextDialogue": "01", "lastDialogue": "03"},
-"01" : { "nextDialogue": "02"},
-"02" : {"nextDialogue": "03"},
-"03" : {"branchID0": "train", "branchID1": "officeReply", "branchID2": "skipTutorial"},
-"train" : {"exitDialogue": true, "quest": "0"},
-"officeReply": {"nextDialogue": "03"},
-"skipTutorial" : {"branchID0": "train", "branchID1": "11"},
-
-"10" : {"nextDialogue": "11", "lastDialogue": "12"},
-"11" : {"nextDialogue": "12"},
-"12" : {"exitDialogue": true, "quest": "1"},
-
-"20" : {"nextDialogue": "21", "lastDialogue": "22"},
-"21" : {"nextDialogue": "22"},
-"22" : {"exitDialogue": true, "quest": "2"},
-
-"30" : {"nextDialogue": "31", "lastDialogue": "32"},
-"31" : {"nextDialogue": "32"},
-"32" : {"exitDialogue": true, "quest": "3"},
-
-"40" : {"nextDialogue": "41", "lastDialogue": "42"},
-"41" : {"nextDialogue": "42"},
-"42" : {"exitDialogue": true, "quest": "4"},
-
-
-"50" : {"nextDialogue": "51", "lastDialogue": "52"},
-"51" : {"nextDialogue": "52"},
-"52" : {"exitDialogue": true, "quest": "5"},
-
-
-
- "60" : {"exitDialogue": true}
-
+	}
 }

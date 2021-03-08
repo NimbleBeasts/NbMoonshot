@@ -8,8 +8,10 @@ var quest_scn: PackedScene = preload("res://addons/DialogueEditor/QuestNode.tscn
 var graph_edit: GraphEdit = GraphEdit.new()
 var node_index: int
 var files: Array = []
+var csv_files: Array = []
 var node_offset: Vector2 = Vector2(160, 0)
 var selected_node: Node
+var csv_save: PoolStringArray
 
 # will be converted to the json file
 var dict = {
@@ -27,6 +29,17 @@ func index_files() -> void:
 				files.push_front(file_name)
 				$FileSelect.add_item(file_name, 0)
 			file_name = dir.get_next()			
+			
+			
+	$TranslationFiles.clear()
+	if dir.change_dir("res://Translations/NPC") == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if file_name.ends_with(".csv"):
+				csv_files.push_front(file_name)
+				$TranslationFiles.add_item(file_name, 0)
+			file_name = dir.get_next()
 
 
 func save_dict_to_editing_file() -> void:
@@ -53,10 +66,10 @@ func save_connection_list_to_dict() -> void:
 			
 			dict["nodes"][child.title] = [child.offset.x, child.offset.y]
 			
-			
 			if not dict.has(child.title):
 				dict[child.title] = {}
 			if child is BaseBranch:
+				# branchText
 				for i in 3:
 					dict[child.title]["branchText%s" % i] = child.get_node("LineEdit%s" % i).text
 				
@@ -106,7 +119,8 @@ func save_connection_list_to_dict() -> void:
 				dict[child.title]["nextDialogue"] = to_branch
 			elif branch_amount == 0 and child is BaseBranch:
 				dict[child.title]["exitDialogue"] = true
-				
+	
+	
 
 func _on_graph_connection_request(from, from_slot, to, to_slot):
 	$GraphEdit.connect_node(from, from_slot, to, to_slot)
@@ -192,7 +206,8 @@ func parse_connection_dict(dict: Dictionary) -> void:
 			elif found.begins_with("branchText"):
 				var index := int(found.replace("branchText", ""))
 				from.get_node("LineEdit%s" % index).text = branches.values()[j]
-				
+	
+	update_translations($TranslationFiles.selected)		
 
 func clear_graph():
 	$GraphEdit.clear_connections()
@@ -216,6 +231,7 @@ func _on_add_quest():
 	quest_node.offset = $GraphEdit.scroll_offset + Vector2(600, 260)
 	node_index += 1
 
+
 func _on_node_selected(node):
 	if node is GraphNode:
 		selected_node = node
@@ -223,3 +239,26 @@ func _on_node_selected(node):
 
 func _on_file_selected(index: int) -> void:
 	open_file($FileSelect.get_item_text(index))
+
+
+func update_translations(index: int) -> void:
+	var file := File.new()
+	var file_path = "res://Translations/NPC/%s" % $TranslationFiles.get_item_text(index)
+	if file.open(file_path, File.READ) == OK:
+		var csv_line: Array = file.get_csv_line()
+		while csv_line[0] != "END":
+			var key_text = csv_line[0]
+			if key_text.begins_with("KEY_"):
+				var node = get_node_from_title(key_text.replace("KEY_", ""))
+				if node != null:
+					node.get_node("Text").text = csv_line[1]
+			elif key_text.begins_with("CHOICE_"):
+				var thing = key_text.replace("CHOICE_", "").split("_")
+				var node = get_node_from_title(thing[0])
+				if node != null:
+					node.get_node("LineEdit%s" % thing[1]).text = csv_line[1]
+			csv_line = file.get_csv_line()
+	else:
+		printerr("Couldn't open file at %s" % file_path)
+		
+
