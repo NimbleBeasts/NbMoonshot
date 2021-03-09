@@ -181,6 +181,7 @@ centered = false
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 344, 96 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="LevelObjects/Decorations"]
@@ -227,7 +228,7 @@ variant = 1
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 22 )]
 position = Vector2( 356, 180 )
-frame = 0
+frame = 1
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
