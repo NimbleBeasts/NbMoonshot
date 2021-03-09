@@ -3,10 +3,11 @@ extends Door
 
 
 enum DoorType {wooden, metalSwing}
-
+enum DoorDirectionType {none = 0, up = 1, down = 2}
 
 export(Types.DoorLockType) var lockLevel = Types.DoorLockType.open
 export(DoorType) var doorType = DoorType.wooden
+export(DoorDirectionType) var directionIndication = DoorDirectionType.none setget changeDirectionIndication
 var open: bool = false
 
 
@@ -23,6 +24,12 @@ func _ready():
 	else:
 		$Sprite.texture = preload("res://Assets/Doors/Staircase.png")
 	
+
+func changeDirectionIndication(val):
+	$Direction.frame = val
+	directionIndication = val
+	
+
 
 # overriden
 func interact() -> void:
