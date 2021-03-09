@@ -107,7 +107,6 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 0
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -327,7 +326,7 @@ canBeOpened = true
 [node name="Dog" parent="." instance=ExtResource( 39 )]
 position = Vector2( -464, 256 )
 
-[node name="DogPathLine" type="Line2D" parent="Dog"]
+[node name="PathLine" type="Line2D" parent="Dog"]
 points = PoolVector2Array( -12, -8, -64, -8, -120, -8 )
 script = ExtResource( 15 )
 

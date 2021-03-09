@@ -16,6 +16,9 @@ extents = Vector2( 10, 32 )
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Affaire 2: Your boss wants you to infiltrate the affaires house, taser him and bring the body to the car."
+}
 playCarCloseSound = false
 
 [node name="Position2D" type="Position2D" parent="."]
@@ -82,11 +85,6 @@ __meta__ = {
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 80, 256 )
-flicker = false
-flickerSequence = "1110"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -108,14 +106,10 @@ position = Vector2( 512, 256 )
 [node name="Staircase" parent="LevelObjects/Staircases" instance=ExtResource( 9 )]
 position = Vector2( 320, 256 )
 connected_door_path = NodePath("../Staircase2")
-lockLevel = 0
-doorType = 0
 
 [node name="Staircase2" parent="LevelObjects/Staircases" instance=ExtResource( 9 )]
 position = Vector2( 320, 184 )
 connected_door_path = NodePath("../Staircase")
-lockLevel = 0
-doorType = 0
 
 [node name="Cameras" type="Node2D" parent="LevelObjects"]
 position = Vector2( 8, 0 )

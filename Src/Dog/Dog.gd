@@ -15,7 +15,7 @@ var isMovingToPlayer: bool
 var playerInLOS: bool
 var barkAfterAngry: bool = false
 
-onready var pathLine: PathLine = get_node("DogPathLine")
+onready var pathLine: PathLine = get_node("PathLine")
 onready var losArea: Area2D = $Flippable/LOSArea
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 

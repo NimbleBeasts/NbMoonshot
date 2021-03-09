@@ -220,12 +220,14 @@ variant = 0
 
 [node name="Tree2" parent="LevelObjects/Decorations" instance=ExtResource( 11 )]
 position = Vector2( 520, 184 )
+frame = 1
 tree = 0
 season = 0
 variant = 1
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 22 )]
 position = Vector2( 356, 180 )
+frame = 0
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
