@@ -1,11 +1,21 @@
+tool
 extends Area2D
 
 export (Array, NodePath) var unlocks: Array
+export (bool) var startStateOn = false setget setStartState
+
 var player
 
 
+func setStartState(switch):
+	if switch == true:
+		$Sprite.frame = 1
+	else:
+		$Sprite.frame = 0
+	startStateOn = switch
+
+
 func _ready() -> void:
-	$Sprite.frame = 0
 	connect("body_entered", self, "onBodyEntered")
 	connect("body_exited", self, "onBodyExited")
 	set_process_input(false)
@@ -29,15 +39,22 @@ func onBodyExited(body: Node) -> void:
 
 
 func press() -> void:
-	$Sprite.frame = 1
+	
+	if $Sprite.frame == 0:
+		$Sprite.frame = 1
+	else:
+		$Sprite.frame = 0
+	
 	Events.emit_signal("play_sound", "button")
 	Events.emit_signal("hud_game_hint", "Button pressed")
 	for thing in unlocks:
 		var node = get_node(thing)
-		if node is Lights:
+		if not node:
+			printerr("Node Not Found")
+			return
+		if node.has_method("unlock"):
+			node.unlock()
+		else:
 			node.toggleState()
-		elif node is DoorWall:
-			if node.lockLevel == node.DoorLockType.buttonLocked:
-				node.open()
-				return
-			printerr("Trying to open %s that isn't of locked level 'buttonLocked' through %s" % [node.name, name])
+
+

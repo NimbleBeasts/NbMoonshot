@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/ThinArea/ThinArea4x.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12, 4 )
+extents = Vector2( 16, 4 )
 
 [node name="ThinArea" type="Area2D" groups=[
 "AreaGround",

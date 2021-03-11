@@ -8,6 +8,7 @@ var doorIsOpen = false
 var playerNode = null
 var startingLockLevel: int
 
+
 enum DoorType {wooden, metal, metalSwing}
 
 export(Types.DoorLockType) var lockLevel = Types.DoorLockType.open
@@ -16,6 +17,7 @@ export var save_state = false
 export var showHintIfLocked: bool = false
 export var hint: String
 export var keyPath: NodePath
+export var doorLockStateLocked: bool = true
 
 export (Array)  var sig_to_trig
 onready var key
@@ -50,7 +52,14 @@ func update_texture(new_door_type) -> void:
 		$Sprite.texture = preload("res://Assets/Doors/DoorWall.png")
 
 
+func unlock():
+	doorLockStateLocked = !doorLockStateLocked
+	print("unlock")
+	print(doorLockStateLocked)
+
+
 func open():
+	print("door open")
 	lockLevel = Types.DoorLockType.open
 
 
@@ -82,7 +91,9 @@ func interact(run_sub, openerPos: Vector2):
 				Events.emit_signal("hud_game_hint", "You need a %s key to open this door" % key.stringName)
 				return
 		Types.DoorLockType.locked:
+			Events.emit_signal("play_sound", "chest_locked")
 			Events.emit_signal("hud_game_hint", hint)
+			return
 		Types.DoorLockType.lockedLevel1:
 			if doorType == DoorType.wooden:
 				$LockpickSmallMinigameSpawner.run_minigame(self, 1, true)
@@ -95,6 +106,15 @@ func interact(run_sub, openerPos: Vector2):
 			else:
 				$LightMinigameSpawner.run_minigame(self, 1, true)
 			return
+		Types.DoorLockType.buttonLocked:
+			print("button Locked")
+			if doorLockStateLocked:
+				print("locked")
+				Events.emit_signal("play_sound", "chest_locked")
+				#TODO: change sound
+			else:
+				print("opened")
+				playDoorAnimation(openerPos)
 		_:
 			# Open the door
 			playDoorAnimation(openerPos)

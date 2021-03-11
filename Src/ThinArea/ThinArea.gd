@@ -6,6 +6,7 @@ enum Width {Width3 = 0, Width4 = 1}
 
 export var reduced_up = 0
 export var reduced_down = 0
+export var disabled: bool = false setget setDisabled
 export var isLadder: bool
 export(Width) var width = Width.Width4 setget setWidth
 
@@ -26,6 +27,11 @@ func _ready():
 	shape.extents = Vector2(16, 4)
 	$CollisionShape2D.shape = shape
 	$StaticBody2D/CollisionShape2D.shape = shape
+
+
+func setDisabled(val):
+	self.monitoring = !val
+	disabled = val
 
 func setWidth(_width):
 	if isLadder:

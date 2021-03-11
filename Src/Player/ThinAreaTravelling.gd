@@ -25,6 +25,8 @@ func _physics_process(delta: float) -> void:
 		var thinArea := travelRayDown.get_collider() as ThinArea
 		if thinArea == null:
 			return
+		elif thinArea.disabled:
+			return
 		if Input.is_action_just_pressed("travel_down"):
 			Events.emit_signal("player_guard_drop")
 			Events.emit_signal("player_item_drop")
@@ -45,6 +47,8 @@ func _physics_process(delta: float) -> void:
 	if travelRayUp.is_colliding() and player.state == Types.PlayerStates.Normal:
 		var thinArea := travelRayUp.get_collider() as ThinArea
 		if thinArea == null:
+			return
+		elif thinArea.disabled:
 			return
 		# Tweening
 		if Input.is_action_just_pressed("travel_up"):
