@@ -100,6 +100,11 @@ tile_data = PoolIntArray( 589715, 13, 0, 589717, 13, 0, 589719, 14, 0, 589721, 1
 
 [node name="ThinArea" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( 96, 264 )
+reduced_up = 0
+reduced_down = 0
+disabled = false
+isLadder = false
+width = 1
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 12 )]
 position = Vector2( -104, 256 )
@@ -206,19 +211,38 @@ variant = 1
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseCellar")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( -671, 192 )
 lockLevel = 1
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( -697, 192 )
 lockLevel = 1
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -227,12 +251,24 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( 216, 200 )
+flicker = false
+DebugLight = false
+col1 = Color( 1, 0.1, 1, 1 )
+col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -105, 212 )
+flicker = false
+DebugLight = false
+col1 = Color( 1, 0.1, 1, 1 )
+col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -656, 72 )
+flicker = false
+DebugLight = false
+col1 = Color( 1, 0.1, 1, 1 )
+col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 208 )
@@ -261,26 +297,39 @@ standbyTimerAfterDetection = 3.0
 
 [node name="Ladder" parent="LevelObjects" instance=ExtResource( 22 )]
 position = Vector2( -664, 200 )
+reduced_up = 0
+reduced_down = 0
+disabled = false
+width = 1
 
 [node name="ThinArea3" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( -664, 136 )
+reduced_up = 0
+reduced_down = 0
+disabled = false
+isLadder = false
+width = 1
 
 [node name="Locker" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( -768, 128 )
+type = 0
 hasBounty = true
+isObjective = false
 
 [node name="Locker2" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( -760, 128 )
 type = 1
 hasBounty = true
+isObjective = false
 
 [node name="Locker3" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( -776, 128 )
 type = 1
 hasBounty = true
+isObjective = false
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -678, 192 )
+position = Vector2( -176, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -290,6 +339,8 @@ position = Vector2( 118.538, 238.544 )
 
 [node name="Button" parent="." instance=ExtResource( 26 )]
 position = Vector2( -23.5263, 235.871 )
+unlocks = [  ]
+startStateOn = false
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -600, 256 )
@@ -339,7 +390,3 @@ shape = SubResource( 4 )
 
 [node name="Guard2" parent="." instance=ExtResource( 25 )]
 position = Vector2( -224, 256 )
-
-[node name="PathLine" type="Line2D" parent="Guard2"]
-points = PoolVector2Array( 16, -16, 80, -16, 144, -16 )
-script = ExtResource( 15 )
