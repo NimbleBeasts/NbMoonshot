@@ -29,4 +29,5 @@ hframes = 5
 frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
 anims/idle = SubResource( 1 )
