@@ -527,6 +527,9 @@ position = Vector2( 808, 200 )
 flicker = true
 flickerSequence = "11111111010100000000010"
 
+[node name="Light2D" parent="LevelObjects/Lights/Light6" index="3"]
+visible = false
+
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 904, 200 )
 
@@ -739,10 +742,6 @@ position = Vector2( 1280, 136 )
 
 [node name="DeskGuard" parent="." instance=ExtResource( 3 )]
 position = Vector2( 326, 256 )
-lookDirection = 0
-lookDuration = 2.0
-readDuration = 3.0
-removeNotifierDuration = 1.0
 
 [node name="NPCS" type="Node2D" parent="."]
 
