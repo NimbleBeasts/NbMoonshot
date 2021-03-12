@@ -76,6 +76,10 @@ func _ready() -> void:
 			else:
 				print("Guard: " + str(self) + " - Wrong path node used. Was this intended?")
 
+	if guardPathLine == null and distractPathLine == null:
+		print("Coudn't find pathline, setting state to idle")
+		set_state(Types.GuardStates.Idle)
+
 	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
 	$Flippable/GuardArea.connect("body_entered", self, "onGuardBodyEntered")
@@ -86,7 +90,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if state == Types.GuardStates.Wander or state == Types.GuardStates.Suspect:
+	if state == Types.GuardStates.Wander or state == Types.GuardStates.Suspect or state == Types.GuardStates.Idle:
 		detectPlayerIfClose()
 	if state != Types.GuardStates.Stunned and state != Types.GuardStates.PlayerDetected:
 		if not velocity.x == 0:
@@ -121,7 +125,8 @@ func losRayIsCollidingWith(obj: Node) -> bool:
 func detectPlayerIfClose() -> void:
 	if player.global_position.distance_to(global_position) < playerSuspectDistance and state != Types.GuardStates.Stunned:
 		if player.state != Types.PlayerStates.WallDodge and losRayIsCollidingWith(player) and not player_detected:
-				guardPathLine.moveToPoint(player.global_position)
+				if guardPathLine != null:
+					guardPathLine.moveToPoint(player.global_position)
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
 					Events.emit_signal("play_sound", "suspicious")
@@ -167,9 +172,10 @@ func playerDetectLOS() -> void:
 			Types.LightLevels.BarelyVisible:
 				if not player_detected: # only sets to suspect if hasn't detected player before
 					playerLastSeenPosition = player.global_position
-					set_state(Types.GuardStates.Suspect)
+					if not state == Types.GuardStates.Idle:
+						set_state(Types.GuardStates.Suspect)
 			Types.LightLevels.Dark:
-				if not player_detected and not isMovingToPlayer: # only sets to wander if hasn't detected player before
+				if not player_detected and not isMovingToPlayer and not state == Types.GuardStates.Idle: # only sets to wander if hasn't detected player before
 					set_state(Types.GuardStates.Wander)
 
 					
@@ -227,8 +233,10 @@ func _on_audio_level_changed(audio_level: int, audio_pos: Vector2, _emitter) -> 
 func set_state(new_state) -> void:
 	if state != new_state:
 		state = new_state
-		# hmmm, i should prob comment this
 		match new_state:
+			Types.GuardStates.Idle:
+				animPlayer.play("idle")
+				processAI = true
 			Types.GuardStates.PlayerDetected:
 				playerLastSeenPosition = player.global_position
 				Global.startTimerOnce($SureDetectionTimer)
@@ -349,7 +357,8 @@ func setApplyGravity(_dummyargument, to: bool):
 		
 	
 func stopMovement():
-	guardPathLine.stopAllMovement()
+	if guardPathLine:
+		guardPathLine.stopAllMovement()
 	if distractPathLine:
 		distractPathLine.stopAllMovement()
 

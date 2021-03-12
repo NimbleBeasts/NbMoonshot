@@ -23,7 +23,7 @@ enum MinigameResults{Failed, Succeeded, Doing}
 enum DoorLockType {open = 0, lockedLevel1 = 1, lockedLevel2 = 2, locked = 3, buttonLocked = 4, keyLocked = 5}
 
 # Guards
-enum GuardStates {Wander, Suspect, PlayerDetected, Stunned, BeingDragged}
+enum GuardStates {Idle, Wander, Suspect, PlayerDetected, Stunned, BeingDragged}
 enum EliteGuardStates {Roaming, MovingToPlayer, Suspicious, TaseringPlayer}
 
 # Civilians
