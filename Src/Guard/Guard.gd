@@ -125,11 +125,15 @@ func losRayIsCollidingWith(obj: Node) -> bool:
 func detectPlayerIfClose() -> void:
 	if player.global_position.distance_to(global_position) < playerSuspectDistance and state != Types.GuardStates.Stunned:
 		if player.state != Types.PlayerStates.WallDodge and losRayIsCollidingWith(player) and not player_detected:
-				if guardPathLine != null:
-					guardPathLine.moveToPoint(player.global_position)
+				if guardPathLine == null:
+					guardPathLine = PathLine.new()
+					add_child(guardPathLine)
+				# if guardPathLine != null:
+				guardPathLine.moveToPoint(player.global_position)
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
 					Events.emit_signal("play_sound", "suspicious")
+					$GoBackToNormalTimer.start(1)
 				if player.global_position.distance_to(global_position) < playerDetectDistance:
 					set_state(Types.GuardStates.PlayerDetected)
 

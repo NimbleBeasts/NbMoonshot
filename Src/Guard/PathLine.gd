@@ -60,7 +60,8 @@ func _process(delta: float) -> void:
 
 
 func onTimerTimeout() -> void:
-	next_point = global_points[currentIndex]
+	if global_points.size() -1 >= currentIndex:
+		next_point = global_points[currentIndex]
 
 
 func moveToNextPoint():
