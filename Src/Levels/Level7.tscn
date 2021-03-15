@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -8,9 +8,16 @@
 [ext_resource path="res://Assets/Objects/Entry2.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Objects/LawWall.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Objects/LawFirm/Balcony.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Objects/Home/Couch.png" type="Texture" id=9]
+[ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Objects/Home/Couch_Side.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Objects/Home/ClockOld.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=13]
-[ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Objects/Nature/Plant2.png" type="Texture" id=14]
+[ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Objects/Home/TableSmall.png" type="Texture" id=16]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
@@ -28,6 +35,7 @@ level_objectives = NodePath("../Level4/LevelObjects/PhotoMinigameSpawner")
 [node name="SpriteWalls" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="SpriteWalls"]
+light_mask = 3
 position = Vector2( 88, 168 )
 scale = Vector2( 2.25, 1 )
 texture = ExtResource( 7 )
@@ -62,23 +70,54 @@ position = Vector2( 96, 376 )
 texture = ExtResource( 5 )
 centered = false
 
+[node name="Clock" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 272, 216 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="DeskGuard" parent="LevelObjects/Decorations" instance=ExtResource( 10 )]
+position = Vector2( 304, 256 )
+
+[node name="Couch" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 140, 232 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="Plant" type="Sprite" parent="LevelObjects/Decorations/Couch"]
+position = Vector2( -19, -8 )
+texture = ExtResource( 18 )
+centered = false
+
+[node name="Plant2" type="Sprite" parent="LevelObjects/Decorations/Couch"]
+position = Vector2( 94, -8 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Couch2" type="Sprite" parent="LevelObjects/Decorations/Couch"]
+position = Vector2( 48, 0 )
+texture = ExtResource( 16 )
+centered = false
+
+[node name="Couch3" type="Sprite" parent="LevelObjects/Decorations/Couch"]
+position = Vector2( 64, 0 )
+texture = ExtResource( 11 )
+centered = false
+
 [node name="Doors" type="Node2D" parent="LevelObjects"]
+
+[node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 80, 256 )
+
+[node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 376, 256 )
+
+[node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 456, 256 )
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
-position = Vector2( 216, 200 )
-
-[node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
-position = Vector2( 208, 72 )
-flicker = true
-flickerSequence = "11100000000000000"
-
-[node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 15 )]
-position = Vector2( 352, 200 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -56, 256 )
