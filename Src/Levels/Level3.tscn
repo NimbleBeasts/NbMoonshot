@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=2]
@@ -75,6 +75,26 @@
 [ext_resource path="res://Assets/Temp/Barrel.png" type="Texture" id=73]
 [ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=74]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=75]
+[ext_resource path="res://Assets/Objects/Monkey.tscn" type="PackedScene" id=76]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.540741, 1 )
+colors = PoolColorArray( 0, 0.473728, 0.996094, 1, 0.519531, 0.831085, 1, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+flag_align_y = true
+flag_rotate_y = true
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 40.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 3 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
@@ -973,7 +993,13 @@ Call maintenance tomorrow sprinklers are broken."
 position = Vector2( -58.2305, 191.906 )
 deactivateAble = [ NodePath("../Camera"), NodePath("../Camera2") ]
 
+[node name="SprinklerParticle" type="Particles2D" parent="LevelObjects"]
+position = Vector2( 497.062, 253.474 )
+lifetime = 0.9
+process_material = SubResource( 4 )
+
 [node name="LevelDarkener" type="ColorRect" parent="."]
+visible = false
 margin_left = -2000.0
 margin_top = -2000.0
 margin_right = 2600.0
@@ -1003,10 +1029,6 @@ lookDirection = 1
 lookDuration = 2.0
 readDuration = 3.0
 removeNotifierDuration = 1.0
-
-[node name="Civillian" parent="." instance=ExtResource( 39 )]
-position = Vector2( 393.543, 258.341 )
-isHostileArea = true
 
 [node name="NPCs" type="Node2D" parent="."]
 
@@ -1048,11 +1070,9 @@ scale = Vector2( -1, 1 )
 
 [node name="Guard4" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( 445.805, 192.732 )
-time_to_sure_detection = 1.5
 
 [node name="Guard6" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( -1.83359, 192.236 )
-time_to_sure_detection = 1.5
 
 [node name="Dog" parent="NPCs" instance=ExtResource( 74 )]
 position = Vector2( 266.864, 63.2125 )
@@ -1074,5 +1094,12 @@ position = Vector2( 215.272, 255.261 )
 [node name="PathLine" type="Line2D" parent="NPCs/EliteGuard"]
 points = PoolVector2Array( 0, 0, 0, 0 )
 script = ExtResource( 3 )
+
+[node name="Monkey" parent="NPCs" instance=ExtResource( 76 )]
+position = Vector2( 418.2, 242.007 )
+
+[node name="Civillian" parent="NPCs" instance=ExtResource( 39 )]
+position = Vector2( 393.543, 258.341 )
+isHostileArea = true
 
 [node name="NewSkybox" parent="." instance=ExtResource( 1 )]
