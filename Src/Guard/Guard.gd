@@ -253,6 +253,8 @@ func set_state(new_state) -> void:
 				Events.emit_signal("play_sound", "suspicious")
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
+				if guardPathLine == null:
+					return #TODO KNIGHT CHECK
 				guardPathLine.moveToPoint(playerLastSeenPosition)
 				isMovingToPlayer = true
 			Types.GuardStates.Wander:
