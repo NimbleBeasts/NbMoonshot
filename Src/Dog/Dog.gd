@@ -176,7 +176,7 @@ func onDogBodyEntered(body: Node) -> void:
 		body.queue_free()
 	elif body.is_in_group("DoorWall"):
 		var door = body.get_parent()
-		if door.lockLevel == door.DoorLockType.open:
+		if door.lockLevel == Types.DoorLockType.open:
 			door.interact(true, global_position)
 		else:
 			$Notifier.remove()

@@ -122,12 +122,17 @@ func losRayIsCollidingWith(obj: Node) -> bool:
 	return losRay.is_colliding() and losRay.get_collider() == obj
 
 
+func verifyGuardPathLine() -> void:
+	if guardPathLine != null:
+		return
+	guardPathLine = PathLine.new()
+	add_child(guardPathLine)
+
+
 func detectPlayerIfClose() -> void:
 	if player.global_position.distance_to(global_position) < playerSuspectDistance and state != Types.GuardStates.Stunned:
 		if player.state != Types.PlayerStates.WallDodge and losRayIsCollidingWith(player) and not player_detected:
-				if guardPathLine == null:
-					guardPathLine = PathLine.new()
-					add_child(guardPathLine)
+				verifyGuardPathLine()
 				# if guardPathLine != null:
 				guardPathLine.moveToPoint(player.global_position)
 				if not $Notifier.isShowing:
@@ -176,10 +181,9 @@ func playerDetectLOS() -> void:
 			Types.LightLevels.BarelyVisible:
 				if not player_detected: # only sets to suspect if hasn't detected player before
 					playerLastSeenPosition = player.global_position
-					if not state == Types.GuardStates.Idle:
-						set_state(Types.GuardStates.Suspect)
+					set_state(Types.GuardStates.Suspect)
 			Types.LightLevels.Dark:
-				if not player_detected and not isMovingToPlayer and not state == Types.GuardStates.Idle: # only sets to wander if hasn't detected player before
+				if not player_detected and not isMovingToPlayer and state != Types.GuardStates.Idle and state != Types.GuardStates.Stunned: # only sets to wander if hasn't detected player before
 					set_state(Types.GuardStates.Wander)
 
 					
@@ -253,14 +257,17 @@ func set_state(new_state) -> void:
 				Events.emit_signal("play_sound", "suspicious")
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
+				verifyGuardPathLine()
 				guardPathLine.moveToPoint(playerLastSeenPosition)
 				isMovingToPlayer = true
 			Types.GuardStates.Wander:
 				$Notifier.remove()
+				verifyGuardPathLine()
 				guardPathLine.startNormalMovement()
 				if direction.x != 0:
 					$AnimationPlayer.play("walk")
 			Types.GuardStates.Stunned:
+				$GoBackToNormalTimer.stop()
 				losRay.set_deferred("monitoring", false)
 				$Flippable/GuardArea.set_deferred("monitoring", false)
 				$Flippable/LineOfSight.set_deferred("monitoring", false)
@@ -309,7 +316,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func onGoBackToNormalTimeout() -> void:
-	set_state(Types.GuardStates.Wander)
+	if state != Types.GuardStates.Stunned:
+		set_state(Types.GuardStates.Wander)
 	$Notifier.remove()
 
 

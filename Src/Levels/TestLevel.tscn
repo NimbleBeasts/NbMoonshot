@@ -112,7 +112,6 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 0
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -324,13 +323,13 @@ hasBounty = true
 isObjective = false
 
 [node name="Locker3" parent="LevelObjects" instance=ExtResource( 29 )]
-position = Vector2( -776, 128 )
+position = Vector2( -792, 128 )
 type = 1
 hasBounty = true
 isObjective = false
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -176, 256 )
+position = Vector2( -160, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -390,4 +389,4 @@ position = Vector2( 60, 2 )
 shape = SubResource( 4 )
 
 [node name="Guard2" parent="." instance=ExtResource( 25 )]
-position = Vector2( -280, 256 )
+position = Vector2( -232, 256 )
