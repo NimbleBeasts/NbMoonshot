@@ -9,12 +9,12 @@ var pipe_root
 var water_line
 #var plan1 = [2,0,1,3, 0,1,1,0, 1,1,1,1]
 
-var plan1 = [2,0,1, 1,1,1, 0,1,1, 3,0,1]
-var plan2 = [2,1,0, 1,0,1, 0,1,1, 3,0,1]
-var plan3 = [2,0,1, 1,0,1, 1,0,1, 3,0,1]
-var plan4 = [2,0,1, 1,1,0, 1,0,0, 3,0,1]
-var plan5 = [2,1,0, 0,1,1, 0,1,1, 3,1,0]
-var plan6 = [2,1,1, 1,0,1, 1,0,1, 3,1,1]
+#var plan1 = [2,0,1, 1,1,1, 0,1,1, 3,0,1]
+#var plan2 = [2,1,0, 1,0,1, 0,1,1, 3,0,1]
+#var plan3 = [2,0,1, 1,0,1, 1,0,1, 3,0,1]
+#var plan4 = [2,0,1, 1,1,0, 1,0,0, 3,0,1]
+#var plan5 = [2,1,0, 0,1,1, 0,1,1, 3,1,0]
+#var plan6 = [2,1,1, 1,0,1, 1,0,1, 3,1,1]
 
 var plans = [
 	[2,0,1, 1,1,1, 0,1,1, 3,0,1],
@@ -66,8 +66,8 @@ func _physics_process(delta):
 		water_line.points[ water_line.points.size() -1 ] += waterDir * delta * speed
 		
 		
-		var m1 = get_node("Marker")
-		var m2 = get_node("Marker2")
+		#var m1 = get_node("Marker")
+		#var m2 = get_node("Marker2")
 		#m.position = water_line.points[ water_line.points.size() -1 ]
 		var point = water_line.points[ water_line.points.size() -1 ] + water_line.global_position
 		var wlpoint = water_line.points[ water_line.points.size() -1 ]
@@ -85,17 +85,17 @@ func _physics_process(delta):
 		
 		
 		
-		var res = get_world_2d().direct_space_state.intersect_point_on_canvas( point,1 )#,1,[], 262144 )
+		var res = get_world_2d().direct_space_state.intersect_point_on_canvas( point,1,1,[], 262144 )
 		
 		#print(point, "  ", pipe_root.get_child(index).global_position )
 		#var res = get_world_2d().direct_space_state.intersect_point( point )#,1,[], 262144 )
-		m2.global_position = point
-		m1.global_position = point + Vector2.RIGHT*10
+		#m2.global_position = point
+		#m1.global_position = point + Vector2.RIGHT*10
 		
 		var result = null
 		
 		if( res.size() > 0 ):
-			print(res[0].collider.name, " of ", res[0].collider.get_parent().name)
+			#print(res[0].collider.name, " of ", res[0].collider.get_parent().name)
 			result = res[0]
 			
 		
@@ -109,7 +109,7 @@ func _physics_process(delta):
 				set_physics_process(false)
 				for p in pipe_root.get_children():
 					p.interactable = false
-				print("GAME OWER")
+				#print("GAME OWER")
 				set_result(Types.MinigameResults.Failed)
 				close()
 				
@@ -117,7 +117,7 @@ func _physics_process(delta):
 				set_physics_process(false)
 				for p in pipe_root.get_children():
 					p.interactable = false
-				print("WON GAME")
+				#print("WON GAME")
 				set_result(Types.MinigameResults.Succeeded)
 				close()
 				
@@ -125,10 +125,6 @@ func _physics_process(delta):
 			return
 		else:
 			var pos = wlpoint + Vector2(0,-32)
-			#m.position = pos
-			pos = pos.round()
-			#print( pos )
-			#if( pos  == nextGroup[0].round() ):
 			if pos.distance_to( nextGroup[0] ) < 2:
 				water_line.add_point(nextGroup[0] + Vector2(0,32))
 				waterDir = nextGroup[1]

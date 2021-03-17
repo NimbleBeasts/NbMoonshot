@@ -44,8 +44,7 @@ func set_type(what:int):
 			get_node("PipeEnd1").queue_free()
 			get_node("PipeEnd2").queue_free()
 
-func water_interact(var whatEnd) :
-	print("WTF")
+func water_interact(var whatEnd):
 	if( interactable == false ):
 		return null
 	
