@@ -182,6 +182,9 @@ signal dialog_typing_changed(value)
 #TODO: knightmare I dont think we need this either emitter is a node of HUD receiver is the same node in HUD
 # Removed skip_dialog
 
+#kodkuce, hmm custom event for level3
+signal custom_level_event(whatLevel, whatEvent)
+
 ###############################################################################
 # Global Event Functions
 ###############################################################################
