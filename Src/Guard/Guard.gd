@@ -1,9 +1,10 @@
+tool
 class_name Guard
 extends KinematicBody2D
 
+enum Directions {RIGHT, LEFT}
 export var speed: int = 50
 export var direction_change_time: float = 2
-export var starting_direction: Vector2
 export var time_to_sure_detection: float = 1.5
 export var stun_duration: float = 10
 export var audio_suspect_distance: int = 150
@@ -12,6 +13,8 @@ export var extended_time_to_alarm: float = 3.5
 export var playerSuspectDistance: int = 30
 export var playerDetectDistance: int = 16
 export var gravity: int = 800
+export (Directions) var startingDirection: int setget setStartingDirection
+
 
 var velocity: Vector2
 var direction: Vector2
@@ -67,14 +70,11 @@ func _ready() -> void:
 			if not detectedPath:
 				guardPathLine = child
 				detectedPath = true
+				guardPathLine.connect("next_point_reached", self, "onGuardPathLinePointReached")
 			else:
 				distractPathLine = child
 				distractPathLine.isDistract = true
 				distractPathLine.stopAllMovement()
-			if child.has_method("moveToNextPoint"):
-				child.connect("next_point_reached", self, "onGuardPathLinePointReached")
-			else:
-				print("Guard: " + str(self) + " - Wrong path node used. Was this intended?")
 
 	if guardPathLine == null and distractPathLine == null:
 		print("Coudn't find pathline, setting state to idle")
@@ -89,7 +89,14 @@ func _ready() -> void:
 	#warning-ignore:return_value_discarded
 
 
+func setStartingDirection(newDirection: int) -> void:
+	startingDirection = newDirection
+	$Flippable.scale.x = 1 if newDirection == Directions.RIGHT else -1
+
+
 func _process(delta: float) -> void:
+	if Engine.editor_hint:
+		return
 	if state == Types.GuardStates.Wander or state == Types.GuardStates.Suspect or state == Types.GuardStates.Idle:
 		detectPlayerIfClose()
 	if state != Types.GuardStates.Stunned and state != Types.GuardStates.PlayerDetected:
@@ -104,6 +111,8 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Engine.editor_hint:
+		return
 	if player_in_los and processAI:
 		if losRayIsCollidingWith(player): # ray checking
 			playerDetectLOS()
@@ -135,6 +144,7 @@ func detectPlayerIfClose() -> void:
 				verifyGuardPathLine()
 				# if guardPathLine != null:
 				guardPathLine.moveToPoint(player.global_position)
+				isMovingToPlayer = true
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
 					Events.emit_signal("play_sound", "suspicious")
@@ -186,7 +196,7 @@ func playerDetectLOS() -> void:
 				if not player_detected and not isMovingToPlayer and state != Types.GuardStates.Idle and state != Types.GuardStates.Stunned: # only sets to wander if hasn't detected player before
 					set_state(Types.GuardStates.Wander)
 
-					
+
 func _on_LineOfSight_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 			losRay.set_deferred("enabled", true)
@@ -238,8 +248,8 @@ func _on_audio_level_changed(audio_level: int, audio_pos: Vector2, _emitter) -> 
 
 				
 # use this function to set state instead of doing directly
-func set_state(new_state) -> void:
-	if state != new_state:
+func set_state(new_state, forceReEnterIfSameState: bool = false) -> void:
+	if state != new_state or forceReEnterIfSameState:
 		state = new_state
 		match new_state:
 			Types.GuardStates.Idle:
@@ -266,6 +276,7 @@ func set_state(new_state) -> void:
 				guardPathLine.startNormalMovement()
 				if direction.x != 0:
 					$AnimationPlayer.play("walk")
+				isMovingToPlayer = false
 			Types.GuardStates.Stunned:
 				$GoBackToNormalTimer.stop()
 				losRay.set_deferred("monitoring", false)
@@ -317,7 +328,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func onGoBackToNormalTimeout() -> void:
 	if state != Types.GuardStates.Stunned:
-		set_state(Types.GuardStates.Wander)
+		set_state(Types.GuardStates.Wander, true)
 	$Notifier.remove()
 
 
@@ -328,7 +339,7 @@ func onVisibleLevelChanged(newLevel: int) -> void:
 func onGuardPathLinePointReached() -> void:
 	$AnimationPlayer.play("idle")
 	if isMovingToPlayer:
-		goBackToNormalTimer.wait_time = 1
+		goBackToNormalTimer.wait_time = 3
 		stopMovement()
 		Global.startTimerOnce(goBackToNormalTimer)
 		isMovingToPlayer = false
