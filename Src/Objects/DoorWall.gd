@@ -9,7 +9,7 @@ var playerNode = null
 var startingLockLevel: int
 
 
-enum DoorType {wooden, metal, metalSwing}
+enum DoorType {wooden, metal, metalSwing, glass}
 
 export(Types.DoorLockType) var lockLevel = Types.DoorLockType.open
 export(DoorType) var doorType = DoorType.wooden setget update_texture
@@ -48,6 +48,8 @@ func update_texture(new_door_type) -> void:
 		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal.png")
 	elif doorType == DoorType.metalSwing:
 		$Sprite.texture = preload("res://Assets/Doors/DoorWallMetal2.png")
+	elif doorType == DoorType.glass:
+		$Sprite.texture = preload("res://Assets/Doors/DoorWallGlass.png")
 	else:
 		$Sprite.texture = preload("res://Assets/Doors/DoorWall.png")
 
@@ -137,12 +139,16 @@ func playDoorAnimation(openerPos):
 		# playing sound
 		if doorType == DoorType.wooden:
 			Events.emit_signal("play_sound", "door_wooden_open")
+		elif doorType == DoorType.glass:
+			Events.emit_signal("play_sound", "door_wooden_open")
 		else:
 			Events.emit_signal("play_sound", "door_metal_open")
 	else:
 		# Close Animation
 		$AnimationPlayer.play_backwards("open_door")
 		if doorType == DoorType.wooden:
+			Events.emit_signal("play_sound", "door_wooden_close")
+		elif doorType == DoorType.glass:
 			Events.emit_signal("play_sound", "door_wooden_close")
 		else:
 			Events.emit_signal("play_sound", "door_metal_close")
