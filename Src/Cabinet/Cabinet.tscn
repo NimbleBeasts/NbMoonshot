@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/Cabinet/Cabinet.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Loot/Cabinet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Doors/Keys.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "loot"
@@ -32,6 +33,33 @@ tracks/1/keys = {
 "values": [ Vector2( -16, -48 ), Vector2( -16, -48 ), Vector2( -16, -64 ) ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Key/KeySprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 8, -25 ), Vector2( 8, -25 ), Vector2( 8, -42 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Key/KeySprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 16 )
 
@@ -47,9 +75,9 @@ hframes = 3
 [node name="Label" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = -16.0
-margin_top = -48.0
+margin_top = -64.0
 margin_right = 32.0
-margin_bottom = -34.0
+margin_bottom = -50.0
 rect_pivot_offset = Vector2( 24, 14 )
 custom_fonts/font = ExtResource( 3 )
 text = "$20"
@@ -58,13 +86,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="LootAnim" type="AnimationPlayer" parent="."]
 anims/loot = SubResource( 1 )
+
+[node name="KeyAnim" type="AnimationPlayer" parent="."]
+anims/show = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 8, -16 )
 shape = SubResource( 2 )
+
+[node name="Key" type="Node2D" parent="."]
+
+[node name="KeySprite" type="Sprite" parent="Key"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 8, -42 )
+z_index = 51
+texture = ExtResource( 4 )
+hframes = 3
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

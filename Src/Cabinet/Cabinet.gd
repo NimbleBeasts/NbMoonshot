@@ -7,9 +7,14 @@ export(CabinetType) var type = CabinetType.Blue
 export(bool) var hasBounty = false
 export(bool) var isObjective = false
 
+export(bool) var containsKey = false
+export (Types.KeyColors) var keyColor: int
+
 var isUsed = false
 var playerInRange
 var loot = 0
+var isPickedUp: bool = false #Key pickup stuff
+var stringName: String
 
 func getProgessState():
 	return isUsed
@@ -26,6 +31,10 @@ func _ready():
 		$Label.set_text("$"+str(loot))
 		set_process(false)
 
+	if containsKey:
+		stringName = Types.KeyColors.keys()[keyColor].to_lower()
+		$Key/KeySprite.frame = keyColor
+
 
 func _process(_delta):
 	if playerInRange and playerInRange.state != Types.PlayerStates.DraggingGuard:
@@ -38,11 +47,15 @@ func _process(_delta):
 				# Add money popup anim
 				# Emit Hud money update
 				isUsed = true
-				$AnimationPlayer.play("loot")
+				$LootAnim.play("loot")
 				# Global.addMoney(loot)
 				Global.game_manager.getCurrentLevel().gainedMoney += loot
 				Events.emit_signal("hud_update_money", Global.game_manager.getCurrentLevel().gainedMoney, loot)
 				Events.emit_signal("play_sound", "chest_bounty")
+			elif (containsKey and not isPickedUp):
+				isPickedUp = true
+				Events.emit_signal("play_sound", "key_pickup")
+				$KeyAnim.play("show")
 			else:
 				Events.emit_signal("play_sound", "chest_locked")
 

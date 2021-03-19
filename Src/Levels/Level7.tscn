@@ -401,16 +401,20 @@ position = Vector2( 744, 104 )
 [node name="Ladder3" parent="LevelObjects/Objects" instance=ExtResource( 44 )]
 position = Vector2( 744, 168 )
 
-[node name="RedKey" parent="LevelObjects/Objects" instance=ExtResource( 46 )]
-position = Vector2( 320, 16 )
+[node name="BlueKey" parent="LevelObjects/Objects" instance=ExtResource( 42 )]
+position = Vector2( 96, 96 )
+type = 2
+containsKey = true
+keyColor = 1
 
-[node name="YellowKey" parent="LevelObjects/Objects" instance=ExtResource( 46 )]
-position = Vector2( 640, 144 )
+[node name="YellowKey" parent="LevelObjects/Objects" instance=ExtResource( 42 )]
+position = Vector2( 640, 160 )
+type = 2
+containsKey = true
 keyColor = 2
 
-[node name="BlueKey" parent="LevelObjects/Objects" instance=ExtResource( 46 )]
-position = Vector2( 152, 80 )
-keyColor = 1
+[node name="RedKey" parent="LevelObjects/Objects" instance=ExtResource( 46 )]
+position = Vector2( 320, 16 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -425,6 +429,10 @@ doorType = 3
 position = Vector2( 464, 32 )
 doorType = 3
 
+[node name="DoorWall16" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 736, 32 )
+doorType = 3
+
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 376, 32 )
 lockLevel = 5
@@ -435,6 +443,15 @@ position = Vector2( 256, 96 )
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 256, 160 )
+
+[node name="DoorWall13" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 464, 160 )
+
+[node name="DoorWall14" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 464, 96 )
+
+[node name="DoorWall15" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 576, 96 )
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 376, 160 )
@@ -453,6 +470,12 @@ position = Vector2( 376, 256 )
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 464, 256 )
 
+[node name="DoorWall17" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 448, 320 )
+
+[node name="DoorWall18" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 264, 320 )
+
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 632, 320 )
 lockLevel = 5
@@ -460,6 +483,7 @@ keyPath = NodePath("../../Objects/RedKey")
 
 [node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 19 )]
 position = Vector2( 440, 256 )
+connected_door_path = NodePath("../Staircase6")
 directionIndication = 1
 
 [node name="Staircase7" parent="LevelObjects/Doors" instance=ExtResource( 19 )]
@@ -472,22 +496,27 @@ directionIndication = 1
 
 [node name="Staircase2" parent="LevelObjects/Doors" instance=ExtResource( 19 )]
 position = Vector2( 440, 160 )
+connected_door_path = NodePath("../Staircase5")
 directionIndication = 1
 
 [node name="Staircase3" parent="LevelObjects/Doors" instance=ExtResource( 19 )]
 position = Vector2( 440, 96 )
+connected_door_path = NodePath("../Staircase4")
 directionIndication = 1
 
 [node name="Staircase4" parent="LevelObjects/Doors" instance=ExtResource( 19 )]
 position = Vector2( 408, 32 )
+connected_door_path = NodePath("../Staircase3")
 directionIndication = 2
 
 [node name="Staircase5" parent="LevelObjects/Doors" instance=ExtResource( 19 )]
 position = Vector2( 408, 96 )
+connected_door_path = NodePath("../Staircase2")
 directionIndication = 2
 
 [node name="Staircase6" parent="LevelObjects/Doors" instance=ExtResource( 19 )]
 position = Vector2( 408, 160 )
+connected_door_path = NodePath("../Staircase")
 directionIndication = 2
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
@@ -496,7 +525,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 768, 224 )
+position = Vector2( 136, 96 )
 z_index = 50
 
 [node name="DeskGuard" parent="." instance=ExtResource( 10 )]
