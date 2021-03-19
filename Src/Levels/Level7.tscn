@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -46,6 +46,7 @@
 [ext_resource path="res://Src/ThinArea/Ladder.tscn" type="PackedScene" id=44]
 [ext_resource path="res://Assets/Objects/Transporter.png" type="Texture" id=45]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=46]
+[ext_resource path="res://Assets/Objects/Office/WallImageEarthMoon.png" type="Texture" id=47]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
@@ -144,12 +145,12 @@ texture = ExtResource( 31 )
 centered = false
 
 [node name="Bookshelf3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 656, 56 )
+position = Vector2( 640, 56 )
 texture = ExtResource( 30 )
 centered = false
 
 [node name="Bookshelf4" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 656, 120 )
+position = Vector2( 696, 120 )
 texture = ExtResource( 30 )
 centered = false
 
@@ -320,6 +321,46 @@ position = Vector2( -72, -16 )
 texture = ExtResource( 41 )
 centered = false
 
+[node name="BossRoom4" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 592, 136 )
+texture = ExtResource( 9 )
+centered = false
+
+[node name="Table" type="Sprite" parent="LevelObjects/Decorations/BossRoom4"]
+position = Vector2( 8, 8 )
+texture = ExtResource( 37 )
+centered = false
+
+[node name="Table2" type="Sprite" parent="LevelObjects/Decorations/BossRoom4"]
+position = Vector2( 72, -8 )
+texture = ExtResource( 36 )
+centered = false
+
+[node name="Table4" type="Sprite" parent="LevelObjects/Decorations/BossRoom4"]
+position = Vector2( 72, -16 )
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Table5" type="Sprite" parent="LevelObjects/Decorations/BossRoom4"]
+position = Vector2( -72, -16 )
+texture = ExtResource( 41 )
+centered = false
+
+[node name="BossRoom5" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 600, 64 )
+texture = ExtResource( 22 )
+centered = false
+
+[node name="Table2" type="Sprite" parent="LevelObjects/Decorations/BossRoom5"]
+position = Vector2( 56, 0 )
+texture = ExtResource( 36 )
+centered = false
+
+[node name="Table4" type="Sprite" parent="LevelObjects/Decorations/BossRoom5"]
+position = Vector2( 112, 0 )
+texture = ExtResource( 18 )
+centered = false
+
 [node name="BossRoom3" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 8 )
 texture = ExtResource( 9 )
@@ -420,6 +461,7 @@ position = Vector2( 320, 16 )
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 80, 256 )
+lockLevel = 1
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 256, 32 )
@@ -427,10 +469,6 @@ doorType = 3
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 464, 32 )
-doorType = 3
-
-[node name="DoorWall16" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
-position = Vector2( 736, 32 )
 doorType = 3
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
@@ -443,15 +481,33 @@ position = Vector2( 256, 96 )
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 256, 160 )
+lockLevel = 1
 
 [node name="DoorWall13" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 464, 160 )
+lockLevel = 1
 
 [node name="DoorWall14" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 464, 96 )
 
 [node name="DoorWall15" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 576, 96 )
+lockLevel = 1
+
+[node name="DoorWall19" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 736, 96 )
+lockLevel = 3
+doorType = 2
+
+[node name="DoorWall20" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 736, 160 )
+lockLevel = 3
+doorType = 2
+
+[node name="DoorWall21" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
+position = Vector2( 736, 32 )
+lockLevel = 1
+doorType = 2
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 376, 160 )
@@ -463,6 +519,7 @@ keyPath = NodePath("../../Objects/BlueKey")
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 376, 96 )
+lockLevel = 1
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 15 )]
 position = Vector2( 376, 256 )
@@ -525,8 +582,9 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 136, 96 )
+position = Vector2( 760, 224 )
 z_index = 50
+startingDirection = 1
 
 [node name="DeskGuard" parent="." instance=ExtResource( 10 )]
 position = Vector2( 304, 256 )
