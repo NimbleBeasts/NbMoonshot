@@ -329,8 +329,9 @@ hasBounty = true
 isObjective = false
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -160, 256 )
+position = Vector2( -232, 256 )
 z_index = 50
+startingDirection = 1
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -374,8 +375,11 @@ position = Vector2( -304, 256 )
 canHidePlayer = true
 canBeOpened = true
 
+[node name="Guard" parent="." instance=ExtResource( 25 )]
+position = Vector2( -192, 256 )
+
 [node name="Dog" parent="." instance=ExtResource( 39 )]
-position = Vector2( -464, 256 )
+position = Vector2( -368, 256 )
 
 [node name="PathLine" type="Line2D" parent="Dog"]
 points = PoolVector2Array( -12, -8, -64, -8, -120, -8 )
@@ -387,6 +391,3 @@ position = Vector2( -556, 136 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
 position = Vector2( 60, 2 )
 shape = SubResource( 4 )
-
-[node name="Guard2" parent="." instance=ExtResource( 25 )]
-position = Vector2( -232, 256 )

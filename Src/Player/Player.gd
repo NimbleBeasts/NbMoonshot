@@ -1,8 +1,10 @@
+tool
 class_name Player
 extends KinematicBody2D
 
 #enum LightLevels {Dark = 0, BarelyVisible = 1, FullLight = 2}
 const visibilityLevelsModulations = ["#444444", "#555555", "#888888", "#ffffff"]
+enum Directions {RIGHT, LEFT}
 #export(Array, Color, RGBA) var visibilityLevelsModulations = ["#555555", "#888888", "#ffffff"]
 
 # movement variables
@@ -13,6 +15,7 @@ export var sprint_acceleration: int = 2500
 export var duckSpeed: int = 40
 export var duckAcceleration: int = 300
 export var gravity: int = 800
+export (Directions) var startingDirection: int setget setStartingDirection
 
 # upgrade export variables
 export var normal_stun_battery: int = 3
@@ -101,7 +104,14 @@ func _ready() -> void:
 	Events.emit_signal("player_taser_fired", stun_battery_level)
 
 
+func setStartingDirection(newDirection: int) -> void:
+	startingDirection = newDirection
+	$Flippable.scale.x = 1 if newDirection == Directions.RIGHT else -1
+
+
 func _process(_delta: float) -> void:
+	if Engine.editor_hint:
+		return
 	Global.screen_center = global_position
 
 	if state != Types.PlayerStates.WallDodge or isSneaking:
@@ -173,6 +183,8 @@ func movementInput() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Engine.editor_hint:
+		return
 	if applyGravity:
 		var currentAnim = animPlayer.current_animation
 		if currentAnim != "jump_up" and currentAnim != "jump_down" and currentAnim != "ladder":

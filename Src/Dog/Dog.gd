@@ -5,12 +5,14 @@ export var audioSuspectDistance: int = 50
 export var speed: int = 25
 export var detectDistance: int = 50
 export (Types.DogStates) var startingState: int = Types.DogStates.Roaming
+export var playerSuspectDistance: int = 30
+export var playerDetectDistance: int = 16
 
 var state: int
 var direction: Vector2
 var velocity: Vector2
 var suspiciousPosition: Vector2
-var player: Player
+var player: Player = Global.player
 var isMovingToPlayer: bool
 var playerInLOS: bool
 var barkAfterAngry: bool = false
@@ -43,6 +45,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	velocity = direction * speed
 	velocity = move_and_slide(velocity)
+	if state != Types.DogStates.Sleeping:
+		detectPlayerIfClose()
 
 	if direction.x != 0:
 		$Flippable.scale.x = -direction.normalized().x
@@ -185,7 +189,6 @@ func onDogBodyEntered(body: Node) -> void:
 
 func onLOSBodyEntered(body: Node) -> void:
 	if body.is_in_group("Player"):
-		player = body
 		playerInLOS = true
 		setState(Types.DogStates.Angry)
 
@@ -219,3 +222,13 @@ func flipTowards(towards: Vector2) -> void:
 		$Flippable.scale.x = -1
 	elif towards.x < global_position.x:
 		$Flippable.scale.x = 1
+
+
+func detectPlayerIfClose() -> void:
+	if player.global_position.distance_to(global_position) < playerSuspectDistance and state != Types.GuardStates.Stunned:
+		if player.state != Types.PlayerStates.WallDodge:
+				pathLine.moveToPoint(player.global_position)
+				if not $Notifier.isShowing:
+					$Notifier.popup(Types.NotifierTypes.Question)
+				if player.global_position.distance_to(global_position) < playerDetectDistance:
+					setState(Types.DogStates.Detection)

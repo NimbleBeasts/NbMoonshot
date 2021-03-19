@@ -24,7 +24,6 @@ onready var target = get_parent()
 
 
 func _ready() -> void:
-	
 	add_child(distractTimer)
 	distractTimer.connect("timeout", self, "onDistractTimerTimeout")
 	distractTimer.one_shot = true
@@ -40,6 +39,7 @@ func _ready() -> void:
 		global_points.append(target.to_global(points[i]))
 	
 	moveToNextPoint()	
+	next_point = global_points[0]
 
 
 func _process(delta: float) -> void:
@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 
 
 func onTimerTimeout() -> void:
-	if global_points.size() -1 >= currentIndex:
+	if global_points.size() - 1 >= currentIndex:
 		next_point = global_points[currentIndex]
 
 
