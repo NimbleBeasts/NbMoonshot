@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Distraction/Radio.tscn" type="PackedScene" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Assets/Objects/Home/armchair.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Objects/Home/Couch_Side.png" type="Texture" id=28]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Assets/Distraction/Radio.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Objects/Office/Bookshelf3.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Objects/Home/CouchTable.png" type="Texture" id=35]
@@ -112,6 +113,7 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
+frame = 1
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -331,7 +333,6 @@ isObjective = false
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( -232, 256 )
 z_index = 50
-startingDirection = 1
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -376,7 +377,14 @@ canHidePlayer = true
 canBeOpened = true
 
 [node name="Guard" parent="." instance=ExtResource( 25 )]
-position = Vector2( -192, 256 )
+position = Vector2( -176, 256 )
+
+[node name="EliteGuard" parent="." instance=ExtResource( 30 )]
+position = Vector2( -128, 256 )
+
+[node name="PathLine" type="Line2D" parent="EliteGuard"]
+points = PoolVector2Array( 0, -16, 0, -16, -37.2672, -16, -72, -16 )
+script = ExtResource( 15 )
 
 [node name="Dog" parent="." instance=ExtResource( 39 )]
 position = Vector2( -368, 256 )
@@ -391,3 +399,6 @@ position = Vector2( -556, 136 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
 position = Vector2( 60, 2 )
 shape = SubResource( 4 )
+
+[node name="TestPickup2" parent="." instance=ExtResource( 5 )]
+position = Vector2( -216, 240 )

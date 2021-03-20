@@ -95,3 +95,4 @@ func onBodyExited(body: Node) -> void:
 	if body == possibleObject and not isDragging:
 		possibleObject = null
 		set_process_unhandled_input(false)
+

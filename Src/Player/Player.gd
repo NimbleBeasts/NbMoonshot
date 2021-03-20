@@ -268,7 +268,7 @@ func _on_hud_note_showed(_d, _type: int, _text: String) -> void:
 
 func onBlockPlayerMovement() -> void:
 	movementBlocked = true
-	set_state(Types.PlayerStates.Normal)
+	# set_state(Types.PlayerStates.Normal)
 
 	
 func onUnblockPlayerMovement() -> void:
@@ -280,7 +280,7 @@ func onBlockPlayerInput() -> void:
 
 func onUnblockPlayerInput() -> void:
 	blockEntireInput = false
-	
+
 
 # use this function to set light_level instead of directly changing it
 func set_light_level(value: int) -> void:

@@ -191,7 +191,7 @@ func playerDetectLOS() -> void:
 			Types.LightLevels.BarelyVisible:
 				if not player_detected: # only sets to suspect if hasn't detected player before
 					playerLastSeenPosition = player.global_position
-					set_state(Types.GuardStates.Suspect)
+					set_state(Types.GuardStates.Suspect, true)
 			Types.LightLevels.Dark:
 				if not player_detected and not isMovingToPlayer and state != Types.GuardStates.Idle and state != Types.GuardStates.Stunned: # only sets to wander if hasn't detected player before
 					set_state(Types.GuardStates.Wander)
@@ -244,9 +244,9 @@ func _on_audio_level_changed(audio_level: int, audio_pos: Vector2, _emitter) -> 
 					$Notifier.popup(Types.NotifierTypes.Question)
 				playerLastSeenPosition = audio_pos
 				if state != Types.GuardStates.PlayerDetected:
-					set_state(Types.GuardStates.Suspect)
+					set_state(Types.GuardStates.Suspect, true)
 
-				
+					
 # use this function to set state instead of doing directly
 func set_state(new_state, forceReEnterIfSameState: bool = false) -> void:
 	if state != new_state or forceReEnterIfSameState:

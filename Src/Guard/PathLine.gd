@@ -39,7 +39,8 @@ func _ready() -> void:
 		global_points.append(target.to_global(points[i]))
 	
 	moveToNextPoint()	
-	next_point = global_points[0]
+	if global_points.size() >= 1:
+		next_point = global_points[0]
 
 
 func _process(delta: float) -> void:
