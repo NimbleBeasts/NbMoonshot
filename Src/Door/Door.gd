@@ -14,6 +14,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	set_process_unhandled_input(false)
 	# connections
 	#warning-ignore:return_value_discarded
 	connect("area_entered", self, "_on_area_entered")
@@ -23,11 +24,16 @@ func _ready() -> void:
 		print("No connect door for " + name)
 
 
-func _process(_delta: float) -> void:
-	if player_entered:
-		if Input.is_action_just_pressed("interact"):
-			interact()
-			
+# func _process(_delta: float) -> void:
+# 	if player_entered:
+# 		if Input.is_action_just_pressed("interact"):
+# 			interact()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact") and player_entered:
+		interact()
+		get_tree().set_input_as_handled()
+
 
 func interact() -> void:
 	# teleports to connected door
@@ -40,10 +46,12 @@ func interact() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("PlayerArea"):
 		player_entered = true
-		set_process(true)
+		set_process_unhandled_input(true)
+
 		
 		
 func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group("PlayerArea"):
 		player_entered = false
-		set_process(false)
+		set_process_unhandled_input(false)
+

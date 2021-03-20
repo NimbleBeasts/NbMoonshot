@@ -3,6 +3,7 @@ extends Node
 var possiblePickup
 var currentPickup
 var processAnims: bool
+var hasItemPickup: bool
 
 export var playerPath: NodePath
 export var carryPositionPath: NodePath
@@ -49,14 +50,17 @@ func onPlayerAreaExited(area: Area2D) -> void:
 func dropCurrentItem() -> void:
 	if currentPickup == null:
 		return
-	currentPickup.drop()
-	processAnims = false
-	Events.emit_signal("player_block_input")
-	Events.emit_signal("player_animation_change", "laydown")
+	if hasItemPickup:
+		hasItemPickup = false
+		currentPickup.drop()
+		processAnims = false
+		Events.emit_signal("player_block_input")
+		Events.emit_signal("player_animation_change", "laydown")
 
 
 func pickupItem(item: Pickupable) -> void:
 	currentPickup = item
+	hasItemPickup = true
 	item.pickup()
 	Events.emit_signal("player_state_set", Types.PlayerStates.DraggingItem)
 	Events.emit_signal("player_animation_change", "pickup")
