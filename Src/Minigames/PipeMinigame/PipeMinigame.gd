@@ -119,6 +119,7 @@ func _physics_process(delta):
 					p.interactable = false
 				#print("WON GAME")
 				set_result(Types.MinigameResults.Succeeded)
+				Events.emit_signal("custom_level_event", "Level3", "PipeFixed")
 				close()
 				
 		if nextGroup == null:
