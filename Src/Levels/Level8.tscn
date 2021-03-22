@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Entry.png" type="Texture" id=2]
@@ -10,10 +10,20 @@
 [ext_resource path="res://Assets/ThinArea/ThinAreaClosedOverlay.png" type="Texture" id=8]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Pickup/FlightControlUnit.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Shaders/Outline.shader" type="Shader" id=11]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=18]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=19]
 [ext_resource path="res://Assets/Objects/Office/Elevator.png" type="Texture" id=29]
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 11 )
+shader_param/active = false
+shader_param/color = Color( 0.988235, 0.976471, 0.376471, 1 )
+shader_param/width = 1.0
+shader_param/pattern = 0
+shader_param/inside = true
+shader_param/add_margins = false
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
@@ -147,7 +157,7 @@ isLadder = false
 width = 1
 
 [node name="FCU" parent="LevelObjects/Objects" instance=ExtResource( 10 )]
-position = Vector2( 472, 384 )
+position = Vector2( 880, 312 )
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
@@ -157,7 +167,8 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="Door2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 208, 232 )
+material = SubResource( 4 )
+position = Vector2( 784, 296 )
 texture = ExtResource( 7 )
 centered = false
 
@@ -322,7 +333,7 @@ next_boss_interacted_counter = 5
 nextSecretaryInteractionCounter = 5
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 488, 384 )
+position = Vector2( 848, 320 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]

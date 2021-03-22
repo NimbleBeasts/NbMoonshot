@@ -17,6 +17,8 @@ func _ready() -> void:
 	$GroundDetection.connect("apply_gravity", self, "setApplyGravity", ["dummy", true])
 	$GroundDetection.connect("body_entered", self, "setApplyGravity", [false])
 	
+
+	
 func _physics_process(delta: float) -> void:
 	var velocity = Vector2(0,0)
 	if applyGravity:
@@ -26,11 +28,13 @@ func _physics_process(delta: float) -> void:
 	
 func pickup() -> void:
 	isPickedUp = true
+	$Sprite.material.set_shader_param("active", false)
 	if showGameHints:
 		Events.emit_signal("hud_game_hint", "Picked up " + str(pickupName))
 	
 func drop() -> void:
 	isPickedUp = false
+	$Sprite.material.set_shader_param("active", true)
 	if showGameHints:
 		Events.emit_signal("hud_game_hint", "Dropped " + str(pickupName))
 
@@ -39,3 +43,13 @@ func getProgessState() -> bool:
 
 func setApplyGravity(_dummyargument, to: bool):
 	applyGravity = to
+
+
+func _on_FCU_body_entered(body):
+	if body.is_in_group("Player"):
+		$Sprite.material.set_shader_param("active", true)
+
+
+func _on_FCU_body_exited(body):
+	if body.is_in_group("Player"):
+		$Sprite.material.set_shader_param("active", false)

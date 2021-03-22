@@ -51,32 +51,7 @@ Total Missions: 20 linear, 10 sabotages, 1 love
 
 Please note that the level difficulty shall rise.
 
-| #    | Title | Desc                                    | Location | Goal       | Add.              | Mechanics            |
-| ---- | ----- | --------------------------------------- | -------- | ---------- | ----------------- | -------------------- |
-| 0    |       | HQ Trainingsmission                     | Ustria   | Safe       | HQ Level from Jam |                      |
-| 1    |       | Rocket 1                                | USSR     | Safe       | L1 from Jam       |                      |
-| 2    |       | Rocket 2                                | USSR     | Safe       | sehgel            |                      |
-| 3    |       | Chimpanzee                              | USA      | Photo      | kodkuce           |                      |
-| 4    |       | Affaire                                 | Ustria   | Photo      | L3 from Jam       |                      |
-| 5    |       | Affaire 2                               | Ustria   | Kidnapping | kodkuce           |                      |
-| 6    |       | Rocket 3                                | USSR     | Safe       | L2 from Jam       |                      |
-| 7    |       | Affaire 3                               | Ustria   | Safe       | sehgel            |                      |
-| 8    |       | Rocket 4 (Later 1962)                   | USSR     | Blackbox   | to be created     | Carry Item & Buttons |
-| 9    |       |                                         | USA      |            | not yet defined   |                      |
-| 10   |       | Luna 3 Moon Photos(not actual year1959) | USSR     | Safe       | to be created     |                      |
-| 11   |       | Atlas 9 (1963)                          | USA      | Kidnapping | to be created     |                      |
-| 12   |       |                                         | USA      |            | not yet defined   |                      |
-| 13   |       | Luna 10 - Satelitte (1966)              | USSR     | Safe       | to be created     |                      |
-| 14   |       | Apollo 1 (Jan 67)                       | USA      | Sabotage   | to be created     |                      |
-| 15   |       | Pre-Soyuz                               | USSR     | Kidnapping | to be created     |                      |
-| 16   |       | Soyuz 1 (April 67)                      | USSR     | Sabotage   | to be created     |                      |
-| 17   |       | Apollo 8 (Dec 68)                       | USA      | Blackbox   | to be created     |                      |
-| 18   |       | Apollo 11 1                             | USA      | Safe       | L4 from Jam       |                      |
-| 19   |       | Apollo 11 2                             | USA      | Safe       | L5 from Jam       |                      |
-| 20/1 |       | Pre-Final Level: USA Win                | Ustria   |            | not yet defined   |                      |
-| 20/2 |       | Pre-Final Level: USTRIA Win             | Ustria   |            | not yet defined   |                      |
-| 20/3 |       | Pre-Final Level: RUSSIA Win             | Ustria   |            | not yet defined   |                      |
-| 20/4 |       | Pre-Final Level: Love Win               | Ustria   |            | not yet defined   |                      |
+See online doc
 
 #### Substories
 
@@ -110,20 +85,15 @@ May 1963. Earth Orbiter Mission. Capture the pilot to get more information on hi
 
 ##### Rocket 1
 
-May, 28 1961 (somedays after speech of Kennedy)
-Ustria Intel came to the conclussion, that russian space tech is the most advanced. As Yuri Gagarin was the first man in space and human in orbit fly.
-Player shall look for plans of the Vostok-K 8K72K rocket and steal it from a safe.
+May, 28 1961 (somedays after speech of Kennedy). Ustria Intel came to the conclussion, that russian space tech is the most advanced. As Yuri Gagarin was the first man in space and human in orbit fly. Player shall look for plans of the Vostok-K 8K72K rocket and steal it from a safe.
 
 ##### Rocket 2
 
-September 1961
-After Vostok 2 mission Vostok-2 mission (Gherman Titov spend one day in space), the intel want documents about the effect of space flight on the human body and has to infiltrate a soviet military hospital and look for the documents in file cabines.
+September 1961 After Vostok 2 mission Vostok-2 mission (Gherman Titov spend one day in space), the intel want documents about the effect of space flight on the human body and has to infiltrate a soviet military hospital and look for the documents in file cabines.
 
 ##### Chimpanzee
 
-November 27, 1961
-The intel has reported that Mercury-Atlas 5 will be the first manned US mission to orbit the Earth. The goal is to infiltrate the NASA lab training site and take pictures of it. To actually get an understanding how they prepare their astronauts.
-Turns out "Enzo" is not a man but a chimpanzee.
+November 27, 1961 The intel has reported that Mercury-Atlas 5 will be the first manned US mission to orbit the Earth. The goal is to infiltrate the NASA lab training site and take pictures of it. To actually get an understanding how they prepare their astronauts. Turns out "Enzo" is not a man but a chimpanzee.
 
 ##### Affaire
 
@@ -134,13 +104,11 @@ Affaire 3: You have to infiltrate a law firm and steal the marriage contract fro
 
 ##### Rocket 3
 
-Early 1962
-Ustria is about to completet the rocket but Intel told that USSR is developing a new booster for the Vostok-K rockets. The player has to steal the plans.
+Early 1962 Ustria is about to completet the rocket but Intel told that USSR is developing a new booster for the Vostok-K rockets. The player has to steal the plans.
 
 ##### Rocket 4
 
-Later 1962
-Ustria finished the rocket and is launching a first unmaned flight but the control unit does not work. So the player has to steal one from USSR as theirs is 100% compatible. Player needs to carry out a blackbox from the building.
+Later 1962 Ustria finished the rocket and is launching a first unmaned flight but the control unit does not work. So the player has to steal one from USSR as theirs is 100% compatible. Player needs to carry out a blackbox from the building.
 
 ### Sabotage Missions
 
