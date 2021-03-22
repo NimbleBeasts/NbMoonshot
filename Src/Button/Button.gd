@@ -19,6 +19,8 @@ func _ready() -> void:
 	connect("body_entered", self, "onBodyEntered")
 	connect("body_exited", self, "onBodyExited")
 	set_process_input(false)
+	
+	$Sprite.set_material($Sprite.get_material().duplicate())
 
 
 func _input(event: InputEvent) -> void:
@@ -58,3 +60,13 @@ func press() -> void:
 			node.toggleState()
 
 
+
+
+func _on_Button_body_entered(body):
+	if body.is_in_group("Player"):
+		$Sprite.material.set_shader_param("active", true)
+
+
+func _on_Button_body_exited(body):
+	if body.is_in_group("Player"):
+		$Sprite.material.set_shader_param("active", false)

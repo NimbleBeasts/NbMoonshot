@@ -1,18 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Switches/Switch.png" type="Texture" id=1]
 [ext_resource path="res://Src/Button/Button.gd" type="Script" id=2]
+[ext_resource path="res://Shaders/Outline.shader" type="Shader" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 3 )
+shader_param/active = false
+shader_param/color = Color( 0.98823, 0.97647, 0.37647, 1 )
+shader_param/width = 1.0
+shader_param/pattern = 0
+shader_param/inside = true
+shader_param/add_margins = false
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10.2657, 9.97309 )
 
 [node name="Button" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 3 )
 texture = ExtResource( 1 )
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_Button_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Button_body_exited"]

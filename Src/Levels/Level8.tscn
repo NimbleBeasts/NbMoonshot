@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Entry.png" type="Texture" id=2]
@@ -6,24 +6,15 @@
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Objects/Nature/Bush.png" type="Texture" id=7]
+[ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/ThinArea/ThinAreaClosedOverlay.png" type="Texture" id=8]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Pickup/FlightControlUnit.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Shaders/Outline.shader" type="Shader" id=11]
+[ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=18]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=19]
 [ext_resource path="res://Assets/Objects/Office/Elevator.png" type="Texture" id=29]
-
-[sub_resource type="ShaderMaterial" id=4]
-shader = ExtResource( 11 )
-shader_param/active = false
-shader_param/color = Color( 0.988235, 0.976471, 0.376471, 1 )
-shader_param/width = 1.0
-shader_param/pattern = 0
-shader_param/inside = true
-shader_param/add_margins = false
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
@@ -38,6 +29,8 @@ __meta__ = {
 Ustria finished the rocket and is launching a first unmaned flight but the control unit does not work. So the player has to steal one from USSR as theirs is 100% compatible. Player needs to carry out a blackbox from the building.
 "
 }
+level_lightning = 2
+level_nation_type = 1
 level_objectives = NodePath("../Level17/LevelObjects/Tresor")
 
 [node name="NewSkybox" parent="." instance=ExtResource( 5 )]
@@ -157,19 +150,25 @@ isLadder = false
 width = 1
 
 [node name="FCU" parent="LevelObjects/Objects" instance=ExtResource( 10 )]
-position = Vector2( 880, 312 )
+position = Vector2( 888, 320 )
+
+[node name="PressureButton" parent="LevelObjects/Objects" instance=ExtResource( 7 )]
+position = Vector2( 696, 320 )
+unlocks = [ NodePath("../../Doors/DoorWall5") ]
+
+[node name="Button" parent="LevelObjects/Objects" instance=ExtResource( 11 )]
+position = Vector2( 819, 240 )
+unlocks = [ NodePath("../../Doors/DoorWall4") ]
+
+[node name="Button2" parent="LevelObjects/Objects" instance=ExtResource( 11 )]
+position = Vector2( 664, 240 )
+unlocks = [ NodePath("../../Doors/DoorWall3") ]
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Door" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 232, 192 )
 texture = ExtResource( 2 )
-centered = false
-
-[node name="Door2" type="Sprite" parent="LevelObjects/Decorations"]
-material = SubResource( 4 )
-position = Vector2( 784, 296 )
-texture = ExtResource( 7 )
 centered = false
 
 [node name="Door3" type="Sprite" parent="LevelObjects/Decorations"]
@@ -203,7 +202,7 @@ sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 9 )]
 position = Vector2( 640, 320 )
-lockLevel = 0
+lockLevel = 4
 doorType = 2
 save_state = false
 showHintIfLocked = false
@@ -247,7 +246,7 @@ sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 9 )]
 position = Vector2( 736, 320 )
-lockLevel = 0
+lockLevel = 4
 doorType = 2
 save_state = false
 showHintIfLocked = false
@@ -258,7 +257,7 @@ sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 9 )]
 position = Vector2( 736, 256 )
-lockLevel = 0
+lockLevel = 4
 doorType = 2
 save_state = false
 showHintIfLocked = false

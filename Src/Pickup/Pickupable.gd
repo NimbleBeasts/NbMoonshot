@@ -16,7 +16,7 @@ func _ready() -> void:
 	set_collision_layer_bit(9, true)
 	$GroundDetection.connect("apply_gravity", self, "setApplyGravity", ["dummy", true])
 	$GroundDetection.connect("body_entered", self, "setApplyGravity", [false])
-	
+	$Sprite.set_material($Sprite.get_material().duplicate())
 
 	
 func _physics_process(delta: float) -> void:
