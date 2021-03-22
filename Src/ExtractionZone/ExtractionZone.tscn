@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/ExtractionZone.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 21.9624 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "open"
@@ -23,21 +23,58 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "trunk_close"
+length = 0.45
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 3, 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "trunk_open"
+length = 0.45
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 4 ]
+}
+
 [node name="ExtractionZone" type="Area2D"]
 script = ExtResource( 1 )
 next_boss_interacted_counter = 4
 nextSecretaryInteractionCounter = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -22 )
+position = Vector2( 0, -16 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 3
 position = Vector2( 0, -16 )
 texture = ExtResource( 2 )
-hframes = 3
+hframes = 5
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/open = SubResource( 2 )
+anims/trunk_close = SubResource( 4 )
+anims/trunk_open = SubResource( 3 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -327,7 +327,7 @@ __meta__ = {
 }
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 14 )]
-position = Vector2( -8, 256 )
+position = Vector2( 32, 256 )
 next_boss_interacted_counter = 5
 nextSecretaryInteractionCounter = 5
 
@@ -341,6 +341,7 @@ z_index = 50
 position = Vector2( -64, 224 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 48, 0 )
 shape = SubResource( 1 )
 
 [node name="Ground" type="StaticBody2D" parent="."]
