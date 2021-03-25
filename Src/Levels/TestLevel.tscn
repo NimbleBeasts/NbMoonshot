@@ -112,7 +112,6 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 1
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -277,24 +276,15 @@ rotation = -1.5708
 heigth = 16
 isStatic = false
 moveSpeed = 0.2
-moveDistance = 5
 moveDirection = 2
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 200 )
-heigth = 7
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 16
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="Ladder" parent="LevelObjects" instance=ExtResource( 22 )]
 position = Vector2( -664, 200 )
@@ -335,23 +325,14 @@ isObjective = false
 containsKey = false
 keyColor = 0
 
+[node name="LaserDetector" parent="." instance=ExtResource( 4 )]
+position = Vector2( -208, 200 )
+isFlickering = true
+flickerSequence = "01"
+
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -688, 128 )
+position = Vector2( -240, 256 )
 z_index = 50
-normal_speed = 80
-normal_acceleration = 600
-sprint_speed = 160
-duckSpeed = 40
-duckAcceleration = 300
-gravity = 800
-startingDirection = 0
-normal_stun_battery = 3
-extended_stun_battery = 5
-normal_stun_duration = 4.0
-extended_stun_duration = 7.0
-normal_sprint_duration = 3.0
-extended_sprint_duration = 6.0
-stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
