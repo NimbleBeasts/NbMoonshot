@@ -110,7 +110,14 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		detectorState = DetectorStateType.Off
 		$FlickerTimer.stop() # stop flickering when off 
 		$LaserBeam.hide()
-		$OffTimer.start() # Standby Timer
+		$OffTimer.start(standbyTimerAfterDetection) # Standby Timer
+
+
+func flickerOff() -> void:
+	detectorState = DetectorStateType.Off
+	$FlickerTimer.stop() # stop flickering when off 
+	$LaserBeam.hide()
+	$OffTimer.start(0.2) 
 
 
 func _on_OffTimer_timeout():
@@ -124,6 +131,7 @@ func _on_OffTimer_timeout():
 func _on_DetectionDelay_timeout():
 	$MotionTween.stop_all()
 	$AnimationPlayer.play("detect")
+	$FlickerTimer.stop()
 	detectorState = DetectorStateType.Detection
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 	Events.emit_signal("play_sound", "laser_detect")
@@ -144,9 +152,10 @@ func _on_FlickerTimer_timeout():
 	else:
 		$Top.frame = 2
 		$Bottom.frame = 2
-		_on_AnimationPlayer_animation_finished("detect") # Switching to off
+		# _on_AnimationPlayer_animation_finished("detect") # Switching to off	
+		flickerOff()
 
-		
+
 func deactivate() -> void:
 	$Top.frame = 2
 	$Bottom.frame = 2
