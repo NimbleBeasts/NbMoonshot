@@ -112,7 +112,7 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 0
+frame = 1
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -212,10 +212,16 @@ variant = 1
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseCellar")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( -671, 192 )
@@ -330,7 +336,7 @@ containsKey = false
 keyColor = 0
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -232, 256 )
+position = Vector2( -688, 128 )
 z_index = 50
 normal_speed = 80
 normal_acceleration = 600
@@ -378,7 +384,7 @@ position = Vector2( -328, 264 )
 shape = SubResource( 3 )
 
 [node name="TestPickup" parent="." instance=ExtResource( 5 )]
-position = Vector2( -512, 128 )
+position = Vector2( -680, 128 )
 
 [node name="Radio" parent="." instance=ExtResource( 2 )]
 position = Vector2( -344, 256 )
@@ -406,7 +412,7 @@ shape = SubResource( 4 )
 position = Vector2( -216, 240 )
 
 [node name="Guard" parent="." instance=ExtResource( 25 )]
-position = Vector2( -328, 256 )
+position = Vector2( -640, 128 )
 time_to_sure_detection = 1.5
 stun_duration = 10.0
 audio_suspect_distance = 150
@@ -420,7 +426,13 @@ startingDirection = 0
 [node name="Staircase" parent="." instance=ExtResource( 10 )]
 position = Vector2( -176, 256 )
 connected_door_path = NodePath("../Staircase2")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="Staircase2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 24, 256 )
 connected_door_path = NodePath("../Staircase")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
