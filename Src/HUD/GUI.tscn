@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/HUD/BottomBar/BottomBarFrame.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/NewHudLarge.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/HUD/TopBar/TopBar.png" type="Texture" id=4]
+[ext_resource path="res://Src/HUD/GUI.gd" type="Script" id=7]
+
+[node name="GUI" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BottomBar" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 300.0
+margin_top = 284.0
+margin_right = 300.0
+margin_bottom = 284.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="BottomBar"]
+texture = ExtResource( 1 )
+
+[node name="Life" type="Label" parent="BottomBar"]
+margin_left = -55.0
+margin_top = -17.0
+margin_right = -39.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.709804, 0.501961, 0.341176, 1 )
+text = "99"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ammo" type="Label" parent="BottomBar"]
+margin_left = 51.0
+margin_top = -17.0
+margin_right = 67.0
+margin_bottom = 9.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.709804, 0.501961, 0.341176, 1 )
+text = "99"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopBar" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 300.0
+margin_top = 36.0
+margin_right = 300.0
+margin_bottom = 36.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="TopBar"]
+texture = ExtResource( 4 )
+
+[node name="Time1" type="Label" parent="TopBar"]
+margin_left = -51.0
+margin_top = -18.0
+margin_right = -15.0
+margin_bottom = 8.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.709804, 0.501961, 0.341176, 1 )
+text = "99:99"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time2" type="Label" parent="TopBar"]
+margin_left = -15.0
+margin_top = -7.0
+margin_right = 21.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.709804, 0.501961, 0.341176, 1 )
+text = ":99"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Money" type="Label" parent="TopBar"]
+margin_left = 10.0
+margin_top = -18.0
+margin_right = 64.0
+margin_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.709804, 0.501961, 0.341176, 1 )
+text = "99.999"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

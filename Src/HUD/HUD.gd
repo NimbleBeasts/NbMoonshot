@@ -49,7 +49,7 @@ func _ready():
 	else:
 		$IngameMenu/DebugPromo.hide()
 
-	$HUDLayer/Display/HudBar.visible = true
+	$HUDLayer/Display/GUI.visible = true
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 
 
@@ -462,8 +462,7 @@ func _on_DebugPromo_button_up():
 
 func hookSetup():
 	# External Signals
-	Events.connect("visible_level_changed", self, "updateLightLevel")
-	Events.connect("audio_level_changed", self, "updateAudioLevel")
+
 	Events.connect("level_hint", self, "onLevelHint")
 	
 	Events.connect("hud_note_show", self, "showNote")
@@ -472,12 +471,8 @@ func hookSetup():
 	Events.connect("hud_save_window_show", self, "showSave")
 	Events.connect("hud_save_window_exited", self, "onHideSave")
 
-	Events.connect("player_detected", self, "alarmIndication")
-	Events.connect("player_taser_fired", self, "taserUpdate")
-	Events.connect("allowed_detections_updated", self, "allowedDetectionsUpdate")
+
 	Events.connect("hud_dialogue_hide", self, "hideDialog")
-	
-	Events.connect("hud_update_money", self, "moneyUpdate")
 	Events.connect("hud_mission_briefing", self, "showMissionBriefing")
 
 	Events.connect("hud_game_over", self, "showGameOverNotification")
@@ -486,7 +481,7 @@ func hookSetup():
 	Events.connect("hud_photo_flash", self, "photoFlash")
 	Events.connect("no_branch_option_pressed", self, "onNoBranchOptionPressed")
 
-	Events.connect("hud_light_level", self, "setLightLevel")
+
 
 	# Signal from Nodes
 	for node in $HUDLayer/Display/Upgrades/Grid.get_children():

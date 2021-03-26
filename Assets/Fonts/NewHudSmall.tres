@@ -1,0 +1,7 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Fonts/mago2.ttf" type="DynamicFontData" id=1]
+
+[resource]
+outline_color = Color( 0.709804, 0.501961, 0.341176, 1 )
+font_data = ExtResource( 1 )

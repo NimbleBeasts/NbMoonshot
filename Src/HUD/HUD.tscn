@@ -1,9 +1,9 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
 [ext_resource path="res://Assets/HUD/AudioIndicator.png" type="Texture" id=3]
-[ext_resource path="res://Assets/HUD/HudBarBg.png" type="Texture" id=4]
+[ext_resource path="res://Src/HUD/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/HUD/UpgradeButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
 [ext_resource path="res://Assets/HUD/Note.png" type="Texture" id=8]
@@ -20,8 +20,6 @@
 [ext_resource path="res://Assets/HUD/PromoSteam.png" type="Texture" id=25]
 [ext_resource path="res://Src/HUD/MissionProgress.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Assets/HUD/DialogueBg.png" type="Texture" id=27]
-[ext_resource path="res://Src/HUD/HudBar.gd" type="Script" id=28]
-[ext_resource path="res://Assets/HUD/HudBar/Icons.png" type="Texture" id=29]
 
 [sub_resource type="Animation" id=1]
 length = 0.2
@@ -141,10 +139,9 @@ tracks/1/keys = {
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.0
-margin_right = -1.0
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -340,7 +337,6 @@ __meta__ = {
 
 [node name="UpgradeButton0" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 group = SubResource( 8 )
-skill = 0
 
 [node name="UpgradeButton1" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
@@ -652,117 +648,6 @@ margin_right = 371.0
 margin_bottom = 76.0
 text = "Toggle Promo"
 
-[node name="HudBar" type="NinePatchRect" parent="HUDLayer/Display"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -73.0
-margin_top = -40.0
-margin_right = 72.0
-margin_bottom = -24.0
-grow_horizontal = 2
-texture = ExtResource( 4 )
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 2
-patch_margin_bottom = 2
-script = ExtResource( 28 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="vbox" type="HBoxContainer" parent="HUDLayer/Display/HudBar"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -1.0
-margin_bottom = -1.0
-grow_horizontal = 2
-custom_constants/separation = 0
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ILives" type="Control" parent="HUDLayer/Display/HudBar/vbox"]
-margin_left = 3.0
-margin_right = 17.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 14, 14 )
-
-[node name="Sprite" type="Sprite" parent="HUDLayer/Display/HudBar/vbox/ILives"]
-texture = ExtResource( 29 )
-centered = false
-hframes = 4
-
-[node name="LLives" type="Label" parent="HUDLayer/Display/HudBar/vbox"]
-margin_left = 17.0
-margin_top = 1.0
-margin_right = 24.0
-margin_bottom = 14.0
-custom_fonts/font = ExtResource( 14 )
-text = "3"
-
-[node name="IAmount" type="Control" parent="HUDLayer/Display/HudBar/vbox"]
-margin_left = 24.0
-margin_right = 38.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 14, 14 )
-
-[node name="Sprite" type="Sprite" parent="HUDLayer/Display/HudBar/vbox/IAmount"]
-texture = ExtResource( 29 )
-centered = false
-hframes = 4
-frame = 1
-
-[node name="LAmount" type="Label" parent="HUDLayer/Display/HudBar/vbox"]
-margin_left = 38.0
-margin_top = 1.0
-margin_right = 45.0
-margin_bottom = 14.0
-custom_fonts/font = ExtResource( 14 )
-text = "3"
-
-[node name="IMoney" type="Control" parent="HUDLayer/Display/HudBar/vbox"]
-margin_left = 45.0
-margin_right = 59.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 14, 14 )
-
-[node name="Sprite" type="Sprite" parent="HUDLayer/Display/HudBar/vbox/IMoney"]
-texture = ExtResource( 29 )
-centered = false
-hframes = 4
-frame = 2
-
-[node name="LMoney" type="Label" parent="HUDLayer/Display/HudBar/vbox"]
-margin_left = 59.0
-margin_top = 1.0
-margin_right = 87.0
-margin_bottom = 14.0
-custom_fonts/font = ExtResource( 14 )
-text = "5000"
-
-[node name="ITime" type="Control" parent="HUDLayer/Display/HudBar/vbox"]
-margin_left = 87.0
-margin_right = 101.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 14, 14 )
-
-[node name="Sprite" type="Sprite" parent="HUDLayer/Display/HudBar/vbox/ITime"]
-texture = ExtResource( 29 )
-centered = false
-hframes = 4
-frame = 3
-
-[node name="LTime" type="Label" parent="HUDLayer/Display/HudBar/vbox"]
-margin_left = 101.0
-margin_top = 1.0
-margin_right = 142.0
-margin_bottom = 14.0
-custom_fonts/font = ExtResource( 14 )
-text = "0:00:00"
-
 [node name="MissionProgress" parent="HUDLayer/Display" instance=ExtResource( 26 )]
 visible = false
 
@@ -775,6 +660,8 @@ margin_top = 328.0
 margin_right = 384.0
 margin_bottom = 352.0
 label = "Start Mission"
+
+[node name="GUI" parent="HUDLayer/Display" instance=ExtResource( 4 )]
 
 [node name="LightIndicator" type="Sprite" parent="."]
 position = Vector2( 616, 24 )
@@ -820,7 +707,6 @@ __meta__ = {
 [connection signal="value_changed" from="HUDLayer/Display/IngameMenu/Menu/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="HUDLayer/Display/IngameMenu/Menu/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
 [connection signal="button_up" from="HUDLayer/Display/IngameMenu/DebugPromo" to="." method="_on_DebugPromo_button_up"]
-[connection signal="resized" from="HUDLayer/Display/HudBar/vbox" to="HUDLayer/Display/HudBar" method="_on_vbox_resized"]
 [connection signal="button_up" from="HUDLayer/Display/MissionBriefing/StartMissionButton" to="." method="_on_StartMissionButton_button_up"]
 [connection signal="mouse_entered" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_entered"]
 [connection signal="mouse_exited" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_exited"]
