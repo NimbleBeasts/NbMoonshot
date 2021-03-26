@@ -169,6 +169,7 @@ centered = false
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 24 )]
 position = Vector2( 282, 364 )
+frame = 2
 
 [node name="Cc" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 328, 352 )
@@ -476,7 +477,7 @@ rotation = -1.5708
 heigth = 14
 isHorizontal = false
 isFlickering = true
-flickerSequence = "110"
+flickerSequence = "1100"
 
 [node name="Camera" parent="LevelObjects/Objects" instance=ExtResource( 37 )]
 position = Vector2( 472, 264 )
@@ -714,7 +715,7 @@ next_boss_interacted_counter = 5
 nextSecretaryInteractionCounter = 5
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 424, 256 )
+position = Vector2( 128, 256 )
 z_index = 50
 
 [node name="Guard" parent="." instance=ExtResource( 40 )]

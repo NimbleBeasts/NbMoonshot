@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Alarm.png-58e8254b22de8b102a4c4051f0c71c77.stex"
+path="res://.import/WarnFrame.png-6550ed75564f36187ca48be4a5253d21.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/HUD/Alarm.png"
-dest_files=[ "res://.import/Alarm.png-58e8254b22de8b102a4c4051f0c71c77.stex" ]
+source_file="res://Assets/HUD/BottomBar/WarnFrame.png"
+dest_files=[ "res://.import/WarnFrame.png-6550ed75564f36187ca48be4a5253d21.stex" ]
 
 [params]
 

@@ -1,8 +1,6 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
-[ext_resource path="res://Assets/HUD/LightIndicator.png" type="Texture" id=2]
-[ext_resource path="res://Assets/HUD/AudioIndicator.png" type="Texture" id=3]
 [ext_resource path="res://Src/HUD/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/HUD/UpgradeButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
@@ -266,6 +264,8 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GUI" parent="HUDLayer/Display" instance=ExtResource( 4 )]
 
 [node name="Note" type="TextureRect" parent="HUDLayer/Display"]
 visible = false
@@ -660,41 +660,6 @@ margin_top = 328.0
 margin_right = 384.0
 margin_bottom = 352.0
 label = "Start Mission"
-
-[node name="GUI" parent="HUDLayer/Display" instance=ExtResource( 4 )]
-
-[node name="LightIndicator" type="Sprite" parent="."]
-position = Vector2( 616, 24 )
-texture = ExtResource( 2 )
-hframes = 3
-frame = 2
-
-[node name="LightHover" type="Control" parent="LightIndicator"]
-margin_left = -12.0
-margin_top = -12.0
-margin_right = 12.0
-margin_bottom = 12.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AudioIndicator" type="Sprite" parent="."]
-position = Vector2( 584, 24 )
-texture = ExtResource( 3 )
-hframes = 3
-frame = 2
-
-[node name="GoBackToNormal" type="Timer" parent="AudioIndicator"]
-wait_time = 0.4
-
-[node name="AudioHover" type="Control" parent="AudioIndicator"]
-margin_left = -8.0
-margin_top = -12.0
-margin_right = 16.0
-margin_bottom = 12.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="animation_finished" from="HUDLayer/GameOverNotification/GameOverNotifcationAnimationPlayer" to="." method="_on_GameOverNotifcationAnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="HUDLayer/GameHintNotification/GameHintAnimationPlayer" to="." method="_on_GameHintAnimationPlayer_animation_finished"]
 [connection signal="button_up" from="HUDLayer/Display/Upgrades/InfoBox/UpgradeButton" to="." method="_on_UpgradeButton_button_up"]
@@ -708,8 +673,3 @@ __meta__ = {
 [connection signal="value_changed" from="HUDLayer/Display/IngameMenu/Menu/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
 [connection signal="button_up" from="HUDLayer/Display/IngameMenu/DebugPromo" to="." method="_on_DebugPromo_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/MissionBriefing/StartMissionButton" to="." method="_on_StartMissionButton_button_up"]
-[connection signal="mouse_entered" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_entered"]
-[connection signal="mouse_exited" from="LightIndicator/LightHover" to="." method="_on_LightHover_mouse_exited"]
-[connection signal="timeout" from="AudioIndicator/GoBackToNormal" to="." method="_on_GoBackToNormal_timeout"]
-[connection signal="mouse_entered" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_entered"]
-[connection signal="mouse_exited" from="AudioIndicator/AudioHover" to="." method="_on_AudioHover_mouse_exited"]

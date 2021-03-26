@@ -31,19 +31,19 @@ func updateAmmo(value) -> void:
 
 
 func updateLightLevel(newLightLevel) -> void:
-	return
-#	match newLightLevel:
-#		Types.LightLevels.Dark:
-#			$LightIndicator.frame = 2
-#		Types.LightLevels.BarelyVisible:
-#			$LightIndicator.frame = 1
-#		Types.LightLevels.FullLight:
-#			$LightIndicator.frame = 0
-#		_:
-#			print("HUD: Illegal light level provided")
+	print(newLightLevel)
+	match newLightLevel:
+		Types.LightLevels.FullLight:
+			$BottomBar/Light.frame = 0
+			if not $BottomBar/WarnFrameLight/AnimationPlayer.is_playing():
+				$BottomBar/WarnFrameLight/AnimationPlayer.play("flash")
+		Types.LightLevels.BarelyVisible:
+			$BottomBar/Light.frame = 1
+		_:
+			$BottomBar/Light.frame = 2
 
 func updateAudioLevel(newAudioLevel, _audio_pos, _emitter) -> void: #TODO: audio_pos needed?
 	pass
-#	if newAudioLevel >= 0 and newAudioLevel < Types.AudioLevels.size():
-#		$AudioIndicator.frame = newAudioLevel
+	if newAudioLevel >= 0 and newAudioLevel < Types.AudioLevels.size():
+		$BottomBar/Audio.frame = newAudioLevel
 		
