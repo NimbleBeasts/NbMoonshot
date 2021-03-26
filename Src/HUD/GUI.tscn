@@ -26,8 +26,6 @@ tracks/0/keys = {
 }
 
 [node name="GUI" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -38,10 +36,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 300.0
-margin_top = 284.0
-margin_right = 300.0
-margin_bottom = 284.0
+margin_left = 320.0
+margin_top = 328.0
+margin_right = 320.0
+margin_bottom = 328.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -75,6 +73,7 @@ margin_bottom = 9.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.709804, 0.501961, 0.341176, 1 )
 text = "99"
+valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -87,6 +86,7 @@ margin_bottom = 9.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.709804, 0.501961, 0.341176, 1 )
 text = "99"
+valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -94,10 +94,10 @@ __meta__ = {
 [node name="TopBar" type="Control" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 300.0
-margin_top = 36.0
-margin_right = 300.0
-margin_bottom = 36.0
+margin_left = 320.0
+margin_top = 32.0
+margin_right = 320.0
+margin_bottom = 32.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -113,6 +113,7 @@ margin_bottom = 8.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.709804, 0.501961, 0.341176, 1 )
 text = "99:99"
+valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -140,6 +141,7 @@ custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.709804, 0.501961, 0.341176, 1 )
 text = "99.999"
 align = 2
+valign = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
