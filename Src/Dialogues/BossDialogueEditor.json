@@ -1,13 +1,5 @@
 {
 	"nodes": {
-		"02": [
-			320,
-			-160
-		],
-		"Quest0": [
-			1160,
-			-120
-		],
 		"Quest2": [
 			2760,
 			-320
@@ -73,58 +65,57 @@
 			300
 		],
 		"60": [
-			2240,
-			580
+			1840,
+			620
 		],
 		"00": [
-			-200,
-			-40
-		],
-		"train": [
-			900,
-			-180
-		],
-		"10": [
-			1320,
-			-160
+			-440,
+			-100
 		],
 		"01": [
-			80,
-			-20
+			-220,
+			-100
+		],
+		"02": [
+			-20,
+			-100
 		],
 		"03": [
-			700,
-			0
+			220,
+			-100
 		],
 		"officeReply": [
-			380,
-			180
+			600,
+			-20
+		],
+		"train": [
+			600,
+			-260
 		],
 		"skipTutorial": [
-			960,
-			260
+			600,
+			220
+		],
+		"Quest0": [
+			860,
+			-180
 		],
 		"11": [
-			1260,
-			140
+			840,
+			320
 		],
 		"12": [
-			1520,
-			160
+			1060,
+			380
+		],
+		"10": [
+			1060,
+			140
 		],
 		"Quest1": [
-			1800,
-			80
+			1320,
+			460
 		]
-	},
-	"02": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"nextDialogue": "03"
-	},
-	"Quest0": {
-
 	},
 	"Quest2": {
 
@@ -226,24 +217,17 @@
 		"branchText2": "",
 		"nextDialogue": "01"
 	},
-	"train": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"quest": "0",
-		"exitDialogue": true
-	},
-	"10": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"nextDialogue": "11"
-	},
 	"01": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
 		"nextDialogue": "02"
+	},
+	"02": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "03"
 	},
 	"03": {
 		"branchText0": "No, let's train.",
@@ -259,12 +243,22 @@
 		"branchText2": "",
 		"nextDialogue": "03"
 	},
+	"train": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "0",
+		"exitDialogue": true
+	},
 	"skipTutorial": {
 		"branchText0": "No, let's train.",
 		"branchText1": "Yes, skip it.",
 		"branchText2": "",
 		"branchID0": "train",
 		"branchID1": "11"
+	},
+	"Quest0": {
+
 	},
 	"11": {
 		"branchText0": "",
@@ -278,6 +272,12 @@
 		"branchText2": "",
 		"quest": "1",
 		"exitDialogue": true
+	},
+	"10": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "11"
 	},
 	"Quest1": {
 

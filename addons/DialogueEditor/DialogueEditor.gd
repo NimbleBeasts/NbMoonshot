@@ -251,7 +251,7 @@ func update_translations(index: int) -> void:
 			if key_text.begins_with("KEY_"):
 				var node = get_node_from_title(key_text.replace("KEY_", ""))
 				if node != null:
-					node.get_node("Text").text = csv_line[1]
+					node.set_text(csv_line[1]) #Call setter function
 			elif key_text.begins_with("CHOICE_"):
 				var thing = key_text.replace("CHOICE_", "").split("_")
 				var node = get_node_from_title(thing[0])

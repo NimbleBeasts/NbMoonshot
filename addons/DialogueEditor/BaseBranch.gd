@@ -5,6 +5,8 @@ class_name BaseBranch
 var quest: String = ""
 var id: String
 
+
+
 func _on_Branch_close_request():
 	queue_free()
 	
@@ -25,3 +27,10 @@ func has_text_at_branch(index: int) -> bool:
 
 func get_text() -> String:
 	return get_node("Text").text
+
+func set_text(text: String):
+	$Text.text = text
+	_on_Text_text_changed()
+
+func _on_Text_text_changed():
+	$Label.set_text("Chars: " + str(get_text().length()))

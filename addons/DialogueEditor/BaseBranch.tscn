@@ -4,7 +4,7 @@
 
 [node name="Branch" type="GraphNode"]
 margin_right = 152.0
-margin_bottom = 157.0
+margin_bottom = 232.0
 title = "Node "
 show_close = true
 resizable = true
@@ -38,6 +38,12 @@ slot/4/left_color = Color( 0, 1, 0, 1 )
 slot/4/right_enabled = true
 slot/4/right_type = 0
 slot/4/right_color = Color( 0, 1, 0, 1 )
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color( 1, 1, 1, 1 )
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -77,5 +83,13 @@ margin_top = 172.0
 margin_right = 136.0
 margin_bottom = 202.0
 rect_min_size = Vector2( 64, 30 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 203.0
+margin_right = 136.0
+margin_bottom = 217.0
+text = "Chars: 123"
 [connection signal="close_request" from="." to="." method="_on_Branch_close_request"]
 [connection signal="resize_request" from="." to="." method="_on_Branch_resize_request"]
+[connection signal="text_changed" from="Text" to="." method="_on_Text_text_changed"]

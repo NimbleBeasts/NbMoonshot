@@ -31,7 +31,7 @@ func updateAmmo(value) -> void:
 
 
 func updateLightLevel(newLightLevel) -> void:
-	print(newLightLevel)
+	#print(newLightLevel)
 	match newLightLevel:
 		Types.LightLevels.FullLight:
 			$BottomBar/Light.frame = 0
