@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Src/HUD/MissionBriefing.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/MagoFont3_32.tres" type="DynamicFont" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=5]
 [ext_resource path="res://Assets/HUD/MissionMaps.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Fonts/mago1.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 7 )
 
 [node name="MissionBriefing" type="Control"]
 anchor_right = 1.0
@@ -41,10 +45,18 @@ margin_left = 336.0
 margin_top = 88.0
 margin_right = 616.0
 margin_bottom = 272.0
-custom_fonts/normal_font = ExtResource( 4 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages."
-text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages."
+bbcode_text = "November 1961. We have information that a first American manned orbit of the Earth is to take place. The mission is called: Mercury-Atlas 5.
+
+The guy in the training for this is called \"Mr. Enzo\". You need to infiltrate the NASA training site and take some photos of Mr. Enzo's training program. 
+
+We want to know how the Americans prepare for something like this."
+text = "November 1961. We have information that a first American manned orbit of the Earth is to take place. The mission is called: Mercury-Atlas 5.
+
+The guy in the training for this is called \"Mr. Enzo\". You need to infiltrate the NASA training site and take some photos of Mr. Enzo's training program. 
+
+We want to know how the Americans prepare for something like this."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -78,3 +90,13 @@ position = Vector2( 32, 88 )
 texture = ExtResource( 6 )
 centered = false
 hframes = 3
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 712.0
+margin_top = 40.0
+margin_right = 992.0
+margin_bottom = 88.0
+text = "568 Char texts"
+__meta__ = {
+"_edit_use_anchors_": false
+}
