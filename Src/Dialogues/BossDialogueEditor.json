@@ -104,20 +104,28 @@
 			280,
 			1480
 		],
-		"40": [
-			-440,
-			1920
+		"Quest4": [
+			1000,
+			1900
 		],
 		"41": [
-			-220,
+			-160,
 			1920
 		],
-		"42": [
-			0,
+		"40": [
+			-420,
 			1920
 		],
-		"Quest4": [
-			220,
+		"42_ok": [
+			180,
+			1860
+		],
+		"42_no": [
+			180,
+			2140
+		],
+		"43": [
+			520,
 			1920
 		]
 	},
@@ -170,7 +178,7 @@
 	"03": {
 		"branchText0": "No, let's train.",
 		"branchText1": "Where is my office?",
-		"branchText2": "Skip tutorial",
+		"branchText2": "Go directly on mission",
 		"branchID1": "officeReply",
 		"branchID2": "skipTutorial",
 		"branchID0": "train"
@@ -270,26 +278,39 @@
 	"Quest3": {
 
 	},
+	"Quest4": {
+
+	},
+	"41": {
+		"branchText0": "Yes, Sir.",
+		"branchText1": "It depends.",
+		"branchText2": "This sounds dubious.",
+		"branchID0": "42_ok",
+		"branchID1": "42_ok",
+		"branchID2": "42_no"
+	},
 	"40": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
 		"nextDialogue": "41"
 	},
-	"41": {
+	"42_ok": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "42"
+		"nextDialogue": "43"
 	},
-	"42": {
+	"42_no": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"quest": "4",
+		"nextDialogue": "43"
+	},
+	"43": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
 		"exitDialogue": true
-	},
-	"Quest4": {
-
 	}
 }
