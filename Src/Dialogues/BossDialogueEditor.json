@@ -1,21 +1,5 @@
 {
 	"nodes": {
-		"42": [
-			2480,
-			80
-		],
-		"Quest4": [
-			2700,
-			60
-		],
-		"40": [
-			2040,
-			100
-		],
-		"41": [
-			2260,
-			40
-		],
 		"50": [
 			2000,
 			360
@@ -119,29 +103,23 @@
 		"Quest3": [
 			280,
 			1480
+		],
+		"40": [
+			-440,
+			1920
+		],
+		"41": [
+			-220,
+			1920
+		],
+		"42": [
+			0,
+			1920
+		],
+		"Quest4": [
+			220,
+			1920
 		]
-	},
-	"42": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"quest": "4",
-		"exitDialogue": true
-	},
-	"Quest4": {
-
-	},
-	"40": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"nextDialogue": "41"
-	},
-	"41": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"nextDialogue": "42"
 	},
 	"50": {
 		"branchText0": "",
@@ -290,6 +268,28 @@
 		"exitDialogue": true
 	},
 	"Quest3": {
+
+	},
+	"40": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "41"
+	},
+	"41": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "42"
+	},
+	"42": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "4",
+		"exitDialogue": true
+	},
+	"Quest4": {
 
 	}
 }
