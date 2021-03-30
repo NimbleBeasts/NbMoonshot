@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Distraction/Radio.tscn" type="PackedScene" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Assets/Objects/Home/armchair.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Objects/Home/Couch_Side.png" type="Texture" id=28]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Assets/Distraction/Radio.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Objects/Office/Bookshelf3.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Objects/Home/CouchTable.png" type="Texture" id=35]
@@ -347,8 +348,22 @@ flickerSequence = "01"
 standbyTimerAfterDetection = 3.0
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -240, 256 )
+position = Vector2( -248, 256 )
 z_index = 50
+normal_speed = 80
+normal_acceleration = 600
+sprint_speed = 160
+duckSpeed = 40
+duckAcceleration = 300
+gravity = 800
+startingDirection = 0
+normal_stun_battery = 3
+extended_stun_battery = 5
+normal_stun_duration = 4.0
+extended_stun_duration = 7.0
+normal_sprint_duration = 3.0
+extended_sprint_duration = 6.0
+stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -406,10 +421,10 @@ position = Vector2( 60, 2 )
 shape = SubResource( 4 )
 
 [node name="TestPickup2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -216, 240 )
+position = Vector2( -272, 256 )
 
 [node name="Guard" parent="." instance=ExtResource( 25 )]
-position = Vector2( -272, 256 )
+position = Vector2( -624, 128 )
 time_to_sure_detection = 1.5
 stun_duration = 10.0
 audio_suspect_distance = 150
@@ -433,3 +448,17 @@ connected_door_path = NodePath("../Staircase")
 lockLevel = 0
 doorType = 0
 directionIndication = 0
+
+[node name="PressureButton" parent="." instance=ExtResource( 30 )]
+position = Vector2( -224, 256 )
+
+[node name="DoorWall" parent="." instance=ExtResource( 8 )]
+position = Vector2( -160, 256 )
+lockLevel = 1
+doorType = 1
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
