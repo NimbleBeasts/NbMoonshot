@@ -47,14 +47,19 @@ func onPlayerAreaExited(area: Area2D) -> void:
 		set_process_unhandled_input(false)
 
 
-func dropCurrentItem() -> void:
+func dropCurrentItem(blockInput: bool = true) -> void:
 	if currentPickup == null:
 		return
 	if hasItemPickup:
 		hasItemPickup = false
 		currentPickup.drop()
 		processAnims = false
-		Events.emit_signal("player_block_input")
+		if blockInput:
+			Events.emit_signal("player_block_input")
+		else:
+			currentPickup.global_position = carryPosition.global_position
+			currentPickup = null
+
 		Events.emit_signal("player_animation_change", "laydown")
 
 

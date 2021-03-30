@@ -30,7 +30,6 @@ var direction: Vector2
 var velocity: Vector2
 var speed: int = normal_speed
 var acceleration: int = normal_acceleration
-var block_input: bool = false
 var movementBlocked = false
 var blockEntireInput = false
 var guardToPickup
@@ -210,6 +209,8 @@ func _physics_process(delta: float) -> void:
 		elif (state == Types.PlayerStates.Duck or state == Types.PlayerStates.WallDodge):
 			Events.emit_signal("play_sound", "player_crouch_footstep")
 
+	# print("Movement blocked: %s, entire input blocked: %s" % [movementBlocked, blockEntireInput])
+
 
 func update_light_level() -> void:
 	# if there are no overlapping areas, just set light_level to dark
@@ -316,7 +317,7 @@ func set_state(value: int) -> void:
 			Types.PlayerStates.Duck:
 				sprite.show()
 				$GuardPickup.stopDragging()
-				itemPickup.dropCurrentItem()
+				itemPickup.dropCurrentItem(false)
 				speed = duckSpeed
 				acceleration = duckAcceleration
 				enableDuckColliders()
@@ -324,7 +325,7 @@ func set_state(value: int) -> void:
 				sprite.show()
 				enableNormalColliders()
 				$GuardPickup.stopDragging()
-				itemPickup.dropCurrentItem()
+				itemPickup.dropCurrentItem(false)
 				speed = duckSpeed
 				acceleration = duckAcceleration
 			Types.PlayerStates.DraggingGuard:

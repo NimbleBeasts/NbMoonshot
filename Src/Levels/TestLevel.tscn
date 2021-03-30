@@ -112,6 +112,7 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
+frame = 1
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -276,15 +277,24 @@ rotation = -1.5708
 heigth = 16
 isStatic = false
 moveSpeed = 0.2
+moveDistance = 5
 moveDirection = 2
 isHorizontal = false
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 200 )
+heigth = 7
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 16
 moveDirection = 1
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 
 [node name="Ladder" parent="LevelObjects" instance=ExtResource( 22 )]
 position = Vector2( -664, 200 )
@@ -327,8 +337,14 @@ keyColor = 0
 
 [node name="LaserDetector" parent="." instance=ExtResource( 4 )]
 position = Vector2( -208, 200 )
+heigth = 7
+isStatic = true
+moveSpeed = 0.5
+moveDistance = 5
+isHorizontal = true
 isFlickering = true
 flickerSequence = "01"
+standbyTimerAfterDetection = 3.0
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( -240, 256 )
@@ -393,7 +409,7 @@ shape = SubResource( 4 )
 position = Vector2( -216, 240 )
 
 [node name="Guard" parent="." instance=ExtResource( 25 )]
-position = Vector2( -640, 128 )
+position = Vector2( -272, 256 )
 time_to_sure_detection = 1.5
 stun_duration = 10.0
 audio_suspect_distance = 150

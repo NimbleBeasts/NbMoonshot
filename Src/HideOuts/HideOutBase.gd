@@ -98,6 +98,7 @@ func openCloset() -> void:
 		player.set_state(Types.PlayerStates.Normal)
 		if playerLastPickup != null:
 			Events.emit_signal("player_item_pickup", playerLastPickup)
+			playerLastPickup = null
 	isOpen = true
 	Events.emit_signal("play_sound", "closet_open")
 

@@ -1,6 +1,7 @@
 extends Area2D
 
 signal apply_gravity()
+signal stop_applying_gravity()
 var colliders: Array = []
 export var areaCollidersGroup: String
 
@@ -22,8 +23,10 @@ func _process(delta):
 
 
 func onBodyEntered(body: Node) -> void:
-	colliders.append(body)
-
+	if not body.is_in_group("Player"):
+		colliders.append(body)	
+		emit_signal("stop_applying_gravity")
+		
 
 func onBodyExited(body: Node) -> void:
 	colliders.erase(body)

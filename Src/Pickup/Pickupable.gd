@@ -14,8 +14,8 @@ onready var sprite: Sprite = $Sprite # also for pressure button
 func _ready() -> void:
 	# for pressure
 	set_collision_layer_bit(9, true)
-	$GroundDetection.connect("apply_gravity", self, "setApplyGravity", ["dummy", true])
-	$GroundDetection.connect("body_entered", self, "setApplyGravity", [false])
+	$GroundDetection.connect("apply_gravity", self, "setApplyGravity", [true])
+	$GroundDetection.connect("stop_applying_gravity", self, "setApplyGravity", [false])
 	$Sprite.set_material($Sprite.get_material().duplicate())
 
 	
@@ -41,10 +41,11 @@ func drop() -> void:
 func getProgessState() -> bool:
 	return isPickedUp
 
-func setApplyGravity(_dummyargument, to: bool):
+	
+func setApplyGravity(to: bool):
 	applyGravity = to
 
-
+	
 func _on_FCU_body_entered(body):
 	if body.is_in_group("Player"):
 		$Sprite.material.set_shader_param("active", true)
