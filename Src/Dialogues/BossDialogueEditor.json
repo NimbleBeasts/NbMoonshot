@@ -104,14 +104,6 @@
 			-420,
 			1480
 		],
-		"Quest3": [
-			420,
-			1460
-		],
-		"32": [
-			160,
-			1460
-		],
 		"31": [
 			-180,
 			1480
@@ -119,6 +111,14 @@
 		"22": [
 			120,
 			1040
+		],
+		"32": [
+			60,
+			1480
+		],
+		"Quest3": [
+			280,
+			1480
 		]
 	},
 	"42": {
@@ -252,6 +252,7 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
+		"quest": "2",
 		"exitDialogue": true
 	},
 	"Quest2": {
@@ -269,16 +270,6 @@
 		"branchText2": "",
 		"nextDialogue": "31"
 	},
-	"Quest3": {
-
-	},
-	"32": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"quest": "3",
-		"exitDialogue": true
-	},
 	"31": {
 		"branchText0": "",
 		"branchText1": "",
@@ -289,6 +280,16 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
+		"nextDialogue": "23"
+	},
+	"32": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "3",
 		"exitDialogue": true
+	},
+	"Quest3": {
+
 	}
 }
