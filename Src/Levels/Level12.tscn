@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/LawFirm/Archive1.png" type="Texture" id=2]
@@ -16,6 +16,23 @@
 [ext_resource path="res://Assets/Objects/Nature/Tree_Needle.png" type="Texture" id=14]
 [ext_resource path="res://Src/Objects/VentilationFan.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Objects/UssrFlagLarge.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Objects/NoSmoking.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Objects/Laboratory/ContolRoom1.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Objects/Office/Clock.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Objects/SpiderWeb.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Objects/Office/Broom.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Objects/Laboratory/BarrelBlue.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Objects/Hospital/Medikit.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Objects/Office/Bucket.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Objects/Office/FireExtinguisher.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Objects/MetalShelf.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Objects/Laboratory/Boxes2.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Objects/Laboratory/Storage.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Laboratory/WallPockocmoc.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Objects/Laboratory/Blueprint.png" type="Texture" id=33]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=58]
 [ext_resource path="res://Assets/Objects/Office/Vending.png" type="Texture" id=62]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=68]
@@ -119,6 +136,118 @@ texture = ExtResource( 62 )
 [node name="VentilationFan" parent="LevelObjects/Decorations" instance=ExtResource( 15 )]
 position = Vector2( 806.932, 32.1156 )
 
+[node name="ContolRoom1" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 394.898, 107.684 )
+texture = ExtResource( 20 )
+
+[node name="Plant" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 298.75, 113 )
+texture = ExtResource( 27 )
+
+[node name="Clock" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 355.49, 89.6983 )
+texture = ExtResource( 21 )
+
+[node name="UssrFlagLarge" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 386.905, 222.223 )
+texture = ExtResource( 17 )
+
+[node name="BarrelBlue" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 303.024, 177.655 )
+texture = ExtResource( 24 )
+
+[node name="BarrelBlue2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 315.274, 177.405 )
+texture = ExtResource( 24 )
+
+[node name="BarrelBlue3" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 310.274, 161.905 )
+texture = ExtResource( 24 )
+
+[node name="SpiderWeb" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 300.25, 147.75 )
+texture = ExtResource( 22 )
+
+[node name="Broom" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 291.923, 178.36 )
+texture = ExtResource( 23 )
+
+[node name="Bucket" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 303.518, 186.387 )
+texture = ExtResource( 26 )
+
+[node name="FireExtinguisher" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 396.884, 181.938 )
+texture = ExtResource( 28 )
+
+[node name="Boxes2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 411.799, 178.609 )
+texture = ExtResource( 30 )
+
+[node name="Boxes3" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 814.443, 244.484 )
+texture = ExtResource( 30 )
+
+[node name="Boxes" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 796.489, 244.484 )
+texture = ExtResource( 19 )
+
+[node name="Boxes4" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 813.99, 233.478 )
+texture = ExtResource( 30 )
+
+[node name="Boxes5" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 725.927, 243.995 )
+texture = ExtResource( 19 )
+
+[node name="Boxes6" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 665.859, 243.661 )
+texture = ExtResource( 30 )
+
+[node name="Boxes7" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 643.514, 243.335 )
+texture = ExtResource( 19 )
+
+[node name="Boxes8" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 653.75, 232.25 )
+texture = ExtResource( 30 )
+
+[node name="BarrelBlue4" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 566.839, 217.57 )
+texture = ExtResource( 24 )
+
+[node name="BarrelBlue5" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 566.44, 241.512 )
+texture = ExtResource( 24 )
+
+[node name="BarrelBlue6" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 580.473, 241.351 )
+texture = ExtResource( 24 )
+
+[node name="Boxes9" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 608.924, 217.662 )
+texture = ExtResource( 19 )
+
+[node name="Storage" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 592.89, 232.216 )
+texture = ExtResource( 31 )
+
+[node name="MetalShelf" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 727.163, 47.9429 )
+texture = ExtResource( 29 )
+
+[node name="Medikit" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 750.013, 41.3044 )
+texture = ExtResource( 25 )
+
+[node name="NoSmoking" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 703.335, 41.9807 )
+texture = ExtResource( 18 )
+
+[node name="WallPockocmoc" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 307.969, 225.461 )
+texture = ExtResource( 32 )
+
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
@@ -136,7 +265,7 @@ position = Vector2( 176.175, 255.963 )
 position = Vector2( 103.969, 256.025 )
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2( 432.004, 192 )
+position = Vector2( 431.923, 192.051 )
 lockLevel = 1
 doorType = 2
 
@@ -152,17 +281,13 @@ doorLockStateLocked = false
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 528.045, 192 )
-lockLevel = 3
+lockLevel = 4
 doorType = 2
-keyPath = NodePath("../../../../Level12-USSRArchive/LevelObjects/Keys/ParkKey")
-doorLockStateLocked = false
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2( 528.034, 128 )
-lockLevel = 3
+position = Vector2( 528.098, 127.749 )
+lockLevel = 4
 doorType = 2
-keyPath = NodePath("../../../../Level12-USSRArchive/LevelObjects/Keys/ParkKey")
-doorLockStateLocked = false
 
 [node name="StaircaseE0toE1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 500.925, 127.115 )
@@ -333,6 +458,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Button2" parent="LevelObjects/Interactables" instance=ExtResource( 12 )]
+position = Vector2( 872.336, 172.868 )
+unlocks = [ NodePath("../../Lasers/LaserDetector2"), NodePath("../../Lasers/LaserDetector5"), NodePath("../../Lasers/LaserDetector7"), NodePath("../../Lasers/LaserDetector1"), NodePath("../../Lasers/LaserDetector9"), NodePath("../../Lasers/LaserDetector10"), NodePath("../../Lasers/LaserDetector8"), NodePath("../../Lasers/LaserDetector6"), NodePath("../../Lasers/LaserDetector3"), NodePath("../../Lasers/LaserDetector4"), NodePath("../../Lasers/LaserDetector11"), NodePath("../../Lasers/LaserDetector12"), NodePath("../../Doors/DoorWall3"), NodePath("../../Doors/DoorWall4") ]
+startStateOn = true
+
 [node name="Fan-Note" parent="LevelObjects/Interactables" instance=ExtResource( 78 )]
 position = Vector2( 760.098, 59.7407 )
 text = "Don't put your fingers in running fan!"
@@ -389,13 +519,17 @@ containsKey = false
 keyColor = 0
 
 [node name="Generator" type="Sprite" parent="LevelObjects/Interactables"]
-position = Vector2( 371.253, 176 )
+position = Vector2( 345.665, 175.463 )
 texture = ExtResource( 13 )
 
 [node name="Button" parent="LevelObjects/Interactables/Generator" instance=ExtResource( 12 )]
 position = Vector2( 28.2368, -5.84096 )
-unlocks = [ NodePath("../../../Decorations/VentilationFan") ]
+unlocks = [ NodePath("../../../Lasers/LaserDetector2"), NodePath("../../../Lasers/LaserDetector5"), NodePath("../../../Lasers/LaserDetector7"), NodePath("../../../Lasers/LaserDetector1"), NodePath("../../../Lasers/LaserDetector9"), NodePath("../../../Lasers/LaserDetector10"), NodePath("../../../Lasers/LaserDetector8"), NodePath("../../../Lasers/LaserDetector6"), NodePath("../../../Lasers/LaserDetector3"), NodePath("../../../Lasers/LaserDetector4"), NodePath("../../../Lasers/LaserDetector11"), NodePath("../../../Lasers/LaserDetector12"), NodePath("../../../Decorations/VentilationFan") ]
 startStateOn = true
+
+[node name="Blueprint" type="Sprite" parent="LevelObjects/Interactables"]
+position = Vector2( 840.334, 173.603 )
+texture = ExtResource( 33 )
 
 [node name="Blockers" type="Node2D" parent="LevelObjects"]
 
@@ -480,27 +614,86 @@ width = 1
 
 [node name="Lasers" type="Node2D" parent="LevelObjects"]
 
-[node name="LaserDetector" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
-position = Vector2( 741.658, 200.043 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
-isFlickering = true
-flickerSequence = "200"
-standbyTimerAfterDetection = 3.0
-
 [node name="LaserDetector2" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
-position = Vector2( 824.719, 199.335 )
-heigth = 7
+position = Vector2( 754.562, 72.2 )
 isStatic = false
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
+moveDistance = 14
+moveDirection = 1
+startOff = true
+
+[node name="LaserDetector5" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
+position = Vector2( 677.166, 72.2 )
+isStatic = false
+moveDistance = 14
+startOff = true
+
+[node name="LaserDetector7" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
+position = Vector2( 670, 136.5 )
+isStatic = false
+moveDistance = 14
+startOff = true
+
+[node name="LaserDetector1" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
+position = Vector2( 841.115, 136.5 )
+isStatic = false
+moveDistance = 14
+startOff = true
+
+[node name="LaserDetector9" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
+position = Vector2( 620, 136.5 )
+moveDistance = 14
+isFlickering = true
+startOff = true
+
+[node name="LaserDetector10" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
+position = Vector2( 736.828, 136.5 )
+moveDistance = 14
+isFlickering = true
+startOff = true
+
+[node name="LaserDetector8" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
+position = Vector2( 570, 136.5 )
+isStatic = false
+moveDistance = 14
+moveDirection = 1
+startOff = true
+
+[node name="LaserDetector6" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
+position = Vector2( 570, 72.2 )
+isStatic = false
+moveDistance = 14
+moveDirection = 1
+startOff = true
+
+[node name="LaserDetector3" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
+position = Vector2( 832.016, 64.3544 )
+rotation = 1.5708
+heigth = 4
+startOff = true
+
+[node name="LaserDetector4" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
+position = Vector2( 747.77, 120.174 )
+rotation = 1.5708
+isStatic = false
+moveDistance = 6
+moveDirection = 0
+startOff = true
+
+[node name="LaserDetector11" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
+position = Vector2( 809.576, 186.605 )
+rotation = 1.5708
+isStatic = false
+moveDistance = 6
+moveDirection = 0
+startOff = true
+
+[node name="LaserDetector12" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
+position = Vector2( 869.7, 136.151 )
+rotation = 1.5708
+isStatic = false
+moveDistance = 6
+moveDirection = 2
+startOff = true
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 visible = false
@@ -535,10 +728,6 @@ stamina_replenish_duration = 3.0
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
 [node name="NPCs" type="Node2D" parent="."]
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="Guard" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 345.168, 254.158 )
@@ -585,21 +774,21 @@ gravity = 800
 startingDirection = 0
 
 [node name="Dog" parent="NPCs" instance=ExtResource( 82 )]
-position = Vector2( -105.793, -82.7076 )
+position = Vector2( -272.47, 126.829 )
 
 [node name="PathLine" type="Line2D" parent="NPCs/Dog"]
 points = PoolVector2Array( -50, 0, 0, 0 )
 script = ExtResource( 8 )
 
 [node name="EliteGuard" parent="NPCs" instance=ExtResource( 85 )]
-position = Vector2( 108.614, -79.8144 )
+position = Vector2( -370.781, 205.918 )
 
 [node name="PathLine" type="Line2D" parent="NPCs/EliteGuard"]
 points = PoolVector2Array( 0, 0, 0, 0 )
 script = ExtResource( 8 )
 
 [node name="Civillian-DRMonkey" parent="NPCs" instance=ExtResource( 87 )]
-position = Vector2( 240.678, -70.9231 )
+position = Vector2( -238.717, 214.809 )
 isHostileArea = true
 
 [node name="NewSkybox" parent="." instance=ExtResource( 84 )]

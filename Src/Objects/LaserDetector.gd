@@ -10,6 +10,9 @@ export(bool) var isHorizontal = true
 export(bool) var isFlickering = false
 export(String) var flickerSequence = "1110"
 export(float) var standbyTimerAfterDetection = 3.0
+export(bool) var startOff = false
+
+export(int) var canToggleTimes = 0 #0 infinite
 
 enum DetectorStateType {Running = 1, Detection = 2, Off = 0}
 
@@ -29,6 +32,8 @@ var currentIndex = 0
 
 func _ready():
 	setup()
+	if startOff:
+		deactivate()
 
 func _physics_process(_delta):
 	if playerInArea:
@@ -125,7 +130,8 @@ func _on_OffTimer_timeout():
 	$LaserBeam.show()
 	$MotionTween.resume_all()
 	$AnimationPlayer.play("idle")
-	$FlickerTimer.start() # start flickering again
+	if isFlickering:
+		$FlickerTimer.start() # start flickering again
 
 
 func _on_DetectionDelay_timeout():
@@ -155,6 +161,28 @@ func _on_FlickerTimer_timeout():
 		# _on_AnimationPlayer_animation_finished("detect") # Switching to off	
 		flickerOff()
 
+func toggleState():
+	if canToggleTimes != 1:
+		canToggleTimes = canToggleTimes - 1
+	if canToggleTimes == 1:
+		return
+	
+	if is_physics_processing():
+		deactivate()
+	else:
+		activate()
+
+func activate():
+	$Top.frame = 2
+	$Bottom.frame = 2
+	set_physics_process(true)
+	$LaserBeam.show() # is this correct? 
+	$OffTimer.start(0.001)
+	if isFlickering:
+		$FlickerTimer.start()
+	$MotionTween.playback_speed = 1
+	$AnimationPlayer.play()
+
 
 func deactivate() -> void:
 	$Top.frame = 2
@@ -164,5 +192,6 @@ func deactivate() -> void:
 	$OffTimer.stop()
 	$DetectionDelay.stop()
 	$FlickerTimer.stop()
-	$MotionTween.stop_all()
+	#$MotionTween.stop_all()
+	$MotionTween.playback_speed = 0
 	$AnimationPlayer.stop()
