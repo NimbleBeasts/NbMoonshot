@@ -1,25 +1,5 @@
 {
 	"nodes": {
-		"50": [
-			2000,
-			360
-		],
-		"51": [
-			2240,
-			340
-		],
-		"Quest5": [
-			2700,
-			280
-		],
-		"52": [
-			2480,
-			300
-		],
-		"60": [
-			1840,
-			620
-		],
 		"00": [
 			-440,
 			-100
@@ -104,10 +84,6 @@
 			280,
 			1480
 		],
-		"Quest4": [
-			1000,
-			1900
-		],
 		"41": [
 			-160,
 			1920
@@ -125,37 +101,57 @@
 			2140
 		],
 		"43": [
-			520,
-			1920
+			480,
+			1860
+		],
+		"Quest4": [
+			740,
+			1860
+		],
+		"50": [
+			-500,
+			2580
+		],
+		"52_okay": [
+			20,
+			2580
+		],
+		"51": [
+			-260,
+			2580
+		],
+		"52_why": [
+			20,
+			2840
+		],
+		"60": [
+			-500,
+			3220
+		],
+		"61": [
+			-200,
+			3220
+		],
+		"62": [
+			120,
+			3220
+		],
+		"63_okay": [
+			440,
+			3220
+		],
+		"63_what": [
+			440,
+			3480
+		],
+		"Quest6": [
+			760,
+			3220
+		],
+		"Quest5": [
+			320,
+			2640
 		]
-	},
-	"50": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"nextDialogue": "51"
-	},
-	"51": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"nextDialogue": "52"
-	},
-	"Quest5": {
-
-	},
-	"52": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"quest": "5",
-		"exitDialogue": true
-	},
-	"60": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"exitDialogue": true
 	},
 	"00": {
 		"branchText0": "",
@@ -278,9 +274,6 @@
 	"Quest3": {
 
 	},
-	"Quest4": {
-
-	},
 	"41": {
 		"branchText0": "Yes, Sir.",
 		"branchText1": "It depends.",
@@ -311,6 +304,75 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
+		"quest": "4",
 		"exitDialogue": true
+	},
+	"Quest4": {
+
+	},
+	"50": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "51"
+	},
+	"52_okay": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "5",
+		"exitDialogue": true
+	},
+	"51": {
+		"branchText0": "Yes, Sir",
+		"branchText1": "Is this really necessary?",
+		"branchText2": "",
+		"branchID0": "52_okay",
+		"branchID1": "52_why"
+	},
+	"52_why": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "5",
+		"exitDialogue": true
+	},
+	"60": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "61"
+	},
+	"61": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "62"
+	},
+	"62": {
+		"branchText0": "Yes, sir!",
+		"branchText1": "Inspiration?",
+		"branchText2": "",
+		"branchID0": "63_okay",
+		"branchID1": "63_what"
+	},
+	"63_okay": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "6",
+		"exitDialogue": true
+	},
+	"63_what": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"exitDialogue": true
+	},
+	"Quest6": {
+
+	},
+	"Quest5": {
+
 	}
 }
