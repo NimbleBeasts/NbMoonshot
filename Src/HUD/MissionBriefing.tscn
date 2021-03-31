@@ -47,16 +47,16 @@ margin_right = 616.0
 margin_bottom = 272.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "November 1961. We have information that a first American manned orbit of the Earth is to take place. The mission is called: Mercury-Atlas 5.
+bbcode_text = "Our great researchers have made significant progress with our own rocket. However, there are now rumors that the Soviets are already working on improved boosters.
 
-The guy in the training for this is called \"Mr. Enzo\". You need to infiltrate the NASA training site and take some photos of Mr. Enzo's training program. 
+We have located a factory near Baikonur that is suitable for construction.
 
-We want to know how the Americans prepare for something like this."
-text = "November 1961. We have information that a first American manned orbit of the Earth is to take place. The mission is called: Mercury-Atlas 5.
+Enter the factory near Baikonur and get us plans or photos of the prototypes."
+text = "Our great researchers have made significant progress with our own rocket. However, there are now rumors that the Soviets are already working on improved boosters.
 
-The guy in the training for this is called \"Mr. Enzo\". You need to infiltrate the NASA training site and take some photos of Mr. Enzo's training program. 
+We have located a factory near Baikonur that is suitable for construction.
 
-We want to know how the Americans prepare for something like this."
+Enter the factory near Baikonur and get us plans or photos of the prototypes."
 __meta__ = {
 "_edit_use_anchors_": false
 }

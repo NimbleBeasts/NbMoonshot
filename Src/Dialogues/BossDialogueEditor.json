@@ -140,10 +140,6 @@
 			440,
 			3220
 		],
-		"63_what": [
-			440,
-			3480
-		],
 		"Quest6": [
 			760,
 			3220
@@ -151,6 +147,30 @@
 		"Quest5": [
 			320,
 			2640
+		],
+		"63_what": [
+			440,
+			3480
+		],
+		"70": [
+			-500,
+			3860
+		],
+		"71": [
+			-260,
+			3860
+		],
+		"72_life": [
+			-20,
+			4060
+		],
+		"73": [
+			240,
+			3880
+		],
+		"Quest7": [
+			500,
+			3880
 		]
 	},
 	"00": {
@@ -363,16 +383,46 @@
 		"quest": "6",
 		"exitDialogue": true
 	},
-	"63_what": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"exitDialogue": true
-	},
 	"Quest6": {
 
 	},
 	"Quest5": {
+
+	},
+	"63_what": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "6",
+		"exitDialogue": true
+	},
+	"70": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "71"
+	},
+	"71": {
+		"branchText0": "About his life?",
+		"branchText1": "What about your wife?",
+		"branchText2": "",
+		"branchID0": "72_life",
+		"branchID1": "73"
+	},
+	"72_life": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "73"
+	},
+	"73": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "7",
+		"exitDialogue": true
+	},
+	"Quest7": {
 
 	}
 }
