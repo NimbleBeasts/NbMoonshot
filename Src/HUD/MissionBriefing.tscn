@@ -47,15 +47,13 @@ margin_right = 616.0
 margin_bottom = 272.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "Ustria is not a very rich country. The space program costs a lot and the great leader also needs a dignified lifestyle.
-Therefore, the only way I see to increase our funds is a classic bank robbery. And which country has a lot of banks and a lot of money?
+bbcode_text = "Late in 1959, the Soviets made another lunar flyby with Luna 3. The special thing is that this time they took photos. We hope to find suitable landing sites for a moon landing from these photos. 
 
-Switzerland, of course! We want to steal a little bit of the Nazi gold from them to increase our own financial resources a little bit.
+Your mission is to get these photos for us.
 "
-text = "Ustria is not a very rich country. The space program costs a lot and the great leader also needs a dignified lifestyle.
-Therefore, the only way I see to increase our funds is a classic bank robbery. And which country has a lot of banks and a lot of money?
+text = "Late in 1959, the Soviets made another lunar flyby with Luna 3. The special thing is that this time they took photos. We hope to find suitable landing sites for a moon landing from these photos. 
 
-Switzerland, of course! We want to steal a little bit of the Nazi gold from them to increase our own financial resources a little bit.
+Your mission is to get these photos for us.
 "
 __meta__ = {
 "_edit_use_anchors_": false

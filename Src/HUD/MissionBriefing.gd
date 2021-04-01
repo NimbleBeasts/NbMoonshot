@@ -27,17 +27,26 @@ const funFacts = [
 ]
 
 const text = [
+#1
 "A few days ago (May 28, 1961), U.S. President John F. Kennedy called for a moon race. Our great leader wants for our nation to secure its rightful place in the world. Our intelligence concluded that Soviet space technology is the most advanced.\n\nYuri Gagarin was the first man in space and the first man to fly into orbit. Your mission is to search for and steal plans of the Vostok-K 8K72K rocket. We got the location of soviet central archive from a confirmed source. Look for the plans. And do not disappoint us!",
+#2
 "In August 1961, cosmonaut Titov (code name: Orjol) went on an orbital flight with the Vostok 2. Apparently there were medical problems and he has been under observation in a Soviet military hospital since.\nYour mission is to find out what physical impairments he had from the space flight and to get his medical records. Search all cabinets and bring us this file.\n\nHis name is: German Stepanovich Titov",
+#3
 "November 1961. We have information that a first American manned orbit of the Earth is to take place. The mission is called: Mercury-Atlas 5.\n\nThe guy in the training for this is called Mr. Enzo. You need to infiltrate the NASA training site and take some photos of Mr. Enzo's training program.\n\nWe want to know how the Americans prepare for something like this.",
+#4
 "Agent, this mission is a bit delicate and therefore TOP-TOP-Secret.\nI am afraid that my wife is having an affair. The new camera is very impressive so sneak into my house tonight and provide me with evidence! I've left you a note about the security system near the garage.",
+#5
 "The man is known by the name Platov. According to the lobby boy, he speaks with a Russian accent.\n\nBreak into his hotel room, tase him and bring him to me.\n\nI will have to interrogate him.\n\nHe lives in hotel room 6 on the third floor.",
+#6
 "Our great researchers have made significant progress with our own rocket. However, there are now rumors that the Soviets are already working on improved boosters.\n\nWe have located a factory near Baikonur that is suitable for construction.\n\nEnter the factory near Baikonur and get us plans or photos of the prototypes.",
+#7
 "My wife comes from a very wealthy family. So her father insisted on a marriage contract. This one really has it in it. I would be virtually bankrupt and she would still be rich.\n\nWe deposited the marriage contract with the largest law firm in Ustria. Search the archives. My last name is Jankovic.\n\nDestroy the contract at all costs!",
+#8
 "We are virtually ready for our first space flight. In the final tests, however, the control unit showed some anomalies and we were asked by the space agency to find a replacement.\nIn fact, the Soviet model seems to be identical to ours. That's why we have memorized the development department of the Soviets.\nBreak into the building and steal the unit.\nBy the way, while you are wearing an item you are not so agile and a bit sluggish. Plan your escape route carefully.",
+#9
 "Ustria is not a very rich country. The space program costs a lot and the great leader also needs a dignified lifestyle.\nTherefore, the only way I see to increase our funds is a classic bank robbery. And which country has a lot of banks and a lot of money?\n\nSwitzerland, of course! We want to steal a little bit of the Nazi gold from them to increase our own financial resources a little bit.",
-
-
+#10
+"Late in 1959, the Soviets made another lunar flyby with Luna 3. The special thing is that this time they took photos. We hope to find suitable landing sites for a moon landing from these photos.\n\nYour mission is to get these photos for us.",
 
 "Agent, your last mission was a great success. Unfortunately some details are missing in these plans. Therefore, we are now sending you directly to the research facility where a Soyuz is currently being prepared. Take a picture of the boosters with these new camera.\nTo access the factory floor, look for an employee ID card. Perhaps there is one in the directors safe.",
 "Comrade, I hope you did not let your English slide. You will have to go to the USA today. We have heard that the states are planning a moon landing. We absolutely need these plans!\nIt would be an embarrassment to the great Republic of Ustria if the USA were to beat us to it.",
