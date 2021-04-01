@@ -152,14 +152,17 @@ func _on_FlickerTimer_timeout():
 	var desiredFrameState = int(flickerSequence[currentIndex])
 	if desiredFrameState != detectorState:
 		detectorState = desiredFrameState
-		
-	if detectorState == DetectorStateType.Running:
-		_on_OffTimer_timeout() # Switching to On
-	else:
+	
+	if detectorState == DetectorStateType.Off:
 		$Top.frame = 2
 		$Bottom.frame = 2
-		# _on_AnimationPlayer_animation_finished("detect") # Switching to off	
-		flickerOff()
+		$LaserBeam.hide()
+	elif detectorState == DetectorStateType.Running:
+		$LaserBeam.show()
+		$Top.frame = 0
+		$Bottom.frame = 0
+		$MotionTween.resume_all()
+
 
 func toggleState():
 	if canToggleTimes != 1:

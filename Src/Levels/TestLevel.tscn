@@ -267,28 +267,15 @@ rotation = -1.5708
 heigth = 16
 isStatic = false
 moveSpeed = 0.2
-moveDistance = 5
 moveDirection = 2
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
-startOff = false
-canToggleTimes = 0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 200 )
-heigth = 7
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 16
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
-startOff = false
-canToggleTimes = 0
 
 [node name="Ladder" parent="LevelObjects" instance=ExtResource( 22 )]
 position = Vector2( -664, 200 )
@@ -332,6 +319,20 @@ keyColor = 0
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( -368, 256 )
 z_index = 50
+normal_speed = 80
+normal_acceleration = 600
+sprint_speed = 160
+duckSpeed = 40
+duckAcceleration = 300
+gravity = 800
+startingDirection = 0
+normal_stun_battery = 3
+extended_stun_battery = 5
+normal_stun_duration = 4.0
+extended_stun_duration = 7.0
+normal_sprint_duration = 3.0
+extended_sprint_duration = 6.0
+stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -375,6 +376,15 @@ shape = SubResource( 4 )
 
 [node name="Guard" parent="." instance=ExtResource( 25 )]
 position = Vector2( -656, 192 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="PressureButton" parent="." instance=ExtResource( 30 )]
 position = Vector2( -224, 256 )
@@ -388,3 +398,9 @@ position = Vector2( -432, 256 )
 [node name="PathLine" type="Line2D" parent="Civillian"]
 points = PoolVector2Array( 8, -8, 50.4815, -8, 104, -8 )
 script = ExtResource( 15 )
+
+[node name="LaserDetector" parent="." instance=ExtResource( 4 )]
+position = Vector2( -264, 200 )
+isStatic = false
+isFlickering = true
+flickerSequence = "1100"
