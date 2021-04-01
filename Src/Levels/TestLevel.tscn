@@ -113,7 +113,6 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 1
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -226,18 +225,7 @@ directionIndication = 0
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( -671, 192 )
-lockLevel = 1
-doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
-
-[node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
-position = Vector2( -697, 192 )
-lockLevel = 1
+lockLevel = 0
 doorType = 0
 save_state = false
 showHintIfLocked = false
@@ -284,6 +272,8 @@ isHorizontal = false
 isFlickering = false
 flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 200 )
@@ -296,6 +286,8 @@ isHorizontal = true
 isFlickering = false
 flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="Ladder" parent="LevelObjects" instance=ExtResource( 22 )]
 position = Vector2( -664, 200 )
@@ -346,24 +338,12 @@ isHorizontal = true
 isFlickering = true
 flickerSequence = "01"
 standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -248, 256 )
+position = Vector2( -632, 192 )
 z_index = 50
-normal_speed = 80
-normal_acceleration = 600
-sprint_speed = 160
-duckSpeed = 40
-duckAcceleration = 300
-gravity = 800
-startingDirection = 0
-normal_stun_battery = 3
-extended_stun_battery = 5
-normal_stun_duration = 4.0
-extended_stun_duration = 7.0
-normal_sprint_duration = 3.0
-extended_sprint_duration = 6.0
-stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -424,16 +404,7 @@ shape = SubResource( 4 )
 position = Vector2( -272, 256 )
 
 [node name="Guard" parent="." instance=ExtResource( 25 )]
-position = Vector2( -624, 128 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
-normal_time_to_alarm = 1.5
-extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
+position = Vector2( -656, 192 )
 
 [node name="Staircase" parent="." instance=ExtResource( 10 )]
 position = Vector2( -176, 256 )

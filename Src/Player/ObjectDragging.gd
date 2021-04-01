@@ -44,7 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			stopDragging()
 			return
 		object = possibleObject
-		if player.itemPickup.currentPickup == null and object.canDrag():
+		if player.itemPickup.currentPickup == null and object.canDrag() and not player.blockEntireInput:
 			dragObject()
 
 

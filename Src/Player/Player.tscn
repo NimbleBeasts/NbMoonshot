@@ -38,7 +38,7 @@ extents = Vector2( 4, 2 )
 extents = Vector2( 4, 1 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 17.6035, 14.6427 )
+extents = Vector2( 8.60686, 14.6427 )
 
 [sub_resource type="Animation" id=9]
 step = 0.05
@@ -541,7 +541,6 @@ position = Vector2( 0, -1 )
 shape = SubResource( 7 )
 
 [node name="GuardPickup" type="Area2D" parent="."]
-visible = false
 collision_mask = 16
 script = ExtResource( 4 )
 playerPath = NodePath("..")
