@@ -171,25 +171,57 @@
 		"Quest7": [
 			500,
 			3880
+		],
+		"80": [
+			-460,
+			4440
+		],
+		"81": [
+			-160,
+			4440
+		],
+		"82": [
+			120,
+			4440
+		],
+		"Quest8": [
+			340,
+			4440
+		],
+		"90": [
+			-480,
+			4840
+		],
+		"91": [
+			-200,
+			4840
+		],
+		"92": [
+			80,
+			4840
+		],
+		"Quest": [
+			320,
+			4840
 		]
 	},
 	"00": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "01"
+		"branchID0": "01"
 	},
 	"01": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "02"
+		"branchID0": "02"
 	},
 	"02": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "03"
+		"branchID0": "03"
 	},
 	"03": {
 		"branchText0": "No, let's train.",
@@ -217,7 +249,7 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "03"
+		"branchID0": "03"
 	},
 	"Quest0": {
 
@@ -226,13 +258,13 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "11"
+		"branchID0": "11"
 	},
 	"11": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "12"
+		"branchID0": "12"
 	},
 	"Quest1": {
 
@@ -248,7 +280,7 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "22"
+		"branchID0": "22"
 	},
 	"23": {
 		"branchText0": "",
@@ -264,25 +296,25 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "21"
+		"branchID0": "21"
 	},
 	"30": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "31"
+		"branchID0": "31"
 	},
 	"31": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "32"
+		"branchID0": "32"
 	},
 	"22": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "23"
+		"branchID0": "23"
 	},
 	"32": {
 		"branchText0": "",
@@ -306,19 +338,19 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "41"
+		"branchID0": "41"
 	},
 	"42_ok": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "43"
+		"branchID0": "43"
 	},
 	"42_no": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "43"
+		"branchID0": "43"
 	},
 	"43": {
 		"branchText0": "",
@@ -334,7 +366,7 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "51"
+		"branchID0": "51"
 	},
 	"52_okay": {
 		"branchText0": "",
@@ -361,13 +393,13 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "61"
+		"branchID0": "61"
 	},
 	"61": {
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "62"
+		"branchID0": "62"
 	},
 	"62": {
 		"branchText0": "Yes, sir!",
@@ -400,7 +432,7 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "71"
+		"branchID0": "71"
 	},
 	"71": {
 		"branchText0": "About his life?",
@@ -413,7 +445,7 @@
 		"branchText0": "",
 		"branchText1": "",
 		"branchText2": "",
-		"nextDialogue": "73"
+		"branchID0": "73"
 	},
 	"73": {
 		"branchText0": "",
@@ -423,6 +455,48 @@
 		"exitDialogue": true
 	},
 	"Quest7": {
+
+	},
+	"80": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"branchID0": "81"
+	},
+	"81": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"branchID0": "82"
+	},
+	"82": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "8",
+		"exitDialogue": true
+	},
+	"Quest8": {
+
+	},
+	"90": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"branchID0": "91"
+	},
+	"91": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"branchID0": "92"
+	},
+	"92": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": ""
+	},
+	"Quest": {
 
 	}
 }

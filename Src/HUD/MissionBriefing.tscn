@@ -47,16 +47,16 @@ margin_right = 616.0
 margin_bottom = 272.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "Our great researchers have made significant progress with our own rocket. However, there are now rumors that the Soviets are already working on improved boosters.
+bbcode_text = "Ustria is not a very rich country. The space program costs a lot and the great leader also needs a dignified lifestyle.
+Therefore, the only way I see to increase our funds is a classic bank robbery. And which country has a lot of banks and a lot of money?
 
-We have located a factory near Baikonur that is suitable for construction.
+Switzerland, of course! We want to steal a little bit of the Nazi gold from them to increase our own financial resources a little bit.
+"
+text = "Ustria is not a very rich country. The space program costs a lot and the great leader also needs a dignified lifestyle.
+Therefore, the only way I see to increase our funds is a classic bank robbery. And which country has a lot of banks and a lot of money?
 
-Enter the factory near Baikonur and get us plans or photos of the prototypes."
-text = "Our great researchers have made significant progress with our own rocket. However, there are now rumors that the Soviets are already working on improved boosters.
-
-We have located a factory near Baikonur that is suitable for construction.
-
-Enter the factory near Baikonur and get us plans or photos of the prototypes."
+Switzerland, of course! We want to steal a little bit of the Nazi gold from them to increase our own financial resources a little bit.
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
