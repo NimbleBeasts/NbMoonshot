@@ -6,10 +6,7 @@
 [node name="DialogueEditor" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 40.0
-margin_right = 8.0
-margin_bottom = -40.0
+margin_bottom = 3.05176e-05
 mouse_filter = 2
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
@@ -22,107 +19,115 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 right_disconnects = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false,
 "_editor_description_": "
 "
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 708.249
-margin_top = 28.1189
-margin_right = 822.249
-margin_bottom = 142.119
+[node name="Bar" type="Control" parent="."]
+anchor_right = 1.0
+margin_left = 192.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FileSelect" type="OptionButton" parent="."]
-margin_top = 50.0
+[node name="bg" type="ColorRect" parent="Bar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.219608, 0.239216, 0.290196, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hbox" type="HBoxContainer" parent="Bar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileSelect" type="OptionButton" parent="Bar/hbox"]
 margin_right = 192.0
-margin_bottom = 71.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 192, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClearGraph" type="Button" parent="."]
-margin_left = 792.0
-margin_top = 24.0
-margin_right = 906.0
-margin_bottom = 45.0
-text = "Clear Graph"
+[node name="IndexFiles" type="Button" parent="Bar/hbox"]
+margin_left = 196.0
+margin_right = 209.0
+margin_bottom = 32.0
+text = "U"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Save" type="Button" parent="."]
-margin_left = 648.0
-margin_top = 24.0
-margin_right = 762.0
-margin_bottom = 45.0
-text = "Save"
+[node name="TranslationFiles" type="OptionButton" parent="Bar/hbox"]
+margin_left = 213.0
+margin_right = 277.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 64, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-margin_left = 22.0
-margin_top = 82.0
-margin_right = 160.0
-margin_bottom = 103.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Spacer" type="Control" parent="Bar/hbox"]
+margin_left = 281.0
+margin_right = 409.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 128, 0 )
 
-[node name="IndexFiles" type="Button" parent="VBoxContainer2"]
-margin_right = 138.0
-margin_bottom = 21.0
-text = "Update file list"
-
-[node name="AddQuest" type="Button" parent="."]
-margin_left = 520.0
-margin_top = 24.0
-margin_right = 626.0
-margin_bottom = 45.0
-text = "Add quest"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BranchButton" type="Button" parent="."]
-margin_left = 520.0
-margin_top = 56.0
-margin_right = 634.0
-margin_bottom = 86.0
+[node name="BranchButton" type="Button" parent="Bar/hbox"]
+margin_left = 413.0
+margin_right = 507.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 20, 30 )
 text = "Add branch"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="."]
-margin_left = 343.8
-margin_top = 21.0595
-margin_right = 449.8
-margin_bottom = 42.0595
+[node name="AddQuest" type="Button" parent="Bar/hbox"]
+margin_left = 511.0
+margin_right = 595.0
+margin_bottom = 32.0
+text = "Add quest"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TranslationFiles" type="OptionButton" parent="."]
-margin_left = 252.707
-margin_top = 52.0172
-margin_right = 488.707
-margin_bottom = 74.0172
+[node name="Save" type="Button" parent="Bar/hbox"]
+margin_left = 599.0
+margin_right = 637.0
+margin_bottom = 32.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClearGraph" type="Button" parent="."]
+margin_left = 1075.31
+margin_top = 6.18202
+margin_right = 1189.31
+margin_bottom = 27.182
+text = "Clear Graph"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="connection_request" from="GraphEdit" to="." method="_on_graph_connection_request"]
 [connection signal="disconnection_request" from="GraphEdit" to="." method="_on_graph_disconnection_request"]
 [connection signal="node_selected" from="GraphEdit" to="." method="_on_node_selected"]
-[connection signal="item_selected" from="FileSelect" to="." method="_on_file_selected"]
+[connection signal="item_selected" from="Bar/hbox/FileSelect" to="." method="_on_file_selected"]
+[connection signal="pressed" from="Bar/hbox/IndexFiles" to="." method="index_files"]
+[connection signal="item_selected" from="Bar/hbox/TranslationFiles" to="." method="update_translations"]
+[connection signal="pressed" from="Bar/hbox/BranchButton" to="." method="_on_add_branch_pressed"]
+[connection signal="pressed" from="Bar/hbox/AddQuest" to="." method="_on_add_quest"]
+[connection signal="pressed" from="Bar/hbox/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="ClearGraph" to="." method="clear_graph"]
-[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="VBoxContainer2/IndexFiles" to="." method="index_files"]
-[connection signal="pressed" from="AddQuest" to="." method="_on_add_quest"]
-[connection signal="pressed" from="BranchButton" to="." method="_on_add_branch_pressed"]
-[connection signal="item_selected" from="TranslationFiles" to="." method="update_translations"]
