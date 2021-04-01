@@ -1,7 +1,6 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
-[ext_resource path="res://Src/Distraction/Radio.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=5]
@@ -30,13 +29,13 @@
 [ext_resource path="res://Assets/Objects/Home/Couch_Side.png" type="Texture" id=28]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Assets/Distraction/Radio.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Objects/Office/Bookshelf3.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Objects/Home/CouchTable.png" type="Texture" id=35]
 [ext_resource path="res://Assets/Objects/Home/PaintingStarryNight.png" type="Texture" id=36]
 [ext_resource path="res://Src/Objects/Nature/Tree.tscn" type="PackedScene" id=37]
 [ext_resource path="res://Assets/Objects/Nature/Tree_Needle.png" type="Texture" id=38]
-[ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=39]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 256, 4 )
@@ -55,6 +54,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
+level_objectives = NodePath("Civillian")
 
 [node name="NewSkybox" parent="." instance=ExtResource( 9 )]
 
@@ -113,6 +113,7 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
+frame = 1
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -328,21 +329,8 @@ isObjective = false
 containsKey = false
 keyColor = 0
 
-[node name="LaserDetector" parent="." instance=ExtResource( 4 )]
-position = Vector2( -208, 200 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
-isFlickering = true
-flickerSequence = "01"
-standbyTimerAfterDetection = 3.0
-startOff = false
-canToggleTimes = 0
-
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -632, 192 )
+position = Vector2( -368, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -378,21 +366,6 @@ shape = SubResource( 3 )
 [node name="TestPickup" parent="." instance=ExtResource( 5 )]
 position = Vector2( -680, 128 )
 
-[node name="Radio" parent="." instance=ExtResource( 2 )]
-position = Vector2( -344, 256 )
-
-[node name="Closet2" parent="." instance=ExtResource( 23 )]
-position = Vector2( -304, 256 )
-canHidePlayer = true
-canBeOpened = true
-
-[node name="Dog" parent="." instance=ExtResource( 39 )]
-position = Vector2( -368, 256 )
-
-[node name="PathLine" type="Line2D" parent="Dog"]
-points = PoolVector2Array( -12, -8, -64, -8, -120, -8 )
-script = ExtResource( 15 )
-
 [node name="Roof" type="StaticBody2D" parent="."]
 position = Vector2( -556, 136 )
 
@@ -400,36 +373,18 @@ position = Vector2( -556, 136 )
 position = Vector2( 60, 2 )
 shape = SubResource( 4 )
 
-[node name="TestPickup2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -272, 256 )
-
 [node name="Guard" parent="." instance=ExtResource( 25 )]
 position = Vector2( -656, 192 )
-
-[node name="Staircase" parent="." instance=ExtResource( 10 )]
-position = Vector2( -176, 256 )
-connected_door_path = NodePath("../Staircase2")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
-
-[node name="Staircase2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 24, 256 )
-connected_door_path = NodePath("../Staircase")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="PressureButton" parent="." instance=ExtResource( 30 )]
 position = Vector2( -224, 256 )
 
-[node name="DoorWall" parent="." instance=ExtResource( 8 )]
-position = Vector2( -160, 256 )
-lockLevel = 1
-doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
+[node name="ExtractionZone" parent="." instance=ExtResource( 12 )]
+position = Vector2( -312, 256 )
+
+[node name="Civillian" parent="." instance=ExtResource( 31 )]
+position = Vector2( -432, 256 )
+
+[node name="PathLine" type="Line2D" parent="Civillian"]
+points = PoolVector2Array( 8, -8, 50.4815, -8, 104, -8 )
+script = ExtResource( 15 )

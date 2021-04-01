@@ -12,7 +12,7 @@ export(Types.Direction) var sprite_face_direction = Types.Direction.Left
 
 
 func _ready() -> void:
-	set_process(false)
+	set_process_unhandled_input(false)
 	var levelIndex: int = Global.game_manager.getCurrentLevelIndex()
 	if levelIndex != 0:
 		Global.gameState["level"]["hasActiveMission"] = true
@@ -27,25 +27,25 @@ func _ready() -> void:
 		$Sprite.scale.x = -1
 
 	
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and Global.game_manager.getCurrentLevel().can_change_level():
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact") and Global.game_manager.getCurrentLevel().can_change_level():
 		if Global.gameState["level"]["hasActiveMission"] and Global.gameState["level"]["lastActiveMission"] != 0:
 			$AnimationPlayer.play("open")
 			Events.emit_signal("play_sound", "car_open")
 			Events.emit_signal("player_block_movement")
-			set_process(false)
+			get_tree().set_input_as_handled()
 
 			
 func _on_body_entered(body: Node) -> void:
 	if body is Player:
 		player_entered = true
-		set_process(true)
+		set_process_unhandled_input(true)
 
 
 func _on_body_exited(body: Node) -> void:
 	if body is Player:
 		player_entered = false
-		set_process(false)
+		set_process_unhandled_input(false)
 
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
