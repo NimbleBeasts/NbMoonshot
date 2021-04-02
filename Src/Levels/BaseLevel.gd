@@ -64,10 +64,7 @@ func _ready():
 			node.light_mask = 3
 	
 	# Update Player Money
-	if Global.game_manager.getCurrentLevelIndex() == 0:
-		Events.emit_signal("hud_update_money", Global.gameState.money, 0)
-	else:
-		Events.emit_signal("hud_update_money", 0, 0)
+	Events.emit_signal("hud_update_money", Global.gameState.money, 0)
 		
 		
 	Events.emit_signal("hud_light_level", level_lightning)
