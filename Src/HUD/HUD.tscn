@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Src/HUD/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/HUD/UpgradeButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
@@ -301,6 +302,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="HUDLayer/Display/Note"]
+margin_left = 8.0
+margin_top = 108.0
+margin_right = 184.0
+margin_bottom = 124.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press E or Q to close"
+align = 1
+
 [node name="Upgrades" type="NinePatchRect" parent="HUDLayer/Display"]
 visible = false
 anchor_left = 0.5
@@ -316,6 +327,18 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HUDLayer/Display/Upgrades"]
+margin_top = 200.0
+margin_right = 176.0
+margin_bottom = 216.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press E or Q to close"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -337,6 +360,7 @@ __meta__ = {
 
 [node name="UpgradeButton0" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 group = SubResource( 8 )
+skill = 0
 
 [node name="UpgradeButton1" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
@@ -491,7 +515,6 @@ margin_bottom = 140.0
 label = "Slot 3"
 
 [node name="Dialog" type="Control" parent="HUDLayer/Display"]
-visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -528,41 +551,42 @@ __meta__ = {
 [node name="DialogueTypeTimer" type="Timer" parent="HUDLayer/Display/Dialog"]
 wait_time = 0.03
 
-[node name="Option0Button" parent="HUDLayer/Display/Dialog" instance=ExtResource( 16 )]
-margin_left = 88.0
-margin_top = 96.0
-margin_right = 216.0
-margin_bottom = 120.0
+[node name="vbox" type="VBoxContainer" parent="HUDLayer/Display/Dialog"]
+margin_left = 64.0
+margin_top = 128.0
+margin_right = 192.0
+margin_bottom = 236.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoBranchButton" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
+
+[node name="Option0Button" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
+margin_top = 28.0
+margin_bottom = 52.0
 focus_neighbour_left = NodePath("../Option2Button")
 focus_neighbour_right = NodePath("../Option1Button")
 
-[node name="Option1Button" parent="HUDLayer/Display/Dialog" instance=ExtResource( 16 )]
-margin_left = 88.0
-margin_top = 128.0
-margin_right = 216.0
-margin_bottom = 152.0
+[node name="Option1Button" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
+margin_top = 56.0
+margin_bottom = 80.0
 focus_neighbour_left = NodePath("../Option0Button")
 focus_neighbour_right = NodePath("../Option2Button")
 
-[node name="Option2Button" parent="HUDLayer/Display/Dialog" instance=ExtResource( 16 )]
-margin_left = 88.0
-margin_top = 160.0
-margin_right = 216.0
-margin_bottom = 184.0
+[node name="Option2Button" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
+margin_top = 84.0
+margin_bottom = 108.0
 focus_neighbour_left = NodePath("../Option1Button")
 focus_neighbour_right = NodePath("../Option0Button")
 
-[node name="NoBranchButton" parent="HUDLayer/Display/Dialog" instance=ExtResource( 16 )]
-margin_left = 88.0
-margin_top = 96.0
-margin_right = 216.0
-margin_bottom = 120.0
-rect_rotation = 0.0806047
-
 [node name="Sprite" type="Sprite" parent="HUDLayer/Display/Dialog"]
-position = Vector2( -32, 32 )
+position = Vector2( -40, 24 )
 texture = ExtResource( 23 )
-hframes = 3
+hframes = 4
 
 [node name="IngameMenu" type="Control" parent="HUDLayer/Display"]
 pause_mode = 2

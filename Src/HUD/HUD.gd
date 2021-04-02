@@ -52,6 +52,7 @@ func _ready():
 	$HUDLayer/Display/GUI.visible = true
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 
+	$HUDLayer/Display/Dialog.hide()
 
 func _physics_process(_delta):
 	# Hide Note

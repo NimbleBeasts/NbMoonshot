@@ -14,12 +14,12 @@ func _ready() -> void:
 	Events.connect("update_no_branch_button_state", self, "changeNoBranchButtonState")
 	Events.connect("update_dialog_option", self, "onUpdateDialogOption")
 	#warning-ignore:return_value_discarded
-	$Option0Button.connect("button_up", self, "onOption0ButtonUp")
+	$vbox/Option0Button.connect("button_up", self, "onOption0ButtonUp")
 	#warning-ignore:return_value_discarded
-	$Option1Button.connect("button_up", self, "onOption1ButtonUp")
+	$vbox/Option1Button.connect("button_up", self, "onOption1ButtonUp")
 	#warning-ignore:return_value_discarded
-	$Option2Button.connect("button_up", self, "onOption2ButtonUp")
-	$NoBranchButton.connect("button_up", self, "onNoBranchButtonPressed")
+	$vbox/Option2Button.connect("button_up", self, "onOption2ButtonUp")
+	$vbox/NoBranchButton.connect("button_up", self, "onNoBranchButtonPressed")
 	Events.connect("dialog_typing_changed", self, "onDialogTypingChanged")
 	Events.connect("change_dialog_button_state", self, "changeButtonState")
 	changeNoBranchButtonState(false)
@@ -27,11 +27,11 @@ func _ready() -> void:
 
 
 func onUpdateDialogOption(buttonType: int, newText: String) -> void:
-	get_node(Types.DialogButtons.keys()[buttonType] + "Button").updateLabel(newText)
+	get_node("vbox/" + Types.DialogButtons.keys()[buttonType] + "Button").updateLabel(newText)
 
 
 func changeButtonState(buttonType: int, enabled) -> void:
-	var node = get_node(Types.DialogButtons.keys()[buttonType] + "Button")
+	var node = get_node("vbox/" + Types.DialogButtons.keys()[buttonType] + "Button")
 	node.visible = enabled
 	node.disabled = not enabled
 
@@ -68,18 +68,18 @@ func changeOptionButtonsState(enabled: bool) -> void:
 	# loops through the button and does it's stuff
 	var i = 0
 	while i < 3:
-		var node = get_node("Option%sButton" % i)
+		var node = get_node("vbox/Option%sButton" % i)
 		node.visible = enabled
 		node.disabled = not enabled
 		i += 1
 	currentOption = 0
 	if enabled:
-		$Option0Button.grab_focus()
+		$vbox/Option0Button.grab_focus()
 
 		
 func changeNoBranchButtonState(enabled: bool) -> void:
-	$NoBranchButton.visible = enabled
-	$NoBranchButton.disabled = not enabled
+	$vbox/NoBranchButton.visible = enabled
+	$vbox/NoBranchButton.disabled = not enabled
 	if enabled:
 		# no idea why this needs a delay and the option ones doesn't 
 		noBranchFocusDelayTimer.start(0.08)
@@ -90,7 +90,7 @@ func onDialogTypingChanged(value: bool) -> void:
 
 
 func onNoBranchFocusDelayTimeout() -> void:
-	$NoBranchButton.grab_focus()
+	$vbox/NoBranchButton.grab_focus()
 
 
 func skipDialog() -> void:

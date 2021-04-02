@@ -29,7 +29,7 @@ func _on_ZoneTutorialBriefing_body_exited(body):
 
 func _on_DelayTimer_timeout():
 	isShown = true
-	Events.emit_signal("hud_dialog_show", "Tutorial", "#88ebeb", text, true, Types.Potraits.Player)
+	Events.emit_signal("hud_dialog_show", "Tutorial", "#88ebeb", text, true, Types.Potraits.Bot)
 	Events.emit_signal("update_no_branch_button_state", true)
 	Events.emit_signal("update_branch_button_state", false)
 	Events.emit_signal("update_dialog_option", Types.DialogButtons.NoBranch, "Ok")

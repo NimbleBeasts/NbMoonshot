@@ -46,7 +46,7 @@ enum DialogButtons {Option0 = 0, Option1 = 1, Option2 = 2, NoBranch = 3}
 enum DogStates {Idle, Roaming, Sleeping, Suspicious, Detection, Eating, Stunned, Angry, MovingToSnack}
 
 # Potraits
-enum Potraits {Player, Boss, Secretary}
+enum Potraits {Player, Boss, Secretary, Bot}
 
 # Weapons
 enum Weapons {Taser = 0, StoneThrower = 1, SnackThrower = 2}
