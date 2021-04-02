@@ -78,30 +78,34 @@ __meta__ = {
 
 [node name="Lights" type="Node2D" parent="."]
 
-[node name="Red" type="Sprite" parent="Lights"]
+[node name="Red" type="Light2D" parent="Lights"]
 visible = false
-modulate = Color( 0.788235, 0.188235, 0.219608, 1 )
-light_mask = 7
 position = Vector2( -22, -52 )
 texture = ExtResource( 2 )
+color = Color( 0.788235, 0.188235, 0.219608, 1 )
+energy = 2.0
+range_layer_max = 10
 
-[node name="Green" type="Sprite" parent="Lights"]
+[node name="Green" type="Light2D" parent="Lights"]
 visible = false
-modulate = Color( 0.109804, 0.619608, 0.113725, 1 )
-light_mask = 7
 position = Vector2( -14, -52 )
 texture = ExtResource( 2 )
+color = Color( 0.188235, 0.611765, 0.384314, 1 )
+energy = 2.0
+range_layer_max = 10
 
-[node name="Blue" type="Sprite" parent="Lights"]
+[node name="Blue" type="Light2D" parent="Lights"]
 visible = false
-modulate = Color( 0.168627, 0.65098, 0.780392, 1 )
-light_mask = 7
 position = Vector2( -6, -52 )
 texture = ExtResource( 2 )
+color = Color( 0.298039, 0.576471, 0.678431, 1 )
+energy = 2.0
+range_layer_max = 10
 
-[node name="Yellow" type="Sprite" parent="Lights"]
+[node name="Yellow" type="Light2D" parent="Lights"]
 visible = false
-modulate = Color( 0.862745, 0.478431, 0.027451, 1 )
-light_mask = 7
 position = Vector2( 2, -52 )
 texture = ExtResource( 2 )
+color = Color( 0.870588, 0.415686, 0.219608, 1 )
+energy = 2.0
+range_layer_max = 10

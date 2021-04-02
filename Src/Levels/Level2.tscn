@@ -715,7 +715,7 @@ polygon = PoolVector2Array( 16, 56, 0, 0, 72, 24, 72, 56 )
 
 [node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 2 )]
 position = Vector2( 1232, 128 )
-deactivateAble = [ NodePath("../DeactivableDoor1"), NodePath("../DeactivableDoor2") ]
+deactivateAble = [ NodePath("../Doors/DeactivableDoor1"), NodePath("../Doors/DeactivableDoor2") ]
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
