@@ -171,6 +171,54 @@
 		"Quest7": [
 			500,
 			3880
+		],
+		"80": [
+			-460,
+			4440
+		],
+		"81": [
+			-160,
+			4440
+		],
+		"82": [
+			120,
+			4440
+		],
+		"Quest8": [
+			340,
+			4440
+		],
+		"90": [
+			-480,
+			4840
+		],
+		"91": [
+			-200,
+			4840
+		],
+		"92": [
+			80,
+			4840
+		],
+		"Quest9": [
+			320,
+			4840
+		],
+		"100": [
+			-460,
+			5420
+		],
+		"101": [
+			-200,
+			5420
+		],
+		"102": [
+			60,
+			5420
+		],
+		"Quest10": [
+			300,
+			5420
 		]
 	},
 	"00": {
@@ -423,6 +471,72 @@
 		"exitDialogue": true
 	},
 	"Quest7": {
+
+	},
+	"80": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "81"
+	},
+	"81": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "82"
+	},
+	"82": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "8",
+		"exitDialogue": true
+	},
+	"Quest8": {
+
+	},
+	"90": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "91"
+	},
+	"91": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "92"
+	},
+	"92": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "9",
+		"exitDialogue": true
+	},
+	"Quest9": {
+
+	},
+	"100": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "101"
+	},
+	"101": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "102"
+	},
+	"102": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "10",
+		"exitDialogue": true
+	},
+	"Quest10": {
 
 	}
 }

@@ -19,7 +19,7 @@ var dict = {
 }
 
 func index_files() -> void:
-	$FileSelect.clear()
+	$Bar/hbox/FileSelect.clear()
 	var dir = Directory.new()
 	if dir.open("res://Src/Dialogues") == OK:
 		dir.list_dir_begin()
@@ -27,25 +27,25 @@ func index_files() -> void:
 		while file_name != "":
 			if file_name.ends_with(".json"):
 				files.push_front(file_name)
-				$FileSelect.add_item(file_name, 0)
+				$Bar/hbox/FileSelect.add_item(file_name, 0)
 			file_name = dir.get_next()			
 			
 			
-	$TranslationFiles.clear()
+	$Bar/hbox/TranslationFiles.clear()
 	if dir.change_dir("res://Translations/NPC") == OK:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
 			if file_name.ends_with(".csv"):
 				csv_files.push_front(file_name)
-				$TranslationFiles.add_item(file_name, 0)
+				$Bar/hbox/TranslationFiles.add_item(file_name, 0)
 			file_name = dir.get_next()
 
 
 func save_dict_to_editing_file() -> void:
 	var json_string: String = JSON.print(dict, "\t")
 	var file := File.new()
-	var file_path: String = "res://Src/Dialogues/%s" % $FileSelect.get_item_text($FileSelect.selected)
+	var file_path: String = "res://Src/Dialogues/%s" % $Bar/hbox/FileSelect.get_item_text($Bar/hbox/FileSelect.selected)
 	file.open(file_path, File.WRITE)
 	file.store_string(json_string)
 	file.close()
@@ -207,7 +207,7 @@ func parse_connection_dict(dict: Dictionary) -> void:
 				var index := int(found.replace("branchText", ""))
 				from.get_node("LineEdit%s" % index).text = branches.values()[j]
 	
-	update_translations($TranslationFiles.selected)		
+	update_translations($Bar/hbox/TranslationFiles.selected)		
 
 func clear_graph():
 	$GraphEdit.clear_connections()
@@ -238,12 +238,12 @@ func _on_node_selected(node):
 
 
 func _on_file_selected(index: int) -> void:
-	open_file($FileSelect.get_item_text(index))
+	open_file($Bar/hbox/FileSelect.get_item_text(index))
 
 
 func update_translations(index: int) -> void:
 	var file := File.new()
-	var file_path = "res://Translations/NPC/%s" % $TranslationFiles.get_item_text(index)
+	var file_path = "res://Translations/NPC/%s" % $Bar/hbox/TranslationFiles.get_item_text(index)
 	if file.open(file_path, File.READ) == OK:
 		var csv_line: Array = file.get_csv_line()
 		while csv_line[0] != "END":

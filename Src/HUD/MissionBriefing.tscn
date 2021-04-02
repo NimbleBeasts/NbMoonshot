@@ -47,16 +47,14 @@ margin_right = 616.0
 margin_bottom = 272.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "Our great researchers have made significant progress with our own rocket. However, there are now rumors that the Soviets are already working on improved boosters.
+bbcode_text = "Late in 1959, the Soviets made another lunar flyby with Luna 3. The special thing is that this time they took photos. We hope to find suitable landing sites for a moon landing from these photos. 
 
-We have located a factory near Baikonur that is suitable for construction.
+Your mission is to get these photos for us.
+"
+text = "Late in 1959, the Soviets made another lunar flyby with Luna 3. The special thing is that this time they took photos. We hope to find suitable landing sites for a moon landing from these photos. 
 
-Enter the factory near Baikonur and get us plans or photos of the prototypes."
-text = "Our great researchers have made significant progress with our own rocket. However, there are now rumors that the Soviets are already working on improved boosters.
-
-We have located a factory near Baikonur that is suitable for construction.
-
-Enter the factory near Baikonur and get us plans or photos of the prototypes."
+Your mission is to get these photos for us.
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
