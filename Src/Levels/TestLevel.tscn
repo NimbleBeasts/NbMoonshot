@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
+[ext_resource path="res://Src/Pickup/BoxPickup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=5]
@@ -54,7 +55,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
-level_objectives = NodePath("Civillian")
+level_objectives = NodePath("BoxPickup")
 
 [node name="NewSkybox" parent="." instance=ExtResource( 9 )]
 
@@ -267,15 +268,28 @@ rotation = -1.5708
 heigth = 16
 isStatic = false
 moveSpeed = 0.2
+moveDistance = 5
 moveDirection = 2
 isHorizontal = false
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 200 )
+heigth = 7
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 16
 moveDirection = 1
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="Ladder" parent="LevelObjects" instance=ExtResource( 22 )]
 position = Vector2( -664, 200 )
@@ -401,6 +415,16 @@ script = ExtResource( 15 )
 
 [node name="LaserDetector" parent="." instance=ExtResource( 4 )]
 position = Vector2( -264, 200 )
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
+moveDistance = 5
+isHorizontal = true
 isFlickering = true
 flickerSequence = "1100"
+standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
+
+[node name="BoxPickup" parent="." instance=ExtResource( 2 )]
+position = Vector2( -352, 248 )

@@ -31,8 +31,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if currentPickup == null:
 			# Picking up
 			pickupItem(possiblePickup)
+			get_tree().set_input_as_handled()
 			return
 		dropCurrentItem()
+		get_tree().set_input_as_handled()
 
 
 func onPlayerAreaEntered(area: Area2D) -> void:
