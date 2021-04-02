@@ -36,7 +36,7 @@ func _ready():
 	$Sprite.frame = 0
 	
 	# Load state form save if it exists
-	if Global.gameState.has("TutorialDoor"):
+	if Global.gameState.has("TutorialDoor") and self.name == "TutorialDoor":
 		lockLevel = Global.gameState["TutorialDoor"]
 
 	Events.connect("minigame_door_change_status", self, "_on_minigame_door_change_status")

@@ -146,13 +146,9 @@ func debugShaderToggle(_d):
 		$HUDLayer/Shader.show()
 
 func debugHudToggle(_d):
-	if $LightIndicator.visible:
-		$LightIndicator.hide()
-		$AudioIndicator.hide()
+	if $HUDLayer/Display.visible:
 		$HUDLayer/Display.hide()
 	else:
-		$LightIndicator.show()
-		$AudioIndicator.show()
 		$HUDLayer/Display.show()
 
 func showSave():
