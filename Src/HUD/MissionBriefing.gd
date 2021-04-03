@@ -44,7 +44,7 @@ const text = [
 #8
 "We are virtually ready for our first space flight. In the final tests, however, the control unit showed some anomalies and we were asked by the space agency to find a replacement.\nIn fact, the Soviet model seems to be identical to ours. That's why we have memorized the development department of the Soviets.\nBreak into the building and steal the unit.\nBy the way, while you are wearing an item you are not so agile and a bit sluggish. Plan your escape route carefully.",
 #9
-"Ustria is not a very rich country. The space program costs a lot and the great leader also needs a dignified lifestyle.\nTherefore, the only way I see to increase our funds is a classic bank robbery. And which country has a lot of banks and a lot of money?\n\nSwitzerland, of course! We want to steal a little bit of the Nazi gold from them to increase our own financial resources a little bit.",
+"Ustria is not a very rich country. The space program costs a lot and the great leader also needs a dignified lifestyle.\nTherefore, the only way I see to increase our funds is a classic bank robbery. And which country has a lot of banks and a lot of money?\n\nSwitzerland, of course! We want to steal a little bit of the Nazi gold from them to increase our own financial resources a little bit, our agents allready started the work on this one so it should be easy.",
 #10
 "Late in 1959, the Soviets made another lunar flyby with Luna 3. The special thing is that this time they took photos. We hope to find suitable landing sites for a moon landing from these photos.\n\nYour mission is to get these photos for us.",
 

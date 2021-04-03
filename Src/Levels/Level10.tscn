@@ -57,11 +57,9 @@ extents = Vector2( 29.2483, 2.26552 )
 [node name="Level12-USSRArchive" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
-"_editor_description_": "Later 1962
-Ustria finished the rocket and is launching a first unmaned flight but the control unit does not work. So the player has to steal one from USSR as theirs is 100% compatible. Player needs to carry out a blackbox from the building.
+"_editor_description_": "In the 1963, agency is trying to gather landing informations by stealing pictures made by the Luna 3 moon mission in 1959 ussr. Mission environment is the space flight archive of USSR.
 "
 }
-level_lightning = 1
 level_nation_type = 1
 
 [node name="SpriteWalls" type="Node2D" parent="."]
@@ -253,41 +251,101 @@ texture = ExtResource( 32 )
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 431.91, 128 )
 lockLevel = 5
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
 keyPath = NodePath("../../Interactables/Money/Cabinet-KeyRed")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 239.914, 256.296 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 176.175, 255.963 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 103.969, 256.025 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 431.923, 192.051 )
 lockLevel = 1
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 680, 64 )
+lockLevel = 0
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 527.956, 256 )
+lockLevel = 0
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
 keyPath = NodePath("../../../../Level12-USSRArchive/LevelObjects/Keys/ParkKey")
 doorLockStateLocked = false
+sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 528.045, 192 )
 lockLevel = 4
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 528.098, 127.749 )
 lockLevel = 4
 doorType = 2
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="StaircaseE0toE1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 500.925, 127.115 )
@@ -616,84 +674,169 @@ width = 1
 
 [node name="LaserDetector2" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 754.562, 72.2 )
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
 moveDistance = 14
 moveDirection = 1
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LaserDetector5" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 677.166, 72.2 )
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
 moveDistance = 14
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LaserDetector7" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 670, 136.5 )
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
 moveDistance = 14
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LaserDetector1" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 841.115, 136.5 )
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
 moveDistance = 14
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LaserDetector9" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 620, 136.5 )
+heigth = 7
+isStatic = true
+moveSpeed = 0.5
 moveDistance = 14
+isHorizontal = true
 isFlickering = true
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LaserDetector10" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 736.828, 136.5 )
+heigth = 7
+isStatic = true
+moveSpeed = 0.5
 moveDistance = 14
+isHorizontal = true
 isFlickering = true
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LaserDetector8" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 570, 136.5 )
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
 moveDistance = 14
 moveDirection = 1
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LaserDetector6" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 570, 72.2 )
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
 moveDistance = 14
 moveDirection = 1
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LaserDetector3" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 832.016, 64.3544 )
 rotation = 1.5708
 heigth = 4
+isStatic = true
+moveSpeed = 0.5
+moveDistance = 5
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LaserDetector4" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 747.77, 120.174 )
 rotation = 1.5708
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
 moveDistance = 6
 moveDirection = 0
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LaserDetector11" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 809.576, 186.605 )
 rotation = 1.5708
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
 moveDistance = 6
 moveDirection = 0
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LaserDetector12" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 869.7, 136.151 )
 rotation = 1.5708
+heigth = 7
 isStatic = false
+moveSpeed = 0.5
 moveDistance = 6
 moveDirection = 2
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
 startOff = true
+canToggleTimes = 0
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 visible = false
