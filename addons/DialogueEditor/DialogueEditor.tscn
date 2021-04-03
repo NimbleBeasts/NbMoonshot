@@ -121,6 +121,16 @@ text = "Clear Graph"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="UpdateFileList" type="Button" parent="."]
+margin_left = 32.8434
+margin_top = 125.017
+margin_right = 135.843
+margin_bottom = 146.017
+text = "UpdateFileList"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="connection_request" from="GraphEdit" to="." method="_on_graph_connection_request"]
 [connection signal="disconnection_request" from="GraphEdit" to="." method="_on_graph_disconnection_request"]
 [connection signal="node_selected" from="GraphEdit" to="." method="_on_node_selected"]

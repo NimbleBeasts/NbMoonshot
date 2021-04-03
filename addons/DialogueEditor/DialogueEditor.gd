@@ -18,6 +18,12 @@ var dict = {
 	
 }
 
+func _ready() -> void:
+	$UpdateFileList.connect("pressed", self, "index_files")
+	index_files()
+	open_file($Bar/hbox/FileSelect.get_item_text(0))
+
+
 func index_files() -> void:
 	$Bar/hbox/FileSelect.clear()
 	var dir = Directory.new()
@@ -142,7 +148,8 @@ func _on_add_branch_pressed() -> void:
 func _on_save_pressed():
 	save_connection_list_to_dict()
 	save_dict_to_editing_file()
-	
+	# save_csv()
+
 	
 func open_file(file_name: String) -> void:
 	clear_graph()
@@ -262,3 +269,22 @@ func update_translations(index: int) -> void:
 		printerr("Couldn't open file at %s" % file_path)
 		
 
+func save_csv() -> void:
+	var file := File.new()
+	var file_path = "res://Translations/NPC/%s" % $Bar/hbox/TranslationFiles.get_item_text($Bar/hbox/TranslationFiles.selected)
+	if file.open(file_path, File.WRITE) == OK:
+		file.store_line("keys,en,ru,de")
+		for child in $GraphEdit.get_children():
+			if child is BaseBranch:
+				var string: String = ""
+				string += "KEY_%s," % child.get_node("BranchID").text
+				string += "\"%s\",," % child.get_node("Text").text
+				file.store_line(string)
+				for i in 3:
+					if child.get_node("LineEdit%s" % i).text != "":
+						var choice_string: String = ""
+						choice_string += "CHOICE_%s_%s," % [child.get_node("BranchID").text, i]
+						choice_string += "\"%s\",," % child.get_node('LineEdit%s' % i).text
+						file.store_line(choice_string)
+		file.store_line("END,,,")
+		file.close()

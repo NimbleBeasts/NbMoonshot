@@ -207,10 +207,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -12.0
-margin_top = -39.2
-margin_right = 228.0
-margin_bottom = 0.800003
+margin_left = -120.0
+margin_top = -20.0
+margin_right = 120.0
+margin_bottom = 20.0
 rect_scale = Vector2( 0.1, 0.1 )
 rect_pivot_offset = Vector2( 120, 32 )
 custom_fonts/font = SubResource( 4 )
@@ -337,6 +337,7 @@ __meta__ = {
 
 [node name="UpgradeButton0" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 group = SubResource( 8 )
+skill = 0
 
 [node name="UpgradeButton1" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0

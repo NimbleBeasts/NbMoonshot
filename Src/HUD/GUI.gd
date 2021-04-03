@@ -17,9 +17,11 @@ func resetLives(value) -> void:
 	lives = value
 	$BottomBar/Life.set_text(str(value))
 
-func updateLives(_type) -> void:
-	lives -= 1
-	$BottomBar/Life.set_text(str(lives))
+func updateLives(type) -> void:
+	if type == Types.DetectionLevels.Sure:
+		lives -= 1
+		$BottomBar/Life.set_text(str(lives))
+		
 
 func updateMoney(total, change) -> void:
 	#TODO animate change

@@ -28,6 +28,7 @@ func _ready():
 	Events.connect_signal("new_game", self, "_newGame")
 	Events.connect_signal("menu_back", self, "_backToMenu")
 	Events.connect("allowed_detections_updated", self, "onAllowedDetectionsUpdated")
+	Events.connect("player_detected", self, "onPlayerDetected")
 
 	
 	switchTo(Types.GameStates.Menu)
@@ -148,3 +149,8 @@ func setDetectedValue(value: int) -> void:
 	if detected_value == 0:
 		Events.emit_signal("game_over")
 		Events.emit_signal("minigame_forcefully_close")
+
+
+func onPlayerDetected(detectionLevel) -> void:
+	if detectionLevel == Types.DetectionLevels.Sure:
+		setDetectedValue(detected_value - 1)
