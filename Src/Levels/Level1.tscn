@@ -627,24 +627,32 @@ position = Vector2( 234, 192 )
 type = 1
 hasBounty = true
 isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 480, 128 )
 type = 1
 hasBounty = true
 isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 416, 128 )
 type = 1
 hasBounty = false
 isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 463, 320 )
 type = 0
 hasBounty = true
 isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 280, 72 )
@@ -656,6 +664,8 @@ isHorizontal = true
 isFlickering = true
 flickerSequence = "1110000000"
 standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 256, 72 )
@@ -667,6 +677,8 @@ isHorizontal = true
 isFlickering = true
 flickerSequence = "0000111111"
 standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="Flag" parent="LevelObjects" instance=ExtResource( 34 )]
 position = Vector2( 104, 256 )
@@ -682,10 +694,32 @@ removeNotifierDuration = 1.0
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 8, 312 )
 z_index = 50
+normal_speed = 80
+normal_acceleration = 600
+sprint_speed = 160
+duckSpeed = 40
+duckAcceleration = 300
+gravity = 800
+startingDirection = 0
+normal_stun_battery = 3
+extended_stun_battery = 5
+normal_stun_duration = 4.0
+extended_stun_duration = 7.0
+normal_sprint_duration = 3.0
+extended_sprint_duration = 6.0
+stamina_replenish_duration = 3.0
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
 position = Vector2( 320, 192 )
-starting_direction = Vector2( -1, 0 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
 points = PoolVector2Array( 0, -16, 80, -16, 176, -16 )
@@ -693,7 +727,15 @@ script = ExtResource( 35 )
 
 [node name="Guard2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 448, 256 )
-starting_direction = Vector2( -1, 0 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="Guard2"]
 visible = false
@@ -702,7 +744,15 @@ script = ExtResource( 35 )
 
 [node name="Guard3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 584, 128 )
-starting_direction = Vector2( -1, 0 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="Guard3"]
 points = PoolVector2Array( 0, -16, -64, -16, 40, -24 )

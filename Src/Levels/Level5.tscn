@@ -429,10 +429,19 @@ canBeOpened = true
 
 [node name="Locker" parent="LevelObjects/Objects" instance=ExtResource( 47 )]
 position = Vector2( 400, 320 )
+type = 0
+hasBounty = false
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Locker2" parent="LevelObjects/Objects" instance=ExtResource( 47 )]
 position = Vector2( 409, 320 )
+type = 0
 hasBounty = true
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -842,10 +851,26 @@ col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 46 )]
 position = Vector2( 80, 256 )
+next_boss_interacted_counter = 6
+nextSecretaryInteractionCounter = 6
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
 position = Vector2( 712, 256 )
 z_index = 50
+normal_speed = 80
+normal_acceleration = 600
+sprint_speed = 160
+duckSpeed = 40
+duckAcceleration = 300
+gravity = 800
+startingDirection = 0
+normal_stun_battery = 3
+extended_stun_battery = 5
+normal_stun_duration = 4.0
+extended_stun_duration = 7.0
+normal_sprint_duration = 3.0
+extended_sprint_duration = 6.0
+stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 

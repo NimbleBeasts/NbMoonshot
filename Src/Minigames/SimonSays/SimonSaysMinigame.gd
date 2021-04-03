@@ -55,10 +55,11 @@ func showTimerTimeout() -> void:
 func onButtonUp(buttonType: int) -> void:
 	inputtedButtons.append(buttonType)
 	var index = inputtedButtons.size() - 1
-	if inputtedButtons[index] != flashedColors[index]:
-		set_result(Types.MinigameResults.Failed)
-		close()
-		return
+	if inputtedButtons.size() > index and flashedColors.size() > index:
+		if inputtedButtons[index] != flashedColors[index]:
+			set_result(Types.MinigameResults.Failed)
+			close()
+			return
 	if inputtedButtons.size() == flashedColors.size():
 		Events.emit_signal("minigame_door_change_status" ,targetInstance, 0, true)
 		set_result(Types.MinigameResults.Succeeded)

@@ -88,14 +88,14 @@
 [ext_resource path="res://Assets/Objects/Office/Broom.png" type="Texture" id=88]
 [ext_resource path="res://Assets/Objects/Office/Bucket.png" type="Texture" id=89]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.540741, 1 )
 colors = PoolColorArray( 0, 0.473728, 0.996094, 1, 0.519531, 0.831085, 1, 1 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=3]
 flag_align_y = true
 flag_rotate_y = true
 flag_disable_z = true
@@ -105,17 +105,17 @@ gravity = Vector3( 0, 98, 0 )
 initial_velocity = 50.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 9.69125, 13.3242 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=5]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 16.8837, 10.7399 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=7]
 
 [node name="Level3-Chimpazzie" type="Node2D"]
 script = ExtResource( 4 )
@@ -195,8 +195,6 @@ width = 1
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 1125.67, 254.223 )
-next_boss_interacted_counter = 5
-nextSecretaryInteractionCounter = 5
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
@@ -631,33 +629,80 @@ pickupName = "BarrelOil"
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 384, 64 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 95.9087, 64 )
 lockLevel = 3
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 888.031, 254.118 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 775.846, 192 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 312.181, 256.223 )
 lockLevel = 5
 doorType = 1
+save_state = false
+showHintIfLocked = false
+hint = ""
 keyPath = NodePath("../../Keys/ParkKey")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 240, 256.223 )
+lockLevel = 0
 doorType = 1
+save_state = false
+showHintIfLocked = false
+hint = ""
 keyPath = NodePath("../../Keys/ParkKey")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( -23.8994, 256.223 )
 lockLevel = 5
 doorType = 1
+save_state = false
+showHintIfLocked = false
+hint = ""
 keyPath = NodePath("../../Keys/MedicbeyKey")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="StaircaseE0toE1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 256 )
@@ -990,19 +1035,19 @@ col2 = Color( 0.2, 0.2, 1, 1 )
 visible = false
 position = Vector2( 497.062, 253.474 )
 lifetime = 0.9
-process_material = SubResource( 5 )
+process_material = SubResource( 3 )
 
 [node name="SprinklerParticle3" type="Particles2D" parent="LevelObjects/SprinkersRoot"]
 visible = false
 position = Vector2( -194.251, 253.474 )
 lifetime = 0.9
-process_material = SubResource( 5 )
+process_material = SubResource( 3 )
 
 [node name="SprinklerParticle2" type="Particles2D" parent="LevelObjects/SprinkersRoot"]
 visible = false
 position = Vector2( 406.46, 253.307 )
 lifetime = 0.9
-process_material = SubResource( 5 )
+process_material = SubResource( 3 )
 
 [node name="Interactables" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -1125,7 +1170,7 @@ script = ExtResource( 78 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Interactables/PipeMinigameSpawner"]
 position = Vector2( 496.348, 367.423 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="Blockers" type="Node2D" parent="LevelObjects"]
 
@@ -1139,7 +1184,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Blockers/LedgeBlock"]
 position = Vector2( 209.735, 118.261 )
-shape = SubResource( 10 )
+shape = SubResource( 5 )
 
 [node name="CarBlock" type="StaticBody2D" parent="LevelObjects/Blockers"]
 position = Vector2( 1163.62, 245.493 )
@@ -1150,7 +1195,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Blockers/CarBlock"]
-shape = SubResource( 10 )
+shape = SubResource( 5 )
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 visible = false
@@ -1167,6 +1212,20 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1081.81, 256 )
 z_index = 50
+normal_speed = 80
+normal_acceleration = 600
+sprint_speed = 160
+duckSpeed = 40
+duckAcceleration = 300
+gravity = 800
+startingDirection = 0
+normal_stun_battery = 3
+extended_stun_battery = 5
+normal_stun_duration = 4.0
+extended_stun_duration = 7.0
+normal_sprint_duration = 3.0
+extended_sprint_duration = 6.0
+stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -1309,7 +1368,7 @@ script = ExtResource( 77 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/Monkey/PhotoMinigameSpawner"]
 position = Vector2( 9.03961, 3.99425 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Civillian-DRMonkey" parent="NPCs" instance=ExtResource( 39 )]
 position = Vector2( 389.81, 258.489 )
@@ -1331,7 +1390,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelCustomStuff/BarrelFallDetector"]
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="BarrelRedSquashGuard" type="Sprite" parent="LevelCustomStuff"]
 visible = false

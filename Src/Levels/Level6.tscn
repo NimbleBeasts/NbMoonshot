@@ -166,8 +166,8 @@ width = 1
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
-next_boss_interacted_counter = 3
-nextSecretaryInteractionCounter = 3
+next_boss_interacted_counter = 7
+nextSecretaryInteractionCounter = 7
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
@@ -216,6 +216,7 @@ centered = false
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
@@ -608,6 +609,11 @@ moveSpeed = 0.3
 moveDistance = 4
 moveDirection = 0
 isHorizontal = false
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 776, 192 )
@@ -615,52 +621,100 @@ rotation = -1.5708
 heigth = 5
 isStatic = false
 moveSpeed = 0.2
+moveDistance = 5
 moveDirection = 0
 isHorizontal = false
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 704, 136 )
+heigth = 7
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 19
 moveDirection = 1
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 272, 128 )
 type = 1
+hasBounty = false
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 240, 128 )
 type = 1
 hasBounty = true
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 400, 384 )
 type = 2
+hasBounty = false
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 592, 384 )
 type = 2
+hasBounty = false
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 696, 384 )
 type = 2
+hasBounty = false
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Cabinet6" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 824, 384 )
 type = 2
+hasBounty = false
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Cabinet7" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 800, 256 )
+type = 0
 hasBounty = true
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Cabinet8" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 752, 256 )
+type = 0
 hasBounty = true
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Cabinet9" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 872, 128 )
+type = 0
 hasBounty = true
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 680, 200 )
@@ -677,6 +731,20 @@ removeNotifierDuration = 1.0
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 104, 256 )
 z_index = 50
+normal_speed = 80
+normal_acceleration = 600
+sprint_speed = 160
+duckSpeed = 40
+duckAcceleration = 300
+gravity = 800
+startingDirection = 0
+normal_stun_battery = 3
+extended_stun_battery = 5
+normal_stun_duration = 4.0
+extended_stun_duration = 7.0
+normal_sprint_duration = 3.0
+extended_sprint_duration = 6.0
+stamina_replenish_duration = 3.0
 
 [node name="Guard" parent="." instance=ExtResource( 10 )]
 position = Vector2( 536, 384 )
