@@ -52,6 +52,7 @@ func _ready():
 	$HUDLayer/Display/GUI.visible = true
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
 
+	$HUDLayer/Display/Dialog.hide()
 
 func _physics_process(_delta):
 	# Hide Note
@@ -145,13 +146,9 @@ func debugShaderToggle(_d):
 		$HUDLayer/Shader.show()
 
 func debugHudToggle(_d):
-	if $LightIndicator.visible:
-		$LightIndicator.hide()
-		$AudioIndicator.hide()
+	if $HUDLayer/Display.visible:
 		$HUDLayer/Display.hide()
 	else:
-		$LightIndicator.show()
-		$AudioIndicator.show()
 		$HUDLayer/Display.show()
 
 func showSave():

@@ -3,7 +3,7 @@
 [ext_resource path="res://Src/HUD/MissionBriefing.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/MagoFont3_32.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/HUD/MissionBriefing.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=5]
 [ext_resource path="res://Assets/HUD/MissionMaps.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/mago1.ttf" type="DynamicFontData" id=7]
@@ -21,7 +21,7 @@ __meta__ = {
 }
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-modulate = Color( 0.192157, 0.192157, 0.192157, 1 )
+modulate = Color( 0.0196078, 0.0352941, 0.25098, 1 )
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 5 )
@@ -75,9 +75,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="."]
 margin_left = 24.0
-margin_top = 24.0
+margin_top = 20.0
 margin_right = 616.0
-margin_bottom = 48.0
+margin_bottom = 46.0
 custom_fonts/font = ExtResource( 2 )
 text = "Mission Briefing"
 align = 1
