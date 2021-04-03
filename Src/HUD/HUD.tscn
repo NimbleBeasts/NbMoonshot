@@ -209,16 +209,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -120.0
-<<<<<<< HEAD
-margin_top = -20.0
-margin_right = 120.0
-margin_bottom = 20.0
-rect_scale = Vector2( 0.1, 0.1 )
-=======
 margin_top = -28.0
 margin_right = 120.0
 margin_bottom = 12.0
->>>>>>> 0d5c2c06b89d28457a9517819b41009531e9f631
 rect_pivot_offset = Vector2( 120, 32 )
 custom_fonts/font = SubResource( 4 )
 text = "GAME OVER"

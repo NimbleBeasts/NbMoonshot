@@ -45,11 +45,7 @@ func updateLightLevel(newLightLevel) -> void:
 			$BottomBar/Light.frame = 2
 
 func updateAudioLevel(newAudioLevel, _audio_pos, _emitter) -> void: #TODO: audio_pos needed?
-	$BottomBar/Audio/AnimationPlayer.play("sound")
-	#TODO: we need to do a proper handling here. however sound does not play such an important role
-	return
-	
-	print("audio:" + str(newAudioLevel))
+	pass
 	if newAudioLevel >= 0 and newAudioLevel < Types.AudioLevels.size():
 		$BottomBar/Audio.frame = newAudioLevel
 		
