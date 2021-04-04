@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=2]
@@ -37,7 +37,6 @@
 [ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=35]
 [ext_resource path="res://Assets/Objects/Hospital/HospitalSink.png" type="Texture" id=36]
 [ext_resource path="res://Assets/Objects/Office/WallImageSatellite.png" type="Texture" id=37]
-[ext_resource path="res://Assets/Objects/Home/BedsideTable.png" type="Texture" id=38]
 [ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Src/HideOuts/HideOutBase.tscn" type="PackedScene" id=40]
 [ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=41]
@@ -158,40 +157,18 @@ tile_data = PoolIntArray( 12, 0, 0, 13, 0, 1, 14, 0, 1, 15, 0, 1, 16, 0, 1, 17, 
 
 [node name="Ladder-FRONT" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 632.011, 72 )
-reduced_up = 0
-reduced_down = 0
-disabled = false
-width = 1
 
 [node name="Ladder-LAB" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( -40.0046, 136.035 )
-reduced_up = 0
-reduced_down = 0
-disabled = false
-width = 1
 
 [node name="Ladder-LAB2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 224, 200.1 )
-reduced_up = 0
-reduced_down = 0
-disabled = false
-width = 1
 
 [node name="ThinArea" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( 400, 136 )
-reduced_up = 0
-reduced_down = 0
-disabled = false
-isLadder = false
-width = 1
 
 [node name="ThinArea2" parent="LevelObjects" instance=ExtResource( 11 )]
 position = Vector2( 333.944, 72 )
-reduced_up = 0
-reduced_down = 0
-disabled = false
-isLadder = false
-width = 1
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 1125.67, 254.223 )
@@ -321,10 +298,6 @@ texture = ExtResource( 29 )
 [node name="Blueprint" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 194.413, 224.898 )
 texture = ExtResource( 30 )
-
-[node name="BedsideTable" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 863.474, 183.5 )
-texture = ExtResource( 38 )
 
 [node name="Clock" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 737.536, 282.023 )
@@ -629,182 +602,99 @@ pickupName = "BarrelOil"
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 384, 64 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 95.9087, 64 )
 lockLevel = 3
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 888.031, 254.118 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 775.846, 192 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 312.181, 256.223 )
 lockLevel = 5
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
 keyPath = NodePath("../../Keys/ParkKey")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 240, 256.223 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
 keyPath = NodePath("../../Keys/ParkKey")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( -23.8994, 256.223 )
 lockLevel = 5
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("../../Keys/MedicbeyKey")
-doorLockStateLocked = true
-sig_to_trig = [  ]
+keyPath = NodePath("../../Interactables/Cabinet-MedickBayKey")
 
 [node name="StaircaseE0toE1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 256 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE1toE0")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseE1toE0" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 192 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE0toE1")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseE1toE2" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 744.914, 192 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE2toE1")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseE2toE1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 744.633, 128 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE1toE2")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseE3toE2-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 128, 64 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE2toE3-LAB")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseE2toE3-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 128, 128 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE3toE2-LAB")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseE2toE0-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 150.326, 128 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE0toE2-LAB")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseE0toE2-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 85, 255.659 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE2toE0-LAB")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseE0toE-1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 632, 256 )
 connected_door_path = NodePath("../StaircaseE-1toE0")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseE-1toE0" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 632, 320 )
 connected_door_path = NodePath("../StaircaseE0toE-1")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseE-1toE-2" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 320 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../StaircaseE-2toE-1")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseE-2toE-1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 383.568 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../StaircaseE-1toE-2")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="Keys" type="Node2D" parent="LevelObjects"]
 
@@ -813,7 +703,7 @@ position = Vector2( 695.5, 120 )
 keyColor = 2
 
 [node name="MedicbeyKey" parent="LevelObjects/Keys" instance=ExtResource( 55 )]
-position = Vector2( 878.804, 165.961 )
+position = Vector2( 978.186, -78.8163 )
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -1056,67 +946,42 @@ __meta__ = {
 
 [node name="Cabinet" parent="LevelObjects/Interactables" instance=ExtResource( 48 )]
 position = Vector2( 793.146, 128 )
-type = 0
 hasBounty = true
-isObjective = false
-containsKey = false
-keyColor = 0
+
+[node name="Cabinet-MedickBayKey" parent="LevelObjects/Interactables" instance=ExtResource( 48 )]
+position = Vector2( 870.776, 191.941 )
+type = 2
+hasBounty = true
+containsKey = true
 
 [node name="Cabinet2" parent="LevelObjects/Interactables" instance=ExtResource( 48 )]
 position = Vector2( 543.211, 255.257 )
-type = 0
-hasBounty = false
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet3" parent="LevelObjects/Interactables" instance=ExtResource( 48 )]
 position = Vector2( 559.211, 255.257 )
-type = 0
-hasBounty = false
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet4" parent="LevelObjects/Interactables" instance=ExtResource( 48 )]
 position = Vector2( -79.3646, 192.1 )
-type = 0
 hasBounty = true
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet6" parent="LevelObjects/Interactables" instance=ExtResource( 48 )]
 position = Vector2( 248.898, 192.1 )
-type = 0
 hasBounty = true
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet7" parent="LevelObjects/Interactables" instance=ExtResource( 48 )]
 position = Vector2( 267.983, 192.1 )
-type = 0
-hasBounty = false
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet5" parent="LevelObjects/Interactables" instance=ExtResource( 48 )]
 position = Vector2( 265, 255 )
-type = 0
 hasBounty = true
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Tresor" parent="LevelObjects/Interactables" instance=ExtResource( 45 )]
-position = Vector2( 879.646, 190.757 )
+position = Vector2( 959.424, -84.8477 )
 keyPadCode = 1
 minigameType = 3
 
 [node name="HideOutBase" parent="LevelObjects/Interactables" instance=ExtResource( 40 )]
-position = Vector2( 870.11, 43.6736 )
+position = Vector2( 1025.18, -76.191 )
 
 [node name="Closet" parent="LevelObjects/Interactables" instance=ExtResource( 43 )]
 position = Vector2( 689.664, 192.1 )

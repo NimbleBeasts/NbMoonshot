@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Src/Pickup/BasePickup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Temp/TresureBag.png" type="Texture" id=2]
+
+[node name="TresureSack" instance=ExtResource( 1 )]
+pickupName = "TresureSack"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 2.64991, -8.01539 )
+texture = ExtResource( 2 )
