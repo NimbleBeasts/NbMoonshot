@@ -45,9 +45,10 @@ func _input(event: InputEvent) -> void:
 	if not player or not event is InputEventKey:
 		return
 	if event.is_action_pressed("interact") and player.direction.x == 0 and currentBranch != {}:
-		sayBranch(currentBranch)
-		set_process_input(false)
-		sayingDialogue = true
+		if currentBranch != {}:
+			sayBranch(currentBranch)
+			set_process_input(false)
+			sayingDialogue = true
 
 		
 func onNoBranchButtonPressed() -> void:
@@ -148,7 +149,8 @@ func setInteractedCounter(value: int) -> void:
 	if interactedCounter != value:
 		interactedCounter = value
 		currentBranchID = "%s0" % interactedCounter
-		setCurrentBranch(loadedDialogue[currentBranchID])
+		if loadedDialogue.has(currentBranchID):
+			setCurrentBranch(loadedDialogue[currentBranchID])
 		set_process_input(true)
 
 
