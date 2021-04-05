@@ -37,6 +37,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		for area in player.get_node("PlayerArea").get_overlapping_areas():
 			if area is Door:
 				return
+			if area.is_in_group("ExtractionZone"):
+				print("returned")
+				return
 		dropCurrentItem()
 		get_tree().set_input_as_handled()
 

@@ -56,7 +56,9 @@ tracks/0/keys = {
 "values": [ 0, 3, 4 ]
 }
 
-[node name="ExtractionZone" type="Area2D"]
+[node name="ExtractionZone" type="Area2D" groups=[
+"ExtractionZone",
+]]
 script = ExtResource( 1 )
 next_boss_interacted_counter = 4
 nextSecretaryInteractionCounter = 4
