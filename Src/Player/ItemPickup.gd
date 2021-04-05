@@ -33,6 +33,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			pickupItem(possiblePickup)
 			get_tree().set_input_as_handled()
 			return
+		# hacky workaround
+		for area in player.get_node("PlayerArea").get_overlapping_areas():
+			if area is Door:
+				return
 		dropCurrentItem()
 		get_tree().set_input_as_handled()
 
