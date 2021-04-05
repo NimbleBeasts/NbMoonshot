@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Home/Kitchen.png" type="Texture" id=2]
@@ -19,7 +19,7 @@
 [ext_resource path="res://Assets/Objects/LawFirm/BossDeskChair.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Objects/LawFirm/DeskChair.png" type="Texture" id=18]
 [ext_resource path="res://Src/Light/OutdoorLight2.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Assets/Temp/Glass.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Objects/NoSmoking.png" type="Texture" id=20]
 [ext_resource path="res://Src/Tresor/Tresor.gd" type="Script" id=21]
 [ext_resource path="res://Assets/Objects/Tresor.png" type="Texture" id=22]
 [ext_resource path="res://Src/Jukebox/Jukebox.tscn" type="PackedScene" id=23]
@@ -27,6 +27,20 @@
 [ext_resource path="res://Assets/Objects/Note.png" type="Texture" id=25]
 [ext_resource path="res://Src/Pickup/TresureSack.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Notifier/Notifier.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Assets/Objects/Office/WallImageNB.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Objects/Office/Bookshelf.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Objects/Office/Clock.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Objects/Hospital/Medikit.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Office/FireExtinguisher.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Objects/Hotel/Rail.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Objects/Home/PaintingStarryNight.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Objects/Home/BedsideTable.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Objects/Home/ClockOld.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Objects/Home/tv.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Objects/Home/Mower.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Objects/IndoreControlPointSide.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Objects/Home/Couch.png" type="Texture" id=41]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=58]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=68]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=71]
@@ -40,18 +54,18 @@
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=84]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=85]
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 1.38495, 14.5222 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3.8493, 14.9571 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 6.50766, 13.854 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 4.90033, 8.61313 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 29.2483, 2.26552 )
 
 [node name="Level12-BankJob" type="Node2D"]
@@ -62,6 +76,7 @@ __meta__ = {
 }
 level_lightning = 1
 level_nation_type = 2
+level_objectives = NodePath("LevelObjects/Interactables/TresureSack")
 
 [node name="SpriteWalls" type="Node2D" parent="."]
 
@@ -72,7 +87,7 @@ cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 32
 occluder_light_mask = 3
 format = 1
-tile_data = PoolIntArray( 524316, 61, 0, 524318, 61, 0, 524320, 61, 0, 524322, 61, 0, 524324, 63, 0, 524325, 63, 0, 524326, 63, 0, 524327, 63, 0, 524328, 63, 0, 524329, 63, 0, 524330, 61, 0, 524332, 61, 0, 524334, 61, 0, 524336, 61, 0, 524338, 61, 0, 524340, 61, 0, 524342, 61, 0, 524344, 61, 0, 524346, 61, 0, 786480, 1, 0, 1048604, 61, 0, 1048606, 61, 0, 1048608, 61, 0, 1048610, 61, 0, 1048612, 63, 0, 1048613, 63, 0, 1048614, 63, 0, 1048615, 63, 0, 1048616, 63, 0, 1048617, 63, 0, 1048618, 61, 0, 1048620, 61, 0, 1048622, 61, 0, 1048624, 61, 0, 1048626, 61, 0, 1048628, 61, 0, 1048630, 61, 0, 1048632, 61, 0, 1048634, 61, 0, 1310780, 1, 0, 1507389, 55, 0, 1507390, 55, 0, 1507391, 55, 0, 1507392, 55, 0, 1507393, 55, 0, 1507394, 55, 0, 1507395, 55, 0, 1507396, 55, 0, 1507397, 55, 0, 1507398, 55, 0, 1572891, 63, 0, 1572892, 63, 0, 1572893, 63, 0, 1572894, 63, 0, 1572895, 63, 0, 1572896, 63, 0, 1572897, 63, 0, 1572898, 63, 0, 1572900, 0, 0, 1572902, 0, 0, 1572904, 0, 0, 1572906, 0, 0, 1572908, 0, 0, 1572910, 0, 0, 1572912, 0, 0, 1572914, 0, 0, 1572916, 0, 0, 1572918, 0, 0, 1572920, 0, 0, 1572922, 0, 0, 1572924, 0, 0, 1572926, 0, 0, 1572928, 0, 0, 1572930, 0, 0, 1572932, 0, 0, 1572934, 0, 0, 1572975, 6, 0, 1572977, 6, 0, 1572979, 6, 0, 1572981, 7, 0, 1572982, 10, 0, 1572983, 6, 0, 1572985, 6, 0, 1572987, 6, 0, 1572988, 6, 0, 1572990, 9, 0, 1572991, 10, 0, 1572992, 6, 0, 1572994, 6, 0, 1572996, 10, 0, 1572997, 8, 0, 1572999, 10, 0, 1835043, 1, 0, 1835079, 1, 0, 1835118, 1, 0, 1835131, 1, 0, 1835144, 1, 0, 1835145, 59, 0, 1835147, 59, 0, 1835149, 59, 0, 1835151, 59, 0, 1835153, 59, 0, 1835155, 59, 0, 1835157, 59, 0, 2097180, 63, 0, 2097181, 63, 0, 2097182, 63, 0, 2097183, 63, 0, 2097184, 63, 0, 2097185, 63, 0, 2097186, 63, 0, 2097187, 63, 0, 2097188, 63, 0, 2097189, 63, 0, 2097191, 20, 0, 2097192, 20, 0, 2097193, 20, 0, 2097194, 20, 0, 2097195, 20, 0, 2097196, 20, 0, 2097197, 20, 0, 2097198, 20, 0, 2097199, 20, 0, 2097200, 20, 0, 2097201, 20, 0, 2097202, 20, 0, 2097203, 20, 0, 2097204, 20, 0, 2097205, 20, 0, 2097206, 20, 0, 2097207, 20, 0, 2097208, 20, 0, 2097209, 20, 0, 2097210, 20, 0, 2097211, 20, 0, 2293817, 56, 0, 2359334, 1, 0, 3276951, 20, 0, 3276952, 20, 0, 3276953, 20, 0, 3276954, 20, 0, 3276955, 20, 0, 3276956, 20, 0, 3276957, 20, 0, 3276958, 20, 0, 3276959, 20, 0, 3276960, 20, 0, 3276961, 20, 0, 3276962, 20, 0, 3276963, 20, 0, 3276964, 20, 0, 3276965, 20, 0, 3276966, 20, 0, 3276967, 20, 0, 3276968, 20, 0, 3276969, 20, 0, 3276970, 20, 0, 3276971, 20, 0, 3276972, 20, 0, 3276973, 20, 0, 3276974, 20, 0, 3276975, 20, 0, 3276976, 20, 0, 3276977, 20, 0, 3276978, 20, 0, 3276979, 20, 0, 3276980, 20, 0 )
+tile_data = PoolIntArray( 524316, 61, 0, 524318, 61, 0, 524320, 61, 0, 524322, 61, 0, 524324, 63, 0, 524325, 63, 0, 524326, 63, 0, 524327, 63, 0, 524328, 63, 0, 524329, 63, 0, 524330, 61, 0, 524332, 61, 0, 524334, 61, 0, 524336, 61, 0, 524338, 61, 0, 524340, 61, 0, 524342, 61, 0, 524344, 61, 0, 524346, 61, 0, 786480, 1, 0, 1048604, 61, 0, 1048606, 61, 0, 1048608, 61, 0, 1048610, 61, 0, 1048612, 63, 0, 1048613, 63, 0, 1048614, 63, 0, 1048615, 63, 0, 1048616, 63, 0, 1048617, 63, 0, 1048618, 61, 0, 1048620, 61, 0, 1048622, 61, 0, 1048624, 61, 0, 1048626, 61, 0, 1048628, 61, 0, 1048630, 61, 0, 1048632, 61, 0, 1048634, 61, 0, 1310780, 1, 0, 1507389, 55, 0, 1507390, 55, 0, 1507391, 55, 0, 1507392, 55, 0, 1507393, 55, 0, 1507394, 55, 0, 1507395, 55, 0, 1507396, 55, 0, 1507397, 55, 0, 1507398, 55, 0, 1572891, 63, 0, 1572892, 63, 0, 1572893, 63, 0, 1572894, 63, 0, 1572895, 63, 0, 1572896, 63, 0, 1572897, 63, 0, 1572898, 63, 0, 1572900, 0, 0, 1572902, 0, 0, 1572904, 0, 0, 1572906, 0, 0, 1572908, 0, 0, 1572910, 0, 0, 1572912, 0, 0, 1572914, 0, 0, 1572916, 0, 0, 1572918, 0, 0, 1572920, 0, 0, 1572922, 0, 0, 1572924, 0, 0, 1572926, 3, 0, 1572928, 0, 0, 1572930, 5, 0, 1572931, 3, 0, 1572933, 5, 0, 1572934, 0, 0, 1572975, 6, 0, 1572977, 6, 0, 1572979, 6, 0, 1572981, 7, 0, 1572982, 10, 0, 1572983, 6, 0, 1572985, 6, 0, 1572987, 6, 0, 1572988, 6, 0, 1572990, 9, 0, 1572991, 10, 0, 1572992, 6, 0, 1572994, 6, 0, 1572996, 10, 0, 1572997, 8, 0, 1572999, 10, 0, 1835043, 1, 0, 1835079, 1, 0, 1835118, 1, 0, 1835131, 1, 0, 1835144, 1, 0, 1835145, 59, 0, 1835147, 59, 0, 1835149, 59, 0, 1835151, 59, 0, 1835153, 59, 0, 1835155, 59, 0, 1835157, 59, 0, 2097180, 63, 0, 2097181, 63, 0, 2097182, 63, 0, 2097183, 63, 0, 2097184, 63, 0, 2097185, 63, 0, 2097186, 63, 0, 2097187, 63, 0, 2097188, 63, 0, 2097189, 63, 0, 2097191, 20, 0, 2097192, 20, 0, 2097193, 20, 0, 2097194, 20, 0, 2097195, 20, 0, 2097196, 20, 0, 2097197, 20, 0, 2097198, 20, 0, 2097199, 20, 0, 2097200, 20, 0, 2097201, 20, 0, 2097202, 20, 0, 2097203, 20, 0, 2097204, 20, 0, 2097205, 20, 0, 2097206, 20, 0, 2097207, 20, 0, 2097208, 20, 0, 2097209, 20, 0, 2097210, 20, 0, 2097211, 20, 0, 2293817, 56, 0, 2359334, 1, 0, 3276951, 20, 0, 3276952, 20, 0, 3276953, 20, 0, 3276954, 20, 0, 3276955, 20, 0, 3276956, 20, 0, 3276957, 20, 0, 3276958, 20, 0, 3276959, 20, 0, 3276960, 20, 0, 3276961, 20, 0, 3276962, 20, 0, 3276963, 20, 0, 3276964, 20, 0, 3276965, 20, 0, 3276966, 20, 0, 3276967, 20, 0, 3276968, 20, 0, 3276969, 20, 0, 3276970, 20, 0, 3276971, 20, 0, 3276972, 20, 0, 3276973, 20, 0, 3276974, 20, 0, 3276975, 20, 0, 3276976, 20, 0, 3276977, 20, 0, 3276978, 20, 0, 3276979, 20, 0, 3276980, 20, 0 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 9 )
@@ -158,15 +173,6 @@ position = Vector2( 260.589, 175.951 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 15 )
 
-[node name="DeskChair6" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 370.709, 239.205 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 15 )
-
-[node name="Glass" type="Sprite" parent="LevelObjects/Decorations/DeskChair6"]
-position = Vector2( -11.1707, -4.05452 )
-texture = ExtResource( 20 )
-
 [node name="BossDeskChair" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 431.708, 111.757 )
 texture = ExtResource( 17 )
@@ -180,80 +186,231 @@ position = Vector2( 742, 258 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 16 )
 
+[node name="Bookshelf" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 258.245, 103.767 )
+texture = ExtResource( 29 )
+
+[node name="Clock" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 406.452, 220.862 )
+texture = ExtResource( 30 )
+
+[node name="FireExtinguisher" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 476.997, 311.551 )
+texture = ExtResource( 32 )
+
+[node name="Plant" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 474.332, 111.006 )
+texture = ExtResource( 33 )
+
+[node name="WallImageNB" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 324.464, 100.25 )
+texture = ExtResource( 28 )
+
+[node name="PaintingStarryNight" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 347.135, 230.396 )
+texture = ExtResource( 35 )
+
+[node name="BedsideTable" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 348.453, 247.318 )
+texture = ExtResource( 36 )
+
+[node name="Rail" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 414.678, 248.173 )
+texture = ExtResource( 34 )
+
+[node name="Medikit" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 262.44, 297.531 )
+texture = ExtResource( 31 )
+
+[node name="Couch" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 933.774, 244.749 )
+texture = ExtResource( 41 )
+
+[node name="Mower" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 1128.91, 244.305 )
+texture = ExtResource( 39 )
+
+[node name="tv" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 932.222, 176.256 )
+texture = ExtResource( 38 )
+
+[node name="ClockOld" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 903.681, 236.311 )
+texture = ExtResource( 37 )
+
+[node name="NoSmoking" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 330.598, 296.08 )
+texture = ExtResource( 20 )
+
+[node name="IndoreControlPointSide" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 374.05, 232.122 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 40 )
+
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 480.014, 192.107 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 431.999, 319.963 )
 lockLevel = 5
 doorType = 1
+save_state = false
+showHintIfLocked = false
+hint = ""
 keyPath = NodePath("../../Interactables/Cabinet-RedKey")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 879.984, 256.004 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 984.003, 256.071 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 1087.99, 256.147 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 568.01, 256.086 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 280.002, 255.954 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 304.01, 319.992 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 384.051, 127.999 )
 lockLevel = 1
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="StaircaseE0toE1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 300, 191.998 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE1toE0")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE1toE0" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 300, 128.042 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE0toE1")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE0toE-1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 320, 192.005 )
 connected_door_path = NodePath("../StaircaseE-1toE0")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE-1toE0" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 320, 257 )
 connected_door_path = NodePath("../StaircaseE0toE-1")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE-1toE-2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 240, 256.79 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../StaircaseE-2toE-1")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE-2toE-1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 240, 320 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../StaircaseE-1toE-2")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="T1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 968.422, 255.415 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../T2")
 lockLevel = 3
+doorType = 0
+directionIndication = 0
 
 [node name="T2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 280.026, 319.35 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../T1")
 lockLevel = 3
+doorType = 0
+directionIndication = 0
 
 [node name="Keys" type="Node2D" parent="LevelObjects"]
 
@@ -322,6 +479,13 @@ DebugLight = false
 col1 = Color( 1, 0.1, 1, 1 )
 col2 = Color( 0.2, 0.2, 1, 1 )
 
+[node name="Light31" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
+position = Vector2( 364.625, 263.924 )
+flicker = false
+DebugLight = false
+col1 = Color( 1, 0.1, 1, 1 )
+col2 = Color( 0.2, 0.2, 1, 1 )
+
 [node name="Light29" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
 position = Vector2( 257.902, 72.0423 )
 flicker = false
@@ -382,14 +546,14 @@ position = Vector2( 0, -26 )
 [node name="ReadArea" type="Area2D" parent="LevelObjects/Interactables/Password-Note"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Interactables/Password-Note/ReadArea"]
-position = Vector2( -4.23178, -16.5545 )
-shape = SubResource( 6 )
+position = Vector2( -2.15066, -17.0005 )
+shape = SubResource( 1 )
 
 [node name="NotifierArea" type="Area2D" parent="LevelObjects/Interactables/Password-Note"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Interactables/Password-Note/NotifierArea"]
-position = Vector2( -1.7818, -16.7773 )
-shape = SubResource( 7 )
+position = Vector2( -0.889893, -16.9259 )
+shape = SubResource( 2 )
 
 [node name="Money" type="Node2D" parent="LevelObjects/Interactables"]
 
@@ -403,7 +567,7 @@ disabled_leaders = NodePath("../../ThinAreas/LadderValutHole")
 tresure_sack = NodePath("../TresureSack")
 
 [node name="Cabinet-RedKey" parent="LevelObjects/Interactables" instance=ExtResource( 74 )]
-position = Vector2( 463.465, 127.477 )
+position = Vector2( 457.853, 127.477 )
 containsKey = true
 
 [node name="Cabinet3" parent="LevelObjects/Interactables" instance=ExtResource( 74 )]
@@ -438,7 +602,7 @@ script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Interactables/Tresor/MinigameSpawner"]
 position = Vector2( 125.69, -10.2229 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="TresureSack" parent="LevelObjects/Interactables" instance=ExtResource( 26 )]
 position = Vector2( 470.705, 532.925 )
@@ -454,7 +618,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Blockers/EastBlock"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CableWalk" type="StaticBody2D" parent="LevelObjects/Blockers"]
 position = Vector2( 100.611, -17.0733 )
@@ -466,7 +630,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Blockers/CableWalk"]
 position = Vector2( 0, -0.0589905 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -508,12 +672,24 @@ frame = 1
 
 [node name="Ladder" parent="LevelObjects/ThinAreas" instance=ExtResource( 12 )]
 position = Vector2( 1024.21, 264.475 )
+reduced_up = 0
+reduced_down = 0
+disabled = false
+width = 1
 
 [node name="Ladder2" parent="LevelObjects/ThinAreas" instance=ExtResource( 12 )]
 position = Vector2( 1024.08, 328.337 )
+reduced_up = 0
+reduced_down = 0
+disabled = false
+width = 1
 
 [node name="LadderValutHole" parent="LevelObjects/ThinAreas" instance=ExtResource( 12 )]
 position = Vector2( 336.034, 328.002 )
+reduced_up = 0
+reduced_down = 0
+disabled = false
+width = 1
 
 [node name="Pickables" type="Node2D" parent="LevelObjects"]
 
@@ -555,6 +731,15 @@ stamina_replenish_duration = 3.0
 
 [node name="Guard" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 247.285, 192.363 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard"]
 points = PoolVector2Array( 200, 0, 0, 0 )
@@ -562,6 +747,15 @@ script = ExtResource( 8 )
 
 [node name="GuardOut2" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 586.33, 256.769 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/GuardOut2"]
 points = PoolVector2Array( 0, 0, 0, 0 )
@@ -574,12 +768,19 @@ distractWaitTime = 8.0
 
 [node name="GuardOut1" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 603.298, 256.992 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
 startingDirection = 1
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/GuardOut1"]
 points = PoolVector2Array( 0, 0, 0, 0 )
 script = ExtResource( 8 )
-distractWaitTime = 2.0
 
 [node name="GuardPathLine2" type="Line2D" parent="NPCs/GuardOut1"]
 points = PoolVector2Array( -120, 0, -110, 0 )
@@ -588,12 +789,19 @@ distractWaitTime = 8.0
 
 [node name="GuardOut3" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 620.287, 258.145 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
 startingDirection = 1
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/GuardOut3"]
 points = PoolVector2Array( 0, 0, 0, 0 )
 script = ExtResource( 8 )
-distractWaitTime = 2.0
 
 [node name="GuardPathLine2" type="Line2D" parent="NPCs/GuardOut3"]
 points = PoolVector2Array( -110, 0, -110, 0 )
@@ -602,6 +810,14 @@ distractWaitTime = 8.0
 
 [node name="Guard2" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 359.983, 127.884 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
 startingDirection = 1
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard2"]
