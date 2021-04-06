@@ -25,7 +25,15 @@ func _ready() -> void:
 	
 	if sprite_face_direction == Types.Direction.Left:
 		$Sprite.scale.x = -1
+	
+	Console.remove_command('level_next')
+	Console.add_command('level_next', self, 'cheat_level_next')\
+		.set_description('Go to next level')\
+		.register()
 
+func cheat_level_next():
+	_on_AnimationPlayer_animation_finished("")
+	
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and Global.game_manager.getCurrentLevel().can_change_level():
