@@ -2,3 +2,4 @@
 
 - [ ] Item Texture and Hint on HQ Levele
 - [ ] Mission briefing displays wrong country on L3
+- [ ] L3 Door Direction Indicator
