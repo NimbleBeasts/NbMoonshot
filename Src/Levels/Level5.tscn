@@ -438,9 +438,6 @@ hasBounty = true
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 664, 256 )
 
-[node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
-position = Vector2( 664, 256 )
-
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 2 )]
 position = Vector2( 216, 256 )
 
