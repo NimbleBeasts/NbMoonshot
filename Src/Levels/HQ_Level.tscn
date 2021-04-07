@@ -372,7 +372,7 @@ shape = SubResource( 1 )
 
 [node name="ZoneTutorialBriefing2" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 216, 368 )
-text = "You are now barely visible. Which is also indicated by the top right light bulb symbol. The camera became suspicious."
+text = "You are now barely visible. Which is also indicated by the light bulb symbol in the bottom of your HUD. The camera became suspicious."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing2"]
 position = Vector2( 35, 0 )

@@ -1,8 +1,8 @@
 keys,en,ru,de
 KEY_00,"Good morning agent, there you are at last. Today is a great day for you. It is a great honor to serve the country of Ustria. Our great leader wants to participate in the space race. We will be the first nation on the moon!",,
-KEY_01,"Unfortunately we do not even have a rocket yet. And that is why they are here today. Our agency will obtain plans and secret documents to support our great scientists.",,
+KEY_01,"Unfortunately we do not even have a rocket yet. And that is why you are here today. Our agency will obtain plans and secret documents to support our great scientists.",,
 KEY_02,"Before you go on your first mission: In the basement is your office where you can save your progress, your colleague who can equip you with additional upgrades and a training parkour.",,
-KEY_03,"You should complete a training parkour before going on your first mission. Do you have any questions?",,
+KEY_03,"You should complete the training parkour before going on your first mission. Do you have any questions?",,
 KEY_officeReply,One floor down and then the door on the right side.,,
 KEY_train,"The training center is located in the basement. Good luck, comrade.",,
 KEY_skipTutorial,"Okay. If you change your mind, you can always go to the training rooms. Do you want to skip it now?",,
