@@ -216,7 +216,7 @@ centered = false
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
@@ -311,161 +311,68 @@ flagType = 1
 position = Vector2( 328, 192 )
 lockLevel = 1
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorToTarget" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 440, 256 )
 lockLevel = 3
-doorType = 0
-save_state = false
 showHintIfLocked = true
 hint = "This door is locked. Find an ID Card to open it"
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="StaircaseL2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 428, 128 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseL0")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseL0" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 428, 192 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseL2")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseR1" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 704.167, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseR2")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="StaircaseR2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
 position = Vector2( 839.92, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseR1")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 328, 128 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 144, 256 )
 lockLevel = 1
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 384, 128 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 384, 192 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 384, 256 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 328, 256 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 328, 320 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 384, 320 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 384, 384 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 328, 384 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -609,11 +516,6 @@ moveSpeed = 0.3
 moveDistance = 4
 moveDirection = 0
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
-startOff = false
-canToggleTimes = 0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 776, 192 )
@@ -621,100 +523,52 @@ rotation = -1.5708
 heigth = 5
 isStatic = false
 moveSpeed = 0.2
-moveDistance = 5
 moveDirection = 0
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
-startOff = false
-canToggleTimes = 0
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 704, 136 )
-heigth = 7
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 19
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
-startOff = false
-canToggleTimes = 0
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 272, 128 )
 type = 1
-hasBounty = false
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 240, 128 )
 type = 1
 hasBounty = true
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 400, 384 )
 type = 2
-hasBounty = false
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 592, 384 )
 type = 2
-hasBounty = false
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 696, 384 )
 type = 2
-hasBounty = false
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet6" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 824, 384 )
 type = 2
-hasBounty = false
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet7" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 800, 256 )
-type = 0
 hasBounty = true
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet8" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 752, 256 )
-type = 0
 hasBounty = true
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet9" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 872, 128 )
-type = 0
 hasBounty = true
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 680, 200 )
@@ -723,40 +577,13 @@ isFixedCam = true
 
 [node name="DeskGuard" parent="." instance=ExtResource( 7 )]
 position = Vector2( 272, 256 )
-lookDirection = 0
-lookDuration = 2.0
-readDuration = 3.0
-removeNotifierDuration = 1.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 104, 256 )
 z_index = 50
-normal_speed = 80
-normal_acceleration = 600
-sprint_speed = 160
-duckSpeed = 40
-duckAcceleration = 300
-gravity = 800
-startingDirection = 0
-normal_stun_battery = 3
-extended_stun_battery = 5
-normal_stun_duration = 4.0
-extended_stun_duration = 7.0
-normal_sprint_duration = 3.0
-extended_sprint_duration = 6.0
-stamina_replenish_duration = 3.0
 
 [node name="Guard" parent="." instance=ExtResource( 10 )]
 position = Vector2( 536, 384 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
-normal_time_to_alarm = 1.5
-extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
 points = PoolVector2Array( 0, -16, 80, -16, 176, -16 )
@@ -764,15 +591,6 @@ script = ExtResource( 8 )
 
 [node name="Guard2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 608, 320 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
-normal_time_to_alarm = 1.5
-extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="Guard2"]
 points = PoolVector2Array( -103, -16, 24, -16, 161, -16 )
@@ -780,15 +598,6 @@ script = ExtResource( 8 )
 
 [node name="Guard3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 752, 128 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
-normal_time_to_alarm = 1.5
-extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="Guard3"]
 points = PoolVector2Array( 0, -16, -64, -16, 40, -24 )

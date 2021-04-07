@@ -21,6 +21,7 @@ texture = ExtResource( 4 )
 [node name="FullLight" type="Area2D" parent="." groups=[
 "FullLight",
 ]]
+visible = false
 monitoring = false
 collision_layer = 2
 collision_mask = 2
@@ -31,6 +32,7 @@ polygon = PoolVector2Array( -8, 0, -23, 55, 23, 55, 8, 0 )
 [node name="BarelyVisible" type="Area2D" parent="." groups=[
 "BarelyVisible",
 ]]
+visible = false
 monitoring = false
 collision_layer = 2
 collision_mask = 2
