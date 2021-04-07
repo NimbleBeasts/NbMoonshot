@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Home/Kitchen.png" type="Texture" id=2]
@@ -41,6 +41,7 @@
 [ext_resource path="res://Assets/Objects/Home/Mower.png" type="Texture" id=39]
 [ext_resource path="res://Assets/Objects/IndoreControlPointSide.png" type="Texture" id=40]
 [ext_resource path="res://Assets/Objects/Home/Couch.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Objects/Nature/Plant2.png" type="Texture" id=42]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=58]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=68]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=71]
@@ -125,6 +126,7 @@ texture = ExtResource( 14 )
 hframes = 2
 tree = 1
 season = 1
+variant = 0
 
 [node name="Bush" type="Sprite" parent="LevelObjects/Decorations/Nature"]
 position = Vector2( 784.98, 243.968 )
@@ -246,80 +248,178 @@ position = Vector2( 374.05, 232.122 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 40 )
 
+[node name="Plant2" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 445.336, 239.991 )
+texture = ExtResource( 33 )
+
+[node name="Plant3" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 525.496, 239.616 )
+texture = ExtResource( 42 )
+
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 480.014, 192.107 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 431.999, 319.963 )
 lockLevel = 5
 doorType = 1
+save_state = false
+showHintIfLocked = false
+hint = ""
 keyPath = NodePath("../../../../Level9-BankJob/LevelObjects/Interactables/Cabinet-RedKey")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 879.984, 256.004 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 984.003, 256.071 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 1087.99, 256.147 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 568.01, 256.086 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 280.002, 255.954 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 304.01, 319.992 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 384.051, 127.999 )
 lockLevel = 1
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="StaircaseE0toE1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 300, 191.998 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE1toE0")
+lockLevel = 0
+doorType = 0
+directionIndication = 1
 
 [node name="StaircaseE1toE0" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 300, 128.042 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE0toE1")
+lockLevel = 0
+doorType = 0
+directionIndication = 2
 
 [node name="StaircaseE0toE-1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 320, 192.005 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE-1toE0")
+lockLevel = 0
+doorType = 0
+directionIndication = 2
 
 [node name="StaircaseE-1toE0" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 320, 257 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE0toE-1")
+lockLevel = 0
+doorType = 0
+directionIndication = 1
 
 [node name="StaircaseE-1toE-2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 240, 256.79 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE-2toE-1")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE-2toE-1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 240, 320 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE-1toE-2")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="T1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 968.422, 255.415 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/T2")
 lockLevel = 3
+doorType = 0
+directionIndication = 0
 
 [node name="T2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 280.026, 319.35 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/T1")
 lockLevel = 3
+doorType = 0
+directionIndication = 0
 
 [node name="Keys" type="Node2D" parent="LevelObjects"]
 
@@ -619,6 +719,20 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 80 )]
 position = Vector2( 847.938, 255.398 )
 z_index = 50
+normal_speed = 80
+normal_acceleration = 600
+sprint_speed = 160
+duckSpeed = 40
+duckAcceleration = 300
+gravity = 800
+startingDirection = 0
+normal_stun_battery = 3
+extended_stun_battery = 5
+normal_stun_duration = 4.0
+extended_stun_duration = 7.0
+normal_sprint_duration = 3.0
+extended_sprint_duration = 6.0
+stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -626,6 +740,15 @@ z_index = 50
 
 [node name="Guard" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 247.285, 192.363 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard"]
 points = PoolVector2Array( 200, 0, 0, 0 )
@@ -633,6 +756,15 @@ script = ExtResource( 8 )
 
 [node name="GuardOut2" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 586.33, 256.769 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/GuardOut2"]
 points = PoolVector2Array( 0, 0, 0, 0 )
@@ -645,6 +777,14 @@ distractWaitTime = 8.0
 
 [node name="GuardOut1" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 603.298, 256.992 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
 startingDirection = 1
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/GuardOut1"]
@@ -658,6 +798,14 @@ distractWaitTime = 8.0
 
 [node name="GuardOut3" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 620.287, 258.145 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
 startingDirection = 1
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/GuardOut3"]
@@ -671,6 +819,14 @@ distractWaitTime = 8.0
 
 [node name="Guard2" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 359.983, 127.884 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
 startingDirection = 1
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard2"]

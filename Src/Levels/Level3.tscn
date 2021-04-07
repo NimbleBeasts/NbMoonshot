@@ -624,99 +624,193 @@ pickupName = "BarrelOil"
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 384, 64 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
+
+[node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
+position = Vector2( 672.022, 320.054 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 95.9087, 64 )
 lockLevel = 3
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 888.031, 254.118 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 775.846, 192 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 312.181, 256.223 )
 lockLevel = 5
 doorType = 1
+save_state = false
+showHintIfLocked = false
+hint = ""
 keyPath = NodePath("../../Keys/ParkKey")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 240, 256.223 )
+lockLevel = 0
 doorType = 1
+save_state = false
+showHintIfLocked = false
+hint = ""
 keyPath = NodePath("../../Keys/ParkKey")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( -23.8994, 256.223 )
 lockLevel = 5
 doorType = 1
+save_state = false
+showHintIfLocked = false
+hint = ""
 keyPath = NodePath("../../Interactables/Cabinet-MedickBayKey")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="StaircaseE0toE1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 256 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE1toE0")
+lockLevel = 0
+doorType = 0
+directionIndication = 1
 
 [node name="StaircaseE1toE0" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 192 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE0toE1")
+lockLevel = 0
+doorType = 0
+directionIndication = 2
 
 [node name="StaircaseE1toE2" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 744.914, 192 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE2toE1")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE2toE1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 744.633, 128 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE1toE2")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE3toE2-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 128, 64 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE2toE3-LAB")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE2toE3-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 128, 128 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE3toE2-LAB")
+lockLevel = 0
+doorType = 0
+directionIndication = 1
 
 [node name="StaircaseE2toE0-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 150.326, 128 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE0toE2-LAB")
+lockLevel = 0
+doorType = 0
+directionIndication = 2
 
 [node name="StaircaseE0toE2-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 85, 255.659 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE2toE0-LAB")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE0toE-1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 632, 256 )
 connected_door_path = NodePath("../StaircaseE-1toE0")
+lockLevel = 0
+doorType = 0
+directionIndication = 2
 
 [node name="StaircaseE-1toE0" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 632, 320 )
 connected_door_path = NodePath("../StaircaseE0toE-1")
+lockLevel = 0
+doorType = 0
+directionIndication = 1
 
 [node name="StaircaseE-1toE-2" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 320 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../StaircaseE-2toE-1")
+lockLevel = 0
+doorType = 0
+directionIndication = 2
 
 [node name="StaircaseE-2toE-1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 652.872, 383.568 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../StaircaseE-1toE-2")
+lockLevel = 0
+doorType = 0
+directionIndication = 1
 
 [node name="Keys" type="Node2D" parent="LevelObjects"]
 
@@ -1098,17 +1192,43 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1081.81, 256 )
 z_index = 50
+normal_speed = 80
+normal_acceleration = 600
+sprint_speed = 160
+duckSpeed = 40
+duckAcceleration = 300
+gravity = 800
+startingDirection = 0
+normal_stun_battery = 3
+extended_stun_battery = 5
+normal_stun_duration = 4.0
+extended_stun_duration = 7.0
+normal_sprint_duration = 3.0
+extended_sprint_duration = 6.0
+stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
 [node name="DeskGuard" parent="." instance=ExtResource( 9 )]
 position = Vector2( 758.179, 255.495 )
 lookDirection = 1
+lookDuration = 2.0
+readDuration = 3.0
+removeNotifierDuration = 1.0
 
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="Guard" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( 529.695, 381.581 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard"]
 points = PoolVector2Array( 100, 0, 0, 0 )
@@ -1116,6 +1236,15 @@ script = ExtResource( 3 )
 
 [node name="Guard5" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( 720.665, 192.805 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard5"]
 points = PoolVector2Array( -150, 0, 0, 0 )
@@ -1123,6 +1252,15 @@ script = ExtResource( 3 )
 
 [node name="Guard7" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( 592.372, 255.748 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard7"]
 points = PoolVector2Array( 130, 0, 0, 0 )
@@ -1130,6 +1268,15 @@ script = ExtResource( 3 )
 
 [node name="Guard2" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( 673.309, 127.486 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard2"]
 points = PoolVector2Array( 200, 0, 0, 0 )
@@ -1138,12 +1285,39 @@ script = ExtResource( 3 )
 [node name="Guard3" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( 594.306, 126.991 )
 scale = Vector2( -1, 1 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="Guard4" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( 445.805, 192.732 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="Guard6" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( -1.83359, 192.236 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
 
 [node name="Dog" parent="NPCs" instance=ExtResource( 74 )]
 position = Vector2( 266.864, 63.2125 )
