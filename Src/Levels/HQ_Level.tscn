@@ -595,7 +595,7 @@ position = Vector2( 428, 448 )
 unlocks = [ NodePath("../DoorWall6") ]
 
 [node name="Secretary" parent="." instance=ExtResource( 22 )]
-position = Vector2( 330, 256 )
+position = Vector2( 328, 256 )
 
 [node name="Boss" parent="." instance=ExtResource( 21 )]
 position = Vector2( 412, 256 )
