@@ -1,7 +1,7 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
-[ext_resource path="res://Src/Pickup/BoxPickup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/Levels/ForceDuckMode.gd" type="Script" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=5]
@@ -14,7 +14,6 @@
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
-[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Objects/Home/tv.png" type="Texture" id=18]
@@ -30,7 +29,6 @@
 [ext_resource path="res://Assets/Objects/Home/Couch_Side.png" type="Texture" id=28]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Assets/Distraction/Radio.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Objects/Office/Bookshelf3.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Objects/Home/CouchTable.png" type="Texture" id=35]
@@ -50,12 +48,14 @@ extents = Vector2( 240, 8 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 72, 10 )
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 88, 16 )
+
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
-level_objectives = NodePath("BoxPickup")
 
 [node name="NewSkybox" parent="." instance=ExtResource( 9 )]
 
@@ -114,7 +114,6 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 0
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -168,20 +167,28 @@ texture = ExtResource( 35 )
 [node name="Tree2" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
 position = Vector2( -424, 184 )
 frame = 3
+tree = 0
 season = 1
 variant = 1
 
 [node name="Tree7" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
 position = Vector2( -464, 184 )
 frame = 2
+tree = 0
 season = 1
+variant = 0
 
 [node name="Tree3" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
 position = Vector2( -384, 184 )
+tree = 0
+season = 0
+variant = 0
 
 [node name="Tree4" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
 position = Vector2( -344, 184 )
 frame = 1
+tree = 0
+season = 0
 variant = 1
 
 [node name="Tree5" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
@@ -189,6 +196,8 @@ position = Vector2( -304, 184 )
 texture = ExtResource( 38 )
 hframes = 2
 tree = 1
+season = 0
+variant = 0
 
 [node name="Tree6" parent="LevelObjects/Decorations" instance=ExtResource( 37 )]
 position = Vector2( -267, 184 )
@@ -196,6 +205,7 @@ texture = ExtResource( 38 )
 hframes = 2
 frame = 1
 tree = 1
+season = 0
 variant = 1
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
@@ -203,18 +213,27 @@ variant = 1
 [node name="StaircaseCellar" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 320 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseE0")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="StaircaseE0" parent="LevelObjects/Doors" instance=ExtResource( 10 )]
 position = Vector2( 240, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseCellar")
+lockLevel = 0
+doorType = 0
+directionIndication = 0
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( -671, 192 )
-
-[node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
-position = Vector2( -392, 257 )
-lockLevel = 1
-doorType = 1
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -248,15 +267,28 @@ rotation = -1.5708
 heigth = 16
 isStatic = false
 moveSpeed = 0.2
+moveDistance = 5
 moveDirection = 2
 isHorizontal = false
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
 position = Vector2( 152, 200 )
+heigth = 7
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 16
 moveDirection = 1
+isHorizontal = true
+isFlickering = false
+flickerSequence = "1110"
+standbyTimerAfterDetection = 3.0
+startOff = false
+canToggleTimes = 0
 
 [node name="Ladder" parent="LevelObjects" instance=ExtResource( 22 )]
 position = Vector2( -664, 200 )
@@ -275,20 +307,30 @@ width = 1
 
 [node name="Locker" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( -768, 128 )
+type = 0
 hasBounty = true
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Locker2" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( -760, 128 )
 type = 1
 hasBounty = true
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Locker3" parent="LevelObjects" instance=ExtResource( 29 )]
 position = Vector2( -792, 128 )
 type = 1
 hasBounty = true
+isObjective = false
+containsKey = false
+keyColor = 0
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -368, 256 )
+position = Vector2( -472, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -333,25 +375,23 @@ shape = SubResource( 4 )
 
 [node name="Guard" parent="." instance=ExtResource( 25 )]
 position = Vector2( -656, 192 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
+
+[node name="ForceCrouch" type="Area2D" parent="."]
+position = Vector2( -224, 256 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForceCrouch"]
+position = Vector2( -136, -16 )
+shape = SubResource( 5 )
 
 [node name="PressureButton" parent="." instance=ExtResource( 30 )]
 position = Vector2( -224, 256 )
-
-[node name="ExtractionZone" parent="." instance=ExtResource( 12 )]
-position = Vector2( -312, 256 )
-
-[node name="Civillian" parent="." instance=ExtResource( 31 )]
-position = Vector2( -432, 256 )
-
-[node name="PathLine" type="Line2D" parent="Civillian"]
-points = PoolVector2Array( 8, -8, 50.4815, -8, 104, -8 )
-script = ExtResource( 15 )
-
-[node name="LaserDetector" parent="." instance=ExtResource( 4 )]
-position = Vector2( -264, 200 )
-isStatic = false
-isFlickering = true
-flickerSequence = "1100"
-
-[node name="BoxPickup" parent="." instance=ExtResource( 2 )]
-position = Vector2( -352, 248 )
