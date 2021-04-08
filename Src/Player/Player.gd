@@ -34,6 +34,7 @@ var movementBlocked = false
 var blockEntireInput = false
 var guardToPickup
 var currentInteractable
+var forcedDuckState: bool
 
 #  Use Types.LightLevels enum for both of these. Light level is in which light the player is in
 # and visible_level is actual visibility of player to guards and camera with wall dodging and other benefits
@@ -140,11 +141,11 @@ func _process(_delta: float) -> void:
 func walldodgeInput() -> void:
 	if blockEntireInput:
 		return
-	if Input.is_action_pressed("wall_dodge"):
+	if Input.is_action_pressed("wall_dodge") and not forcedDuckState:
 		setVisibleLevel(int(max(light_level - 1, 0)))
 		set_state(Types.PlayerStates.WallDodge)
 		movementBlocked = true if (not has_sneak_upgrade) else false
-	if Input.is_action_just_released("wall_dodge") and state == Types.PlayerStates.WallDodge:
+	if Input.is_action_just_released("wall_dodge") and state == Types.PlayerStates.WallDodge and not forcedDuckState:
 		setVisibleLevel(light_level)
 		set_state(Types.PlayerStates.Normal)
 		isSneaking = false
@@ -157,7 +158,7 @@ func duckInput() -> void:
 		return
 	if Input.is_action_pressed("duck") and not travel_raycast_down.is_colliding():
 		set_state(Types.PlayerStates.Duck)
-	if Input.is_action_just_released("duck") and state == Types.PlayerStates.Duck:
+	if Input.is_action_just_released("duck") and state == Types.PlayerStates.Duck and not forcedDuckState:
 		set_state(Types.PlayerStates.Normal)
 
 
@@ -254,7 +255,8 @@ func _on_minigame_entered(_type: int) -> void:
 	$AnimationPlayer.play("action")
 	movementBlocked = true
 	blockEntireInput = true
-	set_state(Types.PlayerStates.Normal)
+	if not forcedDuckState:
+		set_state(Types.PlayerStates.Normal)
 
 
 func _on_hud_note_exited(_d) -> void:
