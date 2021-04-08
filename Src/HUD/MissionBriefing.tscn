@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/HUD/MissionBriefing.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/MagoFont3_32.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/HUD/MissionBriefing.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=5]
 [ext_resource path="res://Assets/HUD/MissionMaps.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/mago1.ttf" type="DynamicFontData" id=7]
@@ -64,7 +63,7 @@ margin_left = 21.0
 margin_top = 289.0
 margin_right = 616.0
 margin_bottom = 318.0
-custom_fonts/normal_font = ExtResource( 4 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "               The closest galaxy to us is the Andromeda Galaxy – it’s estimated at 2.5 million light-years away."
 text = "               The closest galaxy to us is the Andromeda Galaxy – it’s estimated at 2.5 million light-years away."

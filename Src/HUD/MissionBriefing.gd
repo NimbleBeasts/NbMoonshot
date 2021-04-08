@@ -61,9 +61,10 @@ func setLevel(id):
 	else:
 		print("Briefing Text out of Range")
 	
-	if id < 3:
+	#enum LevelTypes {USA, USSR, Ustria}
+	if id == Types.LevelTypes.USSR:
 		$MapSprite.frame = 0
-	elif id == 3:
+	elif id == Types.LevelTypes.Ustria:
 		$MapSprite.frame = 2
 	else: 
 		$MapSprite.frame = 1
