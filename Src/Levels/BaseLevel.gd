@@ -39,10 +39,10 @@ func _ready():
 
 	Events.connect("hud_mission_briefing_exited", self, "onHudMissionBriefingExited")
 	if Global.game_manager.getCurrentLevelIndex() != 0:
-		Events.emit_signal("hud_mission_briefing", Global.game_manager.getCurrentLevelIndex())
+		Events.emit_signal("hud_mission_briefing",level_nation_type)
 		get_tree().paused = true
 	else:
-		set_process(false)		
+		set_process(false)
 	
 	if level_objectives:
 		level_objectives = get_node(level_objectives)
