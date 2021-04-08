@@ -68,9 +68,10 @@ func _init() -> void:
 	Global.player = self
 
 func _ready() -> void:
-	$WeaponHandler/Taser.stunBatteryLevel = stun_battery_level
-	add_to_group("Upgradable")
 	do_upgrade_stuff()
+	$WeaponHandler/Taser.stunBatteryLevel = stun_battery_level
+	Events.emit_signal("stun_battery_level_updated")
+	add_to_group("Upgradable")
 	set_state(Types.PlayerStates.Normal)
 
 	# signal connections
@@ -101,6 +102,7 @@ func _ready() -> void:
 	$GroundDetection.connect("body_entered", self, "setApplyGravity", [false])
 
 	# Initial set taser level
+	yield(get_tree(), "idle_frame")
 	Events.emit_signal("player_taser_fired", stun_battery_level)
 
 
