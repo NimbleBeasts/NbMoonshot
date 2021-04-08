@@ -61,6 +61,7 @@ __meta__ = {
 }
 level_lightning = 2
 level_nation_type = 2
+level_objectives = NodePath("NPCS/Civillian")
 playCarCloseSound = false
 
 [node name="NewSkybox" parent="." instance=ExtResource( 4 )]
