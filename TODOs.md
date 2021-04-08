@@ -1,6 +1,6 @@
 # Open Todos Beta 1
 
-- [ ] Item Texture and Hint on HQ Levele
+- [x] Item Texture and Hint on HQ Levele
 - [ ] Mission briefing displays wrong country on L3
 - [ ] L3 Door Direction Indicator
 - [ ] Lockers dont have LootAnim causing a call on null
