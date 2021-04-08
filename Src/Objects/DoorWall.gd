@@ -81,7 +81,7 @@ func interact(run_sub, openerPos: Vector2):
 		if openerPos == playerNode.global_position and playerNode.state == Types.PlayerStates.DraggingGuard:
 			return
 
-	print("active node:" + str(self))
+	# print("active node:" + str(self))
 	# shows a game hint if this door is locked
 
 	match lockLevel:
@@ -136,6 +136,7 @@ func playDoorAnimation(openerPos):
 			# Right Side
 			$Sprite.scale.x = -1
 		$AnimationPlayer.play("open_door")
+		doorIsOpen = true
 		# playing sound
 		if doorType == DoorType.wooden:
 			Events.emit_signal("play_sound", "door_wooden_open")
@@ -146,6 +147,7 @@ func playDoorAnimation(openerPos):
 	else:
 		# Close Animation
 		$AnimationPlayer.play_backwards("open_door")
+		doorIsOpen = false
 		if doorType == DoorType.wooden:
 			Events.emit_signal("play_sound", "door_wooden_close")
 		elif doorType == DoorType.glass:
@@ -167,12 +169,10 @@ func try_sub_emit():
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	if not doorIsOpen:
 		# Door is now open
-		doorIsOpen = true
-		$StaticBody2D/CollisionShape2D.set_disabled(true)
+		$StaticBody2D/CollisionShape2D.set_disabled(false)
 	else:
 		# Door is now closed
-		doorIsOpen = false
-		$StaticBody2D/CollisionShape2D.set_disabled(false)
+		$StaticBody2D/CollisionShape2D.set_disabled(true)
 
 
 func _on_Area2D_body_entered(body):
