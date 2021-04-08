@@ -1,13 +1,20 @@
 extends Control
 
 var lives = 0
+var time = 0
+
+onready var time1 = $TopBar/Time1
+onready var time2 = $TopBar/Time2
+
+
 
 func _ready():
+	set_process(false)
 	Events.connect("visible_level_changed", self, "updateLightLevel")
 	Events.connect("audio_level_changed", self, "updateAudioLevel")
 	Events.connect("player_taser_fired", self, "updateAmmo")
 	Events.connect("hud_update_money", self, "updateMoney")
-	
+	Events.connect("hud_mission_briefing_exited", self, "set_process", [true])
 	
 	Events.connect("player_detected", self, "updateLives")
 	Events.connect("allowed_detections_updated", self, "resetLives")
@@ -16,6 +23,30 @@ func _ready():
 func resetLives(value) -> void:
 	lives = value
 	$BottomBar/Life.set_text(str(value))
+
+
+func _process(delta: float) -> void:
+	time += delta
+
+	var milliseconds := int(fmod(time, 1) * 1000)
+	var seconds = int(fmod(time, 60))
+	var minutes = int(fmod(time, 3600) / 60)
+	var milliseconds_string := str(milliseconds)
+
+	if milliseconds_string.length() == 1:
+		milliseconds_string = "00%s" % milliseconds_string
+	elif milliseconds_string.length() == 2:
+		milliseconds_string = "0%s" % milliseconds_string
+
+	var seconds_string = str(seconds)
+	seconds_string = "0" + seconds_string if seconds_string.length() == 1 else seconds_string
+
+	var minutes_string = str(minutes)
+	minutes_string = "0" + minutes_string if minutes_string.length() == 1 else minutes_string
+
+	time1.text = minutes_string + ":" + seconds_string
+	time2.text = ":" + milliseconds_string
+	
 
 func updateLives(type) -> void:
 	if type == Types.DetectionLevels.Sure:
