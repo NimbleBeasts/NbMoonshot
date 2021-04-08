@@ -70,7 +70,6 @@ func _init() -> void:
 func _ready() -> void:
 	do_upgrade_stuff()
 	$WeaponHandler/Taser.stunBatteryLevel = stun_battery_level
-	Events.emit_signal("stun_battery_level_updated")
 	add_to_group("Upgradable")
 	set_state(Types.PlayerStates.Normal)
 
