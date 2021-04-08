@@ -254,12 +254,13 @@ func upgradeSelect(id):
 
 
 func showUpgrade():
-	# Set focus so we can use gamepad with ui
-	$HUDLayer/Display/Upgrades/Grid/UpgradeButton0.grab_focus()
-	upgradeSelect(0)
-	
-	updateUpgrades()
-	$HUDLayer/Display/Upgrades.show()
+	if not $HUDLayer/Display/Upgrades.visible:
+		# Set focus so we can use gamepad with ui
+		$HUDLayer/Display/Upgrades/Grid/UpgradeButton0.grab_focus()
+		upgradeSelect(0)
+
+		updateUpgrades()
+		$HUDLayer/Display/Upgrades.show()
 
 
 func showDialog(pname: String, nameColor: String, text: String, isMultipage: bool, portrait: int) -> void:
