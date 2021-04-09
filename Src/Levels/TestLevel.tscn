@@ -111,6 +111,7 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
+frame = 0
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -223,6 +224,14 @@ directionIndication = 0
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( -671, 192 )
+lockLevel = 0
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -319,7 +328,7 @@ containsKey = false
 keyColor = 0
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -184, 256 )
+position = Vector2( -704, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -329,6 +338,8 @@ position = Vector2( 118.538, 238.544 )
 
 [node name="Button" parent="." instance=ExtResource( 26 )]
 position = Vector2( -23.5263, 235.871 )
+unlocks = [  ]
+startStateOn = false
 
 [node name="Closet" parent="." instance=ExtResource( 23 )]
 position = Vector2( -600, 256 )
@@ -378,7 +389,14 @@ unlocks = [ NodePath("../DoorWall") ]
 
 [node name="DoorWall" parent="." instance=ExtResource( 8 )]
 position = Vector2( -264, 256 )
+lockLevel = 0
 doorType = 1
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
 
 [node name="Jukebox" parent="." instance=ExtResource( 15 )]
 position = Vector2( -152, 240 )

@@ -69,9 +69,10 @@ func _physics_process(delta: float) -> void:
 
 
 func travel(targetPosition: Vector2, tweenDuration: float) -> void:
-	# just tweening position
-	travelTween.interpolate_property(player, "global_position:y", player.global_position.y, 
-			targetPosition.y, tweenDuration, Tween.TRANS_LINEAR)
+	# # just tweening position
+	player.global_position.x = targetPosition.x
+	travelTween.interpolate_property(player, "global_position", player.global_position,
+		 targetPosition, tweenDuration, Tween.TRANS_LINEAR)
 	travelTween.start()
 	Events.emit_signal("audio_level_changed", Types.AudioLevels.SmallNoise, player.global_position, self)
 	Events.emit_signal("player_state_set", Types.PlayerStates.Normal)
