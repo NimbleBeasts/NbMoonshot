@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("interact") and player != null and player.canInteract:
 		var snackThrower = player.weaponHandler.getWeapon(Types.Weapons.SnackThrower)
 		snackThrower.currentAmmo += snackAmount
 		set_deferred("monitoring", false)

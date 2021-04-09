@@ -35,6 +35,7 @@ var blockEntireInput = false
 var guardToPickup
 var currentInteractable
 var forcedDuckState: bool
+var canInteract: bool = true
 
 #  Use Types.LightLevels enum for both of these. Light level is in which light the player is in
 # and visible_level is actual visibility of player to guards and camera with wall dodging and other benefits
@@ -304,6 +305,7 @@ func set_state(value: int) -> void:
 	if state != value:
 		state = value
 		Events.emit_signal("player_state_changed", state)
+		canInteract = state != Types.PlayerStates.DraggingGuard and state != Types.PlayerStates.DraggingItem
 		match state:
 			Types.PlayerStates.Normal:
 				changeColliderState(true)

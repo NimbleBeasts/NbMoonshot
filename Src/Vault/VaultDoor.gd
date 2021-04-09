@@ -20,7 +20,7 @@ func _ready() -> void:
 	set_process_input(false)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("interact") and player != null and player.canInteract:
 		press()
 
 

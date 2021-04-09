@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and guards.size() >= 1:
+	if Input.is_action_just_pressed("interact") and guards.size() >= 1 and player.canInteract:
 		for guardPath in guards:
 			var guard = get_node(guardPath)
 			if not guard.inDistractMode:

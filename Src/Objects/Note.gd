@@ -58,7 +58,7 @@ func _process(_delta):
 	
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("interact") and Global.player.canInteract:
 		if readable and not isReading:
 			get_tree().set_input_as_handled()
 			isReading = true

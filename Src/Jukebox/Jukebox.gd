@@ -15,8 +15,10 @@ func _ready() -> void:
 #	pass
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if event.is_action_pressed("interact") and player != null and player.canInteract:
 		press()
+		get_tree().set_input_as_handled()
+		
 
 func onBodyEntered(body: Node) -> void:
 	if body.is_in_group("Player"):

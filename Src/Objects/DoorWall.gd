@@ -71,7 +71,7 @@ func resetState() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
-		if playerNode.state != Types.PlayerStates.DraggingGuard:
+		if playerNode.canInteract:
 			interact(true, playerNode.global_position)
 			get_tree().set_input_as_handled()
 			
