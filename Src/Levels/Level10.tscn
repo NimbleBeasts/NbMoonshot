@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/LawFirm/Archive1.png" type="Texture" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Assets/Objects/Office/WallImageEarthMoon.png" type="Texture" id=33]
 [ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigameSpawner.gd" type="Script" id=34]
 [ext_resource path="res://Assets/Objects/Office/WallImageMoonLanding.png" type="Texture" id=35]
+[ext_resource path="res://Src/PlayerBox/PlayerBox.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=58]
 [ext_resource path="res://Assets/Objects/Office/Vending.png" type="Texture" id=62]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=68]
@@ -651,6 +652,9 @@ texture = ExtResource( 4 )
 hframes = 3
 frame = 1
 
+[node name="PlayerBox" parent="LevelObjects/Blockers" instance=ExtResource( 36 )]
+position = Vector2( 700, 242 )
+
 [node name="ThinAreas" type="Node2D" parent="LevelObjects"]
 
 [node name="ThinArea" parent="LevelObjects/ThinAreas" instance=ExtResource( 69 )]
@@ -795,14 +799,14 @@ startOff = true
 canToggleTimes = 0
 
 [node name="LaserDetector4" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
-position = Vector2( 747.77, 120.174 )
-rotation = 1.5708
+position = Vector2( 701.986, 71.1192 )
+rotation = -1.5708
 heigth = 7
 isStatic = false
 moveSpeed = 0.5
 moveDistance = 6
 moveDirection = 0
-isHorizontal = true
+isHorizontal = false
 isFlickering = false
 flickerSequence = "1110"
 standbyTimerAfterDetection = 3.0
@@ -852,7 +856,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 80 )]
-position = Vector2( 713.85, 256.834 )
+position = Vector2( 700, 256 )
 z_index = 50
 normal_speed = 80
 normal_acceleration = 600
