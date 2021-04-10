@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/Minigames/PipeMinigame/PipeMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Minigames/PipeBackground.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Temp/Bananas.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Minigames/Pipe.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Objects/Bananas.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 122.15 )
@@ -27,7 +28,7 @@ texture = ExtResource( 3 )
 [node name="Marker2" type="Sprite" parent="."]
 modulate = Color( 1, 0.113725, 0.113725, 1 )
 position = Vector2( -550, -96 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="WaterLine" type="Line2D" parent="."]
 position = Vector2( -96, -96 )
