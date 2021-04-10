@@ -679,169 +679,89 @@ width = 1
 
 [node name="LaserDetector2" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 754.562, 72.2 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 14
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LaserDetector5" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 677.166, 72.2 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 14
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LaserDetector7" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 670, 136.5 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 14
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LaserDetector1" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 841.115, 136.5 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 14
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LaserDetector9" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 620, 136.5 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
 moveDistance = 14
-isHorizontal = true
 isFlickering = true
 flickerSequence = "1000"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LaserDetector10" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 736.828, 136.5 )
-heigth = 7
-isStatic = true
-moveSpeed = 0.5
 moveDistance = 14
-isHorizontal = true
 isFlickering = true
 flickerSequence = "1020"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LaserDetector8" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 570, 136.5 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 14
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LaserDetector6" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 570, 72.2 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 14
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LaserDetector3" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 832.016, 64.3544 )
 rotation = 1.5708
 heigth = 4
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
-isHorizontal = true
 isFlickering = true
 flickerSequence = "1000"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LaserDetector4" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 701.986, 71.1192 )
 rotation = -1.5708
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 6
 moveDirection = 0
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LaserDetector11" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 809.576, 186.605 )
 rotation = 1.5708
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 6
 moveDirection = 0
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LaserDetector12" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
 position = Vector2( 879.241, 136.432 )
 rotation = 1.5708
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 6
 moveDirection = 2
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 startOff = true
-canToggleTimes = 0
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 visible = false
@@ -858,20 +778,6 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 80 )]
 position = Vector2( 700, 256 )
 z_index = 50
-normal_speed = 80
-normal_acceleration = 600
-sprint_speed = 160
-duckSpeed = 40
-duckAcceleration = 300
-gravity = 800
-startingDirection = 0
-normal_stun_battery = 3
-extended_stun_battery = 5
-normal_stun_duration = 4.0
-extended_stun_duration = 7.0
-normal_sprint_duration = 3.0
-extended_sprint_duration = 6.0
-stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
