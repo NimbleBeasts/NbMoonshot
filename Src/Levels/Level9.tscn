@@ -15,7 +15,7 @@
 [ext_resource path="res://Assets/Objects/Nature/TinyBush.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Objects/Nature/Tree_Needle.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Temp/Street.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Objects/Street.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Objects/LawFirm/BossDeskChair.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Objects/LawFirm/DeskChair.png" type="Texture" id=18]
 [ext_resource path="res://Src/Light/OutdoorLight2.tscn" type="PackedScene" id=19]
@@ -778,20 +778,6 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 80 )]
 position = Vector2( 847.938, 255.398 )
 z_index = 50
-normal_speed = 80
-normal_acceleration = 600
-sprint_speed = 160
-duckSpeed = 40
-duckAcceleration = 300
-gravity = 800
-startingDirection = 0
-normal_stun_battery = 3
-extended_stun_battery = 5
-normal_stun_duration = 4.0
-extended_stun_duration = 7.0
-normal_sprint_duration = 3.0
-extended_sprint_duration = 6.0
-stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
