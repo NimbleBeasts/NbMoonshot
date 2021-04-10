@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fan.png-cc016470fa21eb3eb59ce0d66a1d3bca.stex"
+path="res://.import/Jukebox.png-81f87a37ef565138e26bc8f5b54046d2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/Fan.png"
-dest_files=[ "res://.import/Fan.png-cc016470fa21eb3eb59ce0d66a1d3bca.stex" ]
+source_file="res://Assets/Objects/Jukebox.png"
+dest_files=[ "res://.import/Jukebox.png-81f87a37ef565138e26bc8f5b54046d2.stex" ]
 
 [params]
 

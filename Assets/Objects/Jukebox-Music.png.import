@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Glass.png-2c47058a5c6ae14d3e0132e834a6ccc9.stex"
+path="res://.import/Jukebox-Music.png-fb187c466e4154c60714ba90b3ed3df3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp/Glass.png"
-dest_files=[ "res://.import/Glass.png-2c47058a5c6ae14d3e0132e834a6ccc9.stex" ]
+source_file="res://Assets/Objects/Jukebox-Music.png"
+dest_files=[ "res://.import/Jukebox-Music.png-fb187c466e4154c60714ba90b3ed3df3.stex" ]
 
 [params]
 
