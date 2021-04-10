@@ -218,18 +218,21 @@ func _physics_process(delta: float) -> void:
 func update_light_level() -> void:
 	# if there are no overlapping areas, just set light_level to dark
 	# this works because the detecting area and the light areas are in their own collision layer
-	set_light_level(Types.LightLevels.Dark)
-	
+	var target_light_level = Types.LightLevels.Dark
+
 	if not $PlayerLightArea.monitoring:
 		return
 	
 	for area in $PlayerLightArea.get_overlapping_areas():
 		if area.is_in_group("FullLight"):
 			if area.get_parent().isOn():
-				set_light_level(Types.LightLevels.FullLight)
+				target_light_level = Types.LightLevels.FullLight
 		elif area.is_in_group("BarelyVisible"):
 			if area.get_parent().isOn():
-				set_light_level(Types.LightLevels.BarelyVisible)
+				target_light_level = Types.LightLevels.BarelyVisible
+
+	set_light_level(target_light_level)
+
 
 				
 func do_upgrade_stuff() -> void:
