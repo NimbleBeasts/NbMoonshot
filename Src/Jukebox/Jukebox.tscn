@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Objects/Jukebox.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Temp/Jukebox-Music.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Objects/Jukebox-Music.png" type="Texture" id=2]
 [ext_resource path="res://Src/Jukebox/Jukebox.gd" type="Script" id=3]
 
 [sub_resource type="Curve" id=1]
