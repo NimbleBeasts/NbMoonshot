@@ -47,7 +47,8 @@ func _ready():
 		Debug.addOption(cat, "HudToggle", funcref(self, "debugHudToggle"), null)
 		Debug.addOption(cat, "LightningToggle", funcref(self, "debugLightToggle"), null)
 	else:
-		$IngameMenu/DebugPromo.hide()
+		if $IngameMenu/DebugPromo:
+			$IngameMenu/DebugPromo.hide()
 
 	$HUDLayer/Display/GUI.visible = true
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections
