@@ -49,6 +49,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/HideOuts/HideOutBase.gd"
 }, {
+"base": "Control",
+"class": "LevelChecker",
+"language": "GDScript",
+"path": "res://addons/LevelChecker/LevelChecker.gd"
+}, {
+"base": "EditorPlugin",
+"class": "LevelCheckerPlugin",
+"language": "GDScript",
+"path": "res://addons/LevelChecker/LevelCheckerPlugin.gd"
+}, {
 "base": "MinigameSpawner",
 "class": "LightMinigameSpawner",
 "language": "GDScript",
@@ -153,6 +163,8 @@ _global_script_class_icons={
 "DoorWall": "",
 "Guard": "",
 "HideOutBase": "",
+"LevelChecker": "",
+"LevelCheckerPlugin": "",
 "LightMinigameSpawner": "",
 "Lights": "",
 "LockpickMinigameSpawner": "",
@@ -208,7 +220,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "DialogueEditor", "quentincaffeino-console" )
+enabled=PoolStringArray( "DialogueEditor", "LevelChecker", "quentincaffeino-console" )
 
 [importer_defaults]
 

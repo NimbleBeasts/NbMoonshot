@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/LevelChecker/LevelChecker.gd" type="Script" id=1]
+
+[node name="LevelChecker" type="WindowDialog"]
+margin_left = 8.0
+margin_top = 24.0
+margin_right = 648.0
+margin_bottom = 504.0
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 64.0
+margin_bottom = 47.0
+text = "Pixel Position Scan
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 24.0
+margin_top = 40.0
+margin_right = 296.0
+margin_bottom = 64.0
+text = "HQ_Level.tscn"
+items = [ "HQ_Level.tscn", null, false, 0, null, "Level1.tscn", null, false, 1, null, "Level10.tscn", null, false, 2, null, "Level18.tscn", null, false, 3, null, "Level19.tscn", null, false, 4, null, "Level2.tscn", null, false, 5, null, "Level3.tscn", null, false, 6, null, "Level4.tscn", null, false, 7, null, "Level5.tscn", null, false, 8, null, "Level6.tscn", null, false, 9, null, "Level7.tscn", null, false, 10, null, "Level8.tscn", null, false, 11, null, "Level9.tscn", null, false, 12, null, "LevelX.tscn", null, false, 13, null, "TestLevel.tscn", null, false, 14, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scan" type="Button" parent="OptionButton"]
+margin_left = 400.0
+margin_right = 448.0
+margin_bottom = 24.0
+text = "Scan Selected"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpdateList" type="Button" parent="OptionButton"]
+margin_left = 280.0
+margin_right = 383.0
+margin_bottom = 24.0
+text = "Update List"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FixFindings" type="Button" parent="OptionButton"]
+margin_left = 512.0
+margin_right = 560.0
+margin_bottom = 24.0
+text = "Fix Findings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="OptionButton"]
+margin_top = 32.0
+margin_right = 600.0
+margin_bottom = 280.0
+[connection signal="button_up" from="OptionButton/Scan" to="." method="_on_Scan_button_up"]
+[connection signal="button_up" from="OptionButton/UpdateList" to="." method="_on_UpdateList_button_up"]
+[connection signal="button_up" from="OptionButton/FixFindings" to="." method="_on_FixFindings_button_up"]

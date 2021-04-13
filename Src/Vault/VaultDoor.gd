@@ -18,6 +18,7 @@ func _ready() -> void:
 	connect("body_entered", self, "onBodyEntered")
 	connect("body_exited", self, "onBodyExited")
 	set_process_input(false)
+	$VaultDoorShaftIMG.frame = 0
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player != null and player.canInteract:

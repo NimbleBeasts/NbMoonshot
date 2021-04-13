@@ -359,7 +359,6 @@ __meta__ = {
 
 [node name="UpgradeButton0" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 group = SubResource( 8 )
-skill = 0
 
 [node name="UpgradeButton1" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
@@ -564,24 +563,28 @@ __meta__ = {
 }
 
 [node name="NoBranchButton" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
+label = "Button"
 
 [node name="Option0Button" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
 margin_top = 28.0
 margin_bottom = 52.0
 focus_neighbour_left = NodePath("../Option2Button")
 focus_neighbour_right = NodePath("../Option1Button")
+label = "Button"
 
 [node name="Option1Button" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
 margin_top = 56.0
 margin_bottom = 80.0
 focus_neighbour_left = NodePath("../Option0Button")
 focus_neighbour_right = NodePath("../Option2Button")
+label = "Button"
 
 [node name="Option2Button" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
 margin_top = 84.0
 margin_bottom = 108.0
 focus_neighbour_left = NodePath("../Option1Button")
 focus_neighbour_right = NodePath("../Option0Button")
+label = "Button"
 
 [node name="Sprite" type="Sprite" parent="HUDLayer/Display/Dialog"]
 position = Vector2( -40, 24 )
@@ -666,6 +669,7 @@ custom_fonts/font = ExtResource( 10 )
 text = "Sound"
 
 [node name="DebugPromo" type="Button" parent="HUDLayer/Display/IngameMenu"]
+visible = false
 margin_left = 272.0
 margin_top = 56.0
 margin_right = 371.0

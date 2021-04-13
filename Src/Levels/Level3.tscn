@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=2]
@@ -55,21 +55,20 @@
 [ext_resource path="res://Assets/Objects/Office/Bookshelf.png" type="Texture" id=53]
 [ext_resource path="res://Assets/Objects/Home/ClockOld.png" type="Texture" id=54]
 [ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=55]
-[ext_resource path="res://Assets/Temp/MetalShelf.png" type="Texture" id=56]
-[ext_resource path="res://Assets/Temp/WashingMachine.png" type="Texture" id=57]
-[ext_resource path="res://Assets/Temp/FishingRod.png" type="Texture" id=58]
-[ext_resource path="res://Assets/Temp/Sprinkler.png" type="Texture" id=59]
-[ext_resource path="res://Assets/Temp/Bucket.png" type="Texture" id=60]
-[ext_resource path="res://Assets/Temp/Broom.png" type="Texture" id=61]
-[ext_resource path="res://Assets/Temp/SprinklerPipeConnector.png" type="Texture" id=62]
-[ext_resource path="res://Assets/Temp/SprinklerPump.png" type="Texture" id=63]
-[ext_resource path="res://Assets/Temp/SprinklerPipe.png" type="Texture" id=64]
-[ext_resource path="res://Assets/Temp/Dryer.png" type="Texture" id=65]
-[ext_resource path="res://Assets/Temp/Bananas.png" type="Texture" id=66]
+[ext_resource path="res://Assets/Objects/MetalShelf.png" type="Texture" id=56]
+[ext_resource path="res://Assets/Objects/Hospital/WashingMachine.png" type="Texture" id=57]
+[ext_resource path="res://Assets/Objects/FishingRod.png" type="Texture" id=58]
+[ext_resource path="res://Assets/Objects/Sprinkler.png" type="Texture" id=59]
+[ext_resource path="res://Assets/Objects/Hospital/Dryer.png" type="Texture" id=60]
+[ext_resource path="res://Assets/Objects/Nature/Tree_Needle.png" type="Texture" id=61]
+[ext_resource path="res://Assets/Objects/SprinklerPipeConnector.png" type="Texture" id=62]
+[ext_resource path="res://Assets/Objects/SprinklerPump.png" type="Texture" id=63]
+[ext_resource path="res://Assets/Objects/SprinklerPipe.png" type="Texture" id=64]
+[ext_resource path="res://Assets/Objects/Bananas.png" type="Texture" id=66]
 [ext_resource path="res://Assets/Objects/Laboratory/BarrelBlue.png" type="Texture" id=67]
-[ext_resource path="res://Assets/Temp/IndoreControlPointSide.png" type="Texture" id=68]
+[ext_resource path="res://Assets/Objects/IndoreControlPointSide.png" type="Texture" id=68]
 [ext_resource path="res://Assets/Objects/Home/Couch.png" type="Texture" id=69]
-[ext_resource path="res://Assets/Temp/Plant2.png" type="Texture" id=70]
+[ext_resource path="res://Assets/Objects/Nature/Plant2.png" type="Texture" id=70]
 [ext_resource path="res://Src/Light/LightTV.tscn" type="PackedScene" id=71]
 [ext_resource path="res://Assets/Objects/Office/WallImageRocket.png" type="Texture" id=72]
 [ext_resource path="res://Assets/Objects/Hotel/ProfiKitchen.png" type="Texture" id=73]
@@ -87,6 +86,15 @@
 [ext_resource path="res://Assets/Objects/Office/Vending.png" type="Texture" id=87]
 [ext_resource path="res://Assets/Objects/Office/Broom.png" type="Texture" id=88]
 [ext_resource path="res://Assets/Objects/Office/Bucket.png" type="Texture" id=89]
+
+
+
+
+
+
+
+
+
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.540741, 1 )
@@ -382,23 +390,8 @@ texture = ExtResource( 50 )
 position = Vector2( 476.525, 370.706 )
 texture = ExtResource( 57 )
 
-[node name="Bucket" type="Sprite" parent="LevelObjects/Decorations"]
-visible = false
-position = Vector2( 700.83, 367.649 )
-texture = ExtResource( 60 )
-
-[node name="Broom" type="Sprite" parent="LevelObjects/Decorations"]
-visible = false
-position = Vector2( 714.074, 367.119 )
-texture = ExtResource( 61 )
-
 [node name="Dryer" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 494.465, 370.822 )
-texture = ExtResource( 65 )
-
-[node name="Bucket2" type="Sprite" parent="LevelObjects/Decorations"]
-visible = false
-position = Vector2( 509.341, 367.55 )
 texture = ExtResource( 60 )
 
 [node name="MetalShelf" type="Sprite" parent="LevelObjects/Decorations"]
@@ -623,6 +616,8 @@ pickupName = "BarrelOil"
 
 [node name="Tree" parent="LevelObjects/Decorations" instance=ExtResource( 38 )]
 position = Vector2( 1208, 184 )
+texture = ExtResource( 61 )
+hframes = 2
 tree = 1
 season = 0
 variant = 0

@@ -154,6 +154,7 @@ margin_bottom = 328.0
 label = "Exit"
 
 [node name="Settings" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -462,9 +463,9 @@ anchor_bottom = 1.0
 margin_top = -16.0
 custom_fonts/normal_font = ExtResource( 7 )
 bbcode_enabled = true
-bbcode_text = "[center]©2020 by NimbleBeasts [url=https://twitter.com/nimblebeasts][color=#63c2c9]`[/color]NimbleBeasts[/url] [url=https://nimblebeastscollective.itch.io/][color=#c93038]¥[/color]NimbleBeasts[/url][/center]"
+bbcode_text = "[center]©2021 by NimbleBeasts [url=https://twitter.com/nimblebeasts][color=#63c2c9]`[/color]NimbleBeasts[/url] [url=https://nimblebeastscollective.itch.io/][color=#c93038]¥[/color]NimbleBeasts[/url][/center]"
 meta_underlined = false
-text = "©2020 by NimbleBeasts `NimbleBeasts ¥NimbleBeasts"
+text = "©2021 by NimbleBeasts `NimbleBeasts ¥NimbleBeasts"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -481,11 +482,14 @@ bbcode_text = "[right]Version[/right]"
 text = "Version"
 
 [node name="SteamTest" type="Button" parent="."]
-margin_left = 496.0
-margin_top = 44.0
-margin_right = 632.0
-margin_bottom = 64.0
+margin_left = 648.0
+margin_top = 40.0
+margin_right = 784.0
+margin_bottom = 60.0
 text = "GetAchievement"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="Main/LevelSelect/DebugButton" to="." method="_on_DebugButton_button_up"]
 [connection signal="button_up" from="Main/ButtonPlay" to="." method="_on_ButtonPlay_button_up"]
 [connection signal="button_up" from="Main/ButtonLoad" to="." method="_on_ButtonLoad_button_up"]
