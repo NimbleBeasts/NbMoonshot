@@ -148,7 +148,7 @@ func _on_add_branch_pressed() -> void:
 func _on_save_pressed():
 	save_connection_list_to_dict()
 	save_dict_to_editing_file()
-	# save_csv()
+	save_csv()
 
 	
 func open_file(file_name: String) -> void:
