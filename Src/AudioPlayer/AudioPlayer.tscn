@@ -102,170 +102,222 @@ stream = ExtResource( 1 )
 volume_db = -16.0
 bus = "Music"
 
+[node name="Test" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 20 )
+volume_db = 12.0
+max_distance = 512.0
+attenuation = 2.0
+bus = "Sound"
+
 [node name="PlayerSounds" type="Node2D" parent="."]
 
 [node name="JumpDown" type="AudioStreamPlayer" parent="PlayerSounds"]
 stream = ExtResource( 3 )
+bus = "Sound"
 
 [node name="JumpUp" type="AudioStreamPlayer" parent="PlayerSounds"]
 stream = ExtResource( 4 )
+bus = "Sound"
 
 [node name="TaserDeploy" type="AudioStreamPlayer" parent="PlayerSounds"]
 stream = ExtResource( 13 )
+bus = "Sound"
 
 [node name="TaserHit" type="AudioStreamPlayer" parent="PlayerSounds"]
 stream = ExtResource( 14 )
+bus = "Sound"
 
 [node name="Footstep" type="AudioStreamPlayer" parent="PlayerSounds"]
 volume_db = -10.0
+bus = "Sound"
 
 [node name="CrossfadeTween" type="Tween" parent="PlayerSounds/Footstep"]
 
 [node name="CrouchWalk" type="AudioStreamPlayer" parent="PlayerSounds"]
-
-[node name="RandomSound" type="AudioStreamPlayer" parent="."]
+bus = "Sound"
 
 [node name="MinigameSounds" type="Node2D" parent="."]
 
 [node name="MinigameFail" type="AudioStreamPlayer" parent="MinigameSounds"]
 stream = ExtResource( 15 )
+bus = "Sound"
 
 [node name="WireCut" type="AudioStreamPlayer" parent="MinigameSounds"]
 stream = ExtResource( 18 )
+bus = "Sound"
 
 [node name="Keypad" type="Node2D" parent="MinigameSounds"]
 
 [node name="KeypadClear" type="AudioStreamPlayer" parent="MinigameSounds/Keypad"]
 stream = ExtResource( 19 )
+bus = "Sound"
 
 [node name="KeypadInput" type="AudioStreamPlayer" parent="MinigameSounds/Keypad"]
 stream = ExtResource( 20 )
+bus = "Sound"
 
 [node name="KeypadInputCorrect" type="AudioStreamPlayer" parent="MinigameSounds/Keypad"]
 stream = ExtResource( 21 )
+bus = "Sound"
 
 [node name="KeypadInputWrong" type="AudioStreamPlayer" parent="MinigameSounds/Keypad"]
 stream = ExtResource( 22 )
+bus = "Sound"
 
 [node name="Lockpick" type="Node2D" parent="MinigameSounds"]
 
 [node name="Hit" type="AudioStreamPlayer" parent="MinigameSounds/Lockpick"]
 stream = ExtResource( 28 )
+bus = "Sound"
 
 [node name="Miss" type="AudioStreamPlayer" parent="MinigameSounds/Lockpick"]
 stream = ExtResource( 29 )
+bus = "Sound"
 
 [node name="MinigameSuccess" type="AudioStreamPlayer" parent="MinigameSounds"]
 stream = ExtResource( 32 )
+bus = "Sound"
 
 [node name="CameraSounds" type="Node2D" parent="."]
 
-[node name="Alarm" type="AudioStreamPlayer" parent="CameraSounds"]
+[node name="Alarm" type="AudioStreamPlayer2D" parent="CameraSounds"]
 stream = ExtResource( 16 )
 volume_db = -10.0
+attenuation = 2.0
+bus = "Sound"
 
-[node name="Beep" type="AudioStreamPlayer" parent="CameraSounds"]
+[node name="Beep" type="AudioStreamPlayer2D" parent="CameraSounds"]
 stream = ExtResource( 17 )
+attenuation = 2.0
+bus = "Sound"
 
 [node name="DoorSounds" type="Node2D" parent="."]
 
 [node name="WoodenOpen" type="AudioStreamPlayer" parent="DoorSounds"]
 stream = ExtResource( 24 )
+bus = "Sound"
 
 [node name="WoodenClose" type="AudioStreamPlayer" parent="DoorSounds"]
 stream = ExtResource( 25 )
+bus = "Sound"
 
 [node name="MetalOpen" type="AudioStreamPlayer" parent="DoorSounds"]
 stream = ExtResource( 26 )
+bus = "Sound"
 
 [node name="MetalClose" type="AudioStreamPlayer" parent="DoorSounds"]
 stream = ExtResource( 27 )
+bus = "Sound"
 
 [node name="ObjectSounds" type="Node2D" parent="."]
 
 [node name="CarOpen" type="AudioStreamPlayer" parent="ObjectSounds"]
 stream = ExtResource( 31 )
+bus = "Sound"
 
 [node name="CarClose" type="AudioStreamPlayer" parent="ObjectSounds"]
 stream = ExtResource( 30 )
+bus = "Sound"
 
 [node name="NoteOpen" type="AudioStreamPlayer" parent="ObjectSounds"]
 stream = ExtResource( 33 )
+bus = "Sound"
 
 [node name="LaserDetect" type="AudioStreamPlayer" parent="ObjectSounds"]
 stream = ExtResource( 43 )
 volume_db = -5.0
+bus = "Sound"
 
 [node name="Type" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 34 )
 volume_db = -10.0
+bus = "Sound"
 
 [node name="Guard" type="Node2D" parent="."]
 
 [node name="Alarm" type="AudioStreamPlayer" parent="Guard"]
+bus = "Sound"
 
 [node name="Suspicious" type="AudioStreamPlayer" parent="Guard"]
+bus = "Sound"
 
 [node name="DeskGuardDetect" type="AudioStreamPlayer" parent="Guard"]
 stream = ExtResource( 50 )
+bus = "Sound"
 
 [node name="ChestSounds" type="Node2D" parent="."]
 
 [node name="Locked" type="AudioStreamPlayer" parent="ChestSounds"]
 stream = ExtResource( 46 )
+bus = "Sound"
 
 [node name="HasBounty" type="AudioStreamPlayer" parent="ChestSounds"]
 stream = ExtResource( 45 )
+bus = "Sound"
 
 [node name="General" type="Node2D" parent="."]
 
 [node name="GameOver" type="AudioStreamPlayer" parent="General"]
 stream = ExtResource( 51 )
+bus = "Sound"
 
 [node name="Closet" type="Node2D" parent="."]
 
 [node name="Open" type="AudioStreamPlayer" parent="Closet"]
 stream = ExtResource( 54 )
+bus = "Sound"
 
 [node name="Close" type="AudioStreamPlayer" parent="Closet"]
 stream = ExtResource( 55 )
+bus = "Sound"
 
 [node name="StunnedBody" type="Node2D" parent="."]
 
 [node name="BodyPickup" type="AudioStreamPlayer" parent="StunnedBody"]
 stream = ExtResource( 56 )
+bus = "Sound"
 
 [node name="BodyFall" type="AudioStreamPlayer" parent="StunnedBody"]
 stream = ExtResource( 57 )
+bus = "Sound"
 
 [node name="Button" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 58 )
+bus = "Sound"
 
 [node name="GameHint" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 59 )
+bus = "Sound"
 
 [node name="Dog" type="Node2D" parent="."]
 
 [node name="Growl" type="AudioStreamPlayer" parent="Dog"]
 stream = ExtResource( 60 )
+bus = "Sound"
 
 [node name="Bark" type="AudioStreamPlayer" parent="Dog"]
+bus = "Sound"
 
 [node name="EliteGuard" type="Node2D" parent="."]
 
 [node name="Detect" type="AudioStreamPlayer" parent="EliteGuard"]
+bus = "Sound"
 
 [node name="TaserDeploy" type="AudioStreamPlayer" parent="EliteGuard"]
 stream = ExtResource( 64 )
+bus = "Sound"
 
 [node name="Taser" type="AudioStreamPlayer" parent="EliteGuard"]
 stream = ExtResource( 65 )
+bus = "Sound"
 
 [node name="Key" type="Node2D" parent="."]
 
 [node name="KeyPickup" type="AudioStreamPlayer" parent="Key"]
 stream = ExtResource( 63 )
+bus = "Sound"
 
 [node name="KeyUse" type="AudioStreamPlayer" parent="Key"]
 stream = ExtResource( 69 )
+bus = "Sound"
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]

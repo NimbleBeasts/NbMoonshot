@@ -50,7 +50,7 @@ func setSoundVolume(value):
 	
 
 # Event Hook: Play a sound
-func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0, 0)):
+func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0, 0)):
 	if Global.userConfig.soundVolume > 0:
 		match sound:				# should have made these enums instead, huh
 			"menu_click":
@@ -73,9 +73,19 @@ func _playSound(sound: String, _volume : float = 1.0, _pos : Vector2 = Vector2(0
 				$PlayerSounds/TaserDeploy.play()
 			"minigame_fail":
 				$MinigameSounds/MinigameFail.play()
+			"test":
+				$Test.position = _pos
+				$Test.play()
 			"camera_alarm":
+				print("alarm")
+				print(_pos)
+				$CameraSounds/Alarm.position = _pos
 				$CameraSounds/Alarm.play()
 			"camera_beep":
+				print("beep")
+				print(_pos)
+				print(global_position)
+				$CameraSounds/Beep.position = _pos
 				$CameraSounds/Beep.play()
 			"wirecut":
 				$MinigameSounds/WireCut.play()

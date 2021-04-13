@@ -345,3 +345,8 @@ func startTimerOnce(timer: Timer) -> void:
 func changeLanguageLocale(newLocale: String) -> void:
 	languageLocale = newLocale
 	get_tree().call_group("HasTranslationSupport", "loadTranslation")
+
+
+func calcAudioPosition(globalPosition):
+	assert(player)
+	return globalPosition - player.global_position + Vector2(320, 180)
