@@ -50,7 +50,8 @@ func interact() -> void:
 	if connected_door and not animPlayer.is_playing():
 		Events.emit_signal("player_block_input")
 		animPlayer.play("open")
-		Events.emit_signal("play_sound", "door_wooden_open")
+		Events.emit_signal("play_sound", "door_wooden_open", 1.0, Global.calcAudioPosition(global_position))
+		#TODO: add metal door sounds
 		open = true
 	else:
 		print("Trying to teleport but no connected door for " + name)
@@ -60,7 +61,7 @@ func onAnimationFinished(_animName: String) -> void:
 	if open:
 		player.global_position = connected_door.get_node("PlayerTeleportPosition").global_position
 		connected_door.animPlayer.play_backwards("open")
-		Events.emit_signal("play_sound", "door_wooden_close")
+		Events.emit_signal("play_sound", "door_wooden_close", 1.0, Global.calcAudioPosition(global_position))
 		Events.emit_signal("player_unblock_input")
 		Events.emit_signal("player_unblock_movement")
 		open = false

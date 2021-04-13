@@ -139,21 +139,21 @@ func playDoorAnimation(openerPos):
 		doorIsOpen = true
 		# playing sound
 		if doorType == DoorType.wooden:
-			Events.emit_signal("play_sound", "door_wooden_open")
+			Events.emit_signal("play_sound", "door_wooden_open", 1.0, Global.calcAudioPosition(global_position))
 		elif doorType == DoorType.glass:
-			Events.emit_signal("play_sound", "door_wooden_open")
+			Events.emit_signal("play_sound", "door_wooden_open", 1.0, Global.calcAudioPosition(global_position))
 		else:
-			Events.emit_signal("play_sound", "door_metal_open")
+			Events.emit_signal("play_sound", "door_metal_open", 1.0, Global.calcAudioPosition(global_position))
 	else:
 		# Close Animation
 		$AnimationPlayer.play_backwards("open_door")
 		doorIsOpen = false
 		if doorType == DoorType.wooden:
-			Events.emit_signal("play_sound", "door_wooden_close")
+			Events.emit_signal("play_sound", "door_wooden_close", 1.0, Global.calcAudioPosition(global_position))
 		elif doorType == DoorType.glass:
-			Events.emit_signal("play_sound", "door_wooden_close")
+			Events.emit_signal("play_sound", "door_wooden_close", 1.0, Global.calcAudioPosition(global_position))
 		else:
-			Events.emit_signal("play_sound", "door_metal_close")
+			Events.emit_signal("play_sound", "door_metal_close", 1.0, Global.calcAudioPosition(global_position))
 
 
 func try_sub_emit():

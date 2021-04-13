@@ -193,20 +193,24 @@ bus = "Sound"
 
 [node name="DoorSounds" type="Node2D" parent="."]
 
-[node name="WoodenOpen" type="AudioStreamPlayer" parent="DoorSounds"]
+[node name="WoodenOpen" type="AudioStreamPlayer2D" parent="DoorSounds"]
 stream = ExtResource( 24 )
+attenuation = 2.0
 bus = "Sound"
 
-[node name="WoodenClose" type="AudioStreamPlayer" parent="DoorSounds"]
+[node name="WoodenClose" type="AudioStreamPlayer2D" parent="DoorSounds"]
 stream = ExtResource( 25 )
+attenuation = 2.0
 bus = "Sound"
 
-[node name="MetalOpen" type="AudioStreamPlayer" parent="DoorSounds"]
+[node name="MetalOpen" type="AudioStreamPlayer2D" parent="DoorSounds"]
 stream = ExtResource( 26 )
+attenuation = 2.0
 bus = "Sound"
 
-[node name="MetalClose" type="AudioStreamPlayer" parent="DoorSounds"]
+[node name="MetalClose" type="AudioStreamPlayer2D" parent="DoorSounds"]
 stream = ExtResource( 27 )
+attenuation = 2.0
 bus = "Sound"
 
 [node name="ObjectSounds" type="Node2D" parent="."]
