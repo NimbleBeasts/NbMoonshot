@@ -8,40 +8,57 @@ var parserNameToken = ""
 var parserNameTokenLine = 0
 var parserFindings = []
 
+var newFile = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_on_UpdateList_button_up()
 
 
-func createFinding(token: String, findLine: int, findLineText: String):
+func createFinding(token: String, findLine: int, findLineText: Vector2):
 	parserFindings.append({"token": token, "findLine": findLine, "findLineText": findLineText})
 	
 
 func interpretLine(idx: int, line: String):
 	if line.begins_with("[node name="):
 		#New Token found - Replace old
-		line = line.right(12)
-		var end = line.find("\"",0)
-		line = line.substr(0, end)
-		parserNameToken = line 
+		var nl = line.right(12)
+		var end = nl.find("\"",0)
+		nl = nl.substr(0, end)
+		parserNameToken = nl 
 		parserNameTokenLine = idx
+		newFile.append(line)
 	elif line.begins_with("position"):
 		#Parse Position
 		if line.find(".", 20) != -1:
-			#Found 
-			createFinding(parserNameToken, idx, line.right(20).trim_suffix(")"))
+			#Found
+			print(line)
+			var value = str2var(line.right(11))
+			print(value)
+			createFinding(parserNameToken, idx, value)
+			#Fix for new file
+			newFile.append("position = Vector2 ( " + str(int(value.x)) + ", " + str(int(value.y)) + " )")
+		else:
+			newFile.append(line)
+	else:
+		newFile.append(line)
+	
 
 func updateFindings():
-	$OptionButton/TextEdit.text = ""
-	for line in parserFindings:
-		$OptionButton/TextEdit.text += str(line.findLine) + ": " + line.token + " -> " + line.findLineText +  "\n"
-
+	if parserFindings.size() > 0:
+		$OptionButton/TextEdit.text = ""
+		for line in parserFindings:
+			$OptionButton/TextEdit.text += str(line.findLine) + ": " + line.token + " -> " + str(line.findLineText) +  "\n"
+	else:
+		$OptionButton/TextEdit.text = "No findings"
 
 func _on_Scan_button_up():
 	parserFindings = []
 	var activeFileId = $OptionButton.selected
 	var file = File.new()
 	file.open("res://Src/Levels/" + options[activeFileId], File.READ)
+	
+	newFile = []
 	
 	var lineIdx = 1
 	while not file.eof_reached():
@@ -70,4 +87,12 @@ func _on_UpdateList_button_up():
 	dir.close()
 
 func _on_FixFindings_button_up():
-	pass # Replace with function body.
+	if newFile.size() > 0:
+		$OptionButton/TextEdit.text += "Storing File"
+		var saveFile = File.new()
+		saveFile.open("res://Src/Levels/TestWrite.tscn", File.WRITE)
+		for line in newFile:
+			saveFile.store_line(line)
+		saveFile.close()
+	else:
+		$OptionButton/TextEdit.text = "No file loaded"
