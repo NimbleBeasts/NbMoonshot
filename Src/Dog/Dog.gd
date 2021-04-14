@@ -90,7 +90,7 @@ func stateAngryEnter() -> void:
 	flipTowards(player.global_position)
 	animPlayer.play("grr")
 	yield(get_tree().create_timer(0.8), "timeout")
-	Events.emit_signal("play_sound", "dog_growl")
+	Events.emit_signal("play_sound", "dog_growl", 1.0, Global.calcAudioPosition(global_position))
 	
 
 func stateMovingToSnackEnter() -> void:
@@ -137,7 +137,7 @@ func stateDetectionEnter() -> void:
 	losArea.set_deferred("monitoring", false)
 	animPlayer.play("alarm")
 	Global.startTimerOnce($BarkTimer)
-	Events.emit_signal("play_sound", "dog_bark")
+	Events.emit_signal("play_sound", "dog_bark", 1.0, Global.calcAudioPosition(global_position))
 
 
 func stateEatingEnter() -> void:

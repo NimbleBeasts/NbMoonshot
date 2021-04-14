@@ -239,14 +239,17 @@ bus = "Sound"
 
 [node name="Guard" type="Node2D" parent="."]
 
-[node name="Alarm" type="AudioStreamPlayer" parent="Guard"]
+[node name="Alarm" type="AudioStreamPlayer2D" parent="Guard"]
+attenuation = 2.0
 bus = "Sound"
 
-[node name="Suspicious" type="AudioStreamPlayer" parent="Guard"]
+[node name="Suspicious" type="AudioStreamPlayer2D" parent="Guard"]
+attenuation = 2.0
 bus = "Sound"
 
-[node name="DeskGuardDetect" type="AudioStreamPlayer" parent="Guard"]
+[node name="DeskGuardDetect" type="AudioStreamPlayer2D" parent="Guard"]
 stream = ExtResource( 50 )
+attenuation = 2.0
 bus = "Sound"
 
 [node name="ChestSounds" type="Node2D" parent="."]
@@ -295,24 +298,29 @@ bus = "Sound"
 
 [node name="Dog" type="Node2D" parent="."]
 
-[node name="Growl" type="AudioStreamPlayer" parent="Dog"]
+[node name="Growl" type="AudioStreamPlayer2D" parent="Dog"]
 stream = ExtResource( 60 )
+attenuation = 2.0
 bus = "Sound"
 
-[node name="Bark" type="AudioStreamPlayer" parent="Dog"]
+[node name="Bark" type="AudioStreamPlayer2D" parent="Dog"]
+attenuation = 2.0
 bus = "Sound"
 
 [node name="EliteGuard" type="Node2D" parent="."]
 
-[node name="Detect" type="AudioStreamPlayer" parent="EliteGuard"]
+[node name="Detect" type="AudioStreamPlayer2D" parent="EliteGuard"]
+attenuation = 2.0
 bus = "Sound"
 
-[node name="TaserDeploy" type="AudioStreamPlayer" parent="EliteGuard"]
+[node name="TaserDeploy" type="AudioStreamPlayer2D" parent="EliteGuard"]
 stream = ExtResource( 64 )
+attenuation = 2.0
 bus = "Sound"
 
-[node name="Taser" type="AudioStreamPlayer" parent="EliteGuard"]
+[node name="Taser" type="AudioStreamPlayer2D" parent="EliteGuard"]
 stream = ExtResource( 65 )
+attenuation = 2.0
 bus = "Sound"
 
 [node name="Key" type="Node2D" parent="."]

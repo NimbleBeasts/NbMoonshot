@@ -61,12 +61,17 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 				$Example2D.play()
 			"jump_down":
 				$PlayerSounds/JumpDown.play()
-			"alarm":
-				playRandomSound($Guard/Alarm, guardAlarmSounds)			
+			"guard_alarm":
+				$Guard/Alarm.position = _pos
+				playRandomSound($Guard/Alarm, guardAlarmSounds)
+			"deskguard_detect":
+				$Guard/DeskGuardDetect.position = _pos
+				$Guard/DeskGuardDetect.play()
+			"guard_suspicious":
+				$Guard/Suspicious.position = _pos
+				playRandomSound($Guard/Suspicious ,guardSuspiciousSounds)
 			"jump_up":
 				$PlayerSounds/JumpUp.play()
-			"suspicious":
-				playRandomSound($Guard/Suspicious ,guardSuspiciousSounds)
 			"taser_hit":
 				$PlayerSounds/TaserHit.play()
 			"taser_deploy":
@@ -128,8 +133,6 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 				$ChestSounds/HasBounty.play()
 			"chest_locked":
 				$ChestSounds/Locked.play()
-			"deskguard_detect":
-				$Guard/DeskGuardDetect.play()
 			"closet_open":
 				$Closet/Open.play()
 			"closet_close":
@@ -143,14 +146,19 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 			"game_hint":
 				$GameHint.play()
 			"dog_growl":
+				$Dog/Growl.position = _pos
 				$Dog/Growl.play()
 			"dog_bark":
+				$Dog/Bark.position = _pos
 				playRandomSound($Dog/Bark, dogBarkSounds)
 			"key_pickup":
 				$Key/KeyPickup.play()
 			"eliteguard_detect":
+				$EliteGuard/Detect.position = _pos
 				playRandomSound($EliteGuard/Detect, eliteGuardDetectSounds)
 			"eliteguard_taser":
+				$EliteGuard/TaserDeploy.position = _pos
+				$EliteGuard/Taser.position = _pos
 				$EliteGuard/TaserDeploy.play()
 				$EliteGuard/Taser.play()
 			"key_use":

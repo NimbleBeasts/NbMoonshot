@@ -72,7 +72,7 @@ func stateMovingToPlayerEnter() -> void:
 	Events.emit_signal("player_block_input")
 	Events.disconnect("audio_level_changed", self, "onAudioLevelChanged")
 	$Notifier.popup(Types.NotifierTypes.Exclamation)
-	Events.emit_signal("play_sound", "eliteguard_detect")
+	Events.emit_signal("play_sound", "eliteguard_detect", 1.0, Global.calcAudioPosition(global_position))
 
 
 func stateTaseringPlayerEnter() -> void:
@@ -83,7 +83,7 @@ func stateTaseringPlayerEnter() -> void:
 	set_physics_process(false)
 	$AnimationPlayer.play("taser")
 	Events.emit_signal("player_block_movement")
-	Events.emit_signal("play_sound", "eliteguard_taser")
+	Events.emit_signal("play_sound", "eliteguard_taser", 1.0, Global.calcAudioPosition(global_position))
 
 
 func onAudioLevelChanged(newLevel, audioPosition, emitter) -> void:

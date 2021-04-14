@@ -147,7 +147,7 @@ func detectPlayerIfClose() -> void:
 				isMovingToPlayer = true
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
-					Events.emit_signal("play_sound", "suspicious")
+					Events.emit_signal("play_sound", "guard_suspicious", 1.0, Global.calcAudioPosition(global_position))
 					$GoBackToNormalTimer.start(1)
 				if player.global_position.distance_to(global_position) < playerDetectDistance:
 					set_state(Types.GuardStates.PlayerDetected)
@@ -222,7 +222,7 @@ func _on_SureDetectionTimer_timeout() -> void:
 #	set_physics_process(false)
 	processAI = false
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-	Events.emit_signal("play_sound", "alarm")
+	Events.emit_signal("play_sound", "guard_alarm", 1.0, Global.calcAudioPosition(global_position))
 	
 
 func _on_StunDurationTimer_timeout() -> void:
@@ -318,7 +318,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			pass
 		"stand_up":
 			stopMovement()
-			Events.emit_signal("play_sound", "suspicious")
+			Events.emit_signal("play_sound", "guard_suspicious", 1.0, Global.calcAudioPosition(global_position))
 			if not $Notifier.isShowing:
 				$Notifier.popup(Types.NotifierTypes.Question)
 			Global.startTimerOnce(goBackToNormalTimer)
@@ -393,7 +393,7 @@ func distractMode():
 	guardPathLine.stopAllMovement()
 	distractPathLine.global_points[0].x = global_position.x
 	distractPathLine.startNormalMovement()
-	Events.emit_signal("play_sound", "suspicious")
+	Events.emit_signal("play_sound", "guard_suspicious", 1.0, Global.calcAudioPosition(global_position))
 	inDistractMode = true
 
 
