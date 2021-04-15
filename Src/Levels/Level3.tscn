@@ -87,15 +87,6 @@
 [ext_resource path="res://Assets/Objects/Office/Broom.png" type="Texture" id=88]
 [ext_resource path="res://Assets/Objects/Office/Bucket.png" type="Texture" id=89]
 
-
-
-
-
-
-
-
-
-
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.540741, 1 )
 colors = PoolColorArray( 0, 0.473728, 0.996094, 1, 0.519531, 0.831085, 1, 1 )

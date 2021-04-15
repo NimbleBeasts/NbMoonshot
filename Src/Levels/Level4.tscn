@@ -240,7 +240,7 @@ variant = 1
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 22 )]
 position = Vector2( 356, 180 )
-frame = 0
+frame = 1
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -396,14 +396,8 @@ rotation = -1.5708
 heigth = 16
 isStatic = false
 moveSpeed = 0.2
-moveDistance = 5
 moveDirection = 2
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
-startOff = false
-canToggleTimes = 0
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 288, 208 )
@@ -411,57 +405,31 @@ rotation = -1.5708
 heigth = 15
 isStatic = false
 moveSpeed = 0.2
-moveDistance = 5
 moveDirection = 2
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
-startOff = false
-canToggleTimes = 0
 
 [node name="LaserDetector4" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 216, 172 )
 rotation = -1.5708
 heigth = 14
-isStatic = true
-moveSpeed = 0.5
 moveDistance = 4
 moveDirection = 2
 isHorizontal = false
 isFlickering = true
 flickerSequence = "1111100000000000000000"
-standbyTimerAfterDetection = 3.0
-startOff = false
-canToggleTimes = 0
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 152, 200 )
-heigth = 7
 isStatic = false
 moveSpeed = 0.2
 moveDistance = 16
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
-startOff = false
-canToggleTimes = 0
 
 [node name="LaserDetector5" parent="LevelObjects" instance=ExtResource( 16 )]
 position = Vector2( 216, 136 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 14
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
-startOff = false
-canToggleTimes = 0
 
 [node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 664, 256 )
@@ -489,43 +457,21 @@ isFixedCam = true
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 388, 128 )
-type = 0
 hasBounty = true
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 192, 192 )
-type = 0
-hasBounty = false
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet3" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 280, 192 )
-type = 0
-hasBounty = false
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet4" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 336, 320 )
 type = 2
 hasBounty = true
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="Cabinet5" parent="LevelObjects" instance=ExtResource( 20 )]
 position = Vector2( 688, 256 )
-type = 0
-hasBounty = false
-isObjective = false
-containsKey = false
-keyColor = 0
 
 [node name="PhotoMinigameSpawner" type="Area2D" parent="LevelObjects"]
 position = Vector2( 334.762, 116.076 )
@@ -540,20 +486,6 @@ shape = SubResource( 2 )
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -56, 256 )
 z_index = 50
-normal_speed = 80
-normal_acceleration = 600
-sprint_speed = 160
-duckSpeed = 40
-duckAcceleration = 300
-gravity = 800
-startingDirection = 0
-normal_stun_battery = 3
-extended_stun_battery = 5
-normal_stun_duration = 4.0
-extended_stun_duration = 7.0
-normal_sprint_duration = 3.0
-extended_sprint_duration = 6.0
-stamina_replenish_duration = 3.0
 
 [node name="Dog" parent="." instance=ExtResource( 39 )]
 position = Vector2( 576, 256 )

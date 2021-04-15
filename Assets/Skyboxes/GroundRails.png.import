@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/UstriaSkybox_BG.png-9ae12564f19ad8d02a1c945cfc59779a.stex"
+path="res://.import/GroundRails.png-2aa0c44c9cfbd66449373fbe5eb0dc55.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Skyboxes/UstriaSkybox_BG.png"
-dest_files=[ "res://.import/UstriaSkybox_BG.png-9ae12564f19ad8d02a1c945cfc59779a.stex" ]
+source_file="res://Assets/Skyboxes/GroundRails.png"
+dest_files=[ "res://.import/GroundRails.png-2aa0c44c9cfbd66449373fbe5eb0dc55.stex" ]
 
 [params]
 
