@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Temp/Train.png" type="Texture" id=2]
+[ext_resource path="res://Src/Train/Train.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Skybox/NewSkyboxVelocity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=17]
@@ -9,9 +9,6 @@
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=46]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 512, 8 )
-
-[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 32 )
 
 [node name="Level16" type="Node2D"]
@@ -29,12 +26,6 @@ speed = 0.4
 
 [node name="Ground" type="Node2D" parent="."]
 position = Vector2( 704, 256 )
-
-[node name="Left" type="StaticBody2D" parent="Ground"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Left"]
-position = Vector2( -248, -16 )
-shape = SubResource( 1 )
 
 [node name="SpriteWalls" type="Node2D" parent="."]
 
@@ -66,11 +57,6 @@ format = 1
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
-[node name="Sprite" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 344, 176 )
-texture = ExtResource( 2 )
-centered = false
-
 [node name="Objects" type="Node2D" parent="LevelObjects"]
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
@@ -90,6 +76,12 @@ position = Vector2( 80, 256 )
 next_boss_interacted_counter = 6
 nextSecretaryInteractionCounter = 6
 
+[node name="Train" parent="LevelObjects" instance=ExtResource( 2 )]
+position = Vector2( 176, 256 )
+
+[node name="Train2" parent="LevelObjects" instance=ExtResource( 2 )]
+position = Vector2( 464, 256 )
+
 [node name="Player" parent="." instance=ExtResource( 14 )]
 position = Vector2( 344, 232 )
 z_index = 50
@@ -101,7 +93,7 @@ position = Vector2( -104, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 152, -32 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="NPCS" type="Node2D" parent="."]
 

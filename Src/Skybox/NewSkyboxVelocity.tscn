@@ -20,19 +20,19 @@ shader_param/scroll_spead = 0.1
 
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 9 )
-shader_param/scroll_spead = 0.03
+shader_param/scroll_spead = 0.04
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 9 )
-shader_param/scroll_spead = 0.06
+shader_param/scroll_spead = 0.08
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 9 )
-shader_param/scroll_spead = 0.12
+shader_param/scroll_spead = 0.16
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = ExtResource( 9 )
-shader_param/scroll_spead = 0.3
+shader_param/scroll_spead = 0.4
 
 [node name="NewSkyboxVelocity" type="Node2D"]
 script = ExtResource( 6 )
