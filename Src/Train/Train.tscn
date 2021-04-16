@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Train/Suspension.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Train/TrainBase.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Train/Wheel.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Train/TrainFrame.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "run"
@@ -57,7 +58,7 @@ tracks/3/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "run"
 length = 2.0
 loop = true
@@ -86,7 +87,7 @@ tracks/1/keys = {
 "values": [ Vector2( 212, -24 ), Vector2( 212, -25 ), Vector2( 212, -24 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 144, 8 )
 
 [node name="Train" type="Node2D"]
@@ -94,6 +95,11 @@ extents = Vector2( 144, 8 )
 [node name="Base" type="Sprite" parent="."]
 position = Vector2( 0, -24 )
 texture = ExtResource( 2 )
+centered = false
+
+[node name="Frame" type="Sprite" parent="."]
+position = Vector2( 0, -80 )
+texture = ExtResource( 4 )
 centered = false
 
 [node name="Wheels" type="Node2D" parent="."]
@@ -142,11 +148,18 @@ anims/run = SubResource( 1 )
 
 [node name="AnimationSuspension" type="AnimationPlayer" parent="."]
 autoplay = "run"
-anims/run = SubResource( 3 )
+anims/run = SubResource( 2 )
 
 [node name="Collider" type="StaticBody2D" parent="."]
 position = Vector2( 152, -16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collider"]
 position = Vector2( -8, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
+
+[node name="Collider2" type="StaticBody2D" parent="."]
+position = Vector2( 152, -64 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collider2"]
+position = Vector2( -8, 0 )
+shape = SubResource( 3 )
