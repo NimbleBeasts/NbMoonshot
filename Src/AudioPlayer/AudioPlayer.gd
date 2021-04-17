@@ -98,16 +98,16 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 			"keypad_input_wrong":
 				$MinigameSounds/Keypad/KeypadInputWrong.play()
 			"door_wooden_open":
-				$DoorSounds/WoodenOpen.pos = _pos
+				$DoorSounds/WoodenOpen.position = _pos
 				$DoorSounds/WoodenOpen.play()
 			"door_wooden_close":
-				$DoorSounds/WoodenClose.pos = _pos
+				$DoorSounds/WoodenClose.position = _pos
 				$DoorSounds/WoodenClose.play()
 			"door_metal_open":
-				$DoorSounds/MetalOpen.pos = _pos
+				$DoorSounds/MetalOpen.position = _pos
 				$DoorSounds/MetalOpen.play()
 			"door_metal_close":
-				$DoorSounds/MetalClose.pos = _pos
+				$DoorSounds/MetalClose.position = _pos
 				$DoorSounds/MetalClose.play()
 			"lockpick_hit":
 				$MinigameSounds/Lockpick/Hit.play()
