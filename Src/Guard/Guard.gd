@@ -264,7 +264,7 @@ func set_state(new_state, forceReEnterIfSameState: bool = false) -> void:
 				$AnimationPlayer.play("suspicious")
 				stopMovement()
 			Types.GuardStates.Suspect:
-				Events.emit_signal("play_sound", "suspicious")
+				Events.emit_signal("play_sound", "guard_suspicious")
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
 				verifyGuardPathLine()

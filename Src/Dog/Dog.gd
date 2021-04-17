@@ -20,6 +20,7 @@ var barkAfterAngry: bool = false
 onready var pathLine: PathLine = get_node("PathLine")
 onready var losArea: Area2D = $Flippable/LOSArea
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
+onready var losRay: RayCast2D = $Flippable/LOSRay
 
 
 func _ready() -> void:
@@ -40,6 +41,11 @@ func _ready() -> void:
 	pathLine.connect("next_point_reached", self, "onPathLineNextPointReached")
 	$Flippable/DogArea.connect("body_entered", self, "onDogBodyEntered")
 	Events.connect("audio_level_changed", self, "onAudioLevelChanged")
+	losRay.set_deferred("enabled", false)
+
+	if playerInLOS and losRayIsCollidingWith(player):
+		setState(Types.DogStates.Angry)
+		losRay.set_deferred("enabled", false)
 
 
 func _process(delta: float) -> void:
@@ -54,6 +60,10 @@ func _process(delta: float) -> void:
 	elif state == Types.DogStates.Roaming:
 		$AnimationPlayer.play("look_around")
 	
+func losRayIsCollidingWith(obj: Node) -> bool:
+	return losRay.is_colliding() and losRay.get_collider() == obj
+		
+
 
 func onAudioLevelChanged(newLevel, audioPosition, emitter) -> void:
 	if emitter.is_in_group("Snack"):
@@ -190,12 +200,13 @@ func onDogBodyEntered(body: Node) -> void:
 func onLOSBodyEntered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		playerInLOS = true
-		setState(Types.DogStates.Angry)
+		losRay.set_deferred("enabled", true)
 
 			
 func onLOSBodyExited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		playerInLOS = false
+		losRay.set_deferred("enabled", false)
 		if $DetectionDelay.time_left > $DetectionDelay.wait_time - 0.3:
 			$DetectionDelay.stop()
 			setState(Types.DogStates.Roaming)
@@ -226,9 +237,9 @@ func flipTowards(towards: Vector2) -> void:
 
 func detectPlayerIfClose() -> void:
 	if player.global_position.distance_to(global_position) < playerSuspectDistance and state != Types.GuardStates.Stunned:
-		if player.state != Types.PlayerStates.WallDodge:
+		if player.state != Types.PlayerStates.WallDodge and losRayIsCollidingWith(player):
 				pathLine.moveToPoint(player.global_position)
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
-				if player.global_position.distance_to(global_position) < playerDetectDistance:
+				if player.global_position.distance_to(global_position) < playerDetectDistance and losRayIsCollidingWith(player):
 					setState(Types.DogStates.Detection)

@@ -195,6 +195,12 @@ visible = false
 position = Vector2( 0, -10 )
 shape = SubResource( 2 )
 
+[node name="LOSRay" type="RayCast2D" parent="Flippable"]
+position = Vector2( -2.33929, -9.31946 )
+enabled = true
+cast_to = Vector2( -60, 0 )
+collision_mask = 129
+
 [node name="Notifier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
 
