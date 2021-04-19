@@ -1,0 +1,16 @@
+ !"#$%&'()*+,-./
+0123456789:;<=>?
+@ABCDEFGHIJKLMNO
+PQRSTUVWXYZ[\]^_
+`abcdefghijklmno
+pqrstuvwxyz{|}~∎
+¥¦§©®°µ¿ÄÖÜßäö÷ü
+ÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔ
+АБВГДЕЖЗИЙКЛМНОП
+РСТУФХЦЧШЩЪЫЬЭЮЯ
+
+Icons:
+Starting at U+00C5 (Å)
+
+Cyrillic:
+Starting at U+0410 (А)

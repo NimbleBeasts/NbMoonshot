@@ -1,0 +1,49 @@
+{
+	"$baseURI": "https://yal.cc/r/20/pixelfont/",
+	"$version": "1.0",
+	"in-glyphs": [
+		" !\"#$%&'()*+,-./",
+		"0123456789:;<=>?",
+		"@ABCDEFGHIJKLMNO",
+		"PQRSTUVWXYZ[\\]^_",
+		"`abcdefghijklmno",
+		"pqrstuvwxyz{|}~∎",
+		"¥¦§©®°µ¿ÄÖÜßäö÷ü",
+		"ÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔ",
+		"АБВГДЕЖЗИЙКЛМНОП",
+		"РСТУФХЦЧШЩЪЫЬЭЮЯ",
+		""
+	],
+	"glyph-color": "black",
+	"in-kerning": [
+		""
+	],
+	"glyph-width": 7,
+	"glyph-height": 10,
+	"glyph-ofs-x": 0,
+	"glyph-ofs-y": 0,
+	"glyph-sep-x": 0,
+	"glyph-sep-y": 0,
+	"glyph-base-x": 0,
+	"glyph-baseline": 8,
+	"glyph-spacing": 1,
+	"font-is-mono": true,
+	"font-em-square": 1024,
+	"font-line-gap": 0,
+	"font-ascend": 768,
+	"font-descend": -256,
+	"font-px-size": 128,
+	"font-name": "mago1-latin-cyrillic ",
+	"font-author": "mago",
+	"font-copy": "(c) mago",
+	"font-version": "Version 1.0",
+	"font-desc": "Pixel font with latin and cyrillic letters and addition eye candy",
+	"font-license": "",
+	"font-license-url": "",
+	"font-sample-text": "Hello!",
+	"font-preview-text": [
+		"THE QUICK BROWN FOX JUMPS OVER A LAZY DOG.",
+		"the quick brown fox jumps over a lazy dog.",
+		"0123456789"
+	]
+}
