@@ -96,4 +96,4 @@ func describe():
 
 # @returns  String
 func _get_command_name():
-	return '	[color=#ffff66][url=%s]%s[/url][/color]' % [self._name, self._name]
+	return '	[color=#63c2c9][url=%s]%s[/url][/color]' % [self._name, self._name]

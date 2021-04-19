@@ -60,9 +60,9 @@ func _help(command_name = null):
 
 	else:
 		self._console.write_line(\
-			"Type [color=#ffff66][url=help]help[/url] <command-name>[/color] show information about command.\n" + \
-			"Type [color=#ffff66][url=commands]commands[/url][/color] to get a list of all commands.\n" + \
-			"Type [color=#ffff66][url=quit]quit[/url][/color] to exit the application.")
+			"Type [color=#63c2c9][url=help]help[/url] <command-name>[/color] show information about command.\n" + \
+			"Type [color=#63c2c9][url=commands]commands[/url][/color] to get a list of all commands.\n" + \
+			"Type [color=#63c2c9][url=quit]quit[/url][/color] to exit the application.")
 
 
 # Prints out engine version.
@@ -75,7 +75,7 @@ func _version():
 func _list_commands():
 	for command in self._console._command_service.values():
 		var name = command.getName()
-		self._console.write_line('[color=#ffff66][url=%s]%s[/url][/color]' % [ name, name ])
+		self._console.write_line('[color=#63c2c9][url=%s]%s[/url][/color]' % [ name, name ])
 
 
 # Quitting application.

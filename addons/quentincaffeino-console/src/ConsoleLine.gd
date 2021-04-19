@@ -73,7 +73,7 @@ func _input(e):
 			else:
 				for command in commands.getValueIterator():
 					var name = command.getName()
-					Console.write_line('[color=#ffff66][url=%s]%s[/url][/color]' % [ name, name ])
+					Console.write_line('[color=#63c2c9][url=%s]%s[/url][/color]' % [ name, name ])
 		else:
 			self._autocomplete_triggered_timer = get_tree().create_timer(1.0, true)
 			var autocompleted_command = Console.get_command_service().autocomplete(self.text)
@@ -107,7 +107,7 @@ func set_text(text, move_caret_to_end = true):
 # @param    String  input
 # @returns  void
 func execute(input):
-	Console.write_line('[color=#999999]$[/color] ' + input)
+	Console.write_line('[color=#264f6e]>[/color] ' + input)
 
 	# @var  PoolStringArray
 	var rawCommands = RegExLib.split(RECOMMANDS_SEPARATOR, input)

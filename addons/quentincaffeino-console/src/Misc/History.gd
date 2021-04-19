@@ -12,7 +12,7 @@ func print_all():
 	var i = 1
 	for command in self.getValueIterator():
 		Console.write_line(\
-			'[b]' + str(i) + '.[/b] [color=#ffff66][url=' + \
+			'[b]' + str(i) + '.[/b] [color=#63c2c9][url=' + \
 			command + ']' + command + '[/url][/color]')
 		i += 1
 

@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://addons/quentincaffeino-console/src/Console.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=3]
 [ext_resource path="res://addons/quentincaffeino-console/src/ConsoleLine.gd" type="Script" id=6]
 
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.254902, 0.447059, 0.568627, 1 )
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.168627, 0.180392, 0.258824, 1 )
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=2]
 length = 0.25
 step = 0.05
 tracks/0/type = "method"
@@ -40,16 +40,16 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="StyleBoxEmpty" id=2]
-
 [sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.298039, 0.576471, 0.678431, 1 )
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.254902, 0.282353, 0.34902, 1 )
 border_blend = true
 
 [sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.298039, 0.576471, 0.678431, 1 )
+bg_color = Color( 0.254902, 0.282353, 0.34902, 1 )
 
 [node name="Console" type="CanvasLayer"]
 pause_mode = 2
@@ -61,13 +61,13 @@ self_modulate = Color( 1, 1, 1, 0.894118 )
 anchor_right = 1.0
 anchor_bottom = 0.5
 mouse_filter = 2
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ConsoleBox"]
-anims/fade = SubResource( 1 )
+anims/fade = SubResource( 2 )
 
 [node name="Container" type="VBoxContainer" parent="ConsoleBox"]
 anchor_right = 1.0
@@ -88,12 +88,12 @@ focus_next = NodePath("../LineEdit")
 focus_previous = NodePath("../LineEdit")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/focus = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
-custom_fonts/bold_italics_font = ExtResource( 2 )
-custom_fonts/italics_font = ExtResource( 2 )
-custom_fonts/bold_font = ExtResource( 2 )
-custom_fonts/normal_font = ExtResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/bold_italics_font = ExtResource( 3 )
+custom_fonts/italics_font = ExtResource( 3 )
+custom_fonts/bold_font = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 3 )
 custom_constants/line_separation = 4
 bbcode_enabled = true
 
@@ -108,8 +108,8 @@ focus_neighbour_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 size_flags_horizontal = 3
-custom_styles/focus = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 script = ExtResource( 6 )
 _sections_unfolded = [ "Anchor", "Caret", "Grow Direction", "Margin", "Material", "Pause", "Placeholder", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]

@@ -88,7 +88,7 @@ func _ready():
 	self.write_line(\
 		ProjectSettings.get_setting("application/config/name") + \
 		" (Godot " + str(v.major) + '.' + str(v.minor) + '.' + str(v.patch) + ' ' + v.status+")\n" + \
-		"Type [color=#ffff66][url=help]help[/url][/color] to get more information about usage")
+		"Type [color=#63c2c9][url=help]help[/url][/color] to get more information about usage")
 
 	# Init base commands
 	self.BaseCommands.new(self)
