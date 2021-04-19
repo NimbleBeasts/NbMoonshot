@@ -6,6 +6,11 @@
 
 Moonshot is a stealth puzzle platformer that puts you in the role of a spy of a fictional country in the 'moon race' era. In competition with the USA and the Soviet Union, you will have to use espionage and sabotage to make sure that your nation will be the first on the moon.
 
+## Steam
+
+Moonshot will be available on Steam very soon (maybe some more months). Make sure to wishlist it on Steam to support us.
+![](_Org/_steam_/Steam.gif)
+
 ## Planned Features
 
 - Story Driven Background - Discover the story of an agent who can change the history of the Moon Race forever. It's up to you which of the three nations wins the race.
