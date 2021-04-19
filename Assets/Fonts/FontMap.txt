@@ -1,0 +1,11 @@
+ !"#$%&'()*+,-./
+0123456789:;<=>?
+@ABCDEFGHIJKLMNO
+PQRSTUVWXYZ[\]^_
+`abcdefghijklmno
+pqrstuvwxyz{|}~∎
+¥¦§©®°µ¿ÄÖÜßäö÷ü
+
+
+Icons:
+Starting at U+00C5 (Å)

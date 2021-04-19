@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Train/Train.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Skybox/NewSkyboxVelocity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Train/SignMotion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Train/WagonOil.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Train/TrainWagon.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Train/TrainCargo.png" type="Texture" id=7]
+[ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=17]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=21]
@@ -75,8 +78,24 @@ position = Vector2( -54, 256 )
 [node name="Train" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 176, 256 )
 
+[node name="Sprite" type="Sprite" parent="LevelObjects/Objects/Trains/Train"]
+position = Vector2( 16, -72 )
+texture = ExtResource( 6 )
+centered = false
+
 [node name="Train2" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 464, 256 )
+
+[node name="Sprite2" type="Sprite" parent="LevelObjects/Objects/Trains/Train2"]
+position = Vector2( 8, -72 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Note" parent="LevelObjects/Objects/Trains/Train2" instance=ExtResource( 8 )]
+position = Vector2( 140, -30 )
+text = "Danger! Explosive!"
+highlight = true
+type = 1
 
 [node name="Train3" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 752, 256 )
@@ -88,6 +107,11 @@ centered = false
 
 [node name="Train4" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 1040, 256 )
+
+[node name="Sprite2" type="Sprite" parent="LevelObjects/Objects/Trains/Train4"]
+position = Vector2( 16, -72 )
+texture = ExtResource( 6 )
+centered = false
 
 [node name="Train5" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 1328, 256 )
