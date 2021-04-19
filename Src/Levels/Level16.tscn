@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Train/Train.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Skybox/NewSkyboxVelocity.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Train/SignMotion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Train/WagonOil.png" type="Texture" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=17]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=21]
@@ -53,13 +54,21 @@ cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 32
 occluder_light_mask = 3
 format = 1
-tile_data = PoolIntArray( 1179688, 0, 0, 1245224, 0, 65538 )
 
 [node name="LevelObjects" type="Node2D" parent="."]
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Objects" type="Node2D" parent="LevelObjects"]
+
+[node name="SignMotion" parent="LevelObjects/Objects" instance=ExtResource( 4 )]
+amount = 4
+
+[node name="PositionStart" type="Position2D" parent="LevelObjects/Objects/SignMotion"]
+position = Vector2( 1984, 256 )
+
+[node name="PositionStop" type="Position2D" parent="LevelObjects/Objects/SignMotion"]
+position = Vector2( -54, 256 )
 
 [node name="Trains" type="Node2D" parent="LevelObjects/Objects"]
 
@@ -72,6 +81,11 @@ position = Vector2( 464, 256 )
 [node name="Train3" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 752, 256 )
 
+[node name="Sprite" type="Sprite" parent="LevelObjects/Objects/Trains/Train3"]
+position = Vector2( 8, -88 )
+texture = ExtResource( 5 )
+centered = false
+
 [node name="Train4" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 1040, 256 )
 
@@ -80,14 +94,6 @@ position = Vector2( 1328, 256 )
 
 [node name="Train6" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 1616, 256 )
-
-[node name="SignMotion" parent="LevelObjects/Objects" instance=ExtResource( 4 )]
-
-[node name="PositionStart" type="Position2D" parent="LevelObjects/Objects/SignMotion"]
-position = Vector2( 736, 256 )
-
-[node name="PositionStop" type="Position2D" parent="LevelObjects/Objects/SignMotion"]
-position = Vector2( 176, 256 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
