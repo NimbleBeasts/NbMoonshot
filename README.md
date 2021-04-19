@@ -1,24 +1,29 @@
 # Moonshot: The Great Espionage
 
-![](_itch/itch.png)
+![](_Org/_itch/itch.png)
 
 ## About
 
-There is a new challenger in the race for the first manned lunar mission. The Republic of Ustria. You are part of the secret service Ustria and have to steal technologies from the leading space nations to boost your own space program. The player has to infiltrate buildings, overcome security systems and take out guards in a Gunpoint like way to complete the missions.
+Moonshot is a stealth puzzle platformer that puts you in the role of a spy of a fictional country in the 'moon race' era. In competition with the USA and the Soviet Union, you will have to use espionage and sabotage to make sure that your nation will be the first on the moon.
 
-## Game Jam
+## Planned Features
 
-​This game is our contribution to GitHubs "GameOff Jam 2020" and "The Web Monetization Challenge 2020​". With the latter we want to try out new ways to monetize games to be able to continue making pretty good games in the future. You can find more information about it on https://coil.com/. Those who use the Coil Plugin have an additional passive source of income and are not dependent on searching all cabinets for bounties.
+- Story Driven Background - Discover the story of an agent who can change the history of the Moon Race forever. It's up to you which of the three nations wins the race.
+- 30+ Challenging Levels - Lots of varied levels ensure that you won't get bored. Visit historical as well as freely fictional places to guide the fate of your nation.
+- Lot's of Player Upgrades - Of course, if you're already breaking in somewhere, you might as well enrich yourself personally. Use the money to unlock new abilities or boosts that will help you master the game even better.
+- Explore in your OWN way - Most levels are designed so that there is no single correct path. Many possibilities lead to the goal. Create your own way.
+- Lots of Minigames - To keep it interesting, many mini-games are included, so you don't have to do the same mini-game for the 100th time.
 
-## Screenshot
+## Screenshots
 
-![](_itch/ss1.png)
+![](_Org/_steam/events/week1/dog.gif)
+![](_Org/_steam/events/week4/beta1.png)
 
 ## ​Team
 
 ​The NimbleBeasts Collective is a small and open independent development studio where anyone can participate - worldwide. Support us, become part of the collective and buy our games, because they are really good.
 
-- mago - PM & Pixels
+- mago - PM & Pixels, Levels
 - knightmare - Coding
-- kodkuce - Coding
+- kodkuce - Levels
 - SpaceCastle - Music & Sounds
