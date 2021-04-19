@@ -1,6 +1,6 @@
 # Moonshot: The Great Espionage
 
-![](_Org/_itch/itch.png)
+![Title](_Org/_itch/itch.png)
 
 ## About
 
@@ -9,7 +9,8 @@ Moonshot is a stealth puzzle platformer that puts you in the role of a spy of a 
 ## Steam
 
 Moonshot will be available on Steam very soon (maybe some more months). Make sure to wishlist it on Steam to support us.
-![](_Org/_steam_/Steam.gif)
+
+[![Steam](_Org/_steam/Steam.gif)](https://store.steampowered.com/app/1492610/Moonshot__The_Great_Espionage/)
 
 ## Planned Features
 
@@ -21,8 +22,8 @@ Moonshot will be available on Steam very soon (maybe some more months). Make sur
 
 ## Screenshots
 
-![](_Org/_steam/events/week1/dog.gif)
-![](_Org/_steam/events/week4/beta1.png)
+![Screenshot 1](_Org/_steam/events/week1/dog.gif)
+![Screenshot 1](_Org/_steam/events/week4/beta1.png)
 
 ## ​Team
 
