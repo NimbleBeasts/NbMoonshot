@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Train/Train.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Train/TrainWagon.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Train/TrainCargo.png" type="Texture" id=7]
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Train/TrainArms.png" type="Texture" id=9]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=17]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=21]
@@ -115,6 +116,11 @@ centered = false
 
 [node name="Train5" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 1328, 256 )
+
+[node name="Sprite3" type="Sprite" parent="LevelObjects/Objects/Trains/Train5"]
+position = Vector2( 16, -72 )
+texture = ExtResource( 9 )
+centered = false
 
 [node name="Train6" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 1616, 256 )
