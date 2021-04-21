@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Src/ThinArea/ThinArea.gd" type="Script" id=1]
-[ext_resource path="res://Assets/ThinArea/Ladder.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ThinArea/LadderSmall.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 4 )
@@ -9,7 +9,7 @@ extents = Vector2( 8, 4 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 4 )
 
-[node name="Ladder" type="Area2D" groups=[
+[node name="LadderSmall" type="Area2D" groups=[
 "AreaGround",
 ]]
 collision_layer = 2147483652
@@ -28,7 +28,7 @@ __meta__ = {
 position = Vector2( 8, -8 )
 
 [node name="DestinationDown" type="Position2D" parent="."]
-position = Vector2( 8, 56 )
+position = Vector2( 8, 40 )
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 3

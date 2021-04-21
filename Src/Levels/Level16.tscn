@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Src/Levels/Level16.gd" type="Script" id=1]
 [ext_resource path="res://Src/Train/Train.tscn" type="PackedScene" id=2]
@@ -12,22 +12,23 @@
 [ext_resource path="res://Assets/Train/TrainTrain.png" type="Texture" id=10]
 [ext_resource path="res://Src/Button/ButtonLever.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Src/ThinArea/LadderSmall.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Src/Light/Light5Small.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=17]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=21]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=46]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 128, 4 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 104, 4 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 12, 4 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "decouple"
+[sub_resource type="Animation" id=4]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -68,11 +69,11 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10, 8 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 32 )
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10, 56 )
 
 [node name="Level16" type="Node2D"]
 script = ExtResource( 1 )
@@ -131,87 +132,133 @@ position = Vector2( -54, 256 )
 
 [node name="Wagons" type="Node2D" parent="LevelObjects/Objects/Trains"]
 
-[node name="Wagon" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
+[node name="WagonGuard1" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
 position = Vector2( 176, 256 )
 
-[node name="Sprite" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/Wagon"]
+[node name="Sprite" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1"]
+light_mask = 3
 position = Vector2( 16, -72 )
 texture = ExtResource( 6 )
 centered = false
 
-[node name="Roof" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Wagons/Wagon"]
+[node name="Roof" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1"]
 position = Vector2( 144, -72 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/Wagon/Roof"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1/Roof"]
 position = Vector2( 0, 4 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
-[node name="Wagon2" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
+[node name="LadderSmall" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1" instance=ExtResource( 13 )]
+position = Vector2( 0, -64 )
+
+[node name="Lights" type="Node2D" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1"]
+
+[node name="Light5Small" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1/Lights" instance=ExtResource( 15 )]
+position = Vector2( 48, -64 )
+
+[node name="Light5Small2" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1/Lights" instance=ExtResource( 15 )]
+position = Vector2( 96, -64 )
+
+[node name="Light5Small3" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1/Lights" instance=ExtResource( 15 )]
+position = Vector2( 152, -64 )
+
+[node name="Light5Small4" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1/Lights" instance=ExtResource( 15 )]
+position = Vector2( 208, -64 )
+
+[node name="WagonTarget" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
 position = Vector2( 464, 256 )
 
-[node name="Sprite2" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/Wagon2"]
+[node name="Sprite2" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/WagonTarget"]
 position = Vector2( 8, -72 )
 texture = ExtResource( 7 )
 centered = false
 
-[node name="Note" parent="LevelObjects/Objects/Trains/Wagons/Wagon2" instance=ExtResource( 8 )]
+[node name="Note" parent="LevelObjects/Objects/Trains/Wagons/WagonTarget" instance=ExtResource( 8 )]
 position = Vector2( 140, -30 )
 text = "Danger! Explosive!"
 highlight = true
 type = 1
 
-[node name="Wagon3" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
+[node name="WagonOil" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
 position = Vector2( 752, 256 )
 
-[node name="Sprite" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/Wagon3"]
+[node name="Sprite" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/WagonOil"]
 position = Vector2( 8, -88 )
 texture = ExtResource( 5 )
 centered = false
 
-[node name="Wagon4" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
+[node name="WagonGuards2" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
 position = Vector2( 1040, 256 )
 
-[node name="Sprite2" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/Wagon4"]
+[node name="Sprite2" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2"]
+light_mask = 3
 position = Vector2( 16, -72 )
 texture = ExtResource( 6 )
 centered = false
 
-[node name="Roof2" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Wagons/Wagon4"]
+[node name="Lights" type="Node2D" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2"]
+
+[node name="Light5Small" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2/Lights" instance=ExtResource( 15 )]
+position = Vector2( 48, -64 )
+
+[node name="Light5Small2" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2/Lights" instance=ExtResource( 15 )]
+position = Vector2( 96, -64 )
+
+[node name="Light5Small3" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2/Lights" instance=ExtResource( 15 )]
+position = Vector2( 152, -64 )
+
+[node name="Light5Small4" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2/Lights" instance=ExtResource( 15 )]
+position = Vector2( 208, -64 )
+
+[node name="LadderSmall2" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2" instance=ExtResource( 13 )]
+position = Vector2( 0, -64 )
+
+[node name="Roof2" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2"]
 position = Vector2( 144, -72 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/Wagon4/Roof2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2/Roof2"]
 position = Vector2( 0, 4 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
-[node name="Wagon5" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
+[node name="WagonArms" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
 position = Vector2( 1328, 256 )
 
-[node name="Sprite3" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/Wagon5"]
+[node name="Sprite3" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/WagonArms"]
+light_mask = 3
 position = Vector2( 16, -72 )
 texture = ExtResource( 9 )
 centered = false
 
-[node name="Roof3" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Wagons/Wagon5"]
+[node name="Light5Small5" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 15 )]
+position = Vector2( 84, -64 )
+
+[node name="Light5Small6" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 15 )]
+position = Vector2( 204, -64 )
+
+[node name="LadderSmall3" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 13 )]
+position = Vector2( 0, -64 )
+
+[node name="Roof3" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Wagons/WagonArms"]
 position = Vector2( 120, -64 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/Wagon5/Roof3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/WagonArms/Roof3"]
 position = Vector2( 0, -4 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
-[node name="Roof4" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Wagons/Wagon5"]
+[node name="Roof4" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Wagons/WagonArms"]
 position = Vector2( 260, -64 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/Wagon5/Roof4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/WagonArms/Roof4"]
 position = Vector2( 0, -4 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
-[node name="ThinArea" parent="LevelObjects/Objects/Trains/Wagons/Wagon5" instance=ExtResource( 12 )]
+[node name="ThinArea" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 12 )]
 position = Vector2( 224, -64 )
 reduced_down = 2
 width = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LevelObjects/Objects/Trains/Wagons"]
-anims/decouple = SubResource( 3 )
+anims/decouple = SubResource( 4 )
 
 [node name="Train" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 1616, 256 )
@@ -229,13 +276,13 @@ unlocks = [ NodePath("../../../../..") ]
 position = Vector2( 224, -32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Train/RightBlocker"]
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="LeftBlocker" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Train"]
 position = Vector2( 0, -32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Train/LeftBlocker"]
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -257,7 +304,7 @@ nextSecretaryInteractionCounter = 6
 [node name="Signs" type="Node2D" parent="LevelObjects"]
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1504, 176 )
+position = Vector2( 288, 176 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -266,7 +313,7 @@ z_index = 50
 position = Vector2( 165, 224 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 2 )
+shape = SubResource( 6 )
 
 [node name="NPCS" type="Node2D" parent="."]
 
