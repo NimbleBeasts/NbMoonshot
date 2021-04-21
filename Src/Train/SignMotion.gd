@@ -26,7 +26,7 @@ func _ready():
 
 func collision(body):
 	if body.is_in_group("Player"):
-		print("die")
+		get_parent().get_parent().get_parent().hit()
 
 
 func setupSign():

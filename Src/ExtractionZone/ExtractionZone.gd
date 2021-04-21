@@ -55,6 +55,8 @@ func _on_body_exited(body: Node) -> void:
 		player_entered = false
 		set_process_unhandled_input(false)
 
+func manualLevelFinish():
+	_on_AnimationPlayer_animation_finished("")
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	if Global.game_manager.getCurrentLevel().name == "HQ_Level": # this condition is true on hq_level

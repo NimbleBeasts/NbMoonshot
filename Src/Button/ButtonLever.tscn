@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/Switches/Switch.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Switches/Lever.png" type="Texture" id=1]
 [ext_resource path="res://Src/Button/Button.gd" type="Script" id=2]
 [ext_resource path="res://Shaders/Outline.shader" type="Shader" id=3]
 
@@ -16,7 +16,7 @@ shader_param/add_margins = false
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10.2657, 9.97309 )
 
-[node name="Button" type="Area2D"]
+[node name="ButtonLever" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
