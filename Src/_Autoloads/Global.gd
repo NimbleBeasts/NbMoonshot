@@ -52,6 +52,7 @@ const levels = [
 	"res://Src/Levels/Level8.tscn",
 	"res://Src/Levels/Level9.tscn",
 	"res://Src/Levels/Level10.tscn",
+	"res://Src/Levels/Level13.tscn",
 	"res://Src/Levels/Level16.tscn", #4
 	"res://Src/Levels/Level17.tscn", #4
 	"res://Src/Levels/Level18.tscn", #5
