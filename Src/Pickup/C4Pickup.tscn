@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Src/Pickup/BasePickup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Pickup/C4.png" type="Texture" id=2]
+
+[node name="C4Pickup" instance=ExtResource( 1 )]
+collision_layer = 5
+collision_mask = 5
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+
+[node name="GroundDetection" parent="." index="2"]
+collision_layer = 5
+collision_mask = 5

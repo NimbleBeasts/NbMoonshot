@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Src/Levels/Level16.gd" type="Script" id=1]
 [ext_resource path="res://Src/Train/Train.tscn" type="PackedScene" id=2]
@@ -15,7 +15,11 @@
 [ext_resource path="res://Src/ThinArea/LadderSmall.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Src/Light/Light5Small.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Assets/Objects/Laboratory/Chest.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=17]
+[ext_resource path="res://Assets/Objects/Laboratory/Chest2.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=19]
+[ext_resource path="res://Src/Pickup/C4Pickup.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=21]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=46]
 
@@ -27,6 +31,9 @@ extents = Vector2( 104, 4 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 12, 4 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8, 8 )
 
 [sub_resource type="Animation" id=4]
 length = 5.0
@@ -120,7 +127,6 @@ format = 1
 [node name="Objects" type="Node2D" parent="LevelObjects"]
 
 [node name="SignMotion" parent="LevelObjects/Objects" instance=ExtResource( 4 )]
-amount = 4
 
 [node name="PositionStart" type="Position2D" parent="LevelObjects/Objects/SignMotion"]
 position = Vector2( 1984, 256 )
@@ -230,10 +236,16 @@ texture = ExtResource( 9 )
 centered = false
 
 [node name="Light5Small5" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 15 )]
-position = Vector2( 84, -64 )
+position = Vector2( 60, -64 )
 
 [node name="Light5Small6" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 15 )]
-position = Vector2( 204, -64 )
+position = Vector2( 228, -64 )
+
+[node name="Light5Small7" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 15 )]
+position = Vector2( 115, -64 )
+
+[node name="Light5Small8" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 15 )]
+position = Vector2( 173, -64 )
 
 [node name="LadderSmall3" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 13 )]
 position = Vector2( 0, -64 )
@@ -256,6 +268,38 @@ shape = SubResource( 3 )
 position = Vector2( 224, -64 )
 reduced_down = 2
 width = 0
+
+[node name="Chest" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/WagonArms"]
+light_mask = 3
+position = Vector2( 64, -32 )
+texture = ExtResource( 16 )
+
+[node name="Chest2" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/WagonArms"]
+light_mask = 3
+position = Vector2( 83, -32 )
+texture = ExtResource( 18 )
+
+[node name="Chest3" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/WagonArms"]
+light_mask = 3
+position = Vector2( 102, -32 )
+texture = ExtResource( 16 )
+
+[node name="Box" type="Sprite" parent="LevelObjects/Objects/Trains/Wagons/WagonArms"]
+light_mask = 3
+position = Vector2( 248, -36 )
+texture = ExtResource( 19 )
+
+[node name="C4Pickup" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 20 )]
+position = Vector2( 101, -40 )
+
+[node name="C4BoxCollider" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Wagons/WagonArms"]
+position = Vector2( 104, -32 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/WagonArms/C4BoxCollider"]
+position = Vector2( -2, 0 )
+shape = SubResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LevelObjects/Objects/Trains/Wagons"]
 anims/decouple = SubResource( 4 )
@@ -304,7 +348,7 @@ nextSecretaryInteractionCounter = 6
 [node name="Signs" type="Node2D" parent="LevelObjects"]
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
-position = Vector2( 288, 176 )
+position = Vector2( 1496, 176 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
