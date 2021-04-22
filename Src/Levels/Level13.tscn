@@ -64,7 +64,7 @@ cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 32
 occluder_light_mask = 3
 format = 1
-tile_data = PoolIntArray( 65582, 2, 0, 65584, 2, 0, 65586, 2, 0, 65588, 2, 0, 65590, 2, 0 )
+tile_data = PoolIntArray( 65582, 2, 0, 65584, 2, 0, 65586, 2, 0, 65588, 2, 0, 65590, 2, 0, 589845, 35, 0, 589847, 33, 0, 589849, 10, 0, 1114139, 36, 0, 1114140, 36, 1, 1114141, 36, 3, 1179675, 36, 65536, 1179677, 36, 65536, 1245211, 36, 65536, 1245213, 36, 65536, 1310747, 36, 131072, 1310748, 36, 1, 1310749, 36, 131075 )
 
 [node name="Rooms" type="TileMap" parent="."]
 light_mask = 3
@@ -112,20 +112,12 @@ tile_data = PoolIntArray( -1572840, 0, 0, -1572839, 0, 1, -1572838, 0, 1, -15728
 [node name="Button" parent="LevelObjects/Objects" instance=ExtResource( 9 )]
 position = Vector2( 168, 245 )
 unlocks = [ NodePath("../../Doors/DoorWall") ]
-startStateOn = false
 
 [node name="ButtonLever" parent="LevelObjects/Objects" instance=ExtResource( 11 )]
 position = Vector2( 314, 160 )
-unlocks = [  ]
-startStateOn = false
 
 [node name="ThinArea" parent="LevelObjects/Objects" instance=ExtResource( 10 )]
 position = Vector2( 164, 200 )
-reduced_up = 0
-reduced_down = 0
-disabled = false
-isLadder = false
-width = 1
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -198,20 +190,6 @@ nextSecretaryInteractionCounter = 6
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 264.043, 164.673 )
 z_index = 50
-normal_speed = 80
-normal_acceleration = 600
-sprint_speed = 160
-duckSpeed = 40
-duckAcceleration = 300
-gravity = 800
-startingDirection = 0
-normal_stun_battery = 3
-extended_stun_battery = 5
-normal_stun_duration = 4.0
-extended_stun_duration = 7.0
-normal_sprint_duration = 3.0
-extended_sprint_duration = 6.0
-stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
