@@ -1,7 +1,8 @@
+tool
 extends KinematicBody2D
 
-enum Skins {Scientist1, Scientist2}
-export (Skins) var skin: int
+enum Skins {Scientist1, Scientist2, Spy}
+export (Skins) var skin: int setget setSkin
 export var isHostileArea: bool 
 export var speed: int = 35
 
@@ -33,18 +34,26 @@ func _ready() -> void:
 			if not child.has_method("moveToNextPoint"):
 				print("Civilian: " + str(self) + " - Path node used. Was this intended?")
 
-	
-	match skin:
-		Skins.Scientist1:
-			$Flippable/Sprite.texture = preload("res://Assets/Guards/Civ_Scientist.png")
-		_:
-			$Flippable/Sprite.texture = preload("res://Assets/Guards/Civ_Scientist2.png")
-	
 	fovArea.connect("body_entered", self, "onFOVBodyEntered")
 	if not isHostileArea:
 		fovArea.queue_free()
 		fovArea = null
 		
+	setSkin(skin)
+
+
+
+func setSkin(_skin):
+	skin = _skin
+	match skin:
+		Skins.Scientist1:
+			$Flippable/Sprite.texture = preload("res://Assets/Guards/Civ_Scientist.png")
+		Skins.Scientist2:
+			$Flippable/Sprite.texture = preload("res://Assets/Guards/Civ_Scientist2.png")
+		Skins.Spy:
+			$Flippable/Sprite.texture = preload("res://Assets/Guards/Civ_Spy.png")
+	
+
 		
 func _physics_process(delta: float) -> void:
 	if applyGravity:
