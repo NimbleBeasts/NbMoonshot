@@ -28,3 +28,13 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 func playBombSound():
 	if bombPlaced:
 		print("boom")
+
+
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("Pickupable"):
+		bombPlaced = true
+
+func _on_Area2D_area_exited(area):
+	if area.is_in_group("Pickupable"):
+		bombPlaced = false
+		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Src/Levels/Level16.gd" type="Script" id=1]
 [ext_resource path="res://Src/Train/Train.tscn" type="PackedScene" id=2]
@@ -24,10 +24,16 @@
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=23]
 [ext_resource path="res://Src/Distraction/Firework.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Assets/Popups/Pow.png" type="Texture" id=26]
+[ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=46]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 128, 4 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 36, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 104, 4 )
@@ -81,6 +87,34 @@ tracks/2/keys = {
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 10, 8 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "pow"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 10, 56 )
@@ -174,6 +208,21 @@ position = Vector2( 152, -64 )
 [node name="Light5Small4" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1/Lights" instance=ExtResource( 15 )]
 position = Vector2( 208, -64 )
 
+[node name="EliteGuard" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1" instance=ExtResource( 27 )]
+position = Vector2( 152, -24 )
+
+[node name="PathLine" type="Line2D" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1/EliteGuard"]
+points = PoolVector2Array( 0, 0 )
+script = ExtResource( 23 )
+
+[node name="DoorWall" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1" instance=ExtResource( 25 )]
+position = Vector2( 16, -24 )
+doorType = 2
+
+[node name="DoorWall2" parent="LevelObjects/Objects/Trains/Wagons/WagonGuard1" instance=ExtResource( 25 )]
+position = Vector2( 264, -24 )
+doorType = 2
+
 [node name="WagonTarget" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
 position = Vector2( 464, 256 )
 
@@ -187,6 +236,12 @@ position = Vector2( 140, -30 )
 text = "Danger! Explosive!"
 highlight = true
 type = 1
+
+[node name="Area2D" type="Area2D" parent="LevelObjects/Objects/Trains/Wagons/WagonTarget"]
+position = Vector2( 140, -24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/WagonTarget/Area2D"]
+shape = SubResource( 9 )
 
 [node name="WagonOil" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
 position = Vector2( 752, 256 )
@@ -254,7 +309,15 @@ script = ExtResource( 23 )
 position = Vector2( -40, 0 )
 points = PoolVector2Array( 392, -8 )
 script = ExtResource( 23 )
-distractWaitTime = 10.0
+distractWaitTime = 15.0
+
+[node name="DoorWall" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2" instance=ExtResource( 25 )]
+position = Vector2( 16, -24 )
+doorType = 2
+
+[node name="DoorWall2" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2" instance=ExtResource( 25 )]
+position = Vector2( 264, -24 )
+doorType = 2
 
 [node name="WagonArms" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
 position = Vector2( 1328, 256 )
@@ -335,8 +398,21 @@ shape = SubResource( 4 )
 position = Vector2( 216, -24 )
 guards = [ NodePath("../../WagonGuards2/Guard"), NodePath("../../WagonGuards2/Guard2") ]
 
+[node name="DoorWall" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 25 )]
+position = Vector2( 16, -24 )
+doorType = 2
+
+[node name="DoorWall2" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 25 )]
+position = Vector2( 264, -24 )
+lockLevel = 1
+doorType = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LevelObjects/Objects/Trains/Wagons"]
 anims/decouple = SubResource( 5 )
+
+[node name="Guard" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 22 )]
+position = Vector2( 368, 232 )
+startingDirection = 1
 
 [node name="Train" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 1616, 256 )
@@ -382,8 +458,17 @@ nextSecretaryInteractionCounter = 6
 [node name="Signs" type="Node2D" parent="LevelObjects"]
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
-position = Vector2( 1496, 176 )
+position = Vector2( 288, 184 )
 z_index = 50
+
+[node name="Sprite" type="Sprite" parent="Player"]
+visible = false
+position = Vector2( 0, -21 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 26 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Sprite"]
+anims/pow = SubResource( 8 )
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -398,4 +483,6 @@ shape = SubResource( 7 )
 [node name="Foreground" type="Node2D" parent="."]
 z_index = 51
 
+[connection signal="area_entered" from="LevelObjects/Objects/Trains/Wagons/WagonTarget/Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="LevelObjects/Objects/Trains/Wagons/WagonTarget/Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="animation_finished" from="LevelObjects/Objects/Trains/Wagons/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

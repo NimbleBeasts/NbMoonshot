@@ -26,7 +26,9 @@ func _ready():
 
 func collision(body):
 	if body.is_in_group("Player"):
+		body.get_node("Sprite/AnimationPlayer").play("pow")
 		get_parent().get_parent().get_parent().hit()
+		
 
 
 func setupSign():
