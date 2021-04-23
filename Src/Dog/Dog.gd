@@ -7,6 +7,9 @@ export var detectDistance: int = 50
 export (Types.DogStates) var startingState: int = Types.DogStates.Roaming
 export var playerSuspectDistance: int = 30
 export var playerDetectDistance: int = 16
+export var fallAsleepTimer: int = 10
+export var sleepDurationTimer: int = 10
+
 
 var state: int
 var direction: Vector2
@@ -30,6 +33,9 @@ func _ready() -> void:
 	$RoamTimer.one_shot = true
 	$DetectionDelay.one_shot = true
 	$BarkTimer.one_shot = true
+	
+	$SleepTimer.wait_time = fallAsleepTimer
+	$RoamTimer.wait_time = sleepDurationTimer
 
 	animPlayer.connect("animation_finished", self, "onAnimationFinished")
 	$BarkTimer.connect("timeout", self, "onBarkTimeout")
@@ -111,12 +117,15 @@ func stateMovingToSnackEnter() -> void:
 
 
 func stateSleepingEnter() -> void:
-	losArea.position = Vector2(0,0)
-	losArea.scale = Vector2(1,1)
-	animPlayer.play("laying_down")
-	Global.startTimerOnce($RoamTimer)
-	pathLine.stopAllMovement()
-	losArea.set_deferred("monitoring", false)
+	if fallAsleepTimer > 0:
+		losArea.position = Vector2(0,0)
+		losArea.scale = Vector2(1,1)
+		animPlayer.play("laying_down")
+		Global.startTimerOnce($RoamTimer)
+		pathLine.stopAllMovement()
+		losArea.set_deferred("monitoring", false)
+	else:
+		setState(Types.DogStates.Roaming)
 
 
 func stateRoamingEnter() -> void:
