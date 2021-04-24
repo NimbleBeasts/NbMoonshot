@@ -423,7 +423,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=27]
-length = 0.96
+length = 0.72
 loop = true
 step = 0.12
 tracks/0/type = "value"
@@ -433,10 +433,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.12, 0.24, 0.36, 0.48, 0.6, 0.72, 0.84 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.12, 0.24, 0.36, 0.48, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+"values": [ 1, 2, 3, 4, 5, 6 ]
 }
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -454,7 +454,7 @@ z_index = 50
 z_as_relative = false
 texture = ExtResource( 1 )
 hframes = 42
-frame = 4
+frame = 2
 
 [node name="StunRayCast" type="RayCast2D" parent="Flippable"]
 position = Vector2( 0, -16 )
@@ -646,4 +646,5 @@ travelTweenPath = NodePath("../TravelTween")
 travelRayDownPath = NodePath("../TravelRayCasts/RayCast2DDown")
 travelRayUpPath = NodePath("../TravelRayCasts/RayCast2DUp")
 playerPath = NodePath("..")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
