@@ -14,7 +14,8 @@ var state: int
 var suspiciousPosition: Vector2
 
 onready var losRay: RayCast2D = $Flippable/LOSRay
-onready var pathLine: PathLine = $PathLine
+onready var pathLine: PathLine = get_node_or_null("PathLine")
+onready var hasPathLine = pathLine != null
 
 var guard_normal_texture: Texture = preload("res://Assets/Guards/EliteGuard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/EliteGuardGreen.png")
@@ -67,6 +68,10 @@ func setState(newState) -> void:
 
 func stateMovingToPlayerEnter() -> void:
 	foundPlayer = true
+	if not hasPathLine:
+		pathLine = PathLine.new()
+		add_child(pathLine)
+		hasPathLine = true
 	pathLine.moveToPoint(player.global_position)
 	speed = chaseSpeed
 	Events.emit_signal("player_block_input")
@@ -79,7 +84,8 @@ func stateTaseringPlayerEnter() -> void:
 	if player:
 		flipTowards(player.global_position)
 	Events.emit_signal("play_sound", "taser_hit")
-	pathLine.stopAllMovement()
+	if hasPathLine:
+		pathLine.stopAllMovement()
 	set_physics_process(false)
 	$AnimationPlayer.play("taser")
 	Events.emit_signal("player_block_movement")
@@ -98,7 +104,8 @@ func onAudioLevelChanged(newLevel, audioPosition, emitter) -> void:
 
 
 func stateSuspiciousEnter() -> void:
-	pathLine.stopAllMovement()
+	if hasPathLine:
+		pathLine.stopAllMovement()
 	flipTowards(suspiciousPosition)
 	$Notifier.popup(Types.NotifierTypes.Question)
 	$RoamingEnterTimer.start()
@@ -106,7 +113,8 @@ func stateSuspiciousEnter() -> void:
 
 func stateRoamingEnter() -> void:
 	$Notifier.remove()
-	pathLine.startNormalMovement()
+	if hasPathLine:
+		pathLine.startNormalMovement()
 
 
 func onTaserRangeBodyEntered(body: Node) -> void:
@@ -124,7 +132,8 @@ func onLOSBodyEntered(body: Node) -> void:
 
 func onAnimationFinished(animName: String) -> void:
 	if animName == "taser":
-		pathLine.stopAllMovement()
+		if hasPathLine:
+			pathLine.stopAllMovement()
 		Events.emit_signal("game_over")
 
 
