@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
@@ -14,7 +14,7 @@
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
-[ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Objects/Home/tv.png" type="Texture" id=18]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Src/ThinArea/Ladder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Assets/Objects/Home/armchair.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Objects/Home/Couch_Side.png" type="Texture" id=28]
@@ -113,6 +114,7 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
+frame = 1
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -346,8 +348,22 @@ position = Vector2( 76, -104 )
 isFixedCam = true
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -456, 128 )
+position = Vector2( -360, 256 )
 z_index = 50
+normal_speed = 80
+normal_acceleration = 600
+sprint_speed = 160
+duckSpeed = 40
+duckAcceleration = 300
+gravity = 800
+startingDirection = 0
+normal_stun_battery = 3
+extended_stun_battery = 5
+normal_stun_duration = 4.0
+extended_stun_duration = 7.0
+normal_sprint_duration = 3.0
+extended_sprint_duration = 6.0
+stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -400,5 +416,30 @@ keyPath = NodePath("")
 doorLockStateLocked = true
 sig_to_trig = [  ]
 
-[node name="EliteGuard" parent="." instance=ExtResource( 15 )]
-position = Vector2( -288, 256 )
+[node name="DoorWall" parent="." instance=ExtResource( 8 )]
+position = Vector2( -232, 256 )
+lockLevel = 1
+doorType = 0
+save_state = false
+showHintIfLocked = false
+hint = ""
+keyPath = NodePath("")
+doorLockStateLocked = true
+sig_to_trig = [  ]
+
+[node name="Guard" parent="." instance=ExtResource( 15 )]
+position = Vector2( -336, 256 )
+time_to_sure_detection = 1.5
+stun_duration = 10.0
+audio_suspect_distance = 150
+normal_time_to_alarm = 1.5
+extended_time_to_alarm = 3.5
+playerSuspectDistance = 30
+canOpenClosedDoor = true
+playerDetectDistance = 16
+gravity = 800
+startingDirection = 0
+
+[node name="PathLine" type="Line2D" parent="Guard"]
+points = PoolVector2Array( 16, -16, 80, -16, 144, -16, 184, -16 )
+script = ExtResource( 25 )

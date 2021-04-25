@@ -11,6 +11,7 @@ export var audio_suspect_distance: int = 150
 export var normal_time_to_alarm: float = 1.5
 export var extended_time_to_alarm: float = 3.5
 export var playerSuspectDistance: int = 30
+export var canOpenClosedDoor: bool = false
 export var playerDetectDistance: int = 16
 export var gravity: int = 800
 export (Directions) var startingDirection: int setget setStartingDirection
@@ -348,8 +349,10 @@ func onGuardPathLinePointReached() -> void:
 func onGuardBodyEntered(body: Node) -> void:
 	if body.is_in_group("DoorWall"):
 		var door = body.get_parent()
-		if door.lockLevel == Types.DoorLockType.open:
-			door.interact(true, global_position)
+		if (door.lockLevel == Types.DoorLockType.lockedLevel1 or door.lockLevel == Types.DoorLockType.lockedLevel2 \
+				or door.lockLevel == Types.DoorLockType.open) and canOpenClosedDoor:
+					door.open()
+					door.interact(true, global_position)
 		else:
 			$Notifier.remove()
 			guardPathLine.moveToStartingPoint()
