@@ -191,8 +191,7 @@ func _physics_process(delta: float) -> void:
 		var currentAnim = animPlayer.current_animation
 		if currentAnim != "jump_up" and currentAnim != "jump_down" and currentAnim != "ladder":
 			velocity.y += gravity * delta
-			direction.x = 0
-			velocity.x = 0
+			velocity.x = 16
 	else:
 		movementInput()	
 		velocity = velocity.move_toward(direction * speed, acceleration * delta)

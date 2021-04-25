@@ -113,7 +113,6 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 0
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -347,22 +346,8 @@ position = Vector2( 76, -104 )
 isFixedCam = true
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -456, 256 )
+position = Vector2( -456, 128 )
 z_index = 50
-normal_speed = 80
-normal_acceleration = 600
-sprint_speed = 160
-duckSpeed = 40
-duckAcceleration = 300
-gravity = 800
-startingDirection = 0
-normal_stun_battery = 3
-extended_stun_battery = 5
-normal_stun_duration = 4.0
-extended_stun_duration = 7.0
-normal_sprint_duration = 3.0
-extended_sprint_duration = 6.0
-stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -416,4 +401,4 @@ doorLockStateLocked = true
 sig_to_trig = [  ]
 
 [node name="EliteGuard" parent="." instance=ExtResource( 15 )]
-position = Vector2( -376, 256 )
+position = Vector2( -288, 256 )
