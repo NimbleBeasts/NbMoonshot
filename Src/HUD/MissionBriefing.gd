@@ -64,10 +64,16 @@ func setLevel(id):
 	#enum LevelTypes {USA, USSR, Ustria}
 	if id == Types.LevelTypes.USSR:
 		$MapSprite.frame = 0
+		$CountryLabel.set_text("USSR")
 	elif id == Types.LevelTypes.Ustria:
 		$MapSprite.frame = 2
+		$CountryLabel.set_text("Ustria")
+	elif id == Types.LevelTypes.Switzerland:
+		$MapSprite.frame = 3
+		$CountryLabel.set_text("Switzerland")
 	else: 
 		$MapSprite.frame = 1
+		$CountryLabel.set_text("United States")
 	
 	showMissionBriefing()
 

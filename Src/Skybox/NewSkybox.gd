@@ -12,6 +12,10 @@ func _ready():
 
 func setup(level_type):
 	var basePath = baseDirectory
+	
+	if level_type == 3:
+		#Switzerland is like Ustria
+		level_type = 2
 	basePath += pathNames[level_type]
 
 	$FixedBackground/Sky.texture = load(basePath + "_BG.png")

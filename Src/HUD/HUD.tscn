@@ -563,28 +563,24 @@ __meta__ = {
 }
 
 [node name="NoBranchButton" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
-label = "Button"
 
 [node name="Option0Button" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
 margin_top = 28.0
 margin_bottom = 52.0
 focus_neighbour_left = NodePath("../Option2Button")
 focus_neighbour_right = NodePath("../Option1Button")
-label = "Button"
 
 [node name="Option1Button" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
 margin_top = 56.0
 margin_bottom = 80.0
 focus_neighbour_left = NodePath("../Option0Button")
 focus_neighbour_right = NodePath("../Option2Button")
-label = "Button"
 
 [node name="Option2Button" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
 margin_top = 84.0
 margin_bottom = 108.0
 focus_neighbour_left = NodePath("../Option1Button")
 focus_neighbour_right = NodePath("../Option0Button")
-label = "Button"
 
 [node name="Sprite" type="Sprite" parent="HUDLayer/Display/Dialog"]
 position = Vector2( -40, 24 )
@@ -688,6 +684,7 @@ margin_top = 328.0
 margin_right = 384.0
 margin_bottom = 352.0
 label = "Start Mission"
+
 [connection signal="animation_finished" from="HUDLayer/GameOverNotification/GameOverNotifcationAnimationPlayer" to="." method="_on_GameOverNotifcationAnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="HUDLayer/GameHintNotification/GameHintAnimationPlayer" to="." method="_on_GameHintAnimationPlayer_animation_finished"]
 [connection signal="button_up" from="HUDLayer/Display/Upgrades/InfoBox/UpgradeButton" to="." method="_on_UpgradeButton_button_up"]

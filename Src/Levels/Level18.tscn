@@ -363,27 +363,13 @@ deactivateAble = [ NodePath("../Camera3"), NodePath("../LaserDetector"), NodePat
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 280, 136 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
-moveDistance = 5
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 280, 72 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
-moveDistance = 5
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 32 )]
 position = Vector2( 192, 128 )
@@ -448,7 +434,6 @@ z_index = 50
 
 [node name="Guard" parent="." instance=ExtResource( 15 )]
 position = Vector2( 408, 384 )
-starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
 points = PoolVector2Array( -24, -16, 64, -16, 232, -16 )
@@ -456,7 +441,6 @@ script = ExtResource( 19 )
 
 [node name="Guard2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 480, 192 )
-starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard2"]
 points = PoolVector2Array( -72, -16, 8, -16, 128, -16 )
@@ -464,7 +448,6 @@ script = ExtResource( 19 )
 
 [node name="Guard3" parent="." instance=ExtResource( 15 )]
 position = Vector2( 584, 128 )
-starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard3"]
 points = PoolVector2Array( 0, -16, -56, -16, 32, -16 )

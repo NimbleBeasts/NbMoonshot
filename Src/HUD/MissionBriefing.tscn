@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Src/HUD/MissionBriefing.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/MagoFont3_32.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/HUD/MissionBriefing.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=5]
 [ext_resource path="res://Assets/HUD/MissionMaps.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Fonts/mago1.ttf" type="DynamicFontData" id=7]
@@ -81,12 +82,28 @@ custom_fonts/font = ExtResource( 2 )
 text = "Mission Briefing"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MapSprite" type="Sprite" parent="."]
 position = Vector2( 32, 88 )
 texture = ExtResource( 6 )
 centered = false
-hframes = 3
+hframes = 4
+
+[node name="CountryLabel" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 168.0
+margin_right = 256.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 4 )
+text = "Country Label"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label2" type="Label" parent="."]
 margin_left = 712.0

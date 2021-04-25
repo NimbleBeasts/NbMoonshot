@@ -453,28 +453,18 @@ deactivateAble = [ NodePath("../LaserDetector2"), NodePath("../LaserDetector"), 
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 224, 136 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 7
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 152, 152 )
 rotation = -1.5708
 heigth = 6
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 4
 moveDirection = 2
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="Camera" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 200, 136 )
@@ -494,43 +484,26 @@ position = Vector2( 280, 328 )
 position = Vector2( 720, 300 )
 rotation = -1.5708
 heigth = 10
-isStatic = true
-moveSpeed = 0.5
-moveDistance = 5
 isHorizontal = false
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="Camera3" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 760, 200 )
 
 [node name="LaserDetector4" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 696, 200 )
-heigth = 7
 isStatic = false
-moveSpeed = 0.5
 moveDistance = 8
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="Camera4" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 784, 8 )
 
 [node name="LaserDetector5" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 208, 8 )
-heigth = 7
 isStatic = false
 moveSpeed = 1.0
 moveDistance = 15
 moveDirection = 1
-isHorizontal = true
-isFlickering = false
-flickerSequence = "1110"
-standbyTimerAfterDetection = 3.0
 
 [node name="DeskGuard" parent="." instance=ExtResource( 22 )]
 position = Vector2( 232, 256 )
@@ -541,7 +514,6 @@ z_index = 50
 
 [node name="Guard" parent="." instance=ExtResource( 26 )]
 position = Vector2( 232, 320 )
-starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
 points = PoolVector2Array( 8, -16, 128, -16 )
@@ -549,7 +521,6 @@ script = ExtResource( 6 )
 
 [node name="Guard2" parent="." instance=ExtResource( 26 )]
 position = Vector2( 488, 384 )
-starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard2"]
 points = PoolVector2Array( -88, 0, 72, 0, -24, -8, 128, -8 )
@@ -557,7 +528,6 @@ script = ExtResource( 6 )
 
 [node name="Guard3" parent="." instance=ExtResource( 26 )]
 position = Vector2( 800, 384 )
-starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard3"]
 points = PoolVector2Array( 0, -16, -72, -16, -32, -16, 48, -16 )
@@ -565,7 +535,6 @@ script = ExtResource( 6 )
 
 [node name="Guard4" parent="." instance=ExtResource( 26 )]
 position = Vector2( 784, 192 )
-starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard4"]
 points = PoolVector2Array( 0, -16, -72, -16, -32, -16, 48, -16 )
@@ -573,7 +542,6 @@ script = ExtResource( 6 )
 
 [node name="Guard5" parent="." instance=ExtResource( 26 )]
 position = Vector2( 784, 128 )
-starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard5"]
 points = PoolVector2Array( 0, -16, -56, -16, 40, -16 )
@@ -581,7 +549,6 @@ script = ExtResource( 6 )
 
 [node name="Guard6" parent="." instance=ExtResource( 26 )]
 position = Vector2( 504, 64 )
-starting_direction = Vector2( -1, 0 )
 
 [node name="GuardPathLine" type="Line2D" parent="Guard6"]
 points = PoolVector2Array( 48, -16, -24, -16, -96, -16, 16, -24, 120, -16 )
