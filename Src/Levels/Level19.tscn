@@ -1,19 +1,19 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Src/Skybox/BlueishSkybox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=5]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=6]
-[ext_resource path="res://Assets/Objects/Tree1.png" type="Texture" id=7]
+[ext_resource path="res://Src/Objects/Nature/Tree.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Objects/Laboratory/Apollo11.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Objects/Laboratory/WallNasa2.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Objects/Laboratory/Blueprint.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Objects/LargeDoor.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Objects/Office/WallImageEarthMoon.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Objects/Sign.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Objects/Tree2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Objects/Laboratory/Chest2.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Objects/UsaFlagLarge.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Objects/Office/WallImageMoonLanding.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=17]
@@ -32,6 +32,9 @@
 [ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Src/MetalDetector/MetalDetector.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Assets/Objects/Laboratory/Chest.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=34]
+[ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=35]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
@@ -44,9 +47,9 @@ extents = Vector2( 128, 8 )
 
 [node name="Level19" type="Node2D"]
 script = ExtResource( 5 )
-level_objectives = NodePath("../Level18/LevelObjects/Tresor")
+level_objectives = NodePath("LevelObjects/Tresor")
 
-[node name="BlueishSkybox" parent="." instance=ExtResource( 2 )]
+[node name="NewSkybox" parent="." instance=ExtResource( 2 )]
 
 [node name="SpriteWalls" type="Node2D" parent="."]
 
@@ -77,220 +80,284 @@ nextSecretaryInteractionCounter = 6
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Apollo11" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 880, 72 )
 texture = ExtResource( 8 )
 centered = false
 
 [node name="Door" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 328, 352 )
 texture = ExtResource( 11 )
 
 [node name="Door2" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 488, 352 )
 texture = ExtResource( 11 )
 
 [node name="Door3" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 776, 352 )
 texture = ExtResource( 11 )
 
 [node name="Door4" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 1056, 352 )
 texture = ExtResource( 11 )
 
 [node name="Deco" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 824, 229 )
 texture = ExtResource( 10 )
 
 [node name="Desk" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 792, 240 )
 texture = ExtResource( 20 )
 
 [node name="Desk2" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 744, 240 )
 texture = ExtResource( 20 )
 flip_h = true
 
 [node name="Desk3" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 800, 176 )
 texture = ExtResource( 20 )
 
 [node name="Desk4" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 752, 176 )
 texture = ExtResource( 20 )
 flip_h = true
 
 [node name="Desk5" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 800, 112 )
 texture = ExtResource( 20 )
 
 [node name="Desk6" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 752, 112 )
 texture = ExtResource( 20 )
 flip_h = true
 
 [node name="Desk7" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 288, 112 )
 texture = ExtResource( 20 )
 
+[node name="Tree" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
+position = Vector2( 464, 184 )
+
 [node name="Desk8" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 240, 112 )
 texture = ExtResource( 20 )
 flip_h = true
 
 [node name="Desk9" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 296, 176 )
 texture = ExtResource( 20 )
 
 [node name="Desk10" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 248, 176 )
 texture = ExtResource( 20 )
 flip_h = true
 
 [node name="Plant" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 328, 176 )
 texture = ExtResource( 19 )
 
 [node name="Plant2" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 312, 112 )
 texture = ExtResource( 19 )
 flip_h = true
 
 [node name="Plant3" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 770, 240 )
 texture = ExtResource( 19 )
 flip_h = true
 
 [node name="Plant4" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 720, 112 )
 texture = ExtResource( 19 )
 flip_h = true
 
+[node name="Plant5" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 232, 376 )
+texture = ExtResource( 14 )
+flip_h = true
+
+[node name="Plant6" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 401, 376 )
+texture = ExtResource( 14 )
+flip_h = true
+
+[node name="Plant7" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 755, 56 )
+texture = ExtResource( 14 )
+flip_h = true
+
+[node name="Plant8" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 776, 56 )
+texture = ExtResource( 33 )
+flip_h = true
+
+[node name="Plant9" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 765, 40 )
+texture = ExtResource( 33 )
+flip_h = true
+
+[node name="Plant10" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 820, 52 )
+texture = ExtResource( 34 )
+flip_h = true
+
 [node name="Picture" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 720, 224 )
 texture = ExtResource( 12 )
 
 [node name="Picture2" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 768, 160 )
 texture = ExtResource( 16 )
 
 [node name="Picture3" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 264, 160 )
 texture = ExtResource( 16 )
 
 [node name="Flag" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 256, 224 )
 texture = ExtResource( 15 )
 
 [node name="Sign" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 104, 240 )
 texture = ExtResource( 13 )
 
 [node name="Sign2" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 104, 240 )
 texture = ExtResource( 9 )
 
-[node name="Tree" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 472, 184 )
-texture = ExtResource( 7 )
-centered = false
-
-[node name="Tree2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 525, 208 )
-texture = ExtResource( 14 )
-centered = false
-
 [node name="Tree3" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 456, 232 )
 texture = ExtResource( 21 )
 centered = false
 
 [node name="Tree4" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
 position = Vector2( 497, 232 )
 texture = ExtResource( 21 )
 centered = false
 flip_h = true
 
+[node name="Tree2" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
+position = Vector2( 505, 184 )
+variant = 1
+
+[node name="Cabinet" parent="LevelObjects/Decorations" instance=ExtResource( 35 )]
+position = Vector2( 845, 64 )
+
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 176, 256 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase2")
+connected_door_path = NodePath("../Staircase2")
 
 [node name="Staircase2" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 176, 320 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase")
+connected_door_path = NodePath("../Staircase")
 
 [node name="Staircase3" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 352, 320 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase4")
+connected_door_path = NodePath("../Staircase4")
 
 [node name="Staircase4" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 176, 384 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase3")
+connected_door_path = NodePath("../Staircase3")
 
 [node name="Staircase5" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 352, 256 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase6")
+connected_door_path = NodePath("../Staircase6")
 
 [node name="Staircase6" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 176, 192 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase5")
+connected_door_path = NodePath("../Staircase5")
 
 [node name="Staircase7" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 352, 192 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase8")
+connected_door_path = NodePath("../Staircase8")
 
 [node name="Staircase8" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 176, 128 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase7")
+connected_door_path = NodePath("../Staircase7")
 
 [node name="Staircase9" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 352, 128 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase10")
+connected_door_path = NodePath("../Staircase10")
 
 [node name="Staircase10" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 176, 64 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase9")
+connected_door_path = NodePath("../Staircase9")
 
 [node name="Staircase11" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 672, 384 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase12")
+connected_door_path = NodePath("../Staircase12")
 
 [node name="Staircase12" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 672, 320 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase11")
+connected_door_path = NodePath("../Staircase11")
 
 [node name="Staircase13" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 856, 320 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase14")
+connected_door_path = NodePath("../Staircase14")
 
 [node name="Staircase14" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 672, 256 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase13")
+connected_door_path = NodePath("../Staircase13")
 
 [node name="Staircase15" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 856, 256 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase16")
+connected_door_path = NodePath("../Staircase16")
 
 [node name="Staircase16" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 672, 192 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase15")
+connected_door_path = NodePath("../Staircase15")
 
 [node name="Staircase17" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 856, 192 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase18")
+connected_door_path = NodePath("../Staircase18")
 
 [node name="Staircase18" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 672, 128 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase17")
+connected_door_path = NodePath("../Staircase17")
 
 [node name="Staircase19" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 856, 128 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase20")
+connected_door_path = NodePath("../Staircase20")
 
 [node name="Staircase20" parent="LevelObjects/Doors" instance=ExtResource( 4 )]
 position = Vector2( 672, 64 )
-connected_door_path = NodePath("../../../../Level18/LevelObjects/Doors/Staircase19")
+connected_door_path = NodePath("../Staircase19")
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 29 )]
 position = Vector2( 144, 256 )
