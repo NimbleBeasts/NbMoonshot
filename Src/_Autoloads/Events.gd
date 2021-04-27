@@ -112,6 +112,10 @@ signal hud_save_window_exited()
 signal hud_mission_briefing(level)
 ## Emitted on closing mission briefing window
 signal hud_mission_briefing_exited()
+## Emitted to show mission progress window
+signal hud_mission_progress()
+## Emitted on closing mission progress window
+signal hud_mission_progress_exited()
 ## Emitted to show game over screen
 signal hud_game_over()
 ## Emitted on closing game over screen

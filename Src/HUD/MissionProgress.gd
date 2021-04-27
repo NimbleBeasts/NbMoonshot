@@ -8,17 +8,21 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MissionProgressBar.updateValue(40, 20)
-	$MissionProgressBar2.updateValue(50, 10)
-	$MissionProgressBar3.updateValue(70, 40)
+	$MissionProgressUsa.updateValue(40, 20)
+	$MissionProgressUssr.updateValue(50, 10)
+	$MissionProgressUstria.updateValue(70, 40)
+	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func updateProgress():
+	show()
+	$MissionProgressUsa.startAnimation()
+	$MissionProgressUssr.startAnimation()
+	$MissionProgressUstria.startAnimation()
+	
+	$BaseButton.grab_focus()
 
 
-func _on_Button_button_up():
-	$MissionProgressBar.startAnimation()
-	$MissionProgressBar2.startAnimation()
-	$MissionProgressBar3.startAnimation()
+func _on_BaseButton_button_up():
+	Events.emit_signal("hud_mission_progress_exited")
+	hide()

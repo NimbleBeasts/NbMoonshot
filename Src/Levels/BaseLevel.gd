@@ -38,11 +38,16 @@ func _ready():
 	Events.emit_signal("play_music", musicEmit)
 
 	Events.connect("hud_mission_briefing_exited", self, "onHudMissionBriefingExited")
+	Events.connect("hud_mission_progress_exited", self, "onHudMissionProgressExited")
+
 	if Global.game_manager.getCurrentLevelIndex() != 0:
 		Events.emit_signal("hud_mission_briefing",level_nation_type)
 		get_tree().paused = true
 	else:
+		Events.emit_signal("hud_mission_progress")
+		get_tree().paused = true
 		set_process(false)
+		
 	
 	if level_objectives:
 		level_objectives = get_node(level_objectives)
@@ -95,3 +100,6 @@ func onHudMissionBriefingExited() -> void:
 	get_tree().paused = false
 	if playCarCloseSound:
 		Events.emit_signal("play_sound", "car_close")
+
+func onHudMissionProgressExited() -> void:
+	get_tree().paused = false

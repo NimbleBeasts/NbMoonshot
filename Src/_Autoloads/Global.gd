@@ -105,7 +105,12 @@ const upgrades = [
 const gameConstant = {
 	basicLoot = 20,
 	upgradeDarkNetModifier = 1.25,
-	lightLevels = [Color("#b194a0"), Color("#787878"), Color("#c4cfd6")]
+	lightLevels = [Color("#b194a0"), Color("#787878"), Color("#c4cfd6")],
+	progress = [ #Mission Progress
+		[20, 22, 23, 26, 28, 30, 32, 34, 36, 38, 40, 46, 53, 60, 66, 73, 80, 86, 93, 100], #USA
+		[30, 32, 36, 39, 42, 45, 48, 52, 55, 57, 61, 65, 67, 67, 74, 77, 80, 83, 86, 89], #USSR
+		[ 0,  5, 10, 12, 15, 17, 25, 30, 35, 35, 40, 43, 47, 50, 54, 57, 60, 64, 67, 72], #USTRIA
+	]
 }
 
 

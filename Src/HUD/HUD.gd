@@ -119,6 +119,9 @@ func _on_GameOverNotifcationAnimationPlayer_animation_finished(_anim_name):
 	Events.emit_signal("hud_game_over_exited")
 
 
+func showMissionProgress():
+	$HUDLayer/Display/MissionProgress.updateProgress()
+
 func showMissionBriefing(level):
 	
 	$HUDLayer/LevelFade/AnimationPlayer.play_backwards("fade_out")
@@ -473,6 +476,7 @@ func hookSetup():
 
 	Events.connect("hud_dialogue_hide", self, "hideDialog")
 	Events.connect("hud_mission_briefing", self, "showMissionBriefing")
+	Events.connect("hud_mission_progress", self, "showMissionProgress")
 
 	Events.connect("hud_game_over", self, "showGameOverNotification")
 	Events.connect("hud_game_hint", self, "showGameHintNotification")

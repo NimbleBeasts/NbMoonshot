@@ -35,7 +35,7 @@ enum NotifierTypes{Exclamation, Question}
 enum NoteType {SecretService, Local}
 
 # Levels
-enum LevelTypes {USA, USSR, Ustria, Switzerland}
+enum LevelTypes {USA = 0, USSR = 1, Ustria = 2, Switzerland}
 enum LevelLightning {Dusk, Night, Dawn}
 
 
