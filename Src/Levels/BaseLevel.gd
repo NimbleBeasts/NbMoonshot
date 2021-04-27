@@ -44,8 +44,9 @@ func _ready():
 		Events.emit_signal("hud_mission_briefing",level_nation_type)
 		get_tree().paused = true
 	else:
-		Events.emit_signal("hud_mission_progress")
-		get_tree().paused = true
+		if Global.gameState["level"]["lastActiveMission"] >= 0:
+			Events.emit_signal("hud_mission_progress")
+			get_tree().paused = true
 		set_process(false)
 		
 	
