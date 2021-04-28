@@ -166,7 +166,7 @@ func showSave():
 	var i = 1
 	for element in saves:
 		var button = get_node("HUDLayer/Display/SaveGame/Menu/ButtonSave" + str(i))
-		if element == true: # File Exists
+		if element.state == true: # File Exists
 			button.updateLabel("Slot " + str(i) + " (Overwrite)")
 		else:
 			button.updateLabel("Slot " + str(i) + " (New)")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Src/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Assets/Menu/Slider/tick.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Menu/Slider/grabber-item-selected.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Menu/TabTexture.png" type="Texture" id=17]
+[ext_resource path="res://Assets/HUD/Dialog9PatchInner.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 10 )
@@ -354,41 +355,108 @@ margin_bottom = 312.0
 label = "Back"
 
 [node name="LoadGame" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Bg" type="NinePatchRect" parent="LoadGame"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -144.0
+margin_top = -12.0
+margin_right = 144.0
+margin_bottom = 148.0
+texture = ExtResource( 4 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg2" type="NinePatchRect" parent="LoadGame"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 6.0
+margin_top = 21.0
+margin_right = 132.0
+margin_bottom = 107.0
+texture = ExtResource( 18 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ButtonLoad1" parent="LoadGame" instance=ExtResource( 11 )]
-margin_left = 256.0
-margin_top = 128.0
-margin_right = 384.0
-margin_bottom = 152.0
+margin_left = 188.0
+margin_top = 200.0
+margin_right = 316.0
+margin_bottom = 224.0
 shortcut_in_tooltip = false
 label = "Slot 1"
 
 [node name="ButtonLoad2" parent="LoadGame" instance=ExtResource( 11 )]
-margin_left = 256.0
-margin_top = 160.0
-margin_right = 384.0
-margin_bottom = 184.0
+margin_left = 188.0
+margin_top = 232.0
+margin_right = 316.0
+margin_bottom = 256.0
 label = "Slot 2"
 
 [node name="ButtonLoad3" parent="LoadGame" instance=ExtResource( 11 )]
-margin_left = 256.0
-margin_top = 192.0
-margin_right = 384.0
-margin_bottom = 216.0
+margin_left = 188.0
+margin_top = 264.0
+margin_right = 316.0
+margin_bottom = 288.0
 label = "Slot 3"
 
 [node name="ButtonBack" parent="LoadGame" instance=ExtResource( 11 )]
-margin_left = 256.0
-margin_top = 232.0
-margin_right = 384.0
-margin_bottom = 256.0
+margin_left = 188.0
+margin_top = 296.0
+margin_right = 316.0
+margin_bottom = 320.0
 label = "Back"
+
+[node name="ButtonLoad" parent="LoadGame" instance=ExtResource( 11 )]
+margin_left = 325.0
+margin_top = 296.0
+margin_right = 453.0
+margin_bottom = 320.0
+label = "Load"
+
+[node name="Title" type="Label" parent="LoadGame"]
+margin_left = 189.0
+margin_top = 179.0
+margin_right = 317.0
+margin_bottom = 195.0
+custom_fonts/font = ExtResource( 7 )
+text = "Load Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadData" type="RichTextLabel" parent="LoadGame"]
+margin_left = 332.0
+margin_top = 205.0
+margin_right = 448.0
+margin_bottom = 280.0
+custom_fonts/normal_font = ExtResource( 9 )
+text = "Slot: -
+
+Date: -
+Level: -"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Credits" type="Control" parent="."]
 visible = false
@@ -490,6 +558,7 @@ text = "GetAchievement"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="button_up" from="Main/LevelSelect/DebugButton" to="." method="_on_DebugButton_button_up"]
 [connection signal="button_up" from="Main/ButtonPlay" to="." method="_on_ButtonPlay_button_up"]
 [connection signal="button_up" from="Main/ButtonLoad" to="." method="_on_ButtonLoad_button_up"]
@@ -505,6 +574,7 @@ __meta__ = {
 [connection signal="button_up" from="LoadGame/ButtonLoad2" to="." method="_on_ButtonLoad2_button_up"]
 [connection signal="button_up" from="LoadGame/ButtonLoad3" to="." method="_on_ButtonLoad3_button_up"]
 [connection signal="button_up" from="LoadGame/ButtonBack" to="." method="_on_ButtonBack_button_up"]
+[connection signal="button_up" from="LoadGame/ButtonLoad" to="." method="_on_ButtonLoadGame_button_up"]
 [connection signal="button_up" from="Credits/ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="meta_clicked" from="Copyright" to="." method="_on_Copyright_meta_clicked"]
 [connection signal="button_up" from="SteamTest" to="." method="_on_SteamTest_button_up"]

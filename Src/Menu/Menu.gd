@@ -2,6 +2,9 @@ extends Control
 
 enum MenuState {Main, Settings, LoadGame, Credits}
 
+var loadSlot = -1
+var saveFiles
+
 func _ready():
 	# Event Hooks
 	Events.connect_signal("menu_back", self, "_back")
@@ -70,18 +73,28 @@ func loadGame(slot):
 
 
 func updateLoadGame():
-	var saves = Global.getSaveGameState()
+	saveFiles = Global.getSaveGameState()
 	
 	var i = 1
-	for element in saves:
+	for element in saveFiles:
 		var button = get_node("LoadGame/ButtonLoad" + str(i))
-		if element == true: # File Exists
+		if element.state == true: # File Exists
 			button.updateLabel("Slot " + str(i))
 			button.disabled = false
 		else:
 			button.updateLabel("Slot " + str(i))
 			button.disabled = true
 		i += 1
+
+func updateSlotInfo(id):
+	loadSlot = id
+
+	var text = "Slot: " + str(id + 1)  + \
+		"\n\n" + \
+		"Date:" + str(saveFiles[id].date) + "\n" +\
+		"Level:" + str(saveFiles[id].level)
+	
+	$LoadGame/LoadData.text = text
 
 
 # Helper function to update the config labels
@@ -150,21 +163,25 @@ func _on_ButtonCredits_button_up():
 
 
 func _on_ButtonLoad1_button_up():
-	loadGame(0)
+	updateSlotInfo(0)
 
 
 func _on_ButtonLoad2_button_up():
-	loadGame(1)
+	updateSlotInfo(1)
 
 
 func _on_ButtonLoad3_button_up():
-	loadGame(2)
+	updateSlotInfo(2)
+
+func _on_ButtonLoadGame_button_up():
+	if loadSlot >= 0:
+		loadGame(loadSlot)
+
 
 
 func _on_Copyright_meta_clicked(meta):
 	#warning-ignore:return_value_discarded
 	OS.shell_open(meta)
-
 
 
 func _on_SoundSlider_value_changed(value):
@@ -191,3 +208,4 @@ func _on_ButtonShader_button_up():
 
 func _on_SteamTest_button_up():
 	SteamWorks.setAchievement(Types.Achievement.Test)
+

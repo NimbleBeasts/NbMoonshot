@@ -115,6 +115,7 @@ const gameConstant = {
 
 
 var gameState = {
+	date = 0,
 	playerUpgrades = [],
 	money = 0,
 	playerOfficeDoorIsOpen = false,
@@ -177,14 +178,22 @@ func getSaveGameState():
 	for i in range(3):
 		var saveFile = File.new()
 		if saveFile.file_exists("user://save_"+ str(i) + ".cfg"):
-			retVal.append(true)
+			var date = -1
+			var level = -1
+			saveFile.open("user://save_"+ str(i) + ".cfg", File.READ)
+			var data = parse_json(saveFile.get_line())
+			if data.has("date") and data.has("interactionCounters"):
+				date = data.date
+				level = data.interactionCounters.boss
+			retVal.append({"state": true, "date": date, "level": level})
 		else:
-			retVal.append(false)
+			retVal.append({"state": false, "date": 0, "level": -1})
 	return retVal
 
 # Save Game
 func saveGame(slotId):
 	var saveFile = File.new()
+	gameState.date = OS.get_unix_time()
 	saveFile.open("user://save_"+ str(slotId) + ".cfg", File.WRITE)
 	saveFile.store_line(to_json(gameState))
 	saveFile.close()
