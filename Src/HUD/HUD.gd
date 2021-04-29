@@ -29,6 +29,9 @@ onready var dialogTypeTimer: Timer = $HUDLayer/Display/Dialog/DialogueTypeTimer
 
 var emittingNode = null
 
+var selectedSave = -1
+var saveFiles
+
 func _ready():
 	#$AlarmIndicator/Label.set_text(str(detected_value)) TODO
 
@@ -162,12 +165,12 @@ func showSave():
 	#dont open if allready opend :)
 	if $HUDLayer/Display/SaveGame.is_visible_in_tree():
 		return
-	
+
 	Events.emit_signal("player_block_movement")
-	var saves = Global.getSaveGameState()
+	saveFiles = Global.getSaveGameState()
 	
 	var i = 1
-	for element in saves:
+	for element in saveFiles:
 		var button = get_node("HUDLayer/Display/SaveGame/Menu/ButtonSave" + str(i))
 		if element.state == true: # File Exists
 			button.updateLabel("Slot " + str(i) + " (Overwrite)")
@@ -409,6 +412,18 @@ func _on_ButtonQuit_button_up():
 	Events.emit_signal("menu_back")
 	Global.newGameState()
 
+func updateSlotInfo(id):
+	selectedSave = id
+	var text
+	
+	if saveFiles[id].state:
+		text = "Slot: " + str(id + 1)  + \
+			"\n\n" + \
+			"Date:" + Global.getDateTimeStringFromUnixTime(saveFiles[id].date) + "\n" +\
+			"Level:" + str(saveFiles[id].level)
+	else:
+		text = "Saving to new slot."
+	$HUDLayer/Display/SaveGame/Menu/SaveText.text = text
 
 func _on_ButtonReturn_button_up():
 	Events.emit_signal("play_sound", "menu_click")
@@ -419,20 +434,23 @@ func _on_ButtonReturn_button_up():
 	else:
 		$HUDLayer/Display/MissionBriefing/StartMissionButton.grab_focus()
 
+func _on_ButtonSave_button_up():
+	save(selectedSave)
+	Events.emit_signal("play_sound", "menu_click")
 
 func _on_ButtonSave1_button_up():
+	updateSlotInfo(0)
 	Events.emit_signal("play_sound", "menu_click")
-	save(0)
 
 
 func _on_ButtonSave2_button_up():
+	updateSlotInfo(1)
 	Events.emit_signal("play_sound", "menu_click")
-	save(1)
 
 
 func _on_ButtonSave3_button_up():
+	updateSlotInfo(2)
 	Events.emit_signal("play_sound", "menu_click")
-	save(2)
 
 
 func _on_StartMissionButton_button_up():
@@ -501,3 +519,5 @@ func onMinigameEntered(type) -> void:
 
 func onMinigameExited(result) -> void:
 	inMinigame = false
+
+

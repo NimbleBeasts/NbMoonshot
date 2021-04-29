@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/HUD/Dialog9PatchInner.png" type="Texture" id=3]
 [ext_resource path="res://Src/HUD/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/HUD/UpgradeButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
@@ -452,7 +453,6 @@ label = "Buy Upgrade"
 
 [node name="SaveGame" type="Control" parent="HUDLayer/Display"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -464,10 +464,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -80.0
-margin_top = -96.0
-margin_right = 80.0
-margin_bottom = 56.0
+margin_left = -144.0
+margin_top = -84.0
+margin_right = 144.0
+margin_bottom = 76.0
 focus_neighbour_left = NodePath("ButtonReturn")
 focus_neighbour_top = NodePath("ButtonSave3")
 focus_neighbour_right = NodePath("ButtonSave3")
@@ -484,33 +484,84 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonReturn" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
-margin_left = 16.0
-margin_top = 12.0
-margin_right = 144.0
-margin_bottom = 36.0
-label = "Continue"
-
 [node name="ButtonSave1" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
-margin_left = 16.0
-margin_top = 52.0
-margin_right = 144.0
-margin_bottom = 76.0
+margin_left = 8.0
+margin_top = 32.0
+margin_right = 136.0
+margin_bottom = 56.0
 label = "Slot 1 (Overwrite)"
 
 [node name="ButtonSave2" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
-margin_left = 16.0
-margin_top = 84.0
-margin_right = 144.0
-margin_bottom = 108.0
+margin_left = 8.0
+margin_top = 64.0
+margin_right = 136.0
+margin_bottom = 88.0
 label = "Slot 2"
 
 [node name="ButtonSave3" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
-margin_left = 16.0
-margin_top = 116.0
-margin_right = 144.0
-margin_bottom = 140.0
+margin_left = 8.0
+margin_top = 96.0
+margin_right = 136.0
+margin_bottom = 120.0
 label = "Slot 3"
+
+[node name="ButtonReturn" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
+margin_left = 8.0
+margin_top = 128.0
+margin_right = 136.0
+margin_bottom = 152.0
+label = "Back"
+
+[node name="ButtonSave" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
+margin_left = 152.0
+margin_top = 128.0
+margin_right = 280.0
+margin_bottom = 152.0
+label = "Save"
+
+[node name="Label" type="Label" parent="HUDLayer/Display/SaveGame/Menu"]
+margin_left = 9.0
+margin_top = 10.0
+margin_right = 209.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 10 )
+text = "Save Game"
+
+[node name="Menu" type="NinePatchRect" parent="HUDLayer/Display/SaveGame/Menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 9.0
+margin_top = -47.0
+margin_right = 135.0
+margin_bottom = 39.0
+focus_neighbour_left = NodePath("ButtonReturn")
+focus_neighbour_top = NodePath("ButtonSave3")
+focus_neighbour_right = NodePath("ButtonSave3")
+focus_neighbour_bottom = NodePath("ButtonReturn")
+focus_next = NodePath("ButtonReturn")
+focus_previous = NodePath("ButtonSave3")
+focus_mode = 2
+texture = ExtResource( 3 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveText" type="RichTextLabel" parent="HUDLayer/Display/SaveGame/Menu"]
+margin_left = 158.0
+margin_top = 37.0
+margin_right = 272.0
+margin_bottom = 112.0
+custom_fonts/normal_font = ExtResource( 14 )
+text = "Slot: -
+
+Date: -
+Level: -"
 
 [node name="Dialog" type="Control" parent="HUDLayer/Display"]
 visible = false
@@ -688,10 +739,11 @@ label = "Start Mission"
 [connection signal="animation_finished" from="HUDLayer/GameOverNotification/GameOverNotifcationAnimationPlayer" to="." method="_on_GameOverNotifcationAnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="HUDLayer/GameHintNotification/GameHintAnimationPlayer" to="." method="_on_GameHintAnimationPlayer_animation_finished"]
 [connection signal="button_up" from="HUDLayer/Display/Upgrades/InfoBox/UpgradeButton" to="." method="_on_UpgradeButton_button_up"]
-[connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonSave1" to="." method="_on_ButtonSave1_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonSave2" to="." method="_on_ButtonSave2_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonSave3" to="." method="_on_ButtonSave3_button_up"]
+[connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
+[connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonSave" to="." method="_on_ButtonSave_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/IngameMenu/Menu/ButtonQuit" to="." method="_on_ButtonQuit_button_up"]
 [connection signal="value_changed" from="HUDLayer/Display/IngameMenu/Menu/MusicSlider" to="." method="_on_MusicSlider_value_changed"]

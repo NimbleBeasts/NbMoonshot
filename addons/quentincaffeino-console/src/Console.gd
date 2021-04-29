@@ -85,10 +85,7 @@ func _ready():
 
 	# Show some info
 	var v = Engine.get_version_info()
-	self.write_line(\
-		ProjectSettings.get_setting("application/config/name") + \
-		" (Godot " + str(v.major) + '.' + str(v.minor) + '.' + str(v.patch) + ' ' + v.status+")\n" + \
-		"Type [color=#63c2c9][url=help]help[/url][/color] to get more information about usage")
+	self.write_line("Console: Type [color=#63c2c9][url=help]help[/url][/color] to get more information about usage")
 
 	# Init base commands
 	self.BaseCommands.new(self)

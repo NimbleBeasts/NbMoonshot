@@ -177,13 +177,26 @@ var returnedFromSabotageMission: bool = false
 
 func _ready():
 	print("Starting: " + str(ProjectSettings.get_setting("application/config/name")) + " v" + getVersionString())
+	print("Date: " + getDateTimeStringFromUnixTime(getLocalUnixTime()))
 	print("Debug: " + str(OS.is_debug_build()))
 	print("Soft-Debug: "+ str(DEBUG))
 	rng.randomize()
 	loadConfig()
 	switchFullscreen()
 	
+
 	
+func getDateTimeStringFromUnixTime(unixTime):
+	var dict = OS.get_datetime_from_unix_time(unixTime)
+	return "%0*d" % [2, dict.day] + "/"  + "%0*d" % [2, dict.month] + "/" + str(dict.year) + " - " + "%0*d" % [2, dict.hour] + ":" + "%0*d" % [2, dict.minute]
+
+func getLocalUnixTime():
+	#Unix Timestamp is GMT based, but we want local time instead
+	var date = OS.get_datetime_from_unix_time(OS.get_unix_time())
+	var time = OS.get_time()
+	date.hour = time.hour
+	date.minute = time.minute
+	return OS.get_unix_time_from_datetime(date)
 
 func getSaveGameState():
 	var retVal = []
@@ -205,7 +218,7 @@ func getSaveGameState():
 # Save Game
 func saveGame(slotId):
 	var saveFile = File.new()
-	gameState.date = OS.get_unix_time()
+	gameState.date = getLocalUnixTime()
 	saveFile.open("user://save_"+ str(slotId) + ".cfg", File.WRITE)
 	saveFile.store_line(to_json(gameState))
 	saveFile.close()

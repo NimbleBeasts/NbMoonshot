@@ -91,7 +91,7 @@ func updateSlotInfo(id):
 
 	var text = "Slot: " + str(id + 1)  + \
 		"\n\n" + \
-		"Date:" + str(saveFiles[id].date) + "\n" +\
+		"Date:" + Global.getDateTimeStringFromUnixTime(saveFiles[id].date) + "\n" +\
 		"Level:" + str(saveFiles[id].level)
 	
 	$LoadGame/LoadData.text = text
