@@ -3,7 +3,8 @@ class_name Guard
 extends KinematicBody2D
 
 enum Directions {RIGHT, LEFT}
-export var speed: int = 50
+export var normalSpeed: int = 25
+export var distractSpeed: int = 37
 export var direction_change_time: float = 2
 export var time_to_sure_detection: float = 1.5
 export var stun_duration: float = 10
@@ -43,6 +44,7 @@ onready var losRay: RayCast2D = $Flippable/LOSRay
 onready var player = Global.player
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 onready var sprite: Sprite = $Flippable/Sprite
+onready var speed = normalSpeed
 
 
 func _ready() -> void:
@@ -398,10 +400,11 @@ func distractMode():
 	distractPathLine.startNormalMovement()
 	Events.emit_signal("play_sound", "guard_suspicious", 1.0, Global.calcAudioPosition(global_position))
 	inDistractMode = true
-
+	speed = distractSpeed
 
 func normalMode():
 	$Notifier.remove()
 	distractPathLine.stopAllMovement()
 	guardPathLine.startNormalMovement()
 	inDistractMode = false
+	speed = normalSpeed

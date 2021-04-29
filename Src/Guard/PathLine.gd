@@ -45,19 +45,19 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if enabled or movingToCustomPoint:
-		if int(next_point.x) > int(target.global_position.x):
-			target.direction.x = 1
-			is_next_point_reached = false
-		elif int(next_point.x) < int(target.global_position.x):
-			target.direction.x = -1
-			is_next_point_reached = false
-		else:
+		if abs(int(next_point.x) - int(target.global_position.x)) <= 10:
 			target.direction.x = 0
 			if not is_next_point_reached:
 				is_next_point_reached = true
 				emit_signal("next_point_reached")
 				if not movingToCustomPoint:
 					moveToNextPoint()
+		elif int(next_point.x) > int(target.global_position.x):
+			target.direction.x = 1
+			is_next_point_reached = false
+		elif int(next_point.x) < int(target.global_position.x):
+			target.direction.x = -1
+			is_next_point_reached = false
 
 
 func onTimerTimeout() -> void:
