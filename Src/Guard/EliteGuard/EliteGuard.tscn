@@ -87,7 +87,7 @@ shape = SubResource( 2 )
 position = Vector2( 10.8595, -16 )
 enabled = true
 cast_to = Vector2( 50, 0 )
-collision_mask = 128
+collision_mask = 129
 
 [node name="Notifier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
