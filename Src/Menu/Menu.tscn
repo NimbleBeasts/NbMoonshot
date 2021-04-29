@@ -532,9 +532,9 @@ anchor_bottom = 1.0
 margin_top = -16.0
 custom_fonts/normal_font = ExtResource( 7 )
 bbcode_enabled = true
-bbcode_text = "[center]©2021 by NimbleBeasts [url=https://twitter.com/nimblebeasts][color=#63c2c9]`[/color]NimbleBeasts[/url] [url=https://nimblebeastscollective.itch.io/][color=#c93038]¥[/color]NimbleBeasts[/url][/center]"
+bbcode_text = "[center]©2021 by NimbleBeasts - [url=https://twitter.com/nimblebeasts][color=#63c2c9]Ç[/color]NimbleBeasts[/url][/center]"
 meta_underlined = false
-text = "©2021 by NimbleBeasts `NimbleBeasts ¥NimbleBeasts"
+text = "©2021 by NimbleBeasts - ÇNimbleBeasts"
 __meta__ = {
 "_edit_use_anchors_": false
 }

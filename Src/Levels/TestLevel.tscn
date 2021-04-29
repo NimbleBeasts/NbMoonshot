@@ -110,7 +110,7 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 1
+frame = 0
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -248,13 +248,6 @@ position = Vector2( -792, 128 )
 type = 1
 hasBounty = true
 
-[node name="DoorWall" parent="LevelObjects" instance=ExtResource( 8 )]
-position = Vector2( -464, 256 )
-
-[node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 8 )]
-position = Vector2( -484, 256 )
-lockLevel = 3
-
 [node name="LaserDetectorNew" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( -208, 200 )
 isStatic = false
@@ -318,10 +311,6 @@ position = Vector2( -556, 136 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
 position = Vector2( 60, 2 )
 shape = SubResource( 4 )
-
-[node name="DoorWall2" parent="." instance=ExtResource( 8 )]
-position = Vector2( -504, 256 )
-lockLevel = 1
 
 [node name="DoorWall" parent="." instance=ExtResource( 8 )]
 position = Vector2( -232, 256 )
