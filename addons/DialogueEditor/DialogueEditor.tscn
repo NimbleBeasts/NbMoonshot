@@ -56,6 +56,9 @@ __meta__ = {
 margin_right = 192.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 192, 0 )
+text = "BossDialogue.json"
+items = [ "BossDialogue.json", null, false, 0, null, "BossDialogueEditor.json", null, false, 0, null, "SecretaryDialogue.json", null, false, 0, null, "SecretaryDialogueEditor.json", null, false, 0, null ]
+selected = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,24 +72,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TranslationFiles" type="OptionButton" parent="Bar/hbox"]
+[node name="Save" type="Button" parent="Bar/hbox"]
 margin_left = 213.0
-margin_right = 277.0
+margin_right = 251.0
+margin_bottom = 32.0
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TranslationFiles" type="OptionButton" parent="Bar/hbox"]
+margin_left = 255.0
+margin_right = 432.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 64, 0 )
+text = "BossTranslations.csv"
+items = [ "BossTranslations.csv", null, false, 0, null, "SecretaryTranslations.csv", null, false, 0, null ]
+selected = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Spacer" type="Control" parent="Bar/hbox"]
-margin_left = 281.0
-margin_right = 409.0
+margin_left = 436.0
+margin_right = 564.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 128, 0 )
 
 [node name="BranchButton" type="Button" parent="Bar/hbox"]
-margin_left = 413.0
-margin_right = 507.0
+margin_left = 568.0
+margin_right = 662.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 20, 30 )
 text = "Add branch"
@@ -95,19 +110,10 @@ __meta__ = {
 }
 
 [node name="AddQuest" type="Button" parent="Bar/hbox"]
-margin_left = 511.0
-margin_right = 595.0
+margin_left = 666.0
+margin_right = 750.0
 margin_bottom = 32.0
 text = "Add quest"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Save" type="Button" parent="Bar/hbox"]
-margin_left = 599.0
-margin_right = 637.0
-margin_bottom = 32.0
-text = "Save"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -131,13 +137,14 @@ text = "UpdateFileList"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="connection_request" from="GraphEdit" to="." method="_on_graph_connection_request"]
 [connection signal="disconnection_request" from="GraphEdit" to="." method="_on_graph_disconnection_request"]
 [connection signal="node_selected" from="GraphEdit" to="." method="_on_node_selected"]
 [connection signal="item_selected" from="Bar/hbox/FileSelect" to="." method="_on_file_selected"]
 [connection signal="pressed" from="Bar/hbox/IndexFiles" to="." method="index_files"]
+[connection signal="pressed" from="Bar/hbox/Save" to="." method="_on_save_pressed"]
 [connection signal="item_selected" from="Bar/hbox/TranslationFiles" to="." method="update_translations"]
 [connection signal="pressed" from="Bar/hbox/BranchButton" to="." method="_on_add_branch_pressed"]
 [connection signal="pressed" from="Bar/hbox/AddQuest" to="." method="_on_add_quest"]
-[connection signal="pressed" from="Bar/hbox/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="ClearGraph" to="." method="clear_graph"]

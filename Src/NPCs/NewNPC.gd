@@ -149,6 +149,9 @@ func setInteractedCounter(value: int) -> void:
 	if interactedCounter != value:
 		interactedCounter = value
 		currentBranchID = "%s0" % interactedCounter
+		if Global.returnedFromSabotageMission:
+			print("returned from sabotage mission")
+			currentBranchID += "A"
 		if loadedDialogue.has(currentBranchID):
 			setCurrentBranch(loadedDialogue[currentBranchID])
 		set_process_input(true)

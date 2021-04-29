@@ -64,9 +64,14 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 		Global.game_manager.loadNextQuest()
 	else: # this is going to hq level
 		Events.emit_signal("hud_level_transition", level_index)
-		Global.gameState["interactionCounters"]["boss"] = next_boss_interacted_counter
-		Global.gameState["interactionCounters"]["secretary"] = nextSecretaryInteractionCounter
 		Global.addMoney(Global.game_manager.getCurrentLevel().gainedMoney)
+		if Global.game_manager.getCurrentLevel().isSabotage:
+			Global.returnedFromSabotageMission = true
+			Global.gameState["interactionCounters"]["boss"] = Global.game_manager.getCurrentLevelIndex()
+			Global.gameState["interactionCounters"]["secretary"] = Global.game_manager.getCurrentLevelIndex()
+		else:
+			Global.gameState["interactionCounters"]["boss"] = next_boss_interacted_counter
+			Global.gameState["interactionCounters"]["secretary"] = nextSecretaryInteractionCounter
 		Global.addMoney(100) # successful level change
 		Global.game_manager.unloadLevel()
 		Global.game_manager.loadLevel(level_index)

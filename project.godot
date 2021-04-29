@@ -220,7 +220,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "DialogueEditor", "LevelChecker", "quentincaffeino-console" )
+enabled=PoolStringArray( "res://addons/DialogueEditor/plugin.cfg", "res://addons/LevelChecker/plugin.cfg", "res://addons/quentincaffeino-console/plugin.cfg" )
 
 [importer_defaults]
 

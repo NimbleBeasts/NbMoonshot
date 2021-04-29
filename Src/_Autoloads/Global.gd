@@ -163,6 +163,8 @@ onready var screen_bottom_center = Vector2(get_viewport().get_visible_rect().siz
 onready var game_manager := get_node("/root/GameManager")
 
 var languageLocale: String = "en"
+var returnedFromSabotageMission: bool = false
+
 
 ###############################################################################
 # Functions

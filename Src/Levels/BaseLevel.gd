@@ -7,6 +7,7 @@ export (Types.LevelLightning) var level_lightning: int
 export (Types.LevelTypes) var level_nation_type: int
 export(NodePath) var level_objectives = null
 export var playCarCloseSound: bool = true 
+export var isSabotage: bool = false
 
 var allowed_detections: int
 var gainedMoney: int
@@ -27,6 +28,7 @@ func can_change_level():
 
 
 func _ready():
+	Global.returnedFromSabotageMission = false
 	var hud = preload("res://Src/HUD/HUD.tscn").instance()
 	self.add_child(hud)
 	
@@ -45,6 +47,7 @@ func _ready():
 		get_tree().paused = true
 	else:
 		if Global.gameState["level"]["lastActiveMission"] >= 0:
+			yield(get_tree(), "idle_frame") # if i don't add this line, it crashes when going to hq level
 			Events.emit_signal("hud_mission_progress")
 			get_tree().paused = true
 		set_process(false)
