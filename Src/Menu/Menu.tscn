@@ -355,6 +355,7 @@ margin_bottom = 312.0
 label = "Back"
 
 [node name="LoadGame" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Src/Objects/LaserDetector.gd" type="Script" id=1]
+[ext_resource path="res://Src/Objects/LaserDetectorNew.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/LaserDetectorNode.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -62,9 +62,8 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[node name="LaserDetector" type="Node2D"]
+[node name="LaserDetectorNew" type="Node2D"]
 script = ExtResource( 1 )
-moveDirection = 3
 
 [node name="LaserBeam" type="Node2D" parent="."]
 

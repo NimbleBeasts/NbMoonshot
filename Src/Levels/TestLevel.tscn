@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Src/ThinArea/Ladder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Src/Objects/LaserDetectorNew.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Assets/Objects/Home/armchair.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Objects/Home/Couch_Side.png" type="Texture" id=28]
@@ -110,7 +111,7 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 1
+frame = 0
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -263,6 +264,10 @@ position = Vector2( -464, 256 )
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( -484, 256 )
 lockLevel = 3
+
+[node name="LaserDetectorNew" parent="LevelObjects" instance=ExtResource( 25 )]
+position = Vector2( -208, 200 )
+isStatic = false
 
 [node name="TestJuke" type="Sprite" parent="."]
 position = Vector2( -656, 176 )
