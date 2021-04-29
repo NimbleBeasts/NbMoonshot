@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Src/Objects/LaserDetector.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Objects/LaserDetectorNode.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Laser/LaserDetectorNode.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 2, 28 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "detect"
 length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath("Top:frame")
+tracks/0/path = NodePath("BeamNode/Top:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 0, 1, 0, 1, 2 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Bottom:frame")
+tracks/1/path = NodePath("BeamNode/Bottom:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -38,7 +38,7 @@ tracks/1/keys = {
 resource_name = "idle"
 length = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Top:frame")
+tracks/0/path = NodePath("BeamNode/Top:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -50,7 +50,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Bottom:frame")
+tracks/1/path = NodePath("BeamNode/Bottom:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -64,17 +64,18 @@ tracks/1/keys = {
 
 [node name="LaserDetector" type="Node2D"]
 script = ExtResource( 1 )
-moveDirection = 3
 
-[node name="LaserBeam" type="Node2D" parent="."]
+[node name="BeamNode" type="Node2D" parent="."]
 
-[node name="Top" type="Sprite" parent="."]
+[node name="LaserBeam" type="Node2D" parent="BeamNode"]
+
+[node name="Top" type="Sprite" parent="BeamNode"]
 z_index = 52
 texture = ExtResource( 2 )
 centered = false
 hframes = 3
 
-[node name="Bottom" type="Sprite" parent="."]
+[node name="Bottom" type="Sprite" parent="BeamNode"]
 position = Vector2( 0, 56 )
 scale = Vector2( 1, -1 )
 z_index = 52
@@ -82,13 +83,13 @@ texture = ExtResource( 2 )
 centered = false
 hframes = 3
 
-[node name="MotionTween" type="Tween" parent="."]
+[node name="Area2D" type="Area2D" parent="BeamNode"]
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeamNode/Area2D"]
 position = Vector2( 4, 28 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
+
+[node name="MotionTween" type="Tween" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/detect = SubResource( 2 )
@@ -105,9 +106,9 @@ one_shot = true
 [node name="FlickerTimer" type="Timer" parent="."]
 wait_time = 0.2
 
+[connection signal="body_entered" from="BeamNode/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="BeamNode/Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="tween_completed" from="MotionTween" to="." method="_on_MotionTween_tween_completed"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="OffTimer" to="." method="_on_OffTimer_timeout"]
 [connection signal="timeout" from="DetectionDelay" to="." method="_on_DetectionDelay_timeout"]

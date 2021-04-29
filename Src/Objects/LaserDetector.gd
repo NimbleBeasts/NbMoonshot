@@ -16,7 +16,8 @@ export(int) var canToggleTimes = 0 #0 infinite
 
 enum DetectorStateType {Running = 1, Detection = 2, Off = 0}
 
-var laserSprite = preload("res://Assets/Objects/LaserDetector.png")
+var laserSprite = preload("res://Assets/Laser/LaserDetector.png")
+var laserPath = preload("res://Assets/Laser/Path.png")
 
 var tweenEndPositions = [Vector2(), Vector2()]
 var playerInArea = null
@@ -50,25 +51,27 @@ func _physics_process(_delta):
 func setup():
 	if not isStatic:
 		# Setup end positions
-		tweenEndPositions[0] = position
+		tweenEndPositions[0] = Vector2(0, 0)
 		match moveDirection:
 			Types.Direction.Left:
-				tweenEndPositions[1] = Vector2(position.x - moveDistance * 8, position.y)
+				tweenEndPositions[1] = Vector2(-moveDistance * 8, 0)
 			Types.Direction.Right:
-				tweenEndPositions[1] = Vector2(position.x + moveDistance * 8, position.y)
+				tweenEndPositions[1] = Vector2(moveDistance * 8, 0)
 			Types.Direction.Top:
-				tweenEndPositions[1] = Vector2(position.x, position.y  - moveDistance * 8)
+				tweenEndPositions[1] = Vector2(moveDistance * 8, 0)
 			_:
-				tweenEndPositions[1] = Vector2(position.x, position.y  + moveDistance * 8)
+				tweenEndPositions[1] = Vector2(-moveDistance * 8, 0)
+	
+	print(tweenEndPositions)
 
 	# Bottom Node
-	$Bottom.position = Vector2(0, 8) * heigth
+	$BeamNode/Bottom.position = Vector2(0, 8) * heigth
 	
 	# Collision Shape
 	var shape = RectangleShape2D.new()
 	shape.extents = Vector2(0, 4) * heigth + Vector2(2, 0)
-	$Area2D/CollisionShape2D.set_shape(shape)
-	$Area2D/CollisionShape2D.position = Vector2(0, 8) * (float(heigth)/2) + Vector2(4, 0)
+	$BeamNode/Area2D/CollisionShape2D.set_shape(shape)
+	$BeamNode/Area2D/CollisionShape2D.position = Vector2(0, 8) * (float(heigth)/2) + Vector2(4, 0)
 
 	# Laser Beam Node
 	for i in range(heigth):
@@ -76,8 +79,23 @@ func setup():
 		sprite.texture = laserSprite
 		sprite.position = Vector2(0, 8) * i + Vector2(4, 4)
 		sprite.z_index = 51
-		$LaserBeam.add_child(sprite)
+		$BeamNode/LaserBeam.add_child(sprite)
 
+	if not isStatic:
+		# Laser movement path
+		for i in range(moveDistance + 1):
+			var spriteTop = Sprite.new()
+			spriteTop.texture = laserPath
+			spriteTop.position = Vector2(8,0) * i + Vector2(4, 2)
+			spriteTop.z_index = 51
+			self.add_child(spriteTop)
+
+			var spriteBottom = Sprite.new()
+			spriteBottom.texture = laserPath
+			spriteBottom.position = Vector2(8,0) * i + Vector2(4, heigth * 8 - 1)
+			spriteBottom.z_index = 51
+			self.add_child(spriteBottom)
+		
 	$OffTimer.wait_time = standbyTimerAfterDetection
 
 	if not isStatic and not Engine.editor_hint:
@@ -91,7 +109,7 @@ func setup():
 
 
 func runTween():
-	$MotionTween.interpolate_property(self, "position", position, tweenEndPositions[1], moveDistance * moveSpeed, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$MotionTween.interpolate_property($BeamNode, "position", tweenEndPositions[0], tweenEndPositions[1], moveDistance * moveSpeed, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$MotionTween.start()
 
 
@@ -114,20 +132,20 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "detect":
 		detectorState = DetectorStateType.Off
 		$FlickerTimer.stop() # stop flickering when off 
-		$LaserBeam.hide()
+		$BeamNode/LaserBeam.hide()
 		$OffTimer.start(standbyTimerAfterDetection) # Standby Timer
 
 
 func flickerOff() -> void:
 	detectorState = DetectorStateType.Off
 	$FlickerTimer.stop() # stop flickering when off 
-	$LaserBeam.hide()
+	$BeamNode/LaserBeam.hide()
 	$OffTimer.start(0.2) 
 
 
 func _on_OffTimer_timeout():
 	detectorState = DetectorStateType.Running
-	$LaserBeam.show()
+	$BeamNode/LaserBeam.show()
 	$MotionTween.resume_all()
 	$AnimationPlayer.play("idle")
 	if isFlickering:
@@ -154,13 +172,13 @@ func _on_FlickerTimer_timeout():
 		detectorState = desiredFrameState
 	
 	if detectorState == DetectorStateType.Off:
-		$Top.frame = 2
-		$Bottom.frame = 2
-		$LaserBeam.hide()
+		$BeamNode/Top.frame = 2
+		$BeamNode/Bottom.frame = 2
+		$BeamNode/LaserBeam.hide()
 	elif detectorState == DetectorStateType.Running:
-		$LaserBeam.show()
-		$Top.frame = 0
-		$Bottom.frame = 0
+		$BeamNode/LaserBeam.show()
+		$BeamNode/Top.frame = 0
+		$BeamNode/Bottom.frame = 0
 		$MotionTween.resume_all()
 
 
@@ -176,10 +194,10 @@ func toggleState():
 		activate()
 
 func activate():
-	$Top.frame = 2
-	$Bottom.frame = 2
+	$BeamNode/Top.frame = 2
+	$BeamNode/Bottom.frame = 2
 	set_physics_process(true)
-	$LaserBeam.show() # is this correct? 
+	$BeamNode/LaserBeam.show() # is this correct? 
 	$OffTimer.start(0.001)
 	if isFlickering:
 		$FlickerTimer.start()
@@ -188,10 +206,10 @@ func activate():
 
 
 func deactivate() -> void:
-	$Top.frame = 2
-	$Bottom.frame = 2
+	$BeamNode/Top.frame = 2
+	$BeamNode/Bottom.frame = 2
 	set_physics_process(false)
-	$LaserBeam.hide() # is this correct? 
+	$BeamNode/LaserBeam.hide() # is this correct? 
 	$OffTimer.stop()
 	$DetectionDelay.stop()
 	$FlickerTimer.stop()

@@ -1,9 +1,8 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Objects/Chimney.tscn" type="PackedScene" id=7]
@@ -24,7 +23,7 @@
 [ext_resource path="res://Src/ThinArea/Ladder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Src/Objects/LaserDetectorNew.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Assets/Objects/Home/armchair.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Objects/Home/Couch_Side.png" type="Texture" id=28]
@@ -111,7 +110,7 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 0
+frame = 1
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -222,21 +221,12 @@ position = Vector2( -625, 72 )
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -760, 72 )
 
-[node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 4 )]
+[node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 152, 208 )
 rotation = -1.5708
-heigth = 16
-isStatic = false
-moveSpeed = 0.2
-moveDirection = 2
-isHorizontal = false
 
-[node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 4 )]
+[node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 152, 200 )
-isStatic = false
-moveSpeed = 0.2
-moveDistance = 16
-moveDirection = 1
 
 [node name="Ladder" parent="LevelObjects" instance=ExtResource( 22 )]
 position = Vector2( -664, 200 )

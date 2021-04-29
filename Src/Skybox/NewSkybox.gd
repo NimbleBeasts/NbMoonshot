@@ -24,7 +24,6 @@ func setup(level_type):
 	$ParallaxBackground/L3/Sprite.texture = load(basePath + "_L3.png")
 
 func setLightLevel(level):
-	print("lightlevel set")
 	var color = Global.gameConstant.lightLevels[level]
 	#$FixedBackground/CanvasModulate.color = color
 	$ParallaxBackground/CanvasModulate.color = color

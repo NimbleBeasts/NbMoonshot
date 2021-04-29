@@ -32,7 +32,6 @@ func _ready():
 	self.frame = tempVar
 	
 	var rand = randf() 
-	print(rand)
 	self.material.set('shader_param/start_offset', rand)
 	
 	
