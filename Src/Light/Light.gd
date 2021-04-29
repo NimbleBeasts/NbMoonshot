@@ -64,8 +64,8 @@ func updateLight():
 func toggleState() -> void:
 	if isActive:
 		deactivate()
-		return
-	activate()
+	else:
+		activate()
 
 
 func _on_Timer_timeout():
@@ -84,5 +84,6 @@ func activate() -> void:
 	$Light2D.show()
 	$FullLight.set_deferred("monitoring", true)
 	$BarelyVisible.set_deferred("monitoring", true)
-	$Timer.start()
+	if flicker:
+		$Timer.start()
 	isActive = true
