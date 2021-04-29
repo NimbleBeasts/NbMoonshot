@@ -3,7 +3,7 @@ extends Control
 
 
 var level_lightning_level = 0
-
+var inMinigame: bool = false
 
 
 var count = 0
@@ -73,7 +73,10 @@ func _physics_process(_delta):
 		if $HUDLayer/Display/IngameMenu.visible:
 			hideMenu()
 		else:
-			showMenu()
+			if not inMinigame:
+				showMenu()
+			else:
+				Events.emit_signal("minigame_forcefully_close")
 	
 	setDialogIsTyping($HUDLayer/Display/Dialog/Text.visible_characters != $HUDLayer/Display/Dialog/Text.text.length() and $HUDLayer/Display/Dialog.visible)
 
@@ -313,7 +316,6 @@ func showMenu():
 	$HUDLayer/Display/IngameMenu/Menu/SoundSlider.value = value
 	
 	get_tree().paused = true
-	Events.emit_signal("minigame_forcefully_close")
 
 
 func hideMenu():
@@ -466,6 +468,8 @@ func hookSetup():
 	# External Signals
 
 	Events.connect("level_hint", self, "onLevelHint")
+	Events.connect("minigame_entered", self, "onMinigameEntered")
+	Events.connect("minigame_exited", self, "onMinigameExited")
 	
 	Events.connect("hud_note_show", self, "showNote")
 	Events.connect("hud_dialog_show", self, "showDialog")
@@ -491,3 +495,9 @@ func hookSetup():
 		node.connect("Upgrade_Button_Pressed", self, "upgradeSelect")
 
 	dialogTypeTimer.connect("timeout", self, "onDialogTypeTimerTimeout")
+
+func onMinigameEntered(type) -> void:
+	inMinigame = true
+
+func onMinigameExited(result) -> void:
+	inMinigame = false

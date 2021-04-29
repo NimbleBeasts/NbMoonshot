@@ -104,9 +104,10 @@ func _on_tween_all_completed() -> void:
 	tweenIsInUse = false
 	if not is_open: # destroys minigame if tween close animation finishes
 		queue_free()
+		owner_obj.minigame = null
 		Events.emit_signal("player_unblock_movement")
 
 			
 func onForcefullyCloseMinigame() -> void:
 	close()
-	
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
-[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Objects/Home/tv.png" type="Texture" id=18]
@@ -24,12 +23,10 @@
 [ext_resource path="res://Src/ThinArea/Ladder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Throwables/Fridge.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Assets/Objects/Home/armchair.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Objects/Home/Couch_Side.png" type="Texture" id=28]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Src/Distraction/Radio.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Assets/Objects/Jukebox.png" type="Texture" id=31]
 [ext_resource path="res://Src/Levels/TestJuke.gd" type="Script" id=32]
 [ext_resource path="res://Assets/Distraction/Radio.png" type="Texture" id=33]
@@ -283,8 +280,12 @@ __meta__ = {
 position = Vector2( 76, -104 )
 isFixedCam = true
 
+[node name="DoorWall3" parent="." instance=ExtResource( 8 )]
+position = Vector2( -352, 256 )
+lockLevel = 1
+
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -456, 256 )
+position = Vector2( -408, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -330,19 +331,3 @@ lockLevel = 1
 [node name="DoorWall" parent="." instance=ExtResource( 8 )]
 position = Vector2( -232, 256 )
 lockLevel = 1
-
-[node name="Guard" parent="." instance=ExtResource( 15 )]
-position = Vector2( -336, 256 )
-canOpenClosedDoor = true
-
-[node name="PathLine" type="Line2D" parent="Guard"]
-points = PoolVector2Array( 16, -16, 80, -16, 144, -16, 184, -16 )
-script = ExtResource( 25 )
-
-[node name="DistractPathLine" type="Line2D" parent="Guard"]
-points = PoolVector2Array( -8, -8, -40, -8 )
-script = ExtResource( 25 )
-
-[node name="Radio" parent="." instance=ExtResource( 30 )]
-position = Vector2( -392, 256 )
-guards = [ NodePath("../Guard") ]
