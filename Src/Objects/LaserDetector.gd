@@ -62,7 +62,7 @@ func setup():
 			_:
 				tweenEndPositions[1] = Vector2(-moveDistance * 8, 0)
 	
-	print(tweenEndPositions)
+	#print(tweenEndPositions)
 
 	# Bottom Node
 	$BeamNode/Bottom.position = Vector2(0, 8) * heigth
