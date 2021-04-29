@@ -1,5 +1,6 @@
 extends Node2D
 
+
 export var extended_allowed_detections: int = 5
 export var normal_allowed_detections: int = 3
 
@@ -8,6 +9,7 @@ export (Types.LevelTypes) var level_nation_type: int
 export(NodePath) var level_objectives = null
 export var playCarCloseSound: bool = true 
 export var isSabotage: bool = false
+export (Types.Countries) var sabotageCountry
 
 var allowed_detections: int
 var gainedMoney: int

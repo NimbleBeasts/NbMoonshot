@@ -69,6 +69,9 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 			Global.returnedFromSabotageMission = true
 			Global.gameState["interactionCounters"]["boss"] = Global.game_manager.getCurrentLevelIndex()
 			Global.gameState["interactionCounters"]["secretary"] = Global.game_manager.getCurrentLevelIndex()
+			var countryString = Types.Countries.keys()[Global.game_manager.getCurrentLevel().sabotageCountry]
+			Global.gameState["sabotageCounters"][countryString] += 1
+			print("Sabotage progress of %s set to %s " % [countryString, Global.gameState["sabotageCounters"][countryString]])
 		else:
 			Global.gameState["interactionCounters"]["boss"] = next_boss_interacted_counter
 			Global.gameState["interactionCounters"]["secretary"] = nextSecretaryInteractionCounter

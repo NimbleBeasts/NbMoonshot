@@ -134,7 +134,12 @@ var gameState = {
 	interactionCounters = {
 		boss = 0,
 		secretary = 0
-	}
+	},
+
+	sabotageCounters = {
+		usa = 0,
+		ussr = 0
+	}	
 
 } setget setGameState
 

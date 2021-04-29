@@ -57,3 +57,5 @@ enum KeyColors {Red = 0, Blue = 1, Yellow = 2}
 #Minigames 
 enum WireColors {Red, Purple,Green, Blue}
 enum SimonSaysColors {Red, Blue, Yellow, Green}
+
+enum Countries {ussr, usa}
