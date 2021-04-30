@@ -47,11 +47,12 @@ const text = [
 "Ustria is not a very rich country. The space program costs a lot and the great leader also needs a dignified lifestyle.\nTherefore, the only way I see to increase our funds is a classic bank robbery. And which country has a lot of banks and a lot of money?\n\nSwitzerland, of course! We want to steal a little bit of the Nazi gold from them to increase our own financial resources a little bit, our agents allready started the work on this one so it should be easy.",
 #10
 "Late in 1959, the Soviets made another lunar flyby with Luna 3. The special thing is that this time they took photos. We hope to find suitable landing sites for a moon landing from these photos.\n\nYour mission is to get these photos for us.",
-
-"Agent, your last mission was a great success. Unfortunately some details are missing in these plans. Therefore, we are now sending you directly to the research facility where a Soyuz is currently being prepared. Take a picture of the boosters with these new camera.\nTo access the factory floor, look for an employee ID card. Perhaps there is one in the directors safe.",
-"Comrade, I hope you did not let your English slide. You will have to go to the USA today. We have heard that the states are planning a moon landing. We absolutely need these plans!\nIt would be an embarrassment to the great Republic of Ustria if the USA were to beat us to it.",
-"I'm pretty sure that the Americans are just fooling us and that we were only on a film set. We have another source that confirms that they are planning a moon landing and new coordinates. Infiltrate the building and get us the plans.",
-""
+#11
+"In the Ides of May 1963, the Americans launched the crewed space mission Mercury-Atlas 9 to orbit the Earth 22 times before landing in the Pacific Ocean as part of the Mercury program. The astronaut Gordon Cooper could have been located by our intelligence. Kidnap him so we can get more information about the planned NASA program.",
+#12
+"NASA Administrator James E. Webb is known for taking home classified files. Enter his mansion and look for the Apollo files. Roadmap, plans, everything you can find. Make photocopies of the files and leave the house without getting caught. Destroy all traces.",
+#13
+"The Soviets put the first satellite into orbit around the moon in April 1966. We assume that, in addition to a gamma-ray spectrometer and a magentometer, they are also actively searching for a possible landing site. Penetrate the radio telescope TNA-1500 and get us all the data. Avoid at all costs your exposure by the KGB.",
 ]
 
 func setLevel(id):

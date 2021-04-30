@@ -164,10 +164,6 @@
 			-20,
 			4060
 		],
-		"73": [
-			240,
-			3880
-		],
 		"Quest7": [
 			500,
 			3880
@@ -219,6 +215,70 @@
 		"Quest10": [
 			300,
 			5420
+		],
+		"73": [
+			180,
+			3660
+		],
+		"111": [
+			-180,
+			5900
+		],
+		"Quest11": [
+			340,
+			5900
+		],
+		"110": [
+			-460,
+			5900
+		],
+		"112": [
+			80,
+			5900
+		],
+		"120": [
+			-460,
+			6260
+		],
+		"121": [
+			-220,
+			6260
+		],
+		"122": [
+			20,
+			6260
+		],
+		"Quest12": [
+			240,
+			6260
+		],
+		"130": [
+			-460,
+			6620
+		],
+		"131": [
+			-220,
+			6620
+		],
+		"132": [
+			60,
+			6540
+		],
+		"133": [
+			60,
+			6820
+		],
+		"134": [
+			340,
+			6640
+		],
+		"135": [
+			580,
+			6640
+		],
+		"Quest13": [
+			820,
+			6640
 		]
 	},
 	"00": {
@@ -463,13 +523,6 @@
 		"branchText2": "",
 		"nextDialogue": "73"
 	},
-	"73": {
-		"branchText0": "",
-		"branchText1": "",
-		"branchText2": "",
-		"quest": "7",
-		"exitDialogue": true
-	},
 	"Quest7": {
 
 	},
@@ -537,6 +590,98 @@
 		"exitDialogue": true
 	},
 	"Quest10": {
+
+	},
+	"73": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "7",
+		"exitDialogue": true
+	},
+	"111": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "112"
+	},
+	"Quest11": {
+
+	},
+	"110": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "111"
+	},
+	"112": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "11",
+		"exitDialogue": true
+	},
+	"120": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "121"
+	},
+	"121": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "122"
+	},
+	"122": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "12",
+		"exitDialogue": true
+	},
+	"Quest12": {
+
+	},
+	"130": {
+		"branchText0": "What happend?",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "131"
+	},
+	"131": {
+		"branchText0": "My colleague",
+		"branchText1": "My exposure",
+		"branchText2": "",
+		"branchID0": "132",
+		"branchID1": "133"
+	},
+	"132": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "134"
+	},
+	"133": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "134"
+	},
+	"134": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "135"
+	},
+	"135": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "13",
+		"exitDialogue": true
+	},
+	"Quest13": {
 
 	}
 }
