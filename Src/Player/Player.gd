@@ -429,3 +429,6 @@ func setApplyGravity(_dummyargument, to: bool):
 
 func step():
 	$PlayerSounds/Footstep.play()
+
+func step2():
+	$PlayerSounds/Footstep2.play()
