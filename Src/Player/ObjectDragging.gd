@@ -56,7 +56,7 @@ func stopDragging() -> void:
 		player.set_state(Types.PlayerStates.Normal)
 		Events.emit_signal("player_block_input")
 		Events.emit_signal("player_animation_change", "laydown")
-		Events.emit_signal("play_sound", "body_fall")
+		get_parent().get_node("PlayerSounds/BodyFall").play()
 
 
 func dragObject() -> void:
@@ -65,7 +65,7 @@ func dragObject() -> void:
 	isDragging = true
 	processAnims = false
 	Events.emit_signal("player_block_input")
-	Events.emit_signal("play_sound", "body_pickup")
+	get_parent().get_node("PlayerSounds/BodyPickup").play()
 	Events.emit_signal("player_animation_change", "pickup")
 	Events.emit_signal("minigame_forcefully_close")
 	set_process(true)

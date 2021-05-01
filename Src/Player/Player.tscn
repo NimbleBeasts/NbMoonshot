@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
@@ -13,6 +13,13 @@
 [ext_resource path="res://Src/Player/ThinAreaTravelling.gd" type="Script" id=11]
 [ext_resource path="res://Src/Player/GroundDetection.gd" type="Script" id=12]
 [ext_resource path="res://Src/Button/PressureArea.gd" type="Script" id=13]
+[ext_resource path="res://Assets/SFX/taser_deploy.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/SFX/taser_hit.wav" type="AudioStream" id=15]
+[ext_resource path="res://Assets/SFX/jump_down.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/SFX/jump_up.wav" type="AudioStream" id=17]
+[ext_resource path="res://Assets/SFX/body_fall.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/SFX/body_pickup.wav" type="AudioStream" id=19]
+[ext_resource path="res://Assets/SFX/stone1.wav" type="AudioStream" id=20]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -438,6 +445,26 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 1, 2, 3, 4, 5, 6 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.24, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "step"
+}, {
+"args": [  ],
+"method": "step"
+}, {
+"args": [  ],
+"method": "step"
+} ]
+}
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -454,7 +481,7 @@ z_index = 50
 z_as_relative = false
 texture = ExtResource( 1 )
 hframes = 42
-frame = 2
+frame = 1
 
 [node name="StunRayCast" type="RayCast2D" parent="Flippable"]
 position = Vector2( 0, -16 )
@@ -646,5 +673,40 @@ travelTweenPath = NodePath("../TravelTween")
 travelRayDownPath = NodePath("../TravelRayCasts/RayCast2DDown")
 travelRayUpPath = NodePath("../TravelRayCasts/RayCast2DUp")
 playerPath = NodePath("..")
+
+[node name="PlayerSounds" type="Node2D" parent="."]
+
+[node name="JumpDown" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource( 16 )
+bus = "Sound"
+
+[node name="JumpUp" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource( 17 )
+bus = "Sound"
+
+[node name="TaserDeploy" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource( 14 )
+bus = "Sound"
+
+[node name="TaserHit" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource( 15 )
+bus = "Sound"
+
+[node name="Footstep" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource( 20 )
+bus = "Sound"
+
+[node name="CrouchWalk" type="AudioStreamPlayer" parent="PlayerSounds"]
+bus = "Sound"
+
+[node name="BodyFall" type="AudioStreamPlayer2D" parent="PlayerSounds"]
+stream = ExtResource( 18 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="BodyPickup" type="AudioStreamPlayer2D" parent="PlayerSounds"]
+stream = ExtResource( 19 )
+attenuation = 2.0
+bus = "Sound"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

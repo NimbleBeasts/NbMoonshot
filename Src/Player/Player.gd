@@ -204,12 +204,12 @@ func _physics_process(delta: float) -> void:
 		animation_change("walk")
 	
 	# playing footstep sound
-	if velocity.x != 0 and playFootstepSound:
-		playFootstepSound = false
-		if state == Types.PlayerStates.Normal:
-			Events.emit_signal("play_sound", "player_footstep")
-		elif (state == Types.PlayerStates.Duck or state == Types.PlayerStates.WallDodge):
-			Events.emit_signal("play_sound", "player_crouch_footstep")
+#	if velocity.x != 0 and playFootstepSound:
+#		playFootstepSound = false
+#		if state == Types.PlayerStates.Normal:
+#			Events.emit_signal("play_sound", "player_footstep")
+#		elif (state == Types.PlayerStates.Duck or state == Types.PlayerStates.WallDodge):
+#			Events.emit_signal("play_sound", "player_crouch_footstep")
 
 	# print("Movement blocked: %s, entire input blocked: %s" % [movementBlocked, blockEntireInput])
 
@@ -425,4 +425,7 @@ func setApplyGravity(_dummyargument, to: bool):
 	if applyGravity != to:
 		applyGravity = to
 		if not applyGravity:
-			Events.emit_signal("play_sound", "body_fall")
+			$PlayerSounds/BodyFall.play()
+
+func step():
+	$PlayerSounds/Footstep.play()

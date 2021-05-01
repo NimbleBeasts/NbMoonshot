@@ -176,12 +176,14 @@ bus = "Sound"
 
 [node name="StunnedBody" type="Node2D" parent="."]
 
-[node name="BodyPickup" type="AudioStreamPlayer" parent="StunnedBody"]
+[node name="BodyPickup" type="AudioStreamPlayer2D" parent="StunnedBody"]
 stream = ExtResource( 56 )
+attenuation = 2.0
 bus = "Sound"
 
-[node name="BodyFall" type="AudioStreamPlayer" parent="StunnedBody"]
+[node name="BodyFall" type="AudioStreamPlayer2D" parent="StunnedBody"]
 stream = ExtResource( 57 )
+attenuation = 2.0
 bus = "Sound"
 
 [node name="GameHint" type="AudioStreamPlayer" parent="."]

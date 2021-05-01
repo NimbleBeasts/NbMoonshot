@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 			travel(thinArea.destination_down_position, travelDuration)
 			Events.emit_signal("player_block_input")
 			Events.emit_signal("player_animation_change", correctAnim)
-			Events.emit_signal("play_sound", "jump_down")
+			get_parent().get_node("PlayerSounds/JumpDown").play()
 
 
 	if travelRayUp.is_colliding() and player.state == Types.PlayerStates.Normal:
@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 			travel(thinArea.destination_up_position, travelDuration)
 			Events.emit_signal("player_block_input")
 			Events.emit_signal("player_animation_change", correctAnim)
-			Events.emit_signal("play_sound", "jump_up")
+			get_parent().get_node("PlayerSounds/JumpUp").play()
 
 
 func travel(targetPosition: Vector2, tweenDuration: float) -> void:

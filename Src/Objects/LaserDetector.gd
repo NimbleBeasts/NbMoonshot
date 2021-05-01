@@ -158,7 +158,7 @@ func _on_DetectionDelay_timeout():
 	$FlickerTimer.stop()
 	detectorState = DetectorStateType.Detection
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-	Events.emit_signal("play_sound", "laser_detect")
+	$LaserDetect.play()
 	
 
 func _on_FlickerTimer_timeout():

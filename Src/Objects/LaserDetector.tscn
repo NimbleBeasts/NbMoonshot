@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/Objects/LaserDetector.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Laser/LaserDetectorNode.png" type="Texture" id=2]
+[ext_resource path="res://Assets/SFX/laser_detect.wav" type="AudioStream" id=3]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2, 28 )
 
 [sub_resource type="Animation" id=2]
@@ -87,7 +88,7 @@ hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BeamNode/Area2D"]
 position = Vector2( 4, 28 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="MotionTween" type="Tween" parent="."]
 
@@ -105,6 +106,12 @@ one_shot = true
 
 [node name="FlickerTimer" type="Timer" parent="."]
 wait_time = 0.2
+
+[node name="LaserDetect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0
+attenuation = 2.0
+bus = "Sound"
 
 [connection signal="body_entered" from="BeamNode/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="BeamNode/Area2D" to="." method="_on_Area2D_body_exited"]
