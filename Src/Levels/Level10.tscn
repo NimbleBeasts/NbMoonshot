@@ -36,7 +36,7 @@
 [ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigameSpawner.gd" type="Script" id=34]
 [ext_resource path="res://Assets/Objects/Office/WallImageMoonLanding.png" type="Texture" id=35]
 [ext_resource path="res://Src/PlayerBox/PlayerBox.tscn" type="PackedScene" id=36]
-[ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=58]
+[ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=58]
 [ext_resource path="res://Assets/Objects/Office/Vending.png" type="Texture" id=62]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=68]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=69]
@@ -51,6 +51,7 @@
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=84]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=85]
 [ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=87]
+
 
 [sub_resource type="CircleShape2D" id=1]
 

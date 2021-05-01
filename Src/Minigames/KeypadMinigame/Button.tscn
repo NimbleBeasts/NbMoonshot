@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Minigames/KeyPadButton.png" type="Texture" id=2]
 [ext_resource path="res://Src/Minigames/KeypadMinigame/Button.gd" type="Script" id=3]
+[ext_resource path="res://Assets/SFX/keypad_clear.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/SFX/keypad_input.wav" type="AudioStream" id=5]
 
 [node name="Button" type="Sprite"]
 texture = ExtResource( 2 )
@@ -28,5 +30,14 @@ margin_bottom = 2.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="KeypadClear" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Sound"
+
+[node name="KeypadInput" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Sound"
+
 [connection signal="button_down" from="TextureButton" to="." method="_on_TextureButton_button_down"]
 [connection signal="button_up" from="TextureButton" to="." method="_on_TextureButton_button_up"]

@@ -109,7 +109,7 @@ func showGameHintNotification(text):
 	$HUDLayer/GameHintNotification.set_text(text)
 	$HUDLayer/GameHintNotification.show()
 	$HUDLayer/GameHintNotification/GameHintAnimationPlayer.play("pop")
-	Events.emit_signal("play_sound", "game_hint")
+	$GameHint.play()
 
 func _on_GameHintAnimationPlayer_animation_finished(_anim_name):
 	$HUDLayer/GameHintNotification.hide()
@@ -223,7 +223,7 @@ func showNote(node, type, text):
 
 	emittingNode = node
 	$HUDLayer/Display/Note/Text.bbcode_text = str(text)
-	Events.emit_signal("play_sound", "note_open")
+	$NoteOpen.play()
 	$HUDLayer/Display/Note.show()
 
 
@@ -364,7 +364,7 @@ func onHideSave() -> void:
 func onDialogTypeTimerTimeout() -> void:
 	if $HUDLayer/Display/Dialog/Text.text.length() != $HUDLayer/Display/Dialog/Text.visible_characters:
 		$HUDLayer/Display/Dialog/Text.visible_characters += 1
-		Events.emit_signal("play_sound", "type")
+		$Type.play()
 	else:
 		dialogTypeTimer.stop()
 

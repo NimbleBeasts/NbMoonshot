@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/guard_alarm 4.wav-56f0314dbfdddd21d4ea607365196493.sample"
+path="res://.import/guard_alarm3.wav-2e550795095045f8c7469891d3b67806.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/guard_alarm 4.wav"
-dest_files=[ "res://.import/guard_alarm 4.wav-56f0314dbfdddd21d4ea607365196493.sample" ]
+source_file="res://Assets/SFX/guard_alarm3.wav"
+dest_files=[ "res://.import/guard_alarm3.wav-2e550795095045f8c7469891d3b67806.sample" ]
 
 [params]
 

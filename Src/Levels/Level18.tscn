@@ -1,7 +1,7 @@
 [gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
-[ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=5]

@@ -59,15 +59,7 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 				$Example2D.play()
 			"jump_down":
 				$PlayerSounds/JumpDown.play()
-			"guard_alarm":
-				$Guard/Alarm.position = _pos
-				playRandomSound($Guard/Alarm, guardAlarmSounds)
-			"deskguard_detect":
-				$Guard/DeskGuardDetect.position = _pos
-				$Guard/DeskGuardDetect.play()
-			"guard_suspicious":
-				$Guard/Suspicious.position = _pos
-				playRandomSound($Guard/Suspicious ,guardSuspiciousSounds)
+
 			"jump_up":
 				$PlayerSounds/JumpUp.play()
 			"taser_hit":
@@ -81,14 +73,6 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 				$Test.play()
 			"wirecut":
 				$MinigameSounds/WireCut.play()
-			"keypad_clear":
-				$MinigameSounds/Keypad/KeypadClear.play()
-			"keypad_input":
-				$MinigameSounds/Keypad/KeypadInput.play()
-			"keypad_input_correct":
-				$MinigameSounds/Keypad/KeypadInputCorrect.play()
-			"keypad_input_wrong":
-				$MinigameSounds/Keypad/KeypadInputWrong.play()
 			"door_wooden_open":
 				$DoorSounds/WoodenOpen.position = _pos
 				$DoorSounds/WoodenOpen.play()
@@ -111,26 +95,16 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 				$ObjectSounds/CarClose.play()
 			"minigame_success":
 				$MinigameSounds/MinigameSuccess.play()
-			"note_open":
-				$ObjectSounds/NoteOpen.play()
 			"player_footstep":
 				playRandomSound($PlayerSounds/Footstep, playerFootstepSounds)
 			"player_crouch_footstep":
 				playRandomSound($PlayerSounds/CrouchWalk, playerCrouchWalkSounds)
-			"type":
-				$Type.play()
 			"laser_detect":
 				$ObjectSounds/LaserDetect.play()
-			"closet_open":
-				$Closet/Open.play()
-			"closet_close":
-				$Closet/Close.play()
 			"body_pickup":
 				$StunnedBody/BodyPickup.play()
 			"body_fall":
 				$StunnedBody/BodyFall.play()
-			"game_hint":
-				$GameHint.play()
 			"key_pickup":
 				$Key/KeyPickup.play()
 			"eliteguard_detect":

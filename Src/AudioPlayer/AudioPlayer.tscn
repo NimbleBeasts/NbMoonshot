@@ -1,36 +1,29 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
 [ext_resource path="res://Assets/SFX/jump_down.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/SFX/jump_up.wav" type="AudioStream" id=4]
-[ext_resource path="res://Assets/SFX/guard_alarm 2.wav" type="AudioStream" id=5]
-[ext_resource path="res://Assets/SFX/guard_alarm 3.wav" type="AudioStream" id=6]
-[ext_resource path="res://Assets/SFX/guard_alarm 1.wav" type="AudioStream" id=7]
-[ext_resource path="res://Assets/SFX/guard_alarm 4.wav" type="AudioStream" id=8]
-[ext_resource path="res://Assets/SFX/guard_suspicious 2.wav" type="AudioStream" id=9]
-[ext_resource path="res://Assets/SFX/guard_suspicious 1.wav" type="AudioStream" id=10]
-[ext_resource path="res://Assets/SFX/guard_suspicious 3.wav" type="AudioStream" id=11]
-[ext_resource path="res://Assets/SFX/guard_suspicious 4.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/SFX/guard_alarm2.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/SFX/guard_alarm3.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/SFX/guard_alarm1.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/SFX/guard_alarm4.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/SFX/guard_suspicious2.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/SFX/guard_suspicious1.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/SFX/guard_suspicious3.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/SFX/guard_suspicious4.wav" type="AudioStream" id=12]
 [ext_resource path="res://Assets/SFX/taser_deploy.wav" type="AudioStream" id=13]
 [ext_resource path="res://Assets/SFX/taser_hit.wav" type="AudioStream" id=14]
 [ext_resource path="res://Assets/SFX/minigame_fail2.wav" type="AudioStream" id=15]
 [ext_resource path="res://Assets/SFX/wirecut.wav" type="AudioStream" id=18]
-[ext_resource path="res://Assets/SFX/keypad_clear.wav" type="AudioStream" id=19]
-[ext_resource path="res://Assets/SFX/keypad_input.wav" type="AudioStream" id=20]
-[ext_resource path="res://Assets/SFX/input_correct.wav" type="AudioStream" id=21]
-[ext_resource path="res://Assets/SFX/input_wrong.wav" type="AudioStream" id=22]
 [ext_resource path="res://Assets/SFX/door_wood_open.wav" type="AudioStream" id=24]
 [ext_resource path="res://Assets/SFX/door_wood_close.wav" type="AudioStream" id=25]
 [ext_resource path="res://Assets/SFX/door_metal_open2.wav" type="AudioStream" id=26]
 [ext_resource path="res://Assets/SFX/door_metal_close2.wav" type="AudioStream" id=27]
-[ext_resource path="res://Assets/SFX/lockpick_hit.wav" type="AudioStream" id=28]
-[ext_resource path="res://Assets/SFX/lockpick_miss.wav" type="AudioStream" id=29]
 [ext_resource path="res://Assets/SFX/car_close.wav" type="AudioStream" id=30]
 [ext_resource path="res://Assets/SFX/car_open.wav" type="AudioStream" id=31]
 [ext_resource path="res://Assets/SFX/minigame_victory.wav" type="AudioStream" id=32]
 [ext_resource path="res://Assets/SFX/paper.wav" type="AudioStream" id=33]
-[ext_resource path="res://Assets/SFX/type2.wav" type="AudioStream" id=34]
 [ext_resource path="res://Assets/SFX/stone1.wav" type="AudioStream" id=35]
 [ext_resource path="res://Assets/SFX/stone3.wav" type="AudioStream" id=36]
 [ext_resource path="res://Assets/SFX/stone4.wav" type="AudioStream" id=37]
@@ -44,7 +37,6 @@
 [ext_resource path="res://Assets/Music/hq_main.ogg" type="AudioStream" id=47]
 [ext_resource path="res://Assets/Music/eastern_bloc.ogg" type="AudioStream" id=48]
 [ext_resource path="res://Assets/Music/title_intro.ogg" type="AudioStream" id=49]
-[ext_resource path="res://Assets/SFX/chair_startle.wav" type="AudioStream" id=50]
 [ext_resource path="res://Assets/SFX/gameover.wav" type="AudioStream" id=51]
 [ext_resource path="res://Assets/Music/title_main.ogg" type="AudioStream" id=52]
 [ext_resource path="res://Assets/Music/hq_intro.ogg" type="AudioStream" id=53]
@@ -120,34 +112,6 @@ bus = "Sound"
 stream = ExtResource( 18 )
 bus = "Sound"
 
-[node name="Keypad" type="Node2D" parent="MinigameSounds"]
-
-[node name="KeypadClear" type="AudioStreamPlayer" parent="MinigameSounds/Keypad"]
-stream = ExtResource( 19 )
-bus = "Sound"
-
-[node name="KeypadInput" type="AudioStreamPlayer" parent="MinigameSounds/Keypad"]
-stream = ExtResource( 20 )
-bus = "Sound"
-
-[node name="KeypadInputCorrect" type="AudioStreamPlayer" parent="MinigameSounds/Keypad"]
-stream = ExtResource( 21 )
-bus = "Sound"
-
-[node name="KeypadInputWrong" type="AudioStreamPlayer" parent="MinigameSounds/Keypad"]
-stream = ExtResource( 22 )
-bus = "Sound"
-
-[node name="Lockpick" type="Node2D" parent="MinigameSounds"]
-
-[node name="Hit" type="AudioStreamPlayer" parent="MinigameSounds/Lockpick"]
-stream = ExtResource( 28 )
-bus = "Sound"
-
-[node name="Miss" type="AudioStreamPlayer" parent="MinigameSounds/Lockpick"]
-stream = ExtResource( 29 )
-bus = "Sound"
-
 [node name="MinigameSuccess" type="AudioStreamPlayer" parent="MinigameSounds"]
 stream = ExtResource( 32 )
 bus = "Sound"
@@ -188,28 +152,9 @@ bus = "Sound"
 stream = ExtResource( 33 )
 bus = "Sound"
 
-[node name="LaserDetect" type="AudioStreamPlayer" parent="ObjectSounds"]
+[node name="LaserDetect" type="AudioStreamPlayer2D" parent="ObjectSounds"]
 stream = ExtResource( 43 )
 volume_db = -5.0
-bus = "Sound"
-
-[node name="Type" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 34 )
-volume_db = -10.0
-bus = "Sound"
-
-[node name="Guard" type="Node2D" parent="."]
-
-[node name="Alarm" type="AudioStreamPlayer2D" parent="Guard"]
-attenuation = 2.0
-bus = "Sound"
-
-[node name="Suspicious" type="AudioStreamPlayer2D" parent="Guard"]
-attenuation = 2.0
-bus = "Sound"
-
-[node name="DeskGuardDetect" type="AudioStreamPlayer2D" parent="Guard"]
-stream = ExtResource( 50 )
 attenuation = 2.0
 bus = "Sound"
 

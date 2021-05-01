@@ -48,7 +48,7 @@ func _input(event: InputEvent) -> void:
 		animPlayer.play("open")
 		Events.emit_signal("player_block_movement")
 		$Sprite.z_index = player.z_index - 1
-		Events.emit_signal("play_sound", "closet_open")
+		$Sounds/Open.play()
 		return
 
 	if player.guardPickup.isDragging:
@@ -78,7 +78,7 @@ func hideGuard() -> void:
 	destroyGuard = true
 	animPlayer.play_backwards("open")
 	goInCloset = false
-	Events.emit_signal("play_sound", "closet_close")
+	$Sounds/Close.play()
 
 
 func hidePlayer() -> void:
@@ -87,7 +87,7 @@ func hidePlayer() -> void:
 	Events.emit_signal("player_block_input")
 	goInCloset = true
 	isOpen = false
-	Events.emit_signal("play_sound", "closet_close")
+	$Sounds/Close.play()
 
 
 func openCloset() -> void:
@@ -100,7 +100,7 @@ func openCloset() -> void:
 			Events.emit_signal("player_item_pickup", playerLastPickup)
 			playerLastPickup = null
 	isOpen = true
-	Events.emit_signal("play_sound", "closet_open")
+	$Sounds/Close.play()
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):

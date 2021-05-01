@@ -38,6 +38,9 @@ var isStunned: bool
 var applyGravity: bool
 var inDistractMode: bool
 
+var guardSuspiciousSounds = ["res://Assets/SFX/guard_suspicious1.wav", "res://Assets/SFX/guard_suspicious2.wav", "res://Assets/SFX/guard_suspicious3.wav", "res://Assets/SFX/guard_suspicious4.wav" ]
+var guardAlarmSounds = ["res://Assets/SFX/guard_alarm1.wav", "res://Assets/SFX/guard_alarm2.wav", "res://Assets/SFX/guard_alarm3.wav", "res://Assets/SFX/guard_alarm4.wav"]
+
 onready var los_area: Area2D = $Flippable/LineOfSight
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
 onready var losRay: RayCast2D = $Flippable/LOSRay
@@ -150,7 +153,7 @@ func detectPlayerIfClose() -> void:
 				isMovingToPlayer = true
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
-					Events.emit_signal("play_sound", "guard_suspicious", 1.0, Global.calcAudioPosition(global_position))
+					playRandomSound($Guard/Suspicious ,guardSuspiciousSounds)
 					$GoBackToNormalTimer.start(1)
 				if player.global_position.distance_to(global_position) < playerDetectDistance:
 					set_state(Types.GuardStates.PlayerDetected)
@@ -225,7 +228,7 @@ func _on_SureDetectionTimer_timeout() -> void:
 #	set_physics_process(false)
 	processAI = false
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-	Events.emit_signal("play_sound", "guard_alarm", 1.0, Global.calcAudioPosition(global_position))
+	playRandomSound($Guard/Alarm, guardAlarmSounds)
 	
 
 func _on_StunDurationTimer_timeout() -> void:
@@ -267,7 +270,7 @@ func set_state(new_state, forceReEnterIfSameState: bool = false) -> void:
 				$AnimationPlayer.play("suspicious")
 				stopMovement()
 			Types.GuardStates.Suspect:
-				Events.emit_signal("play_sound", "guard_suspicious")
+				playRandomSound($Guard/Suspicious ,guardSuspiciousSounds)
 				if not $Notifier.isShowing:
 					$Notifier.popup(Types.NotifierTypes.Question)
 				verifyGuardPathLine()
@@ -321,7 +324,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			pass
 		"stand_up":
 			stopMovement()
-			Events.emit_signal("play_sound", "guard_suspicious", 1.0, Global.calcAudioPosition(global_position))
+			playRandomSound($Guard/Suspicious ,guardSuspiciousSounds)
 			if not $Notifier.isShowing:
 				$Notifier.popup(Types.NotifierTypes.Question)
 			Global.startTimerOnce(goBackToNormalTimer)
@@ -398,7 +401,7 @@ func distractMode():
 	guardPathLine.stopAllMovement()
 	distractPathLine.global_points[0].x = global_position.x
 	distractPathLine.startNormalMovement()
-	Events.emit_signal("play_sound", "guard_suspicious", 1.0, Global.calcAudioPosition(global_position))
+	playRandomSound($Guard/Suspicious ,guardSuspiciousSounds)
 	inDistractMode = true
 	speed = distractSpeed
 
@@ -408,3 +411,8 @@ func normalMode():
 	guardPathLine.startNormalMovement()
 	inDistractMode = false
 	speed = normalSpeed
+
+func playRandomSound(audioPlayer, array: Array) -> void:
+	randomize()
+	audioPlayer.stream = array[randi() % array.size()]
+	audioPlayer.play()

@@ -11,7 +11,7 @@ func deactivate() -> void:
 func alarm():
 	$AnimationPlayer.play("alarm")
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-	Events.emit_signal("play_sound", "laser_detect")
+	$LaserDetect.play()
 
 func _on_DelayTimer_timeout():
 	alarm()

@@ -93,7 +93,7 @@ func _on_DelayTimer_timeout():
 	$ReadTimer.stop()
 	switchState(GuardState.Hidden)
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-	Events.emit_signal("play_sound", "deskguard_detect", 1.0, Global.calcAudioPosition(global_position))
+	$DeskGuardDetect.play()
 	$RemoveNotifierTimer.start()
 
 func onRemoveNotifierTimeout() -> void:

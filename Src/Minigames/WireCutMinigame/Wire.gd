@@ -24,7 +24,7 @@ func cut():
 		is_cut = true
 		$AnimatedSprite.play("cut")
 		emit_signal("wire_cut", color_type)
-		Events.emit_signal("play_sound", "wirecut")
+		get_parent().get_parent().get_node("WireCut").play()
 
 	
 func _on_area_entered(area: Area2D) -> void:

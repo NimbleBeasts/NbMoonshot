@@ -20,6 +20,7 @@ onready var hasPathLine = pathLine != null
 var guard_normal_texture: Texture = preload("res://Assets/Guards/EliteGuard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/EliteGuardGreen.png")
 
+var eliteGuardDetectSounds = ["res://Assets/SFX/eliteguard_dontmove.wav", "res://Assets/SFX/eliteguard_freeze.wav", "res://Assets/SFX/eliteguard_halt.wav"]
 
 func _ready() -> void:
 	stateRoamingEnter()
@@ -77,20 +78,20 @@ func stateMovingToPlayerEnter() -> void:
 	Events.emit_signal("player_block_input")
 	Events.disconnect("audio_level_changed", self, "onAudioLevelChanged")
 	$Notifier.popup(Types.NotifierTypes.Exclamation)
-	Events.emit_signal("play_sound", "eliteguard_detect", 1.0, Global.calcAudioPosition(global_position))
+	playRandomSound($EliteGuard/Detect, eliteGuardDetectSounds)
 
 
 func stateTaseringPlayerEnter() -> void:
 	if player:
 		flipTowards(player.global_position)
-	Events.emit_signal("play_sound", "taser_hit")
+	$EliteGuard/TaserHit.play()
 	if hasPathLine:
 		pathLine.stopAllMovement()
 	set_physics_process(false)
 	$AnimationPlayer.play("taser")
 	Events.emit_signal("player_block_movement")
-	Events.emit_signal("play_sound", "eliteguard_taser", 1.0, Global.calcAudioPosition(global_position))
-
+	$EliteGuard/TaserDeploy.play() #TODO this correct?!
+	$EliteGuard/Taser.play()
 
 func onAudioLevelChanged(newLevel, audioPosition, emitter) -> void:
 	match newLevel:
@@ -152,3 +153,7 @@ func flipTowards(towards: Vector2) -> void:
 	elif towards.x < global_position.x:
 		$Flippable.scale.x = -1
 
+func playRandomSound(audioPlayer, array: Array) -> void:
+	randomize()
+	audioPlayer.stream = array[randi() % array.size()]
+	audioPlayer.play()

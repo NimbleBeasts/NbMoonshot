@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Guards/EliteGuard.png" type="Texture" id=1]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.gd" type="Script" id=2]
 [ext_resource path="res://Src/Notifier/Notifier.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/SFX/eliteguard_taser.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/SFX/taser_deploy_eliteguard.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/SFX/taser_hit.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.4196, 10 )
@@ -100,3 +103,24 @@ anims/walk = SubResource( 5 )
 
 [node name="RoamingEnterTimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="EliteGuard" type="Node2D" parent="."]
+
+[node name="Detect" type="AudioStreamPlayer2D" parent="EliteGuard"]
+attenuation = 2.0
+bus = "Sound"
+
+[node name="TaserDeploy" type="AudioStreamPlayer2D" parent="EliteGuard"]
+stream = ExtResource( 5 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="Taser" type="AudioStreamPlayer2D" parent="EliteGuard"]
+stream = ExtResource( 4 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="TaserHit" type="AudioStreamPlayer2D" parent="EliteGuard"]
+stream = ExtResource( 6 )
+attenuation = 2.0
+bus = "Sound"

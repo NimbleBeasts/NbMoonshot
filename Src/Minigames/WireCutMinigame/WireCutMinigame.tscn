@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Minigames/WireCutBackground.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Minigames/sevenSegmentSeperator.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Minigames/sevenSegment.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Minigames/WireCutScissors.png" type="Texture" id=8]
+[ext_resource path="res://Assets/SFX/wirecut.wav" type="AudioStream" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -106,6 +107,10 @@ minigame_type = 2
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 44 )
 texture = ExtResource( 2 )
+
+[node name="WireCut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "Sound"
 
 [node name="Wires" type="Node2D" parent="."]
 position = Vector2( 2, 53 )
@@ -233,6 +238,7 @@ texture = ExtResource( 6 )
 [node name="spacer2" type="Sprite" parent="WireTimer"]
 position = Vector2( 10, 0 )
 texture = ExtResource( 6 )
+
 [connection signal="wire_cut" from="Wires/RedWire" to="." method="_on_wire_cut"]
 [connection signal="wire_cut" from="Wires/BlueWire" to="." method="_on_wire_cut"]
 [connection signal="wire_cut" from="Wires/GreenWire" to="." method="_on_wire_cut"]

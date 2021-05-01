@@ -110,10 +110,10 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 	
 func playFailSound() -> void:
-	Events.emit_signal("play_sound", "keypad_input_wrong")
+	$KeypadInputWrong.play()
 
 
 func playSuccessSound() -> void:
-	Events.emit_signal("play_sound", "keypad_input_correct")
+	$KeypadInputCorrect.play()
 
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/Minigames/LockpickSmallMinigame/LockpickSmallMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Minigames/LockpickSmallBackground.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Minigames/LockpickSmallPinGoal.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Minigames/LockpickPin.png" type="Texture" id=4]
+[ext_resource path="res://Assets/SFX/lockpick_hit.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/SFX/lockpick_miss.wav" type="AudioStream" id=6]
 
 [node name="LockpickSmallMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,3 +28,11 @@ texture = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Sound"
+
+[node name="Miss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "Sound"

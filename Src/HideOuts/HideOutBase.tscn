@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Src/HideOuts/HideOutBase.gd" type="Script" id=1]
+[ext_resource path="res://Assets/SFX/closet_open.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/SFX/closet_close.wav" type="AudioStream" id=3]
 
 [node name="HideOutBase" type="Node2D"]
 script = ExtResource( 1 )
@@ -16,4 +18,17 @@ position = Vector2( 0, -20 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 128
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="Open" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 2 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="Close" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 3 )
+attenuation = 2.0
+bus = "Sound"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

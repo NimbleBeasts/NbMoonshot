@@ -1,7 +1,7 @@
 [gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
-[ext_resource path="res://Src/Objects/DoorWall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Objects/Home/ClockOld.png" type="Texture" id=3]
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Objects/Nature/Water.tscn" type="PackedScene" id=5]

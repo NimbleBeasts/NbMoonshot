@@ -26,9 +26,9 @@ func press() -> void:
 	$Label.rect_position.y = 2
 	emit_signal("button_clicked", $Label.text)
 	if not label == "*":
-		Events.emit_signal("play_sound", "keypad_input")
+		$KeypadInput.play()
 	else:
-		Events.emit_signal("play_sound", "keypad_clear")
+		$KeypadClear.play()
 		
 
 func release() -> void:
