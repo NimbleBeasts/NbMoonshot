@@ -119,7 +119,7 @@ func set_state(new_state) -> void:
 					$AnimationPlayer.seek(0,true)
 					
 				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
-				Events.emit_signal("play_sound", "camera_beep", 1.0, Global.calcAudioPosition(global_position))
+				$CameraSounds/Beep.play()
 				
 				set_state(Types.CameraStates.Frozen)
 
@@ -155,7 +155,7 @@ func _on_FOV_area_exited(area: Area2D) -> void:
 
 func _on_SureDetectionTimer_timeout() -> void:
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-	Events.emit_signal("play_sound", "camera_alarm", 1.0, Global.calcAudioPosition(global_position))
+	$CameraSounds/Alarm.play()
 	
 func _on_FrozenTimer_timeout():
 	deactivate()

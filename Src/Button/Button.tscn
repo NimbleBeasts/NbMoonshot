@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Switches/Switch.png" type="Texture" id=1]
 [ext_resource path="res://Src/Button/Button.gd" type="Script" id=2]
 [ext_resource path="res://Shaders/Outline.shader" type="Shader" id=3]
+[ext_resource path="res://Assets/SFX/button.wav" type="AudioStream" id=4]
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
 shader_param/active = false
 shader_param/color = Color( 0.98823, 0.97647, 0.37647, 1 )
@@ -20,12 +21,18 @@ extents = Vector2( 10.2657, 9.97309 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 3 )
+material = SubResource( 1 )
 texture = ExtResource( 1 )
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
 shape = SubResource( 2 )
+
+[node name="Button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+attenuation = 2.0
+bus = "Sound"
+
 [connection signal="body_entered" from="." to="." method="_on_Button_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Button_body_exited"]

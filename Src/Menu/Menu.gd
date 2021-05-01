@@ -29,7 +29,8 @@ func _ready():
 
 # Play menu button sound
 func playClick():
-	Events.emit_signal("play_sound", "menu_click")
+	#TODO: remove superfluous function call.
+	return
 
 # Menu State Transition
 func switchTo(to):

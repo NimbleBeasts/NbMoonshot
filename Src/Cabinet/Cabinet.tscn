@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Src/Cabinet/Cabinet.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Loot/Cabinet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/Doors/Keys.png" type="Texture" id=4]
+[ext_resource path="res://Assets/SFX/chest_locked.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/SFX/chest_bounty.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/SFX/key_pickup.wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "loot"
@@ -106,5 +109,22 @@ position = Vector2( 8, -42 )
 z_index = 51
 texture = ExtResource( 4 )
 hframes = 3
+
+[node name="ChestSounds" type="Node2D" parent="."]
+
+[node name="Locked" type="AudioStreamPlayer2D" parent="ChestSounds"]
+stream = ExtResource( 5 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="HasBounty" type="AudioStreamPlayer2D" parent="ChestSounds"]
+stream = ExtResource( 6 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="KeyPickup" type="AudioStreamPlayer" parent="ChestSounds"]
+stream = ExtResource( 7 )
+bus = "Sound"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

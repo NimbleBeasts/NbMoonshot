@@ -42,20 +42,20 @@ func _process(_delta):
 			if isObjective:
 				isUsed = true
 				Events.emit_signal("level_hint", "Objective Obtained")
-				Events.emit_signal("play_sound", "chest_bounty")
+				$ChestSounds/HasBounty.play()
 			elif (hasBounty and not isUsed):
 				# Add money popup anim
 				# Emit Hud money update
 				isUsed = true
 				$LootAnim.play("loot")
 				Global.addMoney(loot)
-				Events.emit_signal("play_sound", "chest_bounty")
+				$ChestSounds/HasBounty.play()
 			elif (containsKey and not isPickedUp):
 				isPickedUp = true
-				Events.emit_signal("play_sound", "key_pickup")
+				$ChestSounds/KeyPickup.play()
 				$KeyAnim.play("show")
 			else:
-				Events.emit_signal("play_sound", "chest_locked")
+				$ChestSounds/Locked.play()
 
 
 func _on_Area2D_body_entered(body):

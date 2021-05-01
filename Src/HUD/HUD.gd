@@ -408,7 +408,6 @@ func _on_SoundSlider_value_changed(value):
 
 
 func _on_ButtonQuit_button_up():
-	Events.emit_signal("play_sound", "menu_click")
 	Events.emit_signal("menu_back")
 	Global.newGameState()
 
@@ -426,7 +425,6 @@ func updateSlotInfo(id):
 	$HUDLayer/Display/SaveGame/Menu/SaveText.text = text
 
 func _on_ButtonReturn_button_up():
-	Events.emit_signal("play_sound", "menu_click")
 	$HUDLayer/Display/IngameMenu.hide()
 	onHideSave()
 	if not inMissionBriefing:
@@ -436,26 +434,21 @@ func _on_ButtonReturn_button_up():
 
 func _on_ButtonSave_button_up():
 	save(selectedSave)
-	Events.emit_signal("play_sound", "menu_click")
 
 func _on_ButtonSave1_button_up():
 	updateSlotInfo(0)
-	Events.emit_signal("play_sound", "menu_click")
 
 
 func _on_ButtonSave2_button_up():
 	updateSlotInfo(1)
-	Events.emit_signal("play_sound", "menu_click")
 
 
 func _on_ButtonSave3_button_up():
 	updateSlotInfo(2)
-	Events.emit_signal("play_sound", "menu_click")
 
 
 func _on_StartMissionButton_button_up():
 	$HUDLayer/Display/MissionBriefing.hide()
-	Events.emit_signal("play_sound", "menu_click")
 	Events.emit_signal("hud_mission_briefing_exited")
 	inMissionBriefing = false
 	

@@ -21,6 +21,7 @@ onready var pathLine: PathLine = get_node_or_null("PathLine")
 onready var fovArea: Area2D = $Flippable/FOV
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 
+#TODO: sound effects?
 
 func _ready() -> void:
 	$AnimationPlayer.connect("animation_finished", self, "onAnimationFinished")

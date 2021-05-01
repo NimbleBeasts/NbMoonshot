@@ -3,11 +3,14 @@ extends Area2D
 var player: Player
 export (Array, NodePath) var guards: Array
 
+
+
 func _ready() -> void:
 	set_process(false)
 	connect("body_entered", self, "onBodyEntered")
 	connect("body_exited", self, "onBodyExited")
 	$Sprite.frame = 0
+	#TODO: play sound
 
 
 func _process(delta: float) -> void:

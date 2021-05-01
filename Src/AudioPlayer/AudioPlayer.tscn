@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
@@ -15,14 +15,11 @@
 [ext_resource path="res://Assets/SFX/taser_deploy.wav" type="AudioStream" id=13]
 [ext_resource path="res://Assets/SFX/taser_hit.wav" type="AudioStream" id=14]
 [ext_resource path="res://Assets/SFX/minigame_fail2.wav" type="AudioStream" id=15]
-[ext_resource path="res://Assets/SFX/camera_alarm.wav" type="AudioStream" id=16]
-[ext_resource path="res://Assets/SFX/camera_beep.wav" type="AudioStream" id=17]
 [ext_resource path="res://Assets/SFX/wirecut.wav" type="AudioStream" id=18]
 [ext_resource path="res://Assets/SFX/keypad_clear.wav" type="AudioStream" id=19]
 [ext_resource path="res://Assets/SFX/keypad_input.wav" type="AudioStream" id=20]
 [ext_resource path="res://Assets/SFX/input_correct.wav" type="AudioStream" id=21]
 [ext_resource path="res://Assets/SFX/input_wrong.wav" type="AudioStream" id=22]
-[ext_resource path="res://Assets/SFX/menu_click.wav" type="AudioStream" id=23]
 [ext_resource path="res://Assets/SFX/door_wood_open.wav" type="AudioStream" id=24]
 [ext_resource path="res://Assets/SFX/door_wood_close.wav" type="AudioStream" id=25]
 [ext_resource path="res://Assets/SFX/door_metal_open2.wav" type="AudioStream" id=26]
@@ -44,8 +41,6 @@
 [ext_resource path="res://Assets/SFX/crouch_walk 3.wav" type="AudioStream" id=42]
 [ext_resource path="res://Assets/SFX/laser_detect.wav" type="AudioStream" id=43]
 [ext_resource path="res://Assets/Music/western_world.ogg" type="AudioStream" id=44]
-[ext_resource path="res://Assets/SFX/chest_bounty.wav" type="AudioStream" id=45]
-[ext_resource path="res://Assets/SFX/chest_locked.wav" type="AudioStream" id=46]
 [ext_resource path="res://Assets/Music/hq_main.ogg" type="AudioStream" id=47]
 [ext_resource path="res://Assets/Music/eastern_bloc.ogg" type="AudioStream" id=48]
 [ext_resource path="res://Assets/Music/title_intro.ogg" type="AudioStream" id=49]
@@ -57,7 +52,6 @@
 [ext_resource path="res://Assets/SFX/closet_close.wav" type="AudioStream" id=55]
 [ext_resource path="res://Assets/SFX/body_pickup.wav" type="AudioStream" id=56]
 [ext_resource path="res://Assets/SFX/body_fall.wav" type="AudioStream" id=57]
-[ext_resource path="res://Assets/SFX/button.wav" type="AudioStream" id=58]
 [ext_resource path="res://Assets/SFX/hint.wav" type="AudioStream" id=59]
 [ext_resource path="res://Assets/SFX/growl.wav" type="AudioStream" id=60]
 [ext_resource path="res://Assets/SFX/bark1.wav" type="AudioStream" id=61]
@@ -85,29 +79,10 @@ hqMusic = ExtResource( 47 )
 menuIntro = ExtResource( 49 )
 menuMusic = ExtResource( 52 )
 
-[node name="MenuClick" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 23 )
-volume_db = -16.0
-pitch_scale = 0.6
-bus = "Sound"
-
-[node name="Example2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 1 )
-volume_db = -16.0
-pitch_scale = 0.6
-bus = "Sound"
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = -16.0
 bus = "Music"
-
-[node name="Test" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 20 )
-volume_db = 12.0
-max_distance = 512.0
-attenuation = 2.0
-bus = "Sound"
 
 [node name="PlayerSounds" type="Node2D" parent="."]
 
@@ -178,19 +153,6 @@ bus = "Sound"
 stream = ExtResource( 32 )
 bus = "Sound"
 
-[node name="CameraSounds" type="Node2D" parent="."]
-
-[node name="Alarm" type="AudioStreamPlayer2D" parent="CameraSounds"]
-stream = ExtResource( 16 )
-volume_db = -10.0
-attenuation = 2.0
-bus = "Sound"
-
-[node name="Beep" type="AudioStreamPlayer2D" parent="CameraSounds"]
-stream = ExtResource( 17 )
-attenuation = 2.0
-bus = "Sound"
-
 [node name="DoorSounds" type="Node2D" parent="."]
 
 [node name="WoodenOpen" type="AudioStreamPlayer2D" parent="DoorSounds"]
@@ -252,16 +214,6 @@ stream = ExtResource( 50 )
 attenuation = 2.0
 bus = "Sound"
 
-[node name="ChestSounds" type="Node2D" parent="."]
-
-[node name="Locked" type="AudioStreamPlayer" parent="ChestSounds"]
-stream = ExtResource( 46 )
-bus = "Sound"
-
-[node name="HasBounty" type="AudioStreamPlayer" parent="ChestSounds"]
-stream = ExtResource( 45 )
-bus = "Sound"
-
 [node name="General" type="Node2D" parent="."]
 
 [node name="GameOver" type="AudioStreamPlayer" parent="General"]
@@ -286,10 +238,6 @@ bus = "Sound"
 
 [node name="BodyFall" type="AudioStreamPlayer" parent="StunnedBody"]
 stream = ExtResource( 57 )
-bus = "Sound"
-
-[node name="Button" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 58 )
 bus = "Sound"
 
 [node name="GameHint" type="AudioStreamPlayer" parent="."]
@@ -332,4 +280,5 @@ bus = "Sound"
 [node name="KeyUse" type="AudioStreamPlayer" parent="Key"]
 stream = ExtResource( 69 )
 bus = "Sound"
+
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]

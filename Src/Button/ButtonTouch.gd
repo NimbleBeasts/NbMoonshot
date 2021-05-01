@@ -35,7 +35,7 @@ func press() -> void:
 	if $Sprite.frame == 1:
 		pass
 	
-	Events.emit_signal("play_sound", "button")
+	$Button.play()
 	#Events.emit_signal("hud_game_hint", "Button pressed")
 	for thing in unlocks:
 		var node = get_node(thing)

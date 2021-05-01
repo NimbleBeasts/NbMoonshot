@@ -53,8 +53,6 @@ func setSoundVolume(value):
 func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0, 0)):
 	if Global.userConfig.soundVolume > 0:
 		match sound:				# should have made these enums instead, huh
-			"menu_click":
-				$MenuClick.play()
 			"example":
 				$Example2D.volume_db = -20 + 12 * _volume
 				$Example2D.position = _pos
@@ -81,12 +79,6 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 			"test":
 				$Test.position = _pos
 				$Test.play()
-			"camera_alarm":
-				$CameraSounds/Alarm.position = _pos
-				$CameraSounds/Alarm.play()
-			"camera_beep":
-				$CameraSounds/Beep.position = _pos
-				$CameraSounds/Beep.play()
 			"wirecut":
 				$MinigameSounds/WireCut.play()
 			"keypad_clear":
@@ -129,10 +121,6 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 				$Type.play()
 			"laser_detect":
 				$ObjectSounds/LaserDetect.play()
-			"chest_bounty":
-				$ChestSounds/HasBounty.play()
-			"chest_locked":
-				$ChestSounds/Locked.play()
 			"closet_open":
 				$Closet/Open.play()
 			"closet_close":
@@ -141,8 +129,6 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 				$StunnedBody/BodyPickup.play()
 			"body_fall":
 				$StunnedBody/BodyFall.play()
-			"button":
-				$Button.play()
 			"game_hint":
 				$GameHint.play()
 			"dog_growl":

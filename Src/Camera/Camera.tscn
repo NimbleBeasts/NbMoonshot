@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Src/Camera/Camera.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Camera/Cam.png" type="Texture" id=2]
+[ext_resource path="res://Assets/SFX/camera_alarm.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/SFX/camera_beep.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "detection_left"
@@ -244,6 +246,20 @@ one_shot = true
 
 [node name="SuspToDetTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="CameraSounds" type="Node2D" parent="."]
+
+[node name="Alarm" type="AudioStreamPlayer2D" parent="CameraSounds"]
+stream = ExtResource( 3 )
+volume_db = -10.0
+attenuation = 2.0
+bus = "Sound"
+
+[node name="Beep" type="AudioStreamPlayer2D" parent="CameraSounds"]
+stream = ExtResource( 4 )
+attenuation = 2.0
+bus = "Sound"
+
 [connection signal="area_entered" from="FOV" to="." method="_on_FOV_area_entered"]
 [connection signal="area_exited" from="FOV" to="." method="_on_FOV_area_exited"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]

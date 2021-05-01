@@ -3,6 +3,8 @@ extends Area2D
 var player: Player
 export (Array, NodePath) var guards: Array
 
+#TODO: add jukebox sound
+
 func _ready() -> void:
 	set_process_unhandled_input(false)
 	connect("body_entered", self, "onBodyEntered")
