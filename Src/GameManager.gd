@@ -79,7 +79,8 @@ func loadLevel(number = 0):
 # Unloads a loaded level
 func unloadLevel():
 	$gameViewport.get_node("Viewport/LevelHolder").remove_child(levelNode)
-	levelNode.queue_free()
+	if levelNode:
+		levelNode.queue_free()
 	levelNode = null
 
 
