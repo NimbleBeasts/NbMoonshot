@@ -19,8 +19,10 @@ func toggleState():
 		$AnimationPlayer.play("open_door")
 		$StaticBody2D/CollisionShape2D.disabled = true
 		closed = false
+		$DoorSounds/MetalOpen.play()
 	else:
 		$AnimationPlayer.play_backwards("open_door")
 		$StaticBody2D/CollisionShape2D.disabled = false
 		closed = true
-	Events.emit_signal("play_sound", "door_metal_open", 1.0, Global.calcAudioPosition(global_position))
+		$DoorSounds/MetalClose.play()
+	

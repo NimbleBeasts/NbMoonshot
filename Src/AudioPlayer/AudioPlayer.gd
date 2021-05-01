@@ -131,12 +131,6 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 				$StunnedBody/BodyFall.play()
 			"game_hint":
 				$GameHint.play()
-			"dog_growl":
-				$Dog/Growl.position = _pos
-				$Dog/Growl.play()
-			"dog_bark":
-				$Dog/Bark.position = _pos
-				playRandomSound($Dog/Bark, dogBarkSounds)
 			"key_pickup":
 				$Key/KeyPickup.play()
 			"eliteguard_detect":

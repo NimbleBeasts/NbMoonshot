@@ -39,7 +39,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and Global.game_manager.getCurrentLevel().can_change_level():
 		if Global.gameState["level"]["hasActiveMission"] and Global.gameState["level"]["lastActiveMission"] != 0:
 			$AnimationPlayer.play("open")
-			Events.emit_signal("play_sound", "car_open")
+			$CarOpen.play()
 			Events.emit_signal("player_block_movement")
 			get_tree().set_input_as_handled()
 

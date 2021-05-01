@@ -19,11 +19,14 @@ var player: Player = Global.player
 var isMovingToPlayer: bool
 var playerInLOS: bool
 var barkAfterAngry: bool = false
+var dogBarkSounds = ["res://Assets/SFX/bark1.wav", "res://Assets/SFX/bark_2.wav"]
+
 
 onready var pathLine: PathLine = get_node("PathLine")
 onready var losArea: Area2D = $Flippable/LOSArea
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 onready var losRay: RayCast2D = $Flippable/LOSRay
+
 
 
 func _ready() -> void:
@@ -106,7 +109,7 @@ func stateAngryEnter() -> void:
 	flipTowards(player.global_position)
 	animPlayer.play("grr")
 	yield(get_tree().create_timer(0.8), "timeout")
-	Events.emit_signal("play_sound", "dog_growl", 1.0, Global.calcAudioPosition(global_position))
+	$Sounds/Growl.play()
 	
 
 func stateMovingToSnackEnter() -> void:
@@ -156,7 +159,7 @@ func stateDetectionEnter() -> void:
 	losArea.set_deferred("monitoring", false)
 	animPlayer.play("alarm")
 	Global.startTimerOnce($BarkTimer)
-	Events.emit_signal("play_sound", "dog_bark", 1.0, Global.calcAudioPosition(global_position))
+	playRandomSound($Sounds/Bark, dogBarkSounds)
 
 
 func stateEatingEnter() -> void:
@@ -252,3 +255,8 @@ func detectPlayerIfClose() -> void:
 					$Notifier.popup(Types.NotifierTypes.Question)
 				if player.global_position.distance_to(global_position) < playerDetectDistance and losRayIsCollidingWith(player):
 					setState(Types.DogStates.Detection)
+
+func playRandomSound(audioPlayer, array: Array) -> void:
+	randomize()
+	audioPlayer.stream = array[randi() % array.size()]
+	audioPlayer.play()

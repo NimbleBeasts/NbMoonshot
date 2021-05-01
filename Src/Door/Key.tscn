@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Doors/Keys.png" type="Texture" id=1]
 [ext_resource path="res://Src/Door/DoorKey.gd" type="Script" id=2]
+[ext_resource path="res://Assets/SFX/key_pickup.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.1253, 9.03586 )
@@ -36,3 +37,8 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/idle = SubResource( 2 )
+
+[node name="KeyPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+attenuation = 2.0
+bus = "Sound"

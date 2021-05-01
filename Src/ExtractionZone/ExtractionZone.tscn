@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/ExtractionZone.png" type="Texture" id=2]
+[ext_resource path="res://Assets/SFX/car_open.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -78,4 +79,10 @@ frame = 1
 anims/open = SubResource( 2 )
 anims/trunk_close = SubResource( 3 )
 anims/trunk_open = SubResource( 4 )
+
+[node name="CarOpen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+attenuation = 2.0
+bus = "Sound"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
