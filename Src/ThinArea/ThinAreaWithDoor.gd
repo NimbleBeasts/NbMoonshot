@@ -16,4 +16,4 @@ func toggleState():
 	else:
 		$AnimationPlayer.play_backwards("OpenDoor")
 		disabled = true
-	Events.emit_signal("play_sound", "door_metal_open", 1.0, Global.calcAudioPosition(global_position))
+	$MetalOpen.play()

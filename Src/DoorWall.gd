@@ -88,12 +88,12 @@ func interact(run_sub, openerPos: Vector2):
 		Types.DoorLockType.keyLocked:
 			if key.isPickedUp:
 				open()
-				Events.emit_signal("play_sound", "key_use")
+				$DoorSounds/KeyUse.play()
 			else:
 				Events.emit_signal("hud_game_hint", "You need a %s key to open this door" % key.stringName)
 				return
 		Types.DoorLockType.locked:
-			Events.emit_signal("play_sound", "chest_locked")
+			$DoorSounds/Locked.play()
 			Events.emit_signal("hud_game_hint", hint)
 			return
 		Types.DoorLockType.lockedLevel1:
@@ -112,7 +112,7 @@ func interact(run_sub, openerPos: Vector2):
 			print("button Locked")
 			if doorLockStateLocked:
 				print("locked")
-				Events.emit_signal("play_sound", "chest_locked")
+				$DoorSounds/Locked.play()
 				#TODO: change sound
 			else:
 				print("opened")
@@ -139,21 +139,21 @@ func playDoorAnimation(openerPos):
 		doorIsOpen = true
 		# playing sound
 		if doorType == DoorType.wooden:
-			Events.emit_signal("play_sound", "door_wooden_open", 1.0, Global.calcAudioPosition(global_position))
+			$DoorSounds/WoodenOpen.play()
 		elif doorType == DoorType.glass:
-			Events.emit_signal("play_sound", "door_wooden_open", 1.0, Global.calcAudioPosition(global_position))
+			$DoorSounds/WoodenOpen.play()
 		else:
-			Events.emit_signal("play_sound", "door_metal_open", 1.0, Global.calcAudioPosition(global_position))
+			$DoorSounds/MetalOpen.play()
 	else:
 		# Close Animation
 		$AnimationPlayer.play_backwards("open_door")
 		doorIsOpen = false
 		if doorType == DoorType.wooden:
-			Events.emit_signal("play_sound", "door_wooden_close", 1.0, Global.calcAudioPosition(global_position))
+			$DoorSounds/WoodenClose.play()
 		elif doorType == DoorType.glass:
-			Events.emit_signal("play_sound", "door_wooden_close", 1.0, Global.calcAudioPosition(global_position))
+			$DoorSounds/WoodenClose.play()
 		else:
-			Events.emit_signal("play_sound", "door_metal_close", 1.0, Global.calcAudioPosition(global_position))
+			$DoorSounds/MetalClose.play()
 
 
 func try_sub_emit():

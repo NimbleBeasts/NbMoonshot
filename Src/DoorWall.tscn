@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Doors/DoorWall.png" type="Texture" id=1]
 [ext_resource path="res://Src/DoorWall.gd" type="Script" id=2]
@@ -6,7 +6,12 @@
 [ext_resource path="res://Src/Minigames/LightMinigame/LightMinigameSpawner.gd" type="Script" id=4]
 [ext_resource path="res://Src/Minigames/SimonSays/SimonSaysSpawner.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Doors/KeySign.png" type="Texture" id=6]
-
+[ext_resource path="res://Assets/SFX/door_wood_close.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/SFX/door_wood_open.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/SFX/door_metal_open2.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/SFX/door_metal_close2.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/SFX/insert_key.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/SFX/chest_locked.wav" type="AudioStream" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "open_door"
@@ -80,6 +85,39 @@ visible = false
 position = Vector2( 4, -36 )
 texture = ExtResource( 6 )
 hframes = 3
+
+[node name="DoorSounds" type="Node2D" parent="."]
+
+[node name="WoodenOpen" type="AudioStreamPlayer2D" parent="DoorSounds"]
+stream = ExtResource( 8 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="WoodenClose" type="AudioStreamPlayer2D" parent="DoorSounds"]
+stream = ExtResource( 7 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="MetalOpen" type="AudioStreamPlayer2D" parent="DoorSounds"]
+stream = ExtResource( 9 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="MetalClose" type="AudioStreamPlayer2D" parent="DoorSounds"]
+stream = ExtResource( 10 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="KeyUse" type="AudioStreamPlayer2D" parent="DoorSounds"]
+stream = ExtResource( 11 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="Locked" type="AudioStreamPlayer2D" parent="DoorSounds"]
+stream = ExtResource( 12 )
+attenuation = 2.0
+bus = "Sound"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

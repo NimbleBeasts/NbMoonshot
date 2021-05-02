@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Src/ThinArea/ThinAreaWithDoor.gd" type="Script" id=1]
 [ext_resource path="res://Assets/ThinArea/ThinArea4x.png" type="Texture" id=2]
 [ext_resource path="res://Assets/ThinArea/ThinAreaDoor.png" type="Texture" id=3]
+[ext_resource path="res://Assets/SFX/door_metal_open2.wav" type="AudioStream" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "OpenDoor"
 tracks/0/type = "value"
 tracks/0/path = NodePath("DSprite:frame")
@@ -19,7 +20,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16, 4 )
 
 [node name="ThinAreaWithDoor" type="Area2D" groups=[
@@ -32,11 +33,11 @@ script = ExtResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
-anims/OpenDoor = SubResource( 2 )
+anims/OpenDoor = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 16, -4 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="DestinationUp" type="Position2D" parent="."]
 position = Vector2( 16, -8 )
@@ -56,9 +57,14 @@ collision_mask = 2147483648
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 16, -4 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="DSprite" type="Sprite" parent="."]
 position = Vector2( 16, 12 )
 texture = ExtResource( 3 )
 hframes = 3
+
+[node name="MetalOpen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+attenuation = 2.0
+bus = "Sound"

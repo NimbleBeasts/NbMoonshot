@@ -212,8 +212,9 @@ bus = "Sound"
 stream = ExtResource( 63 )
 bus = "Sound"
 
-[node name="KeyUse" type="AudioStreamPlayer" parent="Key"]
+[node name="KeyUse" type="AudioStreamPlayer2D" parent="Key"]
 stream = ExtResource( 69 )
+attenuation = 2.0
 bus = "Sound"
 
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
