@@ -14,16 +14,18 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if not event is InputEventKey or player.blockEntireInput:
-		return
+	pass
+	# Turned off weapon switching
+	# if not event is InputEventKey or player.blockEntireInput:
+	# 	return
 
-	if event.is_action_pressed("selection"):
-		if not currentIndex >= maxWeaponAmount - 1:
-			currentIndex += 1
-		else:
-			currentIndex = 0
+	# if event.is_action_pressed("selection"):
+	# 	if not currentIndex >= maxWeaponAmount - 1:
+	# 		currentIndex += 1
+	# 	else:
+	# 		currentIndex = 0
 		
-		Events.emit_signal("switched_weapon", currentIndex)
+	# 	Events.emit_signal("switched_weapon", currentIndex)
 
 
 func equipWeapon(weaponIndex: int) -> void:
