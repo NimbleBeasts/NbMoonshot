@@ -1,3 +1,4 @@
+
 tool
 extends Control
 
@@ -5,6 +6,7 @@ signal enter_menu_mode
 
 var base_branch_scn: PackedScene = preload("res://addons/DialogueEditor/BaseBranch.tscn")
 var quest_scn: PackedScene = preload("res://addons/DialogueEditor/QuestNode.tscn")
+var love_node_scn: PackedScene = preload("res://addons/DialogueEditor/LoveNode.tscn")
 var graph_edit: GraphEdit = GraphEdit.new()
 var node_index: int
 var files: Array = []
@@ -66,12 +68,17 @@ func save_connection_list_to_dict() -> void:
 			if child is QuestNode:
 				child.title = "Quest" + str(child.get_quest()) if child.get_quest() != 9999 else child.title
 				child.name = child.title
+			if child is LoveNode:
+				child.title = "Love" + str(child.get_id())
+				child.name = child.title
 				
 			if child is BaseBranch:
 				child.title = child.get_node("BranchID").text if child.get_node("BranchID").text != "" else child.title
 			
 			dict["nodes"][child.title] = [child.offset.x, child.offset.y]
-			
+			if child is LoveNode:
+				dict["nodes"][child.title].append(child.get_love_points())
+
 			if not dict.has(child.title):
 				dict[child.title] = {}
 			if child is BaseBranch:
@@ -104,7 +111,9 @@ func save_connection_list_to_dict() -> void:
 			dict[from_node.title]["quest"] = to_node.title.replace("Quest", "")
 			dict[from_node.title]["exitDialogue"] = true
 			dict[from_node.title].erase("branchID%s" % from_branch_choice)
-			
+		if to_node is LoveNode:
+			dict[from_node.title]["love_points"] = to_node.get_love_points()
+		
 			
 	for i in $GraphEdit.get_children().size():
 		var child = $GraphEdit.get_child(i)
@@ -122,7 +131,12 @@ func save_connection_list_to_dict() -> void:
 					if dict[child.title].has(branch_value) and dict[child.title][branch_value] != "":
 						to_branch = dict[child.title][branch_value]
 					dict[child.title].erase(branch_value)
-				dict[child.title]["nextDialogue"] = to_branch
+				if not dict[child.title].has("love_points"):
+					dict[child.title]["nextDialogue"] = to_branch
+				else:
+					dict[child.title]["connected_love_node"] = to_branch
+					if dict[to_branch].has("nextDialogue"):
+						dict[child.title]["afterLoveDialogue"] = dict[to_branch]["nextDialogue"]
 			elif branch_amount == 0 and child is BaseBranch:
 				dict[child.title]["exitDialogue"] = true
 	
@@ -171,13 +185,7 @@ func parse_connection_dict(dict: Dictionary) -> void:
 		printerr("Cannot read file!")
 	
 	for i in node_dict.keys().size():
-		if not node_dict.keys()[i].begins_with("Quest"):
-			var branch = base_branch_scn.instance()
-			$GraphEdit.add_child(branch)
-			branch.title = node_dict.keys()[i]
-			branch.get_node("BranchID").text = branch.title
-			branch.offset = Vector2(node_dict.values()[i][0], node_dict.values()[i][1])
-		else:
+		if node_dict.keys()[i].begins_with("Quest"):
 			var quest = quest_scn.instance()
 			$GraphEdit.add_child(quest)
 			var key_string = node_dict.keys()[i]
@@ -185,7 +193,23 @@ func parse_connection_dict(dict: Dictionary) -> void:
 			quest.title = quest.name
 			quest.get_node("LineEdit").text = quest.name.replace("Quest", "")
 			quest.offset = Vector2(node_dict.values()[i][0], node_dict.values()[i][1])
-			
+		elif node_dict.keys()[i].begins_with("Love"):
+			var love_node = love_node_scn.instance()
+			$GraphEdit.add_child(love_node)
+			var key_string = node_dict.keys()[i]
+			var value = node_dict.values()[i]
+			love_node.title = key_string
+			love_node.name = love_node.title
+			love_node.get_node("ID").text = love_node.name.replace("Love", "")
+			love_node.get_node("LineEdit").text = str(value[2])
+			love_node.offset = Vector2(node_dict.values()[i][0], node_dict.values()[i][1])
+		else:
+			var branch = base_branch_scn.instance()
+			$GraphEdit.add_child(branch)
+			branch.title = node_dict.keys()[i]
+			branch.get_node("BranchID").text = branch.title
+			branch.offset = Vector2(node_dict.values()[i][0], node_dict.values()[i][1])
+
 		
 	# connecting nodes
 	var keys = dict.keys()
@@ -213,6 +237,11 @@ func parse_connection_dict(dict: Dictionary) -> void:
 			elif found.begins_with("branchText"):
 				var index := int(found.replace("branchText", ""))
 				from.get_node("LineEdit%s" % index).text = branches.values()[j]
+			elif found.begins_with("connected_love_node"):
+				var from_port = 1
+				var to_port = 0
+				var to = get_node_from_title(branches.values()[j])
+				$GraphEdit.connect_node(from.name, from_port, to.name, to_port)
 	
 	update_translations($Bar/hbox/TranslationFiles.selected)		
 
@@ -288,3 +317,10 @@ func save_csv() -> void:
 						file.store_line(choice_string)
 		file.store_line("END,,,")
 		file.close()
+
+
+func _on_add_love():
+	var love_node = love_node_scn.instance()
+	$GraphEdit.add_child(love_node)
+	love_node.offset = $GraphEdit.scroll_offset + Vector2(600, 260)
+	node_index += 1

@@ -118,11 +118,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ClearGraph" type="Button" parent="."]
-margin_left = 1075.31
-margin_top = 6.18202
-margin_right = 1189.31
-margin_bottom = 27.182
+[node name="AddLove" type="Button" parent="Bar/hbox"]
+margin_left = 754.0
+margin_right = 824.0
+margin_bottom = 32.0
+text = "Add love"
+
+[node name="ClearGraph" type="Button" parent="Bar/hbox"]
+margin_left = 828.0
+margin_right = 922.0
+margin_bottom = 32.0
 text = "Clear Graph"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -147,4 +152,5 @@ __meta__ = {
 [connection signal="item_selected" from="Bar/hbox/TranslationFiles" to="." method="update_translations"]
 [connection signal="pressed" from="Bar/hbox/BranchButton" to="." method="_on_add_branch_pressed"]
 [connection signal="pressed" from="Bar/hbox/AddQuest" to="." method="_on_add_quest"]
-[connection signal="pressed" from="ClearGraph" to="." method="clear_graph"]
+[connection signal="pressed" from="Bar/hbox/AddLove" to="." method="_on_add_love"]
+[connection signal="pressed" from="Bar/hbox/ClearGraph" to="." method="clear_graph"]

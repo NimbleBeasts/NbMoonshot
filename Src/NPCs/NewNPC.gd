@@ -65,6 +65,11 @@ func onNoBranchButtonPressed() -> void:
 		setCurrentBranch(loadedDialogue.get(currentBranchID))
 		sayBranch(currentBranch)
 		return
+	if currentBranch.has("afterLoveDialogue"):
+		currentBranchID = currentBranch["afterLoveDialogue"]
+		setCurrentBranch(loadedDialogue.get(currentBranchID))
+		sayBranch(currentBranch)
+		return
 
 	exitDialogue()
 
