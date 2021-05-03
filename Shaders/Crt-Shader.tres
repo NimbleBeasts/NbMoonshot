@@ -85,15 +85,15 @@ void fragment() {
 [resource]
 shader = SubResource( 1 )
 shader_param/boost = 1.0
-shader_param/grille_opacity = 0.95
-shader_param/scanlines_opacity = 0.95
-shader_param/vignette_opacity = 0.1
-shader_param/scanlines_speed = 1.0
+shader_param/grille_opacity = 0.9
+shader_param/scanlines_opacity = 0.96
+shader_param/vignette_opacity = 0.15
+shader_param/scanlines_speed = 0.0
 shader_param/show_grille = true
 shader_param/show_scanlines = true
 shader_param/show_vignette = true
-shader_param/show_curvature = true
+shader_param/show_curvature = false
 shader_param/screen_size = Vector2( 640, 360 )
 shader_param/aberration_amount = 0.0
 shader_param/move_aberration = false
-shader_param/aberration_speed = 1.0
+shader_param/aberration_speed = 4.01
