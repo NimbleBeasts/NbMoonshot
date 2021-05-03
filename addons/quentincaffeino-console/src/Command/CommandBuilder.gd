@@ -25,6 +25,9 @@ var _arguments
 # @var  String|null
 var _description
 
+# @var FuncRef
+var _conditional_function
+
 
 # @param  Console         console
 # @param  CommandService  command_service
@@ -39,6 +42,7 @@ func _init(console, command_service, name, target, target_name = null):
 	self._target = self._initialize_target_callback(target, target_name)
 	self._arguments = []
 	self._description = null
+	self._conditional_function = null
 
 
 # @param    Reference    target
@@ -89,6 +93,9 @@ func add_argument(name, type = null, description = null):
 	self._arguments.append(argument)
 	return self
 
+func add_restriction_condition(conditional_function: FuncRef):
+	self._conditional_function = conditional_function
+	return self
 
 # @deprecated
 # @param    String|null  description
@@ -106,7 +113,7 @@ func set_description(description = null):
 
 # @returns  void
 func register():
-	var command = Command.new(self._name, self._target, self._arguments, self._description)
+	var command = Command.new(self._name, self._target, self._arguments, self._description, self._conditional_function)
 	if not self._command_service.set(self._name, command):
 		print("Command already existis")
 		return

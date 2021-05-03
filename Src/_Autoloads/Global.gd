@@ -121,6 +121,7 @@ const gameConstant = {
 
 var gameState = {
 	date = 0,
+	cheats = false,
 	playerUpgrades = [],
 	money = 0,
 	playerOfficeDoorIsOpen = false,
@@ -183,9 +184,13 @@ func _ready():
 	rng.randomize()
 	loadConfig()
 	switchFullscreen()
-	
 
-	
+func getCheatState():
+	if gameState.has("cheats"):
+		if gameState.get("cheats"):
+			return true
+	return false
+
 func getDateTimeStringFromUnixTime(unixTime):
 	var dict = OS.get_datetime_from_unix_time(unixTime)
 	return "%0*d" % [2, dict.day] + "/"  + "%0*d" % [2, dict.month] + "/" + str(dict.year) + " - " + "%0*d" % [2, dict.hour] + ":" + "%0*d" % [2, dict.minute]

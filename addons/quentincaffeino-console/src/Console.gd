@@ -97,6 +97,7 @@ func _input(e):
 		self.toggle_console()
 
 
+
 # @returns  Command/CommandService
 func get_command_service():
 	return self._command_service
@@ -215,12 +216,14 @@ func toggle_console():
 		self.Line.clear()
 		self.Line.grab_focus()
 		self._animationPlayer.play_backwards('fade')
+		get_tree().paused = true
 	else:
 		self.Line.accept_event() # Prevents from DefaultActions.action_console_toggle key character getting into previous_focus_owner value
 		if is_instance_valid(previous_focus_owner):
 			previous_focus_owner.grab_focus()
 		previous_focus_owner = null
 		self._animationPlayer.play('fade')
+		get_tree().paused = false
 
 	is_console_shown = !self.is_console_shown
 	emit_signal("toggled", is_console_shown)

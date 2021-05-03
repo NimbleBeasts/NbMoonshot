@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 var state = Types.GameStates.Menu
 var levelNode = null
@@ -33,29 +33,55 @@ func _ready():
 	
 	switchTo(Types.GameStates.Menu)
 	
+	debugCheatMode()
 	debugPlayerSkills()
 	debugMoney()
 
 
-func debugMoney():
-	var cat = Debug.addCategory("Money")
-	Debug.addOption(cat, "Add 1000", funcref(Global, "addMoney"), 1000)
-	Debug.addOption(cat, "Remove 200", funcref(Global, "addMoney"), -200)
+func debugCheatMode():
+	Console.add_command("iamacheater", self, "debugActivateCheats")\
+		.set_description("Activates cheats. Notice: You wont receive any achievements.")\
+		.register()
 
+
+func debugMoney():
+#	var cat = Debug.addCategory("Money")
+#	Debug.addOption(cat, "Add 1000", funcref(Global, "addMoney"), 1000)
+#	Debug.addOption(cat, "Remove 200", funcref(Global, "addMoney"), -200)
+	Console.add_command("money_add", Global, "addMoney")\
+		.set_description("(CHEAT) Adds or substracts money.")\
+		.add_argument('amount', TYPE_INT)\
+		.add_restriction_condition(funcref(Global, "getCheatState"))\
+		.register()
 
 
 func debugPlayerSkills():
-	var cat = Debug.addCategory("PlayerSkills")
-	Debug.addOption(cat, "List", funcref(self, "debugListSkills"), null)
-	for skill in Global.upgrades:
-		Debug.addOption(cat, "add: " + skill.name, funcref(self, "debugAddSkill"), skill.id)
+#	var cat = Debug.addCategory("PlayerSkills")
+#	Debug.addOption(cat, "List", funcref(self, "debugListSkills"), null)
+#	for skill in Global.upgrades:
+#		Debug.addOption(cat, "add: " + skill.name, funcref(self, "debugAddSkill"), skill.id)
+	Console.add_command("skill_list", self, "debugListSkills")\
+		.set_description("List active skills.")\
+		.register()
+		
+	Console.remove_command("skill_add")
+	Console.add_command("skill_add", self, "debugAddSkill")\
+		.set_description("(CHEAT) Adds a skill.")\
+		.add_argument('id', TYPE_INT)\
+		.add_restriction_condition(funcref(Global, "getCheatState"))\
+		.register()
+
+func debugActivateCheats():
+	Global.gameState.cheats = true
+	Console.write_line("Cheats have been activated.")
 
 func debugAddSkill(id):
 	Global.gameState.playerUpgrades.append(id)
+	debugListSkills()
 	
-func debugListSkills(_d):
-	print("PlayerSkills:")
-	print(str(Global.gameState.playerUpgrades))
+func debugListSkills():
+	Console.write_line("Player skills:")
+	Console.write_line(str(Global.gameState.playerUpgrades))
 
 # State Transition Function
 func switchTo(to):

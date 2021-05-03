@@ -45,13 +45,26 @@ func _ready():
 
 	if Global.DEBUG:
 		$HUDLayer/Display/IngameMenu/DebugPromo.show()
-		var cat = Debug.addCategory("HUD")
-		Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
-		Debug.addOption(cat, "HudToggle", funcref(self, "debugHudToggle"), null)
-		Debug.addOption(cat, "LightningToggle", funcref(self, "debugLightToggle"), null)
+#		var cat = Debug.addCategory("HUD")
+#		Debug.addOption(cat, "ShaderToggle", funcref(self, "debugShaderToggle"), null)
+#		Debug.addOption(cat, "HudToggle", funcref(self, "debugHudToggle"), null)
+#		Debug.addOption(cat, "LightningToggle", funcref(self, "debugLightToggle"), null)
 	else:
 		if $IngameMenu/DebugPromo:
 			$IngameMenu/DebugPromo.hide()
+
+	Console.remove_command("shader_toggle")
+	Console.add_command("shader_toggle", self, "debugShaderToggle")\
+		.set_description("Toggle retro shader.")\
+		.register()
+	Console.remove_command("hud_toggle")
+	Console.add_command("hud_toggle", self, "debugHudToggle")\
+		.set_description("Toggle hud.")\
+		.register()
+	Console.remove_command("lightning_toggle")
+	Console.add_command("lightning_toggle", self, "debugLightToggle")\
+		.set_description("Toggle lightning.")\
+		.register()
 
 	$HUDLayer/Display/GUI.visible = true
 	detected_value = Global.game_manager.getCurrentLevel().allowed_detections

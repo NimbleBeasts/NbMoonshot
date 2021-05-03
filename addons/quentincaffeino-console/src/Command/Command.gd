@@ -16,16 +16,19 @@ var _arguments
 # @var  String|null
 var _description
 
+# @var FuncRef
+var _conditional_function
 
 # @param  String       name
 # @param  Callback     target
 # @param  Argument[]   arguments
 # @param  String|null  description
-func _init(name, target, arguments = [], description = null):
+func _init(name, target, arguments = [], description = null, conditional_function = null):
 	self._name = name
 	self._target = target
 	self._arguments = arguments
 	self._description = description
+	self._conditional_function = conditional_function
 
 
 # @returns  String
@@ -47,6 +50,9 @@ func getArguments():
 func getDescription():
 	return self._description
 
+# @returns FuncRef
+func getConditionalFunction():
+	return self._conditional_function
 
 # @param    Array  inArgs
 # @returns  Variant
@@ -62,6 +68,11 @@ func execute(inArgs = []):
 			Console.Log.warn(\
 				'Expected %s %s as argument.' % [self._arguments[i].get_type().to_string(), str(i + 1)])
 			return
+		elif _conditional_function != null:
+			if not _conditional_function.call_func():
+				Console.Log.warn('Using this function is prohibited.')
+				Console.write_line('	' + self._description)
+				return
 		elif argAssig == Argument.ASSIGNMENT.CANCELED:
 			return OK
 
