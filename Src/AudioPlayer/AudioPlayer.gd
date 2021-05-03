@@ -1,12 +1,5 @@
 extends Node2D
 
-export (Array, AudioStream) var guardAlarmSounds
-export (Array, AudioStream) var guardSuspiciousSounds
-export (Array, AudioStream) var playerFootstepSounds
-export (Array, AudioStream) var playerCrouchWalkSounds
-export (Array, AudioStream) var dogBarkSounds
-export (Array, AudioStream) var eliteGuardDetectSounds
-
 
 export (AudioStream) var westernMusic
 export (AudioStream) var easternMusic
@@ -53,26 +46,9 @@ func setSoundVolume(value):
 func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0, 0)):
 	if Global.userConfig.soundVolume > 0:
 		match sound:				# should have made these enums instead, huh
-			"example":
-				$Example2D.volume_db = -20 + 12 * _volume
-				$Example2D.position = _pos
-				$Example2D.play()
-			"jump_down":
-				$PlayerSounds/JumpDown.play()
-
-			"jump_up":
-				$PlayerSounds/JumpUp.play()
-			"taser_hit":
-				$PlayerSounds/TaserHit.play()
-			"taser_deploy":
-				$PlayerSounds/TaserDeploy.play()
-			"minigame_fail":
-				$MinigameSounds/MinigameFail.play()
 			"test":
 				$Test.position = _pos
 				$Test.play()
-			"wirecut":
-				$MinigameSounds/WireCut.play()
 			"door_wooden_open":
 				$DoorSounds/WoodenOpen.position = _pos
 				$DoorSounds/WoodenOpen.play()
@@ -85,38 +61,20 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 			"door_metal_close":
 				$DoorSounds/MetalClose.position = _pos
 				$DoorSounds/MetalClose.play()
-			"lockpick_hit":
-				$MinigameSounds/Lockpick/Hit.play()
-			"lockpick_miss":
-				$MinigameSounds/Lockpick/Miss.play()
 			"car_open":
 				$ObjectSounds/CarOpen.play()
 			"car_close":
 				$ObjectSounds/CarClose.play()
 			"minigame_success":
 				$MinigameSounds/MinigameSuccess.play()
-			"player_footstep":
-				playRandomSound($PlayerSounds/Footstep, playerFootstepSounds)
-			"player_crouch_footstep":
-				playRandomSound($PlayerSounds/CrouchWalk, playerCrouchWalkSounds)
-			"laser_detect":
-				$ObjectSounds/LaserDetect.play()
-			"body_pickup":
-				$StunnedBody/BodyPickup.play()
-			"body_fall":
-				$StunnedBody/BodyFall.play()
+			"minigame_fail":
+				$MinigameSounds/MinigameFail.play()
 			"key_pickup":
 				$Key/KeyPickup.play()
-			"eliteguard_detect":
-				$EliteGuard/Detect.position = _pos
-				playRandomSound($EliteGuard/Detect, eliteGuardDetectSounds)
-			"eliteguard_taser":
-				$EliteGuard/TaserDeploy.position = _pos
-				$EliteGuard/Taser.position = _pos
-				$EliteGuard/TaserDeploy.play()
-				$EliteGuard/Taser.play()
 			"key_use":
 				$Key/KeyUse.play()
+			"chest_bounty":
+				$Chest_Bounty.play()
 			_: 
 				print("error: sound not found - name: " + str(sound))
 
