@@ -151,7 +151,7 @@ func showMissionBriefing(level):
 	inMissionBriefing = true
 
 
-func debugLightToggle(_d):
+func debugLightToggle(_d = null):
 	level_lightning_level += 1
 	
 	if level_lightning_level >= Types.LevelLightning.size():
@@ -162,13 +162,13 @@ func debugLightToggle(_d):
 	print("LightLevel: " + str(Types.LevelLightning.keys()[level_lightning_level]))
 
 
-func debugShaderToggle(_d):
+func debugShaderToggle(_d = null):
 	if $HUDLayer/Shader.visible:
 		$HUDLayer/Shader.hide()
 	else:
 		$HUDLayer/Shader.show()
 
-func debugHudToggle(_d):
+func debugHudToggle(_d = null):
 	if $HUDLayer/Display.visible:
 		$HUDLayer/Display.hide()
 	else:
