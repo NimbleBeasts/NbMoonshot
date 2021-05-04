@@ -452,7 +452,7 @@ margin_left = 16.0
 margin_top = 72.0
 margin_right = 144.0
 margin_bottom = 96.0
-label = "Buy Upgrade"
+text = "Buy Upgrade"
 
 [node name="SaveGame" type="Control" parent="HUDLayer/Display"]
 pause_mode = 2
@@ -493,35 +493,35 @@ margin_left = 8.0
 margin_top = 32.0
 margin_right = 136.0
 margin_bottom = 56.0
-label = "Slot 1 (Overwrite)"
+text = "Slot 1"
 
 [node name="ButtonSave2" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
 margin_left = 8.0
 margin_top = 64.0
 margin_right = 136.0
 margin_bottom = 88.0
-label = "Slot 2"
+text = "Slot 2"
 
 [node name="ButtonSave3" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
 margin_left = 8.0
 margin_top = 96.0
 margin_right = 136.0
 margin_bottom = 120.0
-label = "Slot 3"
+text = "Slot 3"
 
 [node name="ButtonReturn" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
 margin_left = 8.0
 margin_top = 128.0
 margin_right = 136.0
 margin_bottom = 152.0
-label = "Back"
+text = "Back"
 
 [node name="ButtonSave" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
 margin_left = 152.0
 margin_top = 128.0
 margin_right = 280.0
 margin_bottom = 152.0
-label = "Save"
+text = "Save"
 
 [node name="Label" type="Label" parent="HUDLayer/Display/SaveGame/Menu"]
 margin_left = 9.0
@@ -618,6 +618,7 @@ __meta__ = {
 }
 
 [node name="NoBranchButton" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
+text = "Ok"
 
 [node name="Option0Button" parent="HUDLayer/Display/Dialog/vbox" instance=ExtResource( 16 )]
 margin_top = 28.0
@@ -644,7 +645,6 @@ hframes = 4
 
 [node name="IngameMenu" type="Control" parent="HUDLayer/Display"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -684,14 +684,14 @@ margin_left = 16.0
 margin_top = 12.0
 margin_right = 144.0
 margin_bottom = 36.0
-label = "Continue"
+text = "Continue"
 
 [node name="ButtonQuit" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 16 )]
 margin_left = 16.0
 margin_top = 116.0
 margin_right = 144.0
 margin_bottom = 140.0
-label = "Quit"
+text = "Quit"
 
 [node name="MusicSlider" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 22 )]
 margin_left = 16.0
@@ -731,14 +731,13 @@ text = "Toggle Promo"
 visible = false
 
 [node name="MissionBriefing" parent="HUDLayer/Display" instance=ExtResource( 13 )]
-visible = false
 
 [node name="StartMissionButton" parent="HUDLayer/Display/MissionBriefing" instance=ExtResource( 16 )]
 margin_left = 256.0
 margin_top = 328.0
 margin_right = 384.0
 margin_bottom = 352.0
-label = "Start Mission"
+text = "Lets Go"
 
 [node name="GameHint" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )

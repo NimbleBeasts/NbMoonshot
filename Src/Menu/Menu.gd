@@ -5,6 +5,14 @@ enum MenuState {Main, Settings, LoadGame, Credits}
 var loadSlot = -1
 var saveFiles
 
+const supportedResolutions = [
+	Vector2(1024, 768), #0.26%
+	Vector2(1366, 768), #7.47%
+	Vector2(1920, 1080), #67.60%
+	Vector2(2560, 1440), #8.23%
+	Vector2(3840, 2160) #2.41%
+	]
+
 func _ready():
 	# Event Hooks
 	Events.connect_signal("menu_back", self, "_back")
@@ -25,6 +33,10 @@ func _ready():
 	else:
 		$Main/LevelSelect.hide()
 
+	#Populate Resolution List
+	for res in supportedResolutions:
+		$Settings/TabContainer/Graphics/ResolutionList.add_item(str(res.x) + "x" + str(res.y))
+	
 
 
 # Play menu button sound
@@ -44,7 +56,8 @@ func switchTo(to):
 				$Main/ButtonPlay.grab_focus()
 			$Main.show()
 		MenuState.Settings:
-			$Settings/SoundSlider.grab_focus()
+			#TODO
+			#$Settings/Sounds/SoundSlider.grab_focus()
 			updateSettings()
 			$Settings.show()
 		MenuState.LoadGame:
@@ -100,16 +113,16 @@ func updateSlotInfo(id):
 
 # Helper function to update the config labels
 func updateSettings():
-	$Settings/SoundSlider.value = Global.userConfig.soundVolume
-	$Settings/SoundSlider/Percentage.set_text(str(Global.userConfig.soundVolume*10) + "%")
+	$Settings/TabContainer/Sounds/SoundSlider.value = Global.userConfig.soundVolume
+	$Settings/TabContainer/Sounds/SoundSlider/Percentage.set_text(str(Global.userConfig.soundVolume*10) + "%")
 
-	$Settings/MusicSlider.value = Global.userConfig.musicVolume
-	$Settings/MusicSlider/Percentage.set_text(str(Global.userConfig.musicVolume*10) + "%")
+	$Settings/TabContainer/Sounds/MusicSlider.value = Global.userConfig.musicVolume
+	$Settings/TabContainer/Sounds/MusicSlider/Percentage.set_text(str(Global.userConfig.musicVolume*10) + "%")
 
 	if Global.userConfig.fullscreen:
-		$Settings/ButtonFullscreen.updateLabel("On")
+		$Settings/TabContainer/Graphics/ButtonFullscreen.text = "On"
 	else:
-		$Settings/ButtonFullscreen.updateLabel("Off")
+		$Settings/TabContainer/Graphics/ButtonFullscreen.text = "Off"
 
 ###############################################################################
 # Callbacks
@@ -186,12 +199,12 @@ func _on_Copyright_meta_clicked(meta):
 
 
 func _on_SoundSlider_value_changed(value):
-	$Settings/SoundSlider/Percentage.set_text(str(value*10) + "%")
+	$Settings/TabContainer/Sounds/SoundSlider/Percentage.set_text(str(value*10) + "%")
 	Events.emit_signal("cfg_sound_set_volume", value)
 
 
 func _on_MusicSlider_value_changed(value):
-	$Settings/MusicSlider/Percentage.set_text(str(value*10) + "%")
+	$Settings/TabContainer/Sounds/MusicSlider/Percentage.set_text(str(value*10) + "%")
 	Events.emit_signal("cfg_music_set_volume", value)
 
 

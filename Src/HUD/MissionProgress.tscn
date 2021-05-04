@@ -69,6 +69,6 @@ margin_left = 256.0
 margin_top = 320.0
 margin_right = 384.0
 margin_bottom = 344.0
-label = "Continue"
+text = "Okay"
 
 [connection signal="button_up" from="BaseButton" to="." method="_on_BaseButton_button_up"]

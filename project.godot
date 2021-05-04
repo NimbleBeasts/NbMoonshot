@@ -224,6 +224,11 @@ window/stretch/aspect="keep"
 
 enabled=PoolStringArray( "res://addons/DialogueEditor/plugin.cfg", "res://addons/LevelChecker/plugin.cfg", "res://addons/quentincaffeino-console/plugin.cfg" )
 
+[gui]
+
+theme/custom="res://default_theme.tres"
+theme/custom_font="res://Assets/Fonts/MagoFont3_16.tres"
+
 [importer_defaults]
 
 texture={
