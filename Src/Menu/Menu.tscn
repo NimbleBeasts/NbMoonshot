@@ -16,7 +16,7 @@
 [ext_resource path="res://Assets/Menu/Slider/grabber-item.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Menu/Slider/tick.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Menu/Slider/grabber-item-selected.png" type="Texture" id=16]
-[ext_resource path="res://Assets/HUD/Dialog9PatchInnerInactive.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Theme/Dialog9PatchInnerInactive.png" type="Texture" id=17]
 [ext_resource path="res://Assets/HUD/Dialog9PatchInner.png" type="Texture" id=18]
 [ext_resource path="res://Assets/HUD/TabInActive.png" type="Texture" id=19]
 [ext_resource path="res://Assets/HUD/TabActive.png" type="Texture" id=20]
@@ -56,29 +56,9 @@ margin_right = 6.0
 margin_top = 6.0
 margin_bottom = 6.0
 
-[sub_resource type="StyleBoxTexture" id=5]
-content_margin_left = 6.0
-content_margin_right = 6.0
-content_margin_top = 6.0
-content_margin_bottom = 6.0
-texture = ExtResource( 18 )
-region_rect = Rect2( 0, 0, 16, 16 )
-margin_left = 6.0
-margin_right = 6.0
-margin_top = 6.0
-margin_bottom = 6.0
+[sub_resource type="StyleBoxEmpty" id=10]
 
-[sub_resource type="StyleBoxTexture" id=6]
-content_margin_left = 6.0
-content_margin_right = 6.0
-content_margin_top = 6.0
-content_margin_bottom = 6.0
-texture = ExtResource( 17 )
-region_rect = Rect2( 0, 0, 16, 16 )
-margin_left = 6.0
-margin_right = 6.0
-margin_top = 6.0
-margin_bottom = 6.0
+[sub_resource type="StyleBoxEmpty" id=11]
 
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 13 )
@@ -235,6 +215,7 @@ __meta__ = {
 }
 
 [node name="General" type="Tabs" parent="Settings/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 6.0
@@ -268,7 +249,6 @@ margin_bottom = 131.0
 text = "Credits"
 
 [node name="Graphics" type="Tabs" parent="Settings/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 6.0
@@ -300,14 +280,28 @@ custom_fonts/font = ExtResource( 7 )
 text = "Fullscreen"
 valign = 1
 
+[node name="NinePatchRect" type="NinePatchRect" parent="Settings/TabContainer/Graphics"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 210.0
+margin_bottom = 65.0
+texture = ExtResource( 17 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ResolutionList" type="ItemList" parent="Settings/TabContainer/Graphics"]
 margin_left = 10.0
-margin_top = 3.0
+margin_top = 9.0
 margin_right = 202.0
-margin_bottom = 59.0
+margin_bottom = 57.0
 theme = ExtResource( 21 )
-custom_styles/bg_focus = SubResource( 5 )
-custom_styles/bg = SubResource( 6 )
+custom_styles/bg_focus = SubResource( 10 )
+custom_styles/bg = SubResource( 11 )
 custom_fonts/font = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
