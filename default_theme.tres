@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=2]
+[gd_resource type="Theme" load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Theme/buttonSmall4.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Theme/buttonSmall3.png" type="Texture" id=2]
@@ -39,6 +39,30 @@ margin_right = 4.0
 margin_top = 4.0
 margin_bottom = 4.0
 
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color( 0.541176, 0.313726, 0.243137, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color( 0.709804, 0.501961, 0.341176, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.360784, 0.227451, 0.254902, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.235294, 0.160784, 0.25098, 1 )
+
 [resource]
 default_font = ExtResource( 5 )
 Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
@@ -52,3 +76,12 @@ Button/styles/focus = SubResource( 2 )
 Button/styles/hover = SubResource( 3 )
 Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 4 )
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = SubResource( 5 )
+VScrollBar/styles/grabber_highlight = SubResource( 6 )
+VScrollBar/styles/grabber_pressed = SubResource( 7 )
+VScrollBar/styles/scroll = SubResource( 8 )
+VScrollBar/styles/scroll_focus = null
