@@ -5,13 +5,7 @@ enum MenuState {Main, Settings, LoadGame, Credits}
 var loadSlot = -1
 var saveFiles
 
-const supportedResolutions = [
-	Vector2(1024, 768), #0.26%
-	Vector2(1366, 768), #7.47%
-	Vector2(1920, 1080), #67.60%
-	Vector2(2560, 1440), #8.23%
-	Vector2(3840, 2160) #2.41%
-	]
+
 
 func _ready():
 	# Event Hooks
@@ -34,9 +28,15 @@ func _ready():
 		$Main/LevelSelect.hide()
 
 	#Populate Resolution List
-	for res in supportedResolutions:
+	for res in Global.supportedResolutions:
 		$Settings/TabContainer/Graphics/ResolutionList.add_item(str(res.x) + "x" + str(res.y))
-	
+		
+		var resolution = Vector2(Global.userConfig.resolution.w, Global.userConfig.resolution.h)
+		if resolution == res:
+			var id = $Settings/TabContainer/Graphics/ResolutionList.get_item_count() - 1
+			$Settings/TabContainer/Graphics/ResolutionList.select(id, true)
+
+
 
 
 # Play menu button sound
@@ -223,3 +223,9 @@ func _on_ButtonShader_button_up():
 func _on_SteamTest_button_up():
 	SteamWorks.setAchievement(Types.Achievement.Test)
 
+
+
+func _on_ButtonVideoApply_button_up():
+	var id = $Settings/TabContainer/Graphics/ResolutionList.get_selected_items()[0]
+	Global.setResolution(id)
+	

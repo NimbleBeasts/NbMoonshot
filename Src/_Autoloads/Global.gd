@@ -24,7 +24,7 @@ extends Node
 
 # Version
 const GAME_VERSION = 0.5
-const CONFIG_VERSION = 1 # Used for config migration
+const CONFIG_VERSION = 2 # Used for config migration
 
 # Debug Options
 const DEBUG = true
@@ -37,6 +37,14 @@ const NB_PLUGIN_CONFIG = {
 	"magic": "magiccode",
 	"devlogUrl": "https://raw.githubusercontent.com/NimbleBeasts/GameLogs/master/GameOff_"+ str(GAME_VERSION) +".txt"
 }
+
+const supportedResolutions = [
+	Vector2(1280, 720), #our default
+	Vector2(1366, 768), #7.47%
+	Vector2(1920, 1080), #67.60%
+	Vector2(2560, 1440), #8.23%
+	Vector2(3840, 2160) #2.41%
+	]
 
 # Level Array
 # mago: Renaming the missions, kept the order for now. Add your new level before testlevel.tscn
@@ -155,7 +163,8 @@ var userConfig = {
 	"soundVolume": 8,
 	"musicVolume": 8,
 	"shader": true,
-	"fullscreen": false
+	"fullscreen": false,
+	"resolution": {"w": 1280, "h": 720}
 }
 
 # RNG base
@@ -269,6 +278,7 @@ func loadConfig():
 	userConfig.musicVolume = data.musicVolume
 	userConfig.soundVolume = data.soundVolume
 	userConfig.shader = data.shader
+	userConfig.resolution = data.resolution
 	# When stuck here, the config attributes have been changed.
 	# Delete the Config.cfg to solve this issue.
 	# Project->Open Project Data Folder-> Config.cfg
@@ -287,6 +297,9 @@ func migrateConfig(data):
 				data.musicVolume = 8
 				data.shader = true
 				data.configVersion = 1
+			"1":
+				data.resolution = {"w": 1280, "h": 720}
+				data.configVersion = 2
 			_:
 				print("error: migration variant ("+ str(data.configVersion)+ ") not found")
 	return data
@@ -299,7 +312,15 @@ func setFullscreen(val: bool):
 	
 	switchFullscreen()
 
+func setResolution(val: int):
+	userConfig.resolution = {
+		"w": supportedResolutions[val].x,
+		"h": supportedResolutions[val].y
+	}
+	saveConfig()
 	
+	switchResolution()
+
 func newGameState() -> void:
 	Global.gameState = {
 	playerUpgrades = [],
@@ -319,10 +340,17 @@ func newGameState() -> void:
 
 }
 
+func switchResolution():
+	OS.set_window_size(Vector2(userConfig.resolution.w, userConfig.resolution.h))
+	#Center the window
+	OS.center_window()
+
 # Perform Fullscreen Switch
 func switchFullscreen():
 	if not userConfig.fullscreen:
 		OS.window_fullscreen = false
+		switchResolution()
+		
 	else:
 		OS.window_fullscreen = true
 
