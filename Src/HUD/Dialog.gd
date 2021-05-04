@@ -42,7 +42,7 @@ func _input(event: InputEvent) -> void:
 
 
 func onUpdateDialogOption(buttonType: int, newText: String) -> void:
-	get_node("vbox/" + Types.DialogButtons.keys()[buttonType] + "Button").updateLabel(newText)
+	get_node("vbox/" + Types.DialogButtons.keys()[buttonType] + "Button").text = newText
 
 
 func changeButtonState(buttonType: int, enabled) -> void:
