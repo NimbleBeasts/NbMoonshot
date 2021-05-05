@@ -56,10 +56,6 @@ margin_right = 6.0
 margin_top = 6.0
 margin_bottom = 6.0
 
-[sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="StyleBoxEmpty" id=6]
-
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 12, 6 )
@@ -83,6 +79,10 @@ margin_left = 2.0
 margin_right = 2.0
 margin_top = 2.0
 margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
 
 [node name="Menu" type="Control"]
 pause_mode = 2
@@ -215,7 +215,6 @@ __meta__ = {
 }
 
 [node name="General" type="Tabs" parent="Settings/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 6.0
@@ -223,16 +222,92 @@ margin_top = 31.0
 margin_right = -6.0
 margin_bottom = -6.0
 
+[node name="BrightnessSlider" type="HSlider" parent="Settings/TabContainer/General"]
+margin_left = 74.0
+margin_top = 41.0
+margin_right = 186.0
+margin_bottom = 65.0
+custom_icons/tick = ExtResource( 15 )
+custom_icons/grabber_highlight = ExtResource( 16 )
+custom_icons/grabber = ExtResource( 14 )
+custom_styles/slider = SubResource( 7 )
+custom_styles/grabber_area_highlight = SubResource( 8 )
+custom_styles/grabber_area = SubResource( 9 )
+min_value = 0.75
+max_value = 1.25
+step = 0.05
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Settings/TabContainer/General/BrightnessSlider"]
+margin_left = -72.0
+margin_right = -6.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 7 )
+text = "Brightness"
+valign = 1
+
+[node name="Percentage" type="Label" parent="Settings/TabContainer/General/BrightnessSlider"]
+margin_left = 114.0
+margin_right = 138.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 7 )
+text = "1.00"
+align = 2
+valign = 1
+
+[node name="ContrastSlider" type="HSlider" parent="Settings/TabContainer/General"]
+margin_left = 74.0
+margin_top = 73.0
+margin_right = 186.0
+margin_bottom = 97.0
+custom_icons/tick = ExtResource( 15 )
+custom_icons/grabber_highlight = ExtResource( 16 )
+custom_icons/grabber = ExtResource( 14 )
+custom_styles/slider = SubResource( 7 )
+custom_styles/grabber_area_highlight = SubResource( 8 )
+custom_styles/grabber_area = SubResource( 9 )
+min_value = 0.75
+max_value = 1.25
+step = 0.05
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Settings/TabContainer/General/ContrastSlider"]
+margin_left = -72.0
+margin_right = -6.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 7 )
+text = "Contrast"
+valign = 1
+
+[node name="Percentage" type="Label" parent="Settings/TabContainer/General/ContrastSlider"]
+margin_left = 114.0
+margin_right = 138.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 7 )
+text = "1.00"
+align = 2
+valign = 1
+
 [node name="ButtonShader" parent="Settings/TabContainer/General" instance=ExtResource( 5 )]
-margin_left = 138.0
-margin_top = 11.0
-margin_right = 202.0
-margin_bottom = 35.0
+margin_left = 146.0
+margin_top = 9.0
+margin_right = 210.0
+margin_bottom = 33.0
 text = "On"
 
 [node name="Label2" type="Label" parent="Settings/TabContainer/General/ButtonShader"]
-margin_left = -128.0
-margin_right = -49.0
+margin_left = -144.0
+margin_right = -65.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 7 )
 text = "Retro Shader"
@@ -249,6 +324,7 @@ margin_bottom = 131.0
 text = "Credits"
 
 [node name="Graphics" type="Tabs" parent="Settings/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 6.0
@@ -604,6 +680,8 @@ __meta__ = {
 [connection signal="button_up" from="Main/ButtonLoad" to="." method="_on_ButtonLoad_button_up"]
 [connection signal="button_up" from="Main/ButtonSettings" to="." method="_on_ButtonSettings_button_up"]
 [connection signal="button_up" from="Main/ButtonExit" to="." method="_on_ButtonExit_button_up"]
+[connection signal="value_changed" from="Settings/TabContainer/General/BrightnessSlider" to="." method="_on_BrightnessSlider_value_changed"]
+[connection signal="value_changed" from="Settings/TabContainer/General/ContrastSlider" to="." method="_on_ContrastSlider_value_changed"]
 [connection signal="button_up" from="Settings/TabContainer/General/ButtonShader" to="." method="_on_ButtonShader_button_up"]
 [connection signal="button_up" from="Settings/TabContainer/General/ButtonCredits" to="." method="_on_ButtonCredits_button_up"]
 [connection signal="button_up" from="Settings/TabContainer/Graphics/ButtonVideoApply" to="." method="_on_ButtonVideoApply_button_up"]

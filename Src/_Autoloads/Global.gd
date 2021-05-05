@@ -164,6 +164,8 @@ var userConfig = {
 	"musicVolume": 8,
 	"shader": true,
 	"fullscreen": false,
+	"brightness": 1.0,
+	"contrast": 1.0,
 	"resolution": {"w": 1280, "h": 720}
 }
 
@@ -279,6 +281,8 @@ func loadConfig():
 	userConfig.soundVolume = data.soundVolume
 	userConfig.shader = data.shader
 	userConfig.resolution = data.resolution
+	userConfig.brightness = data.brightness
+	userConfig.contrast = data.contrast
 	# When stuck here, the config attributes have been changed.
 	# Delete the Config.cfg to solve this issue.
 	# Project->Open Project Data Folder-> Config.cfg
@@ -299,6 +303,8 @@ func migrateConfig(data):
 				data.configVersion = 1
 			"1":
 				data.resolution = {"w": 1280, "h": 720}
+				data.brightness = 1.0
+				data.contrast = 1.0
 				data.configVersion = 2
 			_:
 				print("error: migration variant ("+ str(data.configVersion)+ ") not found")

@@ -70,6 +70,10 @@ signal cfg_music_set_volume(new)
 signal cfg_switch_fullscreen(value)
 ## Emitted if shader option is changed in menus
 signal cfg_switch_shader(value)
+## Emitted if the brightness is changed in menus
+signal cfg_change_brightness(value)
+## Emitted if the contrast is changed in menus
+signal cfg_change_contrast(value)
 
 ###########################################################################
 # Detection

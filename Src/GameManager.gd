@@ -23,6 +23,9 @@ func _ready():
 	# Event Hooks
 	Events.connect("cfg_music_set_volume", self, "setMusicVolume")
 	Events.connect("cfg_sound_set_volume", self, "setSoundVolume")
+	Events.connect("cfg_change_brightness", self, "setBrightness")
+	Events.connect("cfg_change_contrast", self, "setContrast")
+
 	Events.connect("cfg_switch_shader", self, "switchShader")
 	Events.connect_signal("cfg_switch_fullscreen", self, "_switchFullscreen")
 	Events.connect_signal("new_game", self, "_newGame")
@@ -36,6 +39,10 @@ func _ready():
 	debugCheatMode()
 	debugPlayerSkills()
 	debugMoney()
+	
+	# Set (shared) world brightness 
+	$gameViewport/Viewport/WorldEnvironment.environment.adjustment_brightness = Global.userConfig.brightness
+	$gameViewport/Viewport/WorldEnvironment.environment.adjustment_contrast = Global.userConfig.contrast
 
 
 func debugCheatMode():
@@ -156,6 +163,17 @@ func setSoundVolume(value):
 # Event Hook: Update user config for music
 func setMusicVolume(value):
 	Global.userConfig.musicVolume = value
+	Global.saveConfig()
+
+func setBrightness(value):
+	print(value)
+	$gameViewport/Viewport/WorldEnvironment.environment.adjustment_brightness = value
+	Global.userConfig.brightess = value
+	Global.saveConfig()
+
+func setContrast(value):
+	$gameViewport/Viewport/WorldEnvironment.environment.adjustment_contrast = value
+	Global.userConfig.contrast = value
 	Global.saveConfig()
 
 func switchShader(value):

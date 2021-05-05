@@ -4,28 +4,7 @@
 [ext_resource path="res://Assets/Menu/nbSplash.png" type="Texture" id=2]
 [ext_resource path="res://Src/Menu/Menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.tscn" type="PackedScene" id=4]
-
-[sub_resource type="Environment" id=1]
-background_mode = 4
-auto_exposure_max_luma = 2.74
-ssao_radius = 17.62
-ssao_intensity = 36.58
-ssao_radius2 = 29.11
-ssao_intensity2 = 42.13
-ssao_bias = 3.302
-ssao_light_affect = 0.86
-ssao_ao_channel_affect = 0.22
-dof_blur_far_distance = 406.39
-dof_blur_near_distance = 0.01
-glow_enabled = true
-glow_intensity = 0.51
-glow_strength = 0.86
-glow_bloom = 0.1
-glow_blend_mode = 1
-glow_hdr_threshold = 0.16
-glow_hdr_luminance_cap = 12.92
-glow_hdr_scale = 2.19
-adjustment_enabled = true
+[ext_resource path="res://default_environment.tres" type="Environment" id=5]
 
 [sub_resource type="Animation" id=2]
 tracks/0/type = "value"
@@ -66,7 +45,7 @@ audio_listener_enable_2d = true
 pause_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="gameViewport/Viewport"]
-environment = SubResource( 1 )
+environment = ExtResource( 5 )
 
 [node name="menuViewport" type="ViewportContainer" parent="."]
 anchor_right = 1.0
@@ -87,6 +66,9 @@ audio_listener_enable_2d = true
 
 [node name="Menu" parent="menuViewport/Viewport" instance=ExtResource( 3 )]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="menuViewport/Viewport"]
+environment = ExtResource( 5 )
+
 [node name="Debug" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
@@ -95,6 +77,7 @@ __meta__ = {
 }
 
 [node name="BootSplash" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
