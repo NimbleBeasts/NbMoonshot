@@ -168,7 +168,7 @@ func setMusicVolume(value):
 func setBrightness(value):
 	print(value)
 	$gameViewport/Viewport/WorldEnvironment.environment.adjustment_brightness = value
-	Global.userConfig.brightess = value
+	Global.userConfig.brightness = value
 	Global.saveConfig()
 
 func setContrast(value):
@@ -178,6 +178,7 @@ func setContrast(value):
 
 func switchShader(value):
 	Global.userConfig.shader = value
+	Global.saveConfig()
 
 # Event Hook: Switch to fullscreen mode and update user config
 func _switchFullscreen(value):

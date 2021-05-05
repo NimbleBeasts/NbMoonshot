@@ -218,8 +218,7 @@ func _on_ButtonFullscreen_button_up():
 	
 
 
-func _on_ButtonShader_button_up():#
-	print("click")
+func _on_ButtonShader_button_up():
 	if not Global.userConfig.shader:
 		$Settings/TabContainer/General/ButtonShader.text = "On"
 	else:

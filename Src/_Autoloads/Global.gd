@@ -253,6 +253,7 @@ func loadSave(slotId):
 
 # Config Save
 func saveConfig():
+	print("saved")
 	var cfgFile = File.new()
 	cfgFile.open("user://config.cfg", File.WRITE)
 	cfgFile.store_line(to_json(userConfig))
