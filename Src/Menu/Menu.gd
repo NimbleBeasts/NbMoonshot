@@ -172,17 +172,14 @@ func _on_ButtonExit_button_up():
 
 
 func _on_ButtonBack_button_up():
-	playClick()
 	switchTo(MenuState.Main)
 
 
 func _on_ButtonLoad_button_up():
-	playClick()
 	switchTo(MenuState.LoadGame)
 
 
 func _on_ButtonCredits_button_up():
-	playClick()
 	switchTo(MenuState.Credits)
 
 
@@ -221,7 +218,8 @@ func _on_ButtonFullscreen_button_up():
 	
 
 
-func _on_ButtonShader_button_up():
+func _on_ButtonShader_button_up():#
+	print("click")
 	if not Global.userConfig.shader:
 		$Settings/TabContainer/General/ButtonShader.text = "On"
 	else:

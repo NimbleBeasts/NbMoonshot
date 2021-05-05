@@ -587,9 +587,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -128.0
+margin_left = -160.0
 margin_top = -76.0
-margin_right = 128.0
+margin_right = 160.0
 margin_bottom = 148.0
 texture = ExtResource( 4 )
 patch_margin_left = 6
@@ -609,18 +609,20 @@ margin_right = -8.0
 margin_bottom = -8.0
 custom_fonts/normal_font = ExtResource( 9 )
 bbcode_enabled = true
-bbcode_text = "The NimbleBeasts Collective is a small and open independent development studio where anyone can participate - worldwide.  Support us, become part of the collective and buy our games, because they are really good. _
+bbcode_text = "The NimbleBeasts Collective is a small and open independent development studio where anyone can participate - worldwide.  Support us, become part of the collective and buy our games. Æ
 
-[color=#ffad3b]£ mago[/color] - PM & Pixels
-[color=#ffad3b]¤ knightmare[/color] - Coding
-[color=#ffad3b]¢ kodkuce[/color] - Coding
-[color=#ffad3b]~ SpaceCastle[/color] - Music & Sounds"
-text = "The NimbleBeasts Collective is a small and open independent development studio where anyone can participate - worldwide.  Support us, become part of the collective and buy our games, because they are really good. _
+[color=#ffad3b]mago[/color] - PM, Pixels & Levels
+[color=#ffad3b]knightmare[/color] - Coding
+[color=#ffad3b]kodkuce[/color] - Levels
+[color=#ffad3b]SpaceCastle[/color] - Music & Sounds
+[color=#ffad3b]Kukiol[/color] - Illustration"
+text = "The NimbleBeasts Collective is a small and open independent development studio where anyone can participate - worldwide.  Support us, become part of the collective and buy our games. Æ
 
-£ mago - PM & Pixels
-¤ knightmare - Coding
-¢ kodkuce - Coding
-~ SpaceCastle - Music & Sounds"
+mago - PM, Pixels & Levels
+knightmare - Coding
+kodkuce - Levels
+SpaceCastle - Music & Sounds
+Kukiol - Illustration"
 __meta__ = {
 "_edit_use_anchors_": false
 }
