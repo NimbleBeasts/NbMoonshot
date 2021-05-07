@@ -43,10 +43,12 @@ func flashColor():
 	showTimer.start(0.1)
 
 func showTimerTimeout() -> void:
+	randomize()
 	var index = randi() % Colors.keys().size()
 	
 	if currentFlash:
 		currentFlash.hide()
+	yield(get_tree().create_timer(0.1), "timeout")
 	currentFlash = $Lights.get_child(index)
 	flashedColors.append(index)
 	currentFlash.show()
