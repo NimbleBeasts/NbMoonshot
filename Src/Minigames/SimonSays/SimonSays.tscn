@@ -109,3 +109,6 @@ texture = ExtResource( 2 )
 color = Color( 0.870588, 0.415686, 0.219608, 1 )
 energy = 2.0
 range_layer_max = 10
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
