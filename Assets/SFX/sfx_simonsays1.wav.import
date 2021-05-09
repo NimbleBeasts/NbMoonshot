@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_simonsays1.wav-780c0bbd89cf54d9ac9c68cfdd6e1519.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/sfx_simonsays1.wav"
+dest_files=[ "res://.import/sfx_simonsays1.wav-780c0bbd89cf54d9ac9c68cfdd6e1519.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

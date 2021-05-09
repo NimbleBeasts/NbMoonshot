@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_wire_cut_2.wav-99210790dedb380adba601e40b22b12f.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/sfx_wire_cut_2.wav"
+dest_files=[ "res://.import/sfx_wire_cut_2.wav-99210790dedb380adba601e40b22b12f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

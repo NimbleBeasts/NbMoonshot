@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_fire_burning.wav-fd29634bf91263eca834a0299b051812.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/sfx_fire_burning.wav"
+dest_files=[ "res://.import/sfx_fire_burning.wav-fd29634bf91263eca834a0299b051812.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
