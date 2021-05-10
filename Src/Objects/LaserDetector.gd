@@ -216,3 +216,7 @@ func deactivate() -> void:
 	#$MotionTween.stop_all()
 	$MotionTween.playback_speed = 0
 	$AnimationPlayer.stop()
+
+
+func _on_LaserNoise_finished():
+	$LaserNoise.play()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Minigames/PhotoLine.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Minigames/Camera.png" type="Texture" id=2]
 [ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigame.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Minigames/PhotoBarTarget.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Minigames/PhotoBar.png" type="Texture" id=5]
+[ext_resource path="res://Assets/SFX/sfx_camera.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.601, 8 )
@@ -60,3 +61,8 @@ texture = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="Camera" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+attenuation = 2.0
+bus = "Sound"

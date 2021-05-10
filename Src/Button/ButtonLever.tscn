@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Switches/Lever.png" type="Texture" id=1]
 [ext_resource path="res://Src/Button/Button.gd" type="Script" id=2]
 [ext_resource path="res://Shaders/Outline.shader" type="Shader" id=3]
-[ext_resource path="res://Assets/SFX/button.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/SFX/sfx_lever.wav" type="AudioStream" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )

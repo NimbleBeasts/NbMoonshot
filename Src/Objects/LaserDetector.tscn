@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/Objects/LaserDetector.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Laser/LaserDetectorNode.png" type="Texture" id=2]
 [ext_resource path="res://Assets/SFX/laser_detect.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/SFX/sfx_laser.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2, 28 )
@@ -113,6 +114,13 @@ volume_db = -5.0
 attenuation = 2.0
 bus = "Sound"
 
+[node name="LaserNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.0
+autoplay = true
+attenuation = 2.0
+bus = "Sound"
+
 [connection signal="body_entered" from="BeamNode/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="BeamNode/Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="tween_completed" from="MotionTween" to="." method="_on_MotionTween_tween_completed"]
@@ -120,3 +128,4 @@ bus = "Sound"
 [connection signal="timeout" from="OffTimer" to="." method="_on_OffTimer_timeout"]
 [connection signal="timeout" from="DetectionDelay" to="." method="_on_DetectionDelay_timeout"]
 [connection signal="timeout" from="FlickerTimer" to="." method="_on_FlickerTimer_timeout"]
+[connection signal="finished" from="LaserNoise" to="." method="_on_LaserNoise_finished"]

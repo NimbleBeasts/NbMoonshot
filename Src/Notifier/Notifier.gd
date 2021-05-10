@@ -19,6 +19,7 @@ func popup(type):
 	
 	$Sprite.show()
 	$AnimationPlayer.play("popup")
+	$Notifier.play()
 	isShowing = true
 
 

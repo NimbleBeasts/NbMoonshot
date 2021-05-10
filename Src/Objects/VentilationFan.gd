@@ -17,3 +17,8 @@ func toggleState():
 		$AnimationPlayer.playback_speed = 0
 		$StaticBody2D/CollisionShape2D.disabled = true
 		$AnimationPlayer.stop()
+
+
+func _on_Fan_finished():
+	if not stoped:
+		$Fan.play()

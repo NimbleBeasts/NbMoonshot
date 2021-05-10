@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		lineDirection.x = 0
 		set_result(Types.MinigameResults.Succeeded)
 		Events.emit_signal("hud_photo_flash")
+		$Camera.play()
 		close()
 	elif not lineInTarget and Input.is_action_just_pressed("interact"):
 		set_result(Types.MinigameResults.Failed)

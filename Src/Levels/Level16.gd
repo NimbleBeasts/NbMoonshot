@@ -27,11 +27,13 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 # Called by AnimationPlayer
 func playBombSound():
 	if bombPlaced:
-		print("boom")
+		$LevelObjects/Objects/Trains/Wagons/WagonTarget/BombArea/Bomb.play()
 
 
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Pickupable"):
+		print("bomb armed")
+		$LevelObjects/Objects/Trains/Wagons/WagonTarget/BombArea/BombArm.play()
 		bombPlaced = true
 
 func _on_Area2D_area_exited(area):

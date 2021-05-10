@@ -8,6 +8,7 @@ var player
 
 func open():
 	$AnimationPlayer.play("open")
+	$Vault.play()
 	get_node(disabled_leaders).disabled = true
 	locked = false
 

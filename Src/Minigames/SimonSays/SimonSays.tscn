@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Src/Minigames/SimonSays/SimonSaysMinigame.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/LedLight.png" type="Texture" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://Assets/Minigames/SimonButton2.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Minigames/SimonButton3.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Minigames/SimonButton1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/SFX/sfx_simonsays1.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/SFX/sfx_simonsays2.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/SFX/sfx_simonsays3.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/SFX/sfx_simonsays4.wav" type="AudioStream" id=10]
 
 [node name="SimonSaysMinigame" type="Node2D"]
 script = ExtResource( 1 )
@@ -86,6 +90,13 @@ color = Color( 0.788235, 0.188235, 0.219608, 1 )
 energy = 2.0
 range_layer_max = 10
 
+[node name="Beep" type="AudioStreamPlayer2D" parent="Lights/Red"]
+position = Vector2( 22, 52 )
+stream = ExtResource( 7 )
+volume_db = -5.0
+attenuation = 2.0
+bus = "Sound"
+
 [node name="Green" type="Light2D" parent="Lights"]
 visible = false
 position = Vector2( -14, -52 )
@@ -93,6 +104,13 @@ texture = ExtResource( 2 )
 color = Color( 0.188235, 0.611765, 0.384314, 1 )
 energy = 2.0
 range_layer_max = 10
+
+[node name="Beep" type="AudioStreamPlayer2D" parent="Lights/Green"]
+position = Vector2( 14, 52 )
+stream = ExtResource( 8 )
+volume_db = -5.0
+attenuation = 2.0
+bus = "Sound"
 
 [node name="Blue" type="Light2D" parent="Lights"]
 visible = false
@@ -102,6 +120,13 @@ color = Color( 0.298039, 0.576471, 0.678431, 1 )
 energy = 2.0
 range_layer_max = 10
 
+[node name="Beep" type="AudioStreamPlayer2D" parent="Lights/Blue"]
+position = Vector2( 6, 52 )
+stream = ExtResource( 9 )
+volume_db = -5.0
+attenuation = 2.0
+bus = "Sound"
+
 [node name="Yellow" type="Light2D" parent="Lights"]
 visible = false
 position = Vector2( 2, -52 )
@@ -109,6 +134,13 @@ texture = ExtResource( 2 )
 color = Color( 0.870588, 0.415686, 0.219608, 1 )
 energy = 2.0
 range_layer_max = 10
+
+[node name="Beep" type="AudioStreamPlayer2D" parent="Lights/Yellow"]
+position = Vector2( -2, 52 )
+stream = ExtResource( 10 )
+volume_db = -5.0
+attenuation = 2.0
+bus = "Sound"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

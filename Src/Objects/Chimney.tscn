@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Objects/Home/Chimney_Anim3.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Objects/Home/Chimney_Anim1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Objects/Home/Chimney_Anim2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/SFX/sfx_fire_burning.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -13,7 +14,13 @@ animations = [ {
 } ]
 
 [node name="Chimney" type="AnimatedSprite"]
-position = Vector2( -596, 116 )
+position = Vector2( 0, -12 )
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
+
+[node name="Fire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+attenuation = 2.0
+bus = "Sound"

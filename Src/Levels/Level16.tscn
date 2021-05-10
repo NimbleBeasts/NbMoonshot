@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Src/Levels/Level16.gd" type="Script" id=1]
 [ext_resource path="res://Src/Train/Train.tscn" type="PackedScene" id=2]
@@ -27,24 +27,27 @@
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Assets/Popups/Pow.png" type="Texture" id=26]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Assets/SFX/sfx_bomb_arm.wav" type="AudioStream" id=28]
+[ext_resource path="res://Assets/SFX/sfx_explosion.wav" type="AudioStream" id=29]
+[ext_resource path="res://Assets/SFX/sfx_railroad_background.wav" type="AudioStream" id=30]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=46]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 128, 4 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 36, 8 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 104, 4 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 12, 4 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -85,7 +88,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 10, 8 )
 
 [sub_resource type="Animation" id=8]
@@ -116,7 +119,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.2, 0.2 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 10, 56 )
 
 [node name="Level16" type="Node2D"]
@@ -237,11 +240,21 @@ text = "Danger! Explosive!"
 highlight = true
 type = 1
 
-[node name="Area2D" type="Area2D" parent="LevelObjects/Objects/Trains/Wagons/WagonTarget"]
+[node name="BombArea" type="Area2D" parent="LevelObjects/Objects/Trains/Wagons/WagonTarget"]
 position = Vector2( 140, -24 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/WagonTarget/Area2D"]
-shape = SubResource( 9 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/WagonTarget/BombArea"]
+shape = SubResource( 2 )
+
+[node name="BombArm" type="AudioStreamPlayer2D" parent="LevelObjects/Objects/Trains/Wagons/WagonTarget/BombArea"]
+stream = ExtResource( 28 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="Bomb" type="AudioStreamPlayer2D" parent="LevelObjects/Objects/Trains/Wagons/WagonTarget/BombArea"]
+stream = ExtResource( 29 )
+attenuation = 2.0
+bus = "Sound"
 
 [node name="WagonOil" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 2 )]
 position = Vector2( 752, 256 )
@@ -348,14 +361,14 @@ position = Vector2( 120, -64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/WagonArms/Roof3"]
 position = Vector2( 0, -4 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Roof4" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Wagons/WagonArms"]
 position = Vector2( 260, -64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/WagonArms/Roof4"]
 position = Vector2( 0, -4 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="ThinArea" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 12 )]
 position = Vector2( 224, -64 )
@@ -392,7 +405,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Wagons/WagonArms/C4BoxCollider"]
 position = Vector2( -2, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Firework" parent="LevelObjects/Objects/Trains/Wagons/WagonArms" instance=ExtResource( 24 )]
 position = Vector2( 216, -24 )
@@ -408,7 +421,7 @@ lockLevel = 1
 doorType = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LevelObjects/Objects/Trains/Wagons"]
-anims/decouple = SubResource( 5 )
+anims/decouple = SubResource( 6 )
 
 [node name="Guard" parent="LevelObjects/Objects/Trains/Wagons" instance=ExtResource( 22 )]
 position = Vector2( 368, 232 )
@@ -430,13 +443,13 @@ unlocks = [ NodePath("../../../../..") ]
 position = Vector2( 224, -32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Train/RightBlocker"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="LeftBlocker" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Train"]
 position = Vector2( 0, -32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/Trains/Train/LeftBlocker"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -476,13 +489,18 @@ anims/pow = SubResource( 8 )
 position = Vector2( 165, 224 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="NPCS" type="Node2D" parent="."]
 
 [node name="Foreground" type="Node2D" parent="."]
 z_index = 51
 
-[connection signal="area_entered" from="LevelObjects/Objects/Trains/Wagons/WagonTarget/Area2D" to="." method="_on_Area2D_area_entered"]
-[connection signal="area_exited" from="LevelObjects/Objects/Trains/Wagons/WagonTarget/Area2D" to="." method="_on_Area2D_area_exited"]
+[node name="LaserDetect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+autoplay = true
+bus = "Sound"
+
+[connection signal="area_entered" from="LevelObjects/Objects/Trains/Wagons/WagonTarget/BombArea" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="LevelObjects/Objects/Trains/Wagons/WagonTarget/BombArea" to="." method="_on_Area2D_area_exited"]
 [connection signal="animation_finished" from="LevelObjects/Objects/Trains/Wagons/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

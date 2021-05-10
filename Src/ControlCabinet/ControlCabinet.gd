@@ -14,9 +14,14 @@ func _ready():
 func wireCutSuccess():
 	$AnimationPlayer.play("cracked")
 	for nodePath in deactivateAble:
+		$Spark.play()
 		var node = get_node(nodePath)
 		
 		if node.has_method("deactivate"):
 			node.deactivate()
 		else:
 			print("Error: " + str(nodePath) + " has no deactivate()")
+
+
+func _on_Spark_finished():
+	$Spark.play()

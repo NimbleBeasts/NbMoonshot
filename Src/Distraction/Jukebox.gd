@@ -17,6 +17,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and player != null and player.canInteract:
 		press()
+		$Jukebox.play()
 		get_tree().set_input_as_handled()
 		
 
@@ -55,3 +56,7 @@ func press():
 	yield(get_tree().create_timer(10.0), "timeout")
 	playingmusic = false
 	$SoundParticle.emitting = false
+
+
+func _on_Jukebox_finished():
+	$Jukebox.play()

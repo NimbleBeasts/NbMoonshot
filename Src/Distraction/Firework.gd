@@ -16,6 +16,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and guards.size() >= 1 and player.canInteract:
 		$AnimationPlayer.play("distraction")
+		$Fireworks.play()
 		
 		for guardPath in guards:
 			var guard = get_node(guardPath)
@@ -32,3 +33,7 @@ func onBodyExited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		player = null
 		set_process(false)
+
+
+func _on_Fireworks_finished():
+	$Fireworks.play()

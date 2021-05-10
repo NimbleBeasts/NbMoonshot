@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Src/ControlCabinet/ControlCabinet.gd" type="Script" id=1]
 [ext_resource path="res://Assets/ControlCabinet/CC.png" type="Texture" id=2]
 [ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutSpawner.gd" type="Script" id=3]
+[ext_resource path="res://Assets/SFX/sfx_electricity_spark.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -60,3 +61,10 @@ shape = SubResource( 1 )
 autoplay = "idle"
 anims/cracked = SubResource( 2 )
 anims/idle = SubResource( 3 )
+
+[node name="Spark" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+attenuation = 2.0
+bus = "Sound"
+
+[connection signal="finished" from="Spark" to="." method="_on_Spark_finished"]
