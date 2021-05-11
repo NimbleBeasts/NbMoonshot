@@ -363,7 +363,6 @@ func switchFullscreen():
 
 # PRNG
 func prng():
-	#TODO monte carlo simulation over rng
 	stateSeed = int((rng.randi() + 1) * stateSeed) + 1
 	return abs(stateSeed)
 

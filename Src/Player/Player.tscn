@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Assets/Player/Player.png" type="Texture" id=1]
 [ext_resource path="res://Src/Player/Player.gd" type="Script" id=2]
@@ -19,9 +19,8 @@
 [ext_resource path="res://Assets/SFX/jump_up.wav" type="AudioStream" id=17]
 [ext_resource path="res://Assets/SFX/body_fall.wav" type="AudioStream" id=18]
 [ext_resource path="res://Assets/SFX/body_pickup.wav" type="AudioStream" id=19]
-[ext_resource path="res://Assets/SFX/stone1.wav" type="AudioStream" id=20]
-[ext_resource path="res://Assets/SFX/stone2.wav" type="AudioStream" id=21]
-[ext_resource path="res://Assets/SFX/footstep_test1.wav" type="AudioStream" id=22]
+[ext_resource path="res://Assets/SFX/sfx_footstep_new2.wav" type="AudioStream" id=20]
+[ext_resource path="res://Assets/SFX/sfx_footstep_new1.wav" type="AudioStream" id=21]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.0
@@ -433,7 +432,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=27]
 length = 0.72
-loop = true
 step = 0.12
 tracks/0/type = "value"
 tracks/0/path = NodePath("Flippable/PlayerSprite:frame")
@@ -447,70 +445,29 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 1, 2, 3, 4, 5, 6 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlayerSounds/Footstep1:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.12, 0.24, 0.36, 0.48, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "step"
-}, {
-"args": [  ],
-"method": "step2"
-}, {
-"args": [  ],
-"method": "step"
-}, {
-"args": [  ],
-"method": "step2"
-}, {
-"args": [  ],
-"method": "step"
-}, {
-"args": [  ],
-"method": "step2"
-} ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("PlayerSounds/FootstepTest:playing")
+tracks/2/path = NodePath("PlayerSounds/Footstep2:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.12, 0.48 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.36 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("PlayerSounds/Footstep:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 1,
-"values": [  ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("PlayerSounds/FootstepTest:pitch_scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.12, 0.48 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.1, 1.2 ]
+"values": [ true ]
 }
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -691,9 +648,6 @@ anims/throw = SubResource( 25 )
 anims/throw_load = SubResource( 26 )
 anims/walk = SubResource( 27 )
 
-[node name="FootstepTimer" type="Timer" parent="."]
-wait_time = 0.25
-
 [node name="WeaponHandler" type="Node2D" parent="."]
 script = ExtResource( 5 )
 playerPath = NodePath("..")
@@ -739,14 +693,15 @@ bus = "Sound"
 stream = ExtResource( 15 )
 bus = "Sound"
 
-[node name="Footstep" type="AudioStreamPlayer" parent="PlayerSounds"]
-stream = ExtResource( 20 )
-pitch_scale = 1.5
+[node name="Footstep1" type="AudioStreamPlayer" parent="PlayerSounds"]
+stream = ExtResource( 21 )
+volume_db = -8.0
+pitch_scale = 1.1
 bus = "Sound"
 
 [node name="Footstep2" type="AudioStreamPlayer" parent="PlayerSounds"]
-stream = ExtResource( 21 )
-pitch_scale = 1.5
+stream = ExtResource( 20 )
+volume_db = -8.0
 bus = "Sound"
 
 [node name="CrouchWalk" type="AudioStreamPlayer" parent="PlayerSounds"]
@@ -760,12 +715,6 @@ bus = "Sound"
 [node name="BodyPickup" type="AudioStreamPlayer2D" parent="PlayerSounds"]
 stream = ExtResource( 19 )
 attenuation = 2.0
-bus = "Sound"
-
-[node name="FootstepTest" type="AudioStreamPlayer" parent="PlayerSounds"]
-stream = ExtResource( 22 )
-volume_db = -8.0
-pitch_scale = 1.13333
 bus = "Sound"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

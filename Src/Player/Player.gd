@@ -49,9 +49,16 @@ var has_sneak_upgrade: bool = false
 var sprint_duration: float
 var canSprint: bool
 
-var playFootstepSound: bool = true
 var isSneaking: bool = false
 var applyGravity: bool = false
+
+
+var footstepSounds = [
+	preload("res://Assets/SFX/sfx_footstep_new1.wav"),
+	preload("res://Assets/SFX/sfx_footstep_new2.wav"),
+	preload("res://Assets/SFX/sfx_footstep_new3.wav"),
+	preload("res://Assets/SFX/sfx_footstep_new4.wav")
+]
 
 onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
@@ -67,6 +74,7 @@ onready var itemPickup = $ItemPickup
 
 func _init() -> void:
 	Global.player = self
+
 
 func _ready() -> void:
 	do_upgrade_stuff()
@@ -90,8 +98,6 @@ func _ready() -> void:
 
 
 	$AnimationPlayer.play("idle")
-	$FootstepTimer.connect("timeout", self, "onFootstepTimerTimeout")
-	$FootstepTimer.start()
 	$PlayerArea.connect("area_entered", $ItemPickup, "onPlayerAreaEntered")
 	$PlayerArea.connect("area_exited", $ItemPickup, "onPlayerAreaExited")
 	$PlayerArea.connect("area_entered", self, "onPlayerAreaEntered")
@@ -366,6 +372,14 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		"lose":
 			Global.game_manager.reloadLevel()
 			return
+		"walk":
+			#Randomize Audio
+			var randomNumbers = [Global.prng() % footstepSounds.size(), Global.prng() % footstepSounds.size()]
+			if not $PlayerSounds/Footstep1.playing:
+				$PlayerSounds/Footstep1.stream = footstepSounds[randomNumbers[0]]
+			if not $PlayerSounds/Footstep2.playing:
+				$PlayerSounds/Footstep2.stream = footstepSounds[randomNumbers[1]]
+			$AnimationPlayer.play("walk")
 		"throw":
 			movementBlocked = false
 		"throw_load":
@@ -374,8 +388,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	$AnimationPlayer.play("idle")
 	
 
-func onFootstepTimerTimeout() -> void:
-	playFootstepSound = true
 
 
 func onGameOver() -> void:
@@ -427,8 +439,4 @@ func setApplyGravity(_dummyargument, to: bool):
 		if not applyGravity:
 			$PlayerSounds/BodyFall.play()
 
-func step():
-	$PlayerSounds/Footstep.play()
 
-func step2():
-	$PlayerSounds/Footstep2.play()
