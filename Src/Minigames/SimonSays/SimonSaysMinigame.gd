@@ -9,6 +9,8 @@ var showTimer: Timer = Timer.new()
 var inputtedButtons: Array = []
 var targetInstance
 
+
+
 func _ready() -> void:
 	add_child(showTimer)
 	showTimer.one_shot = true
@@ -28,6 +30,7 @@ func _ready() -> void:
 	yield(get_tree().create_timer(1), "timeout")
 	showTimerTimeout()
 	$ColorFlashTimer.start()
+
 
 
 func flashColor():

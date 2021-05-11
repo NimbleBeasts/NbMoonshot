@@ -37,6 +37,7 @@ var isMovingToPlayer: bool
 var isStunned: bool
 var applyGravity: bool
 var inDistractMode: bool
+var delayOver = false
 
 var guardSuspiciousSounds = ["res://Assets/SFX/guard_suspicious1.wav", "res://Assets/SFX/guard_suspicious2.wav", "res://Assets/SFX/guard_suspicious3.wav", "res://Assets/SFX/guard_suspicious4.wav" ]
 var guardAlarmSounds = ["res://Assets/SFX/guard_alarm1.wav", "res://Assets/SFX/guard_alarm2.wav", "res://Assets/SFX/guard_alarm3.wav", "res://Assets/SFX/guard_alarm4.wav"]
@@ -93,7 +94,10 @@ func _ready() -> void:
 	$GroundDetection.connect("apply_gravity", self, "setApplyGravity", ["dummy", true])
 	$GroundDetection.connect("body_entered", self, "setApplyGravity", [false])
 	#warning-ignore:return_value_discarded
-
+	
+	# Random delay - so the guards dont start synchronous
+	yield(get_tree().create_timer((Global.prng() % 50) / 100), "timeout")
+	delayOver = true
 
 func setStartingDirection(newDirection: int) -> void:
 	startingDirection = newDirection
@@ -103,6 +107,13 @@ func setStartingDirection(newDirection: int) -> void:
 func _process(delta: float) -> void:
 	if Engine.editor_hint:
 		return
+	
+	if not delayOver:
+		return
+	
+	yield(get_tree().create_timer((Global.prng() % 50) / 10), "timeout")
+	delayOver = true
+	
 	if state == Types.GuardStates.Wander or state == Types.GuardStates.Suspect or state == Types.GuardStates.Idle:
 		detectPlayerIfClose()
 	if state != Types.GuardStates.Stunned and state != Types.GuardStates.PlayerDetected:
