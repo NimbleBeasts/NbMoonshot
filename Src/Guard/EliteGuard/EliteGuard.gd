@@ -20,7 +20,11 @@ onready var hasPathLine = pathLine != null
 var guard_normal_texture: Texture = preload("res://Assets/Guards/EliteGuard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/EliteGuardGreen.png")
 
-var eliteGuardDetectSounds = ["res://Assets/SFX/eliteguard_dontmove.wav", "res://Assets/SFX/eliteguard_freeze.wav", "res://Assets/SFX/eliteguard_halt.wav"]
+var eliteGuardDetectSounds = [
+	preload("res://Assets/SFX/eliteguard_dontmove.wav"),
+	preload("res://Assets/SFX/eliteguard_freeze.wav"),
+	preload("res://Assets/SFX/eliteguard_halt.wav")
+]
 
 func _ready() -> void:
 	stateRoamingEnter()

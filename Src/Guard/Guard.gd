@@ -39,8 +39,18 @@ var applyGravity: bool
 var inDistractMode: bool
 var delayOver = false
 
-var guardSuspiciousSounds = ["res://Assets/SFX/guard_suspicious1.wav", "res://Assets/SFX/guard_suspicious2.wav", "res://Assets/SFX/guard_suspicious3.wav", "res://Assets/SFX/guard_suspicious4.wav" ]
-var guardAlarmSounds = ["res://Assets/SFX/guard_alarm1.wav", "res://Assets/SFX/guard_alarm2.wav", "res://Assets/SFX/guard_alarm3.wav", "res://Assets/SFX/guard_alarm4.wav"]
+var guardSuspiciousSounds = [
+	preload("res://Assets/SFX/guard_suspicious1.wav"),
+	preload("res://Assets/SFX/guard_suspicious2.wav"),
+	preload("res://Assets/SFX/guard_suspicious3.wav"),
+	preload("res://Assets/SFX/guard_suspicious4.wav")
+]
+var guardAlarmSounds = [
+	preload("res://Assets/SFX/guard_alarm1.wav"),
+	preload("res://Assets/SFX/guard_alarm2.wav"),
+	preload("res://Assets/SFX/guard_alarm3.wav"),
+	preload("res://Assets/SFX/guard_alarm4.wav")
+]
 
 onready var los_area: Area2D = $Flippable/LineOfSight
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
