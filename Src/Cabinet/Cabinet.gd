@@ -6,6 +6,7 @@ enum CabinetType {Blue = 0, Grey = 1, Brown = 2}
 export(CabinetType) var type = CabinetType.Blue
 export(bool) var hasBounty = false
 export(bool) var isObjective = false
+export(bool) var checkable = true
 
 export(bool) var containsKey = false
 export (Types.KeyColors) var keyColor: int
@@ -34,11 +35,14 @@ func _ready():
 	if containsKey:
 		stringName = Types.KeyColors.keys()[keyColor].to_lower()
 		$Key/KeySprite.frame = keyColor
+	
 
 
 func _process(_delta):
 	if playerInRange and playerInRange.state != Types.PlayerStates.DraggingGuard:
 		if Input.is_action_just_pressed("open_minigame"):
+			if not checkable:
+				return
 			if isObjective:
 				isUsed = true
 				Events.emit_signal("level_hint", "Objective Obtained")

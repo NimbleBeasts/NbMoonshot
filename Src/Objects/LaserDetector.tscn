@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/SFX/laser_detect.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/SFX/sfx_laser.wav" type="AudioStream" id=4]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2, 28 )
 
 [sub_resource type="Animation" id=2]
@@ -89,7 +89,7 @@ hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BeamNode/Area2D"]
 position = Vector2( 4, 28 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="MotionTween" type="Tween" parent="."]
 

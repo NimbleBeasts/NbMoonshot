@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
+[ext_resource path="res://Assets/SFX/gameover.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/SFX/minigame_fail2.wav" type="AudioStream" id=15]
 [ext_resource path="res://Assets/SFX/chest_bounty.wav" type="AudioStream" id=16]
 [ext_resource path="res://Assets/SFX/door_wood_open.wav" type="AudioStream" id=24]
@@ -90,6 +91,12 @@ bus = "Sound"
 [node name="Chest_Bounty" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 16 )
 attenuation = 2.0
+bus = "Sound"
+
+[node name="General" type="Node2D" parent="."]
+
+[node name="GameOver" type="AudioStreamPlayer" parent="General"]
+stream = ExtResource( 3 )
 bus = "Sound"
 
 [connection signal="finished" from="Music" to="." method="_on_Music_finished"]
