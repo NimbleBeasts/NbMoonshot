@@ -105,21 +105,12 @@ texture = ExtResource( 30 )
 
 [node name="Tree" parent="BackgroundDecorations" instance=ExtResource( 40 )]
 position = Vector2( 152, 184 )
-tree = 0
-season = 0
-variant = 0
 
 [node name="Tree3" parent="BackgroundDecorations" instance=ExtResource( 40 )]
 position = Vector2( 1192, 184 )
-tree = 0
-season = 0
-variant = 0
 
 [node name="Tree2" parent="BackgroundDecorations" instance=ExtResource( 40 )]
 position = Vector2( -104, 184 )
-tree = 0
-season = 0
-variant = 0
 
 [node name="Display" type="Sprite" parent="BackgroundDecorations"]
 position = Vector2( 184, 232 )
@@ -448,60 +439,27 @@ __meta__ = {
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 16 )]
 position = Vector2( 80, 256 )
-flicker = false
-flickerSequence = "1110"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 540, 200 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light15" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 308, 200 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 700, 200.1 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 700, 136 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 816, 136 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 904, 136 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 960, 64 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="FullLight" parent="LevelObjects/Lights/Light9" index="1"]
 visible = true
@@ -530,10 +488,6 @@ texture = ExtResource( 31 )
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 1152, 64 )
 scale = Vector2( -1, 1 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="FullLight" parent="LevelObjects/Lights/Light10" index="1"]
 visible = true
@@ -563,51 +517,31 @@ texture = ExtResource( 31 )
 position = Vector2( 808, 200 )
 flicker = true
 flickerSequence = "11111111010100000000010"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 904, 200 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 495, 136 )
 flicker = true
 flickerSequence = "111110111111101011"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 736, 264 )
 scale = Vector2( 2, 1 )
 flicker = true
 flickerSequence = "11111010001111"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 544, 264 )
 scale = Vector2( 2, 1 )
 flicker = true
 flickerSequence = "11111010001111"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 928, 264 )
 scale = Vector2( 2, 1 )
-flicker = false
 flickerSequence = "q111000"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="ThinArea" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 400, 264 )
@@ -630,35 +564,26 @@ position = Vector2( 992, 256 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/ExitStairCase4")
 lockLevel = 3
 doorType = 1
-directionIndication = 0
 
 [node name="MiddleStairCase" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 700, 192 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/MiddleStairCase2")
-lockLevel = 0
 doorType = 1
-directionIndication = 0
 
 [node name="MiddleStairCase3" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 700, 128 )
 connected_door_path = NodePath("../MiddleStairCase")
-lockLevel = 0
 doorType = 1
-directionIndication = 0
 
 [node name="MiddleStairCase2" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 700, 256 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/MiddleStairCase")
-lockLevel = 0
 doorType = 1
-directionIndication = 0
 
 [node name="ExitStairCase4" parent="LevelObjects" instance=ExtResource( 9 )]
 position = Vector2( 992, 320 )
 connected_door_path = NodePath("../../../Level2/LevelObjects/ExitStairCase3")
-lockLevel = 0
 doorType = 1
-directionIndication = 0
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 456, 256 )
@@ -712,223 +637,90 @@ deactivateAble = [ NodePath("../Doors/DeactivableDoor1"), NodePath("../Doors/Dea
 
 [node name="ElevatorDoors" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 384, 256 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="ElevatorDoors7" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 256, 256 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="ElevatorDoors2" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 440, 256 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="ElevatorDoors3" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 384, 320 )
 lockLevel = 3
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="ElevatorDoors4" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 440, 320 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="ElevatorDoors5" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 384, 192 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="ElevatorDoors6" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 440, 192 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 888, 128 )
-lockLevel = 0
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 952, 128 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 1152, 128 )
 lockLevel = 2
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 1264, 128 )
-lockLevel = 0
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall11" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 1240, 256 )
-lockLevel = 0
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 632, 256 )
 lockLevel = 3
 doorType = 2
-save_state = false
 showHintIfLocked = true
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 760, 192 )
 lockLevel = 5
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
 keyPath = NodePath("../../Key")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 824, 320 )
 lockLevel = 1
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 632, 320 )
-lockLevel = 0
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 632, 192 )
-lockLevel = 0
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="UnlockeableDoorWall" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 760, 256 )
 lockLevel = 1
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DeactivableDoor2" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 952, 256 )
 lockLevel = 5
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
 keyPath = NodePath("../../Key")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DeactivableDoor1" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 1024, 256 )
-lockLevel = 0
 doorType = 2
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="Ladder" parent="LevelObjects" instance=ExtResource( 46 )]
 position = Vector2( 1160, 200 )
@@ -941,24 +733,11 @@ position = Vector2( 1280, 136 )
 
 [node name="DeskGuard" parent="." instance=ExtResource( 3 )]
 position = Vector2( 326, 256 )
-lookDirection = 0
-lookDuration = 2.0
-readDuration = 3.0
-removeNotifierDuration = 1.0
 
 [node name="NPCS" type="Node2D" parent="."]
 
 [node name="Guard" parent="NPCS" instance=ExtResource( 5 )]
 position = Vector2( 560, 192 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
-normal_time_to_alarm = 1.5
-extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard"]
 scale = Vector2( 1.08537, 1 )
@@ -967,15 +746,6 @@ script = ExtResource( 18 )
 
 [node name="Guard2" parent="NPCS" instance=ExtResource( 5 )]
 position = Vector2( 792, 192 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
-normal_time_to_alarm = 1.5
-extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard2"]
 points = PoolVector2Array( 0, 0, 112, 0 )
@@ -983,15 +753,6 @@ script = ExtResource( 18 )
 
 [node name="Guard3" parent="NPCS" instance=ExtResource( 5 )]
 position = Vector2( 904, 320 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
-normal_time_to_alarm = 1.5
-extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard3"]
 points = PoolVector2Array( 72, -8, -64, -8 )
@@ -999,15 +760,6 @@ script = ExtResource( 18 )
 
 [node name="Guard4" parent="NPCS" instance=ExtResource( 5 )]
 position = Vector2( 461, 320 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
-normal_time_to_alarm = 1.5
-extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard4"]
 points = PoolVector2Array( 3, -24, 155, -24, 195, -24, 347, -24 )
@@ -1025,7 +777,6 @@ points = PoolVector2Array( -232, 24, 80, 24, 80, 72, 832, 72, 832, 16, 976, 16, 
 [node name="LaserDetector" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1184, 72 )
 isStatic = false
-moveDirection = 1
 flickerSequence = "1111010001111"
 
 [node name="ExtractionZone" parent="." instance=ExtResource( 42 )]
@@ -1034,15 +785,9 @@ next_boss_interacted_counter = 3
 nextSecretaryInteractionCounter = 3
 
 [editable path="LevelObjects/Lights/OutdoorLight"]
-
 [editable path="LevelObjects/Lights/Light9"]
-
 [editable path="LevelObjects/Lights/Light10"]
-
 [editable path="LevelObjects/Lights/Light6"]
-
 [editable path="LevelObjects/Lights/Light7"]
-
 [editable path="LevelObjects/Camera"]
-
 [editable path="LevelObjects/Camera2"]

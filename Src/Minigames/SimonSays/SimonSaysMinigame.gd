@@ -55,7 +55,7 @@ func showTimerTimeout() -> void:
 	currentFlash = $Lights.get_child(index)
 	flashedColors.append(index)
 	currentFlash.show()
-	currentFlash.get_child("Beep").play()
+	currentFlash.get_children()[0].play()
 
 func onButtonUp(buttonType: int) -> void:
 	inputtedButtons.append(buttonType)

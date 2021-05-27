@@ -272,6 +272,7 @@ flip_h = true
 
 [node name="Tree2" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
 position = Vector2( 505, 184 )
+frame = 1
 variant = 1
 
 [node name="Cabinet" parent="LevelObjects/Decorations" instance=ExtResource( 35 )]
@@ -522,7 +523,6 @@ deactivateAble = [ NodePath("../LaserDetector2"), NodePath("../LaserDetector"), 
 position = Vector2( 224, 136 )
 isStatic = false
 moveDistance = 7
-moveDirection = 1
 
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 27 )]
 position = Vector2( 152, 152 )
@@ -560,7 +560,6 @@ position = Vector2( 760, 200 )
 position = Vector2( 696, 200 )
 isStatic = false
 moveDistance = 8
-moveDirection = 1
 
 [node name="Camera4" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 784, 8 )
@@ -570,7 +569,6 @@ position = Vector2( 208, 8 )
 isStatic = false
 moveSpeed = 1.0
 moveDistance = 15
-moveDirection = 1
 
 [node name="DeskGuard" parent="." instance=ExtResource( 22 )]
 position = Vector2( 232, 256 )

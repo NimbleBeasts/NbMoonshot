@@ -163,19 +163,11 @@ centered = false
 
 [node name="Ladder" parent="LevelObjects/Objects" instance=ExtResource( 5 )]
 position = Vector2( 432, 136 )
-reduced_up = 0
-reduced_down = 0
-disabled = false
-width = 1
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="Staircase" parent="LevelObjects/Doors" instance=ExtResource( 6 )]
 position = Vector2( 472, 192 )
-connected_door_path = NodePath("")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="Staircases" type="Node2D" parent="LevelObjects"]
 
@@ -195,20 +187,6 @@ nextSecretaryInteractionCounter = 6
 [node name="Player" parent="." instance=ExtResource( 14 )]
 position = Vector2( 136, 256 )
 z_index = 50
-normal_speed = 80
-normal_acceleration = 600
-sprint_speed = 160
-duckSpeed = 40
-duckAcceleration = 300
-gravity = 800
-startingDirection = 0
-normal_stun_battery = 3
-extended_stun_battery = 5
-normal_stun_duration = 4.0
-extended_stun_duration = 7.0
-normal_sprint_duration = 3.0
-extended_sprint_duration = 6.0
-stamina_replenish_duration = 3.0
 
 [node name="HideRails" type="TileMap" parent="."]
 tile_set = ExtResource( 17 )

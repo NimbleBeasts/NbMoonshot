@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Src/HUD/HUD.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=17]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=18]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=19]
@@ -430,12 +429,10 @@ deactivateAble = [ NodePath("../Camera3"), NodePath("../LaserDetector"), NodePat
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 280, 136 )
 isStatic = false
-moveDirection = 1
 
 [node name="LaserDetector2" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 280, 72 )
 isStatic = false
-moveDirection = 1
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 32 )]
 position = Vector2( 192, 128 )
@@ -520,17 +517,6 @@ points = PoolVector2Array( 0, -16, -56, -16, 32, -16 )
 script = ExtResource( 19 )
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
-
-[node name="HUD" parent="." instance=ExtResource( 16 )]
-
-[node name="Label" type="Label" parent="HUD"]
-visible = false
-margin_right = 72.0
-margin_bottom = 14.0
-text = "Hello Level"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -64, 224 )

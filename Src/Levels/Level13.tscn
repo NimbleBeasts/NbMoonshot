@@ -25,16 +25,16 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 112, 8 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 95, 57 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 257, 88.375 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 32 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 90.3735, 2.97278 )
 
 [node name="LevelEmpty" type="Node2D"]
@@ -128,7 +128,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OwerlayConeBot/PlayerDetector"]
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="OwerlayConeTop" type="TileMap" parent="."]
 light_mask = 3
@@ -151,7 +151,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OwerlayConeTop/PlayerDetector"]
 position = Vector2( 0, -4.625 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="LevelObjects" type="Node2D" parent="."]
 
@@ -265,30 +265,22 @@ position = Vector2( 512, -128 )
 [node name="Ground" parent="LevelObjects/Staircases" instance=ExtResource( 8 )]
 position = Vector2( 510, 255 )
 connected_door_path = NodePath("../F1toGround")
-lockLevel = 0
 doorType = 1
-directionIndication = 0
 
 [node name="F1toGround" parent="LevelObjects/Staircases" instance=ExtResource( 8 )]
 position = Vector2( 510, 192 )
 connected_door_path = NodePath("../Ground")
-lockLevel = 0
 doorType = 1
-directionIndication = 0
 
 [node name="F1toF2" parent="LevelObjects/Staircases" instance=ExtResource( 8 )]
 position = Vector2( 480, 192 )
 connected_door_path = NodePath("../F2toF1")
-lockLevel = 0
 doorType = 1
-directionIndication = 0
 
 [node name="F2toF1" parent="LevelObjects/Staircases" instance=ExtResource( 8 )]
 position = Vector2( 479.95, 128.028 )
 connected_door_path = NodePath("../F1toF2")
-lockLevel = 0
 doorType = 1
-directionIndication = 0
 
 [node name="Cameras" type="Node2D" parent="LevelObjects"]
 position = Vector2( 8, 0 )
@@ -318,20 +310,6 @@ nextSecretaryInteractionCounter = 6
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 423, 173 )
 z_index = 50
-normal_speed = 80
-normal_acceleration = 600
-sprint_speed = 160
-duckSpeed = 40
-duckAcceleration = 300
-gravity = 800
-startingDirection = 0
-normal_stun_battery = 3
-extended_stun_battery = 5
-normal_stun_duration = 4.0
-extended_stun_duration = 7.0
-normal_sprint_duration = 3.0
-extended_sprint_duration = 6.0
-stamina_replenish_duration = 3.0
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -340,11 +318,11 @@ position = Vector2( -104, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 152, -32 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 558.501, -60.1522 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="NPCS" type="Node2D" parent="."]
 
@@ -359,15 +337,6 @@ distractWaitTime = 0.0
 
 [node name="Guard" parent="NPCS" instance=ExtResource( 21 )]
 position = Vector2( 408, 256 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
-normal_time_to_alarm = 1.5
-extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
 
 [node name="PathLine" type="Line2D" parent="NPCS/Guard"]
 points = PoolVector2Array( 0, 0, 200, 0 )
@@ -382,6 +351,7 @@ script = ExtResource( 14 )
 
 [node name="Foreground" type="Node2D" parent="."]
 z_index = 51
+
 [connection signal="body_entered" from="OwerlayConeBot/PlayerDetector" to="OwerlayConeBot" method="_on_PlayerDetector_body_entered"]
 [connection signal="body_exited" from="OwerlayConeBot/PlayerDetector" to="OwerlayConeBot" method="_on_PlayerDetector_body_exited"]
 [connection signal="body_entered" from="OwerlayConeTop/PlayerDetector" to="OwerlayConeTop" method="_on_PlayerDetector_body_entered"]
