@@ -59,6 +59,17 @@ func showTimerTimeout() -> void:
 
 func onButtonUp(buttonType: int) -> void:
 	inputtedButtons.append(buttonType)
+	
+	match buttonType:
+		0: 
+			$Lights/Red/Beep.play()
+		1:
+			$Lights/Green/Beep.play()
+		2:
+			$Lights/Blue/Beep.play()
+		_:
+			$Lights/Yellow/Beep.play()
+	
 	var index = inputtedButtons.size() - 1
 	if inputtedButtons.size() > index and flashedColors.size() > index:
 		if inputtedButtons[index] != flashedColors[index]:
