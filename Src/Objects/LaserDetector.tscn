@@ -116,9 +116,10 @@ bus = "Sound"
 
 [node name="LaserNoise" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
-volume_db = -25.0
+volume_db = -32.0
 autoplay = true
-attenuation = 2.0
+max_distance = 512.0
+attenuation = 2.63902
 bus = "Sound"
 
 [connection signal="body_entered" from="BeamNode/Area2D" to="." method="_on_Area2D_body_entered"]

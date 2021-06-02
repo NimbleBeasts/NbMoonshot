@@ -21,6 +21,8 @@ playing = true
 
 [node name="Fire" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+volume_db = -4.0
 autoplay = true
-attenuation = 2.0
+max_distance = 512.0
+attenuation = 3.03143
 bus = "Sound"
