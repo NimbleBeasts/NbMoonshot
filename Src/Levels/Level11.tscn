@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Office/Elevator.png" type="Texture" id=2]
@@ -14,8 +14,31 @@
 [ext_resource path="res://Src/ThinArea/ThinArea.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/ThinArea/ThinAreaClosedOverlay.png" type="Texture" id=13]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalLiquid.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalER.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=17]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalSink.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalSpacer.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalRontgen.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=21]
+[ext_resource path="res://Assets/Objects/Hospital/Medikit.png" type="Texture" id=22]
+[ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Assets/Objects/Office/WallImageArrangement.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Objects/Home/ChairSide.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Objects/Home/Couch.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Objects/Nature/Tree.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Objects/Office/WallImageMonaLisa.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Objects/Home/TableSmall.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Objects/Office/Bookshelf3.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Objects/Office/Vending.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Objects/Hospital/Dryer.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Objects/Hospital/WashingMachine.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Objects/Laboratory/Storage.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Objects/Office/ClothRack.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Objects/Office/Clock.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Objects/Office/FireExtinguisher.png" type="Texture" id=39]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=46]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -99,7 +122,7 @@ cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 32
 occluder_light_mask = 3
 format = 1
-tile_data = PoolIntArray( -524246, 63, 0, -524245, 63, 0, -524244, 63, 0, -524243, 63, 0, -524242, 63, 0, -524241, 66, 0, -524239, 63, 0, -524238, 63, 0, -524237, 63, 0, -524236, 63, 0, -524235, 63, 0, -524234, 63, 0, -524233, 66, 0, -524231, 63, 0, -524230, 63, 0, -524229, 63, 0, -524222, 63, 0, -524221, 63, 0, -524220, 63, 0, -524219, 63, 0, -524218, 63, 0, -524217, 63, 0, -524216, 63, 0, -524215, 63, 0, -524214, 63, 0, -524213, 63, 0, -524212, 63, 0, -524211, 63, 0, -524210, 63, 0, -524209, 63, 0, -524208, 63, 0, -524207, 63, 0, -524206, 63, 0, -524205, 63, 0, -524204, 66, 0, -524202, 63, 0, -524201, 63, 0, -524200, 63, 0, -524199, 63, 0, -524198, 66, 0, -524196, 63, 0, -524195, 63, 0, -524194, 63, 0, -524193, 63, 0, -262092, 1, 0, -262085, 82, 0, -262078, 82, 0, -262066, 1, 0, 42, 63, 0, 43, 63, 0, 44, 63, 0, 45, 63, 0, 46, 63, 0, 47, 66, 0, 49, 63, 0, 50, 63, 0, 51, 63, 0, 52, 63, 0, 53, 63, 0, 54, 63, 0, 55, 63, 0, 56, 63, 0, 57, 63, 0, 58, 63, 0, 59, 63, 0, 66, 63, 0, 67, 63, 0, 68, 63, 0, 69, 63, 0, 70, 63, 0, 71, 63, 0, 72, 63, 0, 73, 63, 0, 74, 63, 0, 75, 63, 0, 76, 63, 0, 77, 63, 0, 78, 63, 0, 79, 63, 0, 80, 63, 0, 81, 63, 0, 82, 63, 0, 83, 63, 0, 84, 66, 0, 86, 63, 0, 87, 63, 0, 88, 63, 0, 89, 63, 0, 90, 66, 0, 92, 63, 0, 93, 63, 0, 94, 63, 0, 95, 63, 0, 262196, 1, 0, 262203, 82, 0, 262210, 82, 0, 262222, 1, 0, 524330, 63, 0, 524331, 63, 0, 524332, 63, 0, 524333, 66, 0, 524335, 63, 0, 524336, 63, 0, 524337, 63, 0, 524338, 65, 0, 524339, 63, 0, 524340, 63, 0, 524341, 66, 0, 524343, 63, 0, 524344, 63, 0, 524345, 63, 0, 524346, 63, 0, 524347, 63, 0, 524354, 63, 0, 524355, 63, 0, 524356, 63, 0, 524357, 63, 0, 524358, 63, 0, 524359, 63, 0, 524360, 63, 0, 524361, 63, 0, 524362, 63, 0, 524363, 63, 0, 524364, 63, 0, 524365, 63, 0, 524366, 63, 0, 524367, 63, 0, 524368, 63, 0, 524369, 63, 0, 524370, 63, 0, 524371, 63, 0, 524372, 65, 0, 524373, 63, 0, 524374, 63, 0, 524375, 63, 0, 524376, 63, 0, 524377, 63, 0, 524378, 63, 0, 524379, 63, 0, 524380, 63, 0, 524381, 63, 0, 524382, 63, 0, 524383, 63, 0, 524384, 63, 0, 524385, 63, 0, 524386, 63, 0, 524387, 63, 0, 524388, 63, 0, 524389, 63, 0, 524390, 63, 0, 524391, 63, 0, 524392, 63, 0, 524393, 63, 0, 524394, 63, 0, 524395, 63, 0, 524396, 63, 0, 524397, 63, 0, 524398, 63, 0, 524399, 63, 0, 524400, 63, 0, 524401, 63, 0, 524402, 63, 0, 524403, 63, 0, 524404, 63, 0, 524405, 63, 0, 524406, 63, 0, 524407, 63, 0, 524408, 63, 0, 524409, 63, 0, 524410, 63, 0, 524411, 63, 0, 524412, 63, 0, 524413, 66, 0, 524415, 63, 0, 524416, 63, 0, 524417, 63, 0, 524418, 63, 0, 524419, 66, 0, 524421, 63, 0, 786491, 82, 0, 786498, 82, 0, 786510, 1, 0, 786545, 1, 0, 1048618, 63, 0, 1048619, 63, 0, 1048620, 63, 0, 1048621, 63, 0, 1048622, 63, 0, 1048623, 66, 0, 1048625, 63, 0, 1048626, 63, 0, 1048627, 63, 0, 1048628, 63, 0, 1048629, 63, 0, 1048630, 63, 0, 1048631, 63, 0, 1048632, 63, 0, 1048633, 63, 0, 1048634, 63, 0, 1048635, 63, 0, 1048642, 63, 0, 1048643, 67, 0, 1048644, 67, 0, 1048645, 67, 0, 1048646, 67, 0, 1048647, 67, 0, 1048648, 67, 0, 1048649, 67, 0, 1048650, 67, 0, 1048651, 67, 0, 1048652, 68, 0, 1048653, 67, 0, 1048654, 63, 0, 1048655, 17, 0, 1048656, 18, 0, 1048657, 19, 0, 1048658, 16, 0, 1048659, 17, 0, 1048660, 18, 0, 1048661, 18, 0, 1048662, 18, 0, 1048663, 18, 0, 1048664, 18, 0, 1048665, 18, 0, 1048666, 18, 0, 1048667, 18, 0, 1048668, 18, 0, 1048669, 18, 0, 1048670, 18, 0, 1048671, 19, 0, 1048672, 16, 0, 1048673, 17, 0, 1048674, 18, 0, 1048675, 18, 0, 1048676, 18, 0, 1048677, 18, 0, 1048678, 18, 0, 1048679, 18, 0, 1048680, 18, 0, 1048681, 18, 0, 1048682, 18, 0, 1048683, 18, 0, 1048684, 19, 0, 1048685, 16, 0, 1048686, 17, 0, 1048687, 18, 0, 1048688, 19, 0, 1048689, 63, 0, 1048690, 67, 0, 1048691, 69, 0, 1048692, 67, 0, 1048693, 67, 0, 1048694, 67, 0, 1048695, 67, 0, 1048696, 67, 0, 1048697, 67, 0, 1048698, 67, 0, 1048699, 67, 0, 1048700, 67, 0, 1048701, 67, 0, 1048702, 67, 0, 1048703, 67, 0, 1048704, 67, 0, 1048705, 68, 0, 1048706, 67, 0, 1048707, 67, 0, 1048708, 67, 0, 1048709, 67, 0, 1310772, 1, 0, 1310779, 82, 0, 1310786, 82, 0, 1310798, 1, 0, 1310833, 1, 0, 1572906, 63, 0, 1572907, 63, 0, 1572908, 63, 0, 1572909, 63, 0, 1572910, 66, 0, 1572912, 63, 0, 1572913, 63, 0, 1572914, 63, 0, 1572915, 63, 0, 1572916, 63, 0, 1572917, 63, 0, 1572918, 66, 0, 1572920, 63, 0, 1572921, 63, 0, 1572922, 63, 0, 1572923, 64, 0, 1572930, 64, 0, 1572931, 63, 0, 1572932, 63, 0, 1572933, 65, 0, 1572934, 63, 0, 1572935, 63, 0, 1572936, 63, 0, 1572937, 63, 0, 1572938, 63, 0, 1572939, 63, 0, 1572940, 63, 0, 1572941, 63, 0, 1572942, 63, 0, 1572943, 32, 0, 1572945, 32, 0, 1572947, 34, 0, 1572949, 32, 0, 1572951, 33, 0, 1572952, 32, 0, 1572954, 32, 0, 1572956, 34, 0, 1572958, 32, 0, 1572960, 32, 0, 1572962, 32, 0, 1572964, 34, 0, 1572966, 32, 0, 1572968, 35, 0, 1572969, 63, 0, 1572970, 44, 0, 1572971, 45, 0, 1572972, 45, 0, 1572973, 45, 0, 1572974, 45, 0, 1572975, 45, 0, 1572976, 46, 0, 1572977, 47, 0, 1572978, 43, 0, 1572979, 47, 0, 1572980, 44, 0, 1572981, 45, 0, 1572982, 45, 0, 1572983, 45, 0, 1572984, 45, 0, 1572985, 45, 0, 1572986, 45, 0, 1572987, 46, 0, 1572988, 47, 0, 1572989, 43, 0, 1572990, 47, 0, 1572991, 44, 0, 1572992, 45, 0, 1572993, 45, 0, 1572994, 45, 0, 1572995, 45, 0, 1572996, 45, 0, 1572997, 46, 0, 1835067, 82, 0, 1835074, 82, 0, 1835086, 1, 0, 1835113, 1, 0, 2097193, 63, 0, 2097194, 54, 0, 2097197, 53, 0, 2097198, 54, 0, 2097201, 54, 0, 2097204, 53, 0, 2097206, 53, 0, 2097207, 54, 0, 2097210, 53, 0, 2097219, 54, 0, 2097222, 53, 0, 2097223, 54, 0, 2097226, 54, 0, 2097229, 53, 0, 2097230, 53, 0, 2359349, 1, 0, 2359355, 82, 0, 2359362, 82, 0, 2424881, 57, 0, 2424907, 57, 0 )
+tile_data = PoolIntArray( -524246, 63, 0, -524245, 63, 0, -524244, 63, 0, -524243, 63, 0, -524242, 63, 0, -524241, 66, 0, -524239, 63, 0, -524238, 63, 0, -524237, 63, 0, -524236, 63, 0, -524235, 63, 0, -524234, 63, 0, -524233, 66, 0, -524231, 63, 0, -524230, 63, 0, -524229, 63, 0, -524222, 63, 0, -524221, 63, 0, -524220, 63, 0, -524219, 63, 0, -524218, 63, 0, -524217, 63, 0, -524216, 63, 0, -524215, 63, 0, -524214, 63, 0, -524213, 63, 0, -524212, 63, 0, -524211, 63, 0, -524210, 63, 0, -524209, 63, 0, -524208, 63, 0, -524207, 63, 0, -524206, 63, 0, -524205, 63, 0, -524204, 66, 0, -524202, 63, 0, -524201, 63, 0, -524200, 63, 0, -524199, 63, 0, -524198, 66, 0, -524196, 63, 0, -524195, 63, 0, -524194, 63, 0, -524193, 63, 0, -262092, 1, 0, -262085, 82, 0, -262078, 82, 0, -262066, 1, 0, 42, 63, 0, 43, 63, 0, 44, 63, 0, 45, 63, 0, 46, 63, 0, 47, 66, 0, 49, 63, 0, 50, 63, 0, 51, 63, 0, 52, 63, 0, 53, 63, 0, 54, 63, 0, 55, 63, 0, 56, 63, 0, 57, 63, 0, 58, 63, 0, 59, 63, 0, 66, 63, 0, 67, 63, 0, 68, 63, 0, 69, 63, 0, 70, 63, 0, 71, 63, 0, 72, 63, 0, 73, 63, 0, 74, 63, 0, 75, 63, 0, 76, 63, 0, 77, 63, 0, 78, 63, 0, 79, 63, 0, 80, 63, 0, 81, 63, 0, 82, 63, 0, 83, 63, 0, 84, 66, 0, 86, 63, 0, 87, 63, 0, 88, 63, 0, 89, 63, 0, 90, 66, 0, 92, 63, 0, 93, 63, 0, 94, 63, 0, 95, 63, 0, 262196, 1, 0, 262203, 82, 0, 262210, 82, 0, 262222, 1, 0, 524330, 63, 0, 524331, 63, 0, 524332, 63, 0, 524333, 66, 0, 524335, 63, 0, 524336, 63, 0, 524337, 63, 0, 524338, 65, 0, 524339, 63, 0, 524340, 63, 0, 524341, 66, 0, 524343, 63, 0, 524344, 63, 0, 524345, 63, 0, 524346, 63, 0, 524347, 63, 0, 524354, 63, 0, 524355, 63, 0, 524356, 63, 0, 524357, 63, 0, 524358, 63, 0, 524359, 63, 0, 524360, 63, 0, 524361, 63, 0, 524362, 63, 0, 524363, 63, 0, 524364, 63, 0, 524365, 63, 0, 524366, 63, 0, 524367, 63, 0, 524368, 63, 0, 524369, 63, 0, 524370, 63, 0, 524371, 63, 0, 524372, 65, 0, 524373, 63, 0, 524374, 63, 0, 524375, 63, 0, 524376, 63, 0, 524377, 63, 0, 524378, 63, 0, 524379, 63, 0, 524380, 63, 0, 524381, 63, 0, 524382, 63, 0, 524383, 63, 0, 524384, 63, 0, 524385, 63, 0, 524386, 63, 0, 524387, 63, 0, 524388, 63, 0, 524389, 63, 0, 524390, 63, 0, 524391, 63, 0, 524392, 63, 0, 524393, 63, 0, 524394, 63, 0, 524395, 63, 0, 524396, 63, 0, 524397, 63, 0, 524398, 63, 0, 524399, 63, 0, 524400, 63, 0, 524401, 63, 0, 524402, 63, 0, 524403, 63, 0, 524404, 63, 0, 524405, 63, 0, 524406, 63, 0, 524407, 63, 0, 524408, 63, 0, 524409, 63, 0, 524410, 63, 0, 524411, 63, 0, 524412, 63, 0, 524413, 66, 0, 524415, 63, 0, 524416, 63, 0, 524417, 63, 0, 524418, 63, 0, 524419, 66, 0, 524421, 63, 0, 786491, 82, 0, 786498, 82, 0, 786510, 1, 0, 786545, 1, 0, 1048618, 63, 0, 1048619, 63, 0, 1048620, 63, 0, 1048621, 63, 0, 1048622, 63, 0, 1048623, 66, 0, 1048625, 63, 0, 1048626, 63, 0, 1048627, 63, 0, 1048628, 63, 0, 1048629, 63, 0, 1048630, 63, 0, 1048631, 63, 0, 1048632, 63, 0, 1048633, 63, 0, 1048634, 63, 0, 1048635, 63, 0, 1048642, 63, 0, 1048643, 67, 0, 1048644, 67, 0, 1048645, 67, 0, 1048646, 67, 0, 1048647, 67, 0, 1048648, 67, 0, 1048649, 67, 0, 1048650, 67, 0, 1048651, 67, 0, 1048652, 68, 0, 1048653, 67, 0, 1048654, 63, 0, 1048655, 44, 0, 1048656, 45, 0, 1048657, 46, 0, 1048658, 43, 0, 1048659, 44, 0, 1048660, 45, 0, 1048661, 45, 0, 1048662, 45, 0, 1048663, 45, 0, 1048664, 45, 0, 1048665, 45, 0, 1048666, 45, 0, 1048667, 45, 0, 1048668, 45, 0, 1048669, 45, 0, 1048670, 45, 0, 1048671, 46, 0, 1048672, 43, 0, 1048673, 44, 0, 1048674, 45, 0, 1048675, 45, 0, 1048676, 45, 0, 1048677, 45, 0, 1048678, 45, 0, 1048679, 45, 0, 1048680, 45, 0, 1048681, 45, 0, 1048682, 45, 0, 1048683, 45, 0, 1048684, 46, 0, 1048685, 43, 0, 1048686, 44, 0, 1048687, 45, 0, 1048688, 46, 0, 1048689, 63, 0, 1048690, 67, 0, 1048691, 69, 0, 1048692, 67, 0, 1048693, 67, 0, 1048694, 67, 0, 1048695, 67, 0, 1048696, 67, 0, 1048697, 67, 0, 1048698, 67, 0, 1048699, 67, 0, 1048700, 67, 0, 1048701, 67, 0, 1048702, 67, 0, 1048703, 67, 0, 1048704, 67, 0, 1048705, 68, 0, 1048706, 67, 0, 1048707, 67, 0, 1048708, 67, 0, 1048709, 67, 0, 1310772, 1, 0, 1310779, 82, 0, 1310786, 82, 0, 1310798, 82, 0, 1310833, 82, 0, 1572906, 63, 0, 1572907, 63, 0, 1572908, 63, 0, 1572909, 63, 0, 1572910, 66, 0, 1572912, 63, 0, 1572913, 63, 0, 1572914, 63, 0, 1572915, 63, 0, 1572916, 63, 0, 1572917, 63, 0, 1572918, 66, 0, 1572920, 63, 0, 1572921, 63, 0, 1572922, 63, 0, 1572923, 64, 0, 1572930, 64, 0, 1572931, 63, 0, 1572932, 63, 0, 1572933, 65, 0, 1572934, 63, 0, 1572935, 63, 0, 1572936, 63, 0, 1572937, 63, 0, 1572938, 63, 0, 1572939, 63, 0, 1572940, 63, 0, 1572941, 63, 0, 1572942, 63, 0, 1572943, 37, 0, 1572944, 37, 0, 1572945, 37, 0, 1572946, 37, 0, 1572947, 37, 0, 1572948, 37, 0, 1572949, 40, 0, 1572952, 37, 0, 1572953, 37, 0, 1572954, 37, 0, 1572955, 37, 0, 1572956, 37, 0, 1572957, 37, 0, 1572958, 37, 0, 1572959, 40, 0, 1572962, 37, 0, 1572963, 37, 0, 1572964, 37, 0, 1572965, 37, 0, 1572966, 37, 0, 1572967, 37, 0, 1572968, 37, 0, 1572969, 63, 0, 1572970, 47, 0, 1572971, 47, 0, 1572972, 47, 0, 1572973, 47, 0, 1572974, 47, 0, 1572975, 47, 0, 1572976, 47, 0, 1572977, 47, 0, 1572978, 43, 0, 1572979, 47, 0, 1572980, 47, 0, 1572981, 47, 0, 1572982, 47, 0, 1572983, 47, 0, 1572984, 47, 0, 1572985, 47, 0, 1572986, 47, 0, 1572987, 47, 0, 1572988, 47, 0, 1572989, 47, 0, 1572990, 47, 0, 1572991, 43, 0, 1572992, 47, 0, 1572993, 47, 0, 1572994, 47, 0, 1572995, 47, 0, 1572996, 47, 0, 1572997, 47, 0, 1835067, 82, 0, 1835074, 82, 0, 1835086, 1, 0, 1835113, 1, 0, 2097193, 63, 0, 2097194, 54, 0, 2097197, 53, 0, 2097198, 54, 0, 2097201, 54, 0, 2097204, 53, 0, 2097206, 53, 0, 2097207, 54, 0, 2097210, 53, 0, 2097219, 54, 0, 2097222, 53, 0, 2097223, 54, 0, 2097226, 54, 0, 2097229, 53, 0, 2097230, 53, 0, 2359349, 1, 0, 2359355, 82, 0, 2359362, 82, 0, 2424881, 57, 0, 2424907, 57, 0 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 17 )
@@ -128,6 +151,211 @@ centered = false
 light_mask = 3
 position = Vector2( 443, 286 )
 texture = ExtResource( 9 )
+centered = false
+
+[node name="Office" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 392, 160 )
+texture = ExtResource( 36 )
+centered = false
+
+[node name="Office3" type="Sprite" parent="LevelObjects/Decorations/Office"]
+light_mask = 3
+position = Vector2( -40, -8 )
+texture = ExtResource( 38 )
+centered = false
+
+[node name="Office2" type="Sprite" parent="LevelObjects/Decorations/Office"]
+light_mask = 3
+position = Vector2( -8, 0 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 37 )
+centered = false
+
+[node name="Office4" type="Sprite" parent="LevelObjects/Decorations/Office"]
+light_mask = 3
+position = Vector2( 72, 16 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 39 )
+centered = false
+
+[node name="WashingRoom" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 896, 232 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="WashingRoom8" type="Sprite" parent="LevelObjects/Decorations/WashingRoom"]
+light_mask = 3
+position = Vector2( 48, -24 )
+texture = ExtResource( 35 )
+centered = false
+
+[node name="WashingRoom2" type="Sprite" parent="LevelObjects/Decorations/WashingRoom"]
+light_mask = 3
+position = Vector2( 24, 0 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="WashingRoom3" type="Sprite" parent="LevelObjects/Decorations/WashingRoom"]
+light_mask = 3
+position = Vector2( 42, 0 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="WashingRoom5" type="Sprite" parent="LevelObjects/Decorations/WashingRoom"]
+light_mask = 3
+position = Vector2( 64, 0 )
+texture = ExtResource( 33 )
+centered = false
+
+[node name="WashingRoom6" type="Sprite" parent="LevelObjects/Decorations/WashingRoom"]
+light_mask = 3
+position = Vector2( 64, -16 )
+texture = ExtResource( 33 )
+centered = false
+
+[node name="WashingRoom7" type="Sprite" parent="LevelObjects/Decorations/WashingRoom"]
+light_mask = 3
+position = Vector2( 82, 0 )
+texture = ExtResource( 33 )
+centered = false
+
+[node name="WashingRoom4" type="Sprite" parent="LevelObjects/Decorations/WashingRoom"]
+light_mask = 3
+position = Vector2( 136, 0 )
+texture = ExtResource( 18 )
+centered = false
+
+[node name="WaitingRoom" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 664, 232 )
+texture = ExtResource( 30 )
+centered = false
+
+[node name="WaitingRoom2" type="Sprite" parent="LevelObjects/Decorations/WaitingRoom"]
+light_mask = 3
+position = Vector2( 72, 0 )
+texture = ExtResource( 30 )
+centered = false
+
+[node name="WaitingRoom10" type="Sprite" parent="LevelObjects/Decorations/WaitingRoom"]
+light_mask = 3
+position = Vector2( 64, -16 )
+texture = ExtResource( 29 )
+centered = false
+
+[node name="WaitingRoom12" type="Sprite" parent="LevelObjects/Decorations/WaitingRoom"]
+light_mask = 3
+position = Vector2( -120, -8 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="WaitingRoom11" type="Sprite" parent="LevelObjects/Decorations/WaitingRoom"]
+light_mask = 3
+position = Vector2( -8, -16 )
+texture = ExtResource( 25 )
+centered = false
+
+[node name="WaitingRoom3" type="Sprite" parent="LevelObjects/Decorations/WaitingRoom"]
+light_mask = 3
+position = Vector2( 88, 0 )
+texture = ExtResource( 26 )
+centered = false
+
+[node name="WaitingRoom4" type="Sprite" parent="LevelObjects/Decorations/WaitingRoom"]
+light_mask = 3
+position = Vector2( 16, 0 )
+texture = ExtResource( 26 )
+centered = false
+
+[node name="WaitingRoom5" type="Sprite" parent="LevelObjects/Decorations/WaitingRoom"]
+light_mask = 3
+position = Vector2( 72, 0 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 26 )
+centered = false
+
+[node name="WaitingRoom6" type="Sprite" parent="LevelObjects/Decorations/WaitingRoom"]
+light_mask = 3
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 26 )
+centered = false
+
+[node name="WaitingRoom7" type="Sprite" parent="LevelObjects/Decorations/WaitingRoom"]
+light_mask = 3
+position = Vector2( 48, 0 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 28 )
+centered = false
+
+[node name="WaitingRoom9" type="Sprite" parent="LevelObjects/Decorations/WaitingRoom"]
+light_mask = 3
+position = Vector2( 168, -16 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 31 )
+centered = false
+
+[node name="WaitingRoom8" type="Sprite" parent="LevelObjects/Decorations/WaitingRoom"]
+light_mask = 3
+position = Vector2( 160, 0 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 27 )
+centered = false
+
+[node name="Er2" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 944, 168 )
+texture = ExtResource( 18 )
+centered = false
+
+[node name="Er3" type="Sprite" parent="LevelObjects/Decorations/Er2"]
+light_mask = 3
+position = Vector2( 64, -8 )
+texture = ExtResource( 22 )
+centered = false
+
+[node name="Er" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 688, 136 )
+texture = ExtResource( 16 )
+centered = false
+
+[node name="Er6" type="Sprite" parent="LevelObjects/Decorations/Er"]
+light_mask = 3
+position = Vector2( 72, 32 )
+texture = ExtResource( 18 )
+centered = false
+
+[node name="Er2" type="Sprite" parent="LevelObjects/Decorations/Er"]
+light_mask = 3
+position = Vector2( 128, 0 )
+texture = ExtResource( 16 )
+centered = false
+
+[node name="Er3" type="Sprite" parent="LevelObjects/Decorations/Er"]
+light_mask = 3
+position = Vector2( 51, 24 )
+texture = ExtResource( 19 )
+centered = false
+
+[node name="Er4" type="Sprite" parent="LevelObjects/Decorations/Er"]
+light_mask = 3
+position = Vector2( 104, 24 )
+texture = ExtResource( 20 )
+centered = false
+
+[node name="Er5" type="Sprite" parent="LevelObjects/Decorations/Er"]
+light_mask = 3
+position = Vector2( -24, 24 )
+texture = ExtResource( 15 )
 centered = false
 
 [node name="Objects" type="Node2D" parent="LevelObjects"]
@@ -181,6 +409,17 @@ lockLevel = 3
 position = Vector2( 840, 128 )
 lockLevel = 3
 
+[node name="Locker" parent="LevelObjects/Objects" instance=ExtResource( 24 )]
+position = Vector2( 1048, 192 )
+hasBounty = true
+
+[node name="Cabinet" parent="LevelObjects/Objects" instance=ExtResource( 23 )]
+position = Vector2( 984, 192 )
+type = 1
+
+[node name="Cabinet2" parent="LevelObjects/Objects" instance=ExtResource( 23 )]
+position = Vector2( 336, 192 )
+
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
@@ -199,16 +438,28 @@ position = Vector2( 624, 64 )
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 624, 128 )
 
+[node name="DoorWall22" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+position = Vector2( 904, 128 )
+
+[node name="DoorWall23" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+position = Vector2( 904, 192 )
+lockLevel = 2
+doorType = 2
+
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 416, 192 )
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 624, 192 )
 lockLevel = 5
+doorType = 2
 keyPath = NodePath("../../Objects/KeyRed")
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 624, 256 )
+
+[node name="DoorWall24" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
+position = Vector2( 840, 256 )
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
 position = Vector2( 424, 320 )
