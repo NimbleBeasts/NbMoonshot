@@ -1,7 +1,7 @@
 tool
 extends KinematicBody2D
 
-enum Skins {Scientist1, Scientist2, Spy}
+enum Skins {Scientist1, Scientist2, Spy, Patient}
 export (Skins) var skin: int setget setSkin
 export var isHostileArea: bool 
 export var speed: int = 35
@@ -53,7 +53,8 @@ func setSkin(_skin):
 			$Flippable/Sprite.texture = preload("res://Assets/Guards/Civ_Scientist2.png")
 		Skins.Spy:
 			$Flippable/Sprite.texture = preload("res://Assets/Guards/Civ_Spy.png")
-	
+		_:
+			$Flippable/Sprite.texture = preload("res://Assets/Guards/Civ_Patient.png")
 
 		
 func _physics_process(delta: float) -> void:
