@@ -18,8 +18,8 @@ var isSleeping: bool = false
 
 
 onready var pathLine: PathLine = get_node_or_null("PathLine")
-onready var fovArea: Area2D = $Flippable/FOV
-onready var animPlayer: AnimationPlayer = $AnimationPlayer
+
+
 
 #TODO: sound effects?
 
@@ -35,10 +35,10 @@ func _ready() -> void:
 			if not child.has_method("moveToNextPoint"):
 				print("Civilian: " + str(self) + " - Path node used. Was this intended?")
 
-	fovArea.connect("body_entered", self, "onFOVBodyEntered")
-	if not isHostileArea:
-		fovArea.queue_free()
-		fovArea = null
+#	fovArea.connect("body_entered", self, "onFOVBodyEntered")
+#	if not isHostileArea:
+#		fovArea.queue_free()
+#		fovArea = null
 		
 	setSkin(skin)
 
@@ -70,9 +70,9 @@ func _physics_process(delta: float) -> void:
 		return	
 	if direction.x != 0:
 		$Flippable.scale.x = direction.x
-		animPlayer.play("walk")
+		$AnimationPlayer.play("walk")
 	else:
-		animPlayer.play("idle")
+		$AnimationPlayer.play("idle")
 
 
 func setState(newState: int) -> void:
@@ -83,16 +83,16 @@ func setState(newState: int) -> void:
 		Types.CivilianStates.Stunned:
 #			set_physics_process(false)
 			physicsProcessAnims = false
-			animPlayer.play("tasered")
+			$AnimationPlayer.play("tasered")
 			if pathLine != null:
 				pathLine.stopAllMovement()
 			isStunned = true
-			if fovArea != null:
-				fovArea.set_deferred("monitoring", false)
+#			if fovArea != null:
+#				fovArea.set_deferred("monitoring", false)
 		Types.CivilianStates.Kneeling:
 #			set_physics_process(false)
 			physicsProcessAnims = false
-			animPlayer.play("kneeling")
+			$AnimationPlayer.play("kneeling")
 			if pathLine != null:
 				pathLine.stopAllMovement()
 
