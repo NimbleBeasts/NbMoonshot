@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Office/Elevator.png" type="Texture" id=2]
@@ -57,6 +57,13 @@
 [ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=55]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=56]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=57]
+[ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=58]
+[ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=59]
+[ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=60]
+[ext_resource path="res://Assets/Objects/StaircaseRoomOutside64x48.png" type="Texture" id=61]
+[ext_resource path="res://Assets/Objects/Hospital/US.png" type="Texture" id=62]
+[ext_resource path="res://Assets/Objects/Nature/Bush.png" type="Texture" id=63]
+[ext_resource path="res://Src/Objects/Nature/Tree.tscn" type="PackedScene" id=64]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 112, 8 )
@@ -69,7 +76,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Affaire 2: Your boss wants you to infiltrate the affaires house, taser him and bring the body to the car."
 }
-level_objectives = NodePath("../Level16/NPCS/Civillian")
+level_objectives = NodePath("NPCS/Civillian")
 playCarCloseSound = false
 
 [node name="NewSkybox" parent="." instance=ExtResource( 4 )]
@@ -153,10 +160,50 @@ tile_data = PoolIntArray( -524247, 0, 0, -524246, 0, 1, -524245, 0, 1, -524244, 
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
+[node name="Tree" parent="LevelObjects/Decorations" instance=ExtResource( 64 )]
+position = Vector2( 216, 168 )
+
+[node name="Tree2" parent="LevelObjects/Decorations" instance=ExtResource( 64 )]
+position = Vector2( 272, 176 )
+variant = 1
+
+[node name="Generator5" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 296, 232 )
+texture = ExtResource( 61 )
+
+[node name="Generator6" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 232, 232 )
+texture = ExtResource( 61 )
+
+[node name="Generator7" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 240, 232 )
+texture = ExtResource( 63 )
+centered = false
+
+[node name="Generator8" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 256, 232 )
+texture = ExtResource( 63 )
+centered = false
+
+[node name="Generator9" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 280, 232 )
+texture = ExtResource( 63 )
+centered = false
+
 [node name="Generator" type="Sprite" parent="LevelObjects/Decorations"]
 light_mask = 3
 position = Vector2( 368, 304 )
 texture = ExtResource( 7 )
+
+[node name="Generator4" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 272, 240 )
+texture = ExtResource( 62 )
 
 [node name="Generator2" type="Sprite" parent="LevelObjects/Decorations"]
 light_mask = 3
@@ -597,6 +644,7 @@ keyColor = 2
 
 [node name="Button" parent="LevelObjects/Objects" instance=ExtResource( 6 )]
 position = Vector2( 385, 301 )
+unlocks = [ NodePath("../../Lights/Light"), NodePath("../../Lights/Light2"), NodePath("../../Lights/Light3"), NodePath("../../Lights/Light4"), NodePath("../../Lights/Light5"), NodePath("../../Lights/Light6"), NodePath("../../Lights/Light7"), NodePath("../../Lights/Light8"), NodePath("../../Lights/Light9"), NodePath("../../Lights/Light10"), NodePath("../../Lights/Light11"), NodePath("../../Lights/Light12"), NodePath("../../Lights/Light13"), NodePath("../../Lights/Light14"), NodePath("../../Lights/Light15") ]
 startStateOn = true
 
 [node name="ThinArea" parent="LevelObjects/Objects" instance=ExtResource( 12 )]
@@ -646,6 +694,16 @@ type = 1
 
 [node name="Cabinet2" parent="LevelObjects/Objects" instance=ExtResource( 23 )]
 position = Vector2( 336, 192 )
+
+[node name="LaserDetector" parent="LevelObjects/Objects" instance=ExtResource( 58 )]
+position = Vector2( 424, 8 )
+isStatic = false
+moveSpeed = 1.0
+
+[node name="LaserDetector2" parent="LevelObjects/Objects" instance=ExtResource( 58 )]
+position = Vector2( 536, 72 )
+isStatic = false
+moveDistance = 10
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -793,10 +851,61 @@ directionIndication = 2
 [node name="Cameras" type="Node2D" parent="LevelObjects"]
 position = Vector2( 8, 0 )
 
+[node name="Camera" parent="LevelObjects/Cameras" instance=ExtResource( 59 )]
+position = Vector2( 1064, 72 )
+isFixedCam = true
+
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 1000, 72 )
+flicker = true
+flickerSequence = "11100011000010101001"
+
+[node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 680, 72 )
+
+[node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 792, 72 )
+
+[node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 728, 136 )
+
+[node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 816, 136 )
+
+[node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 992, 136 )
+
+[node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 688, 200 )
+
+[node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 784, 200 )
+
+[node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 576, 200 )
+
+[node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 576, 136 )
+
+[node name="Light11" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 576, 72 )
+
+[node name="Light12" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 576, 8 )
+
+[node name="Light13" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 576, -56 )
+
+[node name="Light14" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 408, 72 )
+
+[node name="Light15" parent="LevelObjects/Lights" instance=ExtResource( 60 )]
+position = Vector2( 408, 200 )
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 46 )]
 position = Vector2( 136, 256 )
