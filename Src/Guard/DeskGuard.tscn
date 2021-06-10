@@ -40,7 +40,7 @@ position = Vector2( 21, -22 )
 [node name="FOV" type="Area2D" parent="Flipable"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flipable/FOV"]
-polygon = PoolVector2Array( 0, 0, 75, -18, 75, 22 )
+polygon = PoolVector2Array( -6, -18, 75, -18, 75, 22, 19, 22, 19, 3, -6, 3 )
 
 [node name="LookTimer" type="Timer" parent="."]
 wait_time = 2.0
