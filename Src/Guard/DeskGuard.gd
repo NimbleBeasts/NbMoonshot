@@ -51,14 +51,14 @@ func _process(_delta):
 func switchState(to):
 	match to:
 		GuardState.Reading:
-			$Sprite.frame = 1 if (style == Types.LevelTypes.USA) else 5
+			$Sprite.frame = 1 
 			switchFOV(false)
 			$ReadTimer.start()
 		GuardState.Looking:
 			if lookDirection == LookDirectionType.Left:
-				$Sprite.frame = 2 if (style == Types.LevelTypes.USA) else 6
+				$Sprite.frame = 2 
 			else:
-				$Sprite.frame = 0 if (style == Types.LevelTypes.USA) else 4
+				$Sprite.frame = 0
 			switchFOV(true)
 			$LookTimer.start()
 		GuardState.Hidden:
