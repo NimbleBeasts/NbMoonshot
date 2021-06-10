@@ -15,6 +15,15 @@ var guardState = GuardState.Reading
 var player = null
 
 func _ready():
+	#React to noise
+	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
+
+	#Load sprite
+	if (style == Types.LevelTypes.USA):
+		$Sprite.texture = preload("res://Assets/Guards/DeskGuard_Blue.png")
+	else:
+		$Sprite.texture = preload("res://Assets/Guards/DeskGuard_Green.png")
+
 	$LookTimer.wait_time = lookDuration
 	$ReadTimer.wait_time = readDuration
 	$RemoveNotifierTimer.wait_time = removeNotifierDuration
@@ -25,6 +34,9 @@ func _ready():
 	
 	switchState(GuardState.Reading)
 	set_process(false)
+
+func _on_audio_level_changed(audio_level: int, audio_pos: Vector2, _emitter) -> void:
+	pass
 
 func _process(_delta):
 	if guardState == GuardState.Looking:
@@ -50,10 +62,7 @@ func switchState(to):
 			switchFOV(true)
 			$LookTimer.start()
 		GuardState.Hidden:
-			if (style == Types.LevelTypes.USA):
-				$AnimationPlayer.play("hide_blue")
-			else:
-				$AnimationPlayer.play("hide_green")
+			$AnimationPlayer.play("hide")
 			switchFOV(false)
 		_:
 			print("Never should get here")
