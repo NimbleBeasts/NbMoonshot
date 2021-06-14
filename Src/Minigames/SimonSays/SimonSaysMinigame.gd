@@ -62,12 +62,16 @@ func onButtonUp(buttonType: int) -> void:
 	
 	match buttonType:
 		0: 
+			$Lights/Red.show()
 			$Lights/Red/Beep.play()
 		1:
+			$Lights/Green.show()
 			$Lights/Green/Beep.play()
 		2:
+			$Lights/Blue.show()
 			$Lights/Blue/Beep.play()
 		_:
+			$Lights/Yellow.show()
 			$Lights/Yellow/Beep.play()
 	
 	var index = inputtedButtons.size() - 1
@@ -80,3 +84,10 @@ func onButtonUp(buttonType: int) -> void:
 		Events.emit_signal("minigame_door_change_status" ,targetInstance, 0, true)
 		set_result(Types.MinigameResults.Succeeded)
 		close()
+		
+	#Clean code they say :D
+	yield(get_tree().create_timer(0.5), "timeout")
+	$Lights/Red.hide()
+	$Lights/Green.hide()
+	$Lights/Blue.hide()
+	$Lights/Yellow.hide()

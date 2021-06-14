@@ -141,6 +141,3 @@ stream = ExtResource( 10 )
 volume_db = -5.0
 attenuation = 2.0
 bus = "Sound"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
