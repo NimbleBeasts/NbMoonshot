@@ -15,9 +15,6 @@ var guardState = GuardState.Reading
 var player = null
 
 func _ready():
-	#React to noise
-	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
-
 	#Load sprite
 	if (style == Types.LevelTypes.USA):
 		$Sprite.texture = preload("res://Assets/Guards/DeskGuard_Blue.png")
@@ -35,8 +32,6 @@ func _ready():
 	switchState(GuardState.Reading)
 	set_process(false)
 
-func _on_audio_level_changed(audio_level: int, audio_pos: Vector2, _emitter) -> void:
-	pass
 
 func _process(_delta):
 	if guardState == GuardState.Looking:
@@ -107,3 +102,30 @@ func _on_DelayTimer_timeout():
 
 func onRemoveNotifierTimeout() -> void:
 	$Notifier.remove()
+
+
+func _on_AudioListener_invoked(type, pos):
+	$Notifier.popup(Types.NotifierTypes.Question)
+	$LookTimer.stop()
+	$ReadTimer.stop()
+	$RemoveNotifierTimer.start()
+	
+	var noiseDirection = LookDirectionType.Right
+	if pos.x < self.global_position.x:
+		#Left
+		noiseDirection = LookDirectionType.Left
+
+	if noiseDirection == LookDirectionType.Left:
+		$Flipable.scale.x = -1
+		$Sprite.frame = 2 
+	else:
+		$Flipable.scale.x = 1
+		$Sprite.frame = 0
+	$ConfusionTimer.start()
+
+func _on_ConfusionTimer_timeout():
+	switchState(GuardState.Reading)
+	if lookDirection == LookDirectionType.Left:
+		$Flipable.scale.x = -1
+	else:
+		$Flipable.scale.x = 1

@@ -97,7 +97,7 @@ func _ready() -> void:
 		print("Coudn't find pathline, setting state to idle")
 		set_state(Types.GuardStates.Idle)
 
-	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
+	#Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
 	$Flippable/GuardArea.connect("body_entered", self, "onGuardBodyEntered")
 	$Flippable/LineOfSight.connect("body_entered", $CivilianDetect, "onGuardLOSBodyEntered")
@@ -258,6 +258,8 @@ func _on_StunDurationTimer_timeout() -> void:
 
 # Event Hook: audio level changed. audio_pos is the position where the audio notification happened
 func _on_audio_level_changed(audio_level: int, audio_pos: Vector2, _emitter) -> void:
+	print("deprecated")
+	return
 	if state == Types.GuardStates.Stunned or state == Types.GuardStates.PlayerDetected or \
 	state == Types.GuardStates.BeingDragged:
 		return
@@ -437,3 +439,16 @@ func playRandomSound(audioPlayer, array: Array) -> void:
 	randomize()
 	audioPlayer.stream = array[randi() % array.size()]
 	audioPlayer.play()
+
+
+func _on_AudioListener_invoked(audio_level, audio_pos):
+	if state == Types.GuardStates.Stunned or state == Types.GuardStates.PlayerDetected or \
+	state == Types.GuardStates.BeingDragged:
+		return
+	match audio_level:
+		Types.AudioLevels.LoudNoise:
+			if not $Notifier.isShowing:
+				$Notifier.popup(Types.NotifierTypes.Question)
+			playerLastSeenPosition = audio_pos
+			if state != Types.GuardStates.PlayerDetected:
+				set_state(Types.GuardStates.Suspect, true)

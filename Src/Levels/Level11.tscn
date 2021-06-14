@@ -165,6 +165,7 @@ position = Vector2( 216, 168 )
 
 [node name="Tree2" parent="LevelObjects/Decorations" instance=ExtResource( 64 )]
 position = Vector2( 272, 176 )
+frame = 1
 variant = 1
 
 [node name="Generator5" type="Sprite" parent="LevelObjects/Decorations"]

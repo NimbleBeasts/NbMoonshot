@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Guard/DeskGuard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Pickup/TestPickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Objects/Chimney.tscn" type="PackedScene" id=7]
@@ -110,7 +111,6 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 0
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -248,10 +248,6 @@ position = Vector2( -792, 128 )
 type = 1
 hasBounty = true
 
-[node name="LaserDetectorNew" parent="LevelObjects" instance=ExtResource( 25 )]
-position = Vector2( -208, 200 )
-isStatic = false
-
 [node name="TestJuke" type="Sprite" parent="."]
 position = Vector2( -656, 176 )
 texture = ExtResource( 31 )
@@ -313,7 +309,7 @@ position = Vector2( 60, 2 )
 shape = SubResource( 4 )
 
 [node name="DoorWall" parent="." instance=ExtResource( 8 )]
-position = Vector2( -232, 256 )
+position = Vector2( -271, 256 )
 lockLevel = 1
 
 [node name="ExtractionZone" parent="." instance=ExtResource( 12 )]
@@ -321,3 +317,7 @@ position = Vector2( -392, 256 )
 
 [node name="BoxPickup" parent="." instance=ExtResource( 15 )]
 position = Vector2( -328, 256 )
+
+[node name="DeskGuard" parent="." instance=ExtResource( 4 )]
+position = Vector2( -184, 256 )
+lookDirection = 1
