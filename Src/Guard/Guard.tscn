@@ -181,6 +181,10 @@ direction_change_time = 1.0
 position = Vector2( 0, -16 )
 shape = SubResource( 1 )
 
+[node name="StartDelay" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
 [node name="SureDetectionTimer" type="Timer" parent="."]
 one_shot = true
 
@@ -194,7 +198,6 @@ one_shot = true
 [node name="Flippable" type="Node2D" parent="."]
 
 [node name="GuardArea" type="Area2D" parent="Flippable"]
-visible = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Flippable/GuardArea"]
 position = Vector2( 0, -16 )
@@ -214,13 +217,19 @@ collision_mask = 1057
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
 position = Vector2( 6.30397, 24.2768 )
-polygon = PoolVector2Array( -5.15227, -30.7655, 81.9439, -32.0281, 81.9439, -0.028061, -3.40227, -1.0155 )
+polygon = PoolVector2Array( -8, -32, 82, -32, 82, -2, -8, -2 )
 
 [node name="LOSRay" type="RayCast2D" parent="Flippable"]
-position = Vector2( 3.53218, -10.5355 )
+position = Vector2( 3, -10 )
 enabled = true
 cast_to = Vector2( 90, 0 )
 collision_mask = 129
+
+[node name="DoorRay" type="RayCast2D" parent="Flippable"]
+position = Vector2( 3, -15 )
+enabled = true
+cast_to = Vector2( 10, 0 )
+collision_mask = 2048
 
 [node name="PressureArea" type="Area2D" parent="Flippable"]
 collision_layer = 512
@@ -287,6 +296,7 @@ bus = "Sound"
 [node name="AudioListener" parent="." instance=ExtResource( 10 )]
 audio_listener_x_size = 128
 
+[connection signal="timeout" from="StartDelay" to="." method="_on_StartDelay_timeout"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]
 [connection signal="body_entered" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_body_entered"]

@@ -106,8 +106,10 @@ func _ready() -> void:
 	#warning-ignore:return_value_discarded
 	
 	# Random delay - so the guards dont start synchronous
-	yield(get_tree().create_timer((Global.prng() % 50) / 100), "timeout")
-	delayOver = true
+	$StartDelay.wait_time = float(Global.prng() % 25) / 100 * 10
+	print($StartDelay.wait_time)
+	$StartDelay.start()
+	
 
 func setStartingDirection(newDirection: int) -> void:
 	startingDirection = newDirection
@@ -121,8 +123,6 @@ func _process(delta: float) -> void:
 	if not delayOver:
 		return
 	
-	yield(get_tree().create_timer((Global.prng() % 50) / 10), "timeout")
-	delayOver = true
 	
 	if state == Types.GuardStates.Wander or state == Types.GuardStates.Suspect or state == Types.GuardStates.Idle:
 		detectPlayerIfClose()
@@ -138,8 +138,9 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if Engine.editor_hint:
+	if Engine.editor_hint or not delayOver:
 		return
+
 	if player_in_los and processAI:
 		if losRayIsCollidingWith(player): # ray checking
 			playerDetectLOS()
@@ -452,3 +453,8 @@ func _on_AudioListener_invoked(audio_level, audio_pos):
 			playerLastSeenPosition = audio_pos
 			if state != Types.GuardStates.PlayerDetected:
 				set_state(Types.GuardStates.Suspect, true)
+
+
+func _on_StartDelay_timeout():
+	delayOver = true
+	print("delay over")

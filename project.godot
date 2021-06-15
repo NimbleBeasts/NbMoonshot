@@ -394,6 +394,7 @@ quentincaffeino_console_toggle={
 2d_physics/layer_9="Throwables"
 2d_physics/layer_10="Pressure"
 2d_physics/layer_11="Civilian"
+2d_physics/layer_12="Door"
 
 [rendering]
 
