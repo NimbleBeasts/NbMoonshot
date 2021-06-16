@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/surfin_ussr_full.ogg-76678e05a58c52a47f5f19dce2e92e9f.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/surfin_ussr_full.ogg"
+dest_files=[ "res://.import/surfin_ussr_full.ogg-76678e05a58c52a47f5f19dce2e92e9f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

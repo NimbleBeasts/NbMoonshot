@@ -96,7 +96,7 @@ func switchTo(to):
 		$gameViewport.hide()
 		$menuViewport.show()
 		$menuViewport/Viewport/Menu.show()
-		Events.emit_signal("play_music", "Menu")
+		Events.emit_signal("play_music", Types.MusicType.titleFull)
 	elif to == Types.GameStates.Game:
 		$gameViewport.show()
 		$menuViewport.hide()

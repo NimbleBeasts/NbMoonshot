@@ -10,6 +10,23 @@ var AchievementStrings = ["ACH_BETA_TEST"]
 # HUD
 enum HudNotificationType {BuyZone, SaveZone, OpenDoor, Interact}
 
+# Music
+enum MusicType {
+	DefaultLevelType = -1,
+	westernMusic = 0,
+	easternMusic = 1,
+	hqIntro,
+	hqMusic,
+	menuIntro,
+	menuMusic,
+	hq_full,
+	surfin_ussr,
+	rocket,
+	russia_win,
+	titleFull
+}
+
+
 # Player
 enum LightLevels {EvenDarker = 0, Dark = 1, BarelyVisible = 2, FullLight = 3}
 enum AudioLevels {LoudNoise = 0, SmallNoise = 1, Silent = 2}

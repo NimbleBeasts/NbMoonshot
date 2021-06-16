@@ -59,6 +59,7 @@ script = ExtResource( 1 )
 extended_allowed_detections = 99
 normal_allowed_detections = 99
 level_nation_type = 2
+level_music = 6
 
 [node name="NewSkybox" parent="." instance=ExtResource( 4 )]
 
