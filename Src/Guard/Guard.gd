@@ -123,9 +123,9 @@ func _process(delta: float) -> void:
 	if not delayOver:
 		return
 	
-	
 	if state == Types.GuardStates.Wander or state == Types.GuardStates.Suspect or state == Types.GuardStates.Idle:
 		detectPlayerIfClose()
+		$Label.set_text("detectplayer")
 	if state != Types.GuardStates.Stunned and state != Types.GuardStates.PlayerDetected:
 		if not velocity.x == 0:
 			$AnimationPlayer.play("walk")
@@ -144,6 +144,7 @@ func _physics_process(delta: float) -> void:
 	if player_in_los and processAI:
 		if losRayIsCollidingWith(player): # ray checking
 			playerDetectLOS()
+			$Label.set_text("playerdetect")
 	
 	update_flip()
 	if applyGravity:
