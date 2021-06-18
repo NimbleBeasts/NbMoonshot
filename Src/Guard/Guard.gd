@@ -125,7 +125,6 @@ func _process(delta: float) -> void:
 	
 	if state == Types.GuardStates.Wander or state == Types.GuardStates.Suspect or state == Types.GuardStates.Idle:
 		detectPlayerIfClose()
-		$Label.set_text("detectplayer")
 	if state != Types.GuardStates.Stunned and state != Types.GuardStates.PlayerDetected:
 		if not velocity.x == 0:
 			$AnimationPlayer.play("walk")
@@ -144,7 +143,6 @@ func _physics_process(delta: float) -> void:
 	if player_in_los and processAI:
 		if losRayIsCollidingWith(player): # ray checking
 			playerDetectLOS()
-			$Label.set_text("playerdetect")
 	
 	update_flip()
 	if applyGravity:
@@ -377,15 +375,21 @@ func onGuardPathLinePointReached() -> void:
 
 
 func onGuardBodyEntered(body: Node) -> void:
+	$Label.set_text(str(body))
+	print(str(name) + ": " + str(body))
 	if body.is_in_group("DoorWall"):
+		print(str(name) + ": doorwall check")
 		var door = body.get_parent()
 		if (door.lockLevel == Types.DoorLockType.lockedLevel1 or door.lockLevel == Types.DoorLockType.lockedLevel2 \
-				or door.lockLevel == Types.DoorLockType.open) and canOpenClosedDoor:
-					door.open()
-					door.interact(true, global_position)
+			or door.lockLevel == Types.DoorLockType.open) and canOpenClosedDoor:
+				door.open()
+				door.interact(true, global_position)
+					
+				print(str(name) + ": door open")
 		else:
 			$Notifier.remove()
-			guardPathLine.moveToStartingPoint()
+			guardPathLine.moveToLastPoint()
+			print(str(name) + ": move to starting")
 
 
 func canDrag() -> bool:

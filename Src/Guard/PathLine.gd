@@ -11,6 +11,7 @@ export var distractWaitTime: float = 2
 
 var global_points: Array = []
 var next_point: Vector2
+var last_point: Vector2
 var enabled: bool = true
 var is_next_point_reached: bool
 var movingToCustomPoint: bool = false
@@ -38,6 +39,9 @@ func _ready() -> void:
 	for i in points.size():
 		global_points.append(target.to_global(points[i]))
 	
+	
+	last_point = global_points[0]
+	
 	moveToNextPoint()	
 	if global_points.size() >= 1:
 		next_point = global_points[0]
@@ -62,6 +66,7 @@ func _process(delta: float) -> void:
 
 func onTimerTimeout() -> void:
 	if global_points.size() - 1 >= currentIndex:
+		last_point = next_point
 		next_point = global_points[currentIndex]
 
 
@@ -78,10 +83,12 @@ func moveToNextPoint():
 	if stopOnReachedPoint:
 		timer.start()
 	else:
+		last_point = next_point
 		next_point = global_points[currentIndex]
 
 
 func moveToPoint(newPoint: Vector2) -> void:
+	last_point = next_point
 	next_point = newPoint
 	moveToNextPoint()
 	enabled = false
@@ -109,8 +116,8 @@ func changeDirection() -> void:
 	timer.start()
 
 
-func moveToStartingPoint() -> void:
-	next_point = global_points[0]
+func moveToLastPoint() -> void:
+	next_point = last_point
 	moveToNextPoint()
 	enabled = true
 	movingToCustomPoint = false

@@ -306,7 +306,6 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
 [connection signal="timeout" from="StartDelay" to="." method="_on_StartDelay_timeout"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]

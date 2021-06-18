@@ -206,7 +206,7 @@ func onDogBodyEntered(body: Node) -> void:
 			door.interact(true, global_position)
 		else:
 			$Notifier.remove()
-			pathLine.moveToStartingPoint()
+			pathLine.moveToLastPoint()
 
 
 func onLOSBodyEntered(body: Node) -> void:
