@@ -226,12 +226,6 @@ enabled = true
 cast_to = Vector2( 90, 0 )
 collision_mask = 129
 
-[node name="DoorRay" type="RayCast2D" parent="Flippable"]
-position = Vector2( 3, -15 )
-enabled = true
-cast_to = Vector2( 10, 0 )
-collision_mask = 2048
-
 [node name="PressureArea" type="Area2D" parent="Flippable"]
 collision_layer = 512
 collision_mask = 0

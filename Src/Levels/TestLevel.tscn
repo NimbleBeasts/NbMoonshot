@@ -107,7 +107,7 @@ position = Vector2( -104, 256 )
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 7 )]
-frame = 0
+frame = 2
 
 [node name="Tv" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 152, 224 )
@@ -380,7 +380,7 @@ position = Vector2( 60, 2 )
 shape = SubResource( 2 )
 
 [node name="DoorWall" parent="." instance=ExtResource( 8 )]
-position = Vector2( -271, 256 )
+position = Vector2( -275, 256 )
 lockLevel = 2
 doorType = 0
 save_state = false
@@ -391,7 +391,7 @@ doorLockStateLocked = true
 sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="." instance=ExtResource( 8 )]
-position = Vector2( -272, 328 )
+position = Vector2( -297, 328 )
 lockLevel = 0
 doorType = 0
 save_state = false
@@ -402,7 +402,7 @@ doorLockStateLocked = true
 sig_to_trig = [  ]
 
 [node name="DoorWall3" parent="." instance=ExtResource( 8 )]
-position = Vector2( -152, 328 )
+position = Vector2( -119, 327 )
 lockLevel = 0
 doorType = 0
 save_state = false
@@ -461,5 +461,12 @@ position = Vector2( -488, 192 )
 position = Vector2( -256, 256 )
 
 [node name="PathLine" type="Line2D" parent="Guard2"]
+points = PoolVector2Array( -24, -8, 32, -8, 96, -8, 120, -8, 184, -8 )
+script = ExtResource( 30 )
+
+[node name="Guard3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -256, 328 )
+
+[node name="PathLine" type="Line2D" parent="Guard3"]
 points = PoolVector2Array( -24, -8, 32, -8, 96, -8, 120, -8, 184, -8 )
 script = ExtResource( 30 )
