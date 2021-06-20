@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Menu/MenuClick.wav" type="AudioStream" id=1]
 [ext_resource path="res://Src/AudioPlayer/AudioPlayer.gd" type="Script" id=2]
@@ -12,23 +12,11 @@
 [ext_resource path="res://Assets/SFX/car_close.wav" type="AudioStream" id=30]
 [ext_resource path="res://Assets/SFX/car_open.wav" type="AudioStream" id=31]
 [ext_resource path="res://Assets/SFX/minigame_victory.wav" type="AudioStream" id=32]
-[ext_resource path="res://Assets/Music/western_world.ogg" type="AudioStream" id=44]
-[ext_resource path="res://Assets/Music/hq_main.ogg" type="AudioStream" id=47]
-[ext_resource path="res://Assets/Music/eastern_bloc.ogg" type="AudioStream" id=48]
-[ext_resource path="res://Assets/Music/title_intro.ogg" type="AudioStream" id=49]
-[ext_resource path="res://Assets/Music/title_main.ogg" type="AudioStream" id=52]
-[ext_resource path="res://Assets/Music/hq_intro.ogg" type="AudioStream" id=53]
 [ext_resource path="res://Assets/SFX/key_pickup.wav" type="AudioStream" id=63]
 [ext_resource path="res://Assets/SFX/insert_key.wav" type="AudioStream" id=69]
 
 [node name="AudioPlayer" type="Node2D"]
 script = ExtResource( 2 )
-westernMusic = ExtResource( 44 )
-easternMusic = ExtResource( 48 )
-hqIntro = ExtResource( 53 )
-hqMusic = ExtResource( 47 )
-menuIntro = ExtResource( 49 )
-menuMusic = ExtResource( 52 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )

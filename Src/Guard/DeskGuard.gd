@@ -15,6 +15,12 @@ var guardState = GuardState.Reading
 var player = null
 
 func _ready():
+	#Load sprite
+	if (style == Types.LevelTypes.USA):
+		$Sprite.texture = preload("res://Assets/Guards/DeskGuard_Blue.png")
+	else:
+		$Sprite.texture = preload("res://Assets/Guards/DeskGuard_Green.png")
+
 	$LookTimer.wait_time = lookDuration
 	$ReadTimer.wait_time = readDuration
 	$RemoveNotifierTimer.wait_time = removeNotifierDuration
@@ -25,6 +31,7 @@ func _ready():
 	
 	switchState(GuardState.Reading)
 	set_process(false)
+
 
 func _process(_delta):
 	if guardState == GuardState.Looking:
@@ -39,21 +46,18 @@ func _process(_delta):
 func switchState(to):
 	match to:
 		GuardState.Reading:
-			$Sprite.frame = 1 if (style == Types.LevelTypes.USA) else 5
+			$Sprite.frame = 1 
 			switchFOV(false)
 			$ReadTimer.start()
 		GuardState.Looking:
 			if lookDirection == LookDirectionType.Left:
-				$Sprite.frame = 2 if (style == Types.LevelTypes.USA) else 6
+				$Sprite.frame = 2 
 			else:
-				$Sprite.frame = 0 if (style == Types.LevelTypes.USA) else 4
+				$Sprite.frame = 0
 			switchFOV(true)
 			$LookTimer.start()
 		GuardState.Hidden:
-			if (style == Types.LevelTypes.USA):
-				$AnimationPlayer.play("hide_blue")
-			else:
-				$AnimationPlayer.play("hide_green")
+			$AnimationPlayer.play("hide")
 			switchFOV(false)
 		_:
 			print("Never should get here")
@@ -98,3 +102,30 @@ func _on_DelayTimer_timeout():
 
 func onRemoveNotifierTimeout() -> void:
 	$Notifier.remove()
+
+
+func _on_AudioListener_invoked(type, pos):
+	$Notifier.popup(Types.NotifierTypes.Question)
+	$LookTimer.stop()
+	$ReadTimer.stop()
+	$RemoveNotifierTimer.start()
+	
+	var noiseDirection = LookDirectionType.Right
+	if pos.x < self.global_position.x:
+		#Left
+		noiseDirection = LookDirectionType.Left
+
+	if noiseDirection == LookDirectionType.Left:
+		$Flipable.scale.x = -1
+		$Sprite.frame = 2 
+	else:
+		$Flipable.scale.x = 1
+		$Sprite.frame = 0
+	$ConfusionTimer.start()
+
+func _on_ConfusionTimer_timeout():
+	switchState(GuardState.Reading)
+	if lookDirection == LookDirectionType.Left:
+		$Flipable.scale.x = -1
+	else:
+		$Flipable.scale.x = 1

@@ -20,14 +20,19 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if player.blockEntireInput or player.movementBlocked:
 		return
+		
+	
 	# Can't use elif since both of these can be true at same time
 	if travelRayDown.is_colliding() and player.state == Types.PlayerStates.Normal:
 		var thinArea := travelRayDown.get_collider() as ThinArea
+		
+		var botAreaGood = true
 		if thinArea == null:
-			return
+			botAreaGood = false
 		elif thinArea.disabled:
-			return
-		if Input.is_action_just_pressed("travel_down"):
+			botAreaGood = false
+			
+		if Input.is_action_just_pressed("travel_down") && botAreaGood:
 			Events.emit_signal("player_guard_drop")
 			Events.emit_signal("player_item_drop")
 			var travelDuration: float
@@ -42,7 +47,7 @@ func _physics_process(delta: float) -> void:
 			Events.emit_signal("player_block_input")
 			Events.emit_signal("player_animation_change", correctAnim)
 			get_parent().get_node("PlayerSounds/JumpDown").play()
-
+			return
 
 	if travelRayUp.is_colliding() and player.state == Types.PlayerStates.Normal:
 		var thinArea := travelRayUp.get_collider() as ThinArea

@@ -4,6 +4,7 @@ export(Color, RGBA) var col = Color(1,0.1,1,1)
 export(int) var layer = 500
 
 var box = [Vector2(), Vector2(), Vector2(), Vector2()]
+var debug = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,8 +17,9 @@ func _ready():
 
 
 func _draw():
-	draw_line(box[0], box[1], col)
-	draw_line(box[1], box[2], col)
-	draw_line(box[2], box[3], col)
-	draw_line(box[3], box[0], col)
+	if debug:
+		draw_line(box[0], box[1], col)
+		draw_line(box[1], box[2], col)
+		draw_line(box[2], box[3], col)
+		draw_line(box[3], box[0], col)
 	

@@ -14,8 +14,8 @@ onready var sprite: Sprite = $Sprite # also for pressure button
 func _ready() -> void:
 	# for pressure
 	set_collision_layer_bit(9, true)
-	$GroundDetection.connect("apply_gravity", self, "setApplyGravity", [true])
-	$GroundDetection.connect("stop_applying_gravity", self, "setApplyGravity", [false])
+	$GroundCast.connect("apply_gravity", self, "setApplyGravity", [true])
+	$GroundCast.connect("stop_applying_gravity", self, "setApplyGravity", [false])
 	$Sprite.set_material($Sprite.get_material().duplicate())
 
 	
@@ -26,17 +26,26 @@ func _physics_process(delta: float) -> void:
 		
 	global_position += velocity * delta
 	
+	if $Label:
+		$Label.set_text(str(global_position))
+
+
 func pickup() -> void:
-	isPickedUp = true
+	setPickedUp(true)
 	$Sprite.material.set_shader_param("active", false)
 	if showGameHints:
 		Events.emit_signal("hud_game_hint", "Picked up " + str(pickupName))
 	
 func drop() -> void:
-	isPickedUp = false
+	setPickedUp(false)
 	$Sprite.material.set_shader_param("active", true)
 	if showGameHints:
 		Events.emit_signal("hud_game_hint", "Dropped " + str(pickupName))
+
+
+func setPickedUp(state):
+	$GroundCast.setEnabled(!state) #Disable if picked up
+	isPickedUp = state
 
 func getProgessState() -> bool:
 	return isPickedUp
@@ -54,3 +63,4 @@ func _on_FCU_body_entered(body):
 func _on_FCU_body_exited(body):
 	if body.is_in_group("Player"):
 		$Sprite.material.set_shader_param("active", false)
+

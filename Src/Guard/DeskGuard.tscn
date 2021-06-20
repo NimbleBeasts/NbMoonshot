@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Guards/DeskGuard.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Guards/DeskGuard_Blue.png" type="Texture" id=1]
 [ext_resource path="res://Src/Notifier/Notifier.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Guard/DeskGuard.gd" type="Script" id=3]
 [ext_resource path="res://Assets/SFX/chair_startle.wav" type="AudioStream" id=4]
+[ext_resource path="res://Src/Guard/AudioListener.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
-resource_name = "hide_blue"
-length = 0.6
-step = 0.25
+resource_name = "hide"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -16,27 +16,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.7, 0.9, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 3, 8 ]
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "hide_green"
-length = 0.6
-step = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 5, 7, 8 ]
+"values": [ 1, 3, 4, 5, 4, 6, 7 ]
 }
 
 [node name="DeskGuard" type="Node2D"]
@@ -46,8 +29,8 @@ script = ExtResource( 3 )
 position = Vector2( 0, -32 )
 texture = ExtResource( 1 )
 centered = false
-hframes = 9
-frame = 1
+hframes = 8
+frame = 7
 
 [node name="Notifier" parent="." instance=ExtResource( 2 )]
 position = Vector2( 21, -29 )
@@ -58,7 +41,7 @@ position = Vector2( 21, -22 )
 [node name="FOV" type="Area2D" parent="Flipable"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flipable/FOV"]
-polygon = PoolVector2Array( 0, 0, 75, -18, 75, 22 )
+polygon = PoolVector2Array( -6, -18, 75, -18, 75, 22, 19, 22, 19, 3, -6, 3 )
 
 [node name="LookTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -72,9 +55,12 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
+[node name="ConfusionTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/hide_blue = SubResource( 1 )
-anims/hide_green = SubResource( 2 )
+anims/hide = SubResource( 1 )
 
 [node name="RemoveNotifierTimer" type="Timer" parent="."]
 
@@ -83,8 +69,13 @@ stream = ExtResource( 4 )
 attenuation = 2.0
 bus = "Sound"
 
+[node name="AudioListener" parent="." instance=ExtResource( 5 )]
+audio_listener_x_size = 92
+
 [connection signal="body_entered" from="Flipable/FOV" to="." method="_on_FOV_body_entered"]
 [connection signal="body_exited" from="Flipable/FOV" to="." method="_on_FOV_body_exited"]
 [connection signal="timeout" from="LookTimer" to="." method="_on_LookTimer_timeout"]
 [connection signal="timeout" from="ReadTimer" to="." method="_on_ReadTimer_timeout"]
 [connection signal="timeout" from="DelayTimer" to="." method="_on_DelayTimer_timeout"]
+[connection signal="timeout" from="ConfusionTimer" to="." method="_on_ConfusionTimer_timeout"]
+[connection signal="invoked" from="AudioListener" to="." method="_on_AudioListener_invoked"]

@@ -97,7 +97,7 @@ func _ready() -> void:
 		print("Coudn't find pathline, setting state to idle")
 		set_state(Types.GuardStates.Idle)
 
-	Events.connect("audio_level_changed", self, "_on_audio_level_changed")
+	#Events.connect("audio_level_changed", self, "_on_audio_level_changed")
 	Events.connect("visible_level_changed", self, "onVisibleLevelChanged")
 	$Flippable/GuardArea.connect("body_entered", self, "onGuardBodyEntered")
 	$Flippable/LineOfSight.connect("body_entered", $CivilianDetect, "onGuardLOSBodyEntered")
@@ -106,8 +106,10 @@ func _ready() -> void:
 	#warning-ignore:return_value_discarded
 	
 	# Random delay - so the guards dont start synchronous
-	yield(get_tree().create_timer((Global.prng() % 50) / 100), "timeout")
-	delayOver = true
+	$StartDelay.wait_time = float(Global.prng() % 25) / 100 * 10
+	print($StartDelay.wait_time)
+	$StartDelay.start()
+	
 
 func setStartingDirection(newDirection: int) -> void:
 	startingDirection = newDirection
@@ -120,9 +122,6 @@ func _process(delta: float) -> void:
 	
 	if not delayOver:
 		return
-	
-	yield(get_tree().create_timer((Global.prng() % 50) / 10), "timeout")
-	delayOver = true
 	
 	if state == Types.GuardStates.Wander or state == Types.GuardStates.Suspect or state == Types.GuardStates.Idle:
 		detectPlayerIfClose()
@@ -138,8 +137,9 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if Engine.editor_hint:
+	if Engine.editor_hint or not delayOver:
 		return
+
 	if player_in_los and processAI:
 		if losRayIsCollidingWith(player): # ray checking
 			playerDetectLOS()
@@ -258,6 +258,8 @@ func _on_StunDurationTimer_timeout() -> void:
 
 # Event Hook: audio level changed. audio_pos is the position where the audio notification happened
 func _on_audio_level_changed(audio_level: int, audio_pos: Vector2, _emitter) -> void:
+	print("deprecated")
+	return
 	if state == Types.GuardStates.Stunned or state == Types.GuardStates.PlayerDetected or \
 	state == Types.GuardStates.BeingDragged:
 		return
@@ -373,15 +375,21 @@ func onGuardPathLinePointReached() -> void:
 
 
 func onGuardBodyEntered(body: Node) -> void:
+	$Label.set_text(str(body))
+	print(str(name) + ": " + str(body))
 	if body.is_in_group("DoorWall"):
+		print(str(name) + ": doorwall check")
 		var door = body.get_parent()
 		if (door.lockLevel == Types.DoorLockType.lockedLevel1 or door.lockLevel == Types.DoorLockType.lockedLevel2 \
-				or door.lockLevel == Types.DoorLockType.open) and canOpenClosedDoor:
-					door.open()
-					door.interact(true, global_position)
+			or door.lockLevel == Types.DoorLockType.open) and canOpenClosedDoor:
+				door.open()
+				door.interact(true, global_position)
+					
+				print(str(name) + ": door open")
 		else:
 			$Notifier.remove()
-			guardPathLine.moveToStartingPoint()
+			guardPathLine.moveToLastPoint()
+			print(str(name) + ": move to starting")
 
 
 func canDrag() -> bool:
@@ -437,3 +445,21 @@ func playRandomSound(audioPlayer, array: Array) -> void:
 	randomize()
 	audioPlayer.stream = array[randi() % array.size()]
 	audioPlayer.play()
+
+
+func _on_AudioListener_invoked(audio_level, audio_pos):
+	if state == Types.GuardStates.Stunned or state == Types.GuardStates.PlayerDetected or \
+	state == Types.GuardStates.BeingDragged:
+		return
+	match audio_level:
+		Types.AudioLevels.LoudNoise:
+			if not $Notifier.isShowing:
+				$Notifier.popup(Types.NotifierTypes.Question)
+			playerLastSeenPosition = audio_pos
+			if state != Types.GuardStates.PlayerDetected:
+				set_state(Types.GuardStates.Suspect, true)
+
+
+func _on_StartDelay_timeout():
+	delayOver = true
+	print("delay over")

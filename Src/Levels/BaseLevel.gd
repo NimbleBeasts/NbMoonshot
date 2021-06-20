@@ -6,6 +6,7 @@ export var normal_allowed_detections: int = 3
 
 export (Types.LevelLightning) var level_lightning: int
 export (Types.LevelTypes) var level_nation_type: int
+export (Types.MusicType) var level_music: int = Types.MusicType.DefaultLevelType
 export(NodePath) var level_objectives = null
 export var playCarCloseSound: bool = true 
 export var isSabotage: bool = false
@@ -34,12 +35,14 @@ func _ready():
 	var hud = preload("res://Src/HUD/HUD.tscn").instance()
 	self.add_child(hud)
 	
-	var musicEmit 
-	if Global.game_manager.getCurrentLevelIndex() != 0:
-		musicEmit = level_nation_type
+	# Level Music 
+	if level_music == Types.MusicType.DefaultLevelType:
+		if level_nation_type == Types.LevelTypes.USA or level_nation_type == Types.LevelTypes.Switzerland:
+			Events.emit_signal("play_music", Types.MusicType.westernMusic)
+		else:
+			Events.emit_signal("play_music", Types.MusicType.easternMusic)
 	else:
-		musicEmit = "HQ"
-	Events.emit_signal("play_music", musicEmit)
+		Events.emit_signal("play_music", level_music)
 
 	Events.connect("hud_mission_briefing_exited", self, "onHudMissionBriefingExited")
 	Events.connect("hud_mission_progress_exited", self, "onHudMissionProgressExited")

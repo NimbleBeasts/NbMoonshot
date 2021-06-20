@@ -1,12 +1,19 @@
 extends Node2D
 
 
-export (AudioStream) var westernMusic
-export (AudioStream) var easternMusic
-export (AudioStream) var hqIntro
-export (AudioStream) var hqMusic
-export (AudioStream) var menuIntro
-export (AudioStream) var menuMusic
+var music = [
+	load("res://Assets/Music/western_world.ogg"), #	westernMusic = 0,
+	load("res://Assets/Music/eastern_bloc.ogg"), #	easternMusic = 1,
+	load("res://Assets/Music/hq_intro.ogg"), #	hqIntro,
+	load("res://Assets/Music/hq_main.ogg"), #	hqMusic,
+	load("res://Assets/Music/title_intro.ogg"), #	menuIntro,
+	load("res://Assets/Music/title_main.ogg"), #	menuMusic,
+	load("res://Assets/Music/hq_full.ogg"), #	hq_full,
+	load("res://Assets/Music/surfin_ussr_full.ogg"), #	surfin_ussr,
+	load("res://Assets/Music/rocket_full.ogg"), #	rocket,
+	load("res://Assets/Music/russia_win_full.ogg"), #	russia_win
+	load("res://Assets/Music/title_full_.ogg"), # titleFull
+]
 
 onready var musicPlayer: AudioStreamPlayer = $Music
 onready var music_bus = AudioServer.get_bus_index("Music")
@@ -81,10 +88,10 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 
 # Music Loop?
 func _on_Music_finished():
-	if musicPlayer.stream == hqIntro:
-		musicPlayer.stream = hqMusic
-	elif musicPlayer.stream == menuIntro:
-		musicPlayer.stream = menuMusic
+	if musicPlayer.stream == music[Types.MusicType.hqIntro]:
+		musicPlayer.stream = music[Types.MusicType.hqMusic]
+	elif musicPlayer.stream == music[Types.MusicType.menuIntro]:
+		musicPlayer.stream = music[Types.MusicType.menuMusic]
 	musicPlayer.play()
 	
 
@@ -95,22 +102,10 @@ func playRandomSound(audioPlayer, array: Array) -> void:
 	audioPlayer.play()
 
 
-func onPlayMusic(level_type) -> void:
-	match level_type:
-		Types.LevelTypes.USA:
-			musicPlayer.stream = westernMusic
-			musicPlayer.play()
-		Types.LevelTypes.USSR:
-			musicPlayer.stream = easternMusic
-			musicPlayer.play()
-		"HQ":
-			musicPlayer.stream = hqIntro
-			musicPlayer.play()
-		"Menu":
-			musicPlayer.stream = menuIntro
-			musicPlayer.play()
-		_:
-			print("error - music not found")
+func onPlayMusic(music_id) -> void:
+	musicPlayer.stream = music[music_id]
+	musicPlayer.play()
+
 
 
 func onGameOver() -> void:
