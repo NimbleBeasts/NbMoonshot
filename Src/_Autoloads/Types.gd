@@ -32,7 +32,7 @@ enum LightLevels {EvenDarker = 0, Dark = 1, BarelyVisible = 2, FullLight = 3}
 enum AudioLevels {LoudNoise = 0, SmallNoise = 1, Silent = 2}
 enum PlayerStates {Normal, WallDodge, Duck, DraggingGuard, InCloset, DraggingItem}
 enum DetectionLevels{Possible, Sure}
-enum UpgradeTypes {Taser_Extended_Battery, Taser_Voltage, False_Alarm, Fitness_Level2, Sneak, DarkNet, Lockpick_Level2, Distraction}
+enum UpgradeTypes {Taser_Extended_Battery, Dog_Whisperer, False_Alarm, Fitness_Level2, Sneak, DarkNet, Lockpick_Level2, Distraction}
 
 # Minigames
 enum Minigames{Test, Keypad, WireCut, Lockpick, Photo, Cryptogram}

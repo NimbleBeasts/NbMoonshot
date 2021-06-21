@@ -106,7 +106,7 @@ const levelTitle = [
 # Upgrades
 const upgrades = [
 	{id = 0, name="Power-Bank", desc="Increases the battery capacity to allow taser usages.", cost=300},
-	{id = 1, name="High Voltage", desc="Stunned Guards will sleep longer.", cost=200},
+	{id = 1, name="Dog Whisperer", desc="Dogs will love you!", cost=300},
 	{id = 2, name="False Alarm", desc="Increases the amount of possible detections.", cost=300},
 	{id = 3, name="Marathon Man", desc="Increases the movement speed.", cost=150},
 	{id = 4, name="Sneak", desc="Enables walk while hiding in the dark.", cost=200},

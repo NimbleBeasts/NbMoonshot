@@ -55,6 +55,8 @@ func _ready() -> void:
 	if playerInLOS and losRayIsCollidingWith(player):
 		setState(Types.DogStates.Angry)
 		losRay.set_deferred("enabled", false)
+	
+
 
 
 func _process(delta: float) -> void:
@@ -248,6 +250,8 @@ func flipTowards(towards: Vector2) -> void:
 
 
 func detectPlayerIfClose() -> void:
+	if Types.UpgradeTypes.Dog_Whisperer in Global.gameState.playerUpgrades:
+		return
 	if player.global_position.distance_to(global_position) < playerSuspectDistance and state != Types.GuardStates.Stunned:
 		if player.state != Types.PlayerStates.WallDodge and losRayIsCollidingWith(player):
 				pathLine.moveToPoint(player.global_position)

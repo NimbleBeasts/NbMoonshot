@@ -177,6 +177,8 @@ collision_layer = 48
 collision_mask = 0
 script = ExtResource( 2 )
 direction_change_time = 1.0
+normal_time_to_alarm = 1.0
+extended_time_to_alarm = 1.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -16 )
@@ -300,6 +302,7 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="timeout" from="StartDelay" to="." method="_on_StartDelay_timeout"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]

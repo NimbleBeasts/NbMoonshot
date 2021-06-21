@@ -10,7 +10,7 @@ enum Directions {RIGHT, LEFT}
 # movement variables
 export var normal_speed: int = 80
 export var normal_acceleration: int = 600
-export var sprint_speed: int = 160
+export var sprint_speed: int = 120
 export var sprint_acceleration: int = 2500
 export var duckSpeed: int = 40
 export var duckAcceleration: int = 300
@@ -175,10 +175,10 @@ func movementInput() -> void:
 		direction.x = 0
 		return
 	# changed between speeds depending on whether sprinting or not
-	if Input.is_action_pressed("sprint") and canSprint and state == Types.PlayerStates.Normal:
-		speed = sprint_speed
-		acceleration = sprint_acceleration
-	elif not Input.is_action_just_pressed("sprint") and state == Types.PlayerStates.Normal:
+#	if Input.is_action_pressed("sprint") and canSprint and state == Types.PlayerStates.Normal:
+#		speed = sprint_speed
+#		acceleration = sprint_acceleration
+	if not Input.is_action_just_pressed("sprint") and state == Types.PlayerStates.Normal:
 		speed = normal_speed
 		acceleration = normal_acceleration
 
@@ -250,14 +250,18 @@ func do_upgrade_stuff() -> void:
 		stun_battery_level = normal_stun_battery
 
 	# stun duration
-	if Types.UpgradeTypes.Taser_Voltage in Global.gameState.playerUpgrades:
-		stun_duration = extended_stun_duration
-	else:
-		stun_duration = normal_stun_duration
+#	if Types.UpgradeTypes.Taser_Voltage in Global.gameState.playerUpgrades:
+#		stun_duration = extended_stun_duration
+#	else:
+	stun_duration = normal_stun_duration
 
 	# sneak upgrade
 	has_sneak_upgrade = Types.UpgradeTypes.Sneak in Global.gameState.playerUpgrades
-	canSprint = Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades
+	
+	if Types.UpgradeTypes.Fitness_Level2 in Global.gameState.playerUpgrades:
+		normal_speed = 100
+	else:
+		normal_speed = 80
 
 	
 # Event Hooks

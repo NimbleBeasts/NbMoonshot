@@ -181,7 +181,7 @@ audioSuspectDistance = 100
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 13
-frame = 12
+frame = 2
 
 [node name="LOSArea" type="Area2D" parent="Flippable"]
 
