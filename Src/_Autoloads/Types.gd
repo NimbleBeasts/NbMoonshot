@@ -23,7 +23,8 @@ enum MusicType {
 	surfin_ussr,
 	rocket,
 	russia_win,
-	titleFull
+	titleFull,
+	bank,
 }
 
 
