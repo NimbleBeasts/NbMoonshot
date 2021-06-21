@@ -732,6 +732,7 @@ text = "Toggle Promo"
 visible = false
 
 [node name="MissionBriefing" parent="HUDLayer/Display" instance=ExtResource( 13 )]
+visible = false
 
 [node name="StartMissionButton" parent="HUDLayer/Display/MissionBriefing" instance=ExtResource( 16 )]
 margin_left = 256.0

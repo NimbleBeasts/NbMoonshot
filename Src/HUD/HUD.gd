@@ -266,13 +266,13 @@ func upgradeSelect(id):
 	
 	if -1 == Global.gameState.playerUpgrades.find(id):
 		if Global.gameState.money >= upgrade.cost:
-			$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.updateLabel("Buy Upgrade")
+			$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.text = "Buy Upgrade"
 			$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.disabled = false
 		else:
-			$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.updateLabel("Not Enough Cash")
+			$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.text = "Not Enough Cash"
 			$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.disabled = true
 	else:
-		$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.updateLabel("Already Owned")
+		$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.text = "Already Owned"
 		$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.disabled = true
 
 
