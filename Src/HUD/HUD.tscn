@@ -645,7 +645,6 @@ hframes = 4
 
 [node name="IngameMenu" type="Control" parent="HUDLayer/Display"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -670,7 +669,7 @@ anchor_bottom = 0.5
 margin_left = -80.0
 margin_top = -96.0
 margin_right = 80.0
-margin_bottom = 56.0
+margin_bottom = 76.0
 texture = ExtResource( 7 )
 patch_margin_left = 6
 patch_margin_top = 6
@@ -687,18 +686,25 @@ margin_right = 144.0
 margin_bottom = 36.0
 text = "Continue"
 
+[node name="ButtonRestart" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 41.0
+margin_right = 144.0
+margin_bottom = 65.0
+text = "Restart"
+
 [node name="ButtonQuit" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 16 )]
 margin_left = 16.0
-margin_top = 116.0
+margin_top = 138.0
 margin_right = 144.0
-margin_bottom = 140.0
+margin_bottom = 162.0
 text = "Quit"
 
 [node name="MusicSlider" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 22 )]
 margin_left = 16.0
-margin_top = 85.0
+margin_top = 112.0
 margin_right = 112.0
-margin_bottom = 109.0
+margin_bottom = 136.0
 
 [node name="Label" type="Label" parent="HUDLayer/Display/IngameMenu/Menu/MusicSlider"]
 margin_top = -8.0
@@ -709,9 +715,9 @@ text = "Music"
 
 [node name="SoundSlider" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 22 )]
 margin_left = 16.0
-margin_top = 50.0
+margin_top = 77.0
 margin_right = 112.0
-margin_bottom = 74.0
+margin_bottom = 101.0
 
 [node name="Label" type="Label" parent="HUDLayer/Display/IngameMenu/Menu/SoundSlider"]
 margin_top = -8.0
@@ -763,6 +769,7 @@ bus = "Sound"
 [connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonSave" to="." method="_on_ButtonSave_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
+[connection signal="button_up" from="HUDLayer/Display/IngameMenu/Menu/ButtonRestart" to="." method="_on_ButtonRestart_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/IngameMenu/Menu/ButtonQuit" to="." method="_on_ButtonQuit_button_up"]
 [connection signal="value_changed" from="HUDLayer/Display/IngameMenu/Menu/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="HUDLayer/Display/IngameMenu/Menu/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
