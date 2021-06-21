@@ -26,16 +26,16 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 112, 8 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 100, 32 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 48, 32 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 136, 32 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10, 32 )
 
 [node name="Level14" type="Node2D"]
@@ -118,7 +118,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlayBasement/PlayerDetector"]
 position = Vector2( -166, -62 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="OverlayVentilation" type="TileMap" parent="."]
 light_mask = 3
@@ -142,7 +142,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlayVentilation/PlayerDetector"]
 position = Vector2( -218, -46 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="OverlayHall" type="TileMap" parent="."]
 light_mask = 3
@@ -166,7 +166,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlayHall/PlayerDetector"]
 position = Vector2( -130, -46 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="LevelObjects" type="Node2D" parent="."]
 
@@ -419,7 +419,7 @@ position = Vector2( -104, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 152, -32 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="NPCS" type="Node2D" parent="."]
 
