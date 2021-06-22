@@ -57,8 +57,10 @@ func updateLight():
 		state = desiredFrameState
 		if state == LightState.On:
 			$Light2D.show()
+			$Light2D.enabled = true
 		else:
 			$Light2D.hide()
+			$Light2D.enabled = false
 
 
 func toggleState() -> void:
@@ -74,6 +76,7 @@ func _on_Timer_timeout():
 
 func deactivate() -> void:
 	$Light2D.hide()
+	$Light2D.enabled = false
 	$FullLight.set_deferred("monitoring", false)
 	$BarelyVisible.set_deferred("monitoring", false)
 	$Timer.stop()
@@ -82,6 +85,7 @@ func deactivate() -> void:
 
 func activate() -> void:
 	$Light2D.show()
+	$Light2D.enabled = true
 	$FullLight.set_deferred("monitoring", true)
 	$BarelyVisible.set_deferred("monitoring", true)
 	if flicker:

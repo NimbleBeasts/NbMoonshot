@@ -1,4 +1,4 @@
-extends Node2D
+extends ColorRect
 
 
 # Declare member variables here. Examples:
