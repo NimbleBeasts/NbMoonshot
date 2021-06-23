@@ -1,6 +1,6 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=58 format=2]
 
-[ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
+[ext_resource path="res://Src/Levels/Level14.gd" type="Script" id=1]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=4]
@@ -51,17 +51,21 @@
 [ext_resource path="res://Src/Objects/Nature/Tree.tscn" type="PackedScene" id=49]
 [ext_resource path="res://Assets/Objects/SpiderWeb.png" type="Texture" id=50]
 [ext_resource path="res://Assets/Objects/Office/Bucket.png" type="Texture" id=51]
+[ext_resource path="res://Assets/SFX/wirecut.wav" type="AudioStream" id=52]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 112, 8 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 48, 32 )
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 24, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 100, 32 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 32 )
 
 [node name="Level14" type="Node2D"]
@@ -69,9 +73,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Affaire 2: Your boss wants you to infiltrate the affaires house, taser him and bring the body to the car."
 }
-level_lightning = 1
-level_objectives = NodePath("../Level16/NPCS/Civillian")
-playCarCloseSound = false
+level_objectives = NodePath(".")
 
 [node name="NewSkybox" parent="." instance=ExtResource( 4 )]
 
@@ -336,6 +338,7 @@ centered = false
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 22 )]
 position = Vector2( 540, 300 )
+frame = 2
 
 [node name="Sprite2" type="Sprite" parent="LevelObjects/Decorations/ControlRoom"]
 position = Vector2( 47, -4 )
@@ -403,6 +406,16 @@ startStateOn = true
 [node name="ButtonTouch" parent="LevelObjects/Objects" instance=ExtResource( 16 )]
 position = Vector2( 1020, 171 )
 unlocks = [ NodePath("../ThinAreaWithDoor") ]
+
+[node name="MissionGoal" type="Area2D" parent="LevelObjects/Objects"]
+position = Vector2( 816, 240 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/MissionGoal"]
+shape = SubResource( 5 )
+
+[node name="WireCut" type="AudioStreamPlayer" parent="LevelObjects/Objects/MissionGoal"]
+stream = ExtResource( 52 )
+bus = "Sound"
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -600,7 +613,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlayVentilation/PlayerDetector"]
 position = Vector2( 48, 24 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="OverlayBasement" type="ColorRect" parent="."]
 light_mask = 12
@@ -621,7 +634,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlayBasement/PlayerDetector"]
 position = Vector2( 100, 32 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
 position = Vector2( 129, 256 )
@@ -634,7 +647,7 @@ position = Vector2( -104, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 152, -32 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="NPCS" type="Node2D" parent="."]
 
@@ -651,6 +664,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="body_entered" from="LevelObjects/Objects/MissionGoal" to="." method="_on_MissionGoal_body_entered"]
+[connection signal="body_exited" from="LevelObjects/Objects/MissionGoal" to="." method="_on_MissionGoal_body_exited"]
 [connection signal="body_entered" from="OverlayVentilation/PlayerDetector" to="OverlayVentilation" method="_on_PlayerDetector_body_entered"]
 [connection signal="body_exited" from="OverlayVentilation/PlayerDetector" to="OverlayVentilation" method="_on_PlayerDetector_body_exited"]
 [connection signal="body_entered" from="OverlayBasement/PlayerDetector" to="OverlayBasement" method="_on_PlayerDetector_body_entered"]
