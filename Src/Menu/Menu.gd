@@ -95,10 +95,10 @@ func updateLoadGame():
 	for element in saveFiles:
 		var button = get_node("LoadGame/ButtonLoad" + str(i))
 		if element.state == true: # File Exists
-			button.updateLabel("Slot " + str(i))
+			button.text = "Slot " + str(i)
 			button.disabled = false
 		else:
-			button.updateLabel("Slot " + str(i))
+			button.text = "Slot " + str(i)
 			button.disabled = true
 		i += 1
 
