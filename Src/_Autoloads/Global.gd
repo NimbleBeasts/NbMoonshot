@@ -24,7 +24,7 @@ extends Node
 
 # Version
 const GAME_VERSION = 0.5
-const CONFIG_VERSION = 2 # Used for config migration
+const CONFIG_VERSION = 3 # Used for config migration
 
 # Debug Options
 const DEBUG = true
@@ -166,7 +166,8 @@ var userConfig = {
 	"fullscreen": false,
 	"brightness": 1.0,
 	"contrast": 1.0,
-	"resolution": {"w": 1280, "h": 720}
+	"resolution": {"w": 1280, "h": 720},
+	"language": "en"
 }
 
 # RNG base
@@ -284,6 +285,7 @@ func loadConfig():
 	userConfig.resolution = data.resolution
 	userConfig.brightness = data.brightness
 	userConfig.contrast = data.contrast
+	userConfig.language = data.language
 	# When stuck here, the config attributes have been changed.
 	# Delete the Config.cfg to solve this issue.
 	# Project->Open Project Data Folder-> Config.cfg
@@ -307,6 +309,9 @@ func migrateConfig(data):
 				data.brightness = 1.0
 				data.contrast = 1.0
 				data.configVersion = 2
+			"2":
+				data.language = "en"
+				data.configVersion = 3
 			_:
 				print("error: migration variant ("+ str(data.configVersion)+ ") not found")
 	return data

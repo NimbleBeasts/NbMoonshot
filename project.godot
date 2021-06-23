@@ -396,6 +396,10 @@ quentincaffeino_console_toggle={
 2d_physics/layer_11="Civilian"
 2d_physics/layer_12="Door"
 
+[locale]
+
+translations=PoolStringArray( "res://Translations/Translations.en.translation", "res://Translations/Translations.ru.translation", "res://Translations/Translations.de.translation" )
+
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=0
