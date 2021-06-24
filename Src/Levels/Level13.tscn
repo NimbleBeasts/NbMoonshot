@@ -178,7 +178,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OwerlayConeTop/PlayerDetector"]
-position = Vector2( 0, -4.625 )
+position = Vector2 ( 0, -5 )
 shape = SubResource( 3 )
 
 [node name="LevelObjects" type="Node2D" parent="."]
@@ -282,7 +282,7 @@ scale = Vector2( 1, 4 )
 texture = ExtResource( 17 )
 
 [node name="ObservatoryTerminalCablesStright6" type="Sprite" parent="LevelObjects/Objects/ObservatoryTerminal"]
-position = Vector2( 51.0285, -32 )
+position = Vector2 ( 51, -32 )
 rotation = 1.5708
 scale = Vector2( 1, 10.2571 )
 texture = ExtResource( 17 )
@@ -292,7 +292,7 @@ position = Vector2( -2, -24 )
 texture = ExtResource( 17 )
 
 [node name="ObservatoryTerminalCablesStright5" type="Sprite" parent="LevelObjects/Objects/ObservatoryTerminal"]
-position = Vector2( 137, -38.5 )
+position = Vector2 ( 137, -38 )
 scale = Vector2( 1, 0.375 )
 texture = ExtResource( 17 )
 
@@ -348,7 +348,7 @@ doorType = 1
 directionIndication = 0
 
 [node name="F2toF1" parent="LevelObjects/Staircases" instance=ExtResource( 8 )]
-position = Vector2( 479.95, 128.028 )
+position = Vector2 ( 479, 128 )
 connected_door_path = NodePath("../F1toF2")
 lockLevel = 0
 doorType = 1
@@ -1069,7 +1069,7 @@ position = Vector2( 112, -32 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 558.501, -60.1522 )
+position = Vector2 ( 558, -60 )
 shape = SubResource( 5 )
 
 [node name="NPCS" type="Node2D" parent="."]
@@ -1131,3 +1131,4 @@ z_index = 51
 [connection signal="body_exited" from="OwerlayConeBot/PlayerDetector" to="OwerlayConeBot" method="_on_PlayerDetector_body_exited"]
 [connection signal="body_entered" from="OwerlayConeTop/PlayerDetector" to="OwerlayConeTop" method="_on_PlayerDetector_body_entered"]
 [connection signal="body_exited" from="OwerlayConeTop/PlayerDetector" to="OwerlayConeTop" method="_on_PlayerDetector_body_exited"]
+

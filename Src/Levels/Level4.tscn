@@ -375,7 +375,7 @@ hasBounty = true
 position = Vector2( 688, 256 )
 
 [node name="PhotoMinigameSpawner" type="Area2D" parent="LevelObjects"]
-position = Vector2( 334.762, 116.076 )
+position = Vector2 ( 334, 116 )
 script = ExtResource( 21 )
 countDownTime = 23
 targetColliderExtents = Vector2( 50, 50 )
@@ -415,3 +415,4 @@ position = Vector2( 600, 264 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
 shape = SubResource( 4 )
+

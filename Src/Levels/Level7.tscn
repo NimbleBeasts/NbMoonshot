@@ -321,7 +321,7 @@ centered = false
 
 [node name="Rack3" type="Sprite" parent="LevelObjects/Decorations/Secretary2"]
 show_behind_parent = true
-position = Vector2( 20, 1.00001 )
+position = Vector2 ( 20, 1 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 20 )
 centered = false
@@ -824,3 +824,4 @@ centered = false
 
 [connection signal="body_entered" from="LevelObjects/Decorations/Goal" to="LevelObjects/Decorations/Goal" method="_on_Goal_body_entered"]
 [connection signal="body_exited" from="LevelObjects/Decorations/Goal" to="LevelObjects/Decorations/Goal" method="_on_Goal_body_exited"]
+
