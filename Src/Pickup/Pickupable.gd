@@ -34,13 +34,13 @@ func pickup() -> void:
 	setPickedUp(true)
 	$Sprite.material.set_shader_param("active", false)
 	if showGameHints:
-		Events.emit_signal("hud_game_hint", "Picked up " + str(pickupName))
+		Events.emit_signal("hud_game_hint", tr("PICKUP_UP") + " " + tr(pickupName))
 	
 func drop() -> void:
 	setPickedUp(false)
 	$Sprite.material.set_shader_param("active", true)
 	if showGameHints:
-		Events.emit_signal("hud_game_hint", "Dropped " + str(pickupName))
+		Events.emit_signal("hud_game_hint", tr("PICKUP_DOWN")  + " " + tr(pickupName))
 
 
 func setPickedUp(state):
