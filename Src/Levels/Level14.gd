@@ -28,4 +28,3 @@ func sabotage():
 	if not finished:
 		finished = true
 		$LevelObjects/Objects/MissionGoal/WireCut.play()
-		Events.emit_signal("hud_game_hint", "Sabotage completed!")

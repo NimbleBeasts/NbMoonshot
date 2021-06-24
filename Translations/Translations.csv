@@ -25,6 +25,10 @@ HUD_CLOSE_NOTIFICATION,"Press E or Q to close","Press E or Q to close","Drücke 
 HUD_BUY_UPGRADE,"Buy Upgrade","Buy Upgrade","Upgrade kaufen"
 HUD_SAVE_GAME,"Save Game","Save Game","Spielstand speichern"
 HUD_SAVE,"Save","Save","Speichern"
+HUD_GAME_SAVED,"Game saved","","Spiel gespeichert"
+HUD_MISSION_COMPLETE, "Mission Complete - Return to HQ","","Mission abgeschlossen - Kehre zum HQ zurück"
+LEVEL_BUTTON,"Switch pressed", "", "Schalter gedrückt"
+LEVEL_LEVER,"Lever flipped","","Hebel umgelegt"
 
 LEVELHQ_NOTE,"Damn, we've lost your key. You will have to lockpick this door.","","Mist. Wir haben den Schlüssel verloren. Sieht so aus als müsstest du das Schloss knacken."
 LEVELHQ_NOTE2,"Secret Code: 123","","Tresorkombination: 123"

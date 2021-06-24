@@ -91,7 +91,7 @@ func _process(_delta: float) -> void:
 	if can_change_level() == true: # putting this in process T_T
 		
 		print("haaa")
-		Events.emit_signal("hud_game_hint", "Mission Complete - Return to HQ")
+		Events.emit_signal("hud_game_hint", tr("HUD_MISSION_COMPLETE"))
 		set_process(false)
 
 		
