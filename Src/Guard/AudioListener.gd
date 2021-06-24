@@ -12,7 +12,6 @@ func _ready():
 
 func check_audio_source(audio_level: int, audio_pos: Vector2, _emitter) -> void:
 	var pos = global_position
-
 	#Check if inside the audio boundaries
 	if pos.y - audio_listener_y_size <= audio_pos.y and audio_pos.y < pos.y + audio_listener_y_size:
 

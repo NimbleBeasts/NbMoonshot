@@ -292,6 +292,7 @@ bus = "Sound"
 audio_listener_x_size = 128
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = -40.0
 margin_right = 40.0
 margin_bottom = 13.0

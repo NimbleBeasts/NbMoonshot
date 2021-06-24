@@ -107,7 +107,6 @@ func _ready() -> void:
 	
 	# Random delay - so the guards dont start synchronous
 	$StartDelay.wait_time = float(Global.prng() % 25) / 100 * 10
-	print($StartDelay.wait_time)
 	$StartDelay.start()
 	
 
@@ -376,20 +375,18 @@ func onGuardPathLinePointReached() -> void:
 
 func onGuardBodyEntered(body: Node) -> void:
 	$Label.set_text(str(body))
-	print(str(name) + ": " + str(body))
 	if body.is_in_group("DoorWall"):
-		print(str(name) + ": doorwall check")
 		var door = body.get_parent()
 		if (door.lockLevel == Types.DoorLockType.lockedLevel1 or door.lockLevel == Types.DoorLockType.lockedLevel2 \
 			or door.lockLevel == Types.DoorLockType.open) and canOpenClosedDoor:
 				door.open()
 				door.interact(true, global_position)
 					
-				print(str(name) + ": door open")
+				#print(str(name) + ": door open")
 		else:
 			$Notifier.remove()
 			guardPathLine.moveToLastPoint()
-			print(str(name) + ": move to starting")
+			#print(str(name) + ": move to starting")
 
 
 func canDrag() -> bool:
@@ -448,18 +445,18 @@ func playRandomSound(audioPlayer, array: Array) -> void:
 
 
 func _on_AudioListener_invoked(audio_level, audio_pos):
+	print(audio_pos)
+	print(audio_level)
 	if state == Types.GuardStates.Stunned or state == Types.GuardStates.PlayerDetected or \
 	state == Types.GuardStates.BeingDragged:
 		return
-	match audio_level:
-		Types.AudioLevels.LoudNoise:
-			if not $Notifier.isShowing:
-				$Notifier.popup(Types.NotifierTypes.Question)
-			playerLastSeenPosition = audio_pos
-			if state != Types.GuardStates.PlayerDetected:
-				set_state(Types.GuardStates.Suspect, true)
+	if audio_level < Types.AudioLevels.Silent:
+		if not $Notifier.isShowing:
+			$Notifier.popup(Types.NotifierTypes.Question)
+		playerLastSeenPosition = audio_pos
+		if state != Types.GuardStates.PlayerDetected:
+			set_state(Types.GuardStates.Suspect, true)
 
 
 func _on_StartDelay_timeout():
 	delayOver = true
-	print("delay over")

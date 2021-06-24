@@ -42,14 +42,14 @@ func _ready() -> void:
 	waitTimer.one_shot = true
 	waitTimer.wait_time = stop_time
 	
-	#hide()
+	hide()
 
 	# Add points to array
 	for i in points.size():
 		global_points.append(target.to_global(points[i]))
 	
 	debug_start_position = get_parent().global_position
-	print(debug_start_position)
+	#print(debug_start_position)
 	last_point = global_points[0]
 	
 	moveToNextPoint()
