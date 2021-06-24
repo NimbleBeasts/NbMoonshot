@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Pickup/Weight.png" type="Texture" id=2]
 
 [node name="WeightPickup" instance=ExtResource( 1 )]
-pickupName = "C4"
+pickupName = "PICKUP_DUMBBELL"
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )

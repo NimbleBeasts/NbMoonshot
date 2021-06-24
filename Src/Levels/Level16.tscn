@@ -236,7 +236,7 @@ centered = false
 
 [node name="Note" parent="LevelObjects/Objects/Trains/Wagons/WagonTarget" instance=ExtResource( 8 )]
 position = Vector2( 140, -30 )
-text = "Danger! Explosive!"
+text = "LEVEL16_NOTE"
 highlight = true
 type = 1
 

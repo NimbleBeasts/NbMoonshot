@@ -13,6 +13,7 @@ var music = [
 	load("res://Assets/Music/rocket_full.ogg"), #	rocket,
 	load("res://Assets/Music/russia_win_full.ogg"), #	russia_win
 	load("res://Assets/Music/title_full_.ogg"), # titleFull
+	load("res://Assets/Music/bank_full_.ogg"), #bank
 ]
 
 onready var musicPlayer: AudioStreamPlayer = $Music

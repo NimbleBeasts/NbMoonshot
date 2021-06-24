@@ -447,7 +447,7 @@ position = Vector2( 540, 200 )
 position = Vector2( 308, 200 )
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
-position = Vector2( 700, 200.1 )
+position = Vector2 ( 700, 200 )
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 700, 136 )

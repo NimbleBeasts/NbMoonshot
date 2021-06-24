@@ -1,7 +1,6 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/HUD/Dialog9PatchInner.png" type="Texture" id=3]
 [ext_resource path="res://Src/HUD/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/HUD/UpgradeButton.tscn" type="PackedScene" id=5]
@@ -9,7 +8,7 @@
 [ext_resource path="res://Assets/HUD/Dialog9Patch.png" type="Texture" id=7]
 [ext_resource path="res://Assets/HUD/Note.png" type="Texture" id=8]
 [ext_resource path="res://Shaders/Crt-Shader.tres" type="Material" id=9]
-[ext_resource path="res://Assets/Fonts/MenuFont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Assets/Fonts/MenuFontPassive.tres" type="DynamicFont" id=10]
 [ext_resource path="res://Assets/SFX/hint.wav" type="AudioStream" id=11]
 [ext_resource path="res://Assets/SFX/type2.wav" type="AudioStream" id=12]
 [ext_resource path="res://Src/HUD/MissionBriefing.tscn" type="PackedScene" id=13]
@@ -218,7 +217,7 @@ margin_right = 120.0
 margin_bottom = 12.0
 rect_pivot_offset = Vector2( 120, 32 )
 custom_fonts/font = SubResource( 4 )
-text = "GAME OVER"
+text = "HUD_GAME_OVER"
 align = 1
 valign = 1
 __meta__ = {
@@ -306,14 +305,17 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="HUDLayer/Display/Note"]
-margin_left = 8.0
-margin_top = 108.0
-margin_right = 184.0
-margin_bottom = 124.0
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Press E or Q to close"
+margin_left = -72.0
+margin_top = 117.0
+margin_right = 264.0
+margin_bottom = 133.0
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 0.168627, 0.180392, 0.258824, 1 )
+text = "HUD_CLOSE_NOTIFICATION"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Upgrades" type="NinePatchRect" parent="HUDLayer/Display"]
 visible = false
@@ -335,12 +337,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="HUDLayer/Display/Upgrades"]
+margin_left = -80.0
 margin_top = 200.0
-margin_right = 176.0
+margin_right = 256.0
 margin_bottom = 216.0
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Press E or Q to close"
+custom_fonts/font = ExtResource( 10 )
+custom_colors/font_color = Color( 0.168627, 0.180392, 0.258824, 1 )
+text = "HUD_CLOSE_NOTIFICATION"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -452,7 +455,7 @@ margin_left = 16.0
 margin_top = 72.0
 margin_right = 144.0
 margin_bottom = 96.0
-text = "Buy Upgrade"
+text = "HUD_BUY_UPGRADE"
 
 [node name="SaveGame" type="Control" parent="HUDLayer/Display"]
 pause_mode = 2
@@ -514,22 +517,22 @@ margin_left = 8.0
 margin_top = 128.0
 margin_right = 136.0
 margin_bottom = 152.0
-text = "Back"
+text = "SETTINGS_BACK"
 
 [node name="ButtonSave" parent="HUDLayer/Display/SaveGame/Menu" instance=ExtResource( 16 )]
 margin_left = 152.0
 margin_top = 128.0
 margin_right = 280.0
 margin_bottom = 152.0
-text = "Save"
+text = "HUD_SAVE"
 
 [node name="Label" type="Label" parent="HUDLayer/Display/SaveGame/Menu"]
 margin_left = 9.0
 margin_top = 10.0
-margin_right = 209.0
+margin_right = 272.0
 margin_bottom = 26.0
 custom_fonts/font = ExtResource( 10 )
-text = "Save Game"
+text = "HUD_SAVE_GAME"
 
 [node name="Menu" type="NinePatchRect" parent="HUDLayer/Display/SaveGame/Menu"]
 anchor_left = 0.5
@@ -653,7 +656,6 @@ __meta__ = {
 }
 
 [node name="DarkerBG" type="ColorRect" parent="HUDLayer/Display/IngameMenu"]
-visible = false
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -670,7 +672,7 @@ anchor_bottom = 0.5
 margin_left = -80.0
 margin_top = -96.0
 margin_right = 80.0
-margin_bottom = 56.0
+margin_bottom = 76.0
 texture = ExtResource( 7 )
 patch_margin_left = 6
 patch_margin_top = 6
@@ -685,40 +687,47 @@ margin_left = 16.0
 margin_top = 12.0
 margin_right = 144.0
 margin_bottom = 36.0
-text = "Continue"
+text = "INGAME_CONTINUE"
+
+[node name="ButtonRestart" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 16 )]
+margin_left = 16.0
+margin_top = 41.0
+margin_right = 144.0
+margin_bottom = 65.0
+text = "INGAME_RESTART"
 
 [node name="ButtonQuit" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 16 )]
 margin_left = 16.0
-margin_top = 116.0
+margin_top = 138.0
 margin_right = 144.0
-margin_bottom = 140.0
-text = "Quit"
+margin_bottom = 162.0
+text = "INGAME_QUIT"
 
 [node name="MusicSlider" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 22 )]
 margin_left = 16.0
-margin_top = 85.0
+margin_top = 112.0
 margin_right = 112.0
-margin_bottom = 109.0
+margin_bottom = 136.0
 
 [node name="Label" type="Label" parent="HUDLayer/Display/IngameMenu/Menu/MusicSlider"]
 margin_top = -8.0
 margin_right = 40.0
 margin_bottom = 6.0
 custom_fonts/font = ExtResource( 10 )
-text = "Music"
+text = "SETTINGS_MUSIC"
 
 [node name="SoundSlider" parent="HUDLayer/Display/IngameMenu/Menu" instance=ExtResource( 22 )]
 margin_left = 16.0
-margin_top = 50.0
+margin_top = 77.0
 margin_right = 112.0
-margin_bottom = 74.0
+margin_bottom = 101.0
 
 [node name="Label" type="Label" parent="HUDLayer/Display/IngameMenu/Menu/SoundSlider"]
 margin_top = -8.0
 margin_right = 40.0
 margin_bottom = 6.0
 custom_fonts/font = ExtResource( 10 )
-text = "Sound"
+text = "SETTINGS_SOUND"
 
 [node name="DebugPromo" type="Button" parent="HUDLayer/Display/IngameMenu"]
 visible = false
@@ -732,6 +741,7 @@ text = "Toggle Promo"
 visible = false
 
 [node name="MissionBriefing" parent="HUDLayer/Display" instance=ExtResource( 13 )]
+visible = false
 
 [node name="StartMissionButton" parent="HUDLayer/Display/MissionBriefing" instance=ExtResource( 16 )]
 margin_left = 256.0
@@ -762,6 +772,7 @@ bus = "Sound"
 [connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/SaveGame/Menu/ButtonSave" to="." method="_on_ButtonSave_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/IngameMenu/Menu/ButtonReturn" to="." method="_on_ButtonReturn_button_up"]
+[connection signal="button_up" from="HUDLayer/Display/IngameMenu/Menu/ButtonRestart" to="." method="_on_ButtonRestart_button_up"]
 [connection signal="button_up" from="HUDLayer/Display/IngameMenu/Menu/ButtonQuit" to="." method="_on_ButtonQuit_button_up"]
 [connection signal="value_changed" from="HUDLayer/Display/IngameMenu/Menu/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="HUDLayer/Display/IngameMenu/Menu/SoundSlider" to="." method="_on_SoundSlider_value_changed"]

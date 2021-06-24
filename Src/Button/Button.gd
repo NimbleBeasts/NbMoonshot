@@ -3,7 +3,7 @@ extends Area2D
 
 export (Array, NodePath) var unlocks: Array
 export (bool) var startStateOn = false setget setStartState
-
+export (String) var buttonText = "LEVEL_BUTTON"
 var player
 
 
@@ -48,7 +48,7 @@ func press() -> void:
 		$Sprite.frame = 0
 	
 	$Button.play()
-	Events.emit_signal("hud_game_hint", "Button pressed")
+	Events.emit_signal("hud_game_hint", tr(buttonText))
 	for thing in unlocks:
 		var node = get_node(thing)
 		if not node:

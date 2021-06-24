@@ -24,7 +24,7 @@ extends Node
 
 # Version
 const GAME_VERSION = 0.5
-const CONFIG_VERSION = 2 # Used for config migration
+const CONFIG_VERSION = 3 # Used for config migration
 
 # Debug Options
 const DEBUG = true
@@ -106,7 +106,7 @@ const levelTitle = [
 # Upgrades
 const upgrades = [
 	{id = 0, name="Power-Bank", desc="Increases the battery capacity to allow taser usages.", cost=300},
-	{id = 1, name="High Voltage", desc="Stunned Guards will sleep longer.", cost=200},
+	{id = 1, name="Dog Whisperer", desc="Dogs will love you!", cost=300},
 	{id = 2, name="False Alarm", desc="Increases the amount of possible detections.", cost=300},
 	{id = 3, name="Marathon Man", desc="Increases the movement speed.", cost=150},
 	{id = 4, name="Sneak", desc="Enables walk while hiding in the dark.", cost=200},
@@ -166,7 +166,8 @@ var userConfig = {
 	"fullscreen": false,
 	"brightness": 1.0,
 	"contrast": 1.0,
-	"resolution": {"w": 1280, "h": 720}
+	"resolution": {"w": 1280, "h": 720},
+	"language": "en"
 }
 
 # RNG base
@@ -238,7 +239,7 @@ func saveGame(slotId):
 	saveFile.open("user://save_"+ str(slotId) + ".cfg", File.WRITE)
 	saveFile.store_line(to_json(gameState))
 	saveFile.close()
-	Events.emit_signal("hud_game_hint", "Game saved")
+	Events.emit_signal("hud_game_hint", tr("HUD_GAME_SAVED"))
 	Events.emit_signal("hud_save_window_exited")
 
 # Load Game
@@ -284,6 +285,7 @@ func loadConfig():
 	userConfig.resolution = data.resolution
 	userConfig.brightness = data.brightness
 	userConfig.contrast = data.contrast
+	userConfig.language = data.language
 	# When stuck here, the config attributes have been changed.
 	# Delete the Config.cfg to solve this issue.
 	# Project->Open Project Data Folder-> Config.cfg
@@ -307,6 +309,9 @@ func migrateConfig(data):
 				data.brightness = 1.0
 				data.contrast = 1.0
 				data.configVersion = 2
+			"2":
+				data.language = "en"
+				data.configVersion = 3
 			_:
 				print("error: migration variant ("+ str(data.configVersion)+ ") not found")
 	return data

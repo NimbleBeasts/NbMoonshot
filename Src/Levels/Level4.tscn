@@ -183,7 +183,6 @@ centered = false
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 344, 96 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="LevelObjects/Decorations"]
@@ -225,7 +224,6 @@ variant = 1
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 22 )]
 position = Vector2( 356, 180 )
-frame = 2
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -347,9 +345,8 @@ isFixedCam = true
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 11, 256 )
-text = "Remember, turn off security system in the shed in the backyard."
+text = "LEVEL4_NOTE"
 highlight = true
-translationKey = "LEVEL_4_0"
 
 [node name="Camera3" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 152, 72 )
@@ -375,7 +372,7 @@ hasBounty = true
 position = Vector2( 688, 256 )
 
 [node name="PhotoMinigameSpawner" type="Area2D" parent="LevelObjects"]
-position = Vector2( 334.762, 116.076 )
+position = Vector2( 334, 116 )
 script = ExtResource( 21 )
 countDownTime = 23
 targetColliderExtents = Vector2( 50, 50 )

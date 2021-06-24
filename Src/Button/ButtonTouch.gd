@@ -36,7 +36,6 @@ func press() -> void:
 		pass
 	
 	$Button.play()
-	#Events.emit_signal("hud_game_hint", "Button pressed")
 	for thing in unlocks:
 		var node = get_node(thing)
 		if not node:

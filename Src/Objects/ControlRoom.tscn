@@ -17,7 +17,6 @@ animations = [ {
 [node name="ControlRoom" type="AnimatedSprite"]
 position = Vector2( 531, 300 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Light2D" type="Light2D" parent="." groups=[
@@ -25,7 +24,7 @@ playing = true
 ]]
 position = Vector2( -1, -10 )
 texture = ExtResource( 5 )
-texture_scale = 3.0
+texture_scale = 2.0
 color = Color( 0.768627, 0.85098, 0.780392, 1 )
 energy = 0.8
 

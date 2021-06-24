@@ -4,6 +4,7 @@
 [ext_resource path="res://Assets/Pickup/Box.png" type="Texture" id=2]
 
 [node name="BoxPickup" instance=ExtResource( 1 )]
+pickupName = "PICKUP_BOX"
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )

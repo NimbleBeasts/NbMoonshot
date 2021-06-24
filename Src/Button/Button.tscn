@@ -19,6 +19,7 @@ extents = Vector2( 10.2657, 9.97309 )
 
 [node name="Button" type="Area2D"]
 script = ExtResource( 2 )
+buttonName = "LEVEL_BUTTON"
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )

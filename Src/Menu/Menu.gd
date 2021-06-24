@@ -4,7 +4,7 @@ enum MenuState {Main, Settings, LoadGame, Credits}
 
 var loadSlot = -1
 var saveFiles
-
+const flags = ["en", "ru", "de"]
 
 
 func _ready():
@@ -36,7 +36,10 @@ func _ready():
 			var id = $Settings/TabContainer/Graphics/ResolutionList.get_item_count() - 1
 			$Settings/TabContainer/Graphics/ResolutionList.select(id, true)
 
-
+	# Update language settings
+	TranslationServer.set_locale(Global.userConfig.language)
+	print("Loading Language: " + str(Global.userConfig.language))
+	$Main/LanguageButton/Sprite.frame = flags.find(TranslationServer.get_locale())
 
 
 # Play menu button sound
@@ -92,10 +95,10 @@ func updateLoadGame():
 	for element in saveFiles:
 		var button = get_node("LoadGame/ButtonLoad" + str(i))
 		if element.state == true: # File Exists
-			button.updateLabel("Slot " + str(i))
+			button.text = "Slot " + str(i)
 			button.disabled = false
 		else:
-			button.updateLabel("Slot " + str(i))
+			button.text = "Slot " + str(i)
 			button.disabled = true
 		i += 1
 
@@ -125,14 +128,14 @@ func updateSettings():
 	$Settings/TabContainer/General/ContrastSlider/Percentage.set_text("%.2f" % Global.userConfig.brightness)
 	
 	if Global.userConfig.shader:
-		$Settings/TabContainer/General/ButtonShader.text = "On"
+		$Settings/TabContainer/General/ButtonShader.text = tr("SETTINGS_ON")
 	else:
-		$Settings/TabContainer/General/ButtonShader.text = "Off"
+		$Settings/TabContainer/General/ButtonShader.text = tr("SETTINGS_OFF")
 	
 	if Global.userConfig.fullscreen:
-		$Settings/TabContainer/Graphics/ButtonFullscreen.text = "On"
+		$Settings/TabContainer/Graphics/ButtonFullscreen.text = tr("SETTINGS_ON")
 	else:
-		$Settings/TabContainer/Graphics/ButtonFullscreen.text = "Off"
+		$Settings/TabContainer/Graphics/ButtonFullscreen.text = tr("SETTINGS_OFF")
 
 ###############################################################################
 # Callbacks
@@ -257,3 +260,17 @@ func _on_BrightnessSlider_value_changed(value):
 func _on_ContrastSlider_value_changed(value):
 	$Settings/TabContainer/General/ContrastSlider/Percentage.set_text("%.2f" % value)
 	Events.emit_signal("cfg_change_contrast", value)
+
+
+func _on_LanguageButton_button_up():
+	var availableLocale = TranslationServer.get_loaded_locales()
+	var id = availableLocale.find(TranslationServer.get_locale()) + 1
+	if id >= availableLocale.size():
+		id = 0
+	
+	TranslationServer.set_locale(availableLocale[id])
+	$Main/LanguageButton/Sprite.frame = flags.find(TranslationServer.get_locale())
+	
+	Global.userConfig.language = TranslationServer.get_locale()
+	Global.saveConfig()
+	print("Language: " + tr("TEST_ENTRY"))

@@ -251,11 +251,8 @@ hint = "Tutorial mission succeeded"
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 330, 320 )
-text = "Damn, we've lost your key. You will have to lockpick this door.
-xoxo,
-Natasja"
+text = "LEVELHQ_NOTE"
 highlight = true
-translationKey = "HQ_0"
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 16, 256 )
@@ -395,7 +392,7 @@ isHorizontal = false
 
 [node name="Note3" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( 248, 448 )
-text = "Secret Code: 123"
+text = "LEVELHQ_NOTE2"
 highlight = true
 
 [node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 28 )]

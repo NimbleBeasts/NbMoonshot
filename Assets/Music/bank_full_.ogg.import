@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bank_full_.ogg-cfd2f6a71d17cf4d0a676a3e31e83382.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/bank_full_.ogg"
+dest_files=[ "res://.import/bank_full_.ogg-cfd2f6a71d17cf4d0a676a3e31e83382.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
