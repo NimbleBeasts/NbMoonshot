@@ -18,14 +18,12 @@ var player: Player
 var interactedCounter = 0 
 var nextDialogue: String
 var sayingDialogue: bool
-var translation: Translation
+
 var currentBranchID: String
 
 # gonna comment this .... later 
 
 func _ready() -> void:
-	add_to_group("HasTranslationSupport")
-	loadTranslation()
 	set_process_input(false)
 	Events.connect("no_branch_option_pressed", self, "onNoBranchButtonPressed")
 	Events.connect("dialog_button_pressed", self, "onDialogButtonPressed")
@@ -108,18 +106,10 @@ func loadDialogue() -> void:
 	loadedDialogue = dialogue
 
 
-func loadTranslation() -> void:
-	# finds the correct string path through the csv with some string magic, replacing the .csv with .locale.translation
-	var translationPath: String = translationCSVPath.replace(".csv", "." + Global.languageLocale + ".translation")
-	translation = load(translationPath)
-
-
 func sayBranch(branch: Dictionary) -> void:
-	if translation == null:
-		return
 	Events.emit_signal("player_block_movement")
 	var messageKey = "KEY_" + currentBranchID
-	Events.emit_signal("hud_dialog_show", npcName, npcColor, translation.get_message(messageKey), false, npcPotrait)
+	Events.emit_signal("hud_dialog_show", npcName, npcColor, tr(messageKey), false, npcPotrait)
 	
 	if branch.has("branchID0") or branch.has("branchID1") or branch.has("branchID2"):
 		Events.emit_signal("update_no_branch_button_state", false)
@@ -142,7 +132,7 @@ func updateButtons(branch: Dictionary) -> void:
 			# gets the correct key from the csv file "CHOICE_03_0" where 03 is the branch code in json file and 0 is the branch id
 			# 0 is first branch, 1 is second branch and so on
 			var key: String = "CHOICE_%s_%s" % [currentBranchID, i]
-			Events.emit_signal("update_dialog_option", i, translation.get_message(key))
+			Events.emit_signal("update_dialog_option", i, tr(key))
 
 			
 # this function is meant to be overriden

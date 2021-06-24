@@ -15,19 +15,20 @@ var translation: Translation
 
 
 func _ready():
-	add_to_group("HasTranslationSupport")
-	loadTranslation()
-	if translationKey != "":
-		# finds text in the translation
-		text = translation.get_message(translationKey)
-		if translationKey == "SECRET_CODE":
-			# sets tresor code to a repeated two digit number 
-			randomize()
-			# gens a random 2 digit code
-			var code := int(rand_range(10, 99))
-			var stringCode = str(code) + str(code)
-			text += " " + stringCode
-			setTresorCode(int(stringCode))
+	#TODO remove bs
+#	add_to_group("HasTranslationSupport")
+#	loadTranslation()
+#	if translationKey != "":
+#		# finds text in the translation
+#		text = translation.get_message(translationKey)
+#		if translationKey == "SECRET_CODE":
+#			# sets tresor code to a repeated two digit number 
+#			randomize()
+#			# gens a random 2 digit code
+#			var code := int(rand_range(10, 99))
+#			var stringCode = str(code) + str(code)
+#			text += " " + stringCode
+#			setTresorCode(int(stringCode))
 
 	updateHighlight()
 	Events.connect("hud_note_exited", self, "_hud_note_exited")
