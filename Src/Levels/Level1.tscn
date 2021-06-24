@@ -132,7 +132,6 @@ position = Vector2( 218, 335 )
 texture = ExtResource( 41 )
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 18 )]
-frame = 2
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
 light_mask = 3
@@ -353,7 +352,6 @@ texture = ExtResource( 43 )
 [node name="Tree" parent="LevelObjects/Decorations" instance=ExtResource( 51 )]
 position = Vector2( -94, 184 )
 frame = 3
-tree = 0
 season = 1
 variant = 1
 
@@ -376,16 +374,10 @@ position = Vector2( 400, 72 )
 [node name="Staircase" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 128 )
 connected_door_path = NodePath("../Staircase2")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="Staircase2" parent="LevelObjects" instance=ExtResource( 6 )]
 position = Vector2( 360, 192 )
 connected_door_path = NodePath("../Staircase")
-lockLevel = 0
-doorType = 0
-directionIndication = 0
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 7 )]
 position = Vector2( 170, 128 )
@@ -393,25 +385,9 @@ keyPadCode = 1234
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 424, 320 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall2" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 144, 256 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -31, 256 )
@@ -420,91 +396,34 @@ nextSecretaryInteractionCounter = 2
 
 [node name="DoorWall3" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 320 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall8" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 512, 128 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall9" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 296, 128 )
-lockLevel = 0
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall10" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 296, 192 )
 lockLevel = 1
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall7" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 344, 320 )
 lockLevel = 3
-doorType = 0
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall4" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 256 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall5" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 192 )
 lockLevel = 3
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="DoorWall6" parent="LevelObjects" instance=ExtResource( 15 )]
 position = Vector2( 632, 128 )
-lockLevel = 0
 doorType = 1
-save_state = false
-showHintIfLocked = false
-hint = ""
-keyPath = NodePath("")
-doorLockStateLocked = true
-sig_to_trig = [  ]
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -513,95 +432,47 @@ __meta__ = {
 
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 200 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 408, 200 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 288, 200 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 224, 136 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 408, 136 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 136 )
 flicker = true
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 576, 72 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light8" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 448, 72 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light9" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 352, 72 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Light10" parent="LevelObjects/Lights" instance=ExtResource( 9 )]
 position = Vector2( 224, 72 )
-flicker = false
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 29 )]
 position = Vector2( 80, 256 )
-flicker = false
-flickerSequence = "1110"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="OutdoorLight2" parent="LevelObjects/Lights" instance=ExtResource( 29 )]
 position = Vector2( -126, 256 )
-flicker = false
-flickerSequence = "1110"
-DebugLight = false
-col1 = Color( 1, 0.1, 1, 1 )
-col2 = Color( 0.2, 0.2, 1, 1 )
 
 [node name="Note" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 176, 192 )
-text = "Secret tresor code: 1234"
+text = "LEVEL1_NOTE"
 highlight = true
 type = 1
+tresorPath = NodePath("../Tresor")
 
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 234, 192 )
@@ -638,9 +509,6 @@ flagType = 1
 [node name="DeskGuard" parent="." instance=ExtResource( 30 )]
 position = Vector2( 208, 256 )
 lookDirection = 1
-lookDuration = 2.0
-readDuration = 3.0
-removeNotifierDuration = 1.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 8, 312 )
@@ -648,15 +516,8 @@ z_index = 50
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]
 position = Vector2( 320, 192 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
 normal_time_to_alarm = 1.5
 extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="Guard"]
 points = PoolVector2Array( 0, -16, 80, -16, 176, -16 )
@@ -664,15 +525,8 @@ script = ExtResource( 35 )
 
 [node name="Guard2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 448, 256 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
 normal_time_to_alarm = 1.5
 extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="Guard2"]
 visible = false
@@ -681,15 +535,8 @@ script = ExtResource( 35 )
 
 [node name="Guard3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 584, 128 )
-time_to_sure_detection = 1.5
-stun_duration = 10.0
-audio_suspect_distance = 150
 normal_time_to_alarm = 1.5
 extended_time_to_alarm = 3.5
-playerSuspectDistance = 30
-playerDetectDistance = 16
-gravity = 800
-startingDirection = 0
 
 [node name="GuardPathLine" type="Line2D" parent="Guard3"]
 points = PoolVector2Array( 0, -16, -64, -16, 40, -24 )

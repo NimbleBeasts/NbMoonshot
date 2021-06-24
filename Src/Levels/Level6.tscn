@@ -181,7 +181,6 @@ centered = false
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
@@ -215,7 +214,7 @@ targetColliderExtents = Vector2( 80, 30 )
 cameraMoveSpeed = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Decorations/Soyuz/PhotoMinigameSpawner"]
-position = Vector2 ( 0, 5 )
+position = Vector2( 0, 5 )
 shape = SubResource( 2 )
 
 [node name="Soyuz2" type="Sprite" parent="LevelObjects/Decorations"]
@@ -224,9 +223,10 @@ texture = ExtResource( 36 )
 
 [node name="Note" parent="LevelObjects/Decorations" instance=ExtResource( 26 )]
 position = Vector2( 840, 128 )
-text = "Safe Pin: 4242"
+text = "LEVEL6_NOTE"
 highlight = true
 type = 1
+tresorPath = NodePath("../../Tresor")
 
 [node name="Desk" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 200, 96 )
@@ -292,11 +292,11 @@ position = Vector2( 428, 192 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseL2")
 
 [node name="StaircaseR1" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
-position = Vector2 ( 704, 256 )
+position = Vector2( 704, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseR2")
 
 [node name="StaircaseR2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]
-position = Vector2 ( 839, 256 )
+position = Vector2( 839, 256 )
 connected_door_path = NodePath("../../../../Level6/LevelObjects/Doors/StaircaseR1")
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
@@ -404,7 +404,7 @@ deactivateAble = [ NodePath("../MetalDetector") ]
 position = Vector2( 232, 256 )
 
 [node name="Tresor" parent="LevelObjects" instance=ExtResource( 5 )]
-position = Vector2 ( 183, 128 )
+position = Vector2( 183, 128 )
 keyPadCode = 4242
 openTarget = NodePath("../../../Level6/LevelObjects/Doors/DoorToTarget")
 showHintOnSucceed = true
@@ -520,4 +520,3 @@ position = Vector2( 48, 264 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2( -8, 0 )
 shape = SubResource( 4 )
-

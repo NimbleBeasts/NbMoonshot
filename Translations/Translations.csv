@@ -25,3 +25,16 @@ HUD_CLOSE_NOTIFICATION,"Press E or Q to close","Press E or Q to close","Drücke 
 HUD_BUY_UPGRADE,"Buy Upgrade","Buy Upgrade","Upgrade kaufen"
 HUD_SAVE_GAME,"Save Game","Save Game","Spielstand speichern"
 HUD_SAVE,"Save","Save","Speichern"
+
+LEVELHQ_NOTE,"Damn, we've lost your key. You will have to lockpick this door.","","Mist. Wir haben den Schlüssel verloren. Sieht so aus als müsstest du das Schloss knacken."
+LEVELHQ_NOTE2,"Secret Code: 123","","Tresorkombination: 123"
+LEVEL1_NOTE,"Secret tresor code: !RNG","","Tresorkombination !RNG"
+LEVEL3_NOTE1,"I'm not going along with this monkey business anymore! Find someone else. I quit.","Ich mach dieses Affentheater nicht mehr mit! Sucht euch einen anderen. Ich kündige.",
+LEVEL3_NOTE2,"Attention! Danger of falling! The railing has been removed.","","Achtung! Absturzgefahr! Das Geländer wurde entfernt."
+LEVEL3_NOTE3,"ToDo:\nCall maintenance the water sprinklers are broken.","",,"ToDo:\nKlemptner anrufen, die Wassersprenkler sind defekt."
+LEVEL4_NOTE,"Remember, turn off security system in the shed in the backyard.","","Denken Sie daran, das Sicherheitssystem im Schuppen im Hinterhof auszuschalten."
+LEVEL6_NOTE,"Safe Pin: !RNG","","Tresor Pin: !RNG"
+LEVEL9_NOTE,"The tunnel is ready. It is not ventilated, so hold your gases back.","","Der Tunnel ist fertig. Er ist nicht belüftet, also halte deine Gase bei dir."
+LEVEL9_NOTE2,"Code: !RNG","","Code: !RNG"
+LEVEL10_NOTE,"Don't put your fingers in running fan!","","Stecken Sie Ihre Finger nicht in den laufenden Lüfter!"
+LEVEL13_NOTE,"Check out my new game I've wrote in ALGOL! It's pretty addictive.","","Probiert mein neues Spiel aus, das ich in ALGOL geschrieben habe. Es macht süchtig!"

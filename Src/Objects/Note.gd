@@ -1,24 +1,18 @@
 extends Node2D
 
 
-export(String, MULTILINE) var text = "This is a note text"
+export(String) var text = "TRANSLATION_KEY"
 export(bool) var highlight = false
 export(Types.NoteType) var type = Types.NoteType.SecretService
-export (String, FILE) var translationCSVPath: String
-export var translationKey: String 
 export var tresorPath: NodePath
+export var randomizeSecretCode = true
 
 var readable = false
 var isReading = false
 var decouple = false
-var translation: Translation
-
+var translationText = ""
 
 func _ready():
-	#TODO remove bs
-#	add_to_group("HasTranslationSupport")
-#	loadTranslation()
-#	if translationKey != "":
 #		# finds text in the translation
 #		text = translation.get_message(translationKey)
 #		if translationKey == "SECRET_CODE":
@@ -30,6 +24,16 @@ func _ready():
 #			text += " " + stringCode
 #			setTresorCode(int(stringCode))
 
+	translationText = tr(text)
+	print(translationText)
+	
+	var randomTextPosition = translationText.find("!RNG")
+	
+	if randomTextPosition != -1:
+		var randomNumber = "%04d" % Global.rng.randi_range(1000,9999) # Used 1000 here not sure if tresor game support leading zeroes
+		setTresorCode(int(randomNumber))
+		translationText = translationText.replace("!RNG", str(randomNumber))
+	
 	updateHighlight()
 	Events.connect("hud_note_exited", self, "_hud_note_exited")
 
@@ -63,7 +67,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if readable and not isReading:
 			get_tree().set_input_as_handled()
 			isReading = true
-			Events.emit_signal("hud_note_show", self, type, text)
+			Events.emit_signal("hud_note_show", self, type, translationText)
 			
 			if highlight:
 				$Sprite.frame = 1
@@ -95,9 +99,5 @@ func _on_NotifierArea_body_exited(body):
 	if body.is_in_group("Player"):
 		$Notifier.remove()
 			
-func loadTranslation() -> void:
-	# finds the correct string path through the csv with some string magic, replacing the .csv with .locale.translation
-	var translationPath: String = translationCSVPath.replace(".csv", "." + Global.languageLocale + ".translation")
-	translation = load(translationPath)
 
 		

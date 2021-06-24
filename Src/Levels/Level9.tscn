@@ -109,7 +109,7 @@ tile_data = PoolIntArray( 524315, 0, 0, 524316, 0, 1, 524317, 0, 1, 524318, 0, 1
 [node name="LevelObjects" type="Node2D" parent="."]
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 68 )]
-position = Vector2 ( 821, 257 )
+position = Vector2( 821, 257 )
 next_boss_interacted_counter = 10
 nextSecretaryInteractionCounter = 10
 
@@ -118,7 +118,7 @@ nextSecretaryInteractionCounter = 10
 [node name="Nature" type="Node2D" parent="LevelObjects/Decorations"]
 
 [node name="Tree" parent="LevelObjects/Decorations/Nature" instance=ExtResource( 11 )]
-position = Vector2 ( 1184, 184 )
+position = Vector2( 1184, 184 )
 texture = ExtResource( 14 )
 hframes = 2
 frame = 1
@@ -127,7 +127,7 @@ season = 1
 variant = 1
 
 [node name="Tree2" parent="LevelObjects/Decorations/Nature" instance=ExtResource( 11 )]
-position = Vector2 ( 1202, 177 )
+position = Vector2( 1202, 177 )
 scale = Vector2( 1.1, 1.1 )
 z_index = -5
 texture = ExtResource( 14 )
@@ -136,53 +136,53 @@ tree = 1
 season = 1
 
 [node name="Bush" type="Sprite" parent="LevelObjects/Decorations/Nature"]
-position = Vector2 ( 784, 243 )
+position = Vector2( 784, 243 )
 z_index = -4
 texture = ExtResource( 3 )
 
 [node name="Bush2" type="Sprite" parent="LevelObjects/Decorations/Nature"]
-position = Vector2 ( 632, 244 )
+position = Vector2( 632, 244 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 
 [node name="TinyBush" type="Sprite" parent="LevelObjects/Decorations/Nature"]
-position = Vector2 ( 556, 184 )
+position = Vector2( 556, 184 )
 z_index = -5
 texture = ExtResource( 13 )
 
 [node name="Kitchen" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 1046, 225 )
+position = Vector2( 1046, 225 )
 texture = ExtResource( 2 )
 
 [node name="DeskChair" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 363, 111 )
+position = Vector2( 363, 111 )
 texture = ExtResource( 18 )
 
 [node name="DeskChair2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 452, 176 )
+position = Vector2( 452, 176 )
 texture = ExtResource( 15 )
 
 [node name="DeskChair3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 425, 176 )
+position = Vector2( 425, 176 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 15 )
 
 [node name="DeskChair4" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 394, 175 )
+position = Vector2( 394, 175 )
 texture = ExtResource( 15 )
 
 [node name="DeskChair5" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 368, 175 )
+position = Vector2( 368, 175 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 15 )
 
 [node name="DeskChair7" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 260, 175 )
+position = Vector2( 260, 175 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 15 )
 
 [node name="BossDeskChair" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 431, 111 )
+position = Vector2( 431, 111 )
 texture = ExtResource( 17 )
 
 [node name="Street" type="Sprite" parent="LevelObjects/Decorations"]
@@ -195,165 +195,165 @@ scale = Vector2( -1, 1 )
 texture = ExtResource( 16 )
 
 [node name="Bookshelf" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 258, 103 )
+position = Vector2( 258, 103 )
 texture = ExtResource( 29 )
 
 [node name="Clock" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 406, 220 )
+position = Vector2( 406, 220 )
 texture = ExtResource( 30 )
 
 [node name="FireExtinguisher" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 476, 311 )
+position = Vector2( 476, 311 )
 texture = ExtResource( 32 )
 
 [node name="Plant" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 474, 111 )
+position = Vector2( 474, 111 )
 texture = ExtResource( 33 )
 
 [node name="WallImageNB" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 324, 100 )
+position = Vector2( 324, 100 )
 texture = ExtResource( 28 )
 
 [node name="PaintingStarryNight" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 347, 230 )
+position = Vector2( 347, 230 )
 texture = ExtResource( 35 )
 
 [node name="BedsideTable" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 348, 247 )
+position = Vector2( 348, 247 )
 texture = ExtResource( 36 )
 
 [node name="Rail" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 414, 248 )
+position = Vector2( 414, 248 )
 texture = ExtResource( 34 )
 
 [node name="Medikit" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 262, 297 )
+position = Vector2( 262, 297 )
 texture = ExtResource( 31 )
 
 [node name="Couch" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 933, 244 )
+position = Vector2( 933, 244 )
 texture = ExtResource( 41 )
 
 [node name="Mower" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 1128, 244 )
+position = Vector2( 1128, 244 )
 texture = ExtResource( 39 )
 
 [node name="tv" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 932, 176 )
+position = Vector2( 932, 176 )
 texture = ExtResource( 38 )
 
 [node name="ClockOld" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 903, 236 )
+position = Vector2( 903, 236 )
 texture = ExtResource( 37 )
 
 [node name="NoSmoking" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 330, 296 )
+position = Vector2( 330, 296 )
 texture = ExtResource( 20 )
 
 [node name="IndoreControlPointSide" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 374, 232 )
+position = Vector2( 374, 232 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 40 )
 
 [node name="Plant2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 445, 239 )
+position = Vector2( 445, 239 )
 texture = ExtResource( 33 )
 
 [node name="Plant3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 525, 239 )
+position = Vector2( 525, 239 )
 texture = ExtResource( 42 )
 
 [node name="HotelBed" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 1028, 179 )
+position = Vector2( 1028, 179 )
 scale = Vector2( -1, 1 )
 z_index = 2
 texture = ExtResource( 45 )
 
 [node name="BedsideTable2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 1056, 184 )
+position = Vector2( 1056, 184 )
 texture = ExtResource( 36 )
 
 [node name="Bookshelf2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 1016, 168 )
+position = Vector2( 1016, 168 )
 z_index = 1
 texture = ExtResource( 29 )
 
 [node name="Clock2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 1044, 221 )
+position = Vector2( 1044, 221 )
 texture = ExtResource( 30 )
 
 [node name="WallImageScream" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 980, 166 )
+position = Vector2( 980, 166 )
 texture = ExtResource( 44 )
 
 [node name="Skeleton" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 825, 411 )
+position = Vector2( 825, 411 )
 texture = ExtResource( 46 )
 
 [node name="Skeleton2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 750, 427 )
+position = Vector2( 750, 427 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 46 )
 
 [node name="Skeleton3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 700, 427 )
+position = Vector2( 700, 427 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 46 )
 
 [node name="Skeleton4" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2 ( 650, 427 )
+position = Vector2( 650, 427 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 46 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2 ( 480, 192 )
+position = Vector2( 480, 192 )
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2 ( 431, 319 )
+position = Vector2( 431, 319 )
 lockLevel = 5
 doorType = 1
 keyPath = NodePath("../../../../Level9-BankJob/LevelObjects/Interactables/Cabinet-RedKey")
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2 ( 879, 256 )
+position = Vector2( 879, 256 )
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2 ( 984, 256 )
+position = Vector2( 984, 256 )
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2 ( 1087, 256 )
+position = Vector2( 1087, 256 )
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2 ( 568, 256 )
+position = Vector2( 568, 256 )
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2 ( 280, 255 )
+position = Vector2( 280, 255 )
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2 ( 304, 319 )
+position = Vector2( 304, 319 )
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2 ( 384, 127 )
+position = Vector2( 384, 127 )
 lockLevel = 1
 
 [node name="StaircaseE0toE1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
-position = Vector2 ( 300, 191 )
+position = Vector2( 300, 191 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE1toE0")
 directionIndication = 1
 
 [node name="StaircaseE1toE0" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
-position = Vector2 ( 300, 128 )
+position = Vector2( 300, 128 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE0toE1")
 directionIndication = 2
 
 [node name="StaircaseE0toE-1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
-position = Vector2 ( 320, 192 )
+position = Vector2( 320, 192 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE-1toE0")
 directionIndication = 2
 
@@ -363,7 +363,7 @@ connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/St
 directionIndication = 1
 
 [node name="StaircaseE-1toE-2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
-position = Vector2 ( 240, 256 )
+position = Vector2( 240, 256 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE-2toE-1")
 
@@ -373,13 +373,13 @@ scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE-1toE-2")
 
 [node name="T1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
-position = Vector2 ( 968, 255 )
+position = Vector2( 968, 255 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/T2")
 lockLevel = 3
 
 [node name="T2" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
-position = Vector2 ( 280, 319 )
+position = Vector2( 280, 319 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/T1")
 lockLevel = 3
@@ -393,45 +393,45 @@ __meta__ = {
 }
 
 [node name="OutdoorLight2" parent="LevelObjects/Lights" instance=ExtResource( 72 )]
-position = Vector2 ( 786, 257 )
+position = Vector2( 786, 257 )
 scale = Vector2( -1, 1 )
 
 [node name="OutdoorLight3" parent="LevelObjects/Lights" instance=ExtResource( 72 )]
-position = Vector2 ( 635, 257 )
+position = Vector2( 635, 257 )
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 71 )]
-position = Vector2 ( 589, -102 )
+position = Vector2( 589, -102 )
 
 [node name="Light20" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
-position = Vector2 ( 106, -103 )
+position = Vector2( 106, -103 )
 
 [node name="Light24" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
 position = Vector2( 500, 200 )
 
 [node name="Light25" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
-position = Vector2 ( 419, 200 )
+position = Vector2( 419, 200 )
 
 [node name="Light26" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
 position = Vector2( 340, 200 )
 
 [node name="Light27" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
-position = Vector2 ( 419, 135 )
+position = Vector2( 419, 135 )
 
 [node name="Light31" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
-position = Vector2 ( 364, 263 )
+position = Vector2( 364, 263 )
 
 [node name="Light29" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
-position = Vector2 ( 257, 72 )
+position = Vector2( 257, 72 )
 
 [node name="Light30" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
-position = Vector2 ( 340, 71 )
+position = Vector2( 340, 71 )
 
 [node name="Light28" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
-position = Vector2 ( 311, 135 )
+position = Vector2( 311, 135 )
 flicker = true
 
 [node name="OutdoorLight4" parent="LevelObjects/Lights" instance=ExtResource( 19 )]
-position = Vector2 ( 575, 255 )
+position = Vector2( 575, 255 )
 
 [node name="Interactables" type="Node2D" parent="LevelObjects"]
 __meta__ = {
@@ -439,18 +439,16 @@ __meta__ = {
 }
 
 [node name="Cooworker-Note" parent="LevelObjects/Interactables" instance=ExtResource( 78 )]
-position = Vector2 ( 1006, 260 )
-text = "The hole is finished. Remmeber dont fart while down there.
-Our part is done, good luck friend."
+position = Vector2( 1006, 260 )
+text = "LEVEL9_NOTE1"
 highlight = true
 
 [node name="Password-Note" type="Node2D" parent="LevelObjects/Interactables"]
-position = Vector2 ( 449, 313 )
+position = Vector2( 449, 320 )
 script = ExtResource( 24 )
-text = "Pass:
-2299"
+text = "LEVEL9_NOTE2"
 highlight = true
-translationCSVPath = "res://Translations/NoteTranslations.csv"
+tresorPath = NodePath("../Tresor")
 
 [node name="Sprite" type="Sprite" parent="LevelObjects/Interactables/Password-Note"]
 position = Vector2( 0, -18 )
@@ -464,19 +462,19 @@ position = Vector2( 0, -26 )
 [node name="ReadArea" type="Area2D" parent="LevelObjects/Interactables/Password-Note"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Interactables/Password-Note/ReadArea"]
-position = Vector2 ( -2, -17 )
+position = Vector2( -2, -17 )
 shape = SubResource( 1 )
 
 [node name="NotifierArea" type="Area2D" parent="LevelObjects/Interactables/Password-Note"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Interactables/Password-Note/NotifierArea"]
-position = Vector2 ( 0, -16 )
+position = Vector2( 0, -16 )
 shape = SubResource( 2 )
 
 [node name="Money" type="Node2D" parent="LevelObjects/Interactables"]
 
 [node name="Cabinet6" parent="LevelObjects/Interactables/Money" instance=ExtResource( 74 )]
-position = Vector2 ( 472, -85 )
+position = Vector2( 472, -85 )
 hasBounty = true
 
 [node name="ValutDoor" parent="LevelObjects/Interactables" instance=ExtResource( 6 )]
@@ -485,25 +483,25 @@ disabled_leaders = NodePath("../../../../Level9-BankJob/LevelObjects/ThinAreas/L
 tresure_sack = NodePath("../../../../Level9-BankJob/LevelObjects/Interactables/TresureSack")
 
 [node name="Cabinet-RedKey" parent="LevelObjects/Interactables" instance=ExtResource( 74 )]
-position = Vector2 ( 457, 127 )
+position = Vector2( 457, 127 )
 containsKey = true
 
 [node name="Cabinet3" parent="LevelObjects/Interactables" instance=ExtResource( 74 )]
-position = Vector2 ( 224, 191 )
+position = Vector2( 224, 191 )
 
 [node name="Cabinet4" parent="LevelObjects/Interactables" instance=ExtResource( 74 )]
-position = Vector2 ( 224, 128 )
+position = Vector2( 224, 128 )
 hasBounty = true
 
 [node name="Cabinet2" parent="LevelObjects/Interactables" instance=ExtResource( 74 )]
-position = Vector2 ( 260, 257 )
+position = Vector2( 260, 257 )
 
 [node name="Jukebox" parent="LevelObjects/Interactables" instance=ExtResource( 23 )]
-position = Vector2 ( 463, 241 )
+position = Vector2( 463, 241 )
 guards = [ NodePath("../../../NPCs/GuardOut1"), NodePath("../../../NPCs/GuardOut2"), NodePath("../../../NPCs/GuardOut3") ]
 
 [node name="Tresor" type="Node2D" parent="LevelObjects/Interactables"]
-position = Vector2 ( 342, 304 )
+position = Vector2( 342, 304 )
 script = ExtResource( 21 )
 keyPadCode = 2299
 openTarget = NodePath("../../../../Level9-BankJob/LevelObjects/Interactables/ValutDoor")
@@ -519,16 +517,16 @@ hframes = 2
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Interactables/Tresor/MinigameSpawner"]
-position = Vector2 ( 125, -10 )
+position = Vector2( 125, -10 )
 shape = SubResource( 3 )
 
 [node name="TresureSack" parent="LevelObjects/Interactables" instance=ExtResource( 26 )]
-position = Vector2 ( 470, 532 )
+position = Vector2( 470, 532 )
 
 [node name="Blockers" type="Node2D" parent="LevelObjects"]
 
 [node name="EastBlock" type="StaticBody2D" parent="LevelObjects/Blockers"]
-position = Vector2 ( 1194, 245 )
+position = Vector2( 1194, 245 )
 collision_layer = 128
 collision_mask = 128
 __meta__ = {
@@ -539,7 +537,7 @@ __meta__ = {
 shape = SubResource( 4 )
 
 [node name="CableWalk" type="StaticBody2D" parent="LevelObjects/Blockers"]
-position = Vector2 ( 100, -17 )
+position = Vector2( 100, -17 )
 collision_layer = 131
 collision_mask = 131
 __meta__ = {
@@ -547,39 +545,38 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Blockers/CableWalk"]
-position = Vector2 ( 0, 0 )
 shape = SubResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite" type="Sprite" parent="LevelObjects/Blockers/CableWalk"]
-position = Vector2 ( -25, 0 )
+position = Vector2( -25, 0 )
 texture = ExtResource( 4 )
 hframes = 3
 
 [node name="Sprite3" type="Sprite" parent="LevelObjects/Blockers/CableWalk"]
-position = Vector2 ( 24, 0 )
+position = Vector2( 24, 0 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 4 )
 hframes = 3
 
 [node name="Sprite2" type="Sprite" parent="LevelObjects/Blockers/CableWalk"]
-position = Vector2 ( -9, 0 )
+position = Vector2( -9, 0 )
 scale = Vector2( 4.31339, 1 )
 texture = ExtResource( 4 )
 hframes = 3
 frame = 2
 
 [node name="Sprite5" type="Sprite" parent="LevelObjects/Blockers/CableWalk"]
-position = Vector2 ( 10, 0 )
+position = Vector2( 10, 0 )
 scale = Vector2( 4.31339, 1 )
 texture = ExtResource( 4 )
 hframes = 3
 frame = 2
 
 [node name="Sprite4" type="Sprite" parent="LevelObjects/Blockers/CableWalk"]
-position = Vector2 ( 6, 0 )
+position = Vector2( 6, 0 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 texture = ExtResource( 4 )
@@ -589,20 +586,20 @@ frame = 1
 [node name="ThinAreas" type="Node2D" parent="LevelObjects"]
 
 [node name="Ladder" parent="LevelObjects/ThinAreas" instance=ExtResource( 12 )]
-position = Vector2 ( 1024, 264 )
+position = Vector2( 1024, 264 )
 
 [node name="Ladder2" parent="LevelObjects/ThinAreas" instance=ExtResource( 12 )]
-position = Vector2 ( 1024, 328 )
+position = Vector2( 1024, 328 )
 
 [node name="LadderValutHole" parent="LevelObjects/ThinAreas" instance=ExtResource( 12 )]
-position = Vector2 ( 336, 328 )
+position = Vector2( 336, 328 )
 
 [node name="Pickables" type="Node2D" parent="LevelObjects"]
 
 [node name="Lasers" type="Node2D" parent="LevelObjects"]
 
 [node name="ForceDuckMode" type="Area2D" parent="LevelObjects"]
-position = Vector2 ( 688, 372 )
+position = Vector2( 688, 372 )
 script = ExtResource( 43 )
 __meta__ = {
 "_edit_group_": true
@@ -624,7 +621,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 80 )]
-position = Vector2 ( 847, 255 )
+position = Vector2( 847, 255 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -632,14 +629,14 @@ z_index = 50
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="Guard" parent="NPCs" instance=ExtResource( 83 )]
-position = Vector2 ( 247, 192 )
+position = Vector2( 247, 192 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard"]
 points = PoolVector2Array( 200, 0, 0, 0 )
 script = ExtResource( 8 )
 
 [node name="GuardOut2" parent="NPCs" instance=ExtResource( 83 )]
-position = Vector2 ( 586, 256 )
+position = Vector2( 586, 256 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/GuardOut2"]
 points = PoolVector2Array( 0, 0, 0, 0 )
@@ -651,7 +648,7 @@ script = ExtResource( 8 )
 distractWaitTime = 8.0
 
 [node name="GuardOut1" parent="NPCs" instance=ExtResource( 83 )]
-position = Vector2 ( 603, 256 )
+position = Vector2( 603, 256 )
 startingDirection = 1
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/GuardOut1"]
@@ -664,7 +661,7 @@ script = ExtResource( 8 )
 distractWaitTime = 8.0
 
 [node name="GuardOut3" parent="NPCs" instance=ExtResource( 83 )]
-position = Vector2 ( 620, 258 )
+position = Vector2( 620, 258 )
 startingDirection = 1
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/GuardOut3"]
@@ -677,7 +674,7 @@ script = ExtResource( 8 )
 distractWaitTime = 8.0
 
 [node name="Guard2" parent="NPCs" instance=ExtResource( 83 )]
-position = Vector2 ( 359, 127 )
+position = Vector2( 359, 127 )
 startingDirection = 1
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard2"]
@@ -685,7 +682,7 @@ points = PoolVector2Array( -100, 0, 0, 0 )
 script = ExtResource( 8 )
 
 [node name="Dog" parent="NPCs" instance=ExtResource( 82 )]
-position = Vector2 ( 1172, 257 )
+position = Vector2( 1172, 257 )
 startingState = 2
 
 [node name="PathLine" type="Line2D" parent="NPCs/Dog"]
@@ -693,7 +690,7 @@ points = PoolVector2Array( -50, 0, 0, 0 )
 script = ExtResource( 8 )
 
 [node name="EliteGuard" parent="NPCs" instance=ExtResource( 85 )]
-position = Vector2 ( -69, -138 )
+position = Vector2( -69, -138 )
 
 [node name="PathLine" type="Line2D" parent="NPCs/EliteGuard"]
 points = PoolVector2Array( 0, 0, 0, 0 )
@@ -709,4 +706,3 @@ script = ExtResource( 8 )
 [connection signal="body_exited" from="LevelObjects/Interactables/Password-Note/ReadArea" to="LevelObjects/Interactables/Password-Note" method="_on_ReadArea_body_exited"]
 [connection signal="body_entered" from="LevelObjects/Interactables/Password-Note/NotifierArea" to="LevelObjects/Interactables/Password-Note" method="_on_NotifierArea_body_entered"]
 [connection signal="body_exited" from="LevelObjects/Interactables/Password-Note/NotifierArea" to="LevelObjects/Interactables/Password-Note" method="_on_NotifierArea_body_exited"]
-

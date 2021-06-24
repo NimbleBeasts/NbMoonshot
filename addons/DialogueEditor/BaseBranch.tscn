@@ -88,8 +88,9 @@ rect_min_size = Vector2( 64, 30 )
 margin_left = 16.0
 margin_top = 203.0
 margin_right = 136.0
-margin_bottom = 217.0
+margin_bottom = 216.0
 text = "Chars: 123"
+
 [connection signal="close_request" from="." to="." method="_on_Branch_close_request"]
 [connection signal="resize_request" from="." to="." method="_on_Branch_resize_request"]
 [connection signal="text_changed" from="Text" to="." method="_on_Text_text_changed"]
