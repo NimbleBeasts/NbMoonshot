@@ -105,14 +105,14 @@ const levelTitle = [
 
 # Upgrades
 const upgrades = [
-	{id = 0, name="Power-Bank", desc="Increases the battery capacity to allow taser usages.", cost=300},
-	{id = 1, name="Dog Whisperer", desc="Dogs will love you!", cost=300},
-	{id = 2, name="False Alarm", desc="Increases the amount of possible detections.", cost=300},
-	{id = 3, name="Marathon Man", desc="Increases the movement speed.", cost=150},
-	{id = 4, name="Sneak", desc="Enables walk while hiding in the dark.", cost=200},
-	{id = 5, name="DarkNet", desc="Increases the money for every theft by +25%.", cost=200},
-	{id = 6, name="Lockpicking 2.0", desc="Make lockpicking easier.", cost=300},
-	{id = 7, name="Distraction", desc="Guards will report the alarm more delayed.", cost=200}
+	{id = 0, name="UPGRADE_POWERBANK_TITLE", desc="UPGRADE_POWERBANK_DESC", cost=300},
+	{id = 1, name="UPGRADE_DOG_TITLE",       desc="UPGRADE_DOG_DESC", cost=300},
+	{id = 2, name="UPGRADE_ALARM_TITLE",     desc="UPGRADE_ALARM_DESC", cost=300},
+	{id = 3, name="UPGRADE_SPRINT_TITLE",    desc="UPGRADE_SPRINT_DESC", cost=150},
+	{id = 4, name="UPGRADE_SNEAK_TITLE",     desc="UPGRADE_SNEAK_DESC", cost=200},
+	{id = 5, name="UPGRADE_DARKNET_TITLE",   desc="UPGRADE_DARKNET_DESC", cost=200},
+	{id = 6, name="UPGRADE_LOCK_TITLE",      desc="UPGRADE_LOCK_DESC", cost=300},
+	{id = 7, name="UPGRADE_DISTRACT_TITLE",  desc="UPGRADE_DISTRACT_DESC", cost=200}
 ]
 
 const gameConstant = {

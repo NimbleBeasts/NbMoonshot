@@ -261,8 +261,8 @@ func _on_UpgradeButton_button_up():
 func upgradeSelect(id):
 	currentSelectedUpgrade = id
 	var upgrade = Global.upgrades[id]
-	$HUDLayer/Display/Upgrades/InfoBox/Titel.set_text(upgrade.name + " $" + str(upgrade.cost))
-	$HUDLayer/Display/Upgrades/InfoBox/Description.bbcode_text = upgrade.desc
+	$HUDLayer/Display/Upgrades/InfoBox/Titel.set_text(tr(upgrade.name) + " $" + str(upgrade.cost))
+	$HUDLayer/Display/Upgrades/InfoBox/Description.bbcode_text = tr(upgrade.desc)
 	
 	if -1 == Global.gameState.playerUpgrades.find(id):
 		if Global.gameState.money >= upgrade.cost:
