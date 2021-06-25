@@ -238,7 +238,6 @@ texture = ExtResource( 6 )
 [node name="spacer2" type="Sprite" parent="WireTimer"]
 position = Vector2( 10, 0 )
 texture = ExtResource( 6 )
-
 [connection signal="wire_cut" from="Wires/RedWire" to="." method="_on_wire_cut"]
 [connection signal="wire_cut" from="Wires/BlueWire" to="." method="_on_wire_cut"]
 [connection signal="wire_cut" from="Wires/GreenWire" to="." method="_on_wire_cut"]

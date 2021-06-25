@@ -109,13 +109,11 @@ func interact(run_sub, openerPos: Vector2):
 				$LightMinigameSpawner.run_minigame(self, 1, true)
 			return
 		Types.DoorLockType.buttonLocked:
-			print("button Locked")
 			if doorLockStateLocked:
-				print("locked")
 				$DoorSounds/Locked.play()
 				#TODO: change sound
 			else:
-				print("opened")
+				#print("opened")
 				playDoorAnimation(openerPos)
 		_:
 			# Open the door
@@ -192,11 +190,11 @@ func _on_Area2D_body_exited(body):
 
 
 func _on_minigame_door_change_status(instance, _lock_type, _run_anim):
-	print("signal rec")
-	print(instance)
-	print(self)
+	# print("signal rec")
+	# print(instance)
+	# print(self)
 	if instance == self:
-		print("match")
+		#print("match")
 		lockLevel = _lock_type
 		if save_state:
 			#TODO workaround here

@@ -445,8 +445,8 @@ func playRandomSound(audioPlayer, array: Array) -> void:
 
 
 func _on_AudioListener_invoked(audio_level, audio_pos):
-	print(audio_pos)
-	print(audio_level)
+	# print(audio_pos)
+	# print(audio_level)
 	if state == Types.GuardStates.Stunned or state == Types.GuardStates.PlayerDetected or \
 	state == Types.GuardStates.BeingDragged:
 		return

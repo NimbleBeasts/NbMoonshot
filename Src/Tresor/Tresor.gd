@@ -36,6 +36,6 @@ func openTresor():
 	if Global.gameState.interactionCounters.boss == 0:
 		Events.emit_signal("tutorial_finished")
 	if showHintOnSucceed:
-		Events.emit_signal("hud_game_hint", hint)
+		Events.emit_signal("hud_game_hint", tr(hint))
 	if openTarget:
 		get_node(openTarget).open()

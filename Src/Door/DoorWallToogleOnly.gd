@@ -14,7 +14,6 @@ func _ready():
 
 
 func toggleState():
-	print("Try toogle")
 	if closed:
 		$AnimationPlayer.play("open_door")
 		$StaticBody2D/CollisionShape2D.disabled = true

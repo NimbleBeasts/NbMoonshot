@@ -33,7 +33,7 @@ func _ready():
 		set_process(false)
 
 	if containsKey:
-		stringName = Types.KeyColors.keys()[keyColor].to_lower()
+		stringName = Types.KeyColors.keys()[keyColor]
 		$Key/KeySprite.frame = keyColor
 	
 

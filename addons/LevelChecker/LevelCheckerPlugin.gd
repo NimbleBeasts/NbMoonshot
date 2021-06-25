@@ -18,7 +18,6 @@ func _exit_tree() -> void:
 
 
 func _callback(_u):
-	print("callback")
 	add_child(editor)
 	editor.popup()
 

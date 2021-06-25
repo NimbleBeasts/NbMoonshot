@@ -99,7 +99,7 @@ func _physics_process(_delta):
 
 	if levelHint != "":
 		if not $HUDLayer/Display/Dialog.visible:
-			Events.emit_signal("hud_game_hint", levelHint)
+			Events.emit_signal("hud_game_hint", tr(levelHint))
 			levelHint = ""
 		
 

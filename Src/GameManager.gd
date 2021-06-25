@@ -166,7 +166,6 @@ func setMusicVolume(value):
 	Global.saveConfig()
 
 func setBrightness(value):
-	print(value)
 	$gameViewport/Viewport/WorldEnvironment.environment.adjustment_brightness = value
 	Global.userConfig.brightness = value
 	Global.saveConfig()

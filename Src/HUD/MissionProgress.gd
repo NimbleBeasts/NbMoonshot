@@ -3,9 +3,6 @@ extends Control
 
 
 func updateProgress():
-	print("update")
-	print()
-
 	var level = Global.gameState["level"]["lastActiveMission"] + 1
 	
 	if level > Global.gameConstant.progress[0].size():

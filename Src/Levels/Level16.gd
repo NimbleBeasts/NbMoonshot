@@ -33,6 +33,7 @@ func playBombSound():
 func _on_Area2D_area_entered(area):
 	if area.is_in_group("Pickupable"):
 		print("bomb armed")
+		#TODO: do we emit a notification anywhere?!?
 		$LevelObjects/Objects/Trains/Wagons/WagonTarget/BombArea/BombArm.play()
 		bombPlaced = true
 
