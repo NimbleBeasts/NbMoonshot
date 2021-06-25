@@ -56,12 +56,12 @@ func update_texture(new_door_type) -> void:
 
 func unlock():
 	doorLockStateLocked = !doorLockStateLocked
-	print("unlock")
-	print(doorLockStateLocked)
+	# print("unlock")
+	# print(doorLockStateLocked)
 
 
 func open():
-	print("door open")
+	#print("door open")
 	lockLevel = Types.DoorLockType.open
 
 
@@ -90,11 +90,11 @@ func interact(run_sub, openerPos: Vector2):
 				open()
 				$DoorSounds/KeyUse.play()
 			else:
-				Events.emit_signal("hud_game_hint", "You need a %s key to open this door" % key.stringName)
+				Events.emit_signal("hud_game_hint", tr("KEY_DOOR_REQUIRED") % tr(key.stringName))
 				return
 		Types.DoorLockType.locked:
 			$DoorSounds/Locked.play()
-			Events.emit_signal("hud_game_hint", hint)
+			Events.emit_signal("hud_game_hint", tr(hint))
 			return
 		Types.DoorLockType.lockedLevel1:
 			if doorType == DoorType.wooden:

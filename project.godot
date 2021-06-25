@@ -222,7 +222,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/DialogueEditor/plugin.cfg", "res://addons/LevelChecker/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [gui]
 
