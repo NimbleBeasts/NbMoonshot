@@ -279,6 +279,130 @@
 		"Quest13": [
 			820,
 			6640
+		],
+		"140": [
+			-440,
+			7220
+		],
+		"141": [
+			-200,
+			7220
+		],
+		"142": [
+			40,
+			7220
+		],
+		"143": [
+			320,
+			7080
+		],
+		"144": [
+			320,
+			7340
+		],
+		"145": [
+			640,
+			7200
+		],
+		"Quest14": [
+			900,
+			7200
+		],
+		"150": [
+			-480,
+			7700
+		],
+		"151": [
+			-200,
+			7700
+		],
+		"152": [
+			60,
+			7700
+		],
+		"153": [
+			300,
+			7700
+		],
+		"Quest15": [
+			520,
+			7700
+		],
+		"160": [
+			-500,
+			8080
+		],
+		"161": [
+			-240,
+			8080
+		],
+		"162": [
+			-20,
+			8080
+		],
+		"Quest16": [
+			220,
+			8080
+		],
+		"170": [
+			-540,
+			8400
+		],
+		"171": [
+			-300,
+			8400
+		],
+		"172": [
+			-80,
+			8400
+		],
+		"Quest17": [
+			220,
+			8400
+		],
+		"180": [
+			-540,
+			8700
+		],
+		"181": [
+			-300,
+			8700
+		],
+		"182": [
+			-80,
+			8700
+		],
+		"Quest18": [
+			120,
+			8700
+		],
+		"190": [
+			-560,
+			9000
+		],
+		"191": [
+			-340,
+			9000
+		],
+		"192": [
+			-140,
+			9000
+		],
+		"Quest19": [
+			60,
+			9000
+		],
+		"200": [
+			-580,
+			9340
+		],
+		"201": [
+			-340,
+			9340
+		],
+		"Quest20": [
+			-120,
+			9340
 		]
 	},
 	"00": {
@@ -682,6 +806,179 @@
 		"exitDialogue": true
 	},
 	"Quest13": {
+
+	},
+	"140": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "141"
+	},
+	"141": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "142"
+	},
+	"142": {
+		"branchText0": "About explosives",
+		"branchText1": "About casualties",
+		"branchText2": "",
+		"branchID0": "143",
+		"branchID1": "144"
+	},
+	"143": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "145"
+	},
+	"144": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "145"
+	},
+	"145": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "14",
+		"exitDialogue": true
+	},
+	"Quest14": {
+
+	},
+	"150": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "151"
+	},
+	"151": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "152"
+	},
+	"152": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "153"
+	},
+	"153": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "15",
+		"exitDialogue": true
+	},
+	"Quest15": {
+
+	},
+	"160": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "161"
+	},
+	"161": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "162"
+	},
+	"162": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "16",
+		"exitDialogue": true
+	},
+	"Quest16": {
+
+	},
+	"170": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "171"
+	},
+	"171": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "172"
+	},
+	"172": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "17",
+		"exitDialogue": true
+	},
+	"Quest17": {
+
+	},
+	"180": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "181"
+	},
+	"181": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "182"
+	},
+	"182": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "18",
+		"exitDialogue": true
+	},
+	"Quest18": {
+
+	},
+	"190": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "191"
+	},
+	"191": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "192"
+	},
+	"192": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "19",
+		"exitDialogue": true
+	},
+	"Quest19": {
+
+	},
+	"200": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"nextDialogue": "201"
+	},
+	"201": {
+		"branchText0": "",
+		"branchText1": "",
+		"branchText2": "",
+		"quest": "20",
+		"exitDialogue": true
+	},
+	"Quest20": {
 
 	}
 }

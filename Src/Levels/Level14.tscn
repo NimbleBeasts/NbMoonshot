@@ -56,16 +56,16 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 112, 8 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 16 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 48, 32 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 100, 32 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10, 32 )
 
 [node name="Level14" type="Node2D"]
@@ -338,7 +338,7 @@ centered = false
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 22 )]
 position = Vector2( 540, 300 )
-frame = 2
+frame = 1
 
 [node name="Sprite2" type="Sprite" parent="LevelObjects/Decorations/ControlRoom"]
 position = Vector2( 47, -4 )
@@ -411,7 +411,7 @@ unlocks = [ NodePath("../ThinAreaWithDoor") ]
 position = Vector2( 816, 240 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/MissionGoal"]
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="WireCut" type="AudioStreamPlayer" parent="LevelObjects/Objects/MissionGoal"]
 stream = ExtResource( 52 )
@@ -613,7 +613,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlayVentilation/PlayerDetector"]
 position = Vector2( 48, 24 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="OverlayBasement" type="ColorRect" parent="."]
 light_mask = 12
@@ -634,7 +634,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlayBasement/PlayerDetector"]
 position = Vector2( 100, 32 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
 position = Vector2( 129, 256 )
@@ -647,7 +647,7 @@ position = Vector2( -104, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 152, -32 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="NPCS" type="Node2D" parent="."]
 

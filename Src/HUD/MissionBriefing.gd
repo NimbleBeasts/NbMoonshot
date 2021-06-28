@@ -52,7 +52,21 @@ const text = [
 #12
 "NASA Administrator James E. Webb is known for taking home classified files. Enter his mansion and look for the Apollo files. Roadmap, plans, everything you can find. Make photocopies of the files and leave the house without getting caught. Destroy all traces.",
 #13
-"The Soviets put the first satellite into orbit around the moon in April 1966. We assume that, in addition to a gamma-ray spectrometer and a magentometer, they are also actively searching for a possible landing site. Penetrate the radio telescope TNA-1500 and get us all the data. Avoid at all costs your exposure by the KGB.",
+"The Soviets put the first satellite into orbit around the moon in April 1966. We assume that, in addition to a gamma-ray spectrometer and a magnetometer, they are also actively searching for a possible landing site. Penetrate the radio telescope TNA-1500 and get us all the data. Avoid at all costs your exposure by the KGB.",
+#14
+"We are increasingly concerned about the Apollo program. Rumor has it that the first Apollo mission will launch soon. To buy more time, they sabotage the command module. The Americans will have to spend a lot of time troubleshooting.\nEnter the test lab and sabotage the command module.",
+#15
+"March 1967. After the Apollo-1 accident, the Moon Race nations increased their security measures because sabotage could not be ruled out - even though there was no evidence of it.\nDue to the increased security measures, one of our agents was caught in Moscow after he was too talkative after several vodkas.\nHe is currently in a military police cell and will be interrogated soon. Wire the interrogation room so that we have a head start in knowledge.",
+#16
+"April 1967. The Soviets are planning a first manned flight with the new Soyuz rocket. This could become the foundation for a moon landing.\nWe must, of course, prevent this until we are ready ourselves.\nThe Soviets are still waiting for a solar panel to be brought by train. Find the explosives on board the train, blow up the panels and escape by detaching the train from the locomotive.",
+#17
+"December 1968. The Apollo 8 mission orbited the moon, laying another foundation stone for the lunar mission.\nThe landing capsule will hit the Pacific Ocean tonight and be recovered by a salvage vessel.\nYou will be there, of course. Enter the ship and get us the records from the black box.",
+#18
+"May 1969. We are about to launch our moon mission. Only a few months separate us from our goal. But the Americans seem to be one step ahead of us again.\nOur intelligence was able to identify a new location where the planning for the moon landing is taking place.\nInfiltrate the building and get us the mission briefing. We must stop them at all costs.",
+#19
+"May 1969. It looks like we have now found the right main mission building.\nThe first location is probably the backup plan of the Americans to land on the moon before us. Or to make it look like one. Actually a very good idea. Why didn't we think of that?\nAnyway, get into the building and get us the mission plans. ",
+#20
+"Empty"
 ]
 
 func setLevel(id):
