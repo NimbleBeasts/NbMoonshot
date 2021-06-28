@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://Translations/MissionBriefings.en.translation", "res://Translations/MissionBriefings.ru.translation", "res://Translations/MissionBriefings.de.translation" ]
+
+source_file="res://Translations/MissionBriefings.csv"
+dest_files=[ "res://Translations/MissionBriefings.en.translation", "res://Translations/MissionBriefings.ru.translation", "res://Translations/MissionBriefings.de.translation" ]
+
+[params]
+
+compress=true
+delimiter=0
