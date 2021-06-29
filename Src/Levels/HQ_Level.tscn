@@ -300,15 +300,14 @@ position = Vector2( 344, 335 )
 
 [node name="ZoneTutorialBriefing" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 216, 368 )
-text = "Light plays an important role. There are three levels of light. Fully visible, hardly visible and hidden.
-Cameras and guards will react to those levels."
+text = "LEVEL_HQ_HINT1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing"]
 shape = SubResource( 1 )
 
 [node name="ZoneTutorialBriefing2" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 216, 368 )
-text = "You are now barely visible. Which is also indicated by the light bulb symbol in the bottom of your HUD. The camera became suspicious."
+text = "LEVEL_HQ_HINT2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing2"]
 position = Vector2( 35, 0 )
@@ -316,36 +315,35 @@ shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing3" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 280, 368 )
-text = "Now you are fully visible. You can lower your light level by pressing yourself against the wall. Hold Space"
+text = "LEVEL_HQ_HINT3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing3"]
 shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing4" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 336, 368 )
-text = "If you are detected, an alarm is normally triggered. You have a certain number of possible alarms in each level."
+text = "LEVEL_HQ_HINT4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing4"]
 shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing5" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 376, 368 )
-text = "Laser detectors can be avoided by wall dodging or ducking.
-Hold down to duck."
+text = "LEVEL_HQ_HINT5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing5"]
 shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing6" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 491, 368 )
-text = "Through shafts in ceilings and floors, you can quickly move up and down one floor. Press up or down."
+text = "LEVEL_HQ_HINT6"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing6"]
 shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing7" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 491, 368 )
-text = "Most mission objectives are stored in a safe. Some requires a code, some must be cracked. Codes are mostly hidden within the level. "
+text = "LEVEL_HQ_HINT7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing7"]
 position = Vector2( 2, -64 )
@@ -353,7 +351,7 @@ shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing8" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 488, 448 )
-text = "Sometimes it is not possible to prevent a guard from spotting you. But until the guards set off the alarm you have some time to use your taser. Press F."
+text = "LEVEL_HQ_HINT8"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing8"]
 position = Vector2( 0, -16 )
@@ -361,7 +359,7 @@ shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing10" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 419, 448 )
-text = "This button is pressure activated. Find something heavy to put on, so you can walk through the door."
+text = "LEVEL_HQ_HINT9"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing10"]
 position = Vector2( 0, -16 )
@@ -369,7 +367,7 @@ shape = SubResource( 2 )
 
 [node name="ZoneTutorialBriefing9" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( 360, 448 )
-text = "The next room is pretty secure. But what happens if we just cut the power? Cut the right power cables."
+text = "LEVEL_HQ_HINT10"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ZoneTutorialBriefing9"]
 position = Vector2( 0, -16 )
