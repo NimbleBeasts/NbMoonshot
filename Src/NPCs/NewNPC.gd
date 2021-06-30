@@ -109,7 +109,7 @@ func loadDialogue() -> void:
 func sayBranch(branch: Dictionary) -> void:
 	Events.emit_signal("player_block_movement")
 	var messageKey = "KEY_" + currentBranchID
-	Events.emit_signal("hud_dialog_show", npcName, npcColor, tr(messageKey), false, npcPotrait)
+	Events.emit_signal("hud_dialog_show", tr(npcName), npcColor, tr(messageKey), false, npcPotrait)
 	
 	if branch.has("branchID0") or branch.has("branchID1") or branch.has("branchID2"):
 		Events.emit_signal("update_no_branch_button_state", false)

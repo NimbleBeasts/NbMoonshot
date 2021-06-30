@@ -5,10 +5,10 @@ type="Translation"
 
 [deps]
 
-files=[ "res://Translations/MissionBriefings.en.translation", "res://Translations/MissionBriefings.ru.translation", "res://Translations/MissionBriefings.de.translation" ]
+files=[ "res://Translations/MissionBriefings.en.translation", "res://Translations/MissionBriefings.de.translation" ]
 
 source_file="res://Translations/MissionBriefings.csv"
-dest_files=[ "res://Translations/MissionBriefings.en.translation", "res://Translations/MissionBriefings.ru.translation", "res://Translations/MissionBriefings.de.translation" ]
+dest_files=[ "res://Translations/MissionBriefings.en.translation", "res://Translations/MissionBriefings.de.translation" ]
 
 [params]
 

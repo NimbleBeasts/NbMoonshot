@@ -5,10 +5,10 @@ type="Translation"
 
 [deps]
 
-files=[ "res://Translations/NPC/BossTranslations.en.translation", "res://Translations/NPC/BossTranslations.ru.translation", "res://Translations/NPC/BossTranslations.de.translation" ]
+files=[ "res://Translations/NPC/BossTranslations.en.translation", "res://Translations/NPC/BossTranslations.de.translation" ]
 
 source_file="res://Translations/NPC/BossTranslations.csv"
-dest_files=[ "res://Translations/NPC/BossTranslations.en.translation", "res://Translations/NPC/BossTranslations.ru.translation", "res://Translations/NPC/BossTranslations.de.translation" ]
+dest_files=[ "res://Translations/NPC/BossTranslations.en.translation", "res://Translations/NPC/BossTranslations.de.translation" ]
 
 [params]
 

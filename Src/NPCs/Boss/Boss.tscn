@@ -29,7 +29,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 dialoguePath = "res://Src/Dialogues/BossDialogueEditor.json"
-npcName = "General"
+npcName = "NPC_GENERAL"
 npcColor = "#4c93ad"
 npcPotrait = 1
 translationCSVPath = "res://Translations/NPC/BossTranslations.csv"

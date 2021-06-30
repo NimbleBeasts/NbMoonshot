@@ -1,101 +1,101 @@
-keys,en,ru,de
-KEY_00,"Good morning agent, there you are at last. Today is a great day for you. It is a great honor to serve the country of Ustria. Our great leader wants to participate in the space race. We will be the first nation on the moon!",,
-KEY_01,"Unfortunately we do not even have a rocket yet. And that is why you are here today. Our agency will obtain plans and secret documents to support our great scientists.",,
-KEY_02,"Before you go on your first mission: In the basement is your office where you can save your progress, your colleague who can equip you with additional upgrades and a training parkour.",,
-KEY_03,"You should complete the training parkour before going on your first mission. Do you have any questions?",,
-CHOICE_03_0,"No, let's train.",,
-CHOICE_03_1,"Where is my office?",,
-CHOICE_03_2,"Go directly on mission",,
-KEY_train,"The training center is located in the basement. Good luck, comrade.",,
-KEY_skipTutorial,"Okay. If you change your mind, you can always go to the training rooms. Do you want to skip it now?",,
-CHOICE_skipTutorial_0,"No, let's train.",,
-CHOICE_skipTutorial_1,"Yes, skip it.",,
-KEY_officeReply,"One floor down and then the door on the right side.",,
-KEY_10,"Wow, that was really slow, even my grandma could have done it faster. But well, you just have to take what you get.",,
-KEY_11,"Okay, your first mission will take you to the Soviet Union. Their rocket technology is the best in the world. Our researchers need these plans for, umm ... inspiration.",,
-KEY_12,"My secretary Natasja prepared a detailed mission briefing for you. Take the car in front of the building to start the mission.",,
-KEY_21,"So far, these seem very authentic. Even though a lot of glue and duct tape seems to be used in the construction.",,
-KEY_23,"Good luck on your mission, Agent. Make the great leader proud.",,
-KEY_20,"Welcome back comrade. Your first mission was a great success and our scientists are studying the plans.",,
-KEY_30,"It seems that Titov suffered from some kind of seasickness. The space sickness. We have instructed our diplomats to collect all vomit bags during international flights.",,
-KEY_31,"Well, I ordered you today, because there are first rumors about a manned American space flight. A guy named \Enzo\ is supposed to take over this flight.",,
-KEY_22,"The Soviets had another manned space flight with the Vostok-2, with a cosmonaut spending a day in space. Your mission is to steal the medical records from the Soviet hospital.",,
-KEY_32,"Infiltrate the NASA training site and get us photos of the training Mr. Enzo is doing.",,
-KEY_41,"For your next \mission\ I need your utmost discretion. It's a... well, delicate subject. Can I count on you?",,
-CHOICE_41_0,"Yes, Sir.",,
-CHOICE_41_1,"It depends.",,
-CHOICE_41_2,"This sounds dubious.",,
-KEY_40,"Our source must have misunderstood something. Well, at least now we know how to train a chimpanzee. The source has dried up, if you know what I mean. Mistakes will not be tolarated.",,
-KEY_42_ok,"I knew, comrade, that I could count on you.",,
-KEY_42_no,"Oh come on, did you really think you had a choice? I'm your boss and that's an order.",,
-KEY_43,"Okay, it's a little precarious. I think my wife is cheating on me. Observe my house while I'm at work and get me proof if necessary.",,
-KEY_50,"I knew it. I had ignored the signs, but they were there all along.",,
-KEY_52_okay,"All right, bring him to me. I will then take care of him.",,
-KEY_51,"Okay, I need you to kidnap him. I will... well... \interrogate\ him. He lives in a hotel in the next town.",,
-CHOICE_51_0,"Yes, Sir",,
-CHOICE_51_1,"Is this really necessary?",,
-KEY_52_why,"It is! He could have been specifically targeted at me. Besides, I now have a score to settle with him.",,
-KEY_60,"Comrade! Today there is great news. Our scientists are making great progress with the development of our first own rocket",,
-KEY_61,"However, news reaches us from our spy network in the USSR. It looks like the Soviets are developing a new booster for their Vostok missiles.",,
-KEY_62,"Get us the plans from these boosters. They would be a great inspiration for our scientists.",,
-CHOICE_62_0,"Yes, sir!",,
-CHOICE_62_1,"Inspiration?",,
-KEY_63_okay,"Good luck on your mission.",,
-KEY_63_what,"You know, the kind of inspiration you used to need in school when you forgot your homework. But now let's go, good luck.",,
-KEY_70,"Good job with the photos. I have forwarded these to the Ustria Space Center. I was also right about the affair. It is a young spy of the Soviets with the code name \Platov\.",,
-KEY_71,"Our great leader will exchange him for some of our agents.It is said that he has a great future in the KGB.",,
-CHOICE_71_0,"About his life?",,
-CHOICE_71_1,"What about your wife?",,
-KEY_72_life,"I would very much not end his life and that of my wife. But he has powerful allies in the KGB, so our great leader decided to exchange him for several of our agents.",,
-KEY_80,"We are ready! The rocket is ready for launch. But in the final tests, the control unit failed again. We were asked to find a replacement.",,
-KEY_81,"The Soviet control unit seems to be 100% compatible with ours for some reason. That is why we intend to \borrow\ one.",,
-KEY_82,"Good luck with your mission. And many thanks for the contract.",,
-KEY_90,"Comrade! The first missile test was a complete success for the great nation of Ustria. The great leader has demanded to increase the pace even more to further expand our technological advancement.",,
-KEY_91,"The Soviets accuse us of espionage and claim our Great Ustria missile is a copy of their Vostok missiles. We expect them to significantly increase their security measures.",,
-KEY_92,"That's why we need to significantly increase our agency's budget. The plan is to steal some of the Nazi gold in Switzerland to increase our funds.",,
-KEY_100,"Agent, the Soviets have again launched a lunar mission. Rumor says that Luna took 3 photos of the moon.",,
-KEY_101,"This could provide us with valuable information about possible landing sites on the Moon.",,
-KEY_102,"Get us those photos.",,
-KEY_73,"About my wife: I want a divorce, of course, but we have a very unfair marriage contract on file with a law firm. That's your next mission.",,
-KEY_111,"Rather than just getting the files, this time they bring us the astronaut. We hope to get information from him about the NASA program.",,
-KEY_110,"Welcome back Spy. It seems the Yanks are making great strides. They have completed an earth orbital mission. We have information about the location of  the astronaut.",,
-KEY_112,"That's it. You may now leave.",,
-KEY_120,"Comrade, our hostage was pretty talkative, we hardly had to use force. He mentioned a new project of NASA. The Apollo project. ",,
-KEY_121,"The NASA director reportedly takes the plans home every night. Gain access to the house and photocopy the files.",,
-KEY_122,"Natasja has the plane tickets as well as the briefing. Good luck.",,
-KEY_130,"Comrade, we haven't been able to use you for a while. Your last mission caused an unwanted stir. But now that your only colleague has passed away on duty. We' re reevaluating the risk.",,
-CHOICE_130_0,"What happend?",,
-KEY_131,"What? About your ex-colleague or your exposure?",,
-CHOICE_131_0,"My colleague",,
-CHOICE_131_1,"My exposure",,
-KEY_132,"He was going to drop out after a mission.",,
-KEY_133,"Soviet intelligence was able to identify you. We could not reconstruct it. The good news...",,
-KEY_134,"We will focus more on the U.S. They are making considerable progress with their Apollo program. But first you have to go back to the USSR one last time.",,
-KEY_135,"The Soviets have a satellite in orbit of the moon.  We need these images to find a suitable landing site. I am confident that you will survive. Good luck.",,
-KEY_140,"Welcome back! You have delivered interesting data, the scientists of the space program are still analyzing it.",,
-KEY_141,"We have learned that the Americans have taken the Apollo program up a notch. That is why the great leader has instructed us to be tougher.",,
-KEY_142,"We want to delay a possible launch of the Apollo program by sabotaging the command module. ",,
-CHOICE_142_0,"About explosives",,
-CHOICE_142_1,"About casualties",,
-KEY_143,"No. Even though it would probably be the most effective, we would immediately be the suspects. We have to look strong.",,
-KEY_144,"There will be no casualties. The Americans will do many tests and will eventually notice that something is wrong.",,
-KEY_145,"Let's not waste any more time. Go there and sabotage the module.",,
-KEY_150,"Comrade, welcome back. The last mission did not go as planned. It seems that all functional tests were completed before our sabotage.",,
-KEY_151,"Nonetheless, this puts a big damper on the Apollo program. However, the price is high. Both the USA and the Soviets have increased their security measures. One of our spies was arrested in the Soviet Union.",,
-KEY_152,"We know where they took him. However, we do not know what he will say. That's why your mission is to smuggle a listening device into the interrogation room and activate it there.",,
-KEY_153,"That's all. Easy! Isn't it? Good luck",,
-KEY_160,"Good evening. Our spy did not talk. That must have saved us a lot of trouble. We have learned that the USSR will soon make the first manned test flight with the new Soyuz.",,
-KEY_161,"In this sabotage mission, we take a less subtle approach. The Soviets are transporting a solar panel on a train. Blow up the panel.",,
-KEY_162,"Good luck.",,
-KEY_170,"Welcome back. Despite our efforts, both the US and USSR are making great strides. Apollo 8 has just orbited the moon. ",,
-KEY_171,"The landing capsule will land in the Pacific tonight. And you will be there, of course.",,
-KEY_172,"Enter the salvage ship and get us the black box. The records could turn out to be extremely useful for our first orbit around the moon. Good luck.",,
-KEY_180,"Hello Agent, it's been a while since your last mission. We're making great progress. But it seems the Americans are always one step ahead of us.",,
-KEY_181,"Our intelligence was able to locate a new laboratory in which the moon landing is to be prepared. Search the building we need the mission briefing.",,
-KEY_182,"The clock is ticking. Let's go.",,
-KEY_190,"Comrade, what a surprise. We were pretty sure they were just faking the moon landing. But we found some clues in the documents.",,
-KEY_191,"It looks like this is Plan B in case their Apollo 11 mission doesn't work out. We've identified an address. We believe there can the real mission briefing be found.",,
-KEY_192,"Good luck comrade. For Ustria!",,
-KEY_200,"Great work comrade. We did it! The Americans don't plan to launch until July. We will launch tonight.Our great leader has invited our entire staff to a celebration tonight.",,
-KEY_201,"Go home and put on something decent. Today there is every reason to celebrate.",,
-END,,,
+keys,en,de
+KEY_00,"Good morning agent, there you are at last. Today is a great day for you. It is a great honor to serve the country of Ustria. Our great leader wants to participate in the space race. We will be the first nation on the moon!","Guten Morgen Agent, da sind Sie ja endlich. Heute ist ein großer Tag für Sie. Es ist eine große Ehre, dem Land Ustria zu dienen. Unser großer Führer will am Wettlauf ins All teilnehmen. Wir werden die erste Nation auf dem Mond sein!"
+KEY_01,Unfortunately we do not even have a rocket yet. And that is why you are here today. Our agency will obtain plans and secret documents to support our great scientists.,"Leider haben wir noch nicht einmal eine Rakete. Und genau deshalb sind Sie heute hier. Unsere Agentur wird Pläne und geheime Dokumente beschaffen, um unsere großen Wissenschaftler zu unterstützen."
+KEY_02,"Before you go on your first mission: In the basement is your office where you can save your progress, your colleague who can equip you with additional upgrades and a training parkour.","Bevor Sie auf Ihre erste Mission gehen: Im Keller befindet sich Ihr Büro, in dem Sie Ihren Fortschritt speichern können, ein Kollege, der Sie mit zusätzlichen Upgrades ausstatten kann und ein Trainingsparkour."
+KEY_03,You should complete the training parkour before going on your first mission. Do you have any questions?,"Sie sollten den Trainingsparkour absolvieren, bevor Sie auf Ihre erste Mission gehen. Haben Sie noch Fragen?"
+CHOICE_03_0,"No, let's train.","Nein, ich geh zum Parkour"
+CHOICE_03_1,Where is my office?,Wo ist mein Büro?
+CHOICE_03_2,Go directly on mission,Direkt auf Mission gehen
+KEY_train,"The training center is located in the basement. Good luck, comrade.","Das Trainingszentrum befindet sich im Keller. Viel Erfolg, Genosse."
+KEY_skipTutorial,"Okay. If you change your mind, you can always go to the training rooms. Do you want to skip it now?","Okay. Wenn Sie Ihre Meinung ändern, können Sie jederzeit in die Trainingsräume gehen. Wollen Sie es jetzt auslassen?"
+CHOICE_skipTutorial_0,"No, let's train.","Nein, ich geh zum Parkour"
+CHOICE_skipTutorial_1,"Yes, skip it.","Ja, brauch ich nicht"
+KEY_officeReply,One floor down and then the door on the right side.,Ein Stockwerk tiefer auf der rechten Seite.
+KEY_10,"Wow, that was really slow, even my grandma could have done it faster. But well, you just have to take what you get.","Wow, das war wirklich langsam, selbst meine Oma hätte es schneller geschafft. Aber gut, man muss einfach nehmen, was man bekommt."
+KEY_11,"Okay, your first mission will take you to the Soviet Union. Their rocket technology is the best in the world. Our researchers need these plans for, umm ... inspiration.","Okay, Ihre erste Mission wird Sie in die Sowjetunion führen. Deren Raketentechnologie ist die beste der Welt. Unsere Forscher brauchen diese Pläne für, ähm ... Inspiration."
+KEY_12,My secretary Natasja prepared a detailed mission briefing for you. Take the car in front of the building to start the mission.,"Meine Sekretärin Natasja hat ein ausführliches Missionsbriefing für Sie vorbereitet. Nehmen Sie das Auto vor dem Gebäude, um die Mission zu starten."
+KEY_21,"So far, these seem very authentic. Even though a lot of glue and duct tape seems to be used in the construction.",Bis jetzt wirken diese sehr authentisch. Auch wenn jede Menge Kleber und Klebeband in der Konstruktion verwendet zu werden scheint.
+KEY_23,"Good luck on your mission, Agent. Make the great leader proud.","Viel Erfolg bei Ihrer Mission, Agent. Machen Sie den großen Führer stolz."
+KEY_20,Welcome back comrade. Your first mission was a great success and our scientists are studying the plans.,"Willkommen zurück, Genosse. Ihre erste Mission war ein großer Erfolg. Unsere Wissenschaftler studieren bereits die Pläne."
+KEY_30,It seems that Titov suffered from some kind of seasickness. The space sickness. We have instructed our diplomats to collect all vomit bags during international flights.,"Es scheint, dass Titov an einer Art Seekrankheit litt. Die Weltraumkrankheit. Wir haben unsere Diplomaten angewiesen, bei internationalen Flügen alle Kotztüten einzusammeln."
+KEY_31,"Well, I ordered you today, because there are first rumors about a manned American space flight. A guy named \Enzo\ is supposed to take over this flight.","Nun, ich habe Sie heute einbestellt, weil es erste Gerüchte über einen bemannten amerikanischen Raumflug gibt. Ein Typ namens \Enzo\ soll diesen Flug übernehmen."
+KEY_22,"The Soviets had another manned space flight with the Vostok-2, with a cosmonaut spending a day in space. Your mission is to steal the medical records from the Soviet hospital.","Die Sowjets hatten mit der Vostok-2 einen weiteren bemannten Raumflug, bei dem ein Kosmonaut einen Tag im All verbrachte. Ihre Mission ist es, die medizinischen Aufzeichnungen aus dem sowjetischen Krankenhaus zu stehlen."
+KEY_32,Infiltrate the NASA training site and get us photos of the training Mr. Enzo is doing.,"viel Erfolg bei Ihrer Mission, Agent. Machen Sie den großen Führer stolz."
+KEY_41,"For your next \mission\ I need your utmost discretion. It's a... well, delicate subject. Can I count on you?","Für Ihre nächste Mission brauche ich Ihre äußerste Diskretion. Es ist ein... nun ja, heikles Thema. Kann ich auf Sie zählen?"
+CHOICE_41_0,"Yes, Sir.","Ja, Sir"
+CHOICE_41_1,It depends.,Kommt drauf an
+CHOICE_41_2,This sounds dubious.,Das klingt dubios
+KEY_40,"Our source must have misunderstood something. Well, at least now we know how to train a chimpanzee. The source has dried up, if you know what I mean. Mistakes will not be tolerated.","Unsere Quelle muss etwas missverstanden haben. Nun, zumindest wissen wir jetzt, wie man einen Schimpansen trainiert. Die Quelle ist nun versiegt, wenn Sie wissen, was ich meine. Fehler werden nicht toleriert."
+KEY_42_ok,"I knew, comrade, that I could count on you.","Ich wusste, Genosse, dass ich auf dich zählen kann."
+KEY_42_no,"Oh come on, did you really think you had a choice? I'm your boss and that's an order.","Ach kommen Sie schon, haben Sie wirklich gedacht, Sie hätten eine Wahl? Ich bin Ihr Boss und das ist ein Befehl."
+KEY_43,"Okay, it's a little precarious. I think my wife is cheating on me. Observe my house while I'm at work and get me proof if necessary.","Okay, es ist ein wenig prekär. Ich glaube, meine Frau betrügt mich. Beobachten Sie mein Haus, während ich bei der Arbeit bin und besorgen Sie mir Beweise, wenn nötig."
+KEY_50,"I knew it. I had ignored the signs, but they were there all along.","Ich wusste es. Ich hatte die Zeichen ignoriert, aber sie waren die ganze Zeit da."
+KEY_52_okay,"All right, bring him to me. I will then take care of him.","In Ordnung, bringen Sie ihn zu mir. Ich werde mich dann um ihn kümmern."
+KEY_51,"Okay, I need you to kidnap him. I will... well... \interrogate\ him. He lives in a hotel in the next town.","Okay, du musst ihn für mich entführen. Ich werde ihn.. äh.. verhören. Er wohnt in einem Hotel in der nächsten Stadt."
+CHOICE_51_0,"Yes, Sir","Ja, Sir"
+CHOICE_51_1,Is this really necessary?,Ist das wirklich notwendig?
+KEY_52_why,"It is! He could have been specifically targeted at me. Besides, I now have a score to settle with him.",Das ist es! Er könnte gezielt auf mich angesetzt worden sein. Außerdem habe ich jetzt noch eine Rechnung mit ihm offen.
+KEY_60,Comrade! Today there is great news. Our scientists are making great progress with the development of our first own rocket.,Genosse! Heute gibt es großartige Neuigkeiten. Unsere Wissenschaftler machen große Fortschritte bei der Entwicklung unserer ersten eigenen Rakete.
+KEY_61,"However, news reaches us from our spy network in the USSR. It looks like the Soviets are developing a new booster for their Vostok missiles.","Allerdings erreicht uns eine Nachricht von unserem Spionagenetzwerk in der UdSSR. Es sieht so aus, als würden die Sowjets einen neuen Booster für ihre Vostok-Raketen entwickeln."
+KEY_62,Get us the plans from these boosters. They would be a great inspiration for our scientists.,Besorgen Sie uns die Pläne von diesen Boostern. Sie würden eine große Inspiration für unsere Wissenschaftler sein.
+CHOICE_62_0,"Yes, sir!","Ja, Sir!"
+CHOICE_62_1,Inspiration?,Inspiration?
+KEY_63_okay,Good luck on your mission.,Viel Glück bei Ihrer Mission.
+KEY_63_what,"You know, the kind of inspiration you used to need in school when you forgot your homework. But now let's go, good luck.","Sie wissen schon, diese Art von Inspiration, die man früher in der Schule brauchte, wenn man die Hausaufgaben vergessen hatte. Genug geredet. Viel Erfolg."
+KEY_70,Good job with the photos. I have forwarded these to the Ustria Space Center. I was also right about the affair. It is a young spy of the Soviets with the code name \Platov\.,Gute Arbeit mit den Fotos. Ich habe diese an das Ustria Space Center weitergeleitet. Ich hatte auch Recht mit der Affäre. Es ist ein junger Spion der Sowjets mit dem Codenamen \Platov\.
+KEY_71,Our great leader will exchange him for some of our agents.It is said that he has a great future in the KGB.,"Unser großer Führer wird ihn gegen einige unserer Agenten austauschen. Man sagt, dass er eine große Zukunft beim KGB habe."
+CHOICE_71_0,About his life,Über den Spion
+CHOICE_71_1,What about your wife?,Über seine Frau
+KEY_72_life,"I would very much end his life and that of my wife. But he has powerful allies in the KGB, so our great leader decided to exchange him for several of our agents.","Ich würde sehr gern sein Leben und das meiner Frau beenden. Aber er hat mächtige Verbündete im KGB, deshalb hat unser großer Führer beschlossen, ihn gegen mehrere unserer Agenten auszutauschen."
+KEY_80,"We are ready! The rocket is ready for launch. But in the final tests, the control unit failed again. We were asked to find a replacement.","Wir sind bereit! Die Rakete ist bereit zum Start. Doch bei den letzten Tests ist die Steuereinheit erneut ausgefallen. Wir wurden gebeten, einen Ersatz zu finden."
+KEY_81,The Soviet control unit seems to be 100% compatible with ours for some reason. That is why we intend to \borrow\ one.,"Das sowjetische Steuergerät scheint aus irgendeinem Grund zu 100% mit unserem kompatibel zu sein. Deshalb haben wir vor, eine Einheit zu borgen."
+KEY_82,Good luck with your mission. And many thanks for the contract.,Viel Erfolg bei Ihrem Auftrag. Und vielen Dank für den Vertrag.
+KEY_90,Comrade! The first missile test was a complete success for the great nation of Ustria. The great leader has demanded to increase the pace even more to further expand our technological advancement.,"Genosse! Der erste Raketentest war ein voller Erfolg für die große Nation von Ustria. Unser großer Führer hat gefordert, das Tempo noch mehr zu erhöhen, um unseren technologischen Fortschritt weiter auszubauen."
+KEY_91,The Soviets accuse us of espionage and claim our Great Ustria missile is a copy of their Vostok missiles. We expect them to significantly increase their security measures.,"Die Sowjets beschuldigen uns der Spionage und behaupten, unsere Great-Ustria-Rakete sei eine Kopie ihrer Vostok-Raketen. Wir erwarten, dass sie ihre Sicherheitsmaßnahmen nun deutlich erhöhen werden."
+KEY_92,That's why we need to significantly increase our agency's budget. The plan is to steal some of the Nazi gold in Switzerland to increase our funds.,"Deshalb müssen wir das Budget unserer Agentur deutlich erhöhen. Der Plan ist, etwas vom Nazi-Gold der Schweiz zu stehlen, um unsere Mittel zu erhöhen."
+KEY_100,"Agent, the Soviets have again launched a lunar mission. Rumor says that Luna took 3 photos of the moon.","Agent, die Sowjets haben wieder eine Mondmission gestartet. Gerücht besagt, dass Luna hat 3 Fotos vom Mond gemacht hat."
+KEY_101,This could provide us with valuable information about possible landing sites on the Moon.,Dies könnte uns wertvolle Informationen über mögliche Landeplätze auf dem Mond liefern.
+KEY_102,Get us those photos.,Besorgen Sie uns die Fotos.
+KEY_73,"About my wife: I want a divorce, of course, but we have a very unfair marriage contract on file with a law firm. That's your next mission.","Wegen meiner Frau: Ich will die Scheidung, natürlich, aber wir haben einen sehr unfairen Ehevertrag bei einer Anwaltskanzlei hinterlegt. Das ist Ihr nächster Auftrag."
+KEY_111,"Rather than just getting the files, this time they bring us the astronaut. We hope to get information from him about the NASA program.","Anstatt nur die Dateien zu bekommen, bringen sie uns dieses Mal den Astronauten. Wir hoffen, von ihm Informationen über das NASA-Programm zu bekommen."
+KEY_110,Welcome back Spy. It seems the Yanks are making great strides. They have completed an earth orbital mission. We have information about the location of  the astronaut.,"Willkommen zurück, Spy. Es scheint, als würden die Amis große Fortschritte machen. Sie haben eine erdumlaufende Mission abgeschlossen. Wir haben Informationen über den Aufenthaltsort des Astronauten."
+KEY_112,That's it. You may now leave.,Das war's. Sie können jetzt gehen.
+KEY_120,"Comrade, our hostage was pretty talkative, we hardly had to use force. He mentioned a new project of NASA. The Apollo project. ","Genosse, unsere Geisel war ziemlich gesprächig, wir mussten kaum Gewalt anwenden. Er erwähnte ein neues Projekt der NASA. Das Apollo-Projekt. "
+KEY_121,The NASA director reportedly takes the plans home every night. Gain access to the house and photocopy the files.,Der NASA-Direktor nimmt die Pläne angeblich jede Nacht mit nach Hause. Verschaffen Sie sich Zugang zum Haus und fotokopieren Sie die Akten.
+KEY_122,Natasja has the plane tickets as well as the briefing. Good luck.,Natasja hat sowohl die Flugtickets als auch das Briefing. Viel Glück!
+KEY_130,"Comrade, we haven't been able to use you for a while. Your last mission caused an unwanted stir. But now that your only colleague has passed away on duty. We' re reevaluating the risk.","Kamerad, wir konnten Sie schon eine Weile nicht mehr gebrauchen. Ihr letzter Einsatz hat unerwünschtes Aufsehen erregt. Aber jetzt, wo Ihr einziger Kollege im Dienst verstorben ist. Wir schätzen das Risiko neu ein."
+CHOICE_130_0,What happend?,Was ist passiert?
+KEY_131,What? About your ex-colleague or your exposure?,Was? Über Ihren Ex-Kollegen oder Ihre Enttarnung?
+CHOICE_131_0,My colleague,Mein Kollege
+CHOICE_131_1,My exposure,Meine Enttarnung
+KEY_132,He was going to drop out after the mission.,Er wollte nach dieser Mission aussteigen.
+KEY_133,Soviet intelligence was able to identify you. We could not reconstruct it. The good news...,"Der sowjetische Geheimdienst war in der Lage, Sie zu identifizieren. Wir konnten es nicht rekonstruieren. Die gute Nachricht..."
+KEY_134,We will focus more on the U.S. They are making considerable progress with their Apollo program. But first you have to go back to the USSR one last time.,Wir werden uns mehr auf die USA konzentrieren. Sie machen erhebliche Fortschritte mit ihrem Apollo-Programm. Aber zuerst müssen Sie noch einmal zurück in die UdSSR gehen.
+KEY_135,The Soviets have a satellite in orbit of the moon.  We need these images to find a suitable landing site. I am confident that you will survive. Good luck.,"Die Sowjets haben einen Satelliten in der Umlaufbahn des Mondes.  Wir brauchen diese Bilder, um einen geeigneten Landeplatz zu finden. Ich bin zuversichtlich, dass Sie überleben werden. Viel Glück."
+KEY_140,"Welcome back! You have delivered interesting data, the scientists of the space program are still analyzing it.","Willkommen zurück! Sie haben interessante Daten geliefert, die Wissenschaftler des Raumfahrtprogramms sind noch dabei, sie zu analysieren."
+KEY_141,We have learned that the Americans have taken the Apollo program up a notch. That is why the great leader has instructed us to be tougher.,"Wir haben erfahren, dass die Amerikaner das Apollo-Programm auf die Spitze getrieben haben. Deshalb hat der große Führer uns angewiesen, härter zu sein."
+KEY_142,We want to delay a possible launch of the Apollo program by sabotaging the command module. ,"Wir wollen einen möglichen Start des Apollo-Programms verzögern, indem wir das Kommandomodul sabotieren. "
+CHOICE_142_0,About explosives,Sprengstoff?
+CHOICE_142_1,About casualties,Opfer?
+KEY_143,"No. Even though it would probably be the most effective, we would immediately be the suspects. We have to look strong.","Nein. Auch wenn es wahrscheinlich am effektivsten wäre, würden wir sofort die Verdächtigen sein. Wir müssen stark aussehen."
+KEY_144,There will be no casualties. The Americans will do many tests and will eventually notice that something is wrong.,"Es wird keine Verletzten geben. Die Amerikaner werden viele Tests machen und irgendwann merken, dass etwas nicht stimmt."
+KEY_145,Let's not waste any more time. Go there and sabotage the module.,Lassen Sie uns keine Zeit mehr verlieren. Gehen Sie und sabotieren Sie das Modul.
+KEY_150,"Comrade, welcome back. The last mission did not go as planned. It seems that all functional tests were completed before our sabotage.","Genosse, willkommen zurück. Die letzte Mission verlief nicht wie geplant. Es scheint, dass alle Funktionstests vor unserer Sabotage abgeschlossen wurden."
+KEY_151,"Nonetheless, this puts a big damper on the Apollo program. However, the price is high. Both the USA and the Soviets have increased their security measures. One of our spies was arrested in the Soviet Union.",Nichtsdestotrotz ist dies ein großer Dämpfer für das Apollo-Programm. Doch der Preis ist hoch. Sowohl die USA als auch die Sowjets haben ihre Sicherheitsmaßnahmen erhöht. Einer unserer Spione wurde in der Sowjetunion verhaftet.
+KEY_152,"We know where they took him. However, we do not know what he will say. That's why your mission is to smuggle a listening device into the interrogation room and activate it there.","Wir wissen, wohin sie ihn gebracht haben. Allerdings wissen wir nicht, was er sagen wird. Deshalb ist Ihr Auftrag, ein Abhörgerät in den Verhörraum zu schmuggeln und es dort zu aktivieren."
+KEY_153,That's all. Easy! Isn't it? Good luck,"Das ist alles. Einfach, nicht wahr? Viel Erfolg!"
+KEY_160,Good evening. Our spy did not talk. That must have saved us a lot of trouble. We have learned that the USSR will soon make the first manned test flight with the new Soyuz.,"Guten Abend. Unser Spion hat nicht geredet. Das hat uns wohl eine Menge Ärger erspart. Wir haben erfahren, dass die UdSSR bald den ersten bemannten Testflug mit der neuen Sojus machen wird."
+KEY_161,"In this sabotage mission, we take a less subtle approach. The Soviets are transporting a solar panel on a train. Blow up the panel.",Bei dieser Sabotage-Mission gehen wir weniger subtil vor. Die Sowjets transportieren ein Solarpanel in einem Zug. Sprengen Sie das Panel in die Luft.
+KEY_162,Good luck.,Viel Erfolg.
+KEY_170,"Welcome back. Despite our efforts, both the US and USSR are making great strides. Apollo 8 has just orbited the moon. ",Willkommen zurück. Trotz unserer Bemühungen machen sowohl die USA als auch die UdSSR große Fortschritte. Apollo 8 hat gerade den Mond umkreist. 
+KEY_171,"The landing capsule will land in the Pacific tonight. And you will be there, of course.",Die Landekapsel wird heute Abend im Pazifik landen. Und Sie werden natürlich dabei sein.
+KEY_172,Enter the salvage ship and get us the black box. The records could turn out to be extremely useful for our first orbit around the moon. Good luck.,Betreten Sie das Bergungsschiff und holen Sie uns die Blackbox. Die Aufzeichnungen könnten sich als äußerst nützlich für unsere erste Mondumrundung erweisen. Viel Glück.
+KEY_180,"Hello Agent, it's been a while since your last mission. We're making great progress. But it seems the Americans are always one step ahead of us.","Hallo Agent, es ist schon eine Weile her seit Ihrer letzten Mission. Wir machen große Fortschritte. Aber es scheint, die Amerikaner sind uns immer einen Schritt voraus."
+KEY_181,Our intelligence was able to locate a new laboratory in which the moon landing is to be prepared. Search the building we need the mission briefing.,"Unser Geheimdienst konnte ein neues Labor ausfindig machen, in dem die Mondlandung vorbereitet werden soll. Durchsuchen Sie das Gebäude, wir brauchen das Missions-Briefing."
+KEY_182,The clock is ticking. Let's go.,Die Uhr tickt. Los geht's.
+KEY_190,"Comrade, what a surprise. We were pretty sure they just wanted to fake the moon landing. But we found some clues in the documents.","Genosse, was für eine Überraschung. Wir waren ziemlich sicher, dass sie die Mondlandung nur vortäuschen wollten. Aber wir fanden einige Hinweise in den Dokumenten."
+KEY_191,It looks like this is Plan B in case their Apollo 11 mission doesn't work out. We've identified an address. We believe there can the real mission briefing be found.,"Es sieht so aus, als wäre das der Plan B, falls ihre Apollo-11-Mission nicht klappt. Wir haben eine Adresse identifiziert. Wir glauben, dass dort das echte Missionsbriefing gefunden werden kann."
+KEY_192,Good luck comrade. For Ustria!,"Viel Glück, Genosse. Für Ustria!"
+KEY_200,Great work comrade. We did it! The Americans don't plan to launch until July. We will launch tonight.Our great leader has invited our entire staff to a celebration tonight.,"Gute Arbeit, Genosse. Wir haben es geschafft! Die Amerikaner planen den Start nicht vor Juli. Wir werden heute Abend starten. Unser großer Führer hat unsere gesamte Belegschaft zu einer Feier heute Abend eingeladen."
+KEY_201,Go home and put on something decent. Today there is every reason to celebrate.,Gehen Sie nach Hause und ziehen Sie sich etwas Anständiges an. Heute gibt es allen Grund zum Feiern.
+END,,

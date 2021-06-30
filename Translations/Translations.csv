@@ -1,71 +1,108 @@
-keys,en,ru,de
-TEST_TRANS,"Damn, we've lost your key. You will have to lockpick this door.","",""
-TEST_ENTRY,"en","ru","de"
-MENU_PLAY,"Play","Play2","Spielen"
-MENU_LOAD,"Load","Load","Laden"
-MENU_SETTINGS,"Settings","Settings","Einstellungen"
-MENU_EXIT,"Exit","Exit","Beenden"
-SETTINGS_BRIGHTNESS,"Brightness","Brightness","Helligkeit"
-SETTINGS_CONTRAST,"Contrast","Contrast","Kontrast"
-SETTINGS_ON,"On","On","An"
-SETTINGS_OFF,"Off","Off","Aus"
-SETTINGS_CREDITS,"Credits","Credits","Mitwirkende"
-SETTINGS_APPLY,"Apply","Apply","Übernehmen"
-SETTINGS_FULLSCREEN,"Fullscreen","Fullscreen","Vollbild"
-SETTINGS_SOUND,"Sound","Sound","Sound"
-SETTINGS_MUSIC,"Music","Music","Musik"
-SETTINGS_BACK,"Back","Back","Zurück"
-SETTINGS_LOAD,"Load","Load","Laden"
-SETTINGS_TITLE_LOAD,"Load Game","Load Game","Spielstand laden"
-INGAME_CONTINUE,"Continue","Continue","Fortsetzen"
-INGAME_RESTART,"Restart","Restart","Neustart"
-INGAME_QUIT,"Quit","Quit","Beenden"
-HUD_GAME_OVER,"GAME OVER","GAME OVER","GAME OVER"
-HUD_CLOSE_NOTIFICATION,"Press E or Q to close","Press E or Q to close","Drücke E oder Q zum schließen"
-HUD_BUY_UPGRADE,"Buy Upgrade","Buy Upgrade","Upgrade kaufen"
-HUD_SAVE_GAME,"Save Game","Save Game","Spielstand speichern"
-HUD_SAVE,"Save","Save","Speichern"
-HUD_GAME_SAVED,"Game saved","","Spiel gespeichert"
-HUD_MISSION_COMPLETE, "Mission Complete - Return to HQ","","Mission abgeschlossen - Kehre zum HQ zurück"
-UPGRADE_POWERBANK_TITLE,"Power-Bank","","Power-Bank"
-UPGRADE_DOG_TITLE,"Dog Whisperer","","Hundeflüsterer"
-UPGRADE_ALARM_TITLE,"False Alarm","","Fehlalarm"
-UPGRADE_SPRINT_TITLE,"Marathon Man","","Marathon-Mann"
-UPGRADE_SNEAK_TITLE,"Sneak","","Schleichen"
-UPGRADE_DARKNET_TITLE,"DarkNet","","DarkNet"
-UPGRADE_LOCK_TITLE,"Lockpicking 2.0","","Lockpicking 2.0"
-UPGRADE_DISTRACT_TITLE,"Distraction","","Ablenkung"
-UPGRADE_POWERBANK_DESC,"Increases the battery capacity to allow taser usages.","","Erhöht die Batteriekapazität des Tasers."
-UPGRADE_DOG_DESC,"Dogs will love you!","","Hunde werden dich lieben!"
-UPGRADE_ALARM_DESC,"Increases the amount of possible detections.","","Erhöht die Anzahl der möglichen Entdeckungen."
-UPGRADE_SPRINT_DESC,"Increases the movement speed.","","Erhöht die Bewegungsgeschwindigkeit"
-UPGRADE_SNEAK_DESC,"Enables walk while hiding in the dark.","","Ermöglicht es zu schleichen, während man sich versteckt."
-UPGRADE_DARKNET_DESC,"Increases the money for every theft by +25%.","","Erhöht die Einnahmen aus jedem Diebstahl um +25%"
-UPGRADE_LOCK_DESC,"Make lockpicking easier.","","Erleichtert das Schlossknacken."
-UPGRADE_DISTRACT_DESC,"Guards will report the alarm more delayed.""","Die Wächter melden den Alarm verzögert."
-PICKUP_BOX,"Box","Box","Box"
-PICKUP_TNT,"TNT","","Sprengstoff"
-PICKUP_DUMBBELL,"Dumb-Bell","","Gewicht"
-PICKUP_UP,"Picked up","","Aufgehoben"
-PICKUP_DOWN,"Dropped","","Fallen gelassen"
-KEY_DOOR_REQUIRED,"You need the %s key to open this door","","%s Schlüssel wird benötigt"
-KEY_FOUND,"Found the %s key","","%s Schlüssel gefunden!"
-KEY_RED,"red","","Roter"
-KEY_BLUE,"blue","","Blauer"
-KEY_YELLOW,"yellow","","Gelber"
-
-LEVEL_BUTTON,"Switch pressed", "", "Schalter gedrückt"
-LEVEL_LEVER,"Lever flipped","","Hebel umgelegt"
-LEVELHQ_NOTE,"Damn, we've lost your key. You will have to lockpick this door.","","Mist. Wir haben den Schlüssel verloren. Sieht so aus als müsstest du das Schloss knacken."
-LEVELHQ_NOTE2,"Secret Code: 123","","Tresorkombination: 123"
-LEVEL1_NOTE,"Secret tresor code: !RNG","","Tresorkombination !RNG"
-LEVEL3_NOTE1,"I'm not going along with this monkey business anymore! Find someone else. I quit.","Ich mach dieses Affentheater nicht mehr mit! Sucht euch einen anderen. Ich kündige.",
-LEVEL3_NOTE2,"Attention! Danger of falling! The railing has been removed.","","Achtung! Absturzgefahr! Das Geländer wurde entfernt."
-LEVEL3_NOTE3,"ToDo:\nCall maintenance the water sprinklers are broken.","",,"ToDo:\nKlemptner anrufen, die Wassersprenkler sind defekt."
-LEVEL4_NOTE,"Remember, turn off security system in the shed in the backyard.","","Denken Sie daran, das Sicherheitssystem im Schuppen im Hinterhof auszuschalten."
-LEVEL6_NOTE,"Safe Pin: !RNG","","Tresor Pin: !RNG"
-LEVEL9_NOTE,"The tunnel is ready. It is not ventilated, so hold your gases back.","","Der Tunnel ist fertig. Er ist nicht belüftet, also halte deine Gase bei dir."
-LEVEL9_NOTE2,"Code: !RNG","","Code: !RNG"
-LEVEL10_NOTE,"Don't put your fingers in running fan!","","Stecken Sie Ihre Finger nicht in den laufenden Lüfter!"
-LEVEL13_NOTE,"Check out my new game I've wrote in ALGOL! It's pretty addictive.","","Probiert mein neues Spiel aus, das ich in ALGOL geschrieben habe. Es macht süchtig!"
-LEVEL16_NOTE,"Danger! Explosive!","","Achtung! Explosiv!"
+keys,en,de
+TEST_TRANS,Test Translation: EN,Test Translation: DE
+TEST_ENTRY,en,de
+MENU_PLAY,Play,Spielen
+MENU_LOAD,Load,Laden
+MENU_SETTINGS,Settings,Einstellungen
+MENU_EXIT,Exit,Beenden
+SETTINGS_BRIGHTNESS,Brightness,Helligkeit
+SETTINGS_CONTRAST,Contrast,Kontrast
+SETTINGS_ON,On,An
+SETTINGS_OFF,Off,Aus
+SETTINGS_CREDITS,Credits,Mitwirkende
+SETTINGS_APPLY,Apply,Übernehmen
+SETTINGS_FULLSCREEN,Fullscreen,Vollbild
+SETTINGS_SOUND,Sound,Sound
+SETTINGS_MUSIC,Music,Musik
+SETTINGS_BACK,Back,Zurück
+SETTINGS_LOAD,Load,Laden
+SETTINGS_TITLE_LOAD,Load Game,Spielstand laden
+INGAME_CONTINUE,Continue,Fortsetzen
+INGAME_RESTART,Restart,Neustart
+INGAME_QUIT,Quit,Beenden
+HUD_GAME_OVER,GAME OVER,GAME OVER
+HUD_CLOSE_NOTIFICATION,Press E or Q to close,Drücke E oder Q zum schließen
+HUD_BUY_UPGRADE,Buy Upgrade,Upgrade kaufen
+HUD_SAVE_GAME,Save Game,Spielstand speichern
+HUD_SAVE,Save,Speichern
+HUD_GAME_SAVED,Game saved,Spiel gespeichert
+HUD_MISSION_COMPLETE,Mission Complete - Return to HQ,Mission abgeschlossen - Kehre zum HQ zurück
+UPGRADE_POWERBANK_TITLE,Power-Bank,Power-Bank
+UPGRADE_DOG_TITLE,Dog Whisperer,Hundeflüsterer
+UPGRADE_ALARM_TITLE,False Alarm,Fehlalarm
+UPGRADE_SPRINT_TITLE,Marathon Man,Marathon-Mann
+UPGRADE_SNEAK_TITLE,Sneak,Schleichen
+UPGRADE_DARKNET_TITLE,DarkNet,DarkNet
+UPGRADE_LOCK_TITLE,Lockpicking 2.0,Lockpicking 2.0
+UPGRADE_DISTRACT_TITLE,Distraction,Ablenkung
+UPGRADE_POWERBANK_DESC,Increases the battery capacity to allow taser usages.,Erhöht die Batteriekapazität des Tasers.
+UPGRADE_DOG_DESC,Dogs will love you!,Hunde werden dich lieben!
+UPGRADE_ALARM_DESC,Increases the amount of possible detections.,Erhöht die Anzahl der möglichen Entdeckungen.
+UPGRADE_SPRINT_DESC,Increases the movement speed.,Erhöht die Bewegungsgeschwindigkeit
+UPGRADE_SNEAK_DESC,Enables walk while hiding in the dark.,"Ermöglicht es zu schleichen, während man sich versteckt."
+UPGRADE_DARKNET_DESC,Increases the money for every theft by +25%.,Erhöht die Einnahmen aus jedem Diebstahl um +25%
+UPGRADE_LOCK_DESC,Make lockpicking easier.,Erleichtert das Schlossknacken.
+UPGRADE_DISTRACT_DESC,Guards will report the alarm more delayed.,Die Wächter melden den Alarm verzögert.
+PICKUP_BOX,Box,Box
+PICKUP_TNT,TNT,Sprengstoff
+PICKUP_DUMBBELL,Dumb-Bell,Gewicht
+PICKUP_UP,Picked up,Aufgehoben
+PICKUP_DOWN,Dropped,Fallen gelassen
+KEY_DOOR_REQUIRED,You need the %s key to open this door,%s Schlüssel wird benötigt
+KEY_FOUND,Found the %s key,%s Schlüssel gefunden!
+KEY_RED,red,Roter
+KEY_BLUE,blue,Blauer
+KEY_YELLOW,yellow,Gelber
+LEVEL_BUTTON,Switch pressed,Schalter gedrückt
+LEVEL_LEVER,Lever flipped,Hebel umgelegt
+LEVELHQ_NOTE,"Damn, we've lost your key. You will have to lockpick this door.",Mist. Wir haben den Schlüssel verloren. Sieht so aus als müsstest du das Schloss knacken.
+LEVELHQ_NOTE2,Secret Code: 123,Tresorkombination: 123
+LEVEL1_NOTE,Secret tresor code: !RNG,Tresorkombination !RNG
+LEVEL3_NOTE1,I'm not going along with this monkey business anymore! Find someone else. I quit.,Ich mach dieses Affentheater nicht mehr mit! Sucht euch einen anderen. Ich kündige.
+LEVEL3_NOTE2,Attention! Danger of falling! The railing has been removed.,Achtung! Absturzgefahr! Das Geländer wurde entfernt.
+LEVEL3_NOTE3,ToDo:\nCall maintenance the water sprinklers are broken.,"ToDo:\nKlemptner anrufen, die Wassersprenkler sind defekt."
+LEVEL4_NOTE,"Remember, turn off security system in the shed in the backyard.","Denken Sie daran, das Sicherheitssystem im Schuppen im Hinterhof auszuschalten."
+LEVEL6_NOTE,Safe Pin: !RNG,Tresor Pin: !RNG
+LEVEL9_NOTE,"The tunnel is ready. It is not ventilated, so hold your gases back.","Der Tunnel ist fertig. Er ist nicht belüftet, also halte deine Gase bei dir."
+LEVEL9_NOTE2,Code: !RNG,Code: !RNG
+LEVEL10_NOTE,Don't put your fingers in running fan!,Stecken Sie Ihre Finger nicht in den laufenden Lüfter!
+LEVEL13_NOTE,Check out my new game I've wrote in ALGOL! It's pretty addictive.,"Probiert mein neues Spiel aus, das ich in ALGOL geschrieben habe. Es macht süchtig!"
+LEVEL16_NOTE,Danger! Explosive!,Achtung! Explosiv!
+LEVEL_HQ_HINT1,"Light plays an important role. There are three levels of light. Fully visible, hardly visible and hidden.\nCameras and guards will react to those levels.","Licht spielt eine wichtige Rolle. Es gibt drei Stufen von Licht. Vollständig sichtbar, kaum sichtbar und versteckt.\nKameras und Wachen reagieren auf diese Stufen."
+LEVEL_HQ_HINT2,You are now barely visible. Which is also indicated by the light bulb symbol in the bottom of your HUD. The camera became suspicious.,Sie sind nun kaum sichtbar. Was auch durch das Glühbirnensymbol unten in Ihrem HUD angezeigt wird. Die Kamera wurde misstrauisch.
+LEVEL_HQ_HINT3,Now you are fully visible. You can lower your light level by pressing yourself against the wall. Hold Space,"Jetzt sind Sie voll sichtbar. Sie können Ihren Lichtpegel senken, indem Sie sich gegen die Wand drücken. Platz halten"
+LEVEL_HQ_HINT4,"If you are detected, an alarm is triggered. You have a certain number of possible alarms in each level.","Wenn Sie entdeckt werden, wird ein Alarm ausgelöst. Sie haben in jedem Level eine bestimmte Anzahl von möglichen Alarmen."
+LEVEL_HQ_HINT5,Laser detectors can be avoided by wall dodging or ducking. Hold down to duck.,"Laserdetektoren können Sie durch Wandausweichen oder Ducken umgehen. Halten Sie die Taste gedrückt, um sich zu ducken."
+LEVEL_HQ_HINT6,"Through shafts in ceilings and floors, you can quickly move up and down one floor. Press up or down.",Durch Schächte in Decken und Böden können Sie sich schnell eine Etage nach oben und unten bewegen. Drücken Sie nach oben oder unten.
+LEVEL_HQ_HINT7,"Most mission objectives are stored in a safe. Some requires a code, some must be cracked. Codes are mostly hidden within the level. ","Die meisten Missionsziele befinden sich in einem Safe. Manche erfordern einen Code, manche müssen geknackt werden. Die Codes sind meist im Level versteckt."
+LEVEL_HQ_HINT8,Sometimes it is not possible to prevent a guard from spotting you. But until the guards set off the alarm you have some time to use your taser. Press F.,"Manchmal lässt es sich nicht verhindern, dass eine Wache Sie entdeckt. Aber bis die Wachen den Alarm auslösen, haben Sie etwas Zeit, Ihren Taser einzusetzen. Drücken Sie F."
+LEVEL_HQ_HINT9,"This button is pressure activated. Find something heavy to put on, so you can walk through the door.","Diese Taste ist druckaktiviert. Suchen Sie sich etwas Schweres zum Anziehen, damit Sie durch die Tür gehen können."
+LEVEL_HQ_HINT10,The next room is pretty secure. But what happens if we just cut the power? Cut the right power cables.,"Der nächste Raum ist ziemlich sicher. Aber was passiert, wenn wir einfach den Strom abschalten? Schneiden Sie die richtigen Stromkabel durch."
+NATION_USA,United States,Vereinigte Staaten
+NATION_SWITZERLAND,Switzerland,Schweiz
+NATION_USSR,USSR,UdSSR
+NATION_USTRIA,Ustria,Ustria
+FUNFACT0,"The Sun weighs about 330,000 times more than Earth.",Die Sonne wiegt etwa 330.000 Mal mehr als die Erde.
+FUNFACT1,Footprints left on the Moon wont disappear as there is no wind.,"Fußabdrücke auf dem Mond werden nicht verschwinden, da es keinen Wind gibt."
+FUNFACT2,There are 79 known moons orbiting Jupiter.,"Es gibt 79 bekannte Monde, die den Jupiter umkreisen."
+FUNFACT3,The Martian day is 24 hours 39 minutes and 35 seconds long.,"Der Marstag ist 24 Stunden, 39 Minuten und 35 Sekunden lang."
+FUNFACT4,The Sun makes a full rotation once every 25 – 35 days.,Die Sonne macht einmal alle 25 - 35 Tage eine volle Umdrehung.
+FUNFACT5,Earth is the only planet that is not named after a God.,"Die Erde ist der einzige Planet, der nicht nach einem Gott benannt ist."
+FUNFACT6,There are more volcanoes on Venus than any other planet in our solar system.,Auf der Venus gibt es mehr Vulkane als auf jedem anderen Planeten in unserem Sonnensystem.
+FUNFACT7,Uranus blue glow is due to the gases in its atmosphere.,Das blaue Leuchten des Uranus ist auf die Gase in seiner Atmosphäre zurückzuführen.
+FUNFACT8,"In our solar system that are four planets known as gas giants: Jupiter, Saturn, Uranus & Neptune.","In unserem Sonnensystem gibt es vier Planeten, die als Gasriesen bekannt sind: Jupiter, Saturn, Uranus und Neptun."
+FUNFACT9,The Black Arrow is the only British satellite to be launched using a British rocket.,"Der Black Arrow ist der einzige britische Satellit, der mit einer britischen Rakete gestartet wurde."
+FUNFACT10,The International Space Station circles Earth every 92 minutes.,Die Internationale Raumstation umkreist die Erde alle 92 Minuten.
+FUNFACT11,Stars twinkle because of the way light is disrupted as it passes through Earth’s atmosphere.,"Sterne funkeln aufgrund der Art und Weise, wie das Licht gebrochen wird, wenn es die Erdatmosphäre durchläuft."
+FUNFACT12,The closest galaxy to us is the Andromeda Galaxy – it’s estimated at 2.5 million light-years away.,"Die uns am nächsten liegende Galaxie ist die Andromeda-Galaxie - sie ist schätzungsweise 2,5 Millionen Lichtjahre entfernt."
+FUNFACT13,The first Supernovae observed outside of our own galaxy was in 1885.,"Die erste Supernova, die außerhalb unserer eigenen Galaxie beobachtet wurde, war im Jahr 1885."
+FUNFACT14,The Kuiper Belt is a region of the Solar System beyond the orbit of Neptune.,Der Kuiper-Gürtel ist eine Region des Sonnensystems jenseits der Umlaufbahn des Neptun.
+FUNFACT15,The first woman in space was a Russian called Valentina Tereshkova.,Die erste Frau im Weltraum war eine Russin namens Valentina Tereshkova.
+FUNFACT16,The Hubble Space Telescope is one of the most productive scientific instruments ever built.,"Das Hubble-Weltraumteleskop ist eines der produktivsten wissenschaftlichen Instrumente, das jemals gebaut wurde."
+FUNFACT17,The first artificial satellite in space was called Sputnik.,Der erste künstliche Satellit im Weltraum hieß Sputnik.
+FUNFACT18,Astronauts can't burp in space.,Astronauten können im Weltraum nicht rülpsen.
+FUNFACT19,Uranus was originally called Georges Star.,Der Uranus wurde ursprünglich Georges Stern genannt.
+FUNFACT20,A sunset on Mars is blue.,Ein Sonnenuntergang auf dem Mars ist blau.
+FUNFACT21,The first living mammal to go into space was a dog named Laika from Russia.,"Das erste lebende Säugetier, das ins All flog, war ein Hund namens Laika aus Russland."
+NPC_GENERAL,General,General
+NPC_SECRETARY,Secretary,Sekretärin
