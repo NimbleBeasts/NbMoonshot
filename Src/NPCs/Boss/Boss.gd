@@ -13,7 +13,7 @@ func onReadAllDialogue() -> void:
 	.onReadAllDialogue() # calls super class function
 	if has_dialogue("quest", str(interacted_counter)):
 		Global.game_manager.quest_index = int(get_dialogue("quest", str(interacted_counter))["level_index"])
-		Events.emit_signal("level_hint", Global.levelTitle[Global.game_manager.quest_index])
+		Events.emit_signal("level_hint", tr("MISSION_TITLE" + str(Global.game_manager.quest_index)))
 
 		# game state stuff for saving
 		if Global.game_manager.quest_index != 0:

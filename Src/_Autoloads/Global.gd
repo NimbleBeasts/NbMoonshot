@@ -72,36 +72,6 @@ const levels = [
 	"res://Src/Levels/TestLevel.tscn",
 ]
 
-const levelTitle = [
-	"Mission 0 - Training Day",
-	"Mission 1 - Great Inspiration",
-	"Mission 2 - The Titov Files",
-	"Mission 3 - Enzo Gate",
-	"Mission 4 - In Flagrante Delicto",
-	"Mission 5 - Interrogation",
-	"Mission 6 - Boosting the Boosters",
-	"Mission 7 - Contract Negotiation",
-	"Mission 8 - Backup Plan",
-	"Mission 9 - Credit Line",
-	"Mission 10 - Moon Shots",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	"Mission x - Unnamed Mission",
-	
-
-]
 
 # Upgrades
 const upgrades = [

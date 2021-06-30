@@ -13,7 +13,7 @@ func checkForQuests() -> void:
 	.checkForQuests() # calls super class function
 	if currentBranch.has("quest"):
 		Global.game_manager.quest_index = int(currentBranch["quest"])
-		Events.emit_signal("level_hint", Global.levelTitle[Global.game_manager.quest_index])
+		Events.emit_signal("level_hint", tr("MISSION_TITLE" + str(Global.game_manager.quest_index)))
 
 		# game state stuff for saving
 		if Global.game_manager.quest_index != 0:
