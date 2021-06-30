@@ -696,10 +696,10 @@ bbcode_text = "[right]Version[/right]"
 text = "Version"
 
 [node name="SteamTest" type="Button" parent="."]
-margin_left = 648.0
-margin_top = 40.0
-margin_right = 784.0
-margin_bottom = 60.0
+margin_left = 498.0
+margin_top = 45.0
+margin_right = 634.0
+margin_bottom = 66.0
 text = "GetAchievement"
 __meta__ = {
 "_edit_use_anchors_": false

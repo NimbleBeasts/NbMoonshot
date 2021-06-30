@@ -21,11 +21,12 @@ func _ready():
 	set_process(false) # Processing is enabled after init()
 	
 	init()
+
 # Turned of Steam for a while	
-#	if Steam.isSteamRunning():
-#		Steam.connect("current_stats_received", self, "_current_stats_received")
-#		Steam.connect("user_stats_stored", self, "_user_stats_stored")
-#		Steam.connect("user_achievement_stored", self, "_user_achievement_stored")
+	if Steam.isSteamRunning():
+		Steam.connect("current_stats_received", self, "_current_stats_received")
+		Steam.connect("user_stats_stored", self, "_user_stats_stored")
+		Steam.connect("user_achievement_stored", self, "_user_achievement_stored")
 
 
 func _user_stats_stored(gameID: int, result: int):
@@ -47,52 +48,47 @@ func _current_stats_received(gameID: int, result: int, userID: int):
 		
 		achievments = []
 		
-#		if result == Steam.RESULT_OK:
-#			print("Achievments received:")
-#			for ach in Types.AchievementStrings:
-#				print(Steam.getAchievement(ach))
-#				if Steam.getAchievement(ach).achieved:
-#					achievments.append(ach)
-#		else:
-#			print("Steam Error: Cant retrieve stats")
+		if result == Steam.RESULT_OK:
+			print("Achievments received:")
+			for ach in Types.AchievementStrings:
+				print(Steam.getAchievement(ach))
+				if Steam.getAchievement(ach).achieved:
+					achievments.append(ach)
+		else:
+			print("Steam Error: Cant retrieve stats")
 
 
 func init():
-	return
-	
-#
-#	var init = Steam.steamInit()
-#
-#	print("Steam: "+str(init))
-#
-#	# General failure
-#	if init['status'] != 1:
-#		print("Failed to initialize Steam. "+str(init['verbal'])+" Shutting down...")
-#		return
-#
-#	# Get Steam Information
-#	online = Steam.loggedOn()
-#	user.owns = Steam.isSubscribed()
-#	user.steamId = Steam.getSteamID()
-#
-#	# Stats are already requested within another request. 
-##	if not Steam.requestCurrentStats():
-##		print("Steam Error: Getting current stats")
-#
-#	# Run Steam Callbacks
-#	set_process(true)
-#
-#	if Global.DEBUG:
-#		print("Steam: Online: " + str(online) + " User: " + str(user))
+	var init = Steam.steamInit()
+
+	print("Steam: "+str(init))
+
+	# General failure
+	if init['status'] != 1:
+		print("Failed to initialize Steam. "+str(init['verbal'])+" Shutting down...")
+		return
+
+	# Get Steam Information
+	online = Steam.loggedOn()
+	user.owns = Steam.isSubscribed()
+	user.steamId = Steam.getSteamID()
+
+	# Stats are already requested within another request. 
+#	if not Steam.requestCurrentStats():
+#		print("Steam Error: Getting current stats")
+
+	# Run Steam Callbacks
+	set_process(true)
+
+	if Global.DEBUG:
+		print("Steam: Online: " + str(online) + " User: " + str(user))
 
 func setAchievement(achievementId):
-	return
-#	if online:
-#		if achievementId < Types.Achievement.size():
-#			Steam.setAchievement(Types.AchievementStrings[achievementId])
-#			Steam.storeStats()
+	if online:
+		if achievementId < Types.Achievement.size():
+			Steam.setAchievement(Types.AchievementStrings[achievementId])
+			Steam.storeStats()
 
 	
 func _process(delta):
-	pass
-#	Steam.run_callbacks()
+	Steam.run_callbacks()
