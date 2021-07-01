@@ -62,7 +62,13 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 	if Global.game_manager.getCurrentLevel().name == "HQ_Level": # this condition is true on hq_level
 		Events.emit_signal("hud_level_transition", -1)
 		Global.game_manager.loadNextQuest()
-	else: # this is going to hq level
+	else: 
+		# this is going to hq level
+		
+		# Achievment
+		if Global.allowed_detections == Global.lives:
+			SteamWorks.setAchievement("STEAM_ACH_8")
+		
 		Events.emit_signal("hud_level_transition", level_index)
 		Global.addMoney(Global.game_manager.getCurrentLevel().gainedMoney)
 		if Global.game_manager.getCurrentLevel().isSabotage:

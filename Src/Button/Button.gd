@@ -4,6 +4,7 @@ extends Area2D
 export (Array, NodePath) var unlocks: Array
 export (bool) var startStateOn = false setget setStartState
 export (String) var buttonText = "LEVEL_BUTTON"
+export (String) var achievement = ""
 var player
 
 
@@ -58,6 +59,9 @@ func press() -> void:
 			node.unlock()
 		else:
 			node.toggleState()
+			
+	if achievement.length() > 0:
+		SteamWorks.setAchievement(achievement)
 
 
 

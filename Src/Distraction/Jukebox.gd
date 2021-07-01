@@ -48,6 +48,8 @@ func press():
 	playingmusic = true
 	$SoundParticle.emitting = true
 	
+	SteamWorks.setAchievement("STEAM_ACH_7")
+	
 	for guardPath in guards:
 		var guard = get_node(guardPath)
 		if not guard.inDistractMode:

@@ -23,6 +23,7 @@ func _ready():
 func resetLives(value) -> void:
 	lives = value
 	$BottomBar/Life.set_text(str(value))
+	Global.lives = lives
 
 
 func _process(delta: float) -> void:
@@ -52,6 +53,8 @@ func updateLives(type) -> void:
 	if type == Types.DetectionLevels.Sure:
 		lives -= 1
 		$BottomBar/Life.set_text(str(lives))
+
+		Global.lives = lives
 		
 
 func updateMoney(total, change) -> void:

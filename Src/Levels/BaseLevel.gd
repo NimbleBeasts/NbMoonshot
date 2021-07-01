@@ -99,7 +99,8 @@ func do_upgrade_stuff() -> void:
 		allowed_detections = extended_allowed_detections
 	else:
 		allowed_detections = normal_allowed_detections
-
+	
+	Global.allowed_detections = allowed_detections
 	Events.emit_signal("allowed_detections_updated", allowed_detections)
 
 	

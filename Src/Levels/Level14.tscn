@@ -396,6 +396,7 @@ disabled = true
 position = Vector2( 480, 296 )
 unlocks = [ NodePath("../../LaserDetector"), NodePath("../../LaserDetector2"), NodePath("../../LaserDetector3"), NodePath("../../LaserDetector4") ]
 startStateOn = true
+achievement = "STEAM_ACH_9"
 
 [node name="Button2" parent="LevelObjects/Objects" instance=ExtResource( 11 )]
 position = Vector2( 1094, 235 )
@@ -615,6 +616,7 @@ position = Vector2( 48, 24 )
 shape = SubResource( 3 )
 
 [node name="OverlayBasement" type="ColorRect" parent="."]
+visible = false
 light_mask = 12
 margin_left = 440.0
 margin_top = 264.0

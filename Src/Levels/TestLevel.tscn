@@ -1,10 +1,9 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Objects/Chimney.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=8]
@@ -261,17 +260,6 @@ __meta__ = {
 position = Vector2( 76, -104 )
 isFixedCam = true
 
-[node name="Note" parent="." instance=ExtResource( 5 )]
-position = Vector2( -367, 257 )
-text = "TRANSLATION_KEY2"
-highlight = true
-type = 1
-
-[node name="Note2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -330, 256 )
-text = "TRANSLATION_KEY1"
-highlight = true
-
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( -304, 256 )
 z_index = 50
@@ -348,3 +336,6 @@ position = Vector2( -256, 328 )
 [node name="PathLine" type="Line2D" parent="Guard3"]
 points = PoolVector2Array( -24, -8, 32, -8, 96, -8, 120, -8, 184, -8 )
 script = ExtResource( 30 )
+
+[node name="Closet2" parent="." instance=ExtResource( 23 )]
+position = Vector2( -336, 256 )

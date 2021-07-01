@@ -68,3 +68,5 @@ func _on_BarrelFallDetector_area_entered(area):
 		$Aaaa.hide()
 		area.queue_free()
 		$BarrelRedSquashGuard.show()
+		
+		SteamWorks.setAchievement("STEAM_ACH_6") #Headache

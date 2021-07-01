@@ -6,6 +6,7 @@ export(bool) var canBeOpened = true
 
 var player: Player
 var playerInArea: bool
+var playerPosition = Vector2(0, 0)
 
 var isOpen: bool
 var destroyGuard: bool
@@ -125,6 +126,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			hiddenGuard.show()
 			hiddenGuard = null
 			goInCloset = false
+#			if playerPosition != Vector2(0, 0):
+#				player.global_position = playerPosition
+#				playerPosition = Vector2(0,0)
 			Events.emit_signal("player_unblock_movement")
 			return
 		if destroyGuard:
@@ -140,4 +144,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	elif anim_name == "close":
 		if goInCloset:
 			Events.emit_signal("player_state_set", Types.PlayerStates.InCloset)
+#			playerPosition = player.global_position
 			player.global_position = getPoint()
+			SteamWorks.setAchievement("STEAM_ACH_5") # Coming Out

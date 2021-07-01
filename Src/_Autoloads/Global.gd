@@ -140,6 +140,11 @@ var userConfig = {
 	"language": "en"
 }
 
+# For the achievement its easiest for now to double track these data:
+var lives = 0
+var allowed_detections = 0
+
+
 # RNG base
 var rng = RandomNumberGenerator.new()
 var stateSeed = int(3458764513820540928)
@@ -365,6 +370,10 @@ func addMoney(amount):
 	gameState.money += amount
 	print("PlayerMoney: " + str(gameState.money))
 	Events.emit_signal("hud_update_money", gameState.money, amount)
+	
+	#Achievement
+	if gameState.money >= 1000:
+		SteamWorks.setAchievement("STEAM_ACH_3") #Big Money
 
 
 func playerHasUpgrade(type):

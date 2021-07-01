@@ -1,6 +1,6 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
-[ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
+[ext_resource path="res://Src/Levels/Level18.gd" type="Script" id=1]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=4]
@@ -39,14 +39,16 @@
 [ext_resource path="res://Assets/Objects/Laboratory/Board.png" type="Texture" id=38]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 32 )
+extents = Vector2( 40, 40 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 104, 8 )
 
 [node name="Level18" type="Node2D"]
 script = ExtResource( 1 )
-level_objectives = NodePath("LevelObjects/Tresor")
 
 [node name="NewSkybox" parent="." instance=ExtResource( 7 )]
 
@@ -477,6 +479,13 @@ flagType = 2
 position = Vector2( 728, 256 )
 flagType = 2
 
+[node name="AchievementDetector" type="Area2D" parent="LevelObjects"]
+position = Vector2( 328, 384 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/AchievementDetector"]
+position = Vector2( 16, -40 )
+shape = SubResource( 1 )
+
 [node name="LevelDarkener" type="ColorRect" parent="."]
 margin_left = -2000.0
 margin_top = -2000.0
@@ -522,10 +531,12 @@ script = ExtResource( 19 )
 position = Vector2( -64, 224 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2( 40, 264 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="LevelObjects/AchievementDetector" to="." method="_on_AchievementDetector_body_entered"]

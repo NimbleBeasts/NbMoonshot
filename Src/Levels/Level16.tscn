@@ -438,6 +438,7 @@ centered = false
 [node name="ButtonLever" parent="LevelObjects/Objects/Trains/Train" instance=ExtResource( 11 )]
 position = Vector2( 106, -39 )
 unlocks = [ NodePath("../../../../..") ]
+achievement = "STEAM_ACH_10"
 
 [node name="RightBlocker" type="StaticBody2D" parent="LevelObjects/Objects/Trains/Train"]
 position = Vector2( 224, -32 )

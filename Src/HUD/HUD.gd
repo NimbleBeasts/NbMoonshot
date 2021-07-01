@@ -256,6 +256,11 @@ func _on_UpgradeButton_button_up():
 		upgradeSelect(currentSelectedUpgrade)
 		Events.emit_signal("player_upgrades_do")
 		updateUpgrades()
+		
+		# Achievements
+		SteamWorks.setAchievement("STEAM_ACH_2") #Buy one upgrade
+		if Global.gameState.playerUpgrades.size() >= 3:
+			SteamWorks.setAchievement("STEAM_ACH_3") #Buy 3 upgrades
 	
 
 func upgradeSelect(id):
