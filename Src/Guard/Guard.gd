@@ -17,7 +17,6 @@ export var playerDetectDistance: int = 16
 export var gravity: int = 800
 export (Directions) var startingDirection: int setget setStartingDirection
 
-
 var velocity: Vector2
 var direction: Vector2
 var state: int = Types.GuardStates.Wander # Types.GuardStates
@@ -291,6 +290,8 @@ func set_state(new_state, forceReEnterIfSameState: bool = false) -> void:
 				player_detected = true
 				$AnimationPlayer.play("suspicious")
 				stopMovement()
+				$GoBackToNormalAfterDetectTimer.start(5)
+				
 			Types.GuardStates.Suspect:
 				playRandomSound($Guard/Suspicious ,guardSuspiciousSounds)
 				if not $Notifier.isShowing:
@@ -460,3 +461,15 @@ func _on_AudioListener_invoked(audio_level, audio_pos):
 
 func _on_StartDelay_timeout():
 	delayOver = true
+
+
+func _on_GoBackToNormalAfterDetectTimer_timeout():
+	player_detected = false
+	processAI = true
+	delayOver = true
+	
+	if guardPathLine == null and distractPathLine == null:
+		set_state(Types.GuardStates.Idle)
+	else:
+		set_state(Types.GuardStates.Wander, true)
+	set_process(true)
