@@ -1062,6 +1062,10 @@ normal_time_to_alarm = 1.5
 extended_time_to_alarm = 3.5
 startingDirection = 1
 
+[node name="PathLine" type="Line2D" parent="NPCS/Guard2"]
+points = PoolVector2Array( 0, 0, 0, 0 )
+script = ExtResource( 14 )
+
 [node name="EliteGuard" parent="NPCS" instance=ExtResource( 16 )]
 position = Vector2( 619, 256 )
 

@@ -262,5 +262,5 @@ func detectPlayerIfClose() -> void:
 
 func playRandomSound(audioPlayer, array: Array) -> void:
 	randomize()
-	audioPlayer.stream = array[randi() % array.size()]
-	audioPlayer.play()
+	#audioPlayer.stream = array[randi() % array.size()]
+	#audioPlayer.play()

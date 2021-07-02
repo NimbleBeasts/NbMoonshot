@@ -998,11 +998,27 @@ script = ExtResource( 3 )
 position = Vector2( 594, 126 )
 scale = Vector2( -1, 1 )
 
+[node name="GuardPathLine" type="Line2D" parent="NPCs/Guard3"]
+position = Vector2( 0, 1 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+points = PoolVector2Array( 0, 0, 0, 0 )
+script = ExtResource( 3 )
+
 [node name="Guard4" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( 445, 192 )
 
+[node name="GuardPathLine" type="Line2D" parent="NPCs/Guard4"]
+points = PoolVector2Array( 0, 0, 0, 0 )
+script = ExtResource( 3 )
+
 [node name="Guard6" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( -1, 192 )
+
+[node name="GuardPathLine" type="Line2D" parent="NPCs/Guard6"]
+rotation = -8.74228e-08
+points = PoolVector2Array( 0, 0, 0, 0 )
+script = ExtResource( 3 )
 
 [node name="Dog" parent="NPCs" instance=ExtResource( 74 )]
 position = Vector2( 266, 63 )

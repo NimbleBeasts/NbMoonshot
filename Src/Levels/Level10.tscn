@@ -653,6 +653,10 @@ script = ExtResource( 8 )
 [node name="Guard2" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 129, 255 )
 
+[node name="PathLine" type="Line2D" parent="NPCs/Guard2"]
+points = PoolVector2Array( 0, 0, 0, 0 )
+script = ExtResource( 8 )
+
 [node name="Dog" parent="NPCs" instance=ExtResource( 82 )]
 position = Vector2( -272, 126 )
 

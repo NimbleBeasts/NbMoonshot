@@ -940,6 +940,10 @@ script = ExtResource( 56 )
 position = Vector2( 608, 0 )
 startingDirection = 1
 
+[node name="PathLine" type="Line2D" parent="NPCS/Guard"]
+points = PoolVector2Array( 0, 0, 0, 0 )
+script = ExtResource( 56 )
+
 [node name="Guard2" parent="NPCS" instance=ExtResource( 57 )]
 position = Vector2( 560, 0 )
 startingDirection = 1
