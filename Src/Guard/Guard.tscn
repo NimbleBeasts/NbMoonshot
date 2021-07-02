@@ -198,6 +198,10 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
+[node name="GoBackToNormalAfterDetectTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [node name="Flippable" type="Node2D" parent="."]
 
 [node name="GuardArea" type="Area2D" parent="Flippable"]
@@ -307,6 +311,7 @@ __meta__ = {
 [connection signal="timeout" from="StartDelay" to="." method="_on_StartDelay_timeout"]
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]
+[connection signal="timeout" from="GoBackToNormalAfterDetectTimer" to="." method="_on_GoBackToNormalAfterDetectTimer_timeout"]
 [connection signal="body_entered" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_body_entered"]
 [connection signal="body_exited" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_body_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

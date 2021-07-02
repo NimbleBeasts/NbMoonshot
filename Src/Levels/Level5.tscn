@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=46]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=47]
 [ext_resource path="res://Assets/Objects/Laboratory/Chest.png" type="Texture" id=48]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=49]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 112, 8 )
@@ -648,9 +649,17 @@ skin = 2
 [node name="Guard" parent="NPCS" instance=ExtResource( 45 )]
 position = Vector2( 456, 256 )
 
+[node name="PathLine" type="Line2D" parent="NPCS/Guard"]
+points = PoolVector2Array( 0, 0, 0, 0 )
+script = ExtResource( 49 )
+
 [node name="Guard2" parent="NPCS" instance=ExtResource( 45 )]
 position = Vector2( 488, 256 )
 startingDirection = 1
+
+[node name="PathLine" type="Line2D" parent="NPCS/Guard2"]
+points = PoolVector2Array( 0, 0, 0, 0 )
+script = ExtResource( 49 )
 
 [node name="Foreground" type="Node2D" parent="."]
 z_index = 51

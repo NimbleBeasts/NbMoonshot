@@ -427,6 +427,10 @@ anims/decouple = SubResource( 6 )
 position = Vector2( 368, 232 )
 startingDirection = 1
 
+[node name="PathLine" type="Line2D" parent="LevelObjects/Objects/Trains/Wagons/Guard"]
+points = PoolVector2Array( 0, 0, 0, 0 )
+script = ExtResource( 23 )
+
 [node name="Train" parent="LevelObjects/Objects/Trains" instance=ExtResource( 2 )]
 position = Vector2( 1616, 256 )
 

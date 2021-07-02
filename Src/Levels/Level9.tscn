@@ -1,9 +1,8 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Home/Kitchen.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Objects/Nature/Bush.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Temp/Cable.png" type="Texture" id=4]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Vault/VaultDoor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Minigames/KeypadMinigame/KeypadMinigameSpawner.gd" type="Script" id=7]
@@ -48,7 +47,6 @@
 [ext_resource path="res://Assets/Objects/Skeleton.png" type="Texture" id=46]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=58]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=68]
-[ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=71]
 [ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=72]
 [ext_resource path="res://Src/Light/Light2.tscn" type="PackedScene" id=73]
 [ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=74]
@@ -57,7 +55,6 @@
 [ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=82]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=83]
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=84]
-[ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=85]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.8493, 14.9571 )
@@ -71,9 +68,6 @@ extents = Vector2( 4.90033, 8.61313 )
 [sub_resource type="RectangleShape2D" id=4]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 29.2483, 2.26552 )
-
-[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 332.374, 10 )
 
 [node name="Level9-BankJob" type="Node2D"]
@@ -399,12 +393,6 @@ scale = Vector2( -1, 1 )
 [node name="OutdoorLight3" parent="LevelObjects/Lights" instance=ExtResource( 72 )]
 position = Vector2( 635, 257 )
 
-[node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 71 )]
-position = Vector2( 589, -102 )
-
-[node name="Light20" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
-position = Vector2( 106, -103 )
-
 [node name="Light24" parent="LevelObjects/Lights" instance=ExtResource( 73 )]
 position = Vector2( 500, 200 )
 
@@ -471,12 +459,6 @@ shape = SubResource( 1 )
 position = Vector2( 0, -16 )
 shape = SubResource( 2 )
 
-[node name="Money" type="Node2D" parent="LevelObjects/Interactables"]
-
-[node name="Cabinet6" parent="LevelObjects/Interactables/Money" instance=ExtResource( 74 )]
-position = Vector2( 472, -85 )
-hasBounty = true
-
 [node name="ValutDoor" parent="LevelObjects/Interactables" instance=ExtResource( 6 )]
 position = Vector2( 384, 320 )
 disabled_leaders = NodePath("../../../../Level9-BankJob/LevelObjects/ThinAreas/LadderValutHole")
@@ -536,53 +518,6 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Blockers/EastBlock"]
 shape = SubResource( 4 )
 
-[node name="CableWalk" type="StaticBody2D" parent="LevelObjects/Blockers"]
-position = Vector2( 100, -17 )
-collision_layer = 131
-collision_mask = 131
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Blockers/CableWalk"]
-shape = SubResource( 5 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sprite" type="Sprite" parent="LevelObjects/Blockers/CableWalk"]
-position = Vector2( -25, 0 )
-texture = ExtResource( 4 )
-hframes = 3
-
-[node name="Sprite3" type="Sprite" parent="LevelObjects/Blockers/CableWalk"]
-position = Vector2( 24, 0 )
-scale = Vector2( -1, 1 )
-texture = ExtResource( 4 )
-hframes = 3
-
-[node name="Sprite2" type="Sprite" parent="LevelObjects/Blockers/CableWalk"]
-position = Vector2( -9, 0 )
-scale = Vector2( 4.31339, 1 )
-texture = ExtResource( 4 )
-hframes = 3
-frame = 2
-
-[node name="Sprite5" type="Sprite" parent="LevelObjects/Blockers/CableWalk"]
-position = Vector2( 10, 0 )
-scale = Vector2( 4.31339, 1 )
-texture = ExtResource( 4 )
-hframes = 3
-frame = 2
-
-[node name="Sprite4" type="Sprite" parent="LevelObjects/Blockers/CableWalk"]
-position = Vector2( 6, 0 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
-texture = ExtResource( 4 )
-hframes = 3
-frame = 1
-
 [node name="ThinAreas" type="Node2D" parent="LevelObjects"]
 
 [node name="Ladder" parent="LevelObjects/ThinAreas" instance=ExtResource( 12 )]
@@ -606,7 +541,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ForceDuckMode"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="LevelDarkener" type="ColorRect" parent="."]
 visible = false
@@ -687,17 +622,6 @@ startingState = 2
 
 [node name="PathLine" type="Line2D" parent="NPCs/Dog"]
 points = PoolVector2Array( -50, 0, 0, 0 )
-script = ExtResource( 8 )
-
-[node name="EliteGuard" parent="NPCs" instance=ExtResource( 85 )]
-position = Vector2( -69, -138 )
-
-[node name="PathLine" type="Line2D" parent="NPCs/EliteGuard"]
-points = PoolVector2Array( 0, 0, 0, 0 )
-script = ExtResource( 8 )
-
-[node name="PathLine2" type="Line2D" parent="NPCs/EliteGuard"]
-points = PoolVector2Array( 0, 0, -120, 0 )
 script = ExtResource( 8 )
 
 [node name="NewSkybox" parent="." instance=ExtResource( 84 )]
