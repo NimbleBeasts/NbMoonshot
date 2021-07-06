@@ -86,7 +86,21 @@ func _ready():
 	if get_node_or_null("NewSkybox"):
 		get_node("NewSkybox").setup(level_nation_type)
 
-		
+	debugDetections()
+
+func debugDetections():
+	Console.remove_command("detection_add")
+	Console.add_command("detection_add", self, "debugAddDetections")\
+	.set_description("(CHEAT) Adds allowed detections.")\
+	.add_argument('amount', TYPE_INT)\
+	.add_restriction_condition(funcref(Global, "getCheatState"))\
+	.register()
+
+func debugAddDetections(amnt):
+	extended_allowed_detections = amnt
+	normal_allowed_detections = amnt
+	do_upgrade_stuff()
+
 func _process(_delta: float) -> void:
 	if can_change_level() == true: # putting this in process T_T
 		Events.emit_signal("hud_game_hint", tr("HUD_MISSION_COMPLETE"))

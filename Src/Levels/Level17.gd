@@ -14,13 +14,16 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("interact") and Global.player.canInteract:
 			$LevelObjects/ExtractionZone/AnimationPlayerEnd.play("end")
 	elif inObjectiveArea:
-		pass
+		if event.is_action_pressed("interact") and Global.player.canInteract:
+			objective = true
 
 func unlock(): #Button callback
 	if not lowered:
 		lowered = true
 		$SpriteWalls/Capsule/AnimationPlayer.play("lower")
 
+func getProgessState():
+	return objective
 
 func _on_AnimationPlayerEnd_animation_finished(anim_name):
 	$LevelObjects/ExtractionZone.manualLevelFinish()
