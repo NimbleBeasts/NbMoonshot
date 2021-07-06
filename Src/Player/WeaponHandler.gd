@@ -1,6 +1,6 @@
 extends Node2D
 
-export var playerPath: NodePath
+#export var playerPath: NodePath
 
 #var currentIndex: int # No weapons to switch anymore
 onready var currentWeapon = get_child(0)

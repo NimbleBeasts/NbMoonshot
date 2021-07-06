@@ -9,7 +9,7 @@ var mainNode = self # this is needed for the pressure button, don't remove this
 var applyGravity: bool = false
 var grav: int = 8000
 
-onready var sprite: Sprite = $Sprite # also for pressure button
+#onready var sprite: Sprite = $Sprite # also for pressure button
 
 
 func _ready() -> void:
