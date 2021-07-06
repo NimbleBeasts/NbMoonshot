@@ -51,12 +51,14 @@ var guardAlarmSounds = [
 	preload("res://Assets/SFX/guard_alarm4.wav")
 ]
 
-onready var los_area: Area2D = $Flippable/LineOfSight
+#warning-ignore:unused_class_variable
+onready var los_area: Area2D = $Flippable/LineOfSight #TODO: Not sure if needed
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
 onready var losRay: RayCast2D = $Flippable/LOSRay
 onready var player = Global.player
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
-onready var sprite: Sprite = $Flippable/Sprite
+#warning-ignore:unused_class_variable
+onready var sprite: Sprite = $Flippable/Sprite #TODO: not sure if needed
 onready var speed = normalSpeed
 
 
@@ -258,20 +260,20 @@ func _on_StunDurationTimer_timeout() -> void:
 func _on_audio_level_changed(audio_level: int, audio_pos: Vector2, _emitter) -> void:
 	print("deprecated")
 	return
-	if state == Types.GuardStates.Stunned or state == Types.GuardStates.PlayerDetected or \
-	state == Types.GuardStates.BeingDragged:
-		return
-	match audio_level:
-		Types.AudioLevels.LoudNoise:
-			if audio_pos.distance_to(global_position) < audio_suspect_distance:
-				var yDistance = abs(audio_pos.y - global_position.y)
-				if yDistance > 20:
-					return
-				if not $Notifier.isShowing:
-					$Notifier.popup(Types.NotifierTypes.Question)
-				playerLastSeenPosition = audio_pos
-				if state != Types.GuardStates.PlayerDetected:
-					set_state(Types.GuardStates.Suspect, true)
+#	if state == Types.GuardStates.Stunned or state == Types.GuardStates.PlayerDetected or \
+#	state == Types.GuardStates.BeingDragged:
+#		return
+#	match audio_level:
+#		Types.AudioLevels.LoudNoise:
+#			if audio_pos.distance_to(global_position) < audio_suspect_distance:
+#				var yDistance = abs(audio_pos.y - global_position.y)
+#				if yDistance > 20:
+#					return
+#				if not $Notifier.isShowing:
+#					$Notifier.popup(Types.NotifierTypes.Question)
+#				playerLastSeenPosition = audio_pos
+#				if state != Types.GuardStates.PlayerDetected:
+#					set_state(Types.GuardStates.Suspect, true)
 
 					
 # use this function to set state instead of doing directly

@@ -1,7 +1,8 @@
 extends Area2D
 
 export (Array, NodePath) var unlocks: Array
-var offset: float = 6
+#warning-ignore:unused_class_variable
+var offset: float = 6 #not sure if used by player
 var pressureObjects = []
 
 

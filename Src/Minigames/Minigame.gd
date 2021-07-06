@@ -13,7 +13,8 @@ var canOpenMinigame: bool = true
 var tweenIsInUse: bool = false
 var playerLastGuard
 
-onready var tween: Tween = get_node_or_null("Tween")
+#warning-ignore:unused_class_variable
+onready var tween: Tween = get_node_or_null("Tween") #TODO: not sure if needed
 onready var newTween: Tween = Tween.new()
 onready var player: Player = Global.player
 

@@ -202,7 +202,8 @@ func moneyUpdate(total, change):
 	$HUDLayer/Display/HudBar.updateMoney(total, change)
 
 func taserUpdate(value):
-	var clamped = clamp( value, 0, 3)
+	print("taser update")
+	#var clamped = clamp( value, 0, 3)
 	#TODO - whats wrong here?!?
 	#$ChargeIndicator.frame = 3 - clamped
 	#$ChargeIndicator/Label.set_text(str(clamped))

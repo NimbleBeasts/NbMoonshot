@@ -10,9 +10,11 @@ var canMakeSound: bool = true
 
 var timerDisablePhysics
 var timerRemove
+#warning-ignore:unused_class_variable
 var stopPosition: Vector2
 
-onready var collisionShape = $CollisionShape2D
+#warning-ignore:unused_class_variable
+onready var collisionShape = $CollisionShape2D #used by parent
 
 
 func _ready() -> void:

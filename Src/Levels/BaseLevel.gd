@@ -9,14 +9,14 @@ export (Types.LevelTypes) var level_nation_type: int
 export (Types.MusicType) var level_music: int = Types.MusicType.DefaultLevelType
 export(NodePath) var level_objectives = null
 export var playCarCloseSound: bool = true
-#warning-ignore:unused_class_variable - used by extractionzone for branching levels
-export var isSabotage: bool = false
-#warning-ignore:unused_class_variable - used by extractionzone for branching levels
-export (Types.Countries) var sabotageCountry
+#warning-ignore:unused_class_variable 
+export var isSabotage: bool = false #- used by extractionzone for branching levels
+#warning-ignore:unused_class_variable 
+export (Types.Countries) var sabotageCountry #- used by extractionzone for branching levels
 
 var allowed_detections: int
-#warning-ignore:unused_class_variable - used by extractionzone for adding money
-var gainedMoney: int
+#warning-ignore:unused_class_variable 
+var gainedMoney: int #- used by extractionzone for adding moneys
 
 func can_change_level():
 	if level_objectives:

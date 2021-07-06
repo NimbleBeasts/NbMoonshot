@@ -56,11 +56,12 @@ var footstepSounds = [
 ]
 
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
-onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
+#onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
 onready var sprite: Sprite = $Flippable/PlayerSprite
+#warning-ignore:unused_class_variable
 onready var camera: Camera2D = $Camera2D
 onready var guardPickup: Area2D = $GuardPickup
-#warning-ignore:unused_class_variable - potentially used with snack extensions
+#warning-ignore:unused_class_variable
 onready var weaponHandler: Node2D = $WeaponHandler
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 onready var itemPickup = $ItemPickup

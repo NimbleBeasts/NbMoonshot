@@ -3,7 +3,6 @@ extends KinematicBody2D
 
 export var audioSuspectDistance: int = 50
 export var speed: int = 25
-export var detectDistance: int = 50
 export (Types.DogStates) var startingState: int = Types.DogStates.Roaming
 export var playerSuspectDistance: int = 30
 export var playerDetectDistance: int = 16
@@ -18,7 +17,6 @@ var suspiciousPosition: Vector2
 var player: Player = Global.player
 var isMovingToPlayer: bool
 var playerInLOS: bool
-var barkAfterAngry: bool = false
 var dogBarkSounds = ["res://Assets/SFX/bark1.wav", "res://Assets/SFX/bark_2.wav"]
 
 
