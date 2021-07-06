@@ -10,7 +10,7 @@ var music = [
 	load("res://Assets/Music/title_main.ogg"), #	menuMusic,
 	load("res://Assets/Music/hq_full.ogg"), #	hq_full,
 	load("res://Assets/Music/surfin_ussr_full.ogg"), #	surfin_ussr,
-	load("res://Assets/Music/rocket_full.ogg"), #	rocket,
+	load("res://Assets/Music/rocket_full_.ogg"), #	rocket,
 	load("res://Assets/Music/russia_win_full.ogg"), #	russia_win
 	load("res://Assets/Music/title_full_.ogg"), # titleFull
 	load("res://Assets/Music/bank_full_.ogg"), #bank

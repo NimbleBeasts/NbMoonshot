@@ -10,8 +10,8 @@ enum Directions {RIGHT, LEFT}
 # movement variables
 export var normal_speed: int = 80
 export var normal_acceleration: int = 600
-export var sprint_speed: int = 120
-export var sprint_acceleration: int = 2500
+#export var sprint_speed: int = 120
+#export var sprint_acceleration: int = 2500
 export var duckSpeed: int = 40
 export var duckAcceleration: int = 300
 export var gravity: int = 800
@@ -21,10 +21,10 @@ export (Directions) var startingDirection: int setget setStartingDirection
 export var normal_stun_battery: int = 3
 export var extended_stun_battery: int = 5
 export var normal_stun_duration: float = 4.0
-export var extended_stun_duration: float = 7.0
-export var normal_sprint_duration: float = 3.0
-export var extended_sprint_duration: float = 6.0
-export var stamina_replenish_duration: float = 3.0
+#export var extended_stun_duration: float = 7.0
+#export var normal_sprint_duration: float = 3.0
+#export var extended_sprint_duration: float = 6.0
+#export var stamina_replenish_duration: float = 3.0
 
 var direction: Vector2
 var velocity: Vector2
@@ -32,7 +32,6 @@ var speed: int = normal_speed
 var acceleration: int = normal_acceleration
 var movementBlocked = false
 var blockEntireInput = false
-var guardToPickup
 var currentInteractable
 var forcedDuckState: bool
 var canInteract: bool = true
@@ -42,13 +41,9 @@ var canInteract: bool = true
 var light_level: int = -1 #Types.LightLevels.FullLight
 var visible_level: int = light_level
 var state: int = Types.PlayerStates.Normal
-var colliding_with_travel: bool = false
 var stun_battery_level: int = 3
 var stun_duration: float = 4.0
 var has_sneak_upgrade: bool = false
-var sprint_duration: float
-var canSprint: bool
-
 var isSneaking: bool = false
 var applyGravity: bool = false
 
@@ -60,13 +55,12 @@ var footstepSounds = [
 	preload("res://Assets/SFX/sfx_footstep_new4.wav")
 ]
 
-onready var travel_tween: Tween = $TravelTween
 onready var travel_raycast_down: RayCast2D = $TravelRayCasts/RayCast2DDown
 onready var travel_raycast_up: RayCast2D = $TravelRayCasts/RayCast2DUp
-onready var stun_raycast: RayCast2D = $Flippable/StunRayCast
 onready var sprite: Sprite = $Flippable/PlayerSprite
 onready var camera: Camera2D = $Camera2D
 onready var guardPickup: Area2D = $GuardPickup
+#warning-ignore:unused_class_variable - potentially used with snack extensions
 onready var weaponHandler: Node2D = $WeaponHandler
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 onready var itemPickup = $ItemPickup

@@ -6,7 +6,6 @@ var possibleObject
 var object
 var isDragging: bool
 var processAnims: bool
-var canDrop: bool
 onready var player: Player = get_node(playerPath)
 onready var carryPosition: Position2D = get_node(carryPositionPath)
 

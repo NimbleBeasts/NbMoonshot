@@ -6,7 +6,6 @@ var level_lightning_level = 0
 var inMinigame: bool = false
 
 
-var count = 0
 var detected_value: int
 
 var nextText: String
@@ -15,11 +14,8 @@ var nextNameColor: String
 var nextPotrait: int
 
 var currentText: String
-var hideWithE: bool = false
 var currentSelectedUpgrade: int = 0
 var dialogIsTyping: bool = false
-var canSayNext: bool = false
-var isGameOver: bool = false
 var levelHint: String
 var multipage: bool
 
@@ -207,9 +203,9 @@ func moneyUpdate(total, change):
 
 func taserUpdate(value):
 	var clamped = clamp( value, 0, 3)
-	#TODO
+	#TODO - whats wrong here?!?
 	#$ChargeIndicator.frame = 3 - clamped
-	#$ChargeIndicator/Label.set_text(str(value))
+	#$ChargeIndicator/Label.set_text(str(clamped))
 
 
 func alarmIndication(type):

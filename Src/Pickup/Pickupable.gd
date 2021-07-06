@@ -4,6 +4,7 @@ class_name Pickupable
 export var pickupName: String
 export var showGameHints: bool = true
 var isPickedUp: bool = false
+#warning-ignore:unused_class_variable
 var mainNode = self # this is needed for the pressure button, don't remove this
 var applyGravity: bool = false
 var grav: int = 8000

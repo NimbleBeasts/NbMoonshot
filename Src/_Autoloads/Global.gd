@@ -22,6 +22,8 @@
 
 extends Node
 
+#warning-ignore-all:unused_class_variable
+
 # Version
 const GAME_VERSION = 0.5
 const CONFIG_VERSION = 3 # Used for config migration
@@ -124,6 +126,7 @@ var gameState = {
 } setget setGameState
 
 # Debug Settings
+#warning-ignore:unused_class_variable
 var debugLabel = null
 
 

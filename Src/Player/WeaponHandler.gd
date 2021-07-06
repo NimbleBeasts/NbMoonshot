@@ -2,10 +2,10 @@ extends Node2D
 
 export var playerPath: NodePath
 
-var currentIndex: int
+#var currentIndex: int # No weapons to switch anymore
 onready var currentWeapon = get_child(0)
-onready var maxWeaponAmount: int = get_child_count()
-onready var player = get_node(playerPath)
+#onready var maxWeaponAmount: int = get_child_count() #No weapons to switch anymore
+#onready var player = get_node(playerPath)
 
 
 func _ready() -> void:

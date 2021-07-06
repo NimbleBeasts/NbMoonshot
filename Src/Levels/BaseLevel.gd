@@ -8,11 +8,14 @@ export (Types.LevelLightning) var level_lightning: int
 export (Types.LevelTypes) var level_nation_type: int
 export (Types.MusicType) var level_music: int = Types.MusicType.DefaultLevelType
 export(NodePath) var level_objectives = null
-export var playCarCloseSound: bool = true 
+export var playCarCloseSound: bool = true
+#warning-ignore:unused_class_variable - used by extractionzone for branching levels
 export var isSabotage: bool = false
+#warning-ignore:unused_class_variable - used by extractionzone for branching levels
 export (Types.Countries) var sabotageCountry
 
 var allowed_detections: int
+#warning-ignore:unused_class_variable - used by extractionzone for adding money
 var gainedMoney: int
 
 func can_change_level():

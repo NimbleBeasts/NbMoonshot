@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+#warning-ignore:unused_class_variable
+
 var state = Types.GameStates.Menu
 var levelNode = null
 var sure_detection_num: int = 0
