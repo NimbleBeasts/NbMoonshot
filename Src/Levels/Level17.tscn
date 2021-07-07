@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Src/Levels/Level17.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Ship/Ship.png" type="Texture" id=2]
@@ -42,7 +42,11 @@
 [ext_resource path="res://Assets/Objects/Laboratory/BarrelBlue.png" type="Texture" id=40]
 [ext_resource path="res://Assets/Objects/Laboratory/BarrelRed.png" type="Texture" id=41]
 [ext_resource path="res://Assets/Objects/Hotel/ProfiKitchen.png" type="Texture" id=42]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=43]
+[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=45]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=46]
+[ext_resource path="res://Src/Light/Light2.tscn" type="PackedScene" id=47]
 
 [sub_resource type="Animation" id=1]
 resource_name = "lower"
@@ -468,6 +472,13 @@ position = Vector2( 288, 224 )
 position = Vector2( 451, 160 )
 hasBounty = true
 
+[node name="LaserDetector" parent="LevelObjects/Objects" instance=ExtResource( 45 )]
+position = Vector2( 332, 247 )
+rotation = -1.5708
+isHorizontal = false
+isFlickering = true
+flickerSequence = "1110011110111111100011111110000"
+
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 9 )]
@@ -497,10 +508,12 @@ doorType = 2
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 9 )]
 position = Vector2( 472, 288 )
+lockLevel = 1
 doorType = 2
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 9 )]
 position = Vector2( 672, 288 )
+lockLevel = 1
 doorType = 2
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 9 )]
@@ -516,6 +529,21 @@ position = Vector2( 8, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 47 )]
+position = Vector2( 304, 104 )
+
+[node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 47 )]
+position = Vector2( 421, 104 )
+
+[node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 47 )]
+position = Vector2( 328, 40 )
+
+[node name="Light5" parent="LevelObjects/Lights" instance=ExtResource( 47 )]
+position = Vector2( 420, 232 )
+
+[node name="Light6" parent="LevelObjects/Lights" instance=ExtResource( 47 )]
+position = Vector2( 576, 232 )
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 46 )]
 position = Vector2( 0, -8 )
@@ -546,6 +574,27 @@ position = Vector2( 152, -32 )
 shape = SubResource( 5 )
 
 [node name="NPCS" type="Node2D" parent="."]
+
+[node name="Guard" parent="NPCS" instance=ExtResource( 44 )]
+position = Vector2( 280, 168 )
+
+[node name="PathLine" type="Line2D" parent="NPCS/Guard"]
+points = PoolVector2Array( 0, -8, 88, -8, 160, -8 )
+script = ExtResource( 43 )
+
+[node name="Guard3" parent="NPCS" instance=ExtResource( 44 )]
+position = Vector2( 568, 232 )
+
+[node name="PathLine" type="Line2D" parent="NPCS/Guard3"]
+points = PoolVector2Array( 0, -8, 192, -8, 304, -8 )
+script = ExtResource( 43 )
+
+[node name="Guard2" parent="NPCS" instance=ExtResource( 44 )]
+position = Vector2( 504, 296 )
+
+[node name="PathLine" type="Line2D" parent="NPCS/Guard2"]
+points = PoolVector2Array( 0, -8, 88, -8, 160, -8 )
+script = ExtResource( 43 )
 
 [node name="Foreground" type="Node2D" parent="."]
 position = Vector2( 0, 8 )
