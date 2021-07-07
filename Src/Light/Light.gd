@@ -37,11 +37,12 @@ func _draw():
 
 func _ready():
 	if flicker:
+		updateLight() # Perform first state directly 
 		$Timer.start()
 
 
 func isOn():
-	if state == LightState.On:
+	if state == LightState.On and isActive:
 		return true
 	return false
 

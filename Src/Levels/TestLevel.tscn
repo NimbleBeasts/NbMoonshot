@@ -81,7 +81,7 @@ cell_size = Vector2( 8, 8 )
 cell_quadrant_size = 32
 occluder_light_mask = 3
 format = 1
-tile_data = PoolIntArray( 589724, 74, 0, 589725, 74, 0, 589726, 74, 0, 589727, 74, 0, 589728, 74, 0, 589729, 74, 0, 589730, 74, 0, 589731, 75, 0, 589732, 74, 0, 589734, 72, 0, 589736, 72, 0, 589738, 73, 0, 589740, 73, 0, 589742, 72, 0, 589744, 73, 0, 589746, 72, 0, 589748, 73, 0, 589750, 72, 0, 851877, 1, 0, 851896, 1, 0, 1114022, 32, 0, 1114024, 32, 0, 1114026, 32, 0, 1114028, 32, 0, 1114030, 32, 0, 1114032, 32, 0, 1114034, 32, 0, 1114036, 32, 0, 1114038, 32, 0, 1376184, 1, 0, 1638310, 32, 0, 1638312, 32, 0, 1638314, 32, 0, 1638316, 32, 0, 1638318, 32, 0, 1638320, 32, 0, 1638322, 32, 0, 1638324, 32, 0, 1638326, 32, 0, 1572883, 32, 0, 1572885, 34, 0, 1572887, 32, 0, 1572889, 34, 0, 1572891, 32, 0, 1572893, 32, 0, 1572895, 34, 0, 1572897, 32, 0, 1704014, 55, 0, 1900472, 1, 0, 1835010, 59, 0, 1835012, 59, 0, 1835014, 59, 0, 1835016, 59, 0, 1835018, 59, 0, 1835020, 59, 0, 1835022, 59, 0, 1835024, 59, 0, 1835026, 1, 0, 1835043, 1, 0, 2097163, 54, 0, 2097166, 54, 0, 2097169, 54, 0, 2097172, 54, 0, 2097175, 54, 0, 2097178, 54, 0, 2097181, 54, 0, 2097184, 54, 0, 2293772, 55, 0, 2293774, 55, 0, 2359314, 1, 0, 2359331, 1, 0, 2490392, 57, 0 )
+tile_data = PoolIntArray( 589724, 74, 0, 589725, 74, 0, 589726, 74, 0, 589727, 74, 0, 589728, 74, 0, 589729, 74, 0, 589730, 74, 0, 589731, 75, 0, 589732, 74, 0, 589734, 72, 0, 589736, 72, 0, 589738, 73, 0, 589740, 73, 0, 589742, 72, 0, 589744, 73, 0, 589746, 72, 0, 589748, 73, 0, 589750, 72, 0, 851877, 1, 0, 851896, 1, 0, 1114022, 32, 0, 1114024, 32, 0, 1114026, 32, 0, 1114028, 32, 0, 1114030, 32, 0, 1114032, 32, 0, 1114034, 32, 0, 1114036, 32, 0, 1114038, 32, 0, 1376184, 1, 0, 1638310, 32, 0, 1638312, 32, 0, 1638314, 32, 0, 1638316, 32, 0, 1638318, 32, 0, 1638320, 32, 0, 1638322, 32, 0, 1638324, 32, 0, 1638326, 32, 0, 1638364, 10, 0, 1638365, 10, 0, 1638366, 10, 0, 1638367, 10, 0, 1638368, 10, 0, 1638369, 10, 0, 1638370, 10, 0, 1638371, 10, 0, 1638372, 10, 0, 1638373, 10, 0, 1638374, 10, 0, 1638375, 10, 0, 1638376, 10, 0, 1638377, 10, 0, 1638378, 10, 0, 1638379, 10, 0, 1638380, 10, 0, 1638381, 10, 0, 1638382, 10, 0, 1638383, 10, 0, 1638384, 10, 0, 1572883, 32, 0, 1572885, 34, 0, 1572887, 32, 0, 1572889, 34, 0, 1572891, 32, 0, 1572893, 32, 0, 1572895, 34, 0, 1572897, 32, 0, 1703904, 10, 0, 1704014, 55, 0, 1900472, 1, 0, 1835010, 59, 0, 1835012, 59, 0, 1835014, 59, 0, 1835016, 59, 0, 1835018, 59, 0, 1835020, 59, 0, 1835022, 59, 0, 1835024, 59, 0, 1835026, 1, 0, 1835043, 1, 0, 2097163, 54, 0, 2097166, 54, 0, 2097169, 54, 0, 2097172, 54, 0, 2097175, 54, 0, 2097178, 54, 0, 2097181, 54, 0, 2097184, 54, 0, 2293772, 55, 0, 2293774, 55, 0, 2359314, 1, 0, 2359331, 1, 0, 2490392, 57, 0 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = ExtResource( 13 )
@@ -213,6 +213,11 @@ position = Vector2( -625, 72 )
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -760, 72 )
 
+[node name="TestLight" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
+position = Vector2( -223, 200 )
+flickerSequence = "0"
+DebugLight = true
+
 [node name="LaserDetector" parent="LevelObjects" instance=ExtResource( 25 )]
 position = Vector2( 152, 208 )
 rotation = -1.5708
@@ -240,6 +245,14 @@ position = Vector2( -792, 128 )
 type = 1
 hasBounty = true
 
+[node name="Button" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( -274, 240 )
+unlocks = [ NodePath("../Lights/TestLight") ]
+
+[node name="Camera" parent="LevelObjects" instance=ExtResource( 39 )]
+position = Vector2( -166, 200 )
+isFixedCam = true
+
 [node name="TestJuke" type="Sprite" parent="."]
 position = Vector2( -656, 176 )
 texture = ExtResource( 31 )
@@ -263,7 +276,6 @@ isFixedCam = true
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( -304, 256 )
 z_index = 50
-sprint_speed = 160
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
@@ -292,10 +304,6 @@ position = Vector2( -556, 136 )
 position = Vector2( 60, 2 )
 shape = SubResource( 2 )
 
-[node name="DoorWall" parent="." instance=ExtResource( 8 )]
-position = Vector2( -275, 256 )
-lockLevel = 2
-
 [node name="DoorWall2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -297, 328 )
 
@@ -322,13 +330,6 @@ position = Vector2( -424, 248 )
 
 [node name="BoxPickup3" parent="." instance=ExtResource( 15 )]
 position = Vector2( -488, 192 )
-
-[node name="Guard2" parent="." instance=ExtResource( 4 )]
-position = Vector2( -256, 256 )
-
-[node name="PathLine" type="Line2D" parent="Guard2"]
-points = PoolVector2Array( -24, -8, 32, -8, 96, -8, 120, -8, 184, -8 )
-script = ExtResource( 30 )
 
 [node name="Guard3" parent="." instance=ExtResource( 4 )]
 position = Vector2( -256, 328 )
