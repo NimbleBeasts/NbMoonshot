@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Src/Levels/Level17.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Ship/Ship.png" type="Texture" id=2]
@@ -35,6 +35,13 @@
 [ext_resource path="res://Assets/Objects/Observatory/ObservatoryMetalParts.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Objects/NoSmoking.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Objects/MetalShelf.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Objects/Laboratory/Chest2.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Objects/Laboratory/Chest.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Objects/HighVoltage.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Objects/Laboratory/BarrelBlue.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Objects/Laboratory/BarrelRed.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Objects/Hotel/ProfiKitchen.png" type="Texture" id=42]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=46]
 
 [sub_resource type="Animation" id=1]
@@ -187,6 +194,108 @@ centered = false
 light_mask = 3
 position = Vector2( 280, 72 )
 texture = ExtResource( 18 )
+centered = false
+
+[node name="Sign2" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 600, 251 )
+texture = ExtResource( 34 )
+centered = false
+
+[node name="Sign3" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 704, 251 )
+texture = ExtResource( 39 )
+centered = false
+
+[node name="Sign4" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 872, 247 )
+texture = ExtResource( 42 )
+centered = false
+
+[node name="Oil" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 519, 264 )
+texture = ExtResource( 40 )
+centered = false
+
+[node name="Sign5" type="Sprite" parent="LevelObjects/Decorations/Oil"]
+light_mask = 3
+position = Vector2( -11, 0 )
+texture = ExtResource( 41 )
+centered = false
+
+[node name="Sign6" type="Sprite" parent="LevelObjects/Decorations/Oil"]
+light_mask = 3
+position = Vector2( -7, -16 )
+texture = ExtResource( 41 )
+centered = false
+
+[node name="Sign7" type="Sprite" parent="LevelObjects/Decorations/Oil"]
+light_mask = 3
+position = Vector2( 33, 0 )
+texture = ExtResource( 40 )
+centered = false
+
+[node name="Sign8" type="Sprite" parent="LevelObjects/Decorations/Oil"]
+light_mask = 3
+position = Vector2( 57, 0 )
+texture = ExtResource( 41 )
+centered = false
+
+[node name="Box" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 268, 272 )
+texture = ExtResource( 36 )
+centered = false
+
+[node name="Box2" type="Sprite" parent="LevelObjects/Decorations/Box"]
+light_mask = 3
+position = Vector2( 17, 0 )
+texture = ExtResource( 36 )
+centered = false
+
+[node name="Box3" type="Sprite" parent="LevelObjects/Decorations/Box"]
+light_mask = 3
+position = Vector2( 4, -16 )
+texture = ExtResource( 36 )
+centered = false
+
+[node name="Box4" type="Sprite" parent="LevelObjects/Decorations/Box"]
+light_mask = 3
+position = Vector2( 33, 0 )
+texture = ExtResource( 36 )
+centered = false
+
+[node name="Box5" type="Sprite" parent="LevelObjects/Decorations/Box"]
+light_mask = 3
+position = Vector2( 21, -16 )
+texture = ExtResource( 37 )
+centered = false
+
+[node name="Box9" type="Sprite" parent="LevelObjects/Decorations/Box"]
+light_mask = 3
+position = Vector2( 156, -8 )
+texture = ExtResource( 38 )
+centered = false
+
+[node name="Box6" type="Sprite" parent="LevelObjects/Decorations/Box"]
+light_mask = 3
+position = Vector2( 60, 0 )
+texture = ExtResource( 36 )
+centered = false
+
+[node name="Box7" type="Sprite" parent="LevelObjects/Decorations/Box"]
+light_mask = 3
+position = Vector2( 77, 0 )
+texture = ExtResource( 36 )
+centered = false
+
+[node name="Box8" type="Sprite" parent="LevelObjects/Decorations/Box"]
+light_mask = 3
+position = Vector2( 60, -16 )
+texture = ExtResource( 36 )
 centered = false
 
 [node name="Table" type="Sprite" parent="LevelObjects/Decorations"]
