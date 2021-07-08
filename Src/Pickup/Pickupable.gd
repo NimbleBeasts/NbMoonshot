@@ -8,6 +8,7 @@ var isPickedUp: bool = false
 var mainNode = self # this is needed for the pressure button, don't remove this
 var applyGravity: bool = false
 var grav: int = 8000
+var target: Vector2 = Vector2(0, 0)
 
 #onready var sprite: Sprite = $Sprite # also for pressure button
 
@@ -25,7 +26,14 @@ func _physics_process(delta: float) -> void:
 	if applyGravity:
 		velocity.y += grav * delta
 		
-	global_position += velocity * delta
+		global_position += velocity * delta
+
+		if target != Vector2(0,0):
+			# Ground is set
+			# This is a backup solution to avoid falling thru floors
+			if global_position.y >= target.y:
+				global_position.y = target.y
+				target = Vector2(0,0)
 	
 	if $Label:
 		$Label.set_text(str(global_position))
@@ -52,7 +60,8 @@ func getProgessState() -> bool:
 	return isPickedUp
 
 	
-func setApplyGravity(to: bool):
+func setApplyGravity(target: Vector2, to: bool):
+	target = target
 	applyGravity = to
 
 	

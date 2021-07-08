@@ -114,7 +114,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Minigames/PhotoMinigame/PhotoMinigameSpawner.gd"
 }, {
-"base": "RigidBody2D",
+"base": "Area2D",
 "class": "Pickupable",
 "language": "GDScript",
 "path": "res://Src/Pickup/Pickupable.gd"
