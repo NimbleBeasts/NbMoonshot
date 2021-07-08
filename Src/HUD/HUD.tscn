@@ -1,6 +1,7 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Src/HUD/HUD.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/MagoFont3_32_outline.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Assets/HUD/Dialog9PatchInner.png" type="Texture" id=3]
 [ext_resource path="res://Src/HUD/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/HUD/UpgradeButton.tscn" type="PackedScene" id=5]
@@ -12,9 +13,8 @@
 [ext_resource path="res://Assets/SFX/hint.wav" type="AudioStream" id=11]
 [ext_resource path="res://Assets/SFX/type2.wav" type="AudioStream" id=12]
 [ext_resource path="res://Src/HUD/MissionBriefing.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16_outline.tres" type="DynamicFont" id=14]
 [ext_resource path="res://Src/BaseButton/BaseButton.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Assets/Fonts/mago3.3.ttf" type="DynamicFontData" id=17]
 [ext_resource path="res://Src/HUD/Dialog.gd" type="Script" id=21]
 [ext_resource path="res://Src/Menu/Slider.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/Portraits/Portraits.png" type="Texture" id=23]
@@ -69,13 +69,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=4]
-size = 32
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 17 )
-
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=17]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -90,11 +84,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=6]
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 17 )
-
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=20]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -121,21 +111,21 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="ButtonGroup" id=8]
+[sub_resource type="ButtonGroup" id=21]
 
-[sub_resource type="ButtonGroup" id=9]
+[sub_resource type="ButtonGroup" id=22]
 
-[sub_resource type="ButtonGroup" id=10]
+[sub_resource type="ButtonGroup" id=23]
 
-[sub_resource type="ButtonGroup" id=11]
+[sub_resource type="ButtonGroup" id=24]
 
-[sub_resource type="ButtonGroup" id=12]
+[sub_resource type="ButtonGroup" id=25]
 
-[sub_resource type="ButtonGroup" id=13]
+[sub_resource type="ButtonGroup" id=26]
 
-[sub_resource type="ButtonGroup" id=14]
+[sub_resource type="ButtonGroup" id=27]
 
-[sub_resource type="ButtonGroup" id=15]
+[sub_resource type="ButtonGroup" id=16]
 
 [node name="HUD" type="Control"]
 pause_mode = 2
@@ -215,8 +205,9 @@ margin_left = -120.0
 margin_top = -28.0
 margin_right = 120.0
 margin_bottom = 12.0
+rect_scale = Vector2( 0.1, 0.1 )
 rect_pivot_offset = Vector2( 120, 32 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = ExtResource( 2 )
 text = "HUD_GAME_OVER"
 align = 1
 valign = 1
@@ -225,7 +216,7 @@ __meta__ = {
 }
 
 [node name="GameOverNotifcationAnimationPlayer" type="AnimationPlayer" parent="HUDLayer/GameOverNotification"]
-anims/pop = SubResource( 5 )
+anims/pop = SubResource( 17 )
 
 [node name="GameHintNotification" type="Label" parent="HUDLayer"]
 visible = false
@@ -237,9 +228,9 @@ anchor_bottom = 0.5
 margin_left = -192.0
 margin_top = -84.0
 margin_right = 192.0
-margin_bottom = -43.9968
+margin_bottom = -43.9972
 rect_pivot_offset = Vector2( 120, 32 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = ExtResource( 14 )
 text = "Example Text Goes Here"
 align = 1
 valign = 1
@@ -248,7 +239,7 @@ __meta__ = {
 }
 
 [node name="GameHintAnimationPlayer" type="AnimationPlayer" parent="HUDLayer/GameHintNotification"]
-anims/pop = SubResource( 7 )
+anims/pop = SubResource( 20 )
 
 [node name="PromoShot" type="Node2D" parent="HUDLayer"]
 visible = false
@@ -365,30 +356,30 @@ __meta__ = {
 }
 
 [node name="UpgradeButton0" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
-group = SubResource( 8 )
+group = SubResource( 21 )
 
 [node name="UpgradeButton1" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 43.0
 margin_right = 75.0
-group = SubResource( 9 )
+group = SubResource( 22 )
 skill = 1
 
 [node name="UpgradeButton2" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 86.0
 margin_right = 118.0
-group = SubResource( 10 )
+group = SubResource( 23 )
 skill = 2
 
 [node name="UpgradeButton3" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_left = 129.0
 margin_right = 161.0
-group = SubResource( 11 )
+group = SubResource( 24 )
 skill = 3
 
 [node name="UpgradeButton4" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
 margin_top = 43.0
 margin_bottom = 75.0
-group = SubResource( 12 )
+group = SubResource( 25 )
 skill = 4
 
 [node name="UpgradeButton5" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
@@ -396,7 +387,7 @@ margin_left = 43.0
 margin_top = 43.0
 margin_right = 75.0
 margin_bottom = 75.0
-group = SubResource( 13 )
+group = SubResource( 26 )
 skill = 5
 
 [node name="UpgradeButton6" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
@@ -404,7 +395,7 @@ margin_left = 86.0
 margin_top = 43.0
 margin_right = 118.0
 margin_bottom = 75.0
-group = SubResource( 14 )
+group = SubResource( 27 )
 skill = 6
 
 [node name="UpgradeButton7" parent="HUDLayer/Display/Upgrades/Grid" instance=ExtResource( 5 )]
@@ -412,7 +403,7 @@ margin_left = 129.0
 margin_top = 43.0
 margin_right = 161.0
 margin_bottom = 75.0
-group = SubResource( 15 )
+group = SubResource( 16 )
 skill = 7
 
 [node name="InfoBox" type="NinePatchRect" parent="HUDLayer/Display/Upgrades"]

@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=5]
 [ext_resource path="res://Assets/HUD/MissionMaps.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Fonts/mago1.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Assets/Fonts/mago1_lat_cyr.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 7 )

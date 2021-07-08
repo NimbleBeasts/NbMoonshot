@@ -3,7 +3,8 @@
 [ext_resource path="res://Assets/Fonts/mago1_lat_cyr.ttf" type="DynamicFontData" id=1]
 
 [resource]
-outline_size = 1
+size = 32
+outline_size = 2
 outline_color = Color( 0.168627, 0.180392, 0.258824, 1 )
-extra_spacing_bottom = 2
+use_mipmaps = true
 font_data = ExtResource( 1 )

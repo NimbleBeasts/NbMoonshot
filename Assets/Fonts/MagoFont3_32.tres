@@ -1,7 +1,8 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://Assets/Fonts/mago1.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/mago1_lat_cyr.ttf" type="DynamicFontData" id=1]
 
 [resource]
 size = 32
+use_mipmaps = true
 font_data = ExtResource( 1 )
