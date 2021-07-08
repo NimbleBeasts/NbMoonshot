@@ -14,6 +14,8 @@ var csv_files: Array = []
 var node_offset: Vector2 = Vector2(160, 0)
 var selected_node: Node
 var csv_save: PoolStringArray
+var prefix: String = "BOSS"
+
 
 # will be converted to the json file
 var dict = {
@@ -274,7 +276,19 @@ func _on_node_selected(node):
 
 
 func _on_file_selected(index: int) -> void:
-	open_file($Bar/hbox/FileSelect.get_item_text(index))
+	var file = $Bar/hbox/FileSelect.get_item_text(index)
+	
+	match file:
+		"BossDialogueEditor.json":
+			prefix = "BOSS"
+		"SecretaryDialogueEditor.json":
+			prefix = "SECRETARY"
+		"SecretaryFinalDialogueEditor.json":
+			prefix = "NATASJA"
+	
+	open_file(file)
+	
+
 
 
 func update_translations(index: int) -> void:
@@ -284,12 +298,12 @@ func update_translations(index: int) -> void:
 		var csv_line: Array = file.get_csv_line()
 		while csv_line[0] != "END":
 			var key_text = csv_line[0]
-			if key_text.begins_with("KEY_"):
-				var node = get_node_from_title(key_text.replace("KEY_", ""))
+			if key_text.begins_with(prefix + "_KEY_"):
+				var node = get_node_from_title(key_text.replace(prefix + "_KEY_", ""))
 				if node != null:
 					node.set_text(csv_line[1]) #Call setter function
-			elif key_text.begins_with("CHOICE_"):
-				var thing = key_text.replace("CHOICE_", "").split("_")
+			elif key_text.begins_with(prefix + "_CHOICE_"):
+				var thing = key_text.replace(prefix + "_CHOICE_", "").split("_")
 				var node = get_node_from_title(thing[0])
 				if node != null:
 					node.get_node("LineEdit%s" % thing[1]).text = csv_line[1]
@@ -306,13 +320,13 @@ func save_csv() -> void:
 		for child in $GraphEdit.get_children():
 			if child is BaseBranch:
 				var string: String = ""
-				string += "KEY_%s," % child.get_node("BranchID").text
+				string += prefix + "_KEY_%s," % child.get_node("BranchID").text
 				string += "\"%s\",," % child.get_node("Text").text
 				file.store_line(string)
 				for i in 3:
 					if child.get_node("LineEdit%s" % i).text != "":
 						var choice_string: String = ""
-						choice_string += "CHOICE_%s_%s," % [child.get_node("BranchID").text, i]
+						choice_string += prefix + "_CHOICE_%s_%s," % [child.get_node("BranchID").text, i]
 						choice_string += "\"%s\",," % child.get_node('LineEdit%s' % i).text
 						file.store_line(choice_string)
 		file.store_line("END,,,")

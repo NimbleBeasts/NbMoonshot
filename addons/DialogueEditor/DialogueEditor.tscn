@@ -57,7 +57,7 @@ margin_right = 192.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 192, 0 )
 text = "BossDialogue.json"
-items = [ "BossDialogue.json", null, false, 0, null, "BossDialogueEditor.json", null, false, 0, null, "SecretaryDialogue.json", null, false, 0, null, "SecretaryDialogueEditor.json", null, false, 0, null ]
+items = [ "BossDialogue.json", null, false, 0, null, "BossDialogueEditor.json", null, false, 0, null, "SecretaryDialogue.json", null, false, 0, null, "SecretaryDialogueEditor.json", null, false, 0, null, "SecretaryFinalDialogueEditor.json", null, false, 0, null ]
 selected = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -87,7 +87,7 @@ margin_right = 432.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 64, 0 )
 text = "BossTranslations.csv"
-items = [ "BossTranslations.csv", null, false, 0, null, "SecretaryTranslations.csv", null, false, 0, null ]
+items = [ "BossTranslations.csv", null, false, 0, null, "SecretaryFinalTranslations.csv", null, false, 0, null, "SecretaryTranslations.csv", null, false, 0, null ]
 selected = 0
 __meta__ = {
 "_edit_use_anchors_": false
