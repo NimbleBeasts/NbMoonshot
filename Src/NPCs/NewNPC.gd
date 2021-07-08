@@ -1,6 +1,8 @@
 class_name NewNPC
 extends Area2D
 
+signal npc_dialogue_finished
+
 export (String, FILE) var dialoguePath: String
 export var npcName: String
 export var npcColor: String
@@ -20,6 +22,8 @@ var nextDialogue: String
 var sayingDialogue: bool
 
 var currentBranchID: String
+
+
 
 # gonna comment this .... later 
 
@@ -156,6 +160,7 @@ func exitDialogue() -> void:
 	checkForQuests()
 	Events.emit_signal("hud_dialogue_hide")
 	sayingDialogue = false
+	emit_signal("npc_dialogue_finished")
 
 	
 func onDialogHidden() -> void:

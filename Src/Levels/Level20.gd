@@ -4,7 +4,13 @@ var timerStarted = false
 var time = 60.0
 
 func _ready():
-	#$BombTimer.hide()
+	$AdditionalHUD/BombTimer.hide()
+	$NPCS/Secretary.connect("npc_dialogue_finished", self, "dialogue_finished")
+
+
+func dialogue_finished():
+	print("fineiss")
+	$AdditionalHUD/BombTimer.show()
 	timerStarted = true
 
 
@@ -15,10 +21,10 @@ func _physics_process(delta):
 
 func updateTimer():
 	var timerValue = int(time * 100)
-	$BombTimer/Layer/WireTimer/dig6.frame = max(0, timerValue % 10) #least significant digit 
-	$BombTimer/Layer/WireTimer/dig5.frame = max(0, (timerValue / 10) % 10)
-	$BombTimer/Layer/WireTimer/dig4.frame = max(0, (timerValue / 100) % 10)
-	$BombTimer/Layer/WireTimer/dig3.frame = max(0, (timerValue / 1000) % 10)
+	$AdditionalHUD/BombTimer/WireTimer/dig6.frame = max(0, timerValue % 10) #least significant digit 
+	$AdditionalHUD/BombTimer/WireTimer/dig5.frame = max(0, (timerValue / 10) % 10)
+	$AdditionalHUD/BombTimer/WireTimer/dig4.frame = max(0, (timerValue / 100) % 10)
+	$AdditionalHUD/BombTimer/WireTimer/dig3.frame = max(0, (timerValue / 1000) % 10)
 
 	
 
