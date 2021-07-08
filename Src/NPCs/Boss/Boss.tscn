@@ -32,7 +32,7 @@ dialoguePath = "res://Src/Dialogues/BossDialogueEditor.json"
 npcName = "NPC_GENERAL"
 npcColor = "#4c93ad"
 npcPotrait = 1
-translationCSVPath = "res://Translations/NPC/BossTranslations.csv"
+Prefix = "BOSS"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.374573, -13.4848 )

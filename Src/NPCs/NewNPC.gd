@@ -5,7 +5,7 @@ export (String, FILE) var dialoguePath: String
 export var npcName: String
 export var npcColor: String
 export (Types.Potraits) var npcPotrait: int
-export (String, FILE) var translationCSVPath: String
+export (String) var Prefix
 
 var loadedDialogue
 
@@ -108,7 +108,7 @@ func loadDialogue() -> void:
 
 func sayBranch(branch: Dictionary) -> void:
 	Events.emit_signal("player_block_movement")
-	var messageKey = "KEY_" + currentBranchID
+	var messageKey = Prefix + "_KEY_" + currentBranchID
 	Events.emit_signal("hud_dialog_show", tr(npcName), npcColor, tr(messageKey), false, npcPotrait)
 	
 	if branch.has("branchID0") or branch.has("branchID1") or branch.has("branchID2"):
@@ -131,7 +131,7 @@ func updateButtons(branch: Dictionary) -> void:
 		if branch.has("branchID%s" % i):
 			# gets the correct key from the csv file "CHOICE_03_0" where 03 is the branch code in json file and 0 is the branch id
 			# 0 is first branch, 1 is second branch and so on
-			var key: String = "CHOICE_%s_%s" % [currentBranchID, i]
+			var key: String = Prefix + "_CHOICE_%s_%s" % [currentBranchID, i]
 			Events.emit_signal("update_dialog_option", i, tr(key))
 
 			
