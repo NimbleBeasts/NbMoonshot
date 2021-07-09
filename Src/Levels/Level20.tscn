@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=2]
@@ -43,6 +43,51 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 32 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "walk"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 992, 56 ), Vector2( 992, 56 ), Vector2( 976.842, 56 ), Vector2( 976.842, 56 ), Vector2( 848, 56 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../LevelObjects/Doors/DialogueDoor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ Vector2( 300, 0 ) ],
+"method": "playDoorAnimation"
+}, {
+"args": [ Vector2( 300, 0 ) ],
+"method": "playDoorAnimation"
+} ]
+}
 
 [node name="Level20" type="Node2D"]
 script = ExtResource( 4 )
@@ -174,6 +219,13 @@ position = Vector2( 720, 128 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
+[node name="DialogueDoor" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
+position = Vector2( 960, 64 )
+lockLevel = 3
+doorType = 2
+showHintIfLocked = true
+hint = "Damn, accidentally locked, and it's too noisy in there - they can't hear me."
+
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 960, 0 )
 lockLevel = 2
@@ -182,13 +234,6 @@ lockLevel = 2
 position = Vector2( 704, 0 )
 lockLevel = 5
 keyPath = NodePath("../../Objects/Key")
-
-[node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
-position = Vector2( 960, 64 )
-lockLevel = 3
-doorType = 2
-showHintIfLocked = true
-hint = "Damn, accidentally locked, and it's too noisy in there - they can't hear me."
 
 [node name="ThinAreaWithDoor" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
 position = Vector2( 824, -56 )
@@ -398,13 +443,20 @@ next_boss_interacted_counter = 6
 nextSecretaryInteractionCounter = 6
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 984, 64 )
+position = Vector2( 1024, 64 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
+[node name="DialogueBlocker" type="StaticBody2D" parent="."]
+position = Vector2( 968, 64 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueBlocker"]
+position = Vector2( 0, -32 )
+shape = SubResource( 3 )
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( -104, 256 )
+position = Vector2( -128, 272 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 152, -32 )
@@ -465,7 +517,10 @@ points = PoolVector2Array( 80, 0, 0, 0 )
 script = ExtResource( 17 )
 
 [node name="Secretary" parent="NPCS" instance=ExtResource( 29 )]
-position = Vector2( 1016, 56 )
+position = Vector2( 992, 56 )
+
+[node name="WalkAnimationPlayer" type="AnimationPlayer" parent="NPCS/Secretary"]
+anims/walk = SubResource( 4 )
 
 [node name="Foreground" type="Node2D" parent="."]
 z_index = 51
@@ -492,9 +547,9 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="NOTES"]
-margin_left = 736.0
+margin_left = 696.0
 margin_top = 16.0
-margin_right = 989.0
+margin_right = 949.0
 margin_bottom = 93.0
 text = "Colleagues celebrating, 
 our agent is on balcony smoking"
@@ -578,3 +633,5 @@ __meta__ = {
 [node name="WireTimer" parent="AdditionalHUD/BombTimer" instance=ExtResource( 19 )]
 position = Vector2( 320, 64 )
 scale = Vector2( 2, 2 )
+
+[connection signal="animation_finished" from="NPCS/Secretary/WalkAnimationPlayer" to="." method="_on_WalkAnimationPlayer_animation_finished"]

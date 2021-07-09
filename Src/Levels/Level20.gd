@@ -8,10 +8,17 @@ func _ready():
 	$NPCS/Secretary.connect("npc_dialogue_finished", self, "dialogue_finished")
 
 
+# Intro functions
 func dialogue_finished():
-	print("fineiss")
+	$DialogueBlocker.position = Vector2(-100,-100)
+	$NPCS/Secretary/WalkAnimationPlayer.play("walk")
+	Events.emit_signal("player_block_movement")
+
+func _on_WalkAnimationPlayer_animation_finished(anim_name):
+	Events.emit_signal("player_unblock_movement")
 	$AdditionalHUD/BombTimer.show()
 	timerStarted = true
+
 
 
 func _physics_process(delta):
@@ -27,4 +34,5 @@ func updateTimer():
 	$AdditionalHUD/BombTimer/WireTimer/dig3.frame = max(0, (timerValue / 1000) % 10)
 
 	
+
 
