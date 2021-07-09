@@ -46,7 +46,7 @@ extents = Vector2( 10, 32 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "walk"
-length = 2.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -54,10 +54,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 2 ),
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4, 2.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 992, 56 ), Vector2( 992, 56 ), Vector2( 976.842, 56 ), Vector2( 976.842, 56 ), Vector2( 848, 56 ) ]
+"values": [ Vector2( 992, 56 ), Vector2( 992, 56 ), Vector2( 976.842, 56 ), Vector2( 976.842, 56 ), Vector2( 728, 56 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:scale")
@@ -547,10 +547,10 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="NOTES"]
-margin_left = 696.0
-margin_top = 16.0
-margin_right = 949.0
-margin_bottom = 93.0
+margin_left = 672.0
+margin_top = -104.0
+margin_right = 925.0
+margin_bottom = -27.0
 text = "Colleagues celebrating, 
 our agent is on balcony smoking"
 __meta__ = {
