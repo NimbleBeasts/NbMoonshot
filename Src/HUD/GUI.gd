@@ -55,6 +55,7 @@ func updateLives(type) -> void:
 		$BottomBar/Life.set_text(str(lives))
 
 		Global.lives = lives
+		$BottomBar/Life/AnimationPlayer.play("flash")
 		
 
 func updateMoney(total, change) -> void:
@@ -64,6 +65,7 @@ func updateMoney(total, change) -> void:
 
 func updateAmmo(value) -> void:
 	$BottomBar/Ammo.set_text(str(value))
+	$BottomBar/Ammo/AnimationPlayer.play("flash")
 
 
 func updateLightLevel(newLightLevel) -> void:

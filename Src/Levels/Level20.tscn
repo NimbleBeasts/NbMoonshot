@@ -173,6 +173,7 @@ position = Vector2( 920, 352 )
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 776, 96 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="BrokenLadder" type="Sprite" parent="LevelObjects/Decorations"]
