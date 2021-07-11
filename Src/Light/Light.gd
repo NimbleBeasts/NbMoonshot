@@ -61,7 +61,7 @@ func updateLight():
 			$Light2D.enabled = true
 		else:
 			$Light2D.hide()
-			$Light2D.enabled = false
+			$Light2D.enabled = true
 
 
 func toggleState() -> void:
@@ -84,6 +84,7 @@ func deactivate() -> void:
 	isActive = false
 
 
+
 func activate() -> void:
 	$Light2D.show()
 	$Light2D.enabled = true
@@ -92,3 +93,4 @@ func activate() -> void:
 	if flicker:
 		$Timer.start()
 	isActive = true
+
