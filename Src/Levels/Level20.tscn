@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=2]
@@ -71,6 +71,7 @@
 [ext_resource path="res://Assets/Objects/Laboratory/Chest2.png" type="Texture" id=69]
 [ext_resource path="res://Assets/Objects/Laboratory/Board.png" type="Texture" id=70]
 [ext_resource path="res://Assets/Objects/StaircaseRoomOutside64x48.png" type="Texture" id=71]
+[ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutSpawner.gd" type="Script" id=72]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 200, 8 )
@@ -114,6 +115,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 1 ]
 }
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 23, 14 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10, 32 )
@@ -247,7 +251,6 @@ tile_data = PoolIntArray( -655310, 27, 0, -655236, 27, 0, -589774, 27, 0, -58970
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 776, 96 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Room" type="Sprite" parent="LevelObjects/Decorations/Bed"]
@@ -759,6 +762,14 @@ autoplay = "idle"
 anims/idle = SubResource( 3 )
 anims/off = SubResource( 4 )
 
+[node name="WireCutSpawner" type="Area2D" parent="LevelObjects/Objects/TNT"]
+position = Vector2( 25, 18 )
+script = ExtResource( 72 )
+isBomb = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/TNT/WireCutSpawner"]
+shape = SubResource( 7 )
+
 [node name="Key" parent="LevelObjects/Objects" instance=ExtResource( 9 )]
 position = Vector2( 848, -24 )
 keyColor = 1
@@ -1078,7 +1089,7 @@ next_boss_interacted_counter = 6
 nextSecretaryInteractionCounter = 6
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1024, 64 )
+position = Vector2( 904, 352 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]

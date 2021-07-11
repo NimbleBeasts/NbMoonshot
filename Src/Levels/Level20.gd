@@ -2,11 +2,14 @@ extends "res://Src/Levels/BaseLevel.gd"
 
 var timerStarted = false
 var time = 60.0
+var bombDefused = false
 
 func _ready():
 	$AdditionalHUD/BombTimer.hide()
 	$NPCS/Secretary.connect("npc_dialogue_finished", self, "dialogue_finished")
 
+	$LevelObjects/Objects/TNT/WireCutSpawner.connect("minigame_succeeded", self, "wireCutSuccess")
+	
 
 # Intro functions
 func dialogue_finished():
@@ -24,7 +27,22 @@ func _on_WalkAnimationPlayer_animation_finished(anim_name):
 func _physics_process(delta):
 	if timerStarted:
 		time -= delta
+		
+		if time <= 0:
+			time = 0
+			timerStarted = false
+			bombExplode()
+		
 		updateTimer()
+		$LevelObjects/Objects/TNT/WireCutSpawner.countdownTime = time
+		
+
+func bombExplode():
+	print("boom")
+
+func wireCutSuccess():
+	timerStarted = false
+	bombDefused = true
 
 func updateTimer():
 	var timerValue = int(time * 100)

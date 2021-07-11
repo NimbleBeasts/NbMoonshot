@@ -1,0 +1,206 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutMinigame.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Minigames/WireCutBackgroundTnt.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Minigames/WireCutColorCables.png" type="Texture" id=3]
+[ext_resource path="res://Src/Minigames/WireCutMinigame/Wire.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Src/Minigames/WireCutMinigame/WireTimer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Minigames/WireCutScissors.png" type="Texture" id=8]
+[ext_resource path="res://Assets/SFX/wirecut.wav" type="AudioStream" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 184, 24 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 184, 0, 184, 24 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "cut",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 90.3279, 5.08825 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 736, 0, 184, 24 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 920, 0, 184, 24 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "cut",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 368, 0, 184, 24 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 552, 0, 184, 24 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ) ],
+"loop": true,
+"name": "cut",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 1104, 0, 184, 24 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 3 )
+region = Rect2( 1288, 0, 184, 24 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "cut",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 8.16838, 8.18362 )
+
+[node name="WireCutMinigame2" type="Node2D"]
+script = ExtResource( 1 )
+minigame_type = 2
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 3 )
+texture = ExtResource( 2 )
+
+[node name="WireCut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "Sound"
+
+[node name="Wires" type="Node2D" parent="."]
+position = Vector2( 2, 53 )
+
+[node name="RedWire" type="Area2D" parent="Wires"]
+position = Vector2( -2, -60 )
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Wires/RedWire"]
+frames = SubResource( 3 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wires/RedWire"]
+position = Vector2( -0.44545, -0.44545 )
+shape = SubResource( 4 )
+
+[node name="BlueWire" type="Area2D" parent="Wires"]
+position = Vector2( -2, -30 )
+script = ExtResource( 4 )
+color_type = 3
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Wires/BlueWire"]
+frames = SubResource( 7 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wires/BlueWire"]
+shape = SubResource( 4 )
+
+[node name="GreenWire" type="Area2D" parent="Wires"]
+position = Vector2( -2, -2 )
+script = ExtResource( 4 )
+color_type = 2
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Wires/GreenWire"]
+frames = SubResource( 10 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wires/GreenWire"]
+shape = SubResource( 4 )
+
+[node name="PurpleWire" type="Area2D" parent="Wires"]
+position = Vector2( -2, 24 )
+script = ExtResource( 4 )
+color_type = 1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Wires/PurpleWire"]
+frames = SubResource( 13 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wires/PurpleWire"]
+shape = SubResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Plier" type="Area2D" parent="." groups=[
+"Plier",
+]]
+position = Vector2( 0, 60 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plier"]
+shape = SubResource( 14 )
+
+[node name="Scissors" type="Sprite" parent="Plier"]
+texture = ExtResource( 8 )
+
+[node name="Labels" type="Control" parent="."]
+margin_top = 60.0
+margin_right = 40.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="Labels"]
+margin_left = -56.0
+margin_top = -138.0
+margin_right = 74.0
+margin_bottom = -92.0
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+bbcode_text = "Disable: Cut the PURPLE and BLUE wires"
+text = "Disable: Cut the PURPLE and BLUE wires"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WireTimer" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[connection signal="wire_cut" from="Wires/RedWire" to="." method="_on_wire_cut"]
+[connection signal="wire_cut" from="Wires/BlueWire" to="." method="_on_wire_cut"]
+[connection signal="wire_cut" from="Wires/GreenWire" to="." method="_on_wire_cut"]
+[connection signal="wire_cut" from="Wires/PurpleWire" to="." method="_on_wire_cut"]

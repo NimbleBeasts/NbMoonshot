@@ -4,6 +4,7 @@ class_name WireCutSpawner
 var wire_cuts: Array = []
 var enums = [Types.WireColors.Red, Types.WireColors.Blue, Types.WireColors.Green, Types.WireColors.Purple]
 export var countdownTime: int = 12
+export var isBomb: bool = false
 
 func _ready() -> void:
 	randomize()
@@ -17,7 +18,12 @@ func _ready() -> void:
 		thing += 1
 
 func create_minigame() -> Minigame:
-	var minigame_instance: Minigame = load("res://Src/Minigames/WireCutMinigame/WireCutMinigame.tscn").instance()
+	var minigame_instance: Minigame
+	if isBomb:
+		minigame_instance = load("res://Src/Minigames/WireCutMinigame/WireCutMinigame2.tscn").instance()
+	else:
+		minigame_instance = load("res://Src/Minigames/WireCutMinigame/WireCutMinigame.tscn").instance()
+
 	minigame_instance.goal_cuts = wire_cuts
 	minigame_instance.countdown = countdownTime
 	game_manager.levelNode.get_node(minigameHolder).add_child(minigame_instance)
