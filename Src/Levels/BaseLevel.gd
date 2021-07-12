@@ -18,6 +18,8 @@ var allowed_detections: int
 #warning-ignore:unused_class_variable 
 var gainedMoney: int #- used by extractionzone for adding moneys
 
+var hud = null
+
 func can_change_level():
 	if level_objectives:
 		if level_objectives.has_method("getProgessState"):
@@ -35,7 +37,7 @@ func can_change_level():
 
 func _ready():
 	Global.returnedFromSabotageMission = false
-	var hud = preload("res://Src/HUD/HUD.tscn").instance()
+	hud = preload("res://Src/HUD/HUD.tscn").instance()
 	self.add_child(hud)
 	
 	# Level Music 

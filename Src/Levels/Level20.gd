@@ -9,7 +9,7 @@ func _ready():
 	$NPCS/Secretary.connect("npc_dialogue_finished", self, "dialogue_finished")
 
 	$LevelObjects/Objects/TNT/WireCutSpawner.connect("minigame_succeeded", self, "wireCutSuccess")
-	
+
 
 # Intro functions
 func dialogue_finished():
@@ -57,6 +57,7 @@ func _on_ExitArea_body_entered(body):
 
 
 func missionEnd(type):
+	$AdditionalHUD.layer = 21 # Draw over HUD
 	Events.emit_signal("player_block_movement")
 	if type == Types.MissionEnd.Timeout:
 		$AdditionalHUD/Overlay/Explosion.show()
@@ -67,4 +68,22 @@ func missionEnd(type):
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	get_tree().paused = true
+	if anim_name == "fade":
+		
+		if bombDefused:
+			$AdditionalHUD/Overlay/Outro/FlyByText.bbcode_text = "[center]" + tr("OUTRO_DEFUSED") + "[/center]"
+		else:
+			$AdditionalHUD/Overlay/Outro/FlyByText.bbcode_text = "[center]" + tr("OUTRO_ESCAPED") + "[/center]"
+		
+		$AdditionalHUD/Overlay/Outro.show()
+		$AdditionalHUD/Overlay/Outro/FlyByText/FlyByAnimationPlayer.play("flyby")
+		get_tree().paused = true
+
+
+func _on_FlyByAnimationPlayer_animation_finished(anim_name):
+	$AdditionalHUD/Overlay/Outro/ButtonQuit.show()
+
+
+func _on_ButtonQuit_button_up():
+	Events.emit_signal("menu_back")
+	Global.newGameState()

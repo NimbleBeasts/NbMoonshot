@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=2]
@@ -73,6 +73,10 @@
 [ext_resource path="res://Assets/Objects/StaircaseRoomOutside64x48.png" type="Texture" id=71]
 [ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutSpawner.gd" type="Script" id=72]
 [ext_resource path="res://Assets/SFX/sfx_explosion.wav" type="AudioStream" id=73]
+[ext_resource path="res://Assets/Outro/Stars.png" type="Texture" id=74]
+[ext_resource path="res://Assets/Outro/moon.png" type="Texture" id=75]
+[ext_resource path="res://Assets/Fonts/MagoFont3_32_flyby.tres" type="DynamicFont" id=76]
+[ext_resource path="res://Src/BaseButton/BaseButton.tscn" type="PackedScene" id=77]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 200, 8 )
@@ -214,6 +218,40 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
+[sub_resource type="Animation" id=11]
+resource_name = "idle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "flyby"
+length = 60.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 368 ), Vector2( 192, -1200 ) ]
+}
+
 [node name="Level20" type="Node2D"]
 script = ExtResource( 4 )
 __meta__ = {
@@ -299,6 +337,7 @@ tile_data = PoolIntArray( -655310, 27, 0, -655236, 27, 0, -589774, 27, 0, -58970
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 776, 96 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Room" type="Sprite" parent="LevelObjects/Decorations/Bed"]
@@ -1143,7 +1182,7 @@ position = Vector2( 32, -24 )
 shape = SubResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 904, 352 )
+position = Vector2( 1024, 64 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -1265,11 +1304,13 @@ format = 1
 tile_data = PoolIntArray( -655310, 45, 0, -655308, 46, 0, -655307, 46, 0, -655305, 46, 0, -655303, 46, 0, -655301, 46, 0, -655299, 46, 0, -655297, 46, 0, -655295, 46, 0, -655293, 46, 0, -655291, 46, 0, -655289, 46, 0, -655287, 46, 0, -655285, 46, 0, -655283, 46, 0, -655281, 46, 0, -655279, 46, 0, -655277, 46, 0, -655275, 46, 0, -655273, 46, 0, -655271, 46, 0, -655269, 46, 0, -655267, 46, 0, -655265, 46, 0, -655263, 46, 0, -655261, 46, 0, -655259, 46, 0, -655257, 46, 0, -655255, 46, 0, -655253, 46, 0, -655251, 46, 0, -655249, 46, 0, -655247, 46, 0, -655245, 46, 0, -655243, 46, 0, -655241, 46, 0, -655239, 46, 0, -655237, 47, 0, -130951, 46, 0, -130949, 46, 0, -130947, 46, 0, -130945, 46, 0, -130943, 47, 0, 393337, 46, 0, 393339, 46, 0, 393341, 46, 0, 393343, 46, 0, 393345, 47, 0, 917625, 46, 0, 917627, 46, 0, 917629, 46, 0, 917631, 46, 0, 917633, 47, 0, 1441913, 46, 0, 1441915, 46, 0, 1441917, 46, 0, 1441919, 46, 0, 1441921, 47, 0 )
 
 [node name="AdditionalHUD" type="CanvasLayer" parent="."]
+layer = 19
 
 [node name="Overlay" type="Control" parent="AdditionalHUD"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -1283,6 +1324,7 @@ scale = Vector2( 2, 2 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1300,6 +1342,7 @@ bus = "Sound"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1308,7 +1351,76 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AdditionalHUD/Overlay/BlackOut"]
 anims/fade = SubResource( 10 )
 
+[node name="Outro" type="Sprite" parent="AdditionalHUD/Overlay"]
+visible = false
+texture = ExtResource( 74 )
+centered = false
+hframes = 3
+frame = 1
+
+[node name="Moon" type="Sprite" parent="AdditionalHUD/Overlay/Outro"]
+texture = ExtResource( 75 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AdditionalHUD/Overlay/Outro"]
+autoplay = "idle"
+anims/idle = SubResource( 11 )
+
+[node name="FlyByText" type="RichTextLabel" parent="AdditionalHUD/Overlay/Outro"]
+margin_left = 192.0
+margin_top = 368.0
+margin_right = 456.0
+margin_bottom = 1840.0
+custom_fonts/normal_font = ExtResource( 76 )
+custom_colors/default_color = Color( 1, 0.678431, 0.231373, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]A long time ago in a country far, far away....
+
+A dictator had set himself the goal of bringing his small, insignificant nation to prominence.
+
+The Moon Race offered him the best opportunity to do so.
+
+Thanks to the great achievements of Ustria's engineers and researchers, they were not only able to keep up with the race, but even win it.
+
+As a result, Ustria rose to become a major power.
+
+Shortly after the start, a tragic accident during a celebration resulted in the death of high-ranking military personnel. 
+
+The only survivor fled to the USA, where he still writes books about conspiracy theories.
+[/center]"
+text = "A long time ago in a country far, far away....
+
+A dictator had set himself the goal of bringing his small, insignificant nation to prominence.
+
+The Moon Race offered him the best opportunity to do so.
+
+Through sabotage and espionage, Ustria managed to catch up with and overtake the Soviets and the USA within a short time.
+
+Shortly after the launch of the moon landing, all those involved in the secret service were to be wiped out.
+
+However, one agent managed to defuse the bomb in time.
+
+Many fled to the USA and uncovered the plot.
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlyByAnimationPlayer" type="AnimationPlayer" parent="AdditionalHUD/Overlay/Outro/FlyByText"]
+anims/flyby = SubResource( 12 )
+
+[node name="ButtonQuit" parent="AdditionalHUD/Overlay/Outro" instance=ExtResource( 77 )]
+pause_mode = 2
+visible = false
+margin_left = 256.0
+margin_top = 296.0
+margin_right = 384.0
+margin_bottom = 320.0
+text = "INGAME_QUIT"
+
 [connection signal="body_entered" from="LevelObjects/ExtractionZone/ExitArea" to="." method="_on_ExitArea_body_entered"]
 [connection signal="animation_finished" from="NPCS/Secretary/WalkAnimationPlayer" to="." method="_on_WalkAnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="AdditionalHUD/Overlay/Explosion/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="AdditionalHUD/Overlay/BlackOut/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AdditionalHUD/Overlay/Outro/FlyByText/FlyByAnimationPlayer" to="." method="_on_FlyByAnimationPlayer_animation_finished"]
+[connection signal="button_up" from="AdditionalHUD/Overlay/Outro/ButtonQuit" to="." method="_on_ButtonQuit_button_up"]

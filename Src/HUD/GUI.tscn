@@ -74,6 +74,7 @@ tracks/0/keys = {
 }
 
 [node name="GUI" type="Control"]
+pause_mode = 1
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
