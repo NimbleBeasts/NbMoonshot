@@ -1221,7 +1221,7 @@ script = ExtResource( 17 )
 position = Vector2( 736, 184 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard6"]
-points = PoolVector2Array( 130, 0, 0, 0 )
+points = PoolVector2Array( 150, 0, 0, 0 )
 script = ExtResource( 17 )
 
 [node name="Guard3" parent="NPCS" instance=ExtResource( 15 )]
