@@ -1187,7 +1187,7 @@ z_index = 50
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
 [node name="DialogueBlocker" type="StaticBody2D" parent="."]
-position = Vector2( 968, 64 )
+position = Vector2( 975, 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueBlocker"]
 position = Vector2( 0, -32 )
@@ -1316,6 +1316,7 @@ __meta__ = {
 }
 
 [node name="BombTimer" parent="AdditionalHUD/Overlay" instance=ExtResource( 19 )]
+visible = false
 position = Vector2( 320, 64 )
 scale = Vector2( 2, 2 )
 
@@ -1393,13 +1394,13 @@ A dictator had set himself the goal of bringing his small, insignificant nation 
 
 The Moon Race offered him the best opportunity to do so.
 
-Through sabotage and espionage, Ustria managed to catch up with and overtake the Soviets and the USA within a short time.
+Thanks to the great achievements of Ustria's engineers and researchers, they were not only able to keep up with the race, but even win it.
 
-Shortly after the launch of the moon landing, all those involved in the secret service were to be wiped out.
+As a result, Ustria rose to become a major power.
 
-However, one agent managed to defuse the bomb in time.
+Shortly after the start, a tragic accident during a celebration resulted in the death of high-ranking military personnel. 
 
-Many fled to the USA and uncovered the plot.
+The only survivor fled to the USA, where he still writes books about conspiracy theories.
 "
 __meta__ = {
 "_edit_use_anchors_": false

@@ -19,7 +19,7 @@ func dialogue_finished():
 
 func _on_WalkAnimationPlayer_animation_finished(anim_name):
 	Events.emit_signal("player_unblock_movement")
-	$AdditionalHUD/BombTimer.show()
+	$AdditionalHUD/Overlay/BombTimer.show()
 	timerStarted = true
 
 

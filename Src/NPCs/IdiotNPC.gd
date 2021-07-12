@@ -5,5 +5,7 @@ extends Sprite
 
 func _ready():
 	#Random bobbing
-	yield(get_tree().create_timer(randf()), "timeout")
+	randomize()
+
+	yield(get_tree().create_timer(randf()*2.0), "timeout")
 	$AnimationPlayer.play("idle")
