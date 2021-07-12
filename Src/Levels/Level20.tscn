@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=2]
@@ -72,6 +72,7 @@
 [ext_resource path="res://Assets/Objects/Laboratory/Board.png" type="Texture" id=70]
 [ext_resource path="res://Assets/Objects/StaircaseRoomOutside64x48.png" type="Texture" id=71]
 [ext_resource path="res://Src/Minigames/WireCutMinigame/WireCutSpawner.gd" type="Script" id=72]
+[ext_resource path="res://Assets/SFX/sfx_explosion.wav" type="AudioStream" id=73]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 200, 8 )
@@ -116,13 +117,16 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 23, 14 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10, 24 )
+
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 10, 32 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 length = 2.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -164,6 +168,50 @@ tracks/2/keys = {
 "args": [ Vector2( 300, 0 ) ],
 "method": "playDoorAnimation"
 } ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "explosion"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bomb:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [node name="Level20" type="Node2D"]
@@ -768,7 +816,7 @@ script = ExtResource( 72 )
 isBomb = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/TNT/WireCutSpawner"]
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="Key" parent="LevelObjects/Objects" instance=ExtResource( 9 )]
 position = Vector2( 848, -24 )
@@ -1084,9 +1132,15 @@ flicker = true
 flickerSequence = "1000000"
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 2 )]
-position = Vector2( 280, 256 )
+position = Vector2( 264, 256 )
 next_boss_interacted_counter = 6
 nextSecretaryInteractionCounter = 6
+
+[node name="ExitArea" type="Area2D" parent="LevelObjects/ExtractionZone"]
+position = Vector2( 32, -24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ExtractionZone/ExitArea"]
+shape = SubResource( 6 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 904, 352 )
@@ -1099,14 +1153,14 @@ position = Vector2( 968, 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueBlocker"]
 position = Vector2( 0, -32 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -128, 272 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 360, -32 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="NPCS" type="Node2D" parent="."]
 position = Vector2( 0, 8 )
@@ -1166,7 +1220,7 @@ script = ExtResource( 17 )
 position = Vector2( 992, 56 )
 
 [node name="WalkAnimationPlayer" type="AnimationPlayer" parent="NPCS/Secretary"]
-anims/walk = SubResource( 6 )
+anims/walk = SubResource( 8 )
 
 [node name="IdiotNPC" parent="NPCS" instance=ExtResource( 30 )]
 position = Vector2( 912, 24 )
@@ -1212,7 +1266,8 @@ tile_data = PoolIntArray( -655310, 45, 0, -655308, 46, 0, -655307, 46, 0, -65530
 
 [node name="AdditionalHUD" type="CanvasLayer" parent="."]
 
-[node name="BombTimer" type="Control" parent="AdditionalHUD"]
+[node name="Overlay" type="Control" parent="AdditionalHUD"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -1220,8 +1275,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WireTimer" parent="AdditionalHUD/BombTimer" instance=ExtResource( 19 )]
+[node name="BombTimer" parent="AdditionalHUD/Overlay" instance=ExtResource( 19 )]
 position = Vector2( 320, 64 )
 scale = Vector2( 2, 2 )
 
+[node name="Explosion" type="ColorRect" parent="AdditionalHUD/Overlay"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AdditionalHUD/Overlay/Explosion"]
+anims/explosion = SubResource( 9 )
+
+[node name="Bomb" type="AudioStreamPlayer2D" parent="AdditionalHUD/Overlay/Explosion"]
+stream = ExtResource( 73 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="BlackOut" type="ColorRect" parent="AdditionalHUD/Overlay"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AdditionalHUD/Overlay/BlackOut"]
+anims/fade = SubResource( 10 )
+
+[connection signal="body_entered" from="LevelObjects/ExtractionZone/ExitArea" to="." method="_on_ExitArea_body_entered"]
 [connection signal="animation_finished" from="NPCS/Secretary/WalkAnimationPlayer" to="." method="_on_WalkAnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AdditionalHUD/Overlay/Explosion/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AdditionalHUD/Overlay/BlackOut/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
