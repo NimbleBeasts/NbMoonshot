@@ -1,10 +1,12 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Staircase/Staircase.tscn" type="PackedScene" id=10]
@@ -103,9 +105,6 @@ __meta__ = {
 [node name="Light" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( 216, 200 )
 
-[node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
-position = Vector2( -105, 212 )
-
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
 position = Vector2( -625, 72 )
 
@@ -148,10 +147,6 @@ hasBounty = true
 position = Vector2( -274, 240 )
 unlocks = [ NodePath("../Lights/TestLight") ]
 
-[node name="Camera" parent="LevelObjects" instance=ExtResource( 39 )]
-position = Vector2( -166, 200 )
-isFixedCam = true
-
 [node name="TestJuke" type="Sprite" parent="."]
 position = Vector2( -656, 176 )
 texture = ExtResource( 31 )
@@ -173,7 +168,7 @@ position = Vector2( 76, -104 )
 isFixedCam = true
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( -304, 256 )
+position = Vector2( -264, 255 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -195,16 +190,30 @@ position = Vector2( 60, 2 )
 shape = SubResource( 2 )
 
 [node name="Dog" parent="Roof" instance=ExtResource( 4 )]
-position = Vector2( 221, 120 )
+position = Vector2( 370, 119 )
 
 [node name="PathLine" type="Line2D" parent="Roof/Dog"]
 points = PoolVector2Array( 0, -6 )
 script = ExtResource( 30 )
 
 [node name="DoorWall" parent="Roof" instance=ExtResource( 8 )]
-position = Vector2( 236, 120 )
+position = Vector2( 269, 122 )
 lockLevel = 2
 doorType = 1
+
+[node name="EliteGuard" parent="Roof" instance=ExtResource( 5 )]
+position = Vector2( 247, 120 )
+
+[node name="PathLine" type="Line2D" parent="Roof/EliteGuard"]
+points = PoolVector2Array( 0, -10 )
+script = ExtResource( 30 )
+
+[node name="Guard" parent="Roof" instance=ExtResource( 7 )]
+position = Vector2( 390, 120 )
+
+[node name="PathLine" type="Line2D" parent="Roof/Guard"]
+points = PoolVector2Array( 2, -13 )
+script = ExtResource( 30 )
 
 [node name="DoorWall2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -297, 328 )
@@ -214,9 +223,6 @@ position = Vector2( -119, 327 )
 
 [node name="DoorWall4" parent="." instance=ExtResource( 8 )]
 position = Vector2( -80, 328 )
-
-[node name="DoorWall8" parent="." instance=ExtResource( 8 )]
-position = Vector2( -152, 256 )
 
 [node name="DoorWall9" parent="." instance=ExtResource( 8 )]
 position = Vector2( -80, 256 )

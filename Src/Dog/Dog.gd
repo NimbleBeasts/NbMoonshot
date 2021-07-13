@@ -160,6 +160,7 @@ func stateDetectionEnter() -> void:
 	animPlayer.play("alarm")
 	Global.startTimerOnce($BarkTimer)
 	playRandomSound($Sounds/Bark, dogBarkSounds)
+	Events.emit_signal("audio_level_changed", Types.AudioLevels.LoudNoise, player.global_position, self)
 
 
 func stateEatingEnter() -> void:
@@ -260,5 +261,5 @@ func detectPlayerIfClose() -> void:
 
 func playRandomSound(audioPlayer, array: Array) -> void:
 	randomize()
-	#audioPlayer.stream = array[randi() % array.size()]
-	#audioPlayer.play()
+	audioPlayer.stream = load(array[randi() % array.size()])
+	audioPlayer.play()

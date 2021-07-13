@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Guards/Dog.png" type="Texture" id=1]
 [ext_resource path="res://Src/Dog/Dog.gd" type="Script" id=2]
 [ext_resource path="res://Src/Notifier/Notifier.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/SFX/growl.wav" type="AudioStream" id=4]
+[ext_resource path="res://Assets/SFX/bark1.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25, 10 )
@@ -174,6 +175,8 @@ collision_layer = 112
 collision_mask = 0
 script = ExtResource( 2 )
 audioSuspectDistance = 100
+playerSuspectDistance = 64
+playerDetectDistance = 32
 
 [node name="Flippable" type="Node2D" parent="."]
 
@@ -235,5 +238,6 @@ attenuation = 2.0
 bus = "Sound"
 
 [node name="Bark" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource( 5 )
 attenuation = 2.0
 bus = "Sound"
