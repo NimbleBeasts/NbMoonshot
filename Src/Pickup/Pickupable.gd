@@ -53,6 +53,7 @@ func pickup() -> void:
 		Events.emit_signal("hud_game_hint", tr("PICKUP_UP") + " " + tr(pickupName))
 	
 func drop() -> void:
+	target = Vector2(0, 0)
 	setPickedUp(false)
 	$Sprite.material.set_shader_param("active", true)
 	if showGameHints:
