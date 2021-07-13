@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Luna_missions.ogg-5a8ec305b1ecfb7b3efdb53effbec8d1.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/Luna_missions.ogg"
+dest_files=[ "res://.import/Luna_missions.ogg-5a8ec305b1ecfb7b3efdb53effbec8d1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

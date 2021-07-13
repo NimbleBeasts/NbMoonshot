@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/atlas_9_full.ogg-5a75c2d969cc08b673c0e04e656c0a8a.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/atlas_9_full.ogg"
+dest_files=[ "res://.import/atlas_9_full.ogg-5a75c2d969cc08b673c0e04e656c0a8a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

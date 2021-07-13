@@ -66,6 +66,7 @@ __meta__ = {
 "
 }
 level_nation_type = 1
+level_music = 15
 level_objectives = NodePath("../Level10-USSRArchive/LevelObjects/Interactables/PhotoMinigameSpawner")
 
 [node name="SpriteWalls" type="Node2D" parent="."]

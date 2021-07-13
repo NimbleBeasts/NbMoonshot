@@ -70,6 +70,7 @@ __meta__ = {
 }
 level_lightning = 2
 level_nation_type = 1
+level_music = 15
 level_objectives = NodePath("../Level16/NPCS/Civillian")
 playCarCloseSound = false
 

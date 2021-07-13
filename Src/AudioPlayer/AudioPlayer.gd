@@ -14,6 +14,14 @@ var music = [
 	load("res://Assets/Music/russia_win_full.ogg"), #	russia_win
 	load("res://Assets/Music/title_full_.ogg"), # titleFull
 	load("res://Assets/Music/bank_full_.ogg"), #bank
+	load("res://Assets/Music/bro_full.ogg"), #bro
+	load("res://Assets/Music/affaire2_full.ogg"), #affaire
+	load("res://Assets/Music/ustria_win_escape_.ogg"), #ustria_win
+	load("res://Assets/Music/Luna_missions.ogg"), #luna
+	load("res://Assets/Music/listening_device_full.ogg"), #listening
+	load("res://Assets/Music/apollo_full.ogg"), #apollo
+	load("res://Assets/Music/Apollo_1_full.ogg"), #apollo 1
+	load("res://Assets/Music/atlas_9_full.ogg"), #atlas9
 ]
 
 onready var musicPlayer: AudioStreamPlayer = $Music

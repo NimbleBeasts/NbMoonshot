@@ -23,6 +23,14 @@ enum MusicType {
 	russia_win,
 	titleFull,
 	bank,
+	bro,
+	affaire,
+	austriawin,
+	luna,
+	listening,
+	apollo,
+	apollo1,
+	atlas9
 }
 
 

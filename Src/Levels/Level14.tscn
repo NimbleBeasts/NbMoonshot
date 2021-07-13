@@ -73,6 +73,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Affaire 2: Your boss wants you to infiltrate the affaires house, taser him and bring the body to the car."
 }
+level_music = 18
 level_objectives = NodePath(".")
 
 [node name="NewSkybox" parent="." instance=ExtResource( 4 )]

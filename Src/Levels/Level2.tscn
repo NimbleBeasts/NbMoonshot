@@ -64,6 +64,7 @@ __meta__ = {
 "_editor_description_": "Some thinfloors need to be replaced with the new ladder"
 }
 level_nation_type = 1
+level_music = 8
 level_objectives = NodePath("LevelObjects/TargetCabinet")
 playCarCloseSound = false
 
@@ -447,7 +448,7 @@ position = Vector2( 540, 200 )
 position = Vector2( 308, 200 )
 
 [node name="Light3" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
-position = Vector2 ( 700, 200 )
+position = Vector2( 700, 200 )
 
 [node name="Light4" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 700, 136 )

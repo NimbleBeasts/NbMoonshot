@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ustria_win_escape_.ogg-5bc9704414c55b8b3deda861615ff227.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/ustria_win_escape_.ogg"
+dest_files=[ "res://.import/ustria_win_escape_.ogg-5bc9704414c55b8b3deda861615ff227.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

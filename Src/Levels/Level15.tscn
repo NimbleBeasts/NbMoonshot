@@ -25,16 +25,16 @@
 [ext_resource path="res://Src/Door/DoorWallToogleOnly.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=46]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 568.453, 8 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 112, 8 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 550, 200 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 32 )
 
 [node name="Level15" type="Node2D"]
@@ -44,6 +44,7 @@ __meta__ = {
 }
 level_lightning = 2
 level_nation_type = 1
+level_music = 16
 playCarCloseSound = false
 
 [node name="NewSkybox" parent="." instance=ExtResource( 4 )]
@@ -56,14 +57,14 @@ position = Vector2( 48, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Right"]
 position = Vector2( 32, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Left" type="StaticBody2D" parent="Ground"]
 position = Vector2( -624, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/Left"]
 position = Vector2( 32, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="SpriteWalls" type="Node2D" parent="."]
 
@@ -333,7 +334,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/OverlayVentilation/PlayerDetector"]
 position = Vector2( 528, 200 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
 position = Vector2( 336, 336 )
@@ -346,7 +347,7 @@ position = Vector2( -104, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 152, -32 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="NPCS" type="Node2D" parent="."]
 

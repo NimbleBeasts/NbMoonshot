@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/affaire2_full.ogg-6fb07e9ca2bf3665274c9da31889318a.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/affaire2_full.ogg"
+dest_files=[ "res://.import/affaire2_full.ogg-6fb07e9ca2bf3665274c9da31889318a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
