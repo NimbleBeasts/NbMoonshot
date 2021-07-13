@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/Skyboxes/UstriaSkybox_BG.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Skyboxes/CityRedish_BG.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Skyboxes/UstriaSkybox_L3.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Skyboxes/UstriaSkybox_L1.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Skyboxes/Ground.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Skyboxes/UstriaSkybox_L2.png" type="Texture" id=5]
-[ext_resource path="res://Src/Skybox/NewSkybox.gd" type="Script" id=6]
+[ext_resource path="res://Src/Skybox/ForestSkybox.gd" type="Script" id=6]
 [ext_resource path="res://Assets/EmptyWindow.png" type="Texture" id=7]
 [ext_resource path="res://Shaders/Blur.shader" type="Shader" id=8]
 
@@ -13,7 +13,7 @@
 shader = ExtResource( 8 )
 shader_param/blur_amount = null
 
-[node name="NewSkybox" type="Node2D"]
+[node name="ForestSkybox" type="Node2D"]
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
