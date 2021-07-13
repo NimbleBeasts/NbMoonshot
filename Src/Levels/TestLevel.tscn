@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Src/Pickup/BoxPickup.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
 [ext_resource path="res://Src/ThinArea/Ladder.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=29]
@@ -202,8 +201,10 @@ position = Vector2( 221, 120 )
 points = PoolVector2Array( 0, -6 )
 script = ExtResource( 30 )
 
-[node name="Closet" parent="Roof" instance=ExtResource( 23 )]
+[node name="DoorWall" parent="Roof" instance=ExtResource( 8 )]
 position = Vector2( 236, 120 )
+lockLevel = 2
+doorType = 1
 
 [node name="DoorWall2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -297, 328 )

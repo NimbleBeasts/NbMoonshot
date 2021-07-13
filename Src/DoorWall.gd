@@ -106,7 +106,8 @@ func interact(run_sub, openerPos: Vector2):
 			if doorType == DoorType.wooden:
 				$LockpickSmallMinigameSpawner.run_minigame(self, 2, true)
 			else:
-				$LightMinigameSpawner.run_minigame(self, 1, true)
+				$SimonSays.run_minigame(self)
+				#$LightMinigameSpawner.run_minigame(self, 1, true)
 			return
 		Types.DoorLockType.buttonLocked:
 			if doorLockStateLocked:

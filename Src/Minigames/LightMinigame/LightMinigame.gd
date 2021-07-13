@@ -5,7 +5,7 @@ export var active_color:Color = Color.red
 
 export var targetInstance
 export var difficulty:int
-export var run_anim:bool
+export(bool) var run_anim:bool
 
 onready var btn_parrent = $GridContainer
 onready var timer_slider = $Timer/TimerSlider
