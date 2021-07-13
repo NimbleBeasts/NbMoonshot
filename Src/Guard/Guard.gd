@@ -198,14 +198,15 @@ func stun(duration: float) -> void:
 
 
 func unstun() -> void:
-	isStunned = false
-	$AnimationPlayer.play("stand_up")
-	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
-	$Notifier.remove()
-	set_process(true)
-#	set_physics_process(true)
-	processAI = true
-	isSleeping = false
+	return
+#	isStunned = false
+#	$AnimationPlayer.play("stand_up")
+#	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", false)
+#	$Notifier.remove()
+#	set_process(true)
+##	set_physics_process(true)
+#	processAI = true
+#	isSleeping = false
 
 	
 func playerDetectLOS() -> void:

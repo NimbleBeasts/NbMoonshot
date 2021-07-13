@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=9]
@@ -192,6 +193,10 @@ position = Vector2( -556, 136 )
 position = Vector2( 60, 2 )
 shape = SubResource( 2 )
 
+[node name="Guard" parent="Roof" instance=ExtResource( 4 )]
+position = Vector2( 221, 119 )
+startingDirection = 1
+
 [node name="DoorWall2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -297, 328 )
 
@@ -211,7 +216,7 @@ position = Vector2( -80, 256 )
 position = Vector2( -392, 256 )
 
 [node name="BoxPickup" parent="." instance=ExtResource( 15 )]
-position = Vector2( -333, 243 )
+position = Vector2( -432, 246 )
 
 [node name="BoxPickup2" parent="." instance=ExtResource( 15 )]
 position = Vector2( -352, 256 )
