@@ -339,6 +339,7 @@ centered = false
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 22 )]
 position = Vector2( 540, 300 )
+frame = 1
 
 [node name="Sprite2" type="Sprite" parent="LevelObjects/Decorations/ControlRoom"]
 position = Vector2( 47, -4 )
@@ -369,7 +370,7 @@ position = Vector2( 304, 192 )
 type = 2
 
 [node name="Cabinet5" parent="LevelObjects/Objects" instance=ExtResource( 9 )]
-position = Vector2( 1032, 256 )
+position = Vector2( 1022, 256 )
 type = 2
 hasBounty = true
 
@@ -617,7 +618,6 @@ position = Vector2( 48, 24 )
 shape = SubResource( 3 )
 
 [node name="OverlayBasement" type="ColorRect" parent="."]
-visible = false
 light_mask = 12
 margin_left = 440.0
 margin_top = 264.0
