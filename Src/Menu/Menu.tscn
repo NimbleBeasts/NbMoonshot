@@ -160,9 +160,10 @@ margin_bottom = 8.0
 text = "Load Level:"
 
 [node name="DebugButton" type="Button" parent="Main/LevelSelect"]
-margin_top = 32.0
-margin_right = 95.0
-margin_bottom = 52.0
+margin_left = 149.0
+margin_top = 1.0
+margin_right = 244.0
+margin_bottom = 24.0
 theme = ExtResource( 21 )
 text = "Debug Game"
 __meta__ = {
@@ -695,16 +696,6 @@ bbcode_enabled = true
 bbcode_text = "[right]Version[/right]"
 text = "Version"
 
-[node name="SteamTest" type="Button" parent="."]
-margin_left = 498.0
-margin_top = 45.0
-margin_right = 634.0
-margin_bottom = 66.0
-text = "GetAchievement"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [connection signal="button_up" from="Main/LevelSelect/DebugButton" to="." method="_on_DebugButton_button_up"]
 [connection signal="button_up" from="Main/ButtonPlay" to="." method="_on_ButtonPlay_button_up"]
 [connection signal="button_up" from="Main/ButtonLoad" to="." method="_on_ButtonLoad_button_up"]
@@ -727,4 +718,3 @@ __meta__ = {
 [connection signal="button_up" from="LoadGame/ButtonLoad" to="." method="_on_ButtonLoadGame_button_up"]
 [connection signal="button_up" from="Credits/ButtonBack" to="." method="_on_ButtonBack_button_up"]
 [connection signal="meta_clicked" from="Copyright" to="." method="_on_Copyright_meta_clicked"]
-[connection signal="button_up" from="SteamTest" to="." method="_on_SteamTest_button_up"]
