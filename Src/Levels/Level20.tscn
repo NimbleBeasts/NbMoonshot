@@ -907,7 +907,7 @@ unlocks = [ NodePath("../../Lights/Light2"), NodePath("../../Lights/Light3"), No
 startStateOn = true
 
 [node name="BoxPickup" parent="LevelObjects/Objects" instance=ExtResource( 22 )]
-position = Vector2( 512, 0 )
+position = Vector2( 520, -12 )
 
 [node name="PressureButton" parent="LevelObjects/Objects" instance=ExtResource( 23 )]
 position = Vector2( 568, 64 )
