@@ -69,7 +69,7 @@ func missionEnd(type):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade":
-		
+		SteamWorks.setAchievement("STEAM_ACH_12") #escape alive
 		if bombDefused:
 			$AdditionalHUD/Overlay/Outro/FlyByText.bbcode_text = "[center]" + tr("OUTRO_DEFUSED") + "[/center]"
 		else:

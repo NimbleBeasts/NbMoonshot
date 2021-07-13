@@ -378,7 +378,7 @@ func addMoney(amount):
 	
 	#Achievement
 	if gameState.money >= 1000:
-		SteamWorks.setAchievement("STEAM_ACH_3") #Big Money
+		SteamWorks.setAchievement("STEAM_ACH_4") #Big Money
 
 
 func playerHasUpgrade(type):
