@@ -179,6 +179,7 @@ script = ExtResource( 2 )
 direction_change_time = 1.0
 normal_time_to_alarm = 1.0
 extended_time_to_alarm = 1.4
+playerSuspectDistance = 48
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -16 )

@@ -153,7 +153,7 @@ func stateDetectionEnter() -> void:
 	$SleepTimer.stop()
 	$RoamTimer.stop()
 	$DetectionDelay.stop()
-	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
+	#Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
 	pathLine.stopAllMovement()
 	$Notifier.popup(Types.NotifierTypes.Exclamation)
 	losArea.set_deferred("monitoring", false)
