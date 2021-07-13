@@ -339,6 +339,7 @@ tile_data = PoolIntArray( -655310, 27, 0, -655236, 27, 0, -589774, 27, 0, -58970
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 776, 96 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Room" type="Sprite" parent="LevelObjects/Decorations/Bed"]

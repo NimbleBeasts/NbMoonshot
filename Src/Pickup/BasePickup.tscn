@@ -60,5 +60,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label3" type="Label" parent="."]
+visible = false
+margin_left = -40.0
+margin_top = 24.0
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="body_entered" from="." to="." method="_on_FCU_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_FCU_body_exited"]
