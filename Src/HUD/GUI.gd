@@ -80,8 +80,13 @@ func updateLightLevel(newLightLevel) -> void:
 		_:
 			$BottomBar/Light.frame = 2
 
-func updateAudioLevel(newAudioLevel, _audio_pos, _emitter) -> void: #TODO: audio_pos needed?
-	pass
-	if newAudioLevel >= 0 and newAudioLevel < Types.AudioLevels.size():
-		$BottomBar/Audio.frame = newAudioLevel
+func updateAudioLevel(newAudioLevel, _audio_pos, _emitter) -> void:
+	#{LoudNoise = 0, SmallNoise = 1, Silent = 2}
+	if not $BottomBar/Audio/AnimationPlayer.is_playing():
+		if newAudioLevel == Types.AudioLevels.LoudNoise:
+			$BottomBar/Audio/AnimationPlayer.play("loud")
+		elif newAudioLevel == Types.AudioLevels.SmallNoise:
+			$BottomBar/Audio/AnimationPlayer.play("small")
+		else:
+			$BottomBar/Audio/AnimationPlayer.play("silent")
 		
