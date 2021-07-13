@@ -179,6 +179,7 @@ audioSuspectDistance = 100
 
 [node name="Sprite" type="Sprite" parent="Flippable"]
 position = Vector2( 0, -16 )
+z_index = 52
 texture = ExtResource( 1 )
 hframes = 13
 frame = 2

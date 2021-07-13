@@ -1,9 +1,9 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=9]
@@ -15,9 +15,11 @@
 [ext_resource path="res://Src/Pickup/BoxPickup.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
 [ext_resource path="res://Src/ThinArea/Ladder.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Button/Button.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=30]
 [ext_resource path="res://Assets/Objects/Jukebox.png" type="Texture" id=31]
 [ext_resource path="res://Src/Levels/TestJuke.gd" type="Script" id=32]
 [ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=39]
@@ -193,9 +195,15 @@ position = Vector2( -556, 136 )
 position = Vector2( 60, 2 )
 shape = SubResource( 2 )
 
-[node name="Guard" parent="Roof" instance=ExtResource( 4 )]
-position = Vector2( 221, 119 )
-startingDirection = 1
+[node name="Dog" parent="Roof" instance=ExtResource( 4 )]
+position = Vector2( 221, 120 )
+
+[node name="PathLine" type="Line2D" parent="Roof/Dog"]
+points = PoolVector2Array( 0, -6 )
+script = ExtResource( 30 )
+
+[node name="Closet" parent="Roof" instance=ExtResource( 23 )]
+position = Vector2( 236, 120 )
 
 [node name="DoorWall2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -297, 328 )
