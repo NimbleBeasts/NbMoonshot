@@ -78,6 +78,7 @@ LEVEL_HQ_HINT7,"Most mission objectives are stored in a safe. Some requires a co
 LEVEL_HQ_HINT8,Sometimes it is not possible to prevent a guard from spotting you. But until the guards set off the alarm you have some time to use your taser. Press F.,"Manchmal lässt es sich nicht verhindern, dass eine Wache Sie entdeckt. Aber bis die Wachen den Alarm auslösen, haben Sie etwas Zeit, Ihren Taser einzusetzen. Drücken Sie F."
 LEVEL_HQ_HINT9,"This button is pressure activated. Find something heavy to put on, so you can walk through the door.","Diese Taste ist druckaktiviert. Suchen Sie sich etwas Schweres zum Anziehen, damit Sie durch die Tür gehen können."
 LEVEL_HQ_HINT10,The next room is pretty secure. But what happens if we just cut the power? Cut the right power cables.,"Der nächste Raum ist ziemlich sicher. Aber was passiert, wenn wir einfach den Strom abschalten? Schneiden Sie die richtigen Stromkabel durch."
+LEVEL_20_HINT,"The door is stuck - Find another way","Die Tür klemmt - Suche einen anderen Weg"
 NATION_USA,United States,Vereinigte Staaten
 NATION_SWITZERLAND,Switzerland,Schweiz
 NATION_USSR,USSR,UdSSR

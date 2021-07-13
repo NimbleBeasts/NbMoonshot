@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=2]
@@ -77,6 +77,7 @@
 [ext_resource path="res://Assets/Outro/moon.png" type="Texture" id=75]
 [ext_resource path="res://Assets/Fonts/MagoFont3_32_flyby.tres" type="DynamicFont" id=76]
 [ext_resource path="res://Src/BaseButton/BaseButton.tscn" type="PackedScene" id=77]
+[ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=78]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 200, 8 )
@@ -362,7 +363,7 @@ centered = false
 position = Vector2( 104, 32 )
 
 [node name="BrokenLadder" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 1000, 128 )
+position = Vector2( 998, 128 )
 texture = ExtResource( 39 )
 offset = Vector2( -22, -32 )
 
@@ -927,7 +928,7 @@ type = 2
 position = Vector2( 960, 64 )
 lockLevel = 3
 showHintIfLocked = true
-hint = "Damn, accidentally locked, and it's too noisy in there - they can't hear me."
+hint = "LEVEL_20_HINT"
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 960, 0 )
@@ -1290,6 +1291,9 @@ texture = ExtResource( 31 )
 position = Vector2( 800, 24 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 33 )
+
+[node name="EliteGuard" parent="NPCS" instance=ExtResource( 78 )]
+position = Vector2( 976, 120 )
 
 [node name="Foreground" type="Node2D" parent="."]
 z_index = 51
