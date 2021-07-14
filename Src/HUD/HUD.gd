@@ -180,12 +180,12 @@ func showSave():
 	for element in saveFiles:
 		var button = get_node("HUDLayer/Display/SaveGame/Menu/ButtonSave" + str(i))
 		if element.state == true: # File Exists
-			button.updateLabel("Slot " + str(i) + " (Overwrite)")
+			button.text = "Slot " + str(i) + " (Overwrite)"
 		else:
-			button.updateLabel("Slot " + str(i) + " (New)")
+			button.text = "Slot " + str(i) + " (New)"
 		i += 1
 	$HUDLayer/Display/SaveGame.show()
-	$HUDLayer/Display/SaveGame/Menu.grab_focus()
+	$HUDLayer/Display/SaveGame/Menu/ButtonReturn.grab_focus()
 
 
 func save(slot):

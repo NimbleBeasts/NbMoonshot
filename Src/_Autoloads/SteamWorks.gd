@@ -88,6 +88,7 @@ func init():
 		print("Steam: Online: " + str(online) + " User: " + str(user))
 
 func setAchievement(achievementName):
+	#TODO: add cheat check
 	if online:
 		Steam.setAchievement(achievementName)
 		Steam.storeStats()

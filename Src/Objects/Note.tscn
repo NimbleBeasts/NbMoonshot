@@ -12,7 +12,6 @@ extents = Vector2( 18, 17 )
 
 [node name="Note" type="Node2D"]
 script = ExtResource( 1 )
-translationCSVPath = "res://Translations/NoteTranslations.csv"
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -18 )
@@ -34,6 +33,7 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NotifierArea"]
 position = Vector2( 0, -17 )
 shape = SubResource( 2 )
+
 [connection signal="body_entered" from="ReadArea" to="." method="_on_ReadArea_body_entered"]
 [connection signal="body_exited" from="ReadArea" to="." method="_on_ReadArea_body_exited"]
 [connection signal="body_entered" from="NotifierArea" to="." method="_on_NotifierArea_body_entered"]

@@ -107,7 +107,7 @@ func _ready() -> void:
 	#warning-ignore:return_value_discarded
 	
 	# Random delay - so the guards dont start synchronous
-	$StartDelay.wait_time = max(0, float(Global.prng() % 25) / 100 * 10)
+	$StartDelay.wait_time = max(0.01, float(Global.prng() % 25) / 100 * 10)
 	$StartDelay.start()
 	
 
