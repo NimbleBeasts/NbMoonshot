@@ -22,12 +22,11 @@ func _process(delta: float) -> void:
 	if object != null and isDragging:
 		var playerCurrentAnim =  player.animPlayer.current_animation
 		var offset: Vector2 = Vector2(0, 4) if playerCurrentAnim ==  "carryIdle" or playerCurrentAnim == "carryWalk" else Vector2(0,0)
-		object.global_position = carryPosition.global_position + offset #TODO: adding offset to the object for cool effect. needs to be removed
+		object.global_position = carryPosition.global_position + offset 
 		
 		if player.direction.x != 0:
 			object.flip(player.direction.x)
-		
-		# TODO: Fix bug where if you walk into a wall with guard in hand, the game acts weird.
+
 		if processAnims:
 			var correctAnim: String = "carryIdle" if int(player.velocity.x) == 0 else "carryWalk"
 			Events.emit_signal("player_animation_change", correctAnim)

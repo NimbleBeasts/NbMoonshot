@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Doors/Staircase.png" type="Texture" id=1]
 [ext_resource path="res://Src/Staircase/Staircase.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/SFX/door_metal_close2.wav" type="AudioStream" id=6]
 [ext_resource path="res://Assets/SFX/door_metal_open2.wav" type="AudioStream" id=7]
 [ext_resource path="res://Assets/SFX/door_wood_open.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/SFX/chest_locked.wav" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -86,5 +87,10 @@ bus = "Sound"
 
 [node name="MetalClose" type="AudioStreamPlayer2D" parent="DoorSounds"]
 stream = ExtResource( 6 )
+attenuation = 2.0
+bus = "Sound"
+
+[node name="Locked" type="AudioStreamPlayer2D" parent="DoorSounds"]
+stream = ExtResource( 9 )
 attenuation = 2.0
 bus = "Sound"

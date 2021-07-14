@@ -12,7 +12,6 @@ var wire_index = 0
 var wires = []
 var v_scale
 
-#TODO: translation
 
 var goal_cuts: Array = []
 var colors: Array = ["#c93038", "#51c43f", "#852d66", "#63c2c9"]

@@ -41,7 +41,7 @@ func interact() -> void:
 			$LockpickSmallMinigameSpawner.run_minigame(self, 2, true)
 			return
 		Types.DoorLockType.locked:
-			#TODO: play locked sound
+			$DoorSounds/Locked.play()
 			return
 		_:
 			pass
