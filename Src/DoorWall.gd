@@ -112,7 +112,6 @@ func interact(run_sub, openerPos: Vector2):
 		Types.DoorLockType.buttonLocked:
 			if doorLockStateLocked:
 				$DoorSounds/Locked.play()
-				#TODO: change sound
 			else:
 				#print("opened")
 				playDoorAnimation(openerPos)
@@ -198,7 +197,6 @@ func _on_minigame_door_change_status(instance, _lock_type, _run_anim):
 		#print("match")
 		lockLevel = _lock_type
 		if save_state:
-			#TODO workaround here
 			Global.gameState["TutorialDoor"] = _lock_type
 		if _run_anim:
 			interact(false, Global.player.global_position)

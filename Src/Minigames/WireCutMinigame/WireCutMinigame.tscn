@@ -185,13 +185,13 @@ __meta__ = {
 
 [node name="Label" type="RichTextLabel" parent="Labels"]
 margin_left = -44.0
-margin_top = -138.0
+margin_top = -141.0
 margin_right = 88.0
-margin_bottom = -92.0
+margin_bottom = -95.0
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
 bbcode_text = "Disable: Cut the PURPLE and BLUE wires"
-text = "Disable: Cut the PURPLE and BLUE wires"
+text = "Durchtrenne den lilanen und lilanen Draht"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false

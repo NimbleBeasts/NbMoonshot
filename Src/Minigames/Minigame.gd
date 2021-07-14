@@ -14,7 +14,7 @@ var tweenIsInUse: bool = false
 var playerLastGuard
 
 #warning-ignore:unused_class_variable
-onready var tween: Tween = get_node_or_null("Tween") #TODO: not sure if needed
+onready var tween: Tween = get_node_or_null("Tween")
 onready var newTween: Tween = Tween.new()
 onready var player: Player = Global.player
 

@@ -3,7 +3,6 @@ extends Node2D
 export(Array, NodePath) var deactivateAble = []
 export var countdownTime: int = 12
 
-#TODO: wirecut and sparkling sound
 
 func _ready():
 	#warning-ignore:return_value_discarded

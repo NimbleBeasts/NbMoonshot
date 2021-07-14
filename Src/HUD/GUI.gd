@@ -56,10 +56,12 @@ func updateLives(type) -> void:
 
 		Global.lives = lives
 		$BottomBar/Life/AnimationPlayer.play("flash")
+		Events.emit_signal("hud_detection_flash")
 		
 
 func updateMoney(total, change) -> void:
-	#TODO animate change
+	if change > 0:
+		$TopBar/Money/AnimationPlayer.play("flash")
 	$TopBar/Money.set_text(str(total))
 	
 

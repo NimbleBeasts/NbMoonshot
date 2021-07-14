@@ -20,9 +20,6 @@ var isSleeping: bool = false
 onready var pathLine: PathLine = get_node_or_null("PathLine")
 
 
-
-#TODO: sound effects?
-
 func _ready() -> void:
 	$AnimationPlayer.connect("animation_finished", self, "onAnimationFinished")
 	$GroundDetection.connect("apply_gravity", self, "setApplyGravity", ["dummy", true])
@@ -120,7 +117,8 @@ func isBeingDragged() -> bool:
 
 func drag() -> void:
 	# Put in foreground
-	#TODO: Maybe we change the index when stunned so we have no overlap change
+	#@: Maybe we change the index when stunned so we have no overlap change
+	#mago: overlap change will happen either way
 	$Flippable/Sprite.z_index = 51
 	setState(Types.CivilianStates.BeingDragged)
 	$AnimationPlayer.play("carry")

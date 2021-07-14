@@ -94,7 +94,7 @@ func stateTaseringPlayerEnter() -> void:
 	set_physics_process(false)
 	$AnimationPlayer.play("taser")
 	Events.emit_signal("player_block_movement")
-	$EliteGuard/TaserDeploy.play() #TODO this correct?!
+	$EliteGuard/TaserDeploy.play()
 	$EliteGuard/Taser.play()
 
 func onAudioLevelChanged(newLevel, audioPosition, emitter) -> void:

@@ -52,13 +52,13 @@ var guardAlarmSounds = [
 ]
 
 #warning-ignore:unused_class_variable
-onready var los_area: Area2D = $Flippable/LineOfSight #TODO: Not sure if needed
+onready var los_area: Area2D = $Flippable/LineOfSight #@: Not sure if needed
 onready var goBackToNormalTimer: Timer = $GoBackToNormalTimer
 onready var losRay: RayCast2D = $Flippable/LOSRay
 onready var player = Global.player
 onready var animPlayer: AnimationPlayer = $AnimationPlayer
 #warning-ignore:unused_class_variable
-onready var sprite: Sprite = $Flippable/Sprite #TODO: not sure if needed
+onready var sprite: Sprite = $Flippable/Sprite #@: not sure if needed
 onready var speed = normalSpeed
 
 
@@ -401,7 +401,7 @@ func isBeingDragged() -> bool:
 
 func drag() -> void:
 	# Put in foreground
-	#TODO: Maybe we change the index when stunned so we have no overlap change
+	#@: Maybe we change the index when stunned so we have no overlap change
 	$Flippable/Sprite.z_index = 51
 	$AnimationPlayer.play("carry")
 	set_state(Types.GuardStates.BeingDragged)

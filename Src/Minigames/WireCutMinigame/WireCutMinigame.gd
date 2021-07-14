@@ -17,10 +17,10 @@ var v_scale
 var goal_cuts: Array = []
 var colors: Array = ["#c93038", "#51c43f", "#852d66", "#63c2c9"]
 var enum2text: Dictionary = {
-	Types.WireColors.Green : "GREEN",
-	Types.WireColors.Red : "RED",
-	Types.WireColors.Blue : "BLUE",
-	Types.WireColors.Purple : "PURPLE",
+	Types.WireColors.Green : "MINIGAME_WIRECUT_GREEN",
+	Types.WireColors.Red : "MINIGAME_WIRECUT_RED",
+	Types.WireColors.Blue : "MINIGAME_WIRECUT_BLUE",
+	Types.WireColors.Purple : "MINIGAME_WIRECUT_PURPLE",
 }
 
 var wire_cut_status: Dictionary
@@ -61,7 +61,10 @@ func _ready() -> void:
 	colors.erase(rand_color1) # so that the next one can't be the same
 	var rand_color2 = colors[randi() % colors.size()]
 	
-	$Labels/Label.bbcode_text = "Disable: Cut the [color="+rand_color1+"]" + enum2text[goal_cuts[0]] + "[/color] and [color="+rand_color2+"]" +enum2text[goal_cuts[1]]+ "[/color] wires"
+	#$Labels/Label.bbcode_text = "Cut the [color="+rand_color1+"]" + enum2text[goal_cuts[0]] + "[/color] and [color="+rand_color2+"]" +enum2text[goal_cuts[1]]+ "[/color] wire."
+	
+	$Labels/Label.bbcode_text = tr("MINIGAME_WIRECUT_TEXT") % [rand_color1, tr(enum2text[goal_cuts[0]]), rand_color2, tr(enum2text[goal_cuts[1]])]
+	
 	
 	#added timer
 	run_countdown_timer()

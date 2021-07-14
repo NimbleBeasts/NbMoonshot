@@ -10,7 +10,7 @@ func _ready() -> void:
 	connect("body_entered", self, "onBodyEntered")
 	connect("body_exited", self, "onBodyExited")
 	$Sprite.frame = 0
-	#TODO: play sound
+
 
 
 func _process(delta: float) -> void:

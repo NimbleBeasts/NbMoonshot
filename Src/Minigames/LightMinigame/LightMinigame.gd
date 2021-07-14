@@ -114,6 +114,6 @@ func check_win():
 			return
 	yield(get_tree().create_timer(0.25), "timeout")
 	set_result(Types.MinigameResults.Succeeded)
-	Events.emit_signal("minigame_door_change_status", targetInstance, 0, run_anim) #TODO instead of using events we could directly call the instance
+	Events.emit_signal("minigame_door_change_status", targetInstance, 0, run_anim)
 	close()
 	

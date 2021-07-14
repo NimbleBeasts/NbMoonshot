@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=13]
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=14]
 [ext_resource path="res://Src/Pickup/BoxPickup.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Src/ControlCabinet/ControlCabinet.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
 [ext_resource path="res://Src/ThinArea/Ladder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
@@ -146,6 +147,9 @@ hasBounty = true
 [node name="Button" parent="LevelObjects" instance=ExtResource( 26 )]
 position = Vector2( -274, 240 )
 unlocks = [ NodePath("../Lights/TestLight") ]
+
+[node name="ControlCabinet" parent="LevelObjects" instance=ExtResource( 16 )]
+position = Vector2( -255, 256 )
 
 [node name="TestJuke" type="Sprite" parent="."]
 position = Vector2( -656, 176 )

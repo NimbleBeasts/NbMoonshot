@@ -9,8 +9,6 @@ func updateProgress():
 		_on_BaseButton_button_up()
 		return
 	
-	
-	
 	updateValue($MissionProgressUsa, Types.LevelTypes.USA, level)
 	updateValue($MissionProgressUssr, Types.LevelTypes.USSR, level)
 	updateValue($MissionProgressUstria, Types.LevelTypes.Ustria, level)
@@ -30,8 +28,7 @@ func updateValue(node, country, level):
 	if level > 0:
 		startValue = Global.gameConstant.progress[country][level - 1]
 		endValue = Global.gameConstant.progress[country][level]
-		
-	#TODO: invoke sabbotage decrease
+	
 	node.updateValue(startValue, endValue - startValue)
 
 func _on_BaseButton_button_up():

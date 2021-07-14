@@ -48,6 +48,11 @@ PICKUP_TNT,TNT,Sprengstoff
 PICKUP_DUMBBELL,Dumb-Bell,Gewicht
 PICKUP_UP,Picked up,Aufgehoben
 PICKUP_DOWN,Dropped,Fallen gelassen
+MINIGAME_WIRECUT_TEXT,"Cut the [color=%s]%s[/color] and [color=%s]%s[/color] wire","Durchtrenne den [color=%s]%s[/color] und [color=%s]%s[/color] Draht"
+MINIGAME_WIRECUT_GREEN,"green","grünen"
+MINIGAME_WIRECUT_RED,"red","roten"
+MINIGAME_WIRECUT_BLUE,"blue","blauen"
+MINIGAME_WIRECUT_PURPLE,"purple","lilanen"
 KEY_DOOR_REQUIRED,You need the %s key to open this door,%s Schlüssel wird benötigt
 KEY_FOUND,Found the %s key,%s Schlüssel gefunden!
 KEY_RED,red,Roter

@@ -16,7 +16,7 @@ signal new_game(startLevel)
 ## Emitted if the tutorial was completed switching dialogue states
 signal tutorial_finished()
 ## Emitted on instant detection or lifes over - Showing Game Over screen
-signal game_over() #TODO: there is also hud_game_over
+signal game_over()
 ## Request sound to be played
 signal play_sound(sound, volume, pos)
 ## Request music to be played
@@ -33,8 +33,7 @@ signal player_block_movement()
 ## Unblock player movement
 signal player_unblock_movement()
 ## Blocks player input
-signal player_block_input() #TODO: knight do we really need both variants?
-	# No we don't right now, but we did when I added this
+signal player_block_input()
 ## Unblock player input 
 signal player_unblock_input()
 ## This is used to change player states - e.g. dragging items, in closet ..
@@ -130,6 +129,8 @@ signal hud_update_money(total, amount)
 signal hud_game_hint(text)
 ## Emitted to show photo flash anim
 signal hud_photo_flash()
+## Emit to show detection flash anim
+signal hud_detection_flash()
 ## Emitted to show dialogue
 signal hud_dialog_show(name, nameColor, text, isMultipage, npcPotrait)
 ## Request closing dialogue

@@ -42,11 +42,6 @@ func _ready():
 	$Main/LanguageButton/Sprite.frame = flags.find(TranslationServer.get_locale())
 
 
-# Play menu button sound
-func playClick():
-	#TODO: remove superfluous function call.
-	return
-
 # Menu State Transition
 func switchTo(to):
 	hideAllMenuScenes()
@@ -84,7 +79,6 @@ func hideAllMenuScenes():
 func loadGame(slot):
 	Global.loadSave(slot)
 	get_tree().paused = false
-	playClick()
 	Events.emit_signal("new_game", 0)
 
 
@@ -154,18 +148,15 @@ func _back():
 
 func _on_DebugButton_button_up():
 	get_tree().paused = false
-	playClick()
 	Events.emit_signal("new_game", $Main/LevelSelect.selected)
 
 
 func _on_ButtonPlay_button_up():
 	get_tree().paused = false
-	playClick()
 	Events.emit_signal("new_game", 0)
 	Global.newGameState()
 	
 func _on_ButtonSettings_button_up():
-	playClick()
 	switchTo(MenuState.Settings)
 
 

@@ -29,8 +29,6 @@ var selectedSave = -1
 var saveFiles
 
 func _ready():
-	#$AlarmIndicator/Label.set_text(str(detected_value)) TODO
-
 	# Connect signals
 	hookSetup()
 
@@ -201,22 +199,12 @@ func moneyUpdate(total, change):
 
 	$HUDLayer/Display/HudBar.updateMoney(total, change)
 
-func taserUpdate(value):
-	print("taser update")
-	#var clamped = clamp( value, 0, 3)
-	#TODO - whats wrong here?!?
-	#$ChargeIndicator.frame = 3 - clamped
-	#$ChargeIndicator/Label.set_text(str(clamped))
 
 
-func alarmIndication(type):
-	if detected_value - 1 >= 0:
-		detected_value -= 1
+
+func detectionFlash():
+	if not $HUDLayer/DetectFlash/AnimationPlayer.is_playing():
 		$HUDLayer/DetectFlash/AnimationPlayer.play("detection")
-		#$AlarmIndicator/AlarmAnimation.play("downgrade")
-		#$AlarmIndicator/Label.set_text(str(detected_value))
-		
-		$HUDLayer/Display/HudBar.updateAlarm(detected_value)
 
 
 func allowedDetectionsUpdate(value) -> void:
@@ -356,7 +344,7 @@ func updateLightLevel(newLightLevel):
 			print("HUD: Illegal light level provided")
 	
 
-func updateAudioLevel(newAudioLevel, _audio_pos, _emitter): #TODO: audio_pos needed?
+func updateAudioLevel(newAudioLevel, _audio_pos, _emitter):
 	if newAudioLevel >= 0 and newAudioLevel < Types.AudioLevels.size():
 		$AudioIndicator.frame = newAudioLevel
 	else:
@@ -469,9 +457,6 @@ func _on_StartMissionButton_button_up():
 	
 	$HUDLayer/LevelFade/AnimationPlayer.play("fade_out")
 
-	#hmm duno if this is right place to go but need to trigger update taser text 
-	if Types.UpgradeTypes.Taser_Extended_Battery in Global.gameState.playerUpgrades:
-		taserUpdate(5)
 
 
 
@@ -513,6 +498,8 @@ func hookSetup():
 
 	Events.connect("hud_photo_flash", self, "photoFlash")
 	Events.connect("no_branch_option_pressed", self, "onNoBranchOptionPressed")
+	
+	Events.connect("hud_detection_flash", self, "detectionFlash")
 
 
 

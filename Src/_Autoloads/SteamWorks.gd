@@ -31,16 +31,18 @@ func _ready():
 
 func _user_stats_stored(gameID: int, result: int):
 	if Global.NB_PLUGIN_CONFIG.gameId == gameID: # Check if its our game
-		print("Callback: _user_stats_stored")
+		#print("Callback: _user_stats_stored")
+		pass
 
 
 func _user_achievement_stored(gameID: int, groupAchieve: bool, achName: String, currentProgress: int, maxProgress: int):
 	if Global.NB_PLUGIN_CONFIG.gameId == gameID: # Check if its our game
+		pass
 #		print(groupAchieve)
 #		print(achName)
 #		print(currentProgress)
 #		print(maxProgress)
-		print("Callback: _user_achievement_stored")
+#		print("Callback: _user_achievement_stored")
 
 
 func _current_stats_received(gameID: int, result: int, userID: int):
@@ -49,7 +51,8 @@ func _current_stats_received(gameID: int, result: int, userID: int):
 		achievments = []
 		
 		if result == Steam.RESULT_OK:
-			print("Achievments received:")
+			pass
+			#print("Achievments received:")
 			#TODO
 #			for ach in Types.AchievementStrings:
 #				print(Steam.getAchievement(ach))

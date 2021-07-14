@@ -15,8 +15,7 @@ func _ready() -> void:
 	add_child(showTimer)
 	showTimer.one_shot = true
 	showTimer.connect("timeout", self, "showTimerTimeout")
-	#flashAmount = int(rand_range(4, 6))
-	flashAmount = 4 #TODO: guess thats enough
+	flashAmount = 4 
 	$ColorFlashTimer.connect("timeout", self, "flashColor")
 	
 	# var index = randi() % Colors.keys().size()
