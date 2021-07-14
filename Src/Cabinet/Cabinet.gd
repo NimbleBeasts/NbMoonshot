@@ -45,7 +45,7 @@ func _process(_delta):
 				return
 			if isObjective:
 				isUsed = true
-				Events.emit_signal("level_hint", "Objective Obtained")
+				Events.emit_signal("level_hint", tr("HUD_MISSION_COMPLETE"))
 				$ChestSounds/HasBounty.play()
 			elif (hasBounty and not isUsed):
 				# Add money popup anim

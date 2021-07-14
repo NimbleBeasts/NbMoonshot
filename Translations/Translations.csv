@@ -62,6 +62,7 @@ LEVEL_BUTTON,Switch pressed,Schalter gedrückt
 LEVEL_LEVER,Lever flipped,Hebel umgelegt
 LEVELHQ_NOTE,"Damn, we've lost your key. You will have to lockpick this door.",Mist. Wir haben den Schlüssel verloren. Sieht so aus als müsstest du das Schloss knacken.
 LEVELHQ_NOTE2,Secret Code: 123,Tresorkombination: 123
+LEVELHQ_TUTORIAL_COMPLETE,"Tutorial Complete","Tutorial Abgeschlossen"
 LEVEL1_NOTE,Secret tresor code: !RNG,Tresorkombination !RNG
 LEVEL3_NOTE1,I'm not going along with this monkey business anymore! Find someone else. I quit.,Ich mach dieses Affentheater nicht mehr mit! Sucht euch einen anderen. Ich kündige.
 LEVEL3_NOTE2,Attention! Danger of falling! The railing has been removed.,Achtung! Absturzgefahr! Das Geländer wurde entfernt.

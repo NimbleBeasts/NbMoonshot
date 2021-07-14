@@ -14,7 +14,7 @@ func _process(_delta):
 	if playerInRange and playerInRange.state != Types.PlayerStates.DraggingGuard:
 		if Input.is_action_just_pressed("open_minigame"):
 			isUsed = true
-			Events.emit_signal("level_hint", "Objective Obtained")
+			Events.emit_signal("level_hint", tr("HUD_MISSION_COMPLETE"))
 			Events.emit_signal("play_sound", "chest_bounty")
 
 func _on_Goal_body_entered(body):
