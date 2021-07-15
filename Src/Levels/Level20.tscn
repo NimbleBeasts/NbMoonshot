@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=2]
@@ -78,6 +78,7 @@
 [ext_resource path="res://Assets/Fonts/MagoFont3_32_flyby.tres" type="DynamicFont" id=76]
 [ext_resource path="res://Src/BaseButton/BaseButton.tscn" type="PackedScene" id=77]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=78]
+[ext_resource path="res://Src/Levels/ForceDuckMode.gd" type="Script" id=79]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 200, 8 )
@@ -129,9 +130,15 @@ extents = Vector2( 23, 14 )
 extents = Vector2( 10, 24 )
 
 [sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 38, 16 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 78, 16 )
+
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 10, 32 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 length = 2.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
@@ -175,8 +182,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "explosion"
+[sub_resource type="Animation" id=11]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -203,8 +209,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "fade"
+[sub_resource type="Animation" id=12]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -219,8 +224,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "idle"
+[sub_resource type="Animation" id=13]
 length = 1.2
 loop = true
 tracks/0/type = "value"
@@ -236,8 +240,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "flyby"
+[sub_resource type="Animation" id=14]
 length = 60.0
 step = 1.0
 tracks/0/type = "value"
@@ -1182,6 +1185,20 @@ position = Vector2( 32, -24 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ExtractionZone/ExitArea"]
 shape = SubResource( 6 )
 
+[node name="ForceDuckMode" type="Area2D" parent="LevelObjects"]
+position = Vector2( 816, 304 )
+script = ExtResource( 79 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ForceDuckMode"]
+shape = SubResource( 7 )
+
+[node name="ForceDuckMode2" type="Area2D" parent="LevelObjects"]
+position = Vector2( 816, 344 )
+script = ExtResource( 79 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ForceDuckMode2"]
+shape = SubResource( 8 )
+
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1024, 64 )
 z_index = 50
@@ -1193,14 +1210,14 @@ position = Vector2( 975, 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueBlocker"]
 position = Vector2( 0, -32 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -128, 272 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 360, -32 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="NPCS" type="Node2D" parent="."]
 position = Vector2( 0, 8 )
@@ -1260,7 +1277,7 @@ script = ExtResource( 17 )
 position = Vector2( 992, 56 )
 
 [node name="WalkAnimationPlayer" type="AnimationPlayer" parent="NPCS/Secretary"]
-anims/walk = SubResource( 8 )
+anims/walk = SubResource( 10 )
 
 [node name="IdiotNPC" parent="NPCS" instance=ExtResource( 30 )]
 position = Vector2( 912, 24 )
@@ -1336,7 +1353,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AdditionalHUD/Overlay/Explosion"]
-anims/explosion = SubResource( 9 )
+anims/explosion = SubResource( 11 )
 
 [node name="Bomb" type="AudioStreamPlayer2D" parent="AdditionalHUD/Overlay/Explosion"]
 stream = ExtResource( 73 )
@@ -1354,7 +1371,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AdditionalHUD/Overlay/BlackOut"]
-anims/fade = SubResource( 10 )
+anims/fade = SubResource( 12 )
 
 [node name="Outro" type="Sprite" parent="AdditionalHUD/Overlay"]
 visible = false
@@ -1369,7 +1386,7 @@ centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AdditionalHUD/Overlay/Outro"]
 autoplay = "idle"
-anims/idle = SubResource( 11 )
+anims/idle = SubResource( 13 )
 
 [node name="FlyByText" type="RichTextLabel" parent="AdditionalHUD/Overlay/Outro"]
 margin_left = 192.0
@@ -1412,7 +1429,7 @@ __meta__ = {
 }
 
 [node name="FlyByAnimationPlayer" type="AnimationPlayer" parent="AdditionalHUD/Overlay/Outro/FlyByText"]
-anims/flyby = SubResource( 12 )
+anims/flyby = SubResource( 14 )
 
 [node name="ButtonQuit" parent="AdditionalHUD/Overlay/Outro" instance=ExtResource( 77 )]
 pause_mode = 2

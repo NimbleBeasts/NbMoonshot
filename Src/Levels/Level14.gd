@@ -5,8 +5,9 @@ var player = null
 var finished = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and Global.player.canInteract:
-		sabotage()
+	if player:
+		if event.is_action_pressed("interact") and Global.player.canInteract:
+			sabotage()
 
 
 func _on_MissionGoal_body_entered(body):

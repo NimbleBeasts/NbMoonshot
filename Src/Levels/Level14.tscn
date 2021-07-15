@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Src/Levels/Level14.gd" type="Script" id=1]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=2]
@@ -52,6 +52,7 @@
 [ext_resource path="res://Assets/Objects/SpiderWeb.png" type="Texture" id=50]
 [ext_resource path="res://Assets/Objects/Office/Bucket.png" type="Texture" id=51]
 [ext_resource path="res://Assets/SFX/wirecut.wav" type="AudioStream" id=52]
+[ext_resource path="res://Src/Levels/ForceDuckMode.gd" type="Script" id=53]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 112, 8 )
@@ -60,12 +61,15 @@ extents = Vector2( 112, 8 )
 extents = Vector2( 24, 16 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 48, 32 )
+extents = Vector2( 116, 16 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 100, 32 )
+extents = Vector2( 48, 32 )
 
 [sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 100, 32 )
+
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 10, 32 )
 
 [node name="Level14" type="Node2D"]
@@ -341,7 +345,6 @@ centered = false
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 22 )]
 position = Vector2( 540, 300 )
-frame = 1
 
 [node name="Sprite2" type="Sprite" parent="LevelObjects/Decorations/ControlRoom"]
 position = Vector2( 47, -4 )
@@ -420,6 +423,13 @@ shape = SubResource( 2 )
 [node name="WireCut" type="AudioStreamPlayer" parent="LevelObjects/Objects/MissionGoal"]
 stream = ExtResource( 52 )
 bus = "Sound"
+
+[node name="ForceDuckArea" type="Area2D" parent="LevelObjects/Objects"]
+position = Vector2( 776, 112 )
+script = ExtResource( 53 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/ForceDuckArea"]
+shape = SubResource( 3 )
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -617,7 +627,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlayVentilation/PlayerDetector"]
 position = Vector2( 48, 24 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="OverlayBasement" type="ColorRect" parent="."]
 light_mask = 12
@@ -638,7 +648,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlayBasement/PlayerDetector"]
 position = Vector2( 100, 32 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
 position = Vector2( 136, 256 )
@@ -651,7 +661,7 @@ position = Vector2( -104, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 152, -32 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="NPCS" type="Node2D" parent="."]
 
