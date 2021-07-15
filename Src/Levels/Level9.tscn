@@ -316,16 +316,13 @@ doorType = 1
 keyPath = NodePath("../../../../Level9-BankJob/LevelObjects/Interactables/Cabinet-RedKey")
 
 [node name="DoorWall6" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2( 879, 256 )
+position = Vector2( 880, 256 )
 
 [node name="DoorWall8" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 984, 256 )
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2( 1087, 256 )
-
-[node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2( 568, 256 )
+position = Vector2( 1088, 256 )
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 280, 255 )
@@ -561,7 +558,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 80 )]
-position = Vector2( 847, 255 )
+position = Vector2( 856, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
@@ -585,7 +582,7 @@ script = ExtResource( 8 )
 [node name="GuardPathLine2" type="Line2D" parent="NPCs/GuardOut2"]
 points = PoolVector2Array( -140, 0, -140, 0 )
 script = ExtResource( 8 )
-distractWaitTime = 8.0
+distractWaitTime = 7.0
 
 [node name="GuardOut1" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 603, 256 )
@@ -598,7 +595,7 @@ script = ExtResource( 8 )
 [node name="GuardPathLine2" type="Line2D" parent="NPCs/GuardOut1"]
 points = PoolVector2Array( -120, 0, -110, 0 )
 script = ExtResource( 8 )
-distractWaitTime = 8.0
+distractWaitTime = 7.0
 
 [node name="GuardOut3" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 624, 256 )

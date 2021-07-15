@@ -7,7 +7,7 @@ signal next_point_reached
 
 export var stop_time: float = 1.5
 export var stopOnReachedPoint: bool = true
-export var distractWaitTime: float = 2
+export var distractWaitTime: float = 5
 
 const SAFETY_MARGIN: int = 4
 
@@ -96,6 +96,7 @@ func moveToNextPoint():
 		else:
 			# stopping because we reached the last point and this is for distraction
 			stopAllMovement()
+			print("start distraction")
 			distractTimer.start(distractWaitTime)
 	currentIndex += 1
 	if stopOnReachedPoint:
@@ -150,5 +151,6 @@ func _onWaitTimerTimeout() -> void:
 
 # Wait time at distraction is over - return to normal mode
 func _onDistractTimerTimeout() -> void:
+	print("distraction timeout")
 	if target.has_method("normalMode"):
 		target.normalMode()

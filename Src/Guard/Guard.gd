@@ -433,6 +433,7 @@ func distractMode():
 	$Notifier.popupForTime(Types.NotifierTypes.Question, 1)
 	guardPathLine.stopAllMovement()
 	distractPathLine.global_points[0].x = global_position.x
+	distractPathLine.isDistract = true
 	distractPathLine.startNormalMovement()
 	playRandomSound($Guard/Suspicious ,guardSuspiciousSounds)
 	inDistractMode = true
