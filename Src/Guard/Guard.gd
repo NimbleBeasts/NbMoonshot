@@ -184,9 +184,9 @@ func detectPlayerIfClose() -> void:
 func stun(duration: float) -> void:
 	if state == Types.GuardStates.Stunned:
 		return
-	isStunned = true
 	direction = Vector2(0,0)
 	set_state(Types.GuardStates.Stunned)
+	isStunned = true
 	$Flippable/LineOfSight/CollisionPolygon2D.set_deferred("disabled", true)
 	player_in_los = false
 	$AnimationPlayer.play("tasered")
@@ -279,6 +279,9 @@ func _on_audio_level_changed(audio_level: int, audio_pos: Vector2, _emitter) -> 
 					
 # use this function to set state instead of doing directly
 func set_state(new_state, forceReEnterIfSameState: bool = false) -> void:
+	if isStunned:
+		return #Some timers may force the guard to return to normal; skip this while stunned
+
 	if state != new_state or forceReEnterIfSameState:
 		state = new_state
 		match new_state:
