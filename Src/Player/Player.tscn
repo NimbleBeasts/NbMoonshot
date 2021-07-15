@@ -339,7 +339,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ Vector2( 3, -13 ), Vector2( 9, -4 ) ]
+"values": [ Vector2( 3, -13 ), Vector2( 9, 0 ) ]
 }
 
 [sub_resource type="Animation" id=22]
@@ -485,7 +485,7 @@ z_index = 50
 z_as_relative = false
 texture = ExtResource( 1 )
 hframes = 42
-frame = 32
+frame = 33
 
 [node name="StunRayCast" type="RayCast2D" parent="Flippable"]
 position = Vector2( 0, -16 )
@@ -497,7 +497,7 @@ collision_mask = 16
 position = Vector2( 5, -15 )
 
 [node name="CarryPosition" type="Position2D" parent="Flippable"]
-position = Vector2( 9, -4 )
+position = Vector2( 3, -13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
 "NormalColliders",

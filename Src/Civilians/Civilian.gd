@@ -57,6 +57,7 @@ func setSkin(_skin):
 func _physics_process(delta: float) -> void:
 	if applyGravity:
 		velocity.y += gravity * delta
+		velocity.y = min(velocity.y, 140.0)
 		direction.x = 0
 		velocity.x = 0
 	else:

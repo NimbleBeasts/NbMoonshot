@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
 [ext_resource path="res://Src/ThinArea/Ladder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=30]
@@ -168,6 +169,12 @@ position = Vector2( 8, 256 )
 [node name="PathLine" type="Line2D" parent="LevelObjects/Guard3"]
 points = PoolVector2Array( 0, -8, 16, -8, 32, -8 )
 script = ExtResource( 30 )
+
+[node name="Civillian" parent="LevelObjects" instance=ExtResource( 24 )]
+position = Vector2( -200, 192 )
+
+[node name="Civillian2" parent="LevelObjects" instance=ExtResource( 24 )]
+position = Vector2( -144, 193 )
 
 [node name="TestJuke" type="Sprite" parent="."]
 position = Vector2( -656, 176 )
