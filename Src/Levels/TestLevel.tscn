@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Src/Pickup/TresureSack.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Src/Pickup/BarrelOil.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Src/Pickup/C4Pickup.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Src/HideOuts/Dumpster.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/Objects/Garage.png" type="Texture" id=21]
 [ext_resource path="res://Src/ThinArea/Ladder.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
@@ -218,6 +219,9 @@ position = Vector2( 148, 120 )
 
 [node name="C4Pickup" parent="Roof" instance=ExtResource( 19 )]
 position = Vector2( 124, 120 )
+
+[node name="Dumpster" parent="Roof" instance=ExtResource( 20 )]
+position = Vector2( 20, 120 )
 
 [node name="DoorWall2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -297, 328 )
