@@ -648,14 +648,14 @@ position = Vector2( 584, 64 )
 skin = 2
 
 [node name="Guard" parent="NPCS" instance=ExtResource( 45 )]
-position = Vector2( 456, 256 )
+position = Vector2( 443, 256 )
 
 [node name="PathLine" type="Line2D" parent="NPCS/Guard"]
 points = PoolVector2Array( 0, 0, 0, 0 )
 script = ExtResource( 49 )
 
 [node name="Guard2" parent="NPCS" instance=ExtResource( 45 )]
-position = Vector2( 488, 256 )
+position = Vector2( 469, 256 )
 startingDirection = 1
 
 [node name="PathLine" type="Line2D" parent="NPCS/Guard2"]

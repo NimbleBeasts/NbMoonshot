@@ -44,6 +44,7 @@ func press() -> void:
 	var ts = get_node(tresure_sack)
 	if ts.global_position.y > 450:
 		ts.global_position = Vector2(400, 320)
+		ts.drop()
 
 
 
