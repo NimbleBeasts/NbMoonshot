@@ -230,7 +230,7 @@ position = Vector2( 840, 176 )
 texture = ExtResource( 35 )
 
 [node name="DeskChair2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 440, 176 )
+position = Vector2( 456, 176 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 35 )
 
@@ -511,7 +511,7 @@ position = Vector2( 33, 0 )
 texture = ExtResource( 66 )
 
 [node name="IndoreControlPointSide" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 448, 161 )
+position = Vector2( 416, 168 )
 texture = ExtResource( 68 )
 
 [node name="Couch-Side" type="Sprite" parent="LevelObjects/Decorations"]

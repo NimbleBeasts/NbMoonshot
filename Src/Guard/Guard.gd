@@ -73,7 +73,7 @@ func _ready() -> void:
 	match Global.game_manager.getCurrentLevel().level_nation_type:
 		Types.LevelTypes.USA:
 			$Flippable/Sprite.texture = guard_normal_texture
-		Types.LevelTypes.USSR:
+		_:
 			$Flippable/Sprite.texture = guard_green_texture 
 
 	# sets the wait_time to the exported variable

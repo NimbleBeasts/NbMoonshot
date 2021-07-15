@@ -6,7 +6,9 @@ const FUN_FACT_SIZE = 22
 
 func setLevel(id):
 	if id < 20: #Level amount
-		print("setlevel: " + str(id))
+		if id == 0:
+			print("Error!!!!!!!!!!!!!!!")
+			print("setlevel: " + str(id))
 		$BriefingLabel.bbcode_text = tr("MISSION_BRIEFING_LEVEL"+str(id))
 	else:
 		print("Briefing Text out of Range")
