@@ -188,31 +188,31 @@ position = Vector2( 669, 101 )
 texture = ExtResource( 32 )
 
 [node name="tv" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 563, 110 )
+position = Vector2( 563, 113 )
 texture = ExtResource( 33 )
 
 [node name="Boxes2" type="Sprite" parent="LevelObjects/Decorations"]
 modulate = Color( 0.392157, 0.392157, 0.392157, 1 )
-position = Vector2( 439, 102 )
+position = Vector2( 439, 104 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 28 )
 
 [node name="Boxes5" type="Sprite" parent="LevelObjects/Decorations"]
 modulate = Color( 0.392157, 0.392157, 0.392157, 1 )
-position = Vector2( 412, 111 )
+position = Vector2( 412, 113 )
 scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 28 )
 
 [node name="Boxes" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 444, 113 )
+position = Vector2( 444, 116 )
 texture = ExtResource( 28 )
 
 [node name="Boxes3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 421, 113 )
+position = Vector2( 421, 116 )
 texture = ExtResource( 28 )
 
 [node name="Boxes4" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 433, 104 )
+position = Vector2( 433, 106 )
 rotation = 3.14159
 texture = ExtResource( 28 )
 
@@ -235,11 +235,11 @@ scale = Vector2( -1, 1 )
 texture = ExtResource( 35 )
 
 [node name="HospitalSink" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( -45, 243 )
+position = Vector2( -45, 244 )
 texture = ExtResource( 36 )
 
 [node name="HospitalSpacer" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( -105, 239 )
+position = Vector2( -105, 240 )
 texture = ExtResource( 34 )
 
 [node name="HospitalRontgen" type="Sprite" parent="LevelObjects/Decorations"]
@@ -247,15 +247,15 @@ position = Vector2( -63, 227 )
 texture = ExtResource( 21 )
 
 [node name="HospitalER" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( -81, 227 )
+position = Vector2( -81, 228 )
 texture = ExtResource( 26 )
 
 [node name="Plant" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 257, 238 )
+position = Vector2( 257, 240 )
 texture = ExtResource( 22 )
 
 [node name="Plant2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 751, 239 )
+position = Vector2( 751, 240 )
 texture = ExtResource( 22 )
 
 [node name="Tree1" type="Sprite" parent="LevelObjects/Decorations"]
@@ -336,15 +336,15 @@ position = Vector2( 361, 48 )
 texture = ExtResource( 22 )
 
 [node name="Bookshelf" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 251, 39 )
+position = Vector2( 251, 40 )
 texture = ExtResource( 53 )
 
 [node name="ClockOld" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 227, 43 )
+position = Vector2( 227, 44 )
 texture = ExtResource( 54 )
 
 [node name="sofa" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 196, 51 )
+position = Vector2( 196, 52 )
 texture = ExtResource( 69 )
 
 [node name="Board2" type="Sprite" parent="LevelObjects/Decorations"]
@@ -352,15 +352,15 @@ position = Vector2( 174, 33 )
 texture = ExtResource( 51 )
 
 [node name="ContolRoom1" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 324, 43 )
+position = Vector2( 324, 44 )
 texture = ExtResource( 50 )
 
 [node name="WashingMachine" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 476, 370 )
+position = Vector2( 476, 372 )
 texture = ExtResource( 57 )
 
 [node name="Dryer" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 494, 370 )
+position = Vector2( 494, 372 )
 texture = ExtResource( 60 )
 
 [node name="MetalShelf" type="Sprite" parent="LevelObjects/Decorations"]
@@ -376,7 +376,7 @@ position = Vector2( 395, 374 )
 texture = ExtResource( 44 )
 
 [node name="SprinklerPump" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 447, 367 )
+position = Vector2( 447, 368 )
 texture = ExtResource( 63 )
 
 [node name="Pipes" type="Node2D" parent="LevelObjects/Decorations"]
@@ -386,13 +386,13 @@ __meta__ = {
 }
 
 [node name="SprinklerPipe" type="Sprite" parent="LevelObjects/Decorations/Pipes"]
-position = Vector2( 448, 309 )
-scale = Vector2( 1, 10.3795 )
+position = Vector2( 448, 309.741 )
+scale = Vector2( 1, 10.5647 )
 texture = ExtResource( 64 )
 
 [node name="SprinklerPipe2" type="Sprite" parent="LevelObjects/Decorations/Pipes"]
-position = Vector2( 444, 313 )
-scale = Vector2( 1, 9.49582 )
+position = Vector2( 444, 313.508 )
+scale = Vector2( 1, 9.62291 )
 texture = ExtResource( 64 )
 
 [node name="SprinklerPipe3" type="Sprite" parent="LevelObjects/Decorations/Pipes"]
@@ -482,7 +482,7 @@ position = Vector2( 448, 270 )
 texture = ExtResource( 62 )
 
 [node name="Boxes6" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 676, 371 )
+position = Vector2( 676, 372 )
 texture = ExtResource( 28 )
 
 [node name="FishingRod" type="Sprite" parent="LevelObjects/Decorations"]
@@ -515,7 +515,7 @@ position = Vector2( 416, 168 )
 texture = ExtResource( 68 )
 
 [node name="Couch-Side" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 600, 115 )
+position = Vector2( 600, 117 )
 texture = ExtResource( 12 )
 
 [node name="Plant4" type="Sprite" parent="LevelObjects/Decorations"]
@@ -544,19 +544,19 @@ position = Vector2( -4, 101 )
 texture = ExtResource( 67 )
 
 [node name="TreeHouse" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 147, 191 )
+position = Vector2( 147, 192 )
 texture = ExtResource( 17 )
 
 [node name="TinyBush" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( -9, 52 )
+position = Vector2( -9, 53 )
 texture = ExtResource( 86 )
 
 [node name="TinyBush2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 61, 52 )
+position = Vector2( 61, 53 )
 texture = ExtResource( 86 )
 
 [node name="TinyBush3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 25, 52 )
+position = Vector2( 25, 53 )
 texture = ExtResource( 86 )
 
 [node name="Antena" type="Sprite" parent="LevelObjects/Decorations"]
@@ -564,15 +564,15 @@ position = Vector2( 42, -2 )
 texture = ExtResource( 85 )
 
 [node name="Broom2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 711, 370 )
+position = Vector2( 711, 372 )
 texture = ExtResource( 88 )
 
 [node name="Broom3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 708, 379 )
+position = Vector2( 708, 380 )
 texture = ExtResource( 89 )
 
 [node name="Bucket3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 510, 378 )
+position = Vector2( 510, 380 )
 texture = ExtResource( 89 )
 
 [node name="Vending" type="Sprite" parent="LevelObjects/Decorations"]
@@ -598,7 +598,7 @@ position = Vector2( 384, 64 )
 position = Vector2( 672, 320 )
 
 [node name="DoorWall2" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
-position = Vector2( 95, 64 )
+position = Vector2( 96, 64 )
 lockLevel = 3
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
@@ -619,7 +619,7 @@ doorType = 1
 keyPath = NodePath("../../Keys/ParkKey")
 
 [node name="DoorWall7" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
-position = Vector2( -23, 256 )
+position = Vector2( -24, 256 )
 lockLevel = 5
 doorType = 1
 keyPath = NodePath("../../Interactables/Cabinet-MedickBayKey")
@@ -671,7 +671,7 @@ connected_door_path = NodePath("../StaircaseE0toE2-LAB")
 directionIndication = 2
 
 [node name="StaircaseE0toE2-LAB" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
-position = Vector2( 85, 255 )
+position = Vector2( 85, 256 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../StaircaseE2toE0-LAB")
@@ -693,7 +693,7 @@ connected_door_path = NodePath("../StaircaseE-2toE-1")
 directionIndication = 2
 
 [node name="StaircaseE-2toE-1" parent="LevelObjects/Doors" instance=ExtResource( 8 )]
-position = Vector2( 652, 383 )
+position = Vector2( 651, 384 )
 scale = Vector2( -1, 1 )
 connected_door_path = NodePath("../StaircaseE-1toE-2")
 directionIndication = 1
@@ -836,7 +836,7 @@ position = Vector2( 793, 128 )
 hasBounty = true
 
 [node name="Cabinet-MedickBayKey" parent="LevelObjects/Interactables" instance=ExtResource( 48 )]
-position = Vector2( 870, 191 )
+position = Vector2( 870, 192 )
 type = 2
 containsKey = true
 
@@ -906,7 +906,7 @@ highlight = true
 type = 1
 
 [node name="ControlCabinet" parent="LevelObjects/Interactables" instance=ExtResource( 52 )]
-position = Vector2( -58, 191 )
+position = Vector2( -58, 192 )
 deactivateAble = [ NodePath("../Camera"), NodePath("../Camera2") ]
 
 [node name="PipeMinigameSpawner" type="Area2D" parent="LevelObjects/Interactables"]
@@ -955,19 +955,20 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1081, 256 )
+position = Vector2( 1080, 256 )
 z_index = 50
+startingDirection = 1
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
 
 [node name="DeskGuard" parent="." instance=ExtResource( 9 )]
-position = Vector2( 758, 255 )
+position = Vector2( 758, 256 )
 lookDirection = 1
 
 [node name="NPCs" type="Node2D" parent="."]
 
 [node name="Guard" parent="NPCs" instance=ExtResource( 13 )]
-position = Vector2( 529, 381 )
+position = Vector2( 529, 384 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard"]
 points = PoolVector2Array( 100, 0, 0, 0 )
@@ -988,14 +989,14 @@ points = PoolVector2Array( 130, 0, 0, 0 )
 script = ExtResource( 3 )
 
 [node name="Guard2" parent="NPCs" instance=ExtResource( 13 )]
-position = Vector2( 673, 127 )
+position = Vector2( 669, 128 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard2"]
 points = PoolVector2Array( 200, 0, 0, 0 )
 script = ExtResource( 3 )
 
 [node name="Guard3" parent="NPCs" instance=ExtResource( 13 )]
-position = Vector2( 594, 126 )
+position = Vector2( 594, 128 )
 scale = Vector2( -1, 1 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard3"]
@@ -1021,11 +1022,14 @@ points = PoolVector2Array( 0, 0, 0, 0 )
 script = ExtResource( 3 )
 
 [node name="Dog" parent="NPCs" instance=ExtResource( 74 )]
-position = Vector2( 266, 63 )
+position = Vector2( 273, 64 )
 
 [node name="PathLine" type="Line2D" parent="NPCs/Dog"]
 points = PoolVector2Array( -50, 0, 0, 0 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Dog2" parent="NPCs" instance=ExtResource( 74 )]
 position = Vector2( 363, 192 )
@@ -1035,7 +1039,7 @@ points = PoolVector2Array( -50, 0, 0, 0 )
 script = ExtResource( 3 )
 
 [node name="EliteGuard" parent="NPCs" instance=ExtResource( 75 )]
-position = Vector2( 215, 255 )
+position = Vector2( 215, 256 )
 
 [node name="PathLine" type="Line2D" parent="NPCs/EliteGuard"]
 points = PoolVector2Array( 0, 0, 0, 0 )
@@ -1052,7 +1056,7 @@ position = Vector2( 9, 3 )
 shape = SubResource( 6 )
 
 [node name="Civillian-DRMonkey" parent="NPCs" instance=ExtResource( 39 )]
-position = Vector2( 389, 258 )
+position = Vector2( 388, 256 )
 isHostileArea = true
 
 [node name="NewSkybox" parent="." instance=ExtResource( 1 )]
