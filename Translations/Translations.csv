@@ -48,6 +48,7 @@ PICKUP_TNT,TNT,Sprengstoff
 PICKUP_DUMBBELL,Dumb-Bell,Gewicht
 PICKUP_UP,Picked up,Aufgehoben
 PICKUP_DOWN,Dropped,Fallen gelassen
+PICKUP_LISTENING,"Listening Device","Wanze"
 MINIGAME_WIRECUT_TEXT,"Cut the [color=%s]%s[/color] and [color=%s]%s[/color] wire","Durchtrenne den [color=%s]%s[/color] und [color=%s]%s[/color] Draht"
 MINIGAME_WIRECUT_GREEN,"green","grünen"
 MINIGAME_WIRECUT_RED,"red","roten"
