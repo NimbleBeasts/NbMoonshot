@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=2]
@@ -31,11 +31,41 @@
 [ext_resource path="res://Assets/Objects/Police/Wall.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Objects/MetalShelf.png" type="Texture" id=30]
 [ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Assets/Objects/Police/CellBg.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Objects/Police/CellFront1.png" type="Texture" id=33]
 [ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Assets/Objects/Police/WallHole.png" type="Texture" id=35]
 [ext_resource path="res://Src/Objects/Nature/Tree.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Assets/Objects/Ship/LargeWindow.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Objects/Police/CellFront2.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Objects/Police/Inmate.png" type="Texture" id=39]
+[ext_resource path="res://Src/NPCs/IdiotNPC.tscn" type="PackedScene" id=40]
+[ext_resource path="res://Assets/Objects/Police/Cp.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Objects/NoSmoking.png" type="Texture" id=42]
+[ext_resource path="res://Assets/Objects/Office/Vending.png" type="Texture" id=43]
+[ext_resource path="res://Assets/Objects/Laboratory/Board.png" type="Texture" id=44]
+[ext_resource path="res://Assets/Objects/Police/Table.png" type="Texture" id=45]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=46]
+[ext_resource path="res://Assets/Objects/Office/DeskChair.png" type="Texture" id=47]
+[ext_resource path="res://Assets/Objects/LawFirm/DeskChair.png" type="Texture" id=48]
+[ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=49]
+[ext_resource path="res://Assets/Objects/Office/Clock.png" type="Texture" id=50]
+[ext_resource path="res://Assets/Objects/LawFirm/Office.png" type="Texture" id=51]
+[ext_resource path="res://Assets/Objects/Office/FireExtinguisher.png" type="Texture" id=52]
+[ext_resource path="res://Assets/Objects/Office/ClothRack.png" type="Texture" id=53]
+[ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=54]
+[ext_resource path="res://Assets/Objects/Laboratory/Chest2.png" type="Texture" id=55]
+[ext_resource path="res://Assets/Objects/Office/Worldmap.png" type="Texture" id=56]
+[ext_resource path="res://Assets/Objects/UssrFlagLarge.png" type="Texture" id=57]
+[ext_resource path="res://Assets/Objects/Nature/Plant3.png" type="Texture" id=58]
+[ext_resource path="res://Assets/Objects/Laboratory/Board2.png" type="Texture" id=59]
+[ext_resource path="res://Assets/Objects/Office/Bookshelf3.png" type="Texture" id=60]
+[ext_resource path="res://Assets/Objects/LawFirm/BossDeskChair.png" type="Texture" id=61]
+[ext_resource path="res://Assets/Objects/Nature/Plant.png" type="Texture" id=62]
+[ext_resource path="res://Assets/Objects/Office/WallImageScream.png" type="Texture" id=63]
+[ext_resource path="res://Assets/Objects/SpiderWeb.png" type="Texture" id=64]
+[ext_resource path="res://Assets/Objects/BigScreenTerminal.png" type="Texture" id=65]
+[ext_resource path="res://Assets/Objects/Home/ChairFront.png" type="Texture" id=66]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 568.453, 8 )
@@ -130,6 +160,307 @@ texture = ExtResource( 29 )
 position = Vector2( 208, 240 )
 texture = ExtResource( 35 )
 
+[node name="Storage" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 248, 440 )
+texture = ExtResource( 54 )
+centered = false
+
+[node name="Storage2" type="Sprite" parent="LevelObjects/Decorations/Storage"]
+light_mask = 3
+position = Vector2( 48, 8 )
+texture = ExtResource( 55 )
+centered = false
+
+[node name="Storage3" type="Sprite" parent="LevelObjects/Decorations/Storage"]
+light_mask = 3
+position = Vector2( 144, 8 )
+texture = ExtResource( 55 )
+centered = false
+
+[node name="Locker" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 816, 416 )
+texture = ExtResource( 57 )
+centered = false
+
+[node name="Boss" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 1072, 304 )
+texture = ExtResource( 61 )
+centered = false
+
+[node name="Boss2" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 1016, 296 )
+texture = ExtResource( 60 )
+centered = false
+
+[node name="Boss3" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 1064, 296 )
+texture = ExtResource( 50 )
+centered = false
+
+[node name="Boss4" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 1083, 301 )
+texture = ExtResource( 63 )
+centered = false
+
+[node name="Boss5" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 1136, 304 )
+texture = ExtResource( 62 )
+centered = false
+
+[node name="Boss6" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 1168, 280 )
+texture = ExtResource( 64 )
+centered = false
+
+[node name="Boss7" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 1176, 336 )
+texture = ExtResource( 65 )
+centered = false
+
+[node name="Boss8" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 1152, 376 )
+texture = ExtResource( 66 )
+centered = false
+
+[node name="Boss9" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 1163, 376 )
+texture = ExtResource( 66 )
+centered = false
+
+[node name="Boss10" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 1240, 376 )
+texture = ExtResource( 66 )
+centered = false
+
+[node name="Office3" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 984, 320 )
+texture = ExtResource( 52 )
+centered = false
+
+[node name="Office4" type="Sprite" parent="LevelObjects/Decorations/Office3"]
+light_mask = 3
+position = Vector2( -32, -16 )
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Office9" type="Sprite" parent="LevelObjects/Decorations/Office3"]
+light_mask = 3
+position = Vector2( -144, 0 )
+texture = ExtResource( 58 )
+centered = false
+
+[node name="Office10" type="Sprite" parent="LevelObjects/Decorations/Office3"]
+light_mask = 3
+position = Vector2( -100, -32 )
+texture = ExtResource( 50 )
+centered = false
+
+[node name="Office11" type="Sprite" parent="LevelObjects/Decorations/Office3"]
+light_mask = 3
+position = Vector2( -45, -16 )
+texture = ExtResource( 59 )
+centered = false
+
+[node name="Office12" type="Sprite" parent="LevelObjects/Decorations/Office3"]
+light_mask = 3
+position = Vector2( -184, -16 )
+texture = ExtResource( 53 )
+centered = false
+
+[node name="Office5" type="Sprite" parent="LevelObjects/Decorations/Office3"]
+light_mask = 3
+position = Vector2( -32, -16 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Office6" type="Sprite" parent="LevelObjects/Decorations/Office3"]
+light_mask = 3
+position = Vector2( -216, -16 )
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Office7" type="Sprite" parent="LevelObjects/Decorations/Office3"]
+light_mask = 3
+position = Vector2( -216, -16 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Office8" type="Sprite" parent="LevelObjects/Decorations/Office3"]
+light_mask = 3
+position = Vector2( -232, -24 )
+rotation = 3.14159
+scale = Vector2( -1, -1 )
+texture = ExtResource( 56 )
+centered = false
+
+[node name="Office2" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 376, 352 )
+texture = ExtResource( 50 )
+centered = false
+
+[node name="Office3" type="Sprite" parent="LevelObjects/Decorations/Office2"]
+light_mask = 3
+position = Vector2( 128, 16 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 51 )
+centered = false
+
+[node name="Office4" type="Sprite" parent="LevelObjects/Decorations/Office2"]
+light_mask = 3
+position = Vector2( 160, 16 )
+texture = ExtResource( 53 )
+centered = false
+
+[node name="Office5" type="Sprite" parent="LevelObjects/Decorations/Office2"]
+light_mask = 3
+position = Vector2( -120, 32 )
+texture = ExtResource( 52 )
+centered = false
+
+[node name="Iterrogation" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 436, 224 )
+texture = ExtResource( 45 )
+centered = false
+
+[node name="Iterrogation2" type="Sprite" parent="LevelObjects/Decorations/Iterrogation"]
+light_mask = 3
+position = Vector2( 166, 0 )
+texture = ExtResource( 48 )
+centered = false
+
+[node name="Iterrogation3" type="Sprite" parent="LevelObjects/Decorations/Iterrogation"]
+light_mask = 3
+position = Vector2( 108, 0 )
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Iterrogation4" type="Sprite" parent="LevelObjects/Decorations/Iterrogation"]
+light_mask = 3
+position = Vector2( 149, -5 )
+texture = ExtResource( 50 )
+centered = false
+
+[node name="Office1" type="Node2D" parent="LevelObjects/Decorations"]
+
+[node name="Cp" type="Sprite" parent="LevelObjects/Decorations/Office1"]
+light_mask = 3
+position = Vector2( 328, 288 )
+texture = ExtResource( 41 )
+centered = false
+
+[node name="Cp2" type="Sprite" parent="LevelObjects/Decorations/Office1"]
+light_mask = 3
+position = Vector2( 411, 302 )
+texture = ExtResource( 44 )
+centered = false
+
+[node name="Cp3" type="Sprite" parent="LevelObjects/Decorations/Office1"]
+light_mask = 3
+position = Vector2( 464, 304 )
+texture = ExtResource( 43 )
+centered = false
+
+[node name="Cp4" type="Sprite" parent="LevelObjects/Decorations/Office1"]
+light_mask = 3
+position = Vector2( 231, 299 )
+texture = ExtResource( 42 )
+centered = false
+
+[node name="Staircase" parent="LevelObjects/Decorations/Office1" instance=ExtResource( 8 )]
+position = Vector2( 392, 336 )
+lockLevel = 3
+
+[node name="JailRoom" type="Node2D" parent="LevelObjects/Decorations"]
+
+[node name="Cp5" type="Sprite" parent="LevelObjects/Decorations/JailRoom"]
+light_mask = 3
+position = Vector2( 624, 368 )
+texture = ExtResource( 42 )
+centered = false
+
+[node name="Cp6" type="Sprite" parent="LevelObjects/Decorations/JailRoom"]
+light_mask = 3
+position = Vector2( 584, 368 )
+texture = ExtResource( 44 )
+centered = false
+
+[node name="Cell" type="Sprite" parent="LevelObjects/Decorations/JailRoom"]
+position = Vector2( 664, 352 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="IdiotNPC" parent="LevelObjects/Decorations/JailRoom/Cell" instance=ExtResource( 40 )]
+position = Vector2( 8, 16 )
+texture = ExtResource( 39 )
+
+[node name="Overlay" type="Sprite" parent="LevelObjects/Decorations/JailRoom/Cell"]
+light_mask = 3
+texture = ExtResource( 33 )
+centered = false
+
+[node name="Cell2" type="Sprite" parent="LevelObjects/Decorations/JailRoom"]
+position = Vector2( 720, 352 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="Overlay" type="Sprite" parent="LevelObjects/Decorations/JailRoom/Cell2"]
+light_mask = 3
+texture = ExtResource( 33 )
+centered = false
+
+[node name="Cell3" type="Sprite" parent="LevelObjects/Decorations/JailRoom"]
+position = Vector2( 776, 352 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="IdiotNPC2" parent="LevelObjects/Decorations/JailRoom/Cell3" instance=ExtResource( 40 )]
+position = Vector2( 27, 16 )
+texture = ExtResource( 39 )
+
+[node name="Overlay" type="Sprite" parent="LevelObjects/Decorations/JailRoom/Cell3"]
+light_mask = 3
+texture = ExtResource( 33 )
+centered = false
+
+[node name="Cell4" type="Sprite" parent="LevelObjects/Decorations/JailRoom"]
+position = Vector2( 832, 352 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="Overlay" type="Sprite" parent="LevelObjects/Decorations/JailRoom/Cell4"]
+light_mask = 3
+texture = ExtResource( 38 )
+centered = false
+
+[node name="Cell5" type="Sprite" parent="LevelObjects/Decorations/JailRoom"]
+position = Vector2( 908, 352 )
+texture = ExtResource( 32 )
+centered = false
+
+[node name="Overlay" type="Sprite" parent="LevelObjects/Decorations/JailRoom/Cell5"]
+light_mask = 3
+texture = ExtResource( 38 )
+centered = false
+
 [node name="Window" type="Sprite" parent="LevelObjects/Decorations"]
 light_mask = 3
 position = Vector2( 536, 208 )
@@ -173,8 +504,12 @@ variant = 1
 
 [node name="Tree2" parent="LevelObjects/Decorations" instance=ExtResource( 36 )]
 position = Vector2( 88, 184 )
-frame = 3
+frame = 2
 season = 1
+
+[node name="Cabinet" parent="LevelObjects/Decorations" instance=ExtResource( 49 )]
+position = Vector2( 582, 256 )
+checkable = false
 
 [node name="Objects" type="Node2D" parent="LevelObjects"]
 
@@ -186,16 +521,9 @@ type = 1
 randomizeSecretCode = false
 
 [node name="Tresor" parent="LevelObjects/Objects" instance=ExtResource( 34 )]
-position = Vector2( 1200, 336 )
-keyPadCode = 1917
-
-[node name="Tresor2" parent="LevelObjects/Objects" instance=ExtResource( 34 )]
-position = Vector2( 1224, 336 )
-keyPadCode = 1917
-
-[node name="Tresor3" parent="LevelObjects/Objects" instance=ExtResource( 34 )]
 position = Vector2( 1248, 336 )
 keyPadCode = 1917
+hasBounty = true
 
 [node name="ButtonLever" parent="LevelObjects/Objects" instance=ExtResource( 19 )]
 position = Vector2( 640, 448 )
@@ -343,7 +671,7 @@ doorType = 1
 directionIndication = 2
 
 [node name="Staircase8" parent="LevelObjects/Staircases" instance=ExtResource( 8 )]
-position = Vector2( 888, 392 )
+position = Vector2( 896, 392 )
 connected_door_path = NodePath("../Staircase7")
 lockLevel = 2
 doorType = 1
@@ -707,120 +1035,6 @@ Electricity should be down (from basement),
 otherwise it shows a hint, and installation doesn't
 happen. And in case the agent is not holding
 the kit, a hint should also be shown."
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
-margin_left = 628.0
-margin_top = 165.0
-margin_right = 636.0
-margin_bottom = 232.0
-rect_rotation = -13.2
-color = Color( 1, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect2" type="ColorRect" parent="Control"]
-margin_left = 616.0
-margin_top = 165.0
-margin_right = 624.0
-margin_bottom = 309.0
-rect_rotation = -9.77079
-color = Color( 1, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label3" type="Label" parent="Control"]
-margin_left = 432.0
-margin_top = 217.016
-margin_right = 532.0
-margin_bottom = 238.016
-text = "Jail cameras"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label4" type="Label" parent="Control"]
-margin_left = 592.0
-margin_top = 208.0
-margin_right = 635.0
-margin_bottom = 237.0
-text = "Interr.
-room"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label6" type="Label" parent="Control"]
-margin_left = 1200.0
-margin_top = 312.0
-margin_right = 1319.0
-margin_bottom = 341.0
-text = "I'd like to put bounties
-in those safes, but IDK how"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label7" type="Label" parent="Control"]
-margin_left = 720.0
-margin_top = 360.0
-margin_right = 892.0
-margin_bottom = 389.0
-text = "Jail rooms"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label8" type="Label" parent="Control"]
-margin_left = 304.0
-margin_top = 368.0
-margin_right = 476.0
-margin_bottom = 397.0
-text = "Office"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label9" type="Label" parent="Control"]
-margin_left = 352.0
-margin_top = 288.0
-margin_right = 524.0
-margin_bottom = 317.0
-text = "Offices"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label10" type="Label" parent="Control"]
-margin_left = 816.0
-margin_top = 288.0
-margin_right = 988.0
-margin_bottom = 317.0
-text = "Offices"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label11" type="Label" parent="Control"]
-margin_left = 1040.0
-margin_top = 288.0
-margin_right = 1212.0
-margin_bottom = 317.0
-text = "Boss"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label12" type="Label" parent="Control"]
-margin_left = 304.0
-margin_top = 416.0
-margin_right = 476.0
-margin_bottom = 445.0
-text = "Lager"
 __meta__ = {
 "_edit_use_anchors_": false
 }
