@@ -1,7 +1,7 @@
 extends Node
 
 var possiblePickup
-var currentPickup
+var currentPickup = null
 var processAnims: bool
 var hasItemPickup: bool
 
@@ -37,6 +37,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		for area in player.get_node("PlayerArea").get_overlapping_areas():
 			if area is Door:
 				return
+			if area.is_in_group("HackZone"):
+				area.get_parent().hackWithDevice()
+				return
 			if area.is_in_group("ExtractionZone"):
 				return
 		dropCurrentItem()
@@ -54,6 +57,16 @@ func onPlayerAreaExited(area: Area2D) -> void:
 		possiblePickup = null
 		set_process_unhandled_input(false)
 
+#Instead of dropping remove it from scene completly
+func removeCurrentItem() -> void:
+	if currentPickup == null:
+		return
+	if hasItemPickup:
+		hasItemPickup = false
+		currentPickup.queue_free()
+		currentPickup = null
+		Events.emit_signal("player_state_set", Types.PlayerStates.Normal)
+		Events.emit_signal("player_animation_change", "idle")
 
 func dropCurrentItem(blockInput: bool = true) -> void:
 	if currentPickup == null:

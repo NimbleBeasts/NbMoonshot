@@ -293,6 +293,8 @@ func onBlockPlayerInput() -> void:
 func onUnblockPlayerInput() -> void:
 	blockEntireInput = false
 
+func getItemPickup():
+	return itemPickup.currentPickup
 
 # use this function to set light_level instead of directly changing it
 func set_light_level(value: int) -> void:

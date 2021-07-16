@@ -1,6 +1,6 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=76 format=2]
 
-[ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
+[ext_resource path="res://Src/Levels/Level15.gd" type="Script" id=1]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Src/Pickup/ListeningDevicePickup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Skybox/ForestSkybox.tscn" type="PackedScene" id=4]
@@ -66,6 +66,10 @@
 [ext_resource path="res://Assets/Objects/SpiderWeb.png" type="Texture" id=64]
 [ext_resource path="res://Assets/Objects/BigScreenTerminal.png" type="Texture" id=65]
 [ext_resource path="res://Assets/Objects/Home/ChairFront.png" type="Texture" id=66]
+[ext_resource path="res://Assets/Objects/Hospital/Medikit.png" type="Texture" id=67]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalSpacer.png" type="Texture" id=68]
+[ext_resource path="res://Assets/Objects/Hospital/HospitalSink.png" type="Texture" id=69]
+[ext_resource path="res://Assets/Objects/Laboratory/Storage.png" type="Texture" id=70]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 568.453, 8 )
@@ -79,15 +83,14 @@ extents = Vector2( 550, 200 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 32 )
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 16, 16 )
+
 [node name="Level15" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Affaire 2: Your boss wants you to infiltrate the affaires house, taser him and bring the body to the car."
 }
-level_lightning = 2
-level_nation_type = 1
-level_music = 16
-playCarCloseSound = false
 
 [node name="ForestSkybox" parent="." instance=ExtResource( 4 )]
 
@@ -184,63 +187,117 @@ position = Vector2( 816, 416 )
 texture = ExtResource( 57 )
 centered = false
 
+[node name="Locker2" type="Sprite" parent="LevelObjects/Decorations/Locker"]
+light_mask = 3
+position = Vector2( 296, 0 )
+texture = ExtResource( 70 )
+centered = false
+
+[node name="Locker5" type="Sprite" parent="LevelObjects/Decorations/Locker"]
+light_mask = 3
+position = Vector2( 24, 24 )
+texture = ExtResource( 69 )
+centered = false
+
+[node name="Locker6" type="Sprite" parent="LevelObjects/Decorations/Locker"]
+light_mask = 3
+position = Vector2( 72, 16 )
+texture = ExtResource( 68 )
+centered = false
+
+[node name="Locker7" type="Sprite" parent="LevelObjects/Decorations/Locker"]
+light_mask = 3
+position = Vector2( 256, 16 )
+texture = ExtResource( 67 )
+centered = false
+
+[node name="Locker8" type="Sprite" parent="LevelObjects/Decorations/Locker"]
+light_mask = 3
+position = Vector2( -288, -48 )
+texture = ExtResource( 67 )
+centered = false
+
+[node name="Locker9" type="Sprite" parent="LevelObjects/Decorations/Locker"]
+light_mask = 3
+position = Vector2( -432, -192 )
+texture = ExtResource( 67 )
+centered = false
+
+[node name="Locker3" type="Sprite" parent="LevelObjects/Decorations/Locker"]
+light_mask = 3
+position = Vector2( 168, 0 )
+texture = ExtResource( 70 )
+centered = false
+
+[node name="Locker4" type="Sprite" parent="LevelObjects/Decorations/Locker"]
+light_mask = 3
+position = Vector2( -104, 0 )
+texture = ExtResource( 70 )
+centered = false
+
 [node name="Boss" type="Sprite" parent="LevelObjects/Decorations"]
 light_mask = 3
 position = Vector2( 1072, 304 )
 texture = ExtResource( 61 )
 centered = false
 
-[node name="Boss2" type="Sprite" parent="LevelObjects/Decorations"]
+[node name="Boss2" type="Sprite" parent="LevelObjects/Decorations/Boss"]
 light_mask = 3
-position = Vector2( 1016, 296 )
+position = Vector2( -56, -8 )
 texture = ExtResource( 60 )
 centered = false
 
-[node name="Boss3" type="Sprite" parent="LevelObjects/Decorations"]
+[node name="Boss11" type="Sprite" parent="LevelObjects/Decorations/Boss"]
 light_mask = 3
-position = Vector2( 1064, 296 )
+position = Vector2( 112, -8 )
+texture = ExtResource( 60 )
+centered = false
+
+[node name="Boss3" type="Sprite" parent="LevelObjects/Decorations/Boss"]
+light_mask = 3
+position = Vector2( -8, -8 )
 texture = ExtResource( 50 )
 centered = false
 
-[node name="Boss4" type="Sprite" parent="LevelObjects/Decorations"]
+[node name="Boss4" type="Sprite" parent="LevelObjects/Decorations/Boss"]
 light_mask = 3
-position = Vector2( 1083, 301 )
+position = Vector2( 11, -3 )
 texture = ExtResource( 63 )
 centered = false
 
-[node name="Boss5" type="Sprite" parent="LevelObjects/Decorations"]
+[node name="Boss5" type="Sprite" parent="LevelObjects/Decorations/Boss"]
 light_mask = 3
-position = Vector2( 1136, 304 )
+position = Vector2( 64, 0 )
 texture = ExtResource( 62 )
 centered = false
 
-[node name="Boss6" type="Sprite" parent="LevelObjects/Decorations"]
+[node name="Boss6" type="Sprite" parent="LevelObjects/Decorations/Boss"]
 light_mask = 3
-position = Vector2( 1168, 280 )
+position = Vector2( 96, -24 )
 texture = ExtResource( 64 )
 centered = false
 
-[node name="Boss7" type="Sprite" parent="LevelObjects/Decorations"]
+[node name="Boss7" type="Sprite" parent="LevelObjects/Decorations/Boss"]
 light_mask = 3
-position = Vector2( 1176, 336 )
+position = Vector2( 104, 32 )
 texture = ExtResource( 65 )
 centered = false
 
-[node name="Boss8" type="Sprite" parent="LevelObjects/Decorations"]
+[node name="Boss8" type="Sprite" parent="LevelObjects/Decorations/Boss"]
 light_mask = 3
-position = Vector2( 1152, 376 )
+position = Vector2( 80, 72 )
 texture = ExtResource( 66 )
 centered = false
 
-[node name="Boss9" type="Sprite" parent="LevelObjects/Decorations"]
+[node name="Boss9" type="Sprite" parent="LevelObjects/Decorations/Boss"]
 light_mask = 3
-position = Vector2( 1163, 376 )
+position = Vector2( 91, 72 )
 texture = ExtResource( 66 )
 centered = false
 
-[node name="Boss10" type="Sprite" parent="LevelObjects/Decorations"]
+[node name="Boss10" type="Sprite" parent="LevelObjects/Decorations/Boss"]
 light_mask = 3
-position = Vector2( 1240, 376 )
+position = Vector2( 168, 72 )
 texture = ExtResource( 66 )
 centered = false
 
@@ -515,9 +572,15 @@ checkable = false
 
 [node name="Note" parent="LevelObjects/Objects" instance=ExtResource( 27 )]
 position = Vector2( 524, 465 )
-text = "This year is the jubilee of Red October revolution! Changed safe codes to 1917 to celebrate. Vasiliy"
+text = "LEVEL15_NOTE"
 highlight = true
 type = 1
+randomizeSecretCode = false
+
+[node name="Note2" parent="LevelObjects/Objects" instance=ExtResource( 27 )]
+position = Vector2( 156, 263 )
+text = "LEVEL15_NOTE2"
+highlight = true
 randomizeSecretCode = false
 
 [node name="Tresor" parent="LevelObjects/Objects" instance=ExtResource( 34 )]
@@ -1015,6 +1078,14 @@ stop_time = 2.0
 [node name="Foreground" type="Node2D" parent="."]
 z_index = 51
 
+[node name="ObjectiveArea" type="Area2D" parent="." groups=[
+"HackZone",
+]]
+position = Vector2( 184, 240 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea"]
+shape = SubResource( 5 )
+
 [node name="Control" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -1039,15 +1110,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label13" type="Label" parent="Control"]
-margin_left = 808.0
-margin_top = 416.0
-margin_right = 980.0
-margin_bottom = 445.0
-text = "Dressing Room"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [connection signal="body_entered" from="LevelObjects/OverlayVentilation/PlayerDetector" to="LevelObjects/OverlayVentilation" method="_on_PlayerDetector_body_entered"]
 [connection signal="body_exited" from="LevelObjects/OverlayVentilation/PlayerDetector" to="LevelObjects/OverlayVentilation" method="_on_PlayerDetector_body_exited"]
+[connection signal="body_entered" from="ObjectiveArea" to="." method="_on_ObjectiveArea_body_entered"]
+[connection signal="body_exited" from="ObjectiveArea" to="." method="_on_ObjectiveArea_body_exited"]
