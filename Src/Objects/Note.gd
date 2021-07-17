@@ -25,7 +25,6 @@ func _ready():
 #			setTresorCode(int(stringCode))
 
 	translationText = tr(text)
-	print(translationText)
 	
 	var randomTextPosition = translationText.find("!RNG")
 	

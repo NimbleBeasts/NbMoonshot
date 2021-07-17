@@ -485,7 +485,7 @@ z_index = 50
 z_as_relative = false
 texture = ExtResource( 1 )
 hframes = 42
-frame = 33
+frame = 4
 
 [node name="StunRayCast" type="RayCast2D" parent="Flippable"]
 position = Vector2( 0, -16 )

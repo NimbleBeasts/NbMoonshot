@@ -1,8 +1,8 @@
 extends "res://Src/Levels/BaseLevel.gd"
 
-var isPowerOn = false
+var isPowerOn = true
 var isHackable = false
-
+var isInstalled = false
 var player = null
 
 
@@ -12,7 +12,7 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	if player and not isHackable:
+	if player and not isHackable and isInstalled:
 		#Player got no device
 		if Input.is_action_just_pressed("interact") and Global.player.canInteract:
 			Events.emit_signal("hud_game_hint", tr("LEVEL15_NO_DEVICE"))
@@ -24,8 +24,17 @@ func hackWithDevice():
 			Events.emit_signal("hud_game_hint", tr("LEVEL15_POWER"))
 		else:
 			player.itemPickup.removeCurrentItem()
-			print("mission finished")
+			isInstalled = true
+			#print("mission finished")
 		isHackable = false
+
+func getProgessState():
+	return isInstalled
+
+# Power button
+func toggleState():
+	isPowerOn = !isPowerOn
+	
 
 func _on_ObjectiveArea_body_entered(body):
 	if body.is_in_group("Player"):

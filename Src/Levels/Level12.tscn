@@ -316,6 +316,7 @@ centered = false
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 30 )]
 position = Vector2( 848, 244 )
+frame = 2
 
 [node name="LivingRoom" type="Sprite" parent="LevelObjects/Decorations"]
 light_mask = 3
