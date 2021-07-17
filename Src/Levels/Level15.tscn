@@ -896,7 +896,6 @@ next_boss_interacted_counter = 6
 nextSecretaryInteractionCounter = 6
 
 [node name="OverlayVentilation" type="ColorRect" parent="LevelObjects"]
-visible = false
 light_mask = 3
 margin_left = 200.0
 margin_top = 280.0
@@ -933,7 +932,7 @@ shape = SubResource( 4 )
 [node name="NPCS" type="Node2D" parent="."]
 
 [node name="EliteGuard" parent="NPCS" instance=ExtResource( 2 )]
-position = Vector2( 328, 256 )
+position = Vector2( 314, 256 )
 
 [node name="PathLine" type="Line2D" parent="NPCS/EliteGuard"]
 points = PoolVector2Array( 0, 0 )
