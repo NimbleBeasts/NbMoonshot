@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Home/Kitchen.png" type="Texture" id=2]
@@ -46,6 +46,8 @@
 [ext_resource path="res://Assets/Objects/Office/WallImageScream.png" type="Texture" id=44]
 [ext_resource path="res://Assets/Objects/Hotel/HotelBed.png" type="Texture" id=45]
 [ext_resource path="res://Assets/Objects/Skeleton.png" type="Texture" id=46]
+[ext_resource path="res://Assets/Objects/Nature/Liane1.png" type="Texture" id=47]
+[ext_resource path="res://Assets/Objects/Nature/Liane2.png" type="Texture" id=48]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=58]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=68]
 [ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=72]
@@ -218,7 +220,7 @@ position = Vector2( 347, 230 )
 texture = ExtResource( 35 )
 
 [node name="BedsideTable" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 348, 247 )
+position = Vector2( 347, 248 )
 texture = ExtResource( 36 )
 
 [node name="Rail" type="Sprite" parent="LevelObjects/Decorations"]
@@ -255,12 +257,37 @@ scale = Vector2( -1, 1 )
 texture = ExtResource( 40 )
 
 [node name="Plant2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 445, 239 )
+position = Vector2( 440, 240 )
 texture = ExtResource( 33 )
 
 [node name="Plant3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 525, 239 )
+position = Vector2( 525, 240 )
 texture = ExtResource( 42 )
+
+[node name="Plant4" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 400, 360 )
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Plant7" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 856, 360 )
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Plant8" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 1024, 328 )
+texture = ExtResource( 47 )
+centered = false
+
+[node name="Plant5" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 688, 360 )
+texture = ExtResource( 48 )
+centered = false
+
+[node name="Plant6" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 984, 360 )
+texture = ExtResource( 48 )
+centered = false
 
 [node name="HotelBed" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 1028, 179 )
@@ -289,18 +316,8 @@ texture = ExtResource( 44 )
 position = Vector2( 825, 411 )
 texture = ExtResource( 46 )
 
-[node name="Skeleton2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 750, 427 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 46 )
-
-[node name="Skeleton3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 700, 427 )
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 46 )
-
 [node name="Skeleton4" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 650, 427 )
+position = Vector2( 624, 328 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 46 )
 
@@ -310,7 +327,7 @@ texture = ExtResource( 46 )
 position = Vector2( 480, 192 )
 
 [node name="DoorWall9" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
-position = Vector2( 431, 319 )
+position = Vector2( 432, 319 )
 lockLevel = 5
 doorType = 1
 keyPath = NodePath("../../../../Level9-BankJob/LevelObjects/Interactables/Cabinet-RedKey")
