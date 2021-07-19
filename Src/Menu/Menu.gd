@@ -256,9 +256,8 @@ func _on_ContrastSlider_value_changed(value):
 func _on_LanguageButton_button_up():
 	var availableLocale = TranslationServer.get_loaded_locales()
 	var id = availableLocale.find(TranslationServer.get_locale()) + 1
-	if id >= availableLocale.size():
+	if id > availableLocale.size():
 		id = 0
-	
 	TranslationServer.set_locale(availableLocale[id])
 	$Main/LanguageButton/Sprite.frame = flags.find(TranslationServer.get_locale())
 	

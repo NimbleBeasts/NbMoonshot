@@ -1,16 +1,9 @@
 class_name Doll
 extends KinematicBody2D
 
-var isStunned: bool = false
+#warning-ignore-all:unused_class_variable
+var isStunned: bool = false #this is used from player node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 func stun(_d):
 	$AnimationPlayer.play("tasered")

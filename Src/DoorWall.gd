@@ -2,7 +2,6 @@ tool
 extends Node2D
 class_name DoorWall
 
-var minigame_finished: bool = false
 var playerInArea = false
 var doorIsOpen = false
 var playerNode = null
@@ -14,7 +13,7 @@ enum DoorType {wooden, metal, metalSwing, glass}
 export(Types.DoorLockType) var lockLevel = Types.DoorLockType.open
 export(DoorType) var doorType = DoorType.wooden setget update_texture
 export var save_state = false
-export var showHintIfLocked: bool = false
+#warning-ignore:unused_class_variable
 export var hint: String
 export var keyPath: NodePath
 export var doorLockStateLocked: bool = true

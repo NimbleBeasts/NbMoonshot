@@ -603,10 +603,10 @@ position = Vector2( 96, 64 )
 lockLevel = 3
 
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
-position = Vector2( 888, 254 )
+position = Vector2( 888, 256 )
 
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
-position = Vector2( 775, 192 )
+position = Vector2( 776, 192 )
 
 [node name="DoorWall5" parent="LevelObjects/Doors" instance=ExtResource( 16 )]
 position = Vector2( 312, 256 )

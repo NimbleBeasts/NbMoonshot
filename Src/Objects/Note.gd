@@ -5,7 +5,7 @@ export(String) var text = "TRANSLATION_KEY"
 export(bool) var highlight = false
 export(Types.NoteType) var type = Types.NoteType.SecretService
 export var tresorPath: NodePath
-export var randomizeSecretCode = true
+
 
 var readable = false
 var isReading = false
@@ -40,7 +40,8 @@ func _ready():
 func setTresorCode(code: int) -> void:
 	var tresor := get_node_or_null(tresorPath)
 	if tresor:
-		tresor.keyPadCode = code
+		tresor.updateCode(code)
+		print(code)
 		return
 	printerr("Can't find tresor at %s. Reported by  %s" % [tresorPath, name])
 

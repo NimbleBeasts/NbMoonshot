@@ -11,13 +11,11 @@ export (String) var Prefix
 
 var loadedDialogue
 
-var option0Branch
-var option1Branch
-var option2Branch
 
 var currentBranch
 var player: Player
-var interactedCounter = 0 
+var interactedCounter = 0
+#warning-ignore:unused_class_variable
 var nextDialogue: String
 var sayingDialogue: bool
 

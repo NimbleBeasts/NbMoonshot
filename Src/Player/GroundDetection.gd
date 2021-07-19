@@ -3,7 +3,7 @@ extends Area2D
 signal apply_gravity()
 signal stop_applying_gravity()
 var colliders: Array = []
-export var areaCollidersGroup: String
+
 
 func _ready() -> void:
 	connect("body_entered", self, "onBodyEntered")

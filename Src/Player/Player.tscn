@@ -554,7 +554,6 @@ shape = SubResource( 4 )
 visible = false
 collision_mask = 2053
 script = ExtResource( 12 )
-areaCollidersGroup = "ThinArea;"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetection"]
 position = Vector2( 0, 2 )

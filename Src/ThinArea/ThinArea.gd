@@ -15,7 +15,9 @@ const textures = [
 	"res://Assets/ThinArea/ThinArea4x.png"
 ]
 
+#warning-ignore:unused_class_variable
 onready var destination_up_position: Vector2 = $DestinationUp.global_position  - Vector2(0, reduced_up * 8)
+#warning-ignore:unused_class_variable
 onready var destination_down_position: Vector2 = $DestinationDown.global_position - Vector2(0, reduced_down * 8)
 
 func _ready():

@@ -4,8 +4,6 @@ extends Area2D
 # changes level to exported variable
 
 var player_entered: bool = false
-#warning-ignore:unused_class_variable - guess this was used for branching levels
-export var has_level_index: bool = true
 export var level_index: int = 0
 export var next_boss_interacted_counter: int = 0
 export var nextSecretaryInteractionCounter: int = next_boss_interacted_counter

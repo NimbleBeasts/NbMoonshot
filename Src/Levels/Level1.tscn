@@ -512,7 +512,7 @@ position = Vector2( 208, 256 )
 lookDirection = 1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 8, 312 )
+position = Vector2( 9, 310 )
 z_index = 50
 
 [node name="Guard" parent="." instance=ExtResource( 4 )]

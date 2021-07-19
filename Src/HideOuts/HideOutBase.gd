@@ -1,12 +1,11 @@
 class_name HideOutBase
 extends Node2D
 
-export(bool) var canHidePlayer = true
+
 export(bool) var canBeOpened = true
 
 var player: Player
 var playerInArea: bool
-var playerPosition = Vector2(0, 0)
 
 var isOpen: bool
 var destroyGuard: bool

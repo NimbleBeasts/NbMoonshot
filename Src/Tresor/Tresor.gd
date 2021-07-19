@@ -15,7 +15,11 @@ const keypadSpawnerScript := preload("res://Src/Minigames/KeypadMinigame/KeypadM
 
 func getProgessState():
 	return isUsed
-	
+
+func updateCode(code):
+	keyPadCode = code
+	if minigameType == Types.Minigames.Keypad:
+		$MinigameSpawner.lock_code = keyPadCode
 
 func _ready():
 	match minigameType:

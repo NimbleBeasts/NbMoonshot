@@ -1,7 +1,7 @@
 extends Minigame
 
 
-var countdown: int = 12
+var countdown: int = 7
 
 
 onready var plier: Area2D = $Plier

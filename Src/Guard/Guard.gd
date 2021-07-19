@@ -5,10 +5,7 @@ extends KinematicBody2D
 enum Directions {RIGHT, LEFT}
 export var normalSpeed: int = 25
 export var distractSpeed: int = 37
-export var direction_change_time: float = 2
 export var time_to_sure_detection: float = 1.5
-export var stun_duration: float = 10
-export var audio_suspect_distance: int = 150
 export var normal_time_to_alarm: float = 1.5
 export var extended_time_to_alarm: float = 3.5
 export var playerSuspectDistance: int = 30
