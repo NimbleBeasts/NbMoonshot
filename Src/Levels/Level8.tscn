@@ -72,7 +72,7 @@ Ustria finished the rocket and is launching a first unmaned flight but the contr
 }
 level_lightning = 2
 level_nation_type = 1
-level_music = 9
+level_music = 11
 level_objectives = NodePath("LevelObjects/Objects/FCU")
 
 [node name="NewSkybox" parent="." instance=ExtResource( 5 )]
@@ -172,7 +172,6 @@ centered = false
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 24 )]
 position = Vector2( 282, 364 )
-frame = 1
 
 [node name="Cc" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 328, 352 )

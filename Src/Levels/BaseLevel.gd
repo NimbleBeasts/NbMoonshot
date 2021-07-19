@@ -6,7 +6,7 @@ export var normal_allowed_detections: int = 3
 
 export (Types.LevelLightning) var level_lightning: int
 export (Types.LevelTypes) var level_nation_type: int
-export (Types.MusicType) var level_music: int = Types.MusicType.DefaultLevelType
+export (Types.MusicType) var level_music: int = Types.MusicType.rocket
 export(NodePath) var level_objectives = null
 export var playCarCloseSound: bool = true
 #warning-ignore:unused_class_variable 
@@ -41,13 +41,13 @@ func _ready():
 	self.add_child(hud)
 	
 	# Level Music 
-	if level_music == Types.MusicType.DefaultLevelType:
-		if level_nation_type == Types.LevelTypes.USA or level_nation_type == Types.LevelTypes.Switzerland:
-			Events.emit_signal("play_music", Types.MusicType.westernMusic)
-		else:
-			Events.emit_signal("play_music", Types.MusicType.easternMusic)
-	else:
-		Events.emit_signal("play_music", level_music)
+	# if level_music == Types.MusicType.DefaultLevelType:
+	# 	if level_nation_type == Types.LevelTypes.USA or level_nation_type == Types.LevelTypes.Switzerland:
+	# 		Events.emit_signal("play_music", Types.MusicType.westernMusic)
+	# 	else:
+	# 		Events.emit_signal("play_music", Types.MusicType.easternMusic)
+	# else:
+	Events.emit_signal("play_music", level_music)
 
 	Events.connect("hud_mission_briefing_exited", self, "onHudMissionBriefingExited")
 	Events.connect("hud_mission_progress_exited", self, "onHudMissionProgressExited")

@@ -73,7 +73,7 @@ extents = Vector2( 120, 8 )
 [node name="Level7" type="Node2D"]
 script = ExtResource( 1 )
 level_nation_type = 2
-level_music = 12
+level_music = 0
 level_objectives = NodePath("LevelObjects/Decorations/Goal")
 
 [node name="NewSkybox" parent="." instance=ExtResource( 4 )]

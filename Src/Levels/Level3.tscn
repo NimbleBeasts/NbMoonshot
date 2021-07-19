@@ -123,6 +123,7 @@ __meta__ = {
 Ustria finished the rocket and is launching a first unmaned flight but the control unit does not work. So the player has to steal one from USSR as theirs is 100% compatible. Player needs to carry out a blackbox from the building.
 "
 }
+level_music = 6
 level_objectives = NodePath("NPCs/Monkey/PhotoMinigameSpawner")
 
 [node name="SpriteWalls" type="Node2D" parent="."]

@@ -74,7 +74,7 @@ __meta__ = {
 }
 level_lightning = 2
 level_nation_type = 1
-level_music = 15
+level_music = 9
 level_objectives = NodePath("../Level16/NPCS/Civillian")
 playCarCloseSound = false
 
@@ -1042,7 +1042,7 @@ season = 1
 [node name="Tree2" parent="LevelObjects/Nature" instance=ExtResource( 30 )]
 position = Vector2( 40, 184 )
 z_index = -4
-frame = 2
+frame = 3
 season = 1
 variant = 1
 

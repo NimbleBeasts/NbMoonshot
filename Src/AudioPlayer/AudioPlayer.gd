@@ -2,26 +2,24 @@ extends Node2D
 
 
 var music = [
-	load("res://Assets/Music/western_world.ogg"), #	westernMusic = 0,
-	load("res://Assets/Music/eastern_bloc.ogg"), #	easternMusic = 1,
-	load("res://Assets/Music/hq_intro.ogg"), #	hqIntro,
-	load("res://Assets/Music/hq_main.ogg"), #	hqMusic,
-	load("res://Assets/Music/title_intro.ogg"), #	menuIntro,
-	load("res://Assets/Music/title_main.ogg"), #	menuMusic,
-	load("res://Assets/Music/hq_full.ogg"), #	hq_full,
-	load("res://Assets/Music/surfin_ussr_full.ogg"), #	surfin_ussr,
-	load("res://Assets/Music/rocket_full_.ogg"), #	rocket,
-	load("res://Assets/Music/russia_win_full.ogg"), #	russia_win
-	load("res://Assets/Music/title_full_.ogg"), # titleFull
-	load("res://Assets/Music/bank_full_.ogg"), #bank
-	load("res://Assets/Music/bro_full.ogg"), #bro
-	load("res://Assets/Music/affaire2_full.ogg"), #affaire
-	load("res://Assets/Music/ustria_win_escape_.ogg"), #ustria_win
-	load("res://Assets/Music/Luna_missions.ogg"), #luna
-	load("res://Assets/Music/listening_device_full.ogg"), #listening
-	load("res://Assets/Music/apollo_full.ogg"), #apollo
-	load("res://Assets/Music/Apollo_1_full.ogg"), #apollo 1
-	load("res://Assets/Music/atlas_9_full.ogg"), #atlas9
+	#affaire, affaire2, apollo, apollo11, atlas9, bank, chimpanzee, hq, listening, luna, rocket, rocket2, soyuz, title, ustriaescape, winlevel
+	load("res://Assets/Music/-_Mx_affaire_BPM137_T4-4_Length77M_Intro3M.ogg"),
+	load("res://Assets/Music/-_Mx_affaire2_BPM70_T4-4_Length64M_Intro8M.ogg"),
+	load("res://Assets/Music/-_Mx_apollo_BPM72_T4-4_Length52M.ogg"),
+	load("res://Assets/Music/-_Mx_apollo11_BPM107_T4-4_Length72M.ogg"),
+	load("res://Assets/Music/-_Mx_atlas9_BPM80_T4-4_Length26M.ogg"),
+	load("res://Assets/Music/-_Mx_bank_BPM114_T4-4_Length78M_Intro2M.ogg"),
+	load("res://Assets/Music/-_Mx_chimpanzee_BPM174_T4-4_Length76M.ogg"),
+	load("res://Assets/Music/-_Mx_hq_BPM130_T4-4_Length41M.ogg"),
+	load("res://Assets/Music/-_Mx_ListeningDevice_BPM_94_T4-4_Length36M_Intro8M.ogg"),
+	load("res://Assets/Music/-_Mx_luna_BPM100_T4-4_Length78M_Intro7M.ogg"),
+	load("res://Assets/Music/-_Mx_rocket_BPM145_T4-4Length58M.ogg"),
+	load("res://Assets/Music/-_Mx_rocket2_BPM92_T4-4_Length50M.ogg"),
+	load("res://Assets/Music/-_Mx_soyuz_BPM64_T4-4_Length36M.ogg"),
+	load("res://Assets/Music/-_Mx_title_BPM100_T4-4_Length32.2M_Intro5.2M.ogg"),
+	load("res://Assets/Music/-_Mx_UstriaWinEscape_BPM122_T4-4_Length41M_Intro3.2M.ogg"),
+	load("res://Assets/Music/-_Mx_UstriaWinLevel_T4-4_BPM130_Length24M.ogg"),
+
 ]
 
 onready var musicPlayer: AudioStreamPlayer = $Music
@@ -95,14 +93,7 @@ func _playSound(sound: String,_volume : float = 1.0, _pos : Vector2 = Vector2(0,
 				print("error: sound not found - name: " + str(sound))
 
 
-# Music Loop?
-func _on_Music_finished():
-	if musicPlayer.stream == music[Types.MusicType.hqIntro]:
-		musicPlayer.stream = music[Types.MusicType.hqMusic]
-	elif musicPlayer.stream == music[Types.MusicType.menuIntro]:
-		musicPlayer.stream = music[Types.MusicType.menuMusic]
-	musicPlayer.play()
-	
+
 
 
 func playRandomSound(audioPlayer, array: Array) -> void:

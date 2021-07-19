@@ -64,7 +64,7 @@ __meta__ = {
 "_editor_description_": "Some thinfloors need to be replaced with the new ladder"
 }
 level_nation_type = 1
-level_music = 8
+level_music = 11
 level_objectives = NodePath("LevelObjects/TargetCabinet")
 playCarCloseSound = false
 
@@ -518,6 +518,9 @@ texture = ExtResource( 31 )
 position = Vector2( 808, 200 )
 flicker = true
 flickerSequence = "11111111010100000000010"
+
+[node name="Light2D" parent="LevelObjects/Lights/Light6" index="3"]
+visible = false
 
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 904, 200 )

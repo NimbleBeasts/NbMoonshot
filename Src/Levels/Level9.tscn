@@ -79,7 +79,7 @@ __meta__ = {
 }
 level_lightning = 1
 level_nation_type = 3
-level_music = 11
+level_music = 5
 level_objectives = NodePath("../Level9-BankJob/LevelObjects/Interactables/TresureSack")
 
 [node name="SpriteWalls" type="Node2D" parent="."]

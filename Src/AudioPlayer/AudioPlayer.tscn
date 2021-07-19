@@ -86,5 +86,3 @@ bus = "Sound"
 [node name="GameOver" type="AudioStreamPlayer" parent="General"]
 stream = ExtResource( 3 )
 bus = "Sound"
-
-[connection signal="finished" from="Music" to="." method="_on_Music_finished"]

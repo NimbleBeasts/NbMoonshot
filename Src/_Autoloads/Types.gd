@@ -10,27 +10,7 @@ enum HudNotificationType {BuyZone, SaveZone, OpenDoor, Interact}
 
 # Music
 enum MusicType {
-	DefaultLevelType = -1,
-	westernMusic = 0,
-	easternMusic = 1,
-	hqIntro,
-	hqMusic,
-	menuIntro,
-	menuMusic,
-	hq_full,
-	surfin_ussr,
-	rocket,
-	russia_win,
-	titleFull,
-	bank,
-	bro,
-	affaire,
-	austriawin,
-	luna,
-	listening,
-	apollo,
-	apollo1,
-	atlas9
+	affaire = 0, affaire2 = 1, apollo, apollo11, atlas9, bank, chimpanzee, hq, listening, luna, rocket, rocket2, soyuz, title, ustriaescape, winlevel
 }
 
 

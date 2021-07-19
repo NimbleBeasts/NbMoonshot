@@ -96,6 +96,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Affaire 2: Your boss wants you to infiltrate the affaires house, taser him and bring the body to the car."
 }
+level_music = 5
 level_objectives = NodePath("LevelObjects/Objects/Tresor")
 
 [node name="NewSkybox" parent="." instance=ExtResource( 4 )]
@@ -316,7 +317,6 @@ centered = false
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 30 )]
 position = Vector2( 848, 244 )
-frame = 2
 
 [node name="LivingRoom" type="Sprite" parent="LevelObjects/Decorations"]
 light_mask = 3
