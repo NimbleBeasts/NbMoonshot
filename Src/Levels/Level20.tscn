@@ -930,7 +930,6 @@ type = 2
 [node name="DialogueDoor" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
 position = Vector2( 960, 64 )
 lockLevel = 3
-showHintIfLocked = true
 hint = "LEVEL_20_HINT"
 
 [node name="DoorWall" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
@@ -1177,7 +1176,6 @@ flickerSequence = "1000000"
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 2 )]
 position = Vector2( 264, 256 )
 next_level = -1
-nextSecretaryInteractionCounter = 6
 
 [node name="ExitArea" type="Area2D" parent="LevelObjects/ExtractionZone"]
 position = Vector2( 32, -24 )

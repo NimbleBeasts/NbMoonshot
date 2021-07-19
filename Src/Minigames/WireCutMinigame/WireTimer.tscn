@@ -6,6 +6,16 @@
 [node name="WireTimer" type="Node2D"]
 position = Vector2( 0, -25 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -32.0
+margin_top = -7.0
+margin_right = 32.0
+margin_bottom = 8.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="dig1" type="Sprite" parent="."]
 position = Vector2( -24, 0 )
 texture = ExtResource( 2 )

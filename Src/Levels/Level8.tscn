@@ -172,6 +172,7 @@ centered = false
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 24 )]
 position = Vector2( 282, 364 )
+frame = 1
 
 [node name="Cc" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 328, 352 )
@@ -594,7 +595,6 @@ position = Vector2( 258, 267 )
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 14 )]
 position = Vector2( 32, 256 )
 next_level = 9
-nextSecretaryInteractionCounter = 9
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 96, 256 )

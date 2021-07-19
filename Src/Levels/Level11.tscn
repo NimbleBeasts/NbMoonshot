@@ -912,7 +912,6 @@ position = Vector2( 408, 200 )
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 46 )]
 position = Vector2( 136, 256 )
 next_level = 12
-nextSecretaryInteractionCounter = 6
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
 position = Vector2( 200, 256 )

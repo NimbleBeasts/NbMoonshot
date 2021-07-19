@@ -3,6 +3,7 @@ extends "res://Src/Levels/BaseLevel.gd"
 var timerStarted = false
 var time = 60.0
 var bombDefused = false
+var itsOverLetMeQuit = false
 
 func _ready():
 	$AdditionalHUD/Overlay/BombTimer.hide()
@@ -36,6 +37,13 @@ func _physics_process(delta):
 		updateTimer()
 		$LevelObjects/Objects/TNT/WireCutSpawner.countdownTime = time
 		
+		
+	if itsOverLetMeQuit:
+		# Lazy workaround. some layer is preventing us from clicking the exit button. I guess its HUD but fuck it
+		if Input.is_action_just_pressed("interact"):
+			yield(get_tree().create_timer(0.1), "timeout")
+			_on_ButtonQuit_button_up()
+		
 
 func wireCutSuccess():
 	timerStarted = false
@@ -49,7 +57,9 @@ func updateTimer():
 	$AdditionalHUD/Overlay/BombTimer/dig4.frame = max(0, (timerValue / 100) % 10)
 	$AdditionalHUD/Overlay/BombTimer/dig3.frame = max(0, (timerValue / 1000) % 10)
 
-	
+
+
+
 
 func _on_ExitArea_body_entered(body):
 	if timerStarted:
@@ -65,6 +75,7 @@ func missionEnd(type):
 	else:
 		$AdditionalHUD/Overlay/BlackOut.show()
 		$AdditionalHUD/Overlay/BlackOut/AnimationPlayer.play("fade")
+		Events.emit_signal("play_music", Types.MusicType.winlevel)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -78,12 +89,23 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		$AdditionalHUD/Overlay/Outro.show()
 		$AdditionalHUD/Overlay/Outro/FlyByText/FlyByAnimationPlayer.play("flyby")
 		get_tree().paused = true
+	elif anim_name == "explosion":
+		yield(get_tree().create_timer(1), "timeout")
+		$Player.onGameOver()
+
 
 
 func _on_FlyByAnimationPlayer_animation_finished(anim_name):
 	$AdditionalHUD/Overlay/Outro/ButtonQuit.show()
-
+	$AdditionalHUD/Overlay/Outro/ButtonQuit.grab_focus()
+	$AdditionalHUD/Overlay/Outro/ButtonQuit.grab_click_focus()
+	itsOverLetMeQuit = true
+	get_tree().paused = false
+	
 
 func _on_ButtonQuit_button_up():
+	itsOverLetMeQuit = false
 	Events.emit_signal("menu_back")
+	yield(get_tree().create_timer(0.1), "timeout")
 	Global.newGameState()
+	
