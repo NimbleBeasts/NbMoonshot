@@ -40,9 +40,7 @@ func _ready() -> void:
 	connect("body_exited", self, "onBodyExited")
 	loadDialogue()
 	currentBranchID = "%s0" % interactedCounter
-	print(currentBranchID)
 	if loadedDialogue.has(currentBranchID):
-		print("set it")
 		setCurrentBranch(loadedDialogue[currentBranchID])
 
 
