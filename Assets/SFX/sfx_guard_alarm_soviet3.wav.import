@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_guard_alarm_soviet3.wav-2cd744388a2bc15a65f2f266a83422dc.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/sfx_guard_alarm_soviet3.wav"
+dest_files=[ "res://.import/sfx_guard_alarm_soviet3.wav-2cd744388a2bc15a65f2f266a83422dc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

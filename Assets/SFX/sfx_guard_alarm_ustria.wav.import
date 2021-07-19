@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_guard_alarm_ustria.wav-ac97bc8baf1d497ad761f3565c8d310a.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/sfx_guard_alarm_ustria.wav"
+dest_files=[ "res://.import/sfx_guard_alarm_ustria.wav-ac97bc8baf1d497ad761f3565c8d310a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

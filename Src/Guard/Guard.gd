@@ -38,17 +38,32 @@ var applyGravity: bool
 var inDistractMode: bool
 var delayOver = false
 
+var nation = null
+
 var guardSuspiciousSounds = [
 	preload("res://Assets/SFX/guard_suspicious1.wav"),
 	preload("res://Assets/SFX/guard_suspicious2.wav"),
 	preload("res://Assets/SFX/guard_suspicious3.wav"),
 	preload("res://Assets/SFX/guard_suspicious4.wav")
 ]
-var guardAlarmSounds = [
+
+#enum LevelTypes {USA = 0, USSR = 1, Ustria = 2, Switzerland}
+var guardAlarmSounds = [[
 	preload("res://Assets/SFX/guard_alarm1.wav"),
 	preload("res://Assets/SFX/guard_alarm2.wav"),
 	preload("res://Assets/SFX/guard_alarm3.wav"),
 	preload("res://Assets/SFX/guard_alarm4.wav")
+],
+[
+	preload("res://Assets/SFX/sfx_guard_alarm_soviet.wav"),
+	preload("res://Assets/SFX/sfx_guard_alarm_soviet2.wav"),
+	preload("res://Assets/SFX/sfx_guard_alarm_soviet3.wav"),
+],
+[
+	preload("res://Assets/SFX/sfx_guard_alarm_ustria.wav"),
+	preload("res://Assets/SFX/sfx_guard_alarm_ustria2.wav"),
+	preload("res://Assets/SFX/sfx_guard_alarm_ustria3.wav"),
+],
 ]
 
 #warning-ignore:unused_class_variable
@@ -70,8 +85,11 @@ func _ready() -> void:
 	losRay.set_deferred("enabled", false)
 
 	# sets sprite texture on level type
-	match Global.game_manager.getCurrentLevel().level_nation_type:
+	nation = Global.game_manager.getCurrentLevel().level_nation_type
+	match nation:
 		Types.LevelTypes.USA:
+			$Flippable/Sprite.texture = guard_normal_texture
+		Types.LevelTypes.Switzerland:
 			$Flippable/Sprite.texture = guard_normal_texture
 		_:
 			$Flippable/Sprite.texture = guard_green_texture 
@@ -250,7 +268,13 @@ func _on_SureDetectionTimer_timeout() -> void:
 #	set_physics_process(false)
 	processAI = false
 	Events.emit_signal("player_detected", Types.DetectionLevels.Sure)
-	playRandomSound($Guard/Alarm, guardAlarmSounds)
+	
+	var index = 0
+	
+	if nation != Types.LevelTypes.Switzerland:
+		index = nation
+		
+	playRandomSound($Guard/Alarm, guardAlarmSounds[index])
 	
 
 func _on_StunDurationTimer_timeout() -> void:
