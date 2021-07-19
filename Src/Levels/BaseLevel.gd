@@ -58,10 +58,10 @@ func _ready():
 	else:
 		if Global.gameState["level"]["lastActiveMission"] >= 0:
 			yield(get_tree(), "idle_frame") # if i don't add this line, it crashes when going to hq level
-			Events.emit_signal("hud_mission_progress")
-			get_tree().paused = true
+			#Events.emit_signal("hud_mission_progress")
+			#get_tree().paused = true
 		set_process(false)
-		
+	Events.emit_signal("clear_hint")
 	
 	if level_objectives:
 		level_objectives = get_node(level_objectives)

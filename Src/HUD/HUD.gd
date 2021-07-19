@@ -112,6 +112,10 @@ func setLightLevel(level):
 func photoFlash():
 	$HUDLayer/PhotoFlash/AnimationPlayer.play("detection")
 
+func clearHint():
+	$HUDLayer/GameHintNotification/GameHintAnimationPlayer.stop(true)
+	$HUDLayer/GameHintNotification.hide()
+
 func showGameHintNotification(text):
 	$HUDLayer/GameHintNotification.set_text(text)
 	$HUDLayer/GameHintNotification.show()
@@ -501,6 +505,8 @@ func hookSetup():
 	Events.connect("no_branch_option_pressed", self, "onNoBranchOptionPressed")
 	
 	Events.connect("hud_detection_flash", self, "detectionFlash")
+	
+	Events.connect("clear_hint", self, "clearHint")
 
 
 

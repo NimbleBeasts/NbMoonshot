@@ -34,12 +34,13 @@ func cheat_level_next():
 	
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact") and Global.game_manager.getCurrentLevel().can_change_level():
-		if Global.gameState["level"]["hasActiveMission"] and Global.gameState["level"]["lastActiveMission"] != 0:
-			$AnimationPlayer.play("open")
-			$CarOpen.play()
-			Events.emit_signal("player_block_movement")
-			get_tree().set_input_as_handled()
+	if event.is_action_pressed("interact"):
+		if Global.game_manager.getCurrentLevel().can_change_level():
+			if Global.gameState["level"]["hasActiveMission"] and Global.gameState["level"]["lastActiveMission"] != 0:
+				$AnimationPlayer.play("open")
+				$CarOpen.play()
+				Events.emit_signal("player_block_movement")
+				get_tree().set_input_as_handled()
 
 			
 func _on_body_entered(body: Node) -> void:

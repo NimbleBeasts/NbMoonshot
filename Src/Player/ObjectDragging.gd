@@ -39,6 +39,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed("interact"):
 		if isDragging and not player.applyGravity:
+			for area in player.get_node("PlayerArea").get_overlapping_areas():
+				if area.is_in_group("ExtractionZone"):
+					return
 			stopDragging()
 			return
 		object = possibleObject

@@ -59,6 +59,7 @@ KEY_FOUND,Found the %s key,%s Schlüssel gefunden!
 KEY_RED,red,Roter
 KEY_BLUE,blue,Blauer
 KEY_YELLOW,yellow,Gelber
+HUD_BATTERY_LOW,"Battery low","Batterie leer"
 LEVEL_BUTTON,Switch pressed,Schalter gedrückt
 LEVEL_LEVER,Lever flipped,Hebel umgelegt
 LEVELHQ_NOTE,"Damn, we've lost your key. You will have to lockpick this door.",Mist. Wir haben den Schlüssel verloren. Sieht so aus als müsstest du das Schloss knacken.

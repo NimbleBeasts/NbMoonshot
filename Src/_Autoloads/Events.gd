@@ -170,6 +170,7 @@ signal hud_level_transition_exited()
 
 #TODO: knightmare what? do we need it? its pretty much the same as hud_game_hint
 signal level_hint(hint)
+signal clear_hint()
 # Check discord
 
 #TODO: knightmare emitter and listener are in the same src file. Do we really need it?
