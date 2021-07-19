@@ -19,7 +19,7 @@
 [ext_resource path="res://Assets/Objects/UssrFlagLarge.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Objects/NoSmoking.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Objects/Laboratory/Boxes.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Objects/Laboratory/ContolRoom1.png" type="Texture" id=20]
+[ext_resource path="res://Src/Objects/ControlRoom.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Assets/Objects/Office/Clock.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Objects/SpiderWeb.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Objects/Office/Broom.png" type="Texture" id=23]
@@ -34,7 +34,7 @@
 [ext_resource path="res://Assets/Objects/Laboratory/WallPockocmoc.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Objects/Office/WallImageEarthMoon.png" type="Texture" id=33]
 [ext_resource path="res://Src/Minigames/PhotoMinigame/PhotoMinigameSpawner.gd" type="Script" id=34]
-[ext_resource path="res://Assets/Objects/Office/WallImageMoonLanding.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Objects/PictureScreen.png" type="Texture" id=35]
 [ext_resource path="res://Src/PlayerBox/PlayerBox.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=58]
 [ext_resource path="res://Assets/Objects/Office/Vending.png" type="Texture" id=62]
@@ -52,7 +52,8 @@
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=85]
 [ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=87]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 24 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -116,7 +117,7 @@ flagType = 1
 [node name="Nature" type="Node2D" parent="LevelObjects/Decorations"]
 
 [node name="Tree" parent="LevelObjects/Decorations/Nature" instance=ExtResource( 11 )]
-position = Vector2( -38, 185 )
+position = Vector2( -38, 184 )
 z_index = -8
 texture = ExtResource( 14 )
 hframes = 2
@@ -125,7 +126,7 @@ tree = 1
 variant = 1
 
 [node name="Tree2" parent="LevelObjects/Decorations/Nature" instance=ExtResource( 11 )]
-position = Vector2( -108, 185 )
+position = Vector2( -108, 184 )
 z_index = -5
 texture = ExtResource( 14 )
 hframes = 2
@@ -137,10 +138,6 @@ texture = ExtResource( 62 )
 
 [node name="VentilationFan" parent="LevelObjects/Decorations" instance=ExtResource( 15 )]
 position = Vector2( 806, 32 )
-
-[node name="ContolRoom1" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 394, 107 )
-texture = ExtResource( 20 )
 
 [node name="Plant" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 298, 113 )
@@ -154,12 +151,8 @@ texture = ExtResource( 21 )
 position = Vector2( 386, 222 )
 texture = ExtResource( 17 )
 
-[node name="UssrFlagLarge2" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 755, 172 )
-texture = ExtResource( 17 )
-
 [node name="UssrFlagLarge3" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 834, 172 )
+position = Vector2( 845, 158 )
 texture = ExtResource( 17 )
 
 [node name="BarrelBlue" type="Sprite" parent="LevelObjects/Decorations"]
@@ -261,6 +254,10 @@ texture = ExtResource( 32 )
 [node name="WallImageEarthMoon" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 784, 172 )
 texture = ExtResource( 33 )
+
+[node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 20 )]
+position = Vector2( 396, 108 )
+frame = 1
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -447,22 +444,25 @@ unlocks = [ NodePath("../../../Lasers/LaserDetector2"), NodePath("../../../Laser
 startStateOn = true
 
 [node name="PhotoMinigameSpawner" type="Area2D" parent="LevelObjects/Interactables"]
-position = Vector2( 803, 172 )
+position = Vector2( 800, 168 )
 script = ExtResource( 34 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="WallImageMoonLanding" type="Sprite" parent="LevelObjects/Interactables/PhotoMinigameSpawner"]
+position = Vector2( -48, -40 )
 texture = ExtResource( 35 )
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Interactables/PhotoMinigameSpawner"]
+position = Vector2( -16, 0 )
 shape = SubResource( 1 )
 
 [node name="Blockers" type="Node2D" parent="LevelObjects"]
 
 [node name="CarBlock" type="StaticBody2D" parent="LevelObjects/Blockers"]
-position = Vector2( -112, 240 )
+position = Vector2( -82, 246 )
 collision_layer = 128
 collision_mask = 128
 __meta__ = {
@@ -553,9 +553,9 @@ moveDistance = 14
 startOff = true
 
 [node name="LaserDetector1" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
-position = Vector2( 841, 136 )
+position = Vector2( 792, 136 )
 isStatic = false
-moveDistance = 14
+moveDistance = 8
 startOff = true
 
 [node name="LaserDetector9" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
@@ -602,7 +602,7 @@ isHorizontal = false
 startOff = true
 
 [node name="LaserDetector11" parent="LevelObjects/Lasers" instance=ExtResource( 16 )]
-position = Vector2( 809, 186 )
+position = Vector2( 808, 136 )
 rotation = 1.5708
 isStatic = false
 moveDistance = 6
@@ -630,7 +630,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 80 )]
-position = Vector2( 700, 256 )
+position = Vector2( 701, 255 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]

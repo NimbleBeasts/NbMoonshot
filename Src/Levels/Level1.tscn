@@ -132,7 +132,7 @@ position = Vector2( 218, 335 )
 texture = ExtResource( 41 )
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 18 )]
-frame = 1
+frame = 2
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
 light_mask = 3
