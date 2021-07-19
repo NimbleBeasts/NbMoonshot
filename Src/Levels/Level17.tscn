@@ -549,7 +549,6 @@ position = Vector2( 576, 232 )
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 46 )]
 position = Vector2( 0, -8 )
 next_level = 18
-nextSecretaryInteractionCounter = 6
 
 [node name="AnimationPlayerEnd" type="AnimationPlayer" parent="LevelObjects/ExtractionZone"]
 anims/end = SubResource( 3 )
@@ -562,7 +561,7 @@ position = Vector2( 0, -16 )
 shape = SubResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
-position = Vector2( 192, 168 )
+position = Vector2( 191, 167 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]

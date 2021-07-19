@@ -185,6 +185,7 @@ func showSave():
 			button.text = "Slot " + str(i) + " (New)"
 		i += 1
 	$HUDLayer/Display/SaveGame.show()
+	yield(get_tree().create_timer(0.1), "timeout")
 	$HUDLayer/Display/SaveGame/Menu/ButtonSave1.grab_focus()
 
 
