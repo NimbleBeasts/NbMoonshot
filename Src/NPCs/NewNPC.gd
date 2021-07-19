@@ -11,9 +11,10 @@ export (String) var Prefix
 
 var loadedDialogue
 
+var option0Branch
 var option1Branch
 var option2Branch
-var option3Branch
+
 
 var currentBranch
 var player: Player
@@ -146,7 +147,6 @@ func checkForQuests() -> void:
 
 
 func setInteractedCounter(value: int) -> void:
-	print(str(name) + " setInteractedCounter: " +str(value))
 	if interactedCounter != value:
 		interactedCounter = value
 		currentBranchID = "%s0" % interactedCounter
@@ -171,7 +171,6 @@ func onDialogHidden() -> void:
 
 
 func setCurrentBranch(newBranch) -> void:
-	print(str(name) + " setCurrentBranch: " + str(newBranch))
 	if currentBranch != newBranch:
 		currentBranch = newBranch
 		
