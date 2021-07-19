@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/-_Mx_soyuz_BPM64_T4-4_Length36M.ogg-d7f114716520ccdf6599d0825a630688.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/-_Mx_soyuz_BPM64_T4-4_Length36M.ogg"
+dest_files=[ "res://.import/-_Mx_soyuz_BPM64_T4-4_Length36M.ogg-d7f114716520ccdf6599d0825a630688.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

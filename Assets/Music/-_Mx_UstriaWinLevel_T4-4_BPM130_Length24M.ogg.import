@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/-_Mx_UstriaWinLevel_T4-4_BPM130_Length24M.ogg-bce1311d96ea2370da7a48fd2b56ca02.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/-_Mx_UstriaWinLevel_T4-4_BPM130_Length24M.ogg"
+dest_files=[ "res://.import/-_Mx_UstriaWinLevel_T4-4_BPM130_Length24M.ogg-bce1311d96ea2370da7a48fd2b56ca02.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

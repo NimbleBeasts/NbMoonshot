@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/-_Mx_chimpanzee_BPM174_T4-4_Length76M.ogg-4a814a80a63ac266ef3d4880746dfb24.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/-_Mx_chimpanzee_BPM174_T4-4_Length76M.ogg"
+dest_files=[ "res://.import/-_Mx_chimpanzee_BPM174_T4-4_Length76M.ogg-4a814a80a63ac266ef3d4880746dfb24.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/-_Mx_apollo_BPM72_T4-4_Length52M.ogg-a470e5334424722024bc8a00a948bebb.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/-_Mx_apollo_BPM72_T4-4_Length52M.ogg"
+dest_files=[ "res://.import/-_Mx_apollo_BPM72_T4-4_Length52M.ogg-a470e5334424722024bc8a00a948bebb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/-_Mx_title_BPM100_T4-4_Length32.2M_Intro5.2M.ogg-bd3982ecda17927da95793a5dbe59586.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/-_Mx_title_BPM100_T4-4_Length32.2M_Intro5.2M.ogg"
+dest_files=[ "res://.import/-_Mx_title_BPM100_T4-4_Length32.2M_Intro5.2M.ogg-bd3982ecda17927da95793a5dbe59586.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=12.98

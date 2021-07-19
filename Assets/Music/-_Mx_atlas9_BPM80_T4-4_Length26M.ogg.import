@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/-_Mx_atlas9_BPM80_T4-4_Length26M.ogg-4f8a09eda34cf42d3892e7c7a0001ac3.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/-_Mx_atlas9_BPM80_T4-4_Length26M.ogg"
+dest_files=[ "res://.import/-_Mx_atlas9_BPM80_T4-4_Length26M.ogg-4f8a09eda34cf42d3892e7c7a0001ac3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

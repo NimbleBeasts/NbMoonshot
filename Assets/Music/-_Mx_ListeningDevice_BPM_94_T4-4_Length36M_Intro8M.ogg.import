@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/-_Mx_ListeningDevice_BPM_94_T4-4_Length36M_Intro8M.ogg-a34288fe962617bcd5d35102fc4de53e.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/-_Mx_ListeningDevice_BPM_94_T4-4_Length36M_Intro8M.ogg"
+dest_files=[ "res://.import/-_Mx_ListeningDevice_BPM_94_T4-4_Length36M_Intro8M.ogg-a34288fe962617bcd5d35102fc4de53e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=20.42

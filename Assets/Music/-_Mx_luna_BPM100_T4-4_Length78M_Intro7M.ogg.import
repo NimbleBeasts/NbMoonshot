@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/-_Mx_luna_BPM100_T4-4_Length78M_Intro7M.ogg-2c95b63db1f7483717c773dc8bd50e5e.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/-_Mx_luna_BPM100_T4-4_Length78M_Intro7M.ogg"
+dest_files=[ "res://.import/-_Mx_luna_BPM100_T4-4_Length78M_Intro7M.ogg-2c95b63db1f7483717c773dc8bd50e5e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=16.8

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/-_Mx_hq_BPM130_T4-4_Length41M.ogg-c0ab3daea016ee721c0cc95afcb5ba5d.oggstr"
+
+[deps]
+
+source_file="res://Assets/Music/-_Mx_hq_BPM130_T4-4_Length41M.ogg"
+dest_files=[ "res://.import/-_Mx_hq_BPM130_T4-4_Length41M.ogg-c0ab3daea016ee721c0cc95afcb5ba5d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
