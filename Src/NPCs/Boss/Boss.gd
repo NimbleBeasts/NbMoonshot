@@ -2,10 +2,10 @@ extends NPC
 
 
 func _ready() -> void:
-	if Global.gameState.interactionCounters.boss == 0:
+	if Global.gameState.level.id == 0:
 		Global.gameState.level.missionIsTutorial = true
 
-	interacted_counter = Global.gameState["interactionCounters"]["boss"]
+	interacted_counter = Global.gameState.level.id
 	Events.connect("tutorial_finished", self, "_on_tutorial_finished")
 
 # gets called when player goes through one iteration of the dialog
@@ -23,5 +23,5 @@ func onReadAllDialogue() -> void:
 			
 			
 func _on_tutorial_finished() -> void:
-	Global.gameState["interactionCounters"]["boss"] = 1
+	Global.gameState.level.id = 1
 	interacted_counter = 1

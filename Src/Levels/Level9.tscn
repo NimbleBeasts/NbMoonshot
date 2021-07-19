@@ -107,7 +107,7 @@ tile_data = PoolIntArray( 524315, 0, 0, 524316, 0, 1, 524317, 0, 1, 524318, 0, 1
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 68 )]
 position = Vector2( 821, 257 )
-next_boss_interacted_counter = 10
+next_level = 10
 nextSecretaryInteractionCounter = 10
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]

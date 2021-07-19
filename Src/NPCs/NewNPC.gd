@@ -11,6 +11,9 @@ export (String) var Prefix
 
 var loadedDialogue
 
+var option1Branch
+var option2Branch
+var option3Branch
 
 var currentBranch
 var player: Player
@@ -37,7 +40,9 @@ func _ready() -> void:
 	connect("body_exited", self, "onBodyExited")
 	loadDialogue()
 	currentBranchID = "%s0" % interactedCounter
+	print(currentBranchID)
 	if loadedDialogue.has(currentBranchID):
+		print("set it")
 		setCurrentBranch(loadedDialogue[currentBranchID])
 
 
@@ -143,12 +148,13 @@ func checkForQuests() -> void:
 
 
 func setInteractedCounter(value: int) -> void:
+	print(str(name) + " setInteractedCounter: " +str(value))
 	if interactedCounter != value:
 		interactedCounter = value
 		currentBranchID = "%s0" % interactedCounter
-		if Global.returnedFromSabotageMission:
-			print("returned from sabotage mission")
-			currentBranchID += "A"
+		# if Global.returnedFromSabotageMission:
+		# 	print("returned from sabotage mission")
+		# 	currentBranchID += "A"
 		if loadedDialogue.has(currentBranchID):
 			setCurrentBranch(loadedDialogue[currentBranchID])
 		set_process_input(true)
@@ -167,6 +173,7 @@ func onDialogHidden() -> void:
 
 
 func setCurrentBranch(newBranch) -> void:
+	print(str(name) + " setCurrentBranch: " + str(newBranch))
 	if currentBranch != newBranch:
 		currentBranch = newBranch
 		

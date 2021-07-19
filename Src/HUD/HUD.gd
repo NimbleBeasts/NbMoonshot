@@ -185,7 +185,7 @@ func showSave():
 			button.text = "Slot " + str(i) + " (New)"
 		i += 1
 	$HUDLayer/Display/SaveGame.show()
-	$HUDLayer/Display/SaveGame/Menu/ButtonReturn.grab_focus()
+	$HUDLayer/Display/SaveGame/Menu/ButtonSave1.grab_focus()
 
 
 func save(slot):

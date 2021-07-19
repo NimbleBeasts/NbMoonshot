@@ -3,12 +3,12 @@ extends NewNPC
 var loveLevel: int
 
 func _ready() -> void: 
-	setInteractedCounter(Global.gameState["interactionCounters"]["secretary"])
+	setInteractedCounter(Global.gameState.level.id)
 	Events.connect("tutorial_finished", self, "onTutorialFinished")
 
 	
 func onTutorialFinished() -> void:
-	Global.gameState["interactionCounters"]["secretary"] = 1
+	Global.gameState.level.id = 1
 	setInteractedCounter(1)
 
 func sayBranch(branch: Dictionary) -> void:

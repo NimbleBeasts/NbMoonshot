@@ -112,19 +112,9 @@ var gameState = {
 		# Game will only be saveable during missions in the HQ. So it will be easier to track:
 		hasActiveMission = false,
 		lastActiveMission = -1,
-		missionIsTutorial = false
-	},
-
-	interactionCounters = {
-		boss = 0,
-		secretary = 0
-	},
-
-	sabotageCounters = {
-		usa = 0,
-		ussr = 0
-	}	
-
+		missionIsTutorial = false,
+		id = 0 #New interaction counter
+	}
 } setget setGameState
 
 # Debug Settings
@@ -205,9 +195,10 @@ func getSaveGameState():
 			var level = -1
 			saveFile.open("user://save_"+ str(i) + ".cfg", File.READ)
 			var data = parse_json(saveFile.get_line())
-			if data.has("date") and data.has("interactionCounters"):
-				date = data.date
-				level = data.interactionCounters.boss
+			if data:
+				if data.has("date") and data.has("level"):
+					date = data.date
+					level = data.level.id
 			retVal.append({"state": true, "date": date, "level": level})
 		else:
 			retVal.append({"state": false, "date": 0, "level": -1})
@@ -322,14 +313,9 @@ func newGameState() -> void:
 		# Game will only be saveable during missions in the HQ. So it will be easier to track:
 		hasActiveMission = false,
 		lastActiveMission = -1,
-		missionIsTutorial = false
+		missionIsTutorial = false,
+		id = 0
 	},
-
-	interactionCounters = {
-		boss = 0,
-		secretary = 0
-	}
-
 }
 
 func switchResolution():

@@ -1176,7 +1176,7 @@ flickerSequence = "1000000"
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 2 )]
 position = Vector2( 264, 256 )
-next_boss_interacted_counter = 6
+next_level = -1
 nextSecretaryInteractionCounter = 6
 
 [node name="ExitArea" type="Area2D" parent="LevelObjects/ExtractionZone"]

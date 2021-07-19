@@ -784,7 +784,7 @@ flickerSequence = "1111010001111"
 
 [node name="ExtractionZone" parent="." instance=ExtResource( 42 )]
 position = Vector2( 56, 256 )
-next_boss_interacted_counter = 3
+next_level = 3
 nextSecretaryInteractionCounter = 3
 
 [editable path="LevelObjects/Lights/OutdoorLight"]

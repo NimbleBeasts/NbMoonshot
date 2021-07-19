@@ -576,7 +576,7 @@ scale = Vector2( -1, 1 )
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 46 )]
 position = Vector2( 80, 256 )
-next_boss_interacted_counter = 6
+next_level = 15
 nextSecretaryInteractionCounter = 6
 
 [node name="LaserDetector3" parent="LevelObjects" instance=ExtResource( 2 )]

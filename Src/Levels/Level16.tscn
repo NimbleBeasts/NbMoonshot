@@ -471,7 +471,7 @@ __meta__ = {
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 46 )]
 position = Vector2( 1600, -48 )
-next_boss_interacted_counter = 6
+next_level = 17
 nextSecretaryInteractionCounter = 6
 
 [node name="Signs" type="Node2D" parent="LevelObjects"]

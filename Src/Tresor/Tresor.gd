@@ -41,7 +41,7 @@ func openTresor():
 	
 	$Sprite.frame = 1
 	isUsed = true
-	if Global.gameState.interactionCounters.boss == 0:
+	if Global.gameState.level.id == 0:
 		Events.emit_signal("tutorial_finished")
 		SteamWorks.setAchievement("STEAM_ACH_1")
 	if showHintOnSucceed:

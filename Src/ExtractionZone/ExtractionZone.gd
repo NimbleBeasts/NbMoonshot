@@ -5,8 +5,7 @@ extends Area2D
 
 var player_entered: bool = false
 export var level_index: int = 0
-export var next_boss_interacted_counter: int = 0
-export var nextSecretaryInteractionCounter: int = next_boss_interacted_counter
+export var next_level: int = 0
 export(Types.Direction) var sprite_face_direction = Types.Direction.Left
 
 
@@ -70,16 +69,15 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 		
 		Events.emit_signal("hud_level_transition", level_index)
 		Global.addMoney(Global.game_manager.getCurrentLevel().gainedMoney)
-		if Global.game_manager.getCurrentLevel().isSabotage:
-			Global.returnedFromSabotageMission = true
-			Global.gameState["interactionCounters"]["boss"] = Global.game_manager.getCurrentLevelIndex()
-			Global.gameState["interactionCounters"]["secretary"] = Global.game_manager.getCurrentLevelIndex()
-			var countryString = Types.Countries.keys()[Global.game_manager.getCurrentLevel().sabotageCountry]
-			Global.gameState["sabotageCounters"][countryString] += 1
+		# if Global.game_manager.getCurrentLevel().isSabotage:
+		# 	Global.returnedFromSabotageMission = true
+		# 	Global.gameState.level.id = Global.game_manager.getCurrentLevelIndex()
+			#var countryString = Types.Countries.keys()[Global.game_manager.getCurrentLevel().sabotageCountry]
+			#Global.gameState["sabotageCounters"][countryString] += 1
 			#print("Sabotage progress of %s set to %s " % [countryString, Global.gameState["sabotageCounters"][countryString]])
-		else:
-			Global.gameState["interactionCounters"]["boss"] = next_boss_interacted_counter
-			Global.gameState["interactionCounters"]["secretary"] = nextSecretaryInteractionCounter
+		#else:
+		Global.gameState.level.id = next_level
+
 		Global.addMoney(100) # successful level change
 		Global.game_manager.unloadLevel()
 		Global.game_manager.loadLevel(level_index)

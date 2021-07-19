@@ -131,7 +131,7 @@ position = Vector2( 688, 136 )
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
-next_boss_interacted_counter = 7
+next_level = 7
 nextSecretaryInteractionCounter = 7
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
