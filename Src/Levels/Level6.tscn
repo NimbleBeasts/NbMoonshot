@@ -132,7 +132,6 @@ position = Vector2( 688, 136 )
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -8, 256 )
 next_level = 7
-nextSecretaryInteractionCounter = 7
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
@@ -181,7 +180,6 @@ centered = false
 [node name="ControlRoom" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 512, 364 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="LargeDoor" type="Sprite" parent="LevelObjects/Decorations"]
@@ -281,7 +279,6 @@ doorType = 1
 [node name="DoorToTarget" parent="LevelObjects/Doors" instance=ExtResource( 14 )]
 position = Vector2( 440, 256 )
 lockLevel = 3
-showHintIfLocked = true
 hint = "LEVEL6_HINT_DOOR"
 
 [node name="StaircaseL2" parent="LevelObjects/Doors" instance=ExtResource( 22 )]

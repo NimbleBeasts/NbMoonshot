@@ -256,7 +256,6 @@ highlight = true
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( 16, 256 )
-has_level_index = false
 
 [node name="DoorWall" parent="LevelObjects" instance=ExtResource( 8 )]
 position = Vector2( 192, 256 )

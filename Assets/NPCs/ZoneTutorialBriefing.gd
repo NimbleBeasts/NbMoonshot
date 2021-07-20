@@ -19,6 +19,8 @@ func remove():
 
 func _on_ZoneTutorialBriefing_body_entered(body):
 	if body.is_in_group("Player"):
+		if Global.player.dropItem():
+			yield(get_tree().create_timer(0.3), "timeout")
 		$DelayTimer.start()
 
 

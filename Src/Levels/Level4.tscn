@@ -101,7 +101,6 @@ position = Vector2( 432, 264 )
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
 position = Vector2( -104, 256 )
 next_level = 5
-nextSecretaryInteractionCounter = 5
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
@@ -184,6 +183,7 @@ centered = false
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 344, 96 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="LevelObjects/Decorations"]

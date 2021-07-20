@@ -519,6 +519,9 @@ position = Vector2( 808, 200 )
 flicker = true
 flickerSequence = "11111111010100000000010"
 
+[node name="Light2D" parent="LevelObjects/Lights/Light6" index="3"]
+visible = false
+
 [node name="Light7" parent="LevelObjects/Lights" instance=ExtResource( 7 )]
 position = Vector2( 904, 200 )
 
