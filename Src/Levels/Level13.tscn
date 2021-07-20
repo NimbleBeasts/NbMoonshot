@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -49,7 +49,7 @@
 [ext_resource path="res://Src/Objects/Note.tscn" type="PackedScene" id=47]
 [ext_resource path="res://Assets/Objects/Transporter.png" type="Texture" id=48]
 [ext_resource path="res://Assets/Objects/Nature/Bush.png" type="Texture" id=49]
-[ext_resource path="res://Assets/Temp/Mountain.png" type="Texture" id=50]
+[ext_resource path="res://Assets/Objects/Observatory/Mountain.png" type="Texture" id=50]
 [ext_resource path="res://Src/Light/OutdoorLight2.tscn" type="PackedScene" id=51]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -60,6 +60,9 @@ extents = Vector2( 95, 57 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 257, 88.375 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 10, 48 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 32 )
@@ -1079,7 +1082,12 @@ z_index = -4
 texture = ExtResource( 49 )
 
 [node name="Mountain" type="Sprite" parent="LevelObjects/Nature"]
-position = Vector2( -26, 128 )
+position = Vector2( -161, 128 )
+z_index = -25
+texture = ExtResource( 50 )
+
+[node name="Mountain2" type="Sprite" parent="LevelObjects/Nature"]
+position = Vector2( 944, 128 )
 z_index = -25
 texture = ExtResource( 50 )
 
@@ -1095,6 +1103,12 @@ position = Vector2( 112, 256 )
 z_index = 50
 
 [node name="MinigameHolder" type="CanvasLayer" parent="."]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 736, 256 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 6 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -104, 256 )
