@@ -139,7 +139,8 @@ func onAnimationFinished(animName: String) -> void:
 	if animName == "taser":
 		if hasPathLine:
 			pathLine.stopAllMovement()
-		Events.emit_signal("game_over")
+		Global.player.stunned()
+
 
 
 func losRayIsCollidingWithPlayer() -> bool:

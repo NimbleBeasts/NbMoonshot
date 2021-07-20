@@ -96,12 +96,14 @@ func interact(run_sub, openerPos: Vector2):
 			Events.emit_signal("hud_game_hint", tr(hint))
 			return
 		Types.DoorLockType.lockedLevel1:
+
 			if doorType == DoorType.wooden:
 				$LockpickSmallMinigameSpawner.run_minigame(self, 1, true)
 			else:
 				$SimonSays.run_minigame(self)
 			return
 		Types.DoorLockType.lockedLevel2:
+
 			if doorType == DoorType.wooden:
 				$LockpickSmallMinigameSpawner.run_minigame(self, 2, true)
 			else:

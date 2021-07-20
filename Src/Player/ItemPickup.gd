@@ -68,9 +68,9 @@ func removeCurrentItem() -> void:
 		Events.emit_signal("player_state_set", Types.PlayerStates.Normal)
 		Events.emit_signal("player_animation_change", "idle")
 
-func dropCurrentItem(blockInput: bool = true) -> void:
+func dropCurrentItem(blockInput: bool = true) -> bool:
 	if currentPickup == null:
-		return
+		return false
 	if hasItemPickup:
 		hasItemPickup = false
 		currentPickup.drop()
@@ -82,7 +82,7 @@ func dropCurrentItem(blockInput: bool = true) -> void:
 			currentPickup = null
 
 		Events.emit_signal("player_animation_change", "laydown")
-
+	return true
 
 func pickupItem(item: Pickupable) -> void:
 	currentPickup = item

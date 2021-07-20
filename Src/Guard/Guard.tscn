@@ -176,7 +176,6 @@ z_index = 54
 collision_layer = 48
 collision_mask = 0
 script = ExtResource( 2 )
-direction_change_time = 1.0
 normal_time_to_alarm = 1.0
 extended_time_to_alarm = 1.4
 playerSuspectDistance = 48
@@ -213,6 +212,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Flippable"]
 light_mask = 3
+z_index = 53
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 hframes = 21
@@ -225,7 +225,7 @@ collision_mask = 1057
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippable/LineOfSight"]
 position = Vector2( 6.30397, 24.2768 )
-polygon = PoolVector2Array( -8, -32, 82, -32, 82, -2, -8, -2 )
+polygon = PoolVector2Array( -17.4023, -34.0155, 86.5977, -34.0155, 86.5977, -2.0155, -17.4023, -2.0155 )
 
 [node name="LOSRay" type="RayCast2D" parent="Flippable"]
 position = Vector2( 3, -10 )

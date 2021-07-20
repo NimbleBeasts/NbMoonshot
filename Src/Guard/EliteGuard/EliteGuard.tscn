@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/SFX/sfx_footstep_new3.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20.4196, 10 )
+extents = Vector2( 29, 12 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 15.6951 )
@@ -96,6 +96,7 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Flippable"]
 position = Vector2( 0, -16 )
+z_index = 53
 texture = ExtResource( 1 )
 hframes = 11
 frame = 6
@@ -103,7 +104,7 @@ frame = 6
 [node name="LineOfSight" type="Area2D" parent="Flippable"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/LineOfSight"]
-position = Vector2( 32, -16 )
+position = Vector2( 29, -16 )
 shape = SubResource( 1 )
 
 [node name="TaserRange" type="Area2D" parent="Flippable"]

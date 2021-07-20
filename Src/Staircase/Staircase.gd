@@ -33,11 +33,16 @@ func changeDirectionIndication(val):
 
 # overriden
 func interact() -> void:
+
 	match lockLevel:
 		Types.DoorLockType.lockedLevel1:
+			if Global.player.dropItem():
+				yield(get_tree().create_timer(0.5), "timeout")
 			$LockpickSmallMinigameSpawner.run_minigame(self, 1, true)
 			return
 		Types.DoorLockType.lockedLevel2:
+			if Global.player.dropItem():
+				yield(get_tree().create_timer(0.5), "timeout")
 			$LockpickSmallMinigameSpawner.run_minigame(self, 2, true)
 			return
 		Types.DoorLockType.locked:

@@ -16,7 +16,7 @@ shader_param/inside = true
 shader_param/add_margins = false
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.5, 5 )
+extents = Vector2( 12, 5 )
 
 [node name="BasePickup" type="Area2D" groups=[
 "Pickupable",

@@ -153,7 +153,15 @@ func walldodgeInput() -> void:
 		set_state(Types.PlayerStates.Normal)
 		isSneaking = false
 
+func stunned():
+	Events.emit_signal("minigame_forcefully_close")
+	$ItemPickup.dropCurrentItem()
+	yield(get_tree().create_timer(0.2), "timeout")
+	Events.emit_signal("game_over")
 
+func dropItem():
+	return $ItemPickup.dropCurrentItem()
+	
 func duckInput() -> void:
 	if blockEntireInput:
 		return

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=30]
 [ext_resource path="res://Assets/Objects/Jukebox.png" type="Texture" id=31]
@@ -118,7 +119,7 @@ position = Vector2( -625, 72 )
 position = Vector2( -760, 72 )
 
 [node name="TestLight" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
-position = Vector2( -223, 200 )
+position = Vector2( -232, 138 )
 flickerSequence = "0"
 DebugLight = true
 
@@ -149,13 +150,6 @@ position = Vector2( -792, 128 )
 type = 1
 hasBounty = true
 
-[node name="Guard" parent="LevelObjects" instance=ExtResource( 23 )]
-position = Vector2( -56, 256 )
-
-[node name="PathLine" type="Line2D" parent="LevelObjects/Guard"]
-points = PoolVector2Array( 0, -8 )
-script = ExtResource( 30 )
-
 [node name="Guard2" parent="LevelObjects" instance=ExtResource( 23 )]
 position = Vector2( -24, 256 )
 
@@ -170,11 +164,15 @@ position = Vector2( 8, 256 )
 points = PoolVector2Array( 0, -8, 16, -8, 32, -8 )
 script = ExtResource( 30 )
 
-[node name="Civillian" parent="LevelObjects" instance=ExtResource( 24 )]
-position = Vector2( -200, 192 )
-
 [node name="Civillian2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( -144, 193 )
+
+[node name="EliteGuard" parent="LevelObjects" instance=ExtResource( 26 )]
+position = Vector2( -84, 138 )
+
+[node name="PathLine" type="Line2D" parent="LevelObjects/EliteGuard"]
+points = PoolVector2Array( -4, -8 )
+script = ExtResource( 30 )
 
 [node name="TestJuke" type="Sprite" parent="."]
 position = Vector2( -656, 176 )
@@ -231,6 +229,7 @@ connected_door_path = NodePath("../Staircase2")
 [node name="Staircase2" parent="Roof" instance=ExtResource( 10 )]
 position = Vector2( 276, 56 )
 connected_door_path = NodePath("../Staircase")
+lockLevel = 1
 
 [node name="FCU" parent="Roof" instance=ExtResource( 16 )]
 position = Vector2( 252, 120 )
@@ -253,6 +252,10 @@ position = Vector2( 124, 120 )
 [node name="Dumpster" parent="Roof" instance=ExtResource( 20 )]
 position = Vector2( 20, 120 )
 
+[node name="DoorWall" parent="Roof" instance=ExtResource( 8 )]
+position = Vector2( 331, 57 )
+lockLevel = 1
+
 [node name="DoorWall2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -297, 328 )
 
@@ -266,4 +269,4 @@ position = Vector2( -80, 328 )
 position = Vector2( -480, 256 )
 
 [node name="BoxPickup" parent="." instance=ExtResource( 15 )]
-position = Vector2( -240, 168 )
+position = Vector2( -264, 191 )

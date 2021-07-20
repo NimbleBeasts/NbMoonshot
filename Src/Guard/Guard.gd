@@ -14,6 +14,7 @@ export var playerDetectDistance: int = 16
 export var gravity: int = 800
 export (Directions) var startingDirection: int setget setStartingDirection
 
+
 var velocity: Vector2
 var direction: Vector2
 var state: int = Types.GuardStates.Wander # Types.GuardStates
@@ -310,14 +311,18 @@ func set_state(new_state, forceReEnterIfSameState: bool = false) -> void:
 				animPlayer.play("idle")
 				processAI = true
 			Types.GuardStates.PlayerDetected:
-				playerLastSeenPosition = player.global_position
-				Global.startTimerOnce($SureDetectionTimer)
-				$GoBackToNormalTimer.stop()
-				Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
-				player_detected = true
-				$AnimationPlayer.play("suspicious")
-				stopMovement()
-				$GoBackToNormalAfterDetectTimer.start(5)
+				var posPlayer = player.global_position.y
+	
+				# Check if player is on same floor
+				if posPlayer - 5 < global_position.y && global_position.y < posPlayer + 5:
+					playerLastSeenPosition = player.global_position
+					Global.startTimerOnce($SureDetectionTimer)
+					$GoBackToNormalTimer.stop()
+					Events.emit_signal("player_detected", Types.DetectionLevels.Possible)
+					player_detected = true
+					$AnimationPlayer.play("suspicious")
+					stopMovement()
+					$GoBackToNormalAfterDetectTimer.start(5)
 				
 			Types.GuardStates.Suspect:
 				playRandomSound($Guard/Suspicious ,guardSuspiciousSounds)

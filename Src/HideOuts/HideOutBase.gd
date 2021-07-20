@@ -67,7 +67,7 @@ func _input(event: InputEvent) -> void:
 
 func hideGuard() -> void:
 	playerLastPickup = null
-	$Sprite.z_index = player.z_index - 1
+	$Sprite.z_index = 49
 	Events.emit_signal("player_state_set", Types.PlayerStates.Normal)
 	guard = player.guardPickup.object
 	player.guardPickup.object = null
@@ -82,7 +82,7 @@ func hideGuard() -> void:
 
 
 func hidePlayer() -> void:
-	$Sprite.z_index = player.z_index + 1
+	$Sprite.z_index = 52
 	animPlayer.play("close")
 	Events.emit_signal("player_block_input")
 	goInCloset = true
@@ -91,7 +91,7 @@ func hidePlayer() -> void:
 
 
 func openCloset() -> void:
-	$Sprite.z_index = player.z_index - 1
+	$Sprite.z_index = 49
 	goInCloset = false
 	animPlayer.play("open")
 	if player.state == Types.PlayerStates.InCloset:
