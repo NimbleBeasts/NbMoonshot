@@ -94,7 +94,6 @@ tile_data = PoolIntArray( 85, 0, 0, 86, 0, 1, 87, 0, 1, 88, 0, 1, 89, 0, 1, 90, 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 68 )]
 position = Vector2( -42, 256 )
 next_level = 11
-nextSecretaryInteractionCounter = 1
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
 
@@ -641,14 +640,14 @@ z_index = 50
 position = Vector2( 345, 256 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard"]
-points = PoolVector2Array( 100, 0, 0, 0 )
+points = PoolVector2Array( 103, -8, -1, -8 )
 script = ExtResource( 8 )
 
 [node name="Guard3" parent="NPCs" instance=ExtResource( 83 )]
 position = Vector2( 449, 128 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard3"]
-points = PoolVector2Array( 70, 0, 0, 0 )
+points = PoolVector2Array( 71, -8, -1, -8 )
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true

@@ -38,7 +38,7 @@ shape = SubResource( 2 )
 [node name="GroundCast" type="RayCast2D" parent="."]
 position = Vector2( 0, -2 )
 cast_to = Vector2( 0, 10 )
-collision_mask = 513
+collision_mask = 16901
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]

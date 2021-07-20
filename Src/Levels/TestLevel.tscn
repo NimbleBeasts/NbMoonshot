@@ -256,6 +256,15 @@ position = Vector2( 20, 120 )
 position = Vector2( 331, 57 )
 lockLevel = 1
 
+[node name="ThinArea" parent="Roof" instance=ExtResource( 11 )]
+position = Vector2( 236, 64 )
+
+[node name="ThinArea2" parent="Roof" instance=ExtResource( 11 )]
+position = Vector2( 204, 64 )
+
+[node name="ThinArea3" parent="Roof" instance=ExtResource( 11 )]
+position = Vector2( 172, 64 )
+
 [node name="DoorWall2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -297, 328 )
 

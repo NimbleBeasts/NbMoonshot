@@ -972,28 +972,28 @@ lookDirection = 1
 position = Vector2( 529, 384 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard"]
-points = PoolVector2Array( 100, 0, 0, 0 )
+points = PoolVector2Array( 95, -8, -1, -8 )
 script = ExtResource( 3 )
 
 [node name="Guard5" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( 720, 192 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard5"]
-points = PoolVector2Array( -150, 0, 0, 0 )
+points = PoolVector2Array( -152, -8, 0, -8 )
 script = ExtResource( 3 )
 
 [node name="Guard7" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( 592, 255 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard7"]
-points = PoolVector2Array( 130, 0, 0, 0 )
+points = PoolVector2Array( 128, -7, 0, -7 )
 script = ExtResource( 3 )
 
 [node name="Guard2" parent="NPCs" instance=ExtResource( 13 )]
 position = Vector2( 669, 128 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCs/Guard2"]
-points = PoolVector2Array( 200, 0, 0, 0 )
+points = PoolVector2Array( 203, -8, -5, -8 )
 script = ExtResource( 3 )
 
 [node name="Guard3" parent="NPCs" instance=ExtResource( 13 )]
@@ -1004,7 +1004,7 @@ scale = Vector2( -1, 1 )
 position = Vector2( 0, 1 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
-points = PoolVector2Array( 0, 0, 0, 0 )
+points = PoolVector2Array( -2, -8.99999 )
 script = ExtResource( 3 )
 
 [node name="Guard4" parent="NPCs" instance=ExtResource( 13 )]

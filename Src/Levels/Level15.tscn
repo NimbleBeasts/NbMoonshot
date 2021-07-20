@@ -956,7 +956,7 @@ script = ExtResource( 7 )
 position = Vector2( 744, 400 )
 
 [node name="PathLine" type="Line2D" parent="NPCS/EliteGuard4"]
-points = PoolVector2Array( 200, 0, 0, 0 )
+points = PoolVector2Array( 200, -8, 0, -8 )
 script = ExtResource( 7 )
 stop_time = 5.0
 
@@ -964,7 +964,7 @@ stop_time = 5.0
 position = Vector2( 1048, 400 )
 
 [node name="PathLine" type="Line2D" parent="NPCS/EliteGuard6"]
-points = PoolVector2Array( 200, 0, 0, 0 )
+points = PoolVector2Array( 200, -8, 0, -8 )
 script = ExtResource( 7 )
 stop_time = 5.0
 
@@ -972,7 +972,7 @@ stop_time = 5.0
 position = Vector2( 240, 464 )
 
 [node name="PathLine" type="Line2D" parent="NPCS/EliteGuard7"]
-points = PoolVector2Array( 300, 0, 0, 0 )
+points = PoolVector2Array( 296, -8, 0, -8 )
 script = ExtResource( 7 )
 stop_time = 5.0
 
@@ -980,14 +980,14 @@ stop_time = 5.0
 position = Vector2( 408, 256 )
 
 [node name="PathLine" type="Line2D" parent="NPCS/EliteGuard5"]
-points = PoolVector2Array( 150, 0, 0, 0 )
+points = PoolVector2Array( 112, -8, 0, -8 )
 script = ExtResource( 7 )
 
 [node name="Guard" parent="NPCS" instance=ExtResource( 5 )]
 position = Vector2( 712, 256 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard"]
-points = PoolVector2Array( 100, 0, 0, 0 )
+points = PoolVector2Array( 104, -8, 0, -8 )
 script = ExtResource( 7 )
 
 [node name="Guard8" parent="NPCS" instance=ExtResource( 5 )]
@@ -1009,41 +1009,42 @@ script = ExtResource( 7 )
 position = Vector2( 952, 256 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard7"]
-points = PoolVector2Array( 300, 0, 0, 0 )
+points = PoolVector2Array( 296, -8, 0, -8 )
 script = ExtResource( 7 )
 
 [node name="Guard2" parent="NPCS" instance=ExtResource( 5 )]
 position = Vector2( 1144, 464 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard2"]
-points = PoolVector2Array( 100, 0, 0, 0 )
+points = PoolVector2Array( 96, -8, 0, -8 )
 script = ExtResource( 7 )
 
 [node name="Guard3" parent="NPCS" instance=ExtResource( 5 )]
 position = Vector2( 728, 464 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard3"]
-points = PoolVector2Array( 180, 0, 0, 0 )
+points = PoolVector2Array( 176, -8, 0, -8 )
 script = ExtResource( 7 )
 
 [node name="Guard6" parent="NPCS" instance=ExtResource( 5 )]
 position = Vector2( 376, 464 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard6"]
-points = PoolVector2Array( 180, 0, 0, 0 )
+points = PoolVector2Array( 176, -8, 0, -8 )
 script = ExtResource( 7 )
 
 [node name="Guard4" parent="NPCS" instance=ExtResource( 5 )]
 position = Vector2( 320, 336 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard4"]
-points = PoolVector2Array( 180, 0, 0, 0 )
+points = PoolVector2Array( 176, -8, 0, -8 )
 script = ExtResource( 7 )
 
 [node name="Guard5" parent="NPCS" instance=ExtResource( 5 )]
 position = Vector2( 536, 336 )
 
 [node name="GuardPathLine" type="Line2D" parent="NPCS/Guard5"]
+position = Vector2( 0, -8 )
 points = PoolVector2Array( -180, 0, 0, 0 )
 script = ExtResource( 7 )
 
@@ -1052,7 +1053,7 @@ position = Vector2( 288, 256 )
 sleepDurationTimer = 3
 
 [node name="PathLine" type="Line2D" parent="NPCS/Dog"]
-points = PoolVector2Array( -60, 0, 0, 0 )
+points = PoolVector2Array( -64, -8, 0, -8 )
 script = ExtResource( 7 )
 stop_time = 2.0
 
@@ -1061,7 +1062,7 @@ position = Vector2( 776, 256 )
 sleepDurationTimer = 3
 
 [node name="PathLine" type="Line2D" parent="NPCS/Dog2"]
-points = PoolVector2Array( 200, 0, 0, 0 )
+points = PoolVector2Array( 200, -8, 0, -8 )
 script = ExtResource( 7 )
 stop_time = 2.0
 
@@ -1070,7 +1071,7 @@ position = Vector2( 1072, 400 )
 sleepDurationTimer = 3
 
 [node name="PathLine" type="Line2D" parent="NPCS/Dog3"]
-points = PoolVector2Array( -60, 0, 0, 0 )
+points = PoolVector2Array( -56, -8, 0, -8 )
 script = ExtResource( 7 )
 stop_time = 2.0
 
