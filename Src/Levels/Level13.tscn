@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
-[ext_resource path="res://Src/Skybox/NewSkybox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Skybox/ForestSkybox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=4]
 [ext_resource path="res://Src/ExtractionZone/ExtractionZone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
@@ -67,7 +67,7 @@ extents = Vector2( 10, 32 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 90.3735, 4.84781 )
 
-[node name="LevelEmpty" type="Node2D"]
+[node name="Level15" type="Node2D"]
 script = ExtResource( 4 )
 __meta__ = {
 "_editor_description_": "Affaire 2: Your boss wants you to infiltrate the affaires house, taser him and bring the body to the car."
@@ -78,7 +78,7 @@ level_music = 9
 level_objectives = NodePath("../Level16/NPCS/Civillian")
 playCarCloseSound = false
 
-[node name="NewSkybox" parent="." instance=ExtResource( 3 )]
+[node name="ForestSkybox" parent="." instance=ExtResource( 3 )]
 
 [node name="Ground" type="Node2D" parent="."]
 position = Vector2( 704, 256 )
