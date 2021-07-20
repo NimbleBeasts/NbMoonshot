@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -40,6 +40,8 @@
 [ext_resource path="res://Assets/Objects/Home/Mower.png" type="Texture" id=38]
 [ext_resource path="res://Src/Dog/Dog.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=40]
+[ext_resource path="res://Assets/HideOuts/Dumpster.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Objects/Street.png" type="Texture" id=42]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -73,6 +75,26 @@ position = Vector2( -64, 208 )
 texture = ExtResource( 19 )
 centered = false
 
+[node name="Street" type="Sprite" parent="SpriteWalls"]
+position = Vector2( -264, 256 )
+texture = ExtResource( 42 )
+centered = false
+
+[node name="Garage3" type="Sprite" parent="SpriteWalls/Street"]
+position = Vector2( 128, 0 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 42 )
+centered = false
+
+[node name="Garage4" type="Sprite" parent="SpriteWalls/Street"]
+position = Vector2( 175, -40 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+texture = ExtResource( 41 )
+centered = false
+hframes = 3
+
 [node name="Rooms" type="TileMap" parent="."]
 light_mask = 3
 tile_set = ExtResource( 13 )
@@ -99,7 +121,7 @@ position = Vector2( 96, 264 )
 position = Vector2( 432, 264 )
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 17 )]
-position = Vector2( -104, 256 )
+position = Vector2( -102, 256 )
 next_level = 5
 
 [node name="Decorations" type="Node2D" parent="LevelObjects"]
@@ -183,7 +205,6 @@ centered = false
 [node name="Bed" type="AnimatedSprite" parent="LevelObjects/Decorations"]
 position = Vector2( 344, 96 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="LevelObjects/Decorations"]
@@ -225,6 +246,7 @@ variant = 1
 
 [node name="Chimney" parent="LevelObjects/Decorations" instance=ExtResource( 22 )]
 position = Vector2( 356, 180 )
+frame = 2
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -398,7 +420,7 @@ script = ExtResource( 40 )
 position = Vector2( -200, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 48, -32 )
+position = Vector2( 66, -32 )
 shape = SubResource( 3 )
 
 [node name="Ground1" type="StaticBody2D" parent="."]

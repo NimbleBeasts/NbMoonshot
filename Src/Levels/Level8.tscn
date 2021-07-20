@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Entry.png" type="Texture" id=2]
@@ -56,6 +56,10 @@
 [ext_resource path="res://Assets/Objects/Hospital/Medikit.png" type="Texture" id=54]
 [ext_resource path="res://Src/Light/Light2.tscn" type="PackedScene" id=55]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=56]
+[ext_resource path="res://Assets/Objects/Nature/TinyBush.png" type="Texture" id=57]
+[ext_resource path="res://Src/Light/OutdoorLight2.tscn" type="PackedScene" id=58]
+[ext_resource path="res://Assets/Objects/LawFirm/Balcony.png" type="Texture" id=59]
+[ext_resource path="res://Assets/Objects/Antenna2.png" type="Texture" id=60]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 32 )
@@ -130,6 +134,37 @@ position = Vector2( 232, 192 )
 texture = ExtResource( 2 )
 centered = false
 
+[node name="Door2" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 104, 240 )
+texture = ExtResource( 57 )
+centered = false
+
+[node name="Door4" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 520, 64 )
+texture = ExtResource( 59 )
+centered = false
+
+[node name="Door5" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 872, 64 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 59 )
+centered = false
+
+[node name="Door6" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 288, 64 )
+texture = ExtResource( 60 )
+centered = false
+
+[node name="Door3" type="Sprite" parent="LevelObjects/Decorations"]
+light_mask = 3
+position = Vector2( 72, 240 )
+texture = ExtResource( 57 )
+centered = false
+
 [node name="Sport" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 360, 267 )
 texture = ExtResource( 16 )
@@ -172,7 +207,6 @@ centered = false
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 24 )]
 position = Vector2( 282, 364 )
-frame = 2
 
 [node name="Cc" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 328, 352 )
@@ -591,6 +625,14 @@ position = Vector2( 888, 264 )
 
 [node name="Light2" parent="LevelObjects/Lights" instance=ExtResource( 55 )]
 position = Vector2( 258, 267 )
+
+[node name="OutdoorLight2" parent="LevelObjects/Lights" instance=ExtResource( 58 )]
+position = Vector2( 136, 256 )
+scale = Vector2( -1, 1 )
+
+[node name="OutdoorLight3" parent="LevelObjects/Lights" instance=ExtResource( 58 )]
+position = Vector2( 448, 256 )
+scale = Vector2( -1, 1 )
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 14 )]
 position = Vector2( 32, 256 )

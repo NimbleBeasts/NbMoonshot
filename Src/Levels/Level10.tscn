@@ -256,7 +256,7 @@ texture = ExtResource( 33 )
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 20 )]
 position = Vector2( 396, 108 )
-frame = 1
+frame = 2
 
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
@@ -661,21 +661,21 @@ points = PoolVector2Array( 0, 0, 0, 0 )
 script = ExtResource( 8 )
 
 [node name="Dog" parent="NPCs" instance=ExtResource( 82 )]
-position = Vector2( -272, 126 )
+position = Vector2( -438, 568 )
 
 [node name="PathLine" type="Line2D" parent="NPCs/Dog"]
 points = PoolVector2Array( -50, 0, 0, 0 )
 script = ExtResource( 8 )
 
 [node name="EliteGuard" parent="NPCs" instance=ExtResource( 85 )]
-position = Vector2( -370, 205 )
+position = Vector2( -536, 647 )
 
 [node name="PathLine" type="Line2D" parent="NPCs/EliteGuard"]
 points = PoolVector2Array( 0, 0, 0, 0 )
 script = ExtResource( 8 )
 
 [node name="Civillian-DRMonkey" parent="NPCs" instance=ExtResource( 87 )]
-position = Vector2( -238, 214 )
+position = Vector2( -404, 656 )
 isHostileArea = true
 
 [node name="NewSkybox" parent="." instance=ExtResource( 84 )]

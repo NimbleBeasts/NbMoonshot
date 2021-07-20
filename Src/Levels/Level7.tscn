@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -60,6 +60,7 @@
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=58]
 [ext_resource path="res://Src/Guard/Guard.tscn" type="PackedScene" id=59]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=60]
+[ext_resource path="res://Src/Light/OutdoorLight.tscn" type="PackedScene" id=61]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 69, 24 )
@@ -770,6 +771,10 @@ position = Vector2( 360, 264 )
 
 [node name="Light21" parent="LevelObjects/Lights" instance=ExtResource( 51 )]
 position = Vector2( 176, 264 )
+
+[node name="OutdoorLight" parent="LevelObjects/Lights" instance=ExtResource( 61 )]
+position = Vector2( 19, 256 )
+scale = Vector2( -1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 768, 224 )

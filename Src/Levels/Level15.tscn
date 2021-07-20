@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://Src/Levels/Level15.gd" type="Script" id=1]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=2]
@@ -70,6 +70,7 @@
 [ext_resource path="res://Assets/Objects/Hospital/HospitalSpacer.png" type="Texture" id=68]
 [ext_resource path="res://Assets/Objects/Hospital/HospitalSink.png" type="Texture" id=69]
 [ext_resource path="res://Assets/Objects/Laboratory/Storage.png" type="Texture" id=70]
+[ext_resource path="res://Assets/Objects/Black.png" type="Texture" id=71]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 568.453, 8 )
@@ -78,7 +79,7 @@ extents = Vector2( 568.453, 8 )
 extents = Vector2( 112, 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 550, 200 )
+extents = Vector2( 7.94074, 11.52 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 32 )
@@ -893,18 +894,14 @@ flickerSequence = "0"
 position = Vector2( 80, 256 )
 next_level = 16
 
-[node name="OverlayVentilation" type="ColorRect" parent="LevelObjects"]
-visible = false
-light_mask = 3
-margin_left = 200.0
-margin_top = 280.0
-margin_right = 1280.0
-margin_bottom = 480.0
-color = Color( 0, 0, 0, 1 )
+[node name="OverlayVentilation" type="Sprite" parent="LevelObjects"]
+light_mask = 0
+position = Vector2( 200, 272 )
+scale = Vector2( 67.5, 12.5 )
+z_index = 4096
+texture = ExtResource( 71 )
+centered = false
 script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PlayerDetector" type="Area2D" parent="LevelObjects/OverlayVentilation"]
 __meta__ = {
@@ -912,7 +909,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/OverlayVentilation/PlayerDetector"]
-position = Vector2( 528, 200 )
+position = Vector2( 7.94074, 10.88 )
 shape = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
