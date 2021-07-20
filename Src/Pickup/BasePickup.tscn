@@ -21,7 +21,6 @@ extents = Vector2( 12, 5 )
 [node name="BasePickup" type="Area2D" groups=[
 "Pickupable",
 ]]
-z_index = 100
 script = ExtResource( 2 )
 pickupName = "TestPickup"
 

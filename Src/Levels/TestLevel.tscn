@@ -44,7 +44,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
-level_objectives = NodePath("BoxPickup")
+level_objectives = NodePath("BoxPickupUUU")
 isSabotage = true
 
 [node name="NewSkybox" parent="." instance=ExtResource( 9 )]
@@ -227,9 +227,6 @@ position = Vector2( -556, 136 )
 position = Vector2( 60, 2 )
 shape = SubResource( 2 )
 
-[node name="Closet" parent="Roof" instance=ExtResource( 5 )]
-position = Vector2( 372, 120 )
-
 [node name="PressureButton" parent="Roof" instance=ExtResource( 4 )]
 position = Vector2( 332, 120 )
 
@@ -243,21 +240,27 @@ connected_door_path = NodePath("../Staircase")
 
 [node name="FCU" parent="Roof" instance=ExtResource( 16 )]
 position = Vector2( 252, 120 )
+z_index = 100
 
 [node name="BoxPickup2" parent="Roof" instance=ExtResource( 15 )]
 position = Vector2( 204, 120 )
+z_index = 100
 
 [node name="WeightPickup" parent="Roof" instance=ExtResource( 7 )]
 position = Vector2( 228, 120 )
+z_index = 100
 
 [node name="TresureSack" parent="Roof" instance=ExtResource( 17 )]
 position = Vector2( 180, 120 )
+z_index = 100
 
 [node name="BarrelOil" parent="Roof" instance=ExtResource( 18 )]
 position = Vector2( 148, 120 )
+z_index = 100
 
 [node name="C4Pickup" parent="Roof" instance=ExtResource( 19 )]
 position = Vector2( 124, 120 )
+z_index = 100
 
 [node name="Dumpster" parent="Roof" instance=ExtResource( 20 )]
 position = Vector2( 20, 120 )
@@ -286,5 +289,8 @@ position = Vector2( -80, 328 )
 [node name="ExtractionZone" parent="." instance=ExtResource( 12 )]
 position = Vector2( -480, 256 )
 
-[node name="BoxPickup" parent="." instance=ExtResource( 15 )]
+[node name="ClosetUUU" parent="." instance=ExtResource( 5 )]
+position = Vector2( -184, 256 )
+
+[node name="BoxPickupUUU" parent="." instance=ExtResource( 15 )]
 position = Vector2( -240, 256 )
