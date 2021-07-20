@@ -29,8 +29,8 @@ func _ready() -> void:
 			# Path detected
 			pathLine = child
 			
-			if not child.has_method("moveToNextPoint"):
-				print("Civilian: " + str(self) + " - Path node used. Was this intended?")
+			# if not child.has_method("moveToNextPoint"):
+			# 	print("Civilian: " + str(self) + " - Path node used. Was this intended?")
 
 #	fovArea.connect("body_entered", self, "onFOVBodyEntered")
 #	if not isHostileArea:

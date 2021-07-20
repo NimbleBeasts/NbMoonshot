@@ -20,7 +20,7 @@ onready var pin_goal = $LockpickSmallPinGoal
 var targetInstance = null setget setTarget
 
 func setTarget(instance):
-	print("set: " + str(instance))
+	#print("set: " + str(instance))
 	targetInstance = instance
 
 # Called when the node enters the scene tree for the first time.

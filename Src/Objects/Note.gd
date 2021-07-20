@@ -41,7 +41,7 @@ func setTresorCode(code: int) -> void:
 	var tresor := get_node_or_null(tresorPath)
 	if tresor:
 		tresor.updateCode(code)
-		print(code)
+		#print(code)
 		return
 	printerr("Can't find tresor at %s. Reported by  %s" % [tresorPath, name])
 

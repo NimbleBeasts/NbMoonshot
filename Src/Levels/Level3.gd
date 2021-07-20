@@ -22,7 +22,7 @@ func _custom_level_event(whatLevel, whatEvent):
 		
 
 func PipeFixScenario():
-	print("Fixed pipes")
+	#print("Fixed pipes")
 	pipefixed = true;
 	
 	#sprinklers on
@@ -56,7 +56,7 @@ func PipeFixScenario():
 func _on_BarrelFallDetector_area_entered(area):
 	if "BarrelOil" in area.name and not guardsqashed:
 		guardsqashed = true
-		print("Guard dead")
+		#print("Guard dead")
 		
 		#destory guard and barrel
 		get_node(elit_guard).queue_free()

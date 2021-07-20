@@ -96,7 +96,7 @@ func moveToNextPoint():
 		else:
 			# stopping because we reached the last point and this is for distraction
 			stopAllMovement()
-			print("start distraction")
+			#print("start distraction")
 			distractTimer.start(distractWaitTime)
 	currentIndex += 1
 	if stopOnReachedPoint:
@@ -151,6 +151,6 @@ func _onWaitTimerTimeout() -> void:
 
 # Wait time at distraction is over - return to normal mode
 func _onDistractTimerTimeout() -> void:
-	print("distraction timeout")
+	#print("distraction timeout")
 	if target.has_method("normalMode"):
 		target.normalMode()

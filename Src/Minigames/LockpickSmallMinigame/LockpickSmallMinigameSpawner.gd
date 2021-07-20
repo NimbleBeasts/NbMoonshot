@@ -16,7 +16,7 @@ func create_minigame() -> Minigame:
 	
 
 func run_minigame(_targetInstance, _lock_level, _run_anim):
-	print("lockpick: " + str(_targetInstance))
+	#print("lockpick: " + str(_targetInstance))
 	if can_make_minigame and minigame == null:
 		# Creates a minigame and opens it 
 		minigame = create_minigame()

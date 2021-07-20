@@ -9,7 +9,7 @@ func _ready():
 
 
 func toggleState():
-	print("Try toogle")
+	#print("Try toogle")
 	if disabled:
 		$AnimationPlayer.play("OpenDoor")
 		disabled = false

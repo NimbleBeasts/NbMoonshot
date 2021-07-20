@@ -65,7 +65,7 @@ func _current_stats_received(gameID: int, result: int, userID: int):
 func init():
 	var init = Steam.steamInit()
 
-	print("Steam: "+str(init))
+	#print("Steam: "+str(init))
 
 	# General failure
 	if init['status'] != 1:
@@ -88,8 +88,7 @@ func init():
 		print("Steam: Online: " + str(online) + " User: " + str(user))
 
 func setAchievement(achievementName):
-	#TODO: add cheat check
-	if online:
+	if online and not Global.getCheatState():
 		Steam.setAchievement(achievementName)
 		Steam.storeStats()
 
