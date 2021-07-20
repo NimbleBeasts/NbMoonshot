@@ -131,6 +131,10 @@ anims/walk = SubResource( 5 )
 [node name="RoamingEnterTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="BackToNormal" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
 [node name="EliteGuard" type="Node2D" parent="."]
 
 [node name="Detect" type="AudioStreamPlayer2D" parent="EliteGuard"]
@@ -163,3 +167,5 @@ stream = ExtResource( 8 )
 volume_db = -12.0
 pitch_scale = 0.8
 bus = "Sound"
+
+[connection signal="timeout" from="BackToNormal" to="." method="_on_BackToNormal_timeout"]

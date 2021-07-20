@@ -159,7 +159,7 @@ points = PoolVector2Array( 0, -8, 16, -8 )
 script = ExtResource( 30 )
 
 [node name="Guard3" parent="LevelObjects" instance=ExtResource( 23 )]
-position = Vector2( -376, 194 )
+position = Vector2( -616, 62 )
 
 [node name="PathLine" type="Line2D" parent="LevelObjects/Guard3"]
 points = PoolVector2Array( 0, -8, 56, -10, 112, -10 )
@@ -175,10 +175,10 @@ distractWaitTime = 9.0
 position = Vector2( -144, 193 )
 
 [node name="EliteGuard" parent="LevelObjects" instance=ExtResource( 26 )]
-position = Vector2( -84, 138 )
+position = Vector2( -232, 192 )
 
 [node name="PathLine" type="Line2D" parent="LevelObjects/EliteGuard"]
-points = PoolVector2Array( -4, -8 )
+points = PoolVector2Array( 0, 0, -24, 0, 16, 0 )
 script = ExtResource( 30 )
 
 [node name="TestJuke" type="Sprite" parent="."]
@@ -240,7 +240,6 @@ connected_door_path = NodePath("../Staircase2")
 [node name="Staircase2" parent="Roof" instance=ExtResource( 10 )]
 position = Vector2( 276, 56 )
 connected_door_path = NodePath("../Staircase")
-lockLevel = 1
 
 [node name="FCU" parent="Roof" instance=ExtResource( 16 )]
 position = Vector2( 252, 120 )
@@ -288,4 +287,4 @@ position = Vector2( -80, 328 )
 position = Vector2( -480, 256 )
 
 [node name="BoxPickup" parent="." instance=ExtResource( 15 )]
-position = Vector2( -264, 191 )
+position = Vector2( -240, 256 )

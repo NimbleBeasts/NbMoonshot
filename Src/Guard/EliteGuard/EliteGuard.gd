@@ -12,6 +12,7 @@ var playerInLOS: bool
 var player
 var state: int
 var suspiciousPosition: Vector2
+var lastPosition
 
 onready var losRay: RayCast2D = $Flippable/LOSRay
 onready var pathLine: PathLine = get_node_or_null("PathLine")
@@ -72,18 +73,32 @@ func setState(newState) -> void:
 		
 
 func stateMovingToPlayerEnter() -> void:
-	foundPlayer = true
-	if not hasPathLine:
-		pathLine = PathLine.new()
-		add_child(pathLine)
-		hasPathLine = true
-	pathLine.moveToPoint(player.global_position)
-	speed = chaseSpeed
-	Events.emit_signal("player_block_input")
-	Events.disconnect("audio_level_changed", self, "onAudioLevelChanged")
-	$Notifier.popup(Types.NotifierTypes.Exclamation)
-	playRandomSound($EliteGuard/Detect, eliteGuardDetectSounds)
+	if not foundPlayer:
+		$BackToNormal.start()
+		lastPosition = global_position
+		foundPlayer = true
+		if not hasPathLine:
+			pathLine = PathLine.new()
+			add_child(pathLine)
+			hasPathLine = true
+		pathLine.moveToPoint(player.global_position)
+		speed = chaseSpeed
+		Events.emit_signal("player_block_input")
+		Events.disconnect("audio_level_changed", self, "onAudioLevelChanged")
+		$Notifier.popup(Types.NotifierTypes.Exclamation)
+		playRandomSound($EliteGuard/Detect, eliteGuardDetectSounds)
 
+
+func _on_BackToNormal_timeout():
+	$Notifier.remove()
+	Events.connect("audio_level_changed", self, "onAudioLevelChanged")
+	speed = normalSpeed
+	pathLine.moveToPoint(lastPosition)
+	foundPlayer = false
+	yield(get_tree().create_timer(1.0), "timeout")
+	pathLine.startNormalMovement()
+	
+	
 
 func stateTaseringPlayerEnter() -> void:
 	if player:
@@ -162,3 +177,5 @@ func playRandomSound(audioPlayer, array: Array) -> void:
 	randomize()
 	audioPlayer.stream = array[randi() % array.size()]
 	audioPlayer.play()
+
+
