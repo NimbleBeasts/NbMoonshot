@@ -61,13 +61,13 @@ extents = Vector2( 95, 57 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 257, 88.375 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 48 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10, 32 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 90.3735, 4.84781 )
 
 [node name="Level15" type="Node2D"]
@@ -1108,18 +1108,18 @@ z_index = 50
 position = Vector2( 736, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( -104, 256 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 134, -32 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 558, -60 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="NPCS" type="Node2D" parent="."]
 

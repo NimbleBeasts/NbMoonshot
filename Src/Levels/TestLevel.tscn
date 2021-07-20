@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Src/Civilians/Civilian.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Src/Distraction/Firework.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=30]
 [ext_resource path="res://Assets/Objects/Jukebox.png" type="Texture" id=31]
@@ -119,7 +120,7 @@ position = Vector2( -625, 72 )
 position = Vector2( -760, 72 )
 
 [node name="TestLight" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
-position = Vector2( -232, 138 )
+position = Vector2( -144, 136 )
 flickerSequence = "0"
 DebugLight = true
 
@@ -158,11 +159,17 @@ points = PoolVector2Array( 0, -8, 16, -8 )
 script = ExtResource( 30 )
 
 [node name="Guard3" parent="LevelObjects" instance=ExtResource( 23 )]
-position = Vector2( 8, 256 )
+position = Vector2( -376, 194 )
 
 [node name="PathLine" type="Line2D" parent="LevelObjects/Guard3"]
-points = PoolVector2Array( 0, -8, 16, -8, 32, -8 )
+points = PoolVector2Array( 0, -8, 56, -10, 112, -10 )
 script = ExtResource( 30 )
+
+[node name="PathLine2" type="Line2D" parent="LevelObjects/Guard3"]
+position = Vector2( 0, 2 )
+points = PoolVector2Array( 128, -12 )
+script = ExtResource( 30 )
+distractWaitTime = 9.0
 
 [node name="Civillian2" parent="LevelObjects" instance=ExtResource( 24 )]
 position = Vector2( -144, 193 )
@@ -193,6 +200,10 @@ __meta__ = {
 [node name="Camera" parent="TestJuke" instance=ExtResource( 39 )]
 position = Vector2( 76, -104 )
 isFixedCam = true
+
+[node name="Firework" parent="." instance=ExtResource( 27 )]
+position = Vector2( -176, 192 )
+guards = [ NodePath("../LevelObjects/Guard3") ]
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( -264, 255 )
@@ -253,8 +264,7 @@ position = Vector2( 124, 120 )
 position = Vector2( 20, 120 )
 
 [node name="DoorWall" parent="Roof" instance=ExtResource( 8 )]
-position = Vector2( 331, 57 )
-lockLevel = 1
+position = Vector2( 252, 56 )
 
 [node name="ThinArea" parent="Roof" instance=ExtResource( 11 )]
 position = Vector2( 236, 64 )

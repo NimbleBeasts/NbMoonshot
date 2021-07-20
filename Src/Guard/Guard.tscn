@@ -313,6 +313,8 @@ __meta__ = {
 [connection signal="timeout" from="SureDetectionTimer" to="." method="_on_SureDetectionTimer_timeout"]
 [connection signal="timeout" from="StunDurationTimer" to="." method="_on_StunDurationTimer_timeout"]
 [connection signal="timeout" from="GoBackToNormalAfterDetectTimer" to="." method="_on_GoBackToNormalAfterDetectTimer_timeout"]
+[connection signal="area_entered" from="Flippable/GuardArea" to="." method="_on_GuardArea_area_entered"]
+[connection signal="area_exited" from="Flippable/GuardArea" to="." method="_on_GuardArea_area_exited"]
 [connection signal="body_entered" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_body_entered"]
 [connection signal="body_exited" from="Flippable/LineOfSight" to="." method="_on_LineOfSight_body_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

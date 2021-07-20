@@ -506,3 +506,21 @@ func _on_GoBackToNormalAfterDetectTimer_timeout():
 	else:
 		set_state(Types.GuardStates.Wander, true)
 	set_process(true)
+
+
+# Open Door
+func _on_GuardArea_area_entered(area):
+	if area.is_in_group("Door"):
+		var door = area.get_parent()
+		
+		if door.doorIsOpen:
+			return
+		elif door.lockLevel == Types.DoorLockType.open:
+			door.playDoorAnimation(self.global_position)
+
+# Close Door
+func _on_GuardArea_area_exited(area):
+	if area.is_in_group("Door"):
+		var door = area.get_parent()
+		if door.doorIsOpen:
+			door.playDoorAnimation(self.global_position)

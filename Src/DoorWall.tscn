@@ -51,10 +51,11 @@ collision_mask = 4097
 position = Vector2( 4, -16 )
 shape = SubResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
+[node name="DoorArea" type="Area2D" parent="." groups=[
+"Door",
+]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
 position = Vector2( 4, -16 )
 shape = SubResource( 3 )
 
@@ -121,5 +122,5 @@ attenuation = 2.0
 bus = "Sound"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="DoorArea" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="DoorArea" to="." method="_on_Area2D_body_exited"]
