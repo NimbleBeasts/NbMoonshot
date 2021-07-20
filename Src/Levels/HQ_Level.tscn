@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Src/Levels/HQ_Level.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -33,6 +33,8 @@
 [ext_resource path="res://Src/Objects/Nature/Tree.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Assets/Objects/Laboratory/Blueprint.png" type="Texture" id=32]
 [ext_resource path="res://Src/NPCs/Coworker.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Assets/Level/ControlHint.png" type="Texture" id=34]
+[ext_resource path="res://Src/Levels/ControlHint.gd" type="Script" id=35]
 [ext_resource path="res://Assets/Objects/Office/WallImageLeader.png" type="Texture" id=36]
 [ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=37]
 [ext_resource path="res://Src/Pickup/WeightPickup.tscn" type="PackedScene" id=38]
@@ -41,6 +43,7 @@
 [ext_resource path="res://Assets/Objects/SpiderWeb.png" type="Texture" id=41]
 [ext_resource path="res://Assets/Objects/Home/TableSmall.png" type="Texture" id=42]
 [ext_resource path="res://Src/Cabinet/Cabinet.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Assets/Fonts/MagoFont3_16.tres" type="DynamicFont" id=44]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -93,6 +96,65 @@ position = Vector2( 428, 320 )
 [node name="Desk" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 431, 240 )
 texture = ExtResource( 13 )
+
+[node name="ControlHint" type="Sprite" parent="LevelObjects/Decorations"]
+position = Vector2( 48, 294 )
+texture = ExtResource( 34 )
+script = ExtResource( 35 )
+
+[node name="Label" type="Label" parent="LevelObjects/Decorations/ControlHint"]
+margin_left = -11.0
+margin_top = -32.0
+margin_right = 79.0
+margin_bottom = -19.0
+custom_fonts/font = ExtResource( 44 )
+text = "HUD_HINT_MOVE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="LevelObjects/Decorations/ControlHint"]
+margin_left = -48.0
+margin_top = -14.0
+margin_right = 42.0
+margin_bottom = -1.0
+custom_fonts/font = ExtResource( 44 )
+text = "HUD_HINT_USE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="LevelObjects/Decorations/ControlHint"]
+margin_left = -48.0
+margin_right = 49.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 44 )
+text = "HUD_HINT_TASER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="LevelObjects/Decorations/ControlHint"]
+margin_left = -48.0
+margin_top = 12.0
+margin_right = 49.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 44 )
+text = "HUD_HINT_PEAK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="LevelObjects/Decorations/ControlHint"]
+margin_left = -38.0
+margin_top = 25.0
+margin_right = 59.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 44 )
+text = "HUD_HINT_DODGE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Chair" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 241, 244 )
@@ -431,7 +493,7 @@ position = Vector2( 326, 256 )
 position = Vector2( 411, 256 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 131, 256 )
+position = Vector2( 64, 256 )
 normal_stun_battery = 99
 extended_stun_battery = 99
 
