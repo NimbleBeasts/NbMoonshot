@@ -140,13 +140,11 @@ func showMissionProgress():
 	$HUDLayer/Display/MissionProgress.updateProgress()
 
 func showMissionBriefing(level):
-	
 	$HUDLayer/LevelFade/AnimationPlayer.play_backwards("fade_out")
-	
-	$HUDLayer/Display/MissionBriefing/StartMissionButton.grab_focus()
 	$HUDLayer/Display/MissionBriefing.setLevel(level)
 	$HUDLayer/Display/MissionBriefing.show()
 	inMissionBriefing = true
+	$HUDLayer/Display/MissionBriefing/StartMissionButton.grab_focus()
 
 
 func debugLightToggle(_d = null):
