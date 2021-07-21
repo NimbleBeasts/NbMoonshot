@@ -8,4 +8,7 @@ func _ready() -> void:
 	
 	
 func dialogue_finished():
+	Events.emit_signal("hud_dialogue_hide")
+	set_process_input(false)
+	player = null
 	$AnimationPlayer.play("walk")
