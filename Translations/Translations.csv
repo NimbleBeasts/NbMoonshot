@@ -17,6 +17,8 @@ SETTINGS_MUSIC,Music,Musik
 SETTINGS_BACK,Back,Zurück
 SETTINGS_LOAD,Load,Laden
 SETTINGS_TITLE_LOAD,Load Game,Spielstand laden
+CREDITS_TITLE,"Credits","Mitwirkende"
+CREDITS_TEXT,"The NimbleBeasts Collective is a small and open independent development studio where anyone can participate - worldwide. Support us, become part of the collective and buy our games. Æ","Das NimbleBeasts Collective ist ein kleines und offenes, unabhängiges Entwicklungsstudio, an dem jeder teilhaben kann - weltweit. Unterstützen Sie uns, werden Sie Teil des Kollektivs und kaufen Sie unsere Spiele. Æ"
 INGAME_CONTINUE,Continue,Fortsetzen
 INGAME_RESTART,Restart,Neustart
 INGAME_QUIT,Quit,Beenden
