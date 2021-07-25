@@ -1,0 +1,24 @@
+[color=#ffad3b][b]Welcome to Moonshot: The Great Espionage[/b][/color]
+This is our first release after the Game Jams in December. With this beta we are almost feature complete and can now focus on bugfixing, polishing and the remaining levels. So that we can get feedback from you again, we have created this beta version. We got 10 out of 30 levels done so far.
+
+So take your time, play through the game and answer our questionnaire. There will be a Amazon voucher giveaway for all participants:
+Click here for [url=https://forms.gle/Vi41Es38Keuy98Vz6]Beta Feedback[/url].
+
+If you stuck in one level hit F9 and type level_next.
+
+
+
+[color=#ffad3b][b]Controls[/b][/color]
+This game comes with experimental controller support. For best experience use keyboard and mouse.
+[table=3]
+[cell]Controls[/cell][cell]Keyboard[/cell][cell]Gamepad[/cell]
+[cell]Movement[/cell][cell]WASD/Arrow keys[/cell][cell]Left Stick[/cell]
+[cell]Interaction[/cell][cell]E[/cell][cell]A[/cell]
+[cell]Taser[/cell][cell]F[/cell][cell]B[/cell]
+[cell]Quit/Menu[/cell][cell]Q[/cell][cell]X[/cell]
+[cell]Dodge[/cell][cell]Space[/cell][cell]Y[/cell]
+[/table]
+
+[color=#ffad3b][b]Changelog[/b][/color]
+[b]Release 0.5 [/b][code]2021-04-11[/code]
+- First beta after game jam
