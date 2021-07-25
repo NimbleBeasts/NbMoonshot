@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Assets/Tileset/RoomsTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Assets/Tileset/WallTileset.tres" type="TileSet" id=2]
@@ -51,6 +51,7 @@
 [ext_resource path="res://Assets/Objects/Nature/Bush.png" type="Texture" id=49]
 [ext_resource path="res://Assets/Objects/Observatory/Mountain.png" type="Texture" id=50]
 [ext_resource path="res://Src/Light/OutdoorLight2.tscn" type="PackedScene" id=51]
+[ext_resource path="res://Src/Levels/Level13Goal.gd" type="Script" id=52]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 112, 8 )
@@ -61,6 +62,9 @@ extents = Vector2( 95, 57 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 257, 88.375 )
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 17, 10 )
+
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 48 )
 
@@ -70,7 +74,7 @@ extents = Vector2( 10, 32 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 90.3735, 4.84781 )
 
-[node name="Level15" type="Node2D"]
+[node name="Level13" type="Node2D"]
 script = ExtResource( 4 )
 __meta__ = {
 "_editor_description_": "Affaire 2: Your boss wants you to infiltrate the affaires house, taser him and bring the body to the car."
@@ -78,7 +82,7 @@ __meta__ = {
 level_lightning = 2
 level_nation_type = 1
 level_music = 9
-level_objectives = NodePath("../Level16/NPCS/Civillian")
+level_objectives = NodePath("LevelObjects/Objects/ObservatoryTerminal/Goal")
 playCarCloseSound = false
 
 [node name="ForestSkybox" parent="." instance=ExtResource( 3 )]
@@ -164,6 +168,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="OwerlayConeTop" type="TileMap" parent="."]
+visible = false
 z_index = 50
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 8, 8 )
@@ -315,6 +320,12 @@ position = Vector2( 136, -33 )
 rotation = 3.14159
 texture = ExtResource( 9 )
 
+[node name="Goal" type="Area2D" parent="LevelObjects/Objects/ObservatoryTerminal"]
+script = ExtResource( 52 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Objects/ObservatoryTerminal/Goal"]
+shape = SubResource( 7 )
+
 [node name="Doors" type="Node2D" parent="LevelObjects"]
 
 [node name="DoorWallToogleOnly" parent="LevelObjects/Doors" instance=ExtResource( 12 )]
@@ -361,6 +372,7 @@ position = Vector2( 8, 0 )
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 __meta__ = {
+"_edit_group_": true,
 "_edit_lock_": true
 }
 
@@ -1192,3 +1204,5 @@ z_index = 51
 [connection signal="body_exited" from="OwerlayConeBot/PlayerDetector" to="OwerlayConeBot" method="_on_PlayerDetector_body_exited"]
 [connection signal="body_entered" from="OwerlayConeTop/PlayerDetector" to="OwerlayConeTop" method="_on_PlayerDetector_body_entered"]
 [connection signal="body_exited" from="OwerlayConeTop/PlayerDetector" to="OwerlayConeTop" method="_on_PlayerDetector_body_exited"]
+[connection signal="body_entered" from="LevelObjects/Objects/ObservatoryTerminal/Goal" to="LevelObjects/Objects/ObservatoryTerminal/Goal" method="_on_Goal_body_entered"]
+[connection signal="body_exited" from="LevelObjects/Objects/ObservatoryTerminal/Goal" to="LevelObjects/Objects/ObservatoryTerminal/Goal" method="_on_Goal_body_exited"]

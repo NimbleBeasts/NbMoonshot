@@ -59,7 +59,10 @@ func _process(_delta):
 				$ChestSounds/KeyPickup.play()
 				$KeyAnim.play("show")
 			else:
-				$ChestSounds/Locked.play()
+				if get_node_or_null("ChestSounds/Locked") != null:
+					$ChestSounds/Locked.play()
+				else:
+					print("Locker sound missing")
 
 
 func _on_Area2D_body_entered(body):

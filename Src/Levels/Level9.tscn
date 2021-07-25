@@ -348,6 +348,9 @@ position = Vector2( 1088, 256 )
 [node name="DoorWall3" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 280, 255 )
 
+[node name="DoorWall10" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
+position = Vector2( 568, 256 )
+
 [node name="DoorWall4" parent="LevelObjects/Doors" instance=ExtResource( 58 )]
 position = Vector2( 304, 319 )
 
@@ -539,6 +542,17 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Blockers/EastBlock"]
+shape = SubResource( 4 )
+
+[node name="TrowSackDownLeadersBlock" type="StaticBody2D" parent="LevelObjects/Blockers"]
+position = Vector2( 344, 330 )
+collision_layer = 32768
+collision_mask = 32768
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/Blockers/TrowSackDownLeadersBlock"]
 shape = SubResource( 4 )
 
 [node name="ThinAreas" type="Node2D" parent="LevelObjects"]
