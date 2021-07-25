@@ -123,6 +123,7 @@ func reloadLevel():
 	unloadLevel()
 	loadLevel(current_level)
 	sure_detection_num = 0
+	get_tree().paused = false
 
 
 func getCurrentLevel():

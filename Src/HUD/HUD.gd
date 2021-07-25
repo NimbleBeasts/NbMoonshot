@@ -526,3 +526,4 @@ func onMinigameExited(result) -> void:
 func _on_ButtonRestart_button_up():
 	$HUDLayer/Display/IngameMenu.hide()
 	Global.game_manager.reloadLevel()
+	
