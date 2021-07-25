@@ -25,7 +25,7 @@ extends Node
 #warning-ignore-all:unused_class_variable
 
 # Version
-const GAME_VERSION = 0.5
+const GAME_VERSION = 0.9
 const CONFIG_VERSION = 3 # Used for config migration
 
 # Debug Options
@@ -37,7 +37,7 @@ const NB_PLUGIN_CONFIG = {
 	"gameId": 1492610,
 	"filePassword": "password",
 	"magic": "magiccode",
-	"devlogUrl": "https://raw.githubusercontent.com/NimbleBeasts/GameLogs/master/GameOff_"+ str(GAME_VERSION) +".txt"
+	"devlogUrl": "https://raw.githubusercontent.com/NimbleBeasts/NbMoonshot/master/_Org/_logs/Moonshot_"+ str(GAME_VERSION) +".txt"
 }
 
 const supportedResolutions = [

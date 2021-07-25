@@ -69,7 +69,7 @@ func init():
 
 	# General failure
 	if init['status'] != 1:
-		print("Failed to initialize Steam. "+str(init['verbal'])+" Shutting down...")
+		print("Failed to initialize Steam: "+str(init['verbal'])+". Achievements will not be available.")
 		return
 
 	# Get Steam Information
