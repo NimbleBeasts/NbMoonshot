@@ -359,7 +359,7 @@ position = Vector2( 384, 127 )
 lockLevel = 1
 
 [node name="StaircaseE0toE1" parent="LevelObjects/Doors" instance=ExtResource( 5 )]
-position = Vector2( 300, 191 )
+position = Vector2( 300, 192 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 connected_door_path = NodePath("../../../../Level9-BankJob/LevelObjects/Doors/StaircaseE1toE0")
