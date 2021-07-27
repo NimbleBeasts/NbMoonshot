@@ -169,7 +169,7 @@ position = Vector2( 224, 200 )
 position = Vector2( 400, 136 )
 
 [node name="ThinArea2" parent="LevelObjects" instance=ExtResource( 11 )]
-position = Vector2( 333, 72 )
+position = Vector2( 336, 72 )
 
 [node name="ExtractionZone" parent="LevelObjects" instance=ExtResource( 10 )]
 position = Vector2( 1120, 256 )

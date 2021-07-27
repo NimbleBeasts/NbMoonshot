@@ -361,7 +361,7 @@ func getVersionString():
 # Player Handling
 func addMoney(amount):
 	gameState.money += amount
-	print("PlayerMoney: " + str(gameState.money))
+	#print("PlayerMoney: " + str(gameState.money))
 	Events.emit_signal("hud_update_money", gameState.money, amount)
 	
 	#Achievement
