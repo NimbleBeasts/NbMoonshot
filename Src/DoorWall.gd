@@ -88,6 +88,8 @@ func interact(run_sub, openerPos: Vector2):
 			if key.isPickedUp:
 				open()
 				$DoorSounds/KeyUse.play()
+				yield(get_tree().create_timer(0.25), "timeout")
+				playDoorAnimation(openerPos)
 			else:
 				Events.emit_signal("hud_game_hint", tr("KEY_DOOR_REQUIRED") % tr(key.stringName))
 				return

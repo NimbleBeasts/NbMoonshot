@@ -132,6 +132,7 @@ position = Vector2( 218, 335 )
 texture = ExtResource( 41 )
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 18 )]
+frame = 1
 
 [node name="WallPocockmoc" type="Sprite" parent="LevelObjects/Decorations"]
 light_mask = 3
@@ -538,7 +539,7 @@ normal_time_to_alarm = 1.5
 extended_time_to_alarm = 3.5
 
 [node name="GuardPathLine" type="Line2D" parent="Guard3"]
-points = PoolVector2Array( 0, -16, -64, -16, 40, -24 )
+points = PoolVector2Array( 0, -16, -176, -16, 32, -16 )
 script = ExtResource( 35 )
 
 [node name="Water" parent="." instance=ExtResource( 28 )]

@@ -29,7 +29,7 @@ const GAME_VERSION = 0.9
 const CONFIG_VERSION = 3 # Used for config migration
 
 # Debug Options
-const DEBUG = false
+const DEBUG = true
 
 
 # Nb Plugin Config
@@ -77,6 +77,7 @@ const levels = [
 
 ]
 
+var currentLevel = null
 
 # Upgrades
 const upgrades = [

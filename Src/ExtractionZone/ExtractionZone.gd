@@ -10,6 +10,9 @@ export(Types.Direction) var sprite_face_direction = Types.Direction.Left
 
 
 func _ready() -> void:
+	Global.currentLevel = next_level - 1
+
+
 	set_process_unhandled_input(false)
 	var levelIndex: int = Global.game_manager.getCurrentLevelIndex()
 	if levelIndex != 0:

@@ -5,6 +5,9 @@ const FUN_FACT_SIZE = 22
 
 
 func setLevel(id):
+	# Dont know whats wrong with level3's id so we do another approach here
+	id = Global.currentLevel
+	
 	if id < 20: #Level amount
 		if id == 0:
 			print("Debug Level")

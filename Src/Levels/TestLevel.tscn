@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Src/Objects/LaserDetector.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Src/Guard/EliteGuard/EliteGuard.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Src/Distraction/Firework.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Src/Door/Key.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Src/Cabinet/Locker.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=30]
 [ext_resource path="res://Assets/Objects/Jukebox.png" type="Texture" id=31]
@@ -266,7 +267,9 @@ z_index = 100
 position = Vector2( 20, 120 )
 
 [node name="DoorWall" parent="Roof" instance=ExtResource( 8 )]
-position = Vector2( 252, 56 )
+position = Vector2( 222, 56 )
+lockLevel = 5
+keyPath = NodePath("../Key")
 
 [node name="ThinArea" parent="Roof" instance=ExtResource( 11 )]
 position = Vector2( 236, 64 )
@@ -276,6 +279,9 @@ position = Vector2( 204, 64 )
 
 [node name="ThinArea3" parent="Roof" instance=ExtResource( 11 )]
 position = Vector2( 172, 64 )
+
+[node name="Key" parent="Roof" instance=ExtResource( 28 )]
+position = Vector2( 252, 48 )
 
 [node name="DoorWall2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -297, 328 )
