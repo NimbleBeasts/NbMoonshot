@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_eliteguard_alarm_soviet3RUS.wav-ec3b80776d1dc402609f40ba60cd8934.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/sfx_eliteguard_alarm_soviet3RUS.wav"
+dest_files=[ "res://.import/sfx_eliteguard_alarm_soviet3RUS.wav-ec3b80776d1dc402609f40ba60cd8934.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

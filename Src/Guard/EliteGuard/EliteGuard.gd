@@ -21,11 +21,22 @@ onready var hasPathLine = pathLine != null
 var guard_normal_texture: Texture = preload("res://Assets/Guards/EliteGuard.png")
 var guard_green_texture: Texture = preload("res://Assets/Guards/EliteGuardGreen.png")
 
-var eliteGuardDetectSounds = [
+#enum LevelTypes {USA = 0, USSR = 1, Ustria = 2, Switzerland}
+var eliteGuardDetectSounds = [[
 	preload("res://Assets/SFX/eliteguard_dontmove.wav"),
 	preload("res://Assets/SFX/eliteguard_freeze.wav"),
 	preload("res://Assets/SFX/eliteguard_halt.wav")
-]
+],[
+	preload("res://Assets/SFX/sfx_guard_alarm_soviet1RUS.wav"),
+	preload("res://Assets/SFX/sfx_eliteguard_alarm_soviet4RUS.wav"),
+	preload("res://Assets/SFX/sfx_eliteguard_alarm_soviet2RUS.wav"),
+],[
+	preload("res://Assets/SFX/sfx_eliteguard_alarm_soviet3RUS.wav"),
+	preload("res://Assets/SFX/sfx_eliteguard_alarm_soviet4RUS.wav"),
+	preload("res://Assets/SFX/sfx_eliteguard_alarm_soviet2RUS.wav"),
+]]
+
+var nation 
 
 func _ready() -> void:
 	stateRoamingEnter()
@@ -41,12 +52,14 @@ func _ready() -> void:
 
 
 	# sets sprite texture on level type
-	match Global.game_manager.getCurrentLevel().level_nation_type:
-		Types.LevelTypes.USA:
-			$Flippable/Sprite.texture = guard_normal_texture
+	nation = Global.game_manager.getCurrentLevel().level_nation_type
+	match nation:
 		Types.LevelTypes.USSR:
 			$Flippable/Sprite.texture = guard_green_texture 
-
+		Types.LevelTypes.Ustria:
+			$Flippable/Sprite.texture = guard_green_texture 
+		_:
+			$Flippable/Sprite.texture = guard_normal_texture
 
 func _physics_process(delta: float) -> void:
 	velocity = direction * speed
@@ -86,7 +99,11 @@ func stateMovingToPlayerEnter() -> void:
 		Events.emit_signal("player_block_input")
 		Events.disconnect("audio_level_changed", self, "onAudioLevelChanged")
 		$Notifier.popup(Types.NotifierTypes.Exclamation)
-		playRandomSound($EliteGuard/Detect, eliteGuardDetectSounds)
+		
+		var index = 0
+		if nation != Types.LevelTypes.Switzerland:
+			index = nation
+		playRandomSound($EliteGuard/Detect, eliteGuardDetectSounds[index])
 
 
 func _on_BackToNormal_timeout():
