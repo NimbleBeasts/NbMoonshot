@@ -1,10 +1,8 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/NewHudSmall.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Src/Light/Light.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Src/Button/PressureButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Src/HideOuts/Closet.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Src/Player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/Pickup/WeightPickup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Src/DoorWall.tscn" type="PackedScene" id=8]
@@ -32,7 +30,6 @@
 [ext_resource path="res://Src/Guard/PathLine.gd" type="Script" id=30]
 [ext_resource path="res://Assets/Objects/Jukebox.png" type="Texture" id=31]
 [ext_resource path="res://Src/Levels/TestJuke.gd" type="Script" id=32]
-[ext_resource path="res://Src/Tresor/Tresor.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Src/Camera/Camera.tscn" type="PackedScene" id=39]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -122,7 +119,7 @@ position = Vector2( -625, 72 )
 position = Vector2( -760, 72 )
 
 [node name="TestLight" parent="LevelObjects/Lights" instance=ExtResource( 3 )]
-position = Vector2( -144, 136 )
+position = Vector2( -177, 202 )
 flickerSequence = "0"
 DebugLight = true
 
@@ -229,9 +226,6 @@ position = Vector2( -556, 136 )
 position = Vector2( 60, 2 )
 shape = SubResource( 2 )
 
-[node name="PressureButton" parent="Roof" instance=ExtResource( 4 )]
-position = Vector2( 332, 120 )
-
 [node name="Staircase" parent="Roof" instance=ExtResource( 10 )]
 position = Vector2( 276, 120 )
 connected_door_path = NodePath("../Staircase2")
@@ -284,9 +278,17 @@ position = Vector2( 172, 64 )
 [node name="Key" parent="Roof" instance=ExtResource( 28 )]
 position = Vector2( 252, 48 )
 
-[node name="Tresor" parent="Roof" instance=ExtResource( 33 )]
-position = Vector2( 255, 117 )
-keyPadCode = 1337
+[node name="Camera" parent="Roof" instance=ExtResource( 39 )]
+position = Vector2( 404, 64 )
+isFixedCam = true
+
+[node name="Camera2" parent="Roof" instance=ExtResource( 39 )]
+position = Vector2( 404, 64 )
+isFixedCam = true
+
+[node name="Camera3" parent="Roof" instance=ExtResource( 39 )]
+position = Vector2( 404, 64 )
+isFixedCam = true
 
 [node name="DoorWall2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -297, 328 )
@@ -299,9 +301,6 @@ position = Vector2( -80, 328 )
 
 [node name="ExtractionZone" parent="." instance=ExtResource( 12 )]
 position = Vector2( -480, 256 )
-
-[node name="ClosetUUU" parent="." instance=ExtResource( 5 )]
-position = Vector2( -184, 256 )
 
 [node name="BoxPickupUUU" parent="." instance=ExtResource( 15 )]
 position = Vector2( -240, 256 )

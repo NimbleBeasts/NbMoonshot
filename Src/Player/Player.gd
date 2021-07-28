@@ -400,9 +400,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func onGameOver() -> void:
+	movementBlocked = true
+	itemPickup.dropCurrentItem(false)
+	yield(get_tree().create_timer(0.3), "timeout")
 	set_process(false)
 	set_physics_process(false)
-	movementBlocked = true
 	$AnimationPlayer.play("lose")
 	Events.emit_signal("hud_game_over")
 
