@@ -1,5 +1,5 @@
 [color=#ffad3b][b]Welcome to Moonshot: The Great Espionage[/b][/color]
-Welcome to our final beta before the Steam release. We hope you enjoy our game and have fun while playing it.
+Welcome to the release of Moonshot. We hope to live up to your expectations and that you have a lot of fun with our first big game.
 If you experience any issue you can report it [url=https://github.com/NimbleBeasts/NbMoonshot/issues]here[/url].
 Thank you.
 
@@ -15,11 +15,11 @@ This game comes with experimental controller support. For best experience use ke
 [/table]
 
 [color=#ffad3b][b]Cheats[/b][/color]
-There is a debug console that can be utilized by F9. Some commands are cheat protected. You won't receive any achievements, when cheating.
+There is a debug console that can be utilized by F9. Some commands are cheat protected. You won't receive any achievements, while cheating.
 
 [color=#ffad3b][b]Changelog[/b][/color]
 [b]Release 0.9 [/b][code]2021-07-25[/code]
-- Final beta before release
+- Final release
 - Level complete
 - Known bugs in level 13
 - Steam achievements added
