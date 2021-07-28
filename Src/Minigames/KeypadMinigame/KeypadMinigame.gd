@@ -6,6 +6,7 @@ export (int) var goal: int
 var input = ""
 
 var allowedKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+var extendedKeys = ["Kp 0", "Kp 1","Kp 2","Kp 3","Kp 4","Kp 5","Kp 6","Kp 7","Kp 8","Kp 9"]
 
 var btn_index = 0
 onready var btn_selector:Sprite = $BtnSelector
@@ -32,15 +33,19 @@ func clearDisplay():
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.pressed:
+			#print(OS.get_scancode_string(event.scancode))
 			var scanCodeString = OS.get_scancode_string(event.scancode)
 			if scanCodeString in allowedKeys:
 				var correctButton = get_node("Input/Button" + scanCodeString)
+				correctButton.press()
+			elif scanCodeString in extendedKeys:
+				var correctButton = get_node("Input/Button" + scanCodeString.substr(3))
 				correctButton.press()
 			
 			# for enter and backspace
 			if event.scancode == KEY_BACKSPACE:
 				$Input/Button10.press()
-			elif event.scancode == KEY_ENTER:
+			elif event.scancode == KEY_ENTER or event.scancode == KEY_KP_ENTER:
 				$Input/Button11.press()
 	
 	if event is InputEventMouse:
