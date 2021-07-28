@@ -1,6 +1,6 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=68 format=2]
 
-[ext_resource path="res://Src/Levels/BaseLevel.gd" type="Script" id=1]
+[ext_resource path="res://Src/Levels/Level9.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Objects/Home/Kitchen.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Objects/Nature/Bush.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Objects/Bank/Computer.png" type="Texture" id=4]
@@ -72,6 +72,12 @@ extents = Vector2( 4.90033, 8.61313 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 16, 8 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 16, 16 )
+
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 332.374, 10 )
 
@@ -81,10 +87,6 @@ __meta__ = {
 "_editor_description_": "In the 1963, agency is trying to gather landing informations by stealing pictures made by the Luna 3 moon mission in 1959 ussr. Mission environment is the space flight archive of USSR.
 "
 }
-level_lightning = 1
-level_nation_type = 3
-level_music = 5
-level_objectives = NodePath("../Level9-BankJob/LevelObjects/Interactables/TresureSack")
 
 [node name="SpriteWalls" type="Node2D" parent="."]
 
@@ -565,6 +567,20 @@ position = Vector2( 1024, 328 )
 
 [node name="LadderValutHole" parent="LevelObjects/ThinAreas" instance=ExtResource( 12 )]
 position = Vector2( 336, 328 )
+collision_mask = 4
+
+[node name="BlockSolution" type="StaticBody2D" parent="LevelObjects/ThinAreas/LadderValutHole"]
+position = Vector2( 8, 0 )
+
+[node name="MovingBlockShape" type="CollisionShape2D" parent="LevelObjects/ThinAreas/LadderValutHole/BlockSolution"]
+position = Vector2( -40, 16 )
+shape = SubResource( 6 )
+
+[node name="Detector" type="Area2D" parent="LevelObjects/ThinAreas/LadderValutHole"]
+position = Vector2( 72, -24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ThinAreas/LadderValutHole/Detector"]
+shape = SubResource( 7 )
 
 [node name="Pickables" type="Node2D" parent="LevelObjects"]
 
@@ -682,3 +698,4 @@ texture = ExtResource( 49 )
 [connection signal="body_exited" from="LevelObjects/Interactables/Password-Note/ReadArea" to="LevelObjects/Interactables/Password-Note" method="_on_ReadArea_body_exited"]
 [connection signal="body_entered" from="LevelObjects/Interactables/Password-Note/NotifierArea" to="LevelObjects/Interactables/Password-Note" method="_on_NotifierArea_body_entered"]
 [connection signal="body_exited" from="LevelObjects/Interactables/Password-Note/NotifierArea" to="LevelObjects/Interactables/Password-Note" method="_on_NotifierArea_body_exited"]
+[connection signal="body_entered" from="LevelObjects/ThinAreas/LadderValutHole/Detector" to="." method="_on_Detector_body_entered"]
