@@ -18,6 +18,7 @@ var user = {
 }
 
 func _ready():
+	set_pause_mode(Node.PAUSE_MODE_PROCESS)
 	set_process(false) # Processing is enabled after init()
 	
 	init()
@@ -27,7 +28,11 @@ func _ready():
 		Steam.connect("current_stats_received", self, "_current_stats_received")
 		Steam.connect("user_stats_stored", self, "_user_stats_stored")
 		Steam.connect("user_achievement_stored", self, "_user_achievement_stored")
+		Steam.connect("overlay_toggled", self, "_overlay_toggled")
 
+
+func _overlay_toggled(toggle):
+	get_tree().paused = toggle
 
 func _user_stats_stored(gameID: int, result: int):
 	if Global.NB_PLUGIN_CONFIG.gameId == gameID: # Check if its our game
