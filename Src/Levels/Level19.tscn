@@ -641,3 +641,4 @@ shape = SubResource( 3 )
 [node name="Note" parent="." instance=ExtResource( 1 )]
 position = Vector2( 760, 188 )
 text = "LEVEL6_NOTE"
+tresorPath = NodePath("../LevelObjects/Tresor")
