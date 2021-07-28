@@ -82,7 +82,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 		#else:
 		Global.gameState.level.id = next_level
 
-		Global.addMoney(100) # successful level change
+		Global.addMoney(20) # successful level change
 		Global.game_manager.unloadLevel()
 		Global.game_manager.loadLevel(level_index)
 

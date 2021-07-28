@@ -29,7 +29,7 @@ const GAME_VERSION = 0.9
 const CONFIG_VERSION = 3 # Used for config migration
 
 # Debug Options
-const DEBUG = true
+const DEBUG = false
 
 
 # Nb Plugin Config
