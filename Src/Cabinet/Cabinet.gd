@@ -53,7 +53,8 @@ func _process(_delta):
 				isUsed = true
 				$LootAnim.play("loot")
 				Global.addMoney(loot)
-				$ChestSounds/HasBounty.play()
+				if get_node_or_null("ChestSounds/HasBounty") != null:
+					$ChestSounds/HasBounty.play()
 			elif (containsKey and not isPickedUp):
 				isPickedUp = true
 				$ChestSounds/KeyPickup.play()

@@ -715,7 +715,7 @@ __meta__ = {
 }
 
 [node name="LightTV" parent="LevelObjects/Lights" instance=ExtResource( 71 )]
-position = Vector2( 555, 109 )
+position = Vector2( 558.25, 112.5 )
 rotation = -1.5708
 scale = Vector2( 1, 1.5 )
 

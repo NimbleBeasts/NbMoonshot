@@ -72,13 +72,13 @@ extents = Vector2( 4.90033, 8.61313 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 16, 8 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 332.374, 10 )
 
 [node name="Level9-BankJob" type="Node2D"]
@@ -87,6 +87,7 @@ __meta__ = {
 "_editor_description_": "In the 1963, agency is trying to gather landing informations by stealing pictures made by the Luna 3 moon mission in 1959 ussr. Mission environment is the space flight archive of USSR.
 "
 }
+level_objectives = NodePath("LevelObjects/Interactables/TresureSack")
 
 [node name="SpriteWalls" type="Node2D" parent="."]
 
@@ -574,13 +575,13 @@ position = Vector2( 8, 0 )
 
 [node name="MovingBlockShape" type="CollisionShape2D" parent="LevelObjects/ThinAreas/LadderValutHole/BlockSolution"]
 position = Vector2( -40, 16 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="Detector" type="Area2D" parent="LevelObjects/ThinAreas/LadderValutHole"]
 position = Vector2( 72, -24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ThinAreas/LadderValutHole/Detector"]
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Pickables" type="Node2D" parent="LevelObjects"]
 
@@ -591,7 +592,7 @@ position = Vector2( 688, 372 )
 script = ExtResource( 43 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/ForceDuckMode"]
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
