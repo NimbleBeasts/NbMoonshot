@@ -14,12 +14,12 @@ func _ready():
 
 # Intro functions
 func dialogue_finished():
-	$DialogueBlocker.position = Vector2(-100,-100)
 	$NPCS/Secretary/WalkAnimationPlayer.play("walk")
 	Events.emit_signal("player_block_movement")
 
 func _on_WalkAnimationPlayer_animation_finished(anim_name):
 	Events.emit_signal("player_unblock_movement")
+	$DialogueBlocker.position = Vector2(-100,-100)
 	$AdditionalHUD/Overlay/BombTimer.show()
 	timerStarted = true
 

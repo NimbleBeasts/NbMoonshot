@@ -52,6 +52,7 @@ func _process(delta: float) -> void:
 func updateLives(type) -> void:
 	if type == Types.DetectionLevels.Sure:
 		lives -= 1
+		lives = max(lives, 0)
 		$BottomBar/Life.set_text(str(lives))
 
 		Global.lives = lives

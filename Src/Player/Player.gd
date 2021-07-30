@@ -401,6 +401,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func onGameOver() -> void:
 	movementBlocked = true
+	guardPickup.stopDragging()
 	itemPickup.dropCurrentItem(false)
 	yield(get_tree().create_timer(0.3), "timeout")
 	set_process(false)

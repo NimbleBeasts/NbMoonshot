@@ -325,6 +325,22 @@ points = PoolVector2Array( 392, -8 )
 script = ExtResource( 23 )
 distractWaitTime = 15.0
 
+[node name="Guard3" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2" instance=ExtResource( 22 )]
+position = Vector2( -104, -24 )
+startingDirection = 1
+
+[node name="PathLine" type="Line2D" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2/Guard3"]
+points = PoolVector2Array( 0, -8, 0, -8, -96, -8 )
+script = ExtResource( 23 )
+
+[node name="Guard4" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2" instance=ExtResource( 22 )]
+position = Vector2( 464, -24 )
+startingDirection = 1
+
+[node name="PathLine" type="Line2D" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2/Guard4"]
+points = PoolVector2Array( 0, -8, 0, -8, -120, -8 )
+script = ExtResource( 23 )
+
 [node name="DoorWall" parent="LevelObjects/Objects/Trains/Wagons/WagonGuards2" instance=ExtResource( 25 )]
 position = Vector2( 16, -24 )
 doorType = 2
