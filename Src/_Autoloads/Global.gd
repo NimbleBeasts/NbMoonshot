@@ -25,7 +25,7 @@ extends Node
 #warning-ignore-all:unused_class_variable
 
 # Version
-const GAME_VERSION = 0.9
+const GAME_VERSION = 1.0
 const CONFIG_VERSION = 3 # Used for config migration
 
 # Debug Options
