@@ -7,6 +7,7 @@ func _ready():
 		#warning-ignore:return_value_discarded
 		$HTTPRequest.connect("request_completed", self, "requestLogComplete")
 		$HTTPRequest.request(Global.NB_PLUGIN_CONFIG.devlogUrl)
+		print(Global.NB_PLUGIN_CONFIG.devlogUrl)
 
 func requestLogComplete(_result, response_code, _headers, body):
 	if response_code == 200:

@@ -37,7 +37,7 @@ const NB_PLUGIN_CONFIG = {
 	"gameId": 1492610,
 	"filePassword": "password",
 	"magic": "magiccode",
-	"devlogUrl": "https://raw.githubusercontent.com/NimbleBeasts/NbMoonshot/master/_Org/_logs/Moonshot_"+ str(GAME_VERSION) +".txt"
+	"devlogUrl": "https://raw.githubusercontent.com/NimbleBeasts/NbMoonshot/master/_Org/_logs/Moonshot_"+ "%0.1f" % GAME_VERSION +".txt"
 }
 
 const supportedResolutions = [
