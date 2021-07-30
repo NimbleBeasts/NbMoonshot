@@ -202,7 +202,7 @@ func activate():
 	if isFlickering:
 		$FlickerTimer.start()
 	$MotionTween.playback_speed = 1
-	$AnimationPlayer.play()
+	$AnimationPlayer.play("idle")
 
 
 func deactivate() -> void:

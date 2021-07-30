@@ -207,6 +207,7 @@ centered = false
 
 [node name="ControlRoom" parent="LevelObjects/Decorations" instance=ExtResource( 24 )]
 position = Vector2( 282, 364 )
+frame = 2
 
 [node name="Cc" type="Sprite" parent="LevelObjects/Decorations"]
 position = Vector2( 328, 352 )

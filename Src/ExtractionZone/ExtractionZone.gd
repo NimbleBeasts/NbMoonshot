@@ -30,6 +30,7 @@ func _ready() -> void:
 	Console.remove_command('level_next')
 	Console.add_command('level_next', self, 'cheat_level_next')\
 		.set_description('Go to next level')\
+		.add_restriction_condition(funcref(Global, "getCheatState"))\
 		.register()
 
 func cheat_level_next():

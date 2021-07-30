@@ -144,6 +144,8 @@ func showMissionBriefing(level):
 	$HUDLayer/Display/MissionBriefing.setLevel(level)
 	$HUDLayer/Display/MissionBriefing.show()
 	inMissionBriefing = true
+	if get_tree():
+		yield(get_tree().create_timer(0.1), "timeout")
 	$HUDLayer/Display/MissionBriefing/StartMissionButton.grab_focus()
 
 
@@ -460,7 +462,8 @@ func _on_StartMissionButton_button_up():
 	
 	$HUDLayer/LevelFade/AnimationPlayer.play("fade_out")
 
-
+func fade():
+	$HUDLayer/LevelFade/AnimationPlayer.play("fade_out")
 
 
 

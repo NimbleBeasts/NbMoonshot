@@ -215,12 +215,10 @@ position = Vector2( 528, 184 )
 [node name="Cabinet" parent="LevelObjects" instance=ExtResource( 43 )]
 position = Vector2( 375, 256 )
 type = 1
-hasBounty = false
 
 [node name="Cabinet2" parent="LevelObjects" instance=ExtResource( 43 )]
 position = Vector2( 119, 320 )
 type = 1
-hasBounty = false
 
 [node name="Lights" type="Node2D" parent="LevelObjects"]
 

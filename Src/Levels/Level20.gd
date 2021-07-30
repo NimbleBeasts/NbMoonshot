@@ -106,6 +106,7 @@ func _on_FlyByAnimationPlayer_animation_finished(anim_name):
 func _on_ButtonQuit_button_up():
 	itsOverLetMeQuit = false
 	Events.emit_signal("menu_back")
-	yield(get_tree().create_timer(0.1), "timeout")
+	if get_tree():
+		yield(get_tree().create_timer(0.1), "timeout")
 	Global.newGameState()
 	

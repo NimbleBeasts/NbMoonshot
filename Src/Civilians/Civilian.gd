@@ -1,6 +1,8 @@
 tool
 extends KinematicBody2D
 
+
+#warning-ignore-all:unused_class_variable
 enum Skins {Scientist1, Scientist2, Spy, Patient}
 export (Skins) var skin: int setget setSkin
 export var isHostileArea: bool 

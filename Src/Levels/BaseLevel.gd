@@ -92,6 +92,7 @@ func _ready():
 		get_node("NewSkybox").setup(level_nation_type)
 
 	debugDetections()
+	debugLevelSet()
 
 func debugDetections():
 	Console.remove_command("detection_add")
@@ -100,11 +101,22 @@ func debugDetections():
 	.add_argument('amount', TYPE_INT)\
 	.add_restriction_condition(funcref(Global, "getCheatState"))\
 	.register()
+	
+func debugLevelSet():
+	Console.remove_command("level_set")
+	Console.add_command("level_set", self, "debugLevelSetFnc")\
+	.set_description("(CHEAT) Changes level state.")\
+	.add_argument('amount', TYPE_INT)\
+	.add_restriction_condition(funcref(Global, "getCheatState"))\
+	.register()
 
 func debugAddDetections(amnt):
 	extended_allowed_detections = amnt
 	normal_allowed_detections = amnt
 	do_upgrade_stuff()
+
+func debugLevelSetFnc(idx):
+	Global.gameState.level.id = idx
 
 func _process(_delta: float) -> void:
 	if can_change_level() == true: # putting this in process T_T

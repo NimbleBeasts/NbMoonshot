@@ -1,6 +1,6 @@
 class_name PhotoMinigameSpawner
 extends MinigameSpawner
-
+#warning-ignore-all:unused_class_variable
 export var countDownTime: int 
 export (Texture) var targetTexture: Texture
 export var targetColliderExtents: Vector2

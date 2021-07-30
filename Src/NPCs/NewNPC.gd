@@ -11,6 +11,7 @@ export (String) var Prefix
 
 var loadedDialogue
 
+#warning-ignore-all:unused_class_variable
 var option0Branch
 var option1Branch
 var option2Branch
