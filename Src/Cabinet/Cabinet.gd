@@ -27,7 +27,13 @@ func _ready():
 	
 	if hasBounty:
 		loot = Global.gameConstant.basicLoot
-		if Global.playerHasUpgrade(Types.UpgradeTypes.DarkNet):
+		
+		var hasDarkNet:bool = false
+		for v in Global.gameState.playerUpgrades:
+			if v == 5:
+				hasDarkNet = true
+	
+		if hasDarkNet:
 			loot *= Global.gameConstant.upgradeDarkNetModifier
 		$Label.set_text("$"+str(loot))
 		set_process(false)
