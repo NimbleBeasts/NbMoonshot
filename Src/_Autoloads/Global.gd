@@ -1,16 +1,16 @@
 ###############################################################################
 # Copyright (c) 2020 NimbleBeasts
-# 
+#
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,7 +25,7 @@ extends Node
 #warning-ignore-all:unused_class_variable
 
 # Version
-const GAME_VERSION = 1.0
+const GAME_VERSION = 1.1
 const CONFIG_VERSION = 3 # Used for config migration
 
 # Debug Options
@@ -58,7 +58,7 @@ const levels = [
 	"res://Src/Levels/Level4.tscn",
 	"res://Src/Levels/Level5.tscn",
 	"res://Src/Levels/Level6.tscn",
-	"res://Src/Levels/Level7.tscn", 
+	"res://Src/Levels/Level7.tscn",
 	"res://Src/Levels/Level8.tscn",
 	"res://Src/Levels/Level9.tscn",
 	"res://Src/Levels/Level10.tscn",
@@ -71,7 +71,7 @@ const levels = [
 	"res://Src/Levels/Level17.tscn",
 	"res://Src/Levels/Level18.tscn",
 	"res://Src/Levels/Level19.tscn",
-	"res://Src/Levels/Level20.tscn", 
+	"res://Src/Levels/Level20.tscn",
 	"res://Src/Levels/TestLevel.tscn",
 
 
@@ -220,7 +220,7 @@ func loadSave(slotId):
 	var saveFile = File.new()
 	if not saveFile.file_exists("user://save_"+ str(slotId) + ".cfg"):
 		print("Save Game Not Found")
-	
+
 	saveFile.open("user://save_"+ str(slotId) + ".cfg", File.READ)
 	var data = parse_json(saveFile.get_line())
 	gameState = data.duplicate()
@@ -238,11 +238,11 @@ func loadConfig():
 	if not cfgFile.file_exists("user://config.cfg"):
 		saveConfig()
 		return
-	
+
 	cfgFile.open("user://config.cfg", File.READ)
 	var data = parse_json(cfgFile.get_line())
 	cfgFile.close()
-	
+
 	# Check if the user has an old config, so update it
 	if data.configVersion < CONFIG_VERSION:
 		userConfig = migrateConfig(data)
@@ -293,7 +293,7 @@ func migrateConfig(data):
 func setFullscreen(val: bool):
 	userConfig.fullscreen = val
 	saveConfig()
-	
+
 	switchFullscreen()
 
 func setResolution(val: int):
@@ -302,7 +302,7 @@ func setResolution(val: int):
 		"h": supportedResolutions[val].y
 	}
 	saveConfig()
-	
+
 	switchResolution()
 
 func newGameState() -> void:
@@ -329,7 +329,7 @@ func switchFullscreen():
 	if not userConfig.fullscreen:
 		OS.window_fullscreen = false
 		switchResolution()
-		
+
 	else:
 		OS.window_fullscreen = true
 
@@ -348,11 +348,11 @@ func prngByChance(chanceInPercent):
 # Get Version
 func getVersion():
 	return GAME_VERSION
-	
+
 # Get Version String
 func getVersionString():
-	var versionString = "%2.1f" % (GAME_VERSION) 
-	
+	var versionString = "%2.1f" % (GAME_VERSION)
+
 	if DEBUG:
 		versionString += "-debug"
 
@@ -363,7 +363,7 @@ func addMoney(amount):
 	gameState.money += amount
 	#print("PlayerMoney: " + str(gameState.money))
 	Events.emit_signal("hud_update_money", gameState.money, amount)
-	
+
 	#Achievement
 	if gameState.money >= 1000:
 		SteamWorks.setAchievement("STEAM_ACH_4") #Big Money
@@ -386,7 +386,7 @@ func getUpgradeInfo(upgrade_type: int) -> Dictionary:
 		var upgrade_values: Array = upgrade.values()
 		if upgrade_values[0] == upgrade_type:
 			return upgrade
-		
+
 	return {}
 
 

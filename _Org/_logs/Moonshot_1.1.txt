@@ -1,0 +1,34 @@
+[color=#ffad3b][b]Welcome to Moonshot: The Great Espionage[/b][/color]
+Welcome to the release of Moonshot. We hope to live up to your expectations and that you have a lot of fun with our first big game.
+If you experience any issue you can report it [url=https://github.com/NimbleBeasts/NbMoonshot/issues]here[/url].
+Thank you.
+
+[color=#ffad3b][b]Controls[/b][/color]
+This game comes with experimental controller support. For best experience use keyboard and mouse.
+[table=3]
+[cell]Controls[/cell][cell]Keyboard[/cell][cell]Gamepad[/cell]
+[cell]Movement[/cell][cell]WASD/Arrow keys[/cell][cell]Left Stick[/cell]
+[cell]Interaction[/cell][cell]E[/cell][cell]A[/cell]
+[cell]Taser[/cell][cell]F[/cell][cell]B[/cell]
+[cell]Quit/Menu[/cell][cell]Q[/cell][cell]X[/cell]
+[cell]Dodge[/cell][cell]Space[/cell][cell]Y[/cell]
+[/table]
+
+[color=#ffad3b][b]Changelog[/b][/color]
+[b]Release 1.1 [/b][code]2022-04-20[/code]
+- Release for gotm.io
+- Fixed: Fixed Dark Net perk
+[b]Release 1.0 [/b][code]2021-07-30[/code]
+- Fixed: Carry a guard prevented game over
+- Fixed: Level 13 mission objective
+- Fixed: Smaller fixes in levels
+[b]Release 0.9 [/b][code]2021-07-25[/code]
+- Final release candidate
+- Level complete
+- Known bugs in level 13
+- Steam achievements added
+[b]Release 0.7 [/b][code]2021-06-17[/code]
+- 75% of levels are ready to play
+- Tons of bugs and findings from beta 0.5 fixed 
+[b]Release 0.5 [/b][code]2021-04-11[/code]
+- First beta after game jam

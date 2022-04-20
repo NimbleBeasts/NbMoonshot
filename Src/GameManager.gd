@@ -7,19 +7,19 @@ var levelNode = null
 var sure_detection_num: int = 0
 var detected_value: int = 0
 var current_level: int
-var quest_index: int = 0 
+var quest_index: int = 0
 
 
 func _ready():
 	# I know you guys like changing pause mode so I hardcoded it..
 	self.pause_mode = Node.PAUSE_MODE_PROCESS
 	$gameViewport/Viewport/LevelHolder.pause_mode = Node.PAUSE_MODE_STOP
-	
-	
+
+
 	# Set Viewport Sizes to Project Settings
 	$gameViewport/Viewport.size = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
 	$menuViewport/Viewport.size = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
-	
+
 	Global.debugLabel = $Debug
 
 	# Event Hooks
@@ -35,14 +35,14 @@ func _ready():
 	Events.connect("allowed_detections_updated", self, "onAllowedDetectionsUpdated")
 	Events.connect("player_detected", self, "onPlayerDetected")
 
-	
+
 	switchTo(Types.GameStates.Menu)
-	
+
 	debugCheatMode()
 	debugPlayerSkills()
 	debugMoney()
-	
-	# Set (shared) world brightness 
+
+	# Set (shared) world brightness
 	$gameViewport/Viewport/WorldEnvironment.environment.adjustment_brightness = Global.userConfig.brightness
 	$gameViewport/Viewport/WorldEnvironment.environment.adjustment_contrast = Global.userConfig.contrast
 
@@ -72,7 +72,7 @@ func debugPlayerSkills():
 	Console.add_command("skill_list", self, "debugListSkills")\
 		.set_description("List active skills.")\
 		.register()
-		
+
 	Console.remove_command("skill_add")
 	Console.add_command("skill_add", self, "debugAddSkill")\
 		.set_description("(CHEAT) Adds a skill.")\
@@ -87,7 +87,7 @@ func debugActivateCheats():
 func debugAddSkill(id):
 	Global.gameState.playerUpgrades.append(id)
 	debugListSkills()
-	
+
 func debugListSkills():
 	Console.write_line("Player skills:")
 	Console.write_line(str(Global.gameState.playerUpgrades))

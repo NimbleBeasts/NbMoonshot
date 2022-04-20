@@ -98,7 +98,7 @@ position = Vector2( 431, 240 )
 texture = ExtResource( 13 )
 
 [node name="ControlHint" type="Sprite" parent="LevelObjects/Decorations"]
-position = Vector2( 48, 294 )
+position = Vector2( -8, 294 )
 texture = ExtResource( 34 )
 script = ExtResource( 35 )
 

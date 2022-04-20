@@ -1,9 +1,6 @@
 extends Node
 
-# Test Achievments:
-# Enable console: steam://open/console
-# achievement_clear 1492610 <achievement name>
-# reset_all_stats 1492610
+# Steam Works Dummy
 
 
 enum Steam_Status {STEAM_INIT_FAILED = 0, STEAM_NOT_RESPONDING, STEAM_CONNECTED}
@@ -20,15 +17,9 @@ var user = {
 func _ready():
 	set_pause_mode(Node.PAUSE_MODE_PROCESS)
 	set_process(false) # Processing is enabled after init()
-	
+
 	init()
 
-# Turned of Steam for a while	
-	if Steam.isSteamRunning():
-		Steam.connect("current_stats_received", self, "_current_stats_received")
-		Steam.connect("user_stats_stored", self, "_user_stats_stored")
-		Steam.connect("user_achievement_stored", self, "_user_achievement_stored")
-		Steam.connect("overlay_toggled", self, "_overlay_toggled")
 
 
 func _overlay_toggled(toggle):
@@ -52,51 +43,13 @@ func _user_achievement_stored(gameID: int, groupAchieve: bool, achName: String, 
 
 func _current_stats_received(gameID: int, result: int, userID: int):
 	if Global.NB_PLUGIN_CONFIG.gameId == gameID: # Check if its our game
-		
 		achievments = []
-		
-		if result == Steam.RESULT_OK:
-			pass
-			#print("Achievments received:")
-			#TODO
-#			for ach in Types.AchievementStrings:
-#				print(Steam.getAchievement(ach))
-#				if Steam.getAchievement(ach).achieved:
-#					achievments.append(ach)
-		else:
-			print("Steam Error: Cant retrieve stats")
 
 
 func init():
-	var init = Steam.steamInit()
-
-	#print("Steam: "+str(init))
-
-	# General failure
-	if init['status'] != 1:
-		print("Failed to initialize Steam: "+str(init['verbal'])+". Achievements will not be available.")
-		return
-
-	# Get Steam Information
-	online = Steam.loggedOn()
-	user.owns = Steam.isSubscribed()
-	user.steamId = Steam.getSteamID()
-
-	# Stats are already requested within another request. 
-#	if not Steam.requestCurrentStats():
-#		print("Steam Error: Getting current stats")
-
-	# Run Steam Callbacks
-	set_process(true)
-
-	if Global.DEBUG:
-		print("Steam: Online: " + str(online) + " User: " + str(user))
+	pass
 
 func setAchievement(achievementName):
-	if online and not Global.getCheatState():
-		Steam.setAchievement(achievementName)
-		Steam.storeStats()
+	pass
 
-	
-func _process(delta):
-	Steam.run_callbacks()
+
