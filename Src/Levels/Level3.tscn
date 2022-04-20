@@ -387,12 +387,12 @@ __meta__ = {
 }
 
 [node name="SprinklerPipe" type="Sprite" parent="LevelObjects/Decorations/Pipes"]
-position = Vector2( 448, 309.741 )
+position = Vector2 ( 448, 309 )
 scale = Vector2( 1, 10.5647 )
 texture = ExtResource( 64 )
 
 [node name="SprinklerPipe2" type="Sprite" parent="LevelObjects/Decorations/Pipes"]
-position = Vector2( 444, 313.508 )
+position = Vector2 ( 444, 313 )
 scale = Vector2( 1, 9.62291 )
 texture = ExtResource( 64 )
 
@@ -715,7 +715,7 @@ __meta__ = {
 }
 
 [node name="LightTV" parent="LevelObjects/Lights" instance=ExtResource( 71 )]
-position = Vector2( 558.25, 112.5 )
+position = Vector2 ( 558, 112 )
 rotation = -1.5708
 scale = Vector2( 1, 1.5 )
 

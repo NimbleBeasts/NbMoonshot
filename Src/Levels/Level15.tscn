@@ -910,7 +910,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelObjects/OverlayVentilation/PlayerDetector"]
-position = Vector2( 7.94074, 10.88 )
+position = Vector2 ( 7, 10 )
 shape = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 14 )]

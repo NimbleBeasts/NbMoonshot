@@ -18,6 +18,7 @@ This game comes with experimental controller support. For best experience use ke
 [b]Release 1.1 [/b][code]2022-04-20[/code]
 - Release for gotm.io
 - Fixed: Fixed Dark Net perk
+- Fixed: Some objects are a bit off-pixel
 [b]Release 1.0 [/b][code]2021-07-30[/code]
 - Fixed: Carry a guard prevented game over
 - Fixed: Level 13 mission objective

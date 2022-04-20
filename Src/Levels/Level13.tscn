@@ -1081,7 +1081,7 @@ texture = ExtResource( 49 )
 
 [node name="Bush4" type="Sprite" parent="LevelObjects/Nature"]
 modulate = Color( 0.596078, 0.2, 0.2, 1 )
-position = Vector2( 72.008, 250 )
+position = Vector2 ( 72, 250 )
 scale = Vector2( 0.5625, 0.541667 )
 z_index = -4
 texture = ExtResource( 49 )

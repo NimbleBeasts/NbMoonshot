@@ -623,7 +623,7 @@ script = ExtResource( 20 )
 [node name="PlayerDetector" type="Area2D" parent="OverlayVentilation"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlayVentilation/PlayerDetector"]
-position = Vector2( 7.27275, 9.14286 )
+position = Vector2 ( 7, 9 )
 shape = SubResource( 4 )
 
 [node name="OverlayBasement" type="Sprite" parent="."]
@@ -638,7 +638,7 @@ script = ExtResource( 20 )
 [node name="PlayerDetector" type="Area2D" parent="OverlayBasement"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OverlayBasement/PlayerDetector"]
-position = Vector2( 7.68, 8 )
+position = Vector2 ( 7, 8 )
 shape = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 14 )]
