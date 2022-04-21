@@ -34,7 +34,7 @@ func getProgessState():
 # Power button
 func toggleState():
 	isPowerOn = !isPowerOn
-	
+
 
 func _on_ObjectiveArea_body_entered(body):
 	if body.is_in_group("Player"):

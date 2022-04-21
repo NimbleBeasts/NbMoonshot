@@ -87,7 +87,7 @@ func _physics_process(_delta):
 				showMenu()
 			else:
 				Events.emit_signal("minigame_forcefully_close")
-	
+
 	setDialogIsTyping($HUDLayer/Display/Dialog/Text.visible_characters != $HUDLayer/Display/Dialog/Text.text.length() and $HUDLayer/Display/Dialog.visible)
 
 
@@ -95,7 +95,7 @@ func _physics_process(_delta):
 		if not $HUDLayer/Display/Dialog.visible:
 			Events.emit_signal("hud_game_hint", tr(levelHint))
 			levelHint = ""
-		
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
@@ -130,7 +130,7 @@ func showGameOverNotification():
 	$HUDLayer/GameOverNotification.show()
 	$HUDLayer/GameOverNotification/GameOverNotifcationAnimationPlayer.play("pop")
 
-	
+
 func _on_GameOverNotifcationAnimationPlayer_animation_finished(_anim_name):
 	$HUDLayer/GameOverNotification.hide()
 	Events.emit_signal("hud_game_over_exited")
@@ -152,12 +152,12 @@ func showMissionBriefing(level):
 
 func debugLightToggle(_d = null):
 	level_lightning_level += 1
-	
+
 	if level_lightning_level >= Types.LevelLightning.size():
 		level_lightning_level = 0
-	
+
 	Events.emit_signal("hud_light_level", level_lightning_level)
-	
+
 	print("LightLevel: " + str(Types.LevelLightning.keys()[level_lightning_level]))
 
 
@@ -180,7 +180,7 @@ func showSave():
 
 	Events.emit_signal("player_block_movement")
 	saveFiles = Global.getSaveGameState()
-	
+
 	var i = 1
 	for element in saveFiles:
 		var button = get_node("HUDLayer/Display/SaveGame/Menu/ButtonSave" + str(i))
@@ -214,11 +214,11 @@ func detectionFlash():
 
 
 func allowedDetectionsUpdate(value) -> void:
-	detected_value = value 
+	detected_value = value
 	#$AlarmIndicator/Label.set_text(str(detected_value))
 	$HUDLayer/Display/HudBar.updateAlarm(detected_value)
 
-	
+
 func showNote(node, type, text):
 	if type == Types.NoteType.Local:
 		$HUDLayer/Display/Note.texture = preload("res://Assets/HUD/NoteLocal.png")
@@ -247,19 +247,19 @@ func _on_UpgradeButton_button_up():
 		upgradeSelect(currentSelectedUpgrade)
 		Events.emit_signal("player_upgrades_do")
 		updateUpgrades()
-		
+
 		# Achievements
 		SteamWorks.setAchievement("STEAM_ACH_2") #Buy one upgrade
 		if Global.gameState.playerUpgrades.size() >= 3:
 			SteamWorks.setAchievement("STEAM_ACH_3") #Buy 3 upgrades
-	
+
 
 func upgradeSelect(id):
 	currentSelectedUpgrade = id
 	var upgrade = Global.upgrades[id]
 	$HUDLayer/Display/Upgrades/InfoBox/Titel.set_text(tr(upgrade.name) + " $" + str(upgrade.cost))
 	$HUDLayer/Display/Upgrades/InfoBox/Description.bbcode_text = tr(upgrade.desc)
-	
+
 	if -1 == Global.gameState.playerUpgrades.find(id):
 		if Global.gameState.money >= upgrade.cost:
 			$HUDLayer/Display/Upgrades/InfoBox/UpgradeButton.text = "Buy Upgrade"
@@ -299,13 +299,13 @@ func showDialog(pname: String, nameColor: String, text: String, isMultipage: boo
 	$HUDLayer/Display/Dialog/Text.visible_characters = pname.length()
 	$HUDLayer/Display/Dialog.show()
 	$HUDLayer/Display/Dialog/Sprite.frame = portrait
-	
+
 	currentText = text
 	multipage = isMultipage
 	typeDialog()
 
 
-# call this function to hide dialogue instead of simply hiding it 
+# call this function to hide dialogue instead of simply hiding it
 func hideDialog() -> void:
 	$HUDLayer/Display/Dialog.hide()
 	Events.emit_signal("hud_dialogue_exited")
@@ -318,7 +318,7 @@ func hideDialog() -> void:
 func showMenu():
 	$HUDLayer/Display/IngameMenu.show()
 	$HUDLayer/Display/IngameMenu/Menu/ButtonReturn.grab_focus()
-	
+
 	var value = Global.userConfig.musicVolume
 	$HUDLayer/Display/IngameMenu/Menu/MusicSlider/Percentage.set_text(str(value*10)+"%")
 	$HUDLayer/Display/IngameMenu/Menu/MusicSlider.value = value
@@ -326,7 +326,7 @@ func showMenu():
 	value = Global.userConfig.soundVolume
 	$HUDLayer/Display/IngameMenu/Menu/SoundSlider/Percentage.set_text(str(value*10)+"%")
 	$HUDLayer/Display/IngameMenu/Menu/SoundSlider.value = value
-	
+
 	get_tree().paused = true
 
 
@@ -348,14 +348,14 @@ func updateLightLevel(newLightLevel):
 			$LightIndicator.frame = 0
 		_:
 			print("HUD: Illegal light level provided")
-	
+
 
 func updateAudioLevel(newAudioLevel, _audio_pos, _emitter):
 	if newAudioLevel >= 0 and newAudioLevel < Types.AudioLevels.size():
 		$AudioIndicator.frame = newAudioLevel
 	else:
 		print("HUD: Illegal audio level provided")
-	
+
 	$AudioIndicator/GoBackToNormal.start()
 
 
@@ -367,7 +367,7 @@ func onHideSave() -> void:
 	Events.emit_signal("player_unblock_movement")
 	$HUDLayer/Display/SaveGame.hide()
 
-	
+
 
 
 func onDialogTypeTimerTimeout() -> void:
@@ -380,9 +380,9 @@ func onDialogTypeTimerTimeout() -> void:
 
 func typeDialog() -> void:
 	dialogTypeTimer.start()
-	
 
-		
+
+
 func setDialogIsTyping(value: bool) -> void:
 	if dialogIsTyping != value:
 		dialogIsTyping = value
@@ -423,7 +423,7 @@ func _on_ButtonQuit_button_up():
 func updateSlotInfo(id):
 	selectedSave = id
 	var text
-	
+
 	if saveFiles[id].state:
 		text = "Slot: " + str(id + 1)  + \
 			"\n\n" + \
@@ -460,7 +460,7 @@ func _on_StartMissionButton_button_up():
 	$HUDLayer/Display/MissionBriefing.hide()
 	Events.emit_signal("hud_mission_briefing_exited")
 	inMissionBriefing = false
-	
+
 	$HUDLayer/LevelFade/AnimationPlayer.play("fade_out")
 
 func fade():
@@ -470,7 +470,7 @@ func fade():
 
 func _on_DebugPromo_button_up():
 	if Global.DEBUG:
-		debugHudToggle(null) 
+		debugHudToggle(null)
 		debugShaderToggle(null)
 		if $HUDLayer/PromoShot/PromoSteam.visible:
 			$HUDLayer/PromoShot/PromoSteam.hide()
@@ -478,7 +478,7 @@ func _on_DebugPromo_button_up():
 		else:
 			$HUDLayer/PromoShot/PromoSteam.show()
 			$HUDLayer/PromoShot/PromoTitel.show()
-	
+
 
 
 
@@ -488,7 +488,7 @@ func hookSetup():
 	Events.connect("level_hint", self, "onLevelHint")
 	Events.connect("minigame_entered", self, "onMinigameEntered")
 	Events.connect("minigame_exited", self, "onMinigameExited")
-	
+
 	Events.connect("hud_note_show", self, "showNote")
 	Events.connect("hud_dialog_show", self, "showDialog")
 	Events.connect("hud_upgrade_window_show", self, "showUpgrade")
@@ -505,9 +505,9 @@ func hookSetup():
 
 	Events.connect("hud_photo_flash", self, "photoFlash")
 	Events.connect("no_branch_option_pressed", self, "onNoBranchOptionPressed")
-	
+
 	Events.connect("hud_detection_flash", self, "detectionFlash")
-	
+
 	Events.connect("clear_hint", self, "clearHint")
 
 
@@ -530,4 +530,4 @@ func onMinigameExited(result) -> void:
 func _on_ButtonRestart_button_up():
 	$HUDLayer/Display/IngameMenu.hide()
 	Global.game_manager.reloadLevel()
-	
+

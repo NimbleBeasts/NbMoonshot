@@ -9,13 +9,13 @@ export (Types.LevelTypes) var level_nation_type: int
 export (Types.MusicType) var level_music: int = Types.MusicType.rocket
 export(NodePath) var level_objectives = null
 export var playCarCloseSound: bool = true
-#warning-ignore:unused_class_variable 
+#warning-ignore:unused_class_variable
 export var isSabotage: bool = false #- used by extractionzone for branching levels
-#warning-ignore:unused_class_variable 
+#warning-ignore:unused_class_variable
 export (Types.Countries) var sabotageCountry #- used by extractionzone for branching levels
 
 var allowed_detections: int
-#warning-ignore:unused_class_variable 
+#warning-ignore:unused_class_variable
 var gainedMoney: int #- used by extractionzone for adding moneys
 
 var hud = null
@@ -30,7 +30,7 @@ func can_change_level():
 	# if top condition is false and it reaches here, checks if "HQ_Level"
 	if Global.game_manager.getCurrentLevel().name == "HQ_Level":
 		return true
-	
+
 	# if not hqLevel and getProgressState is false, can't change level
 	return false
 
@@ -39,8 +39,8 @@ func _ready():
 	Global.returnedFromSabotageMission = false
 	hud = preload("res://Src/HUD/HUD.tscn").instance()
 	self.add_child(hud)
-	
-	# Level Music 
+
+	# Level Music
 	# if level_music == Types.MusicType.DefaultLevelType:
 	# 	if level_nation_type == Types.LevelTypes.USA or level_nation_type == Types.LevelTypes.Switzerland:
 	# 		Events.emit_signal("play_music", Types.MusicType.westernMusic)
@@ -63,30 +63,30 @@ func _ready():
 			#get_tree().paused = true
 		set_process(false)
 	Events.emit_signal("clear_hint")
-	
+
 	if level_objectives:
 		level_objectives = get_node(level_objectives)
 
 	add_to_group("Upgradable")
 	do_upgrade_stuff()
-	
-	# Set all decoration sprites to correct light level 
+
+	# Set all decoration sprites to correct light level
 	var decoHolder = get_node_or_null("LevelObjects/Decorations")
 	if decoHolder:
 		var decorationSprites = decoHolder.get_children()
 		for node in decorationSprites:
 			node.light_mask = 3
-			
+
 	var wallSpriteHolder = get_node_or_null("SpriteWalls")
 	if wallSpriteHolder:
 		var wallSprites = wallSpriteHolder.get_children()
 		for node in wallSprites:
 			node.light_mask = 3
-	
+
 	# Update Player Money
 	Events.emit_signal("hud_update_money", Global.gameState.money, 0)
-		
-		
+
+
 	Events.emit_signal("hud_light_level", level_lightning)
 
 	if get_node_or_null("NewSkybox"):
@@ -102,7 +102,7 @@ func debugDetections():
 	.add_argument('amount', TYPE_INT)\
 	.add_restriction_condition(funcref(Global, "getCheatState"))\
 	.register()
-	
+
 func debugLevelSet():
 	Console.remove_command("level_set")
 	Console.add_command("level_set", self, "debugLevelSetFnc")\
@@ -124,18 +124,18 @@ func _process(_delta: float) -> void:
 		Events.emit_signal("hud_game_hint", tr("HUD_MISSION_COMPLETE"))
 		set_process(false)
 
-		
+
 # upgrade function
 func do_upgrade_stuff() -> void:
 	if Types.UpgradeTypes.False_Alarm in Global.gameState.playerUpgrades:
 		allowed_detections = extended_allowed_detections
 	else:
 		allowed_detections = normal_allowed_detections
-	
+
 	Global.allowed_detections = allowed_detections
 	Events.emit_signal("allowed_detections_updated", allowed_detections)
 
-	
+
 func onHudMissionBriefingExited() -> void:
 	get_tree().paused = false
 	if playCarCloseSound:

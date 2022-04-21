@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Src/Menu/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Menu/MenuTitle.png" type="Texture" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://Assets/Menu/Slider/grabber-item.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Menu/Slider/tick.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Menu/Slider/grabber-item-selected.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Theme/Dialog9PatchInnerInactive.png" type="Texture" id=17]
 [ext_resource path="res://Assets/HUD/Dialog9PatchInner.png" type="Texture" id=18]
 [ext_resource path="res://Assets/HUD/TabInActive.png" type="Texture" id=19]
 [ext_resource path="res://Assets/HUD/TabActive.png" type="Texture" id=20]
@@ -84,18 +83,11 @@ margin_right = 2.0
 margin_top = 2.0
 margin_bottom = 2.0
 
-[sub_resource type="StyleBoxEmpty" id=9]
-
-[sub_resource type="StyleBoxEmpty" id=10]
-
 [node name="Menu" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Bg" type="TextureRect" parent="."]
 modulate = Color( 0.45098, 0.45098, 0.45098, 1 )
@@ -172,26 +164,27 @@ __meta__ = {
 
 [node name="ButtonPlay" parent="Main" instance=ExtResource( 11 )]
 margin_left = 16.0
-margin_top = 200.0
+margin_top = 240.0
 margin_right = 144.0
-margin_bottom = 224.0
+margin_bottom = 264.0
 text = "MENU_PLAY"
 
 [node name="ButtonLoad" parent="Main" instance=ExtResource( 11 )]
 margin_left = 16.0
-margin_top = 232.0
+margin_top = 272.0
 margin_right = 144.0
-margin_bottom = 256.0
+margin_bottom = 296.0
 text = "MENU_LOAD"
 
 [node name="ButtonSettings" parent="Main" instance=ExtResource( 11 )]
 margin_left = 16.0
-margin_top = 264.0
+margin_top = 304.0
 margin_right = 144.0
-margin_bottom = 288.0
+margin_bottom = 328.0
 text = "MENU_SETTINGS"
 
 [node name="ButtonExit" parent="Main" instance=ExtResource( 11 )]
+visible = false
 margin_left = 16.0
 margin_top = 304.0
 margin_right = 144.0
@@ -228,10 +221,10 @@ margin_left = 208.0
 margin_top = 128.0
 margin_right = 432.0
 margin_bottom = 328.0
+custom_fonts/font = ExtResource( 7 )
 custom_styles/tab_fg = SubResource( 3 )
 custom_styles/tab_bg = SubResource( 4 )
 custom_styles/panel = SubResource( 5 )
-custom_fonts/font = ExtResource( 7 )
 tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -351,66 +344,6 @@ margin_top = 107.0
 margin_right = 170.0
 margin_bottom = 131.0
 text = "SETTINGS_CREDITS"
-
-[node name="Graphics" type="Tabs" parent="Settings/TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 6.0
-margin_top = 31.0
-margin_right = -6.0
-margin_bottom = -6.0
-
-[node name="ButtonVideoApply" parent="Settings/TabContainer/Graphics" instance=ExtResource( 11 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 42.0
-margin_top = 107.0
-margin_right = -42.0
-margin_bottom = -34.0
-text = "SETTINGS_APPLY"
-
-[node name="ButtonFullscreen" parent="Settings/TabContainer/Graphics" instance=ExtResource( 5 )]
-margin_left = 146.0
-margin_top = 1.0
-margin_right = 210.0
-margin_bottom = 25.0
-text = "Off"
-
-[node name="Label2" type="Label" parent="Settings/TabContainer/Graphics/ButtonFullscreen"]
-margin_left = -144.0
-margin_right = -72.0
-margin_bottom = 22.0
-custom_fonts/font = ExtResource( 7 )
-text = "SETTINGS_FULLSCREEN"
-valign = 1
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Settings/TabContainer/Graphics"]
-margin_left = 2.0
-margin_top = 33.0
-margin_right = 210.0
-margin_bottom = 97.0
-texture = ExtResource( 17 )
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ResolutionList" type="ItemList" parent="Settings/TabContainer/Graphics"]
-margin_left = 10.0
-margin_top = 41.0
-margin_right = 202.0
-margin_bottom = 89.0
-theme = ExtResource( 21 )
-custom_styles/bg_focus = SubResource( 9 )
-custom_styles/bg = SubResource( 10 )
-custom_fonts/font = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sounds" type="Tabs" parent="Settings/TabContainer"]
 visible = false
@@ -678,12 +611,9 @@ anchor_bottom = 1.0
 margin_top = -16.0
 custom_fonts/normal_font = ExtResource( 7 )
 bbcode_enabled = true
-bbcode_text = "[center]©2021 by NimbleBeasts - [url=https://twitter.com/nimblebeasts][color=#63c2c9]Ç[/color]NimbleBeasts[/url][/center]"
+bbcode_text = "[center]©2022 by NimbleBeasts - [url=https://twitter.com/nimblebeasts][color=#63c2c9]Ç[/color]NimbleBeasts[/url][/center]"
 meta_underlined = false
-text = "©2021 by NimbleBeasts - ÇNimbleBeasts"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "©2022 by NimbleBeasts - ÇNimbleBeasts"
 
 [node name="Version" type="RichTextLabel" parent="."]
 anchor_left = 1.0
@@ -706,8 +636,6 @@ text = "Version"
 [connection signal="value_changed" from="Settings/TabContainer/General/ContrastSlider" to="." method="_on_ContrastSlider_value_changed"]
 [connection signal="button_up" from="Settings/TabContainer/General/ButtonShader" to="." method="_on_ButtonShader_button_up"]
 [connection signal="button_up" from="Settings/TabContainer/General/ButtonCredits" to="." method="_on_ButtonCredits_button_up"]
-[connection signal="button_up" from="Settings/TabContainer/Graphics/ButtonVideoApply" to="." method="_on_ButtonVideoApply_button_up"]
-[connection signal="button_up" from="Settings/TabContainer/Graphics/ButtonFullscreen" to="." method="_on_ButtonFullscreen_button_up"]
 [connection signal="value_changed" from="Settings/TabContainer/Sounds/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
 [connection signal="value_changed" from="Settings/TabContainer/Sounds/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="button_up" from="Settings/ButtonBack" to="." method="_on_ButtonBack_button_up"]

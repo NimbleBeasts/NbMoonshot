@@ -27,14 +27,14 @@ func _ready():
 	else:
 		$Main/LevelSelect.hide()
 
-	#Populate Resolution List
-	for res in Global.supportedResolutions:
-		$Settings/TabContainer/Graphics/ResolutionList.add_item(str(res.x) + "x" + str(res.y))
-		
-		var resolution = Vector2(Global.userConfig.resolution.w, Global.userConfig.resolution.h)
-		if resolution == res:
-			var id = $Settings/TabContainer/Graphics/ResolutionList.get_item_count() - 1
-			$Settings/TabContainer/Graphics/ResolutionList.select(id, true)
+#	#Populate Resolution List
+#	for res in Global.supportedResolutions:
+#		$Settings/TabContainer/Graphics/ResolutionList.add_item(str(res.x) + "x" + str(res.y))
+#
+#		var resolution = Vector2(Global.userConfig.resolution.w, Global.userConfig.resolution.h)
+#		if resolution == res:
+#			var id = $Settings/TabContainer/Graphics/ResolutionList.get_item_count() - 1
+#			$Settings/TabContainer/Graphics/ResolutionList.select(id, true)
 
 	# Update language settings
 	TranslationServer.set_locale(Global.userConfig.language)
@@ -84,7 +84,7 @@ func loadGame(slot):
 
 func updateLoadGame():
 	saveFiles = Global.getSaveGameState()
-	
+
 	var i = 1
 	for element in saveFiles:
 		var button = get_node("LoadGame/ButtonLoad" + str(i))
@@ -103,7 +103,7 @@ func updateSlotInfo(id):
 		"\n\n" + \
 		"Date:" + Global.getDateTimeStringFromUnixTime(saveFiles[id].date) + "\n" +\
 		"Level:" + str(saveFiles[id].level)
-	
+
 	$LoadGame/LoadData.text = text
 
 
@@ -120,16 +120,16 @@ func updateSettings():
 
 	$Settings/TabContainer/General/ContrastSlider.value = Global.userConfig.contrast
 	$Settings/TabContainer/General/ContrastSlider/Percentage.set_text("%.2f" % Global.userConfig.brightness)
-	
+
 	if Global.userConfig.shader:
 		$Settings/TabContainer/General/ButtonShader.text = tr("SETTINGS_ON")
 	else:
 		$Settings/TabContainer/General/ButtonShader.text = tr("SETTINGS_OFF")
-	
-	if Global.userConfig.fullscreen:
-		$Settings/TabContainer/Graphics/ButtonFullscreen.text = tr("SETTINGS_ON")
-	else:
-		$Settings/TabContainer/Graphics/ButtonFullscreen.text = tr("SETTINGS_OFF")
+
+#	if Global.userConfig.fullscreen:
+#		$Settings/TabContainer/Graphics/ButtonFullscreen.text = tr("SETTINGS_ON")
+#	else:
+#		$Settings/TabContainer/Graphics/ButtonFullscreen.text = tr("SETTINGS_OFF")
 
 ###############################################################################
 # Callbacks
@@ -155,7 +155,7 @@ func _on_ButtonPlay_button_up():
 	get_tree().paused = false
 	Events.emit_signal("new_game", 0)
 	Global.newGameState()
-	
+
 func _on_ButtonSettings_button_up():
 	switchTo(MenuState.Settings)
 
@@ -207,9 +207,9 @@ func _on_ButtonFullscreen_button_up():
 		$Settings/TabContainer/Graphics/ButtonFullscreen.text = "On"
 	else:
 		$Settings/TabContainer/Graphics/ButtonFullscreen.text = "Off"
-		
+
 	Events.emit_signal("cfg_switch_fullscreen", !Global.userConfig.fullscreen)
-	
+
 
 
 func _on_ButtonShader_button_up():
@@ -217,9 +217,9 @@ func _on_ButtonShader_button_up():
 		$Settings/TabContainer/General/ButtonShader.text = "On"
 	else:
 		$Settings/TabContainer/General/ButtonShader.text = "Off"
-		
+
 	Events.emit_signal("cfg_switch_shader", !Global.userConfig.shader)
-	
+
 
 
 
@@ -231,7 +231,7 @@ func _on_SteamTest_button_up():
 func _on_ButtonVideoApply_button_up():
 	var id = $Settings/TabContainer/Graphics/ResolutionList.get_selected_items()[0]
 	Global.setResolution(id)
-	
+
 
 func _on_SoundSlider_value_changed(value):
 	$Settings/TabContainer/Sounds/SoundSlider/Percentage.set_text(str(value*10) + "%")
@@ -261,7 +261,7 @@ func _on_LanguageButton_button_up():
 		TranslationServer.set_locale("de")
 	else:
 		TranslationServer.set_locale("en")
-		
+
 	$Main/LanguageButton/Sprite.frame = flags.find(TranslationServer.get_locale())
 	Global.userConfig.language = TranslationServer.get_locale()
 	Global.saveConfig()
